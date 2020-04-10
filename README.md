@@ -1,4 +1,4 @@
-# Epidemic Model for COVID-19 ORC Research Effort
+# Epidemic Model for COVIDAnalytics Research Effort
 
 The repository contains code for a Mathematica implementation of the epidemiological model utilized in the research effort of our group called COVIDAnalytics, with projections on the website:
 
