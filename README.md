@@ -6,4 +6,4 @@ http://www.covidanalytics.io/
 
 The code was written with Mathematica 12.1 but should work with any version greater than 10.0.
 
-Documentation would be provided soon.
+Documentation is contained in the pdf document: DELPHI_Explainer.
