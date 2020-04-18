@@ -99,7 +99,7 @@ for continent, country, province in zip(
             DetectD = 2
             PopulationT = popcountries[
                 (popcountries.Country == country) & (popcountries.Province == province)
-                ].pop2016.item() 
+                ].pop2016.item()
             # We do not scale
             N = PopulationT
             PopulationI = validcases.loc[0, "case_cnt"]
@@ -107,13 +107,13 @@ for continent, country, province in zip(
             PopulationD = validcases.loc[0, "death_cnt"]
             PopulationCI = PopulationI - PopulationD - PopulationR
             """
-            Fixed Parameters based on meta-analysis: 
+            Fixed Parameters based on meta-analysis:
             p_h: Hospitalization Percentage
             RecoverHD: Average Days till Recovery
             VentilationD: Number of Days on Ventilation for Ventilated Patients
             maxT: Maximum # of Days Modeled
             p_d: Percentage of True Cases Detected
-            p_v: Percentage of Hospitalized Patients Ventilated, 
+            p_v: Percentage of Hospitalized Patients Ventilated,
             balance: Ratio of Fitting between cases and deaths
             """
             # Currently fit on alpha, a and b, r_dth,
@@ -199,10 +199,10 @@ for continent, country, province in zip(
                 DQD_0 = PopulationCI * (1 - p_h) * p_dth
                 R_0 = PopulationR / p_d
                 D_0 = PopulationD /  p_d
-                TH_0 = PopulationCI * p_h 
+                TH_0 = PopulationCI * p_h
                 DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
                 DVD_0 = (PopulationCI * p_h * p_v ) * p_dth
-                DD_0 = PopulationD 
+                DD_0 = PopulationD
                 DT_0 = PopulationI
                 x_0_cases = [
                     S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
@@ -245,10 +245,10 @@ for continent, country, province in zip(
                 DQD_0 = PopulationCI * (1 - p_h) * p_dth
                 R_0 = PopulationR / p_d
                 D_0 = PopulationD /  p_d
-                TH_0 = PopulationCI * p_h 
+                TH_0 = PopulationCI * p_h
                 DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
                 DVD_0 = (PopulationCI * p_h * p_v ) * p_dth
-                DD_0 = PopulationD 
+                DD_0 = PopulationD
                 DT_0 = PopulationI
                 x_0_cases = [
                     S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
@@ -264,12 +264,12 @@ for continent, country, province in zip(
                 return x_sol_best
 
             x_sol_final = solve_best_params_and_predict(best_params)
-            
+
             #plotting just to make sure
             plt.plot(x_sol_final[15,:])
             plt.plot(fitcasesnd)
             plt.show()
-            
+
             plt.plot(x_sol_final[14,:])
             plt.plot(fitcasesd)
-            plt.show()           
+            plt.show()
