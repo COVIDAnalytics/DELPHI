@@ -136,7 +136,7 @@ for continent, country, province in zip(popcountries.Continent.tolist(),popcount
                 k1: Internal parameter 1
                 k2: Internal parameter 2
                 y = [0 S, 1 E,  2 I, 3 AR,   4 DHR,  5 DQR, 6 AD, 
-              7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DV, 13 DD, 14 DT]
+              7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
                 """
                 r_i = np.log(2)/IncubeD  # Rate of infection leaving incubation phase
                 r_d = np.log(2)/DetectD  # Rate of death leaving incubation phase TODO 17/04/2020: Verify ?
@@ -146,8 +146,8 @@ for continent, country, province in zip(popcountries.Continent.tolist(),popcount
                 gamma_t = (2/np.pi) * np.arctan(-(t - days) / r_s) + 1
                 # TODO: Don't know how to deal with this gamma to take t as a parameter
                 #       Or maybe use it as a parameter in odeint, no idea really
-                assert len(x) == 15, f"Too many input variables, got {len(x)}, expected 12"
-                S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DV, DD, DT = x
+                assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
+                S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 # Equations on main variables
                 dSdt = -alpha * gamma_t * S * I
                 dEdt = -alpha * gamma_t * S * I - r_i * E
@@ -163,12 +163,13 @@ for continent, country, province in zip(popcountries.Continent.tolist(),popcount
     
                 # Helper states (not in the ODEs but important for fitting)
                 dTHdt = r_d * p_d * p_h * I
-                dDVdt = r_d * p_d * p_h * p_v * I - (r_rv + r_dth) * DV
+                dDVRdt = r_d * (1-p_dth) * p_d * p_h * p_v * I - r_rv * DVR
+                dDVDdt = r_d  * p_dth * p_d * p_h * p_v * I - r_dth * DVD
                 dDDdt = r_dth * (DHD + DQD)
                 dDTdt = r_d * p_d * I
                 return [
                     dSdt, dEdt, dIdt, dARdt, dDHRdt, dDQRdt, dADdt, dDHDdt, dDQDdt,
-                    dRdt, dDdt, dTHdt, dDVdt, dDDdt, dDTdt
+                    dRdt, dDdt, dTHdt, dDVRdt,dDVDdt, dDDdt, dDTdt
                 ]
     
     
@@ -200,12 +201,13 @@ for continent, country, province in zip(popcountries.Continent.tolist(),popcount
                 R_0 = PopulationR / (PopulationT * p_d)
                 D_0 = PopulationD / (PopulationT * p_d)
                 TH_0 = PopulationCI * p_h / PopulationT
-                DV_0 = PopulationCI * p_h * p_v / PopulationT
+                DVR_0 = PopulationCI * p_h * p_v / PopulationT * (1-p_dth)
+                DVD_0 = PopulationCI * p_h * p_v / PopulationT * p_dth
                 DD_0 = PopulationD / PopulationT
                 DT_0 = PopulationI / PopulationT
                 x_0_cases = [
                     S_0, E_0, I_0, AR_0, DHR_0, DQR_0,AD_0, DHD_0, DQD_0,
-                    R_0, D_0, TH_0, DV_0, DD_0, DT_0
+                    R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
                 ]
                 x_sol = odeint(
                     func=model_covid,
