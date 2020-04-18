@@ -157,7 +157,7 @@ for continent, country, province in zip(
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 # Equations on main variables
                 dSdt = -alpha * gamma_t * S * I
-                dEdt = -alpha * gamma_t * S * I - r_i * E
+                dEdt = alpha * gamma_t * S * I - r_i * E
                 dIdt = r_i * E - r_d * I
                 dARdt = r_d * (1 - p_dth) * (1 - p_d) * I - r_ri * AR
                 dDQRdt = r_d * (1 - p_dth) * p_d * (1 - p_h) * I - r_ri * DQR
