@@ -65,6 +65,16 @@ for continent, country, province in zip(popcountries.Continent.tolist(),popcount
                     validcases = totalcases[totalcases.day_since100 >= 0][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)                    
                 else:
                     validcases = totalcases[totalcases.case_cnt >= 100][["date_count", "case_cnt", "death_cnt"]].reset_index(drop=True)
+        else:
+            parameter_list = [1,0,2,0.2,0.05,3,3]
+            
+            bounds_params = (
+                (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+            )
+            if country == "US":
+                validcases = totalcases[totalcases.day_since100 >= 0][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)                    
+            else:
+                validcases = totalcases[totalcases.case_cnt >= 100][["date_count", "case_cnt", "death_cnt"]].reset_index(drop=True)            
         # Now we start the modeling part:
         if len(validcases) > 7:
             IncubeD = 5
