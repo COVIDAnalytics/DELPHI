@@ -23,10 +23,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[      1088,         20]
-NotebookDataLength[     66535,       1538]
-NotebookOptionsPosition[     67109,       1537]
-NotebookOutlinePosition[     67507,       1553]
-CellTagsIndexPosition[     67464,       1550]
+NotebookDataLength[     66872,       1543]
+NotebookOptionsPosition[     67450,       1542]
+NotebookOutlinePosition[     67844,       1558]
+CellTagsIndexPosition[     67801,       1555]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -390,7 +390,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
                  "rs"}], "]"}]}], "+", "1"}], ")"}], " ", 
             RowBox[{"s", "[", "t", "]"}], " ", 
             RowBox[{"i", "[", "t", "]"}]}]}], ")"}]}], ";", 
-        "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"eeqn", "[", 
           RowBox[{"\[Alpha]_", ",", "days_", ",", "rs_", ",", "ri_"}], "]"}], 
@@ -416,6 +416,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
              RowBox[{"i", "[", "t", "]"}]}], "-", 
             RowBox[{"ri", " ", 
              RowBox[{"e", "[", "t", "]"}]}]}]}], ")"}]}], ";", "\n", 
+        "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"ieqn", "[", 
           RowBox[{"ri_", ",", "rd_"}], "]"}], ":=", 
@@ -428,6 +429,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
              RowBox[{"e", "[", "t", "]"}]}], "-", 
             RowBox[{"rd", " ", 
              RowBox[{"i", "[", "t", "]"}]}]}]}], ")"}]}], ";", "\n", 
+        "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"aeqn", "[", 
           RowBox[{"rd_", ",", "dp_", ",", "rri_", ",", "rdth_"}], "]"}], ":=", 
@@ -444,6 +446,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
              RowBox[{"(", 
               RowBox[{"rri", "+", "rdth"}], ")"}], 
              RowBox[{"a", "[", "t", "]"}]}]}]}], ")"}]}], ";", "\n", 
+        "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"dqeqn", "[", 
           RowBox[{"rd_", ",", "dp_", ",", "hp_", ",", "rri_", ",", "rdth_"}], 
@@ -461,7 +464,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
              RowBox[{"(", 
               RowBox[{"rri", "+", "rdth"}], ")"}], 
              RowBox[{"dq", "[", "t", "]"}]}]}]}], ")"}]}], ";", 
-        "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"dheqn", "[", 
           RowBox[{"rd_", ",", "dp_", ",", "hp_", ",", "rrh_", ",", "rdth_"}], 
@@ -477,7 +480,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
              RowBox[{"(", 
               RowBox[{"rrh", "+", "rdth"}], ")"}], 
              RowBox[{"dh", "[", "t", "]"}]}]}]}], ")"}]}], ";", 
-        "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"theqn", "[", 
           RowBox[{"rd_", ",", "dp_", ",", "hp_"}], "]"}], ":=", 
@@ -487,6 +490,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
             RowBox[{"th", "'"}], "[", "t", "]"}], "\[Equal]", " ", 
            RowBox[{"rd", " ", "dp", " ", "hp", " ", 
             RowBox[{"i", "[", "t", "]"}]}]}], " ", ")"}]}], ";", "\n", 
+        "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"reqn", "[", 
           RowBox[{"rri_", ",", "rrh_"}], "]"}], ":=", 
@@ -502,7 +506,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
               RowBox[{
                RowBox[{"dq", "[", "t", "]"}], "+", 
                RowBox[{"a", "[", "t", "]"}]}], ")"}]}]}]}], ")"}]}], ";", 
-        "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"deqn", "[", "rdth_", "]"}], ":=", 
          RowBox[{"(", 
@@ -515,7 +519,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
               RowBox[{"a", "[", "t", "]"}], "+", 
               RowBox[{"dh", "[", "t", "]"}], "+", 
               RowBox[{"dq", "[", "t", "]"}]}], ")"}]}]}], ")"}]}], ";", 
-        "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"dveqn", "[", 
           RowBox[{
@@ -532,7 +536,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
              RowBox[{"(", 
               RowBox[{"rrv", " ", "+", "rdth"}], ")"}], 
              RowBox[{"dv", "[", "t", "]"}]}]}]}], ")"}]}], ";", 
-        "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"ddeqn", "[", "rdth_", "]"}], ":=", 
          RowBox[{"(", 
@@ -544,7 +548,7 @@ Allstates_\>\"", "<>", "yesterday", " ", "<>", "\"\<.csv\>\""}], "]"}]}],
              RowBox[{
               RowBox[{"dh", "[", "t", "]"}], "+", 
               RowBox[{"dq", "[", "t", "]"}]}], ")"}]}]}], ")"}]}], ";", 
-        "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"dteqn", "[", 
           RowBox[{"rd_", ",", "dp_"}], "]"}], ":=", 
@@ -1532,12 +1536,13 @@ Allstates.csv\>\"", ",", "totaltable"}], "]"}], ";"}]}], "Input",
    3.795192105305154*^9}, {3.7951921433308964`*^9, 3.7951921879930077`*^9}, {
    3.7951923199741344`*^9, 3.7951924090514793`*^9}, {3.7951944002996316`*^9, 
    3.7951944258355417`*^9}, {3.7951944864131155`*^9, 
-   3.7951950154376965`*^9}},ExpressionUUID->"336566c2-9ebe-46bc-ac16-\
+   3.7951950154376965`*^9}, {3.795990512315776*^9, 
+   3.7959905296646547`*^9}},ExpressionUUID->"336566c2-9ebe-46bc-ac16-\
 b7914e4452b8"]
 },
-WindowSize->{1718, 894},
+WindowSize->{Full, Full},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 18, 2020)",
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 18, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"62ef6ca3-ee42-4831-b87d-feaf6ccff626"
 ]
@@ -1552,7 +1557,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[1488, 33, 65617, 1502, 3012, "Input",ExpressionUUID->"336566c2-9ebe-46bc-ac16-b7914e4452b8"]
+Cell[1488, 33, 65958, 1507, 6289, "Input",ExpressionUUID->"336566c2-9ebe-46bc-ac16-b7914e4452b8"]
 }
 ]
 *)
