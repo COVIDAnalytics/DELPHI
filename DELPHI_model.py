@@ -6,30 +6,31 @@ from scipy.optimize import minimize
 from datetime import datetime, timedelta
 import dateutil.parser as dtparser
 import os
+import matplotlib.pyplot as plt
 
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make this path automatic, whoever the user is...
 
 PATH_TO_FOLDER = (
-    # "E:/Github/covid19orc/danger_map"
-        "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-        "4. COVID19_Global/covid19orc/danger_map"
+    "E:/Github/covid19orc/danger_map"
+        # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+        # "4. COVID19_Global/covid19orc/danger_map"
 )
 os.chdir(PATH_TO_FOLDER)
 
 popcountries = pd.read_csv(
     f"processed/Global/Population_Global.csv"
 )
-try:
-    pastparameters = pd.read_csv(
-        f"predicted/Parameters_Global_{yesterday}.csv"
-    )
-except:
-    pastparameters = None
+# try:
+#     pastparameters = pd.read_csv(
+#         f"predicted/Parameters_Global_{yesterday}.csv"
+#     )
+# except:
+pastparameters = None
 for continent, country, province in zip(
-        popcountries.Continent.tolist()[:10],
-        popcountries.Country.tolist()[:10],
-        popcountries.Province.tolist()[:10]
+        popcountries.Continent.tolist(),
+       popcountries.Country.tolist(),
+         popcountries.Province.tolist()
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
@@ -98,9 +99,11 @@ for continent, country, province in zip(
             DetectD = 2
             PopulationT = popcountries[
                 (popcountries.Country == country) & (popcountries.Province == province)
-                ].pop2016.item()
+                ].pop2016.item() 
+            # We do not scale
+            N = PopulationT
             PopulationI = validcases.loc[0, "case_cnt"]
-            PopulationR = validcases.loc[0, "death_cnt"] * 10  # TODO: 10x more recovered than dead ? Is that from studies or guts ?
+            PopulationR = validcases.loc[0, "death_cnt"] * 5  # TODO: 10x more recovered than dead ? Is that from studies or guts ?
             PopulationD = validcases.loc[0, "death_cnt"]
             PopulationCI = PopulationI - PopulationD - PopulationR
             """
@@ -129,8 +132,8 @@ for continent, country, province in zip(
             validcases_nondeath = validcases["case_cnt"].tolist()
             validcases_death = validcases["death_cnt"].tolist()
             balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
-            fitcasesnd = [x / PopulationT for x in validcases_nondeath]
-            fitcasesd = [x / PopulationT for x in validcases_death]
+            fitcasesnd = validcases_nondeath
+            fitcasesd = validcases_death
 
 
             def model_covid(
@@ -152,22 +155,21 @@ for continent, country, province in zip(
                 r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                 r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / r_s) + 1
+                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                 assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 # Equations on main variables
-                dSdt = -alpha * gamma_t * S * I
-                dEdt = alpha * gamma_t * S * I - r_i * E
+                dSdt = -alpha * gamma_t * S * I / N
+                dEdt = alpha * gamma_t * S * I / N - r_i * E
                 dIdt = r_i * E - r_d * I
                 dARdt = r_d * (1 - p_dth) * (1 - p_d) * I - r_ri * AR
-                dDQRdt = r_d * (1 - p_dth) * p_d * (1 - p_h) * I - r_ri * DQR
                 dDHRdt = r_d * (1 - p_dth) * p_d * p_h * I - r_rh * DHR
+                dDQRdt = r_d * (1 - p_dth) * p_d * (1 - p_h) * I - r_ri * DQR
                 dADdt = r_d * p_dth * (1 - p_d) * I - r_dth * AD
-                dDQDdt = r_d * p_dth * p_d * (1 - p_h) * I - r_dth * DQD
                 dDHDdt = r_d * p_dth * p_d * p_h * I - r_dth * DHD
+                dDQDdt = r_d * p_dth * p_d * (1 - p_h) * I - r_dth * DQD
                 dRdt = r_ri * (AR + DQR) + r_rh * DHR
                 dDdt = r_dth * (AD + DQD + DHD)
-
                 # Helper states (not in the ODEs but important for fitting)
                 dTHdt = r_d * p_d * p_h * I
                 dDVRdt = r_d * (1 - p_dth) * p_d * p_h * p_v * I - r_rv * DVR
@@ -186,33 +188,22 @@ for continent, country, province in zip(
                 """
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-                S_0 = (
-                        (1 - PopulationCI / (p_d * PopulationT)) -
-                        (PopulationCI / (p_d * PopulationT) * (k1 + k2)) -
-                        (PopulationR / (p_d * PopulationT)) -
-                        (PopulationD / (p_d * PopulationT))
-                )
-                E_0 = PopulationCI / (p_d * PopulationT) * k1
-                I_0 = PopulationCI / (p_d * PopulationT) * k2
-                AR_0 = (
-                               (PopulationCI / (p_d * PopulationT))
-                               - (PopulationCI / PopulationT)
-                       ) * (1 - p_dth)
-                DHR_0 = (PopulationCI * p_h / PopulationT) * (1 - p_dth)
-                DQR_0 = (PopulationCI * (1 - p_h) / PopulationT) * (1 - p_dth)
-                AD_0 = (
-                               (PopulationCI / (p_d * PopulationT))
-                               - (PopulationCI / PopulationT)
-                       ) * p_dth
-                DHD_0 = PopulationCI * p_h / PopulationT * p_dth
-                DQD_0 = PopulationCI * (1 - p_h) / PopulationT * p_dth
-                R_0 = PopulationR / (PopulationT * p_d)
-                D_0 = PopulationD / (PopulationT * p_d)
-                TH_0 = PopulationCI * p_h / PopulationT
-                DVR_0 = (PopulationCI * p_h * p_v / PopulationT) * (1 - p_dth)
-                DVD_0 = (PopulationCI * p_h * p_v / PopulationT) * p_dth
-                DD_0 = PopulationD / PopulationT
-                DT_0 = PopulationI / PopulationT
+                S_0 = (N - PopulationCI / p_d) -(PopulationCI / p_d  * (k1 + k2)) -(PopulationR / p_d ) -(PopulationD / p_d )
+                E_0 = PopulationCI / p_d  * k1
+                I_0 = PopulationCI / p_d  * k2
+                AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+                DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
+                DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
+                AD_0 =  (PopulationCI / p_d - PopulationCI) * p_dth
+                DHD_0 = PopulationCI * p_h * p_dth
+                DQD_0 = PopulationCI * (1 - p_h) * p_dth
+                R_0 = PopulationR / p_d
+                D_0 = PopulationD /  p_d
+                TH_0 = PopulationCI * p_h 
+                DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
+                DVD_0 = (PopulationCI * p_h * p_v ) * p_dth
+                DD_0 = PopulationD 
+                DT_0 = PopulationI
                 x_0_cases = [
                     S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
                     R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
@@ -226,11 +217,10 @@ for continent, country, province in zip(
                 ).y
                 weights = list(range(1, len(fitcasesnd) + 1))
                 residuals_value = sum(
-                    np.multiply((x_sol[14, :] - fitcasesnd) ** 2, weights)
-                    + balance * np.multiply((x_sol[13, :] - fitcasesd) ** 2, weights)
+                    np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
+                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
                 )
                 return residuals_value
-
 
             print(country + ", " + province)
             best_params = minimize(
@@ -244,30 +234,22 @@ for continent, country, province in zip(
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, k1, k2 = optimal_params
-                S_0 = (
-                        (1 - PopulationCI / (p_d * PopulationT)) -
-                        (PopulationCI / (p_d * PopulationT) * (k1 + k2)) -
-                        (PopulationR / (p_d * PopulationT)) -
-                        (PopulationD / (p_d * PopulationT))
-                )
-                E_0 = PopulationCI / (p_d * PopulationT) * k1
-                I_0 = PopulationCI / (p_d * PopulationT) * k2
-                AR_0 = ((PopulationCI / (p_d * PopulationT)) - (PopulationCI / PopulationT)) * (1 - p_dth)
-                DHR_0 = (PopulationCI * p_h / PopulationT) * (1 - p_dth)
-                DQR_0 = (PopulationCI * (1 - p_h) / PopulationT) * (1 - p_dth)
-                AD_0 = (
-                               (PopulationCI / (p_d * PopulationT))
-                               - (PopulationCI / PopulationT)
-                       ) * p_dth
-                DHD_0 = PopulationCI * p_h / PopulationT * p_dth
-                DQD_0 = PopulationCI * (1 - p_h) / PopulationT * p_dth
-                R_0 = PopulationR / (PopulationT * p_d)
-                D_0 = PopulationD / (PopulationT * p_d)
-                TH_0 = PopulationCI * p_h / PopulationT
-                DVR_0 = (PopulationCI * p_h * p_v / PopulationT) * (1 - p_dth)
-                DVD_0 = (PopulationCI * p_h * p_v / PopulationT) * p_dth
-                DD_0 = PopulationD / PopulationT
-                DT_0 = PopulationI / PopulationT
+                S_0 = (N - PopulationCI / p_d) -(PopulationCI / p_d  * (k1 + k2)) -(PopulationR / p_d ) -(PopulationD / p_d )
+                E_0 = PopulationCI / p_d  * k1
+                I_0 = PopulationCI / p_d  * k2
+                AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+                DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
+                DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
+                AD_0 =  (PopulationCI / p_d - PopulationCI) * p_dth
+                DHD_0 = PopulationCI * p_h * p_dth
+                DQD_0 = PopulationCI * (1 - p_h) * p_dth
+                R_0 = PopulationR / p_d
+                D_0 = PopulationD /  p_d
+                TH_0 = PopulationCI * p_h 
+                DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
+                DVD_0 = (PopulationCI * p_h * p_v ) * p_dth
+                DD_0 = PopulationD 
+                DT_0 = PopulationI
                 x_0_cases = [
                     S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
                     R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
@@ -282,3 +264,12 @@ for continent, country, province in zip(
                 return x_sol_best
 
             x_sol_final = solve_best_params_and_predict(best_params)
+            
+            #plotting just to make sure
+            plt.plot(x_sol_final[15,:])
+            plt.plot(fitcasesnd)
+            plt.show()
+            
+            plt.plot(x_sol_final[14,:])
+            plt.plot(fitcasesd)
+            plt.show()           
