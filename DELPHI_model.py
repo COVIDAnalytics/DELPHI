@@ -1,36 +1,42 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu)
-import numpy as np
 import pandas as pd
+import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
+from DELPHI_utils import DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver
 import dateutil.parser as dtparser
 import os
-import matplotlib.pyplot as plt
 
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
-# TODO: Find a way to make this path automatic, whoever the user is...
-
-PATH_TO_FOLDER = (
+# TODO: Find a way to make these paths automatic, whoever the user is...
+PATH_TO_FOLDER_DANGER_MAP = (
     "E:/Github/covid19orc/danger_map"
-        # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-        # "4. COVID19_Global/covid19orc/danger_map"
+    #"/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    #"4. COVID19_Global/covid19orc/danger_map"
 )
-os.chdir(PATH_TO_FOLDER)
-
+PATH_TO_WEBSITE_PREDICTED = (
+    "E:/Github/website/data/predicted"
+)
+os.chdir(PATH_TO_FOLDER_DANGER_MAP)
 popcountries = pd.read_csv(
     f"processed/Global/Population_Global.csv"
 )
+# TODO: Uncomment these and delete the line with pastparameters=None once 1st run in Python is done!
 # try:
 #     pastparameters = pd.read_csv(
 #         f"predicted/Parameters_Global_{yesterday}.csv"
 #     )
 # except:
 pastparameters = None
+# Initalizing lists of the different dataframes that will be concatenated in the end
+list_df_global_predictions_since_today = []
+list_df_global_predictions_since_100_cases = []
+list_df_global_parameters = []
 for continent, country, province in zip(
         popcountries.Continent.tolist(),
-       popcountries.Country.tolist(),
-         popcountries.Province.tolist()
+        popcountries.Country.tolist(),
+        popcountries.Province.tolist(),
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
@@ -42,7 +48,7 @@ for continent, country, province in zip(
             parameter_list_total = pastparameters[
                 (pastparameters.Country == country) &
                 (pastparameters.Province == province)
-                ]
+            ]
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[4:]
@@ -53,57 +59,44 @@ for continent, country, province in zip(
                     [(lower, upper)
                      for lower, upper in zip(param_list_lower, param_list_upper)]
                 )
-                # TODO 17/04/2020: Check that format is right for validcases
-                if country == "US":
-                    validcases = totalcases[[
-                        dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
-                        for x in totalcases.date
-                    ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
-                else:
-                    validcases = totalcases[[
-                        dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
-                        for x in totalcases.date
-                    ]][["date_count", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                date_day_since100 = pd.to_datetime(parameter_list_line[3])
+                validcases = totalcases[[
+                    dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
+                    for x in totalcases.date
+                ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
                 # Otherwise use established lower/upper bounds
                 parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
                 bounds_params = (
                     (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
                 )
-                if country == "US":
-                    validcases = totalcases[totalcases.day_since100 >= 0][
-                        ["day_since100", "case_cnt", "death_cnt"]
-                    ].reset_index(drop=True)
-                else:
-                    validcases = totalcases[totalcases.case_cnt >= 100][
-                        ["date_count", "case_cnt", "death_cnt"]
-                    ].reset_index(drop=True)
+                date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
+                validcases = totalcases[totalcases.day_since100 >= 0][
+                    ["day_since100", "case_cnt", "death_cnt"]
+                ].reset_index(drop=True)
         else:
             # Otherwise use established lower/upper bounds
             parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
             bounds_params = (
                 (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
             )
-            if country == "US":
-                validcases = totalcases[totalcases.day_since100 >= 0][
-                    ["day_since100", "case_cnt", "death_cnt"]
-                ].reset_index(drop=True)
-            else:
-                validcases = totalcases[totalcases.case_cnt >= 100][
-                    ["date_count", "case_cnt", "death_cnt"]
-                ].reset_index(drop=True)
-                # Now we start the modeling part:
+            date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
+            validcases = totalcases[totalcases.day_since100 >= 0][
+                ["day_since100", "case_cnt", "death_cnt"]
+            ].reset_index(drop=True)
+
+        # Now we start the modeling part:
         if len(validcases) > 7:
             IncubeD = 5
             RecoverID = 10
             DetectD = 2
             PopulationT = popcountries[
                 (popcountries.Country == country) & (popcountries.Province == province)
-                ].pop2016.item()
+            ].pop2016.item()
             # We do not scale
             N = PopulationT
             PopulationI = validcases.loc[0, "case_cnt"]
-            PopulationR = validcases.loc[0, "death_cnt"] * 5  # TODO: 10x more recovered than dead ? Is that from studies or guts ?
+            PopulationR = validcases.loc[0, "death_cnt"] * 5
             PopulationD = validcases.loc[0, "death_cnt"]
             PopulationCI = PopulationI - PopulationD - PopulationR
             """
@@ -118,23 +111,19 @@ for continent, country, province in zip(
             """
             # Currently fit on alpha, a and b, r_dth,
             # & initial condition of exposed state and infected state
-            RecoverHD = 15  # TODO 17/04/2020: Add comment: What is this?
-            VentilatedD = 10  # TODO 17/04/2020: Add comment: What is this ?
+            RecoverHD = 15  # Recovery Time when Hospitalized
+            VentilatedD = 10  # Recovery Time when Ventilated
             maxT = 100  # Maximum timespan of prediction
             p_v = 0.25  # Percentage of ventilated
             p_d = 0.2  # Percentage of infection cases detected.
             p_h = 0.15  # Percentage of detected cases hospitalized
             """ Fit on Total Cases """
-            if country == "US":
-                t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
-            else:
-                t_cases = validcases["date_count"].tolist() - validcases.loc[0, "date_count"]
+            t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
             validcases_death = validcases["death_cnt"].tolist()
             balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
             fitcasesnd = validcases_nondeath
             fitcasesd = validcases_death
-
 
             def model_covid(
                     t, x, alpha, days, r_s, r_dth, p_dth, k1, k2
@@ -142,8 +131,8 @@ for continent, country, province in zip(
                 """
                 SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
                 alpha: Infection rate
-                days:
-                r_s:
+                days: Median day of action
+                r_s: Median rate of action
                 p_dth: Mortality rate
                 k1: Internal parameter 1
                 k2: Internal parameter 2
@@ -151,7 +140,7 @@ for continent, country, province in zip(
                 7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
                 """
                 r_i = np.log(2) / IncubeD  # Rate of infection leaving incubation phase
-                r_d = np.log(2) / DetectD  # Rate of death leaving incubation phase
+                r_d = np.log(2) / DetectD  # Rate of detection
                 r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                 r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
@@ -170,7 +159,7 @@ for continent, country, province in zip(
                 dDQDdt = r_d * p_dth * p_d * (1 - p_h) * I - r_dth * DQD
                 dRdt = r_ri * (AR + DQR) + r_rh * DHR
                 dDdt = r_dth * (AD + DQD + DHD)
-                # Helper states (not in the ODEs but important for fitting)
+                # Helper states (usually important for some kind of output)
                 dTHdt = r_d * p_d * p_h * I
                 dDVRdt = r_d * (1 - p_dth) * p_d * p_h * p_v * I - r_rv * DVR
                 dDVDdt = r_d * p_dth * p_d * p_h * p_v * I - r_dth * DVD
@@ -181,24 +170,28 @@ for continent, country, province in zip(
                     dRdt, dDdt, dTHdt, dDVRdt, dDVDdt, dDDdt, dDTdt
                 ]
 
-
             def residuals_totalcases(params):
                 """
                 Wanted to start with solve_ivp because figures will be faster to debug
                 """
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-                S_0 = (N - PopulationCI / p_d) -(PopulationCI / p_d  * (k1 + k2)) -(PopulationR / p_d ) -(PopulationD / p_d )
-                E_0 = PopulationCI / p_d  * k1
-                I_0 = PopulationCI / p_d  * k2
+                S_0 = (
+                              (N - PopulationCI / p_d) -
+                              (PopulationCI / p_d * (k1 + k2)) -
+                              (PopulationR / p_d) -
+                              (PopulationD / p_d)
+                )
+                E_0 = PopulationCI / p_d * k1
+                I_0 = PopulationCI / p_d * k2
                 AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
                 DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
                 DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
-                AD_0 =  (PopulationCI / p_d - PopulationCI) * p_dth
+                AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
                 DHD_0 = PopulationCI * p_h * p_dth
                 DQD_0 = PopulationCI * (1 - p_h) * p_dth
                 R_0 = PopulationR / p_d
-                D_0 = PopulationD /  p_d
+                D_0 = PopulationD / p_d
                 TH_0 = PopulationCI * p_h
                 DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
                 DVD_0 = (PopulationCI * p_h * p_v ) * p_dth
@@ -222,7 +215,6 @@ for continent, country, province in zip(
                 )
                 return residuals_value
 
-            print(country + ", " + province)
             best_params = minimize(
                 residuals_totalcases,
                 parameter_list,
@@ -234,20 +226,25 @@ for continent, country, province in zip(
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, k1, k2 = optimal_params
-                S_0 = (N - PopulationCI / p_d) -(PopulationCI / p_d  * (k1 + k2)) -(PopulationR / p_d ) -(PopulationD / p_d )
-                E_0 = PopulationCI / p_d  * k1
-                I_0 = PopulationCI / p_d  * k2
+                S_0 = (
+                              (N - PopulationCI / p_d) -
+                              (PopulationCI / p_d * (k1 + k2)) -
+                              (PopulationR / p_d) -
+                              (PopulationD / p_d)
+                )
+                E_0 = PopulationCI / p_d * k1
+                I_0 = PopulationCI / p_d * k2
                 AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
                 DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
                 DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
-                AD_0 =  (PopulationCI / p_d - PopulationCI) * p_dth
+                AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
                 DHD_0 = PopulationCI * p_h * p_dth
                 DQD_0 = PopulationCI * (1 - p_h) * p_dth
                 R_0 = PopulationR / p_d
-                D_0 = PopulationD /  p_d
+                D_0 = PopulationD / p_d
                 TH_0 = PopulationCI * p_h
                 DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
-                DVD_0 = (PopulationCI * p_h * p_v ) * p_dth
+                DVD_0 = (PopulationCI * p_h * p_v) * p_dth
                 DD_0 = PopulationD
                 DT_0 = PopulationI
                 x_0_cases = [
@@ -264,12 +261,44 @@ for continent, country, province in zip(
                 return x_sol_best
 
             x_sol_final = solve_best_params_and_predict(best_params)
+            data_creator = DELPHIDataCreator(
+                x_sol_final=x_sol_final, date_day_since100=date_day_since100, best_params=best_params,
+                continent=continent, country=country, province=province,
+            )
+            # Creating the parameters dataset for this (Continent, Country, Province)
+            df_parameters_cont_country_prov = data_creator.create_dataset_parameters()
+            list_df_global_parameters.append(df_parameters_cont_country_prov)
+            # Creating the datasets for predictions of this (Continent, Country, Province)
+            df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
+                data_creator.create_datasets_predictions()
+            )
+            list_df_global_predictions_since_today.append(df_predictions_since_today_cont_country_prov)
+            list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
+            print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
+        else:  # len(validcases) <= 7
+            continue
+    else:  # file for that tuple (country, province) doesn't exist in processed files
+        continue
 
-            #plotting just to make sure
-            plt.plot(x_sol_final[15,:])
-            plt.plot(fitcasesnd)
-            plt.show()
-
-            plt.plot(x_sol_final[14,:])
-            plt.plot(fitcasesd)
-            plt.show()
+    # Appending parameters, aggregations per country, per continent, and for the world
+    # for predictions today & since 100
+    today_date_str = "".join(str(datetime.now().date()).split("-"))
+    df_global_parameters = pd.concat(list_df_global_parameters)
+    df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
+    df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
+        df_global_predictions_since_today
+    )
+    # TODO: Discuss with website team how to save this file to visualize it and compare with historical data
+    df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
+    df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
+        df_global_predictions_since_100_cases
+    )
+    delphi_data_saver = DELPHIDataSaver(
+        path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
+        path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
+        df_global_parameters=df_global_parameters,
+        df_global_predictions_since_today=df_global_predictions_since_today,
+        df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
+    )
+    delphi_data_saver.save_all_datasets(save_since_100_cases=False)
+    print("Exported all 3 datasets to website & danger_map repositories")
