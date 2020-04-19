@@ -44,6 +44,9 @@ for continent, country, province in zip(
         totalcases = pd.read_csv(
             f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
+        if totalcases.day_since100.max() < 0:
+            print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
+            continue
         if pastparameters is not None:
             parameter_list_total = pastparameters[
                 (pastparameters.Country == country) &
