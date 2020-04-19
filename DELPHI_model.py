@@ -4,7 +4,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
-from DELPHI_utils import DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver
+from DELPHI_utils import DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions
 import dateutil.parser as dtparser
 import os
 
@@ -125,6 +125,9 @@ for continent, country, province in zip(
             balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
             fitcasesnd = validcases_nondeath
             fitcasesd = validcases_death
+            GLOBAL_PARAMS_FIXED = (
+                N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v
+            )
 
             def model_covid(
                     t, x, alpha, days, r_s, r_dth, p_dth, k1, k2
@@ -174,34 +177,13 @@ for continent, country, province in zip(
             def residuals_totalcases(params):
                 """
                 Wanted to start with solve_ivp because figures will be faster to debug
+                params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-                S_0 = (
-                              (N - PopulationCI / p_d) -
-                              (PopulationCI / p_d * (k1 + k2)) -
-                              (PopulationR / p_d) -
-                              (PopulationD / p_d)
+                x_0_cases = get_initial_conditions(
+                    params_fitted=params,
+                    global_params_fixed=GLOBAL_PARAMS_FIXED
                 )
-                E_0 = PopulationCI / p_d * k1
-                I_0 = PopulationCI / p_d * k2
-                AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
-                DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
-                DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
-                AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
-                DHD_0 = PopulationCI * p_h * p_dth
-                DQD_0 = PopulationCI * (1 - p_h) * p_dth
-                R_0 = PopulationR / p_d
-                D_0 = PopulationD / p_d
-                TH_0 = PopulationCI * p_h
-                DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
-                DVD_0 = (PopulationCI * p_h * p_v ) * p_dth
-                DD_0 = PopulationD
-                DT_0 = PopulationI
-                x_0_cases = [
-                    S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
-                    R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
-                ]
                 x_sol = solve_ivp(
                     fun=model_covid,
                     y0=x_0_cases,
@@ -226,32 +208,10 @@ for continent, country, province in zip(
 
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, k1, k2 = optimal_params
-                S_0 = (
-                              (N - PopulationCI / p_d) -
-                              (PopulationCI / p_d * (k1 + k2)) -
-                              (PopulationR / p_d) -
-                              (PopulationD / p_d)
+                x_0_cases = get_initial_conditions(
+                    params_fitted=optimal_params,
+                    global_params_fixed=GLOBAL_PARAMS_FIXED
                 )
-                E_0 = PopulationCI / p_d * k1
-                I_0 = PopulationCI / p_d * k2
-                AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
-                DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
-                DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
-                AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
-                DHD_0 = PopulationCI * p_h * p_dth
-                DQD_0 = PopulationCI * (1 - p_h) * p_dth
-                R_0 = PopulationR / p_d
-                D_0 = PopulationD / p_d
-                TH_0 = PopulationCI * p_h
-                DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
-                DVD_0 = (PopulationCI * p_h * p_v) * p_dth
-                DD_0 = PopulationD
-                DT_0 = PopulationI
-                x_0_cases = [
-                    S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
-                    R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
-                ]
                 x_sol_best = solve_ivp(
                     fun=model_covid,
                     y0=x_0_cases,
