@@ -16,7 +16,7 @@ PATH_TO_FOLDER_DANGER_MAP = (
     # "4. COVID19_Global/covid19orc/danger_map"
 )
 PATH_TO_WEBSITE_PREDICTED = (
-    "E:/Github/website/data/predicted"
+    "E:/Github/website/data"
 )
 os.chdir(PATH_TO_FOLDER_DANGER_MAP)
 popcountries = pd.read_csv(
@@ -201,7 +201,7 @@ for continent, country, province in zip(
             best_params = minimize(
                 residuals_totalcases,
                 parameter_list,
-                method='L-BFGS-B',  # Can't use Nelder-Mead if I want to put bounds on the params
+                method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
                 bounds=bounds_params
             ).x
             t_predictions = [i for i in range(maxT)]
