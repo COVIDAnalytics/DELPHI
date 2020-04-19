@@ -12,8 +12,8 @@ yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
     "E:/Github/covid19orc/danger_map"
-    #"/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    #"4. COVID19_Global/covid19orc/danger_map"
+    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    # "4. COVID19_Global/covid19orc/danger_map"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data/predicted"
@@ -113,7 +113,8 @@ for continent, country, province in zip(
             # & initial condition of exposed state and infected state
             RecoverHD = 15  # Recovery Time when Hospitalized
             VentilatedD = 10  # Recovery Time when Ventilated
-            maxT = 100  # Maximum timespan of prediction
+            # Maximum timespan of prediction, defaulted to go to 15/06/2020
+            maxT = (datetime(2020, 6, 15) - date_day_since100).days + 1
             p_v = 0.25  # Percentage of ventilated
             p_d = 0.2  # Percentage of infection cases detected.
             p_h = 0.15  # Percentage of detected cases hospitalized
@@ -280,25 +281,25 @@ for continent, country, province in zip(
     else:  # file for that tuple (country, province) doesn't exist in processed files
         continue
 
-    # Appending parameters, aggregations per country, per continent, and for the world
-    # for predictions today & since 100
-    today_date_str = "".join(str(datetime.now().date()).split("-"))
-    df_global_parameters = pd.concat(list_df_global_parameters)
-    df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
-    df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_today
-    )
-    # TODO: Discuss with website team how to save this file to visualize it and compare with historical data
-    df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-    df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_100_cases
-    )
-    delphi_data_saver = DELPHIDataSaver(
-        path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
-        path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
-        df_global_parameters=df_global_parameters,
-        df_global_predictions_since_today=df_global_predictions_since_today,
-        df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
-    )
-    delphi_data_saver.save_all_datasets(save_since_100_cases=False)
-    print("Exported all 3 datasets to website & danger_map repositories")
+# Appending parameters, aggregations per country, per continent, and for the world
+# for predictions today & since 100
+today_date_str = "".join(str(datetime.now().date()).split("-"))
+df_global_parameters = pd.concat(list_df_global_parameters)
+df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
+df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
+    df_global_predictions_since_today
+)
+# TODO: Discuss with website team how to save this file to visualize it and compare with historical data
+df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
+df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
+    df_global_predictions_since_100_cases
+)
+delphi_data_saver = DELPHIDataSaver(
+    path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
+    path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
+    df_global_parameters=df_global_parameters,
+    df_global_predictions_since_today=df_global_predictions_since_today,
+    df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
+)
+delphi_data_saver.save_all_datasets(save_since_100_cases=False)
+print("Exported all 3 datasets to website & danger_map repositories")
