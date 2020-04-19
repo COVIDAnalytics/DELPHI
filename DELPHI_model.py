@@ -4,7 +4,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
-from DELPHI_utils import DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver
+from DELPHI_utils import DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions
 import dateutil.parser as dtparser
 import os
 
@@ -12,8 +12,8 @@ yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
     "E:/Github/covid19orc/danger_map"
-    #"/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    #"4. COVID19_Global/covid19orc/danger_map"
+    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    # "4. COVID19_Global/covid19orc/danger_map"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data/predicted"
@@ -113,7 +113,8 @@ for continent, country, province in zip(
             # & initial condition of exposed state and infected state
             RecoverHD = 15  # Recovery Time when Hospitalized
             VentilatedD = 10  # Recovery Time when Ventilated
-            maxT = 100  # Maximum timespan of prediction
+            # Maximum timespan of prediction, defaulted to go to 15/06/2020
+            maxT = (datetime(2020, 6, 15) - date_day_since100).days + 1
             p_v = 0.25  # Percentage of ventilated
             p_d = 0.2  # Percentage of infection cases detected.
             p_h = 0.15  # Percentage of detected cases hospitalized
@@ -124,6 +125,9 @@ for continent, country, province in zip(
             balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
             fitcasesnd = validcases_nondeath
             fitcasesd = validcases_death
+            GLOBAL_PARAMS_FIXED = (
+                N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v
+            )
 
             def model_covid(
                     t, x, alpha, days, r_s, r_dth, p_dth, k1, k2
@@ -173,34 +177,13 @@ for continent, country, province in zip(
             def residuals_totalcases(params):
                 """
                 Wanted to start with solve_ivp because figures will be faster to debug
+                params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-                S_0 = (
-                              (N - PopulationCI / p_d) -
-                              (PopulationCI / p_d * (k1 + k2)) -
-                              (PopulationR / p_d) -
-                              (PopulationD / p_d)
+                x_0_cases = get_initial_conditions(
+                    params_fitted=params,
+                    global_params_fixed=GLOBAL_PARAMS_FIXED
                 )
-                E_0 = PopulationCI / p_d * k1
-                I_0 = PopulationCI / p_d * k2
-                AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
-                DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
-                DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
-                AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
-                DHD_0 = PopulationCI * p_h * p_dth
-                DQD_0 = PopulationCI * (1 - p_h) * p_dth
-                R_0 = PopulationR / p_d
-                D_0 = PopulationD / p_d
-                TH_0 = PopulationCI * p_h
-                DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
-                DVD_0 = (PopulationCI * p_h * p_v ) * p_dth
-                DD_0 = PopulationD
-                DT_0 = PopulationI
-                x_0_cases = [
-                    S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
-                    R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
-                ]
                 x_sol = solve_ivp(
                     fun=model_covid,
                     y0=x_0_cases,
@@ -225,32 +208,10 @@ for continent, country, province in zip(
 
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, k1, k2 = optimal_params
-                S_0 = (
-                              (N - PopulationCI / p_d) -
-                              (PopulationCI / p_d * (k1 + k2)) -
-                              (PopulationR / p_d) -
-                              (PopulationD / p_d)
+                x_0_cases = get_initial_conditions(
+                    params_fitted=optimal_params,
+                    global_params_fixed=GLOBAL_PARAMS_FIXED
                 )
-                E_0 = PopulationCI / p_d * k1
-                I_0 = PopulationCI / p_d * k2
-                AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
-                DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
-                DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
-                AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
-                DHD_0 = PopulationCI * p_h * p_dth
-                DQD_0 = PopulationCI * (1 - p_h) * p_dth
-                R_0 = PopulationR / p_d
-                D_0 = PopulationD / p_d
-                TH_0 = PopulationCI * p_h
-                DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
-                DVD_0 = (PopulationCI * p_h * p_v) * p_dth
-                DD_0 = PopulationD
-                DT_0 = PopulationI
-                x_0_cases = [
-                    S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
-                    R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
-                ]
                 x_sol_best = solve_ivp(
                     fun=model_covid,
                     y0=x_0_cases,
@@ -280,25 +241,25 @@ for continent, country, province in zip(
     else:  # file for that tuple (country, province) doesn't exist in processed files
         continue
 
-    # Appending parameters, aggregations per country, per continent, and for the world
-    # for predictions today & since 100
-    today_date_str = "".join(str(datetime.now().date()).split("-"))
-    df_global_parameters = pd.concat(list_df_global_parameters)
-    df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
-    df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_today
-    )
-    # TODO: Discuss with website team how to save this file to visualize it and compare with historical data
-    df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-    df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_100_cases
-    )
-    delphi_data_saver = DELPHIDataSaver(
-        path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
-        path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
-        df_global_parameters=df_global_parameters,
-        df_global_predictions_since_today=df_global_predictions_since_today,
-        df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
-    )
-    delphi_data_saver.save_all_datasets(save_since_100_cases=False)
-    print("Exported all 3 datasets to website & danger_map repositories")
+# Appending parameters, aggregations per country, per continent, and for the world
+# for predictions today & since 100
+today_date_str = "".join(str(datetime.now().date()).split("-"))
+df_global_parameters = pd.concat(list_df_global_parameters)
+df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
+df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
+    df_global_predictions_since_today
+)
+# TODO: Discuss with website team how to save this file to visualize it and compare with historical data
+df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
+df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
+    df_global_predictions_since_100_cases
+)
+delphi_data_saver = DELPHIDataSaver(
+    path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
+    path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
+    df_global_parameters=df_global_parameters,
+    df_global_predictions_since_today=df_global_predictions_since_today,
+    df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
+)
+delphi_data_saver.save_all_datasets(save_since_100_cases=False)
+print("Exported all 3 datasets to website & danger_map repositories")

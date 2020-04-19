@@ -169,3 +169,34 @@ class DELPHIAggregations:
         ])
         df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
         return df
+
+
+def get_initial_conditions(params_fitted, global_params_fixed):
+    alpha, days, r_s, r_dth, p_dth, k1, k2 = params_fitted
+    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
+    S_0 = (
+            (N - PopulationCI / p_d) -
+            (PopulationCI / p_d * (k1 + k2)) -
+            (PopulationR / p_d) -
+            (PopulationD / p_d)
+    )
+    E_0 = PopulationCI / p_d * k1
+    I_0 = PopulationCI / p_d * k2
+    AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+    DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
+    DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
+    AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
+    DHD_0 = PopulationCI * p_h * p_dth
+    DQD_0 = PopulationCI * (1 - p_h) * p_dth
+    R_0 = PopulationR / p_d
+    D_0 = PopulationD / p_d
+    TH_0 = PopulationCI * p_h
+    DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
+    DVD_0 = (PopulationCI * p_h * p_v) * p_dth
+    DD_0 = PopulationD
+    DT_0 = PopulationI
+    x_0_cases = [
+        S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
+        R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
+    ]
+    return x_0_cases
