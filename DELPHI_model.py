@@ -183,6 +183,8 @@ for continent, country, province in zip(
                 params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
                 """
                 # Variables Initialization for the ODE system
+                alpha, days, r_s, r_dth, p_dth, k1, k2 = params
+                params = max(alpha,0), days, max(r_s,0), max(r_dth,0), max(min(p_dth,1),0), max(k1,0), max(k2,0)
                 x_0_cases = get_initial_conditions(
                     params_fitted=params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
@@ -200,7 +202,6 @@ for continent, country, province in zip(
                     + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
                 )
                 return residuals_value
-
             best_params = minimize(
                 residuals_totalcases,
                 parameter_list,

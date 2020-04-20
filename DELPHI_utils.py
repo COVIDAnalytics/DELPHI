@@ -32,7 +32,7 @@ class DELPHIDataSaver:
             self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_Python_{today_date_str}.csv"
         )
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/Global_Python_{today_date_str}.csv"
+            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Python_{today_date_str}.csv"
         )
         if save_since_100_cases:
             # Save predictions since 100 cases
@@ -40,7 +40,7 @@ class DELPHIDataSaver:
                 self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}.csv"
             )
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/Global_since100_{today_date_str}.csv"
+                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_{today_date_str}.csv"
             )
 
 
