@@ -4,7 +4,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize, dual_annealing, differential_evolution
 from datetime import datetime, timedelta
-from DELPHI_utils import (
+from DELPHI_utils_M import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, read_measures_oxford_data,
     get_initial_conditions_v3, mape, preprocess_past_parameters_and_historical_data_v3
 )
@@ -26,6 +26,7 @@ popcountries = pd.read_csv(
     f"processed/Global/Population_Global.csv"
 )
 measures_oxford = read_measures_oxford_data()
+dict_df_measures_oxford = {}
 # TODO: Uncomment these and delete the line with pastparameters=None once 1st run in Python is done!
 # try:
 #     pastparameters = pd.read_csv(
@@ -67,12 +68,18 @@ dict_fixed_parameters = {
     "p_d": 0.2,
     "p_h": 0.15
 }
+COUNTRIES_KEPT_CLUSTERING = [
+    'France', 'Turkey', 'India', 'Israel', 'Singapore', 'Indonesia', 'Iran', 'Brazil', 'Switzerland',
+    'Peru', 'Ireland', 'Austria', 'Netherlands', 'Sweden', 'Chile', 'Morocco', 'Moldova', 'Greece',
+    'Italy', 'Japan', 'Korea, South', 'Vietnam', 'Mongolia', 'US', 'Russia', 'Romania', 'United Arab Emirates',
+    'Serbia', 'South Africa', 'Spain', 'Germany', 'United Kingdom', 'Belgium', 'Portugal', 'Ecuador'
+]
 for continent, country, province in zip(
         popcountries.Continent.tolist(),
         popcountries.Country.tolist(),
         popcountries.Province.tolist(),
 ):
-    if country not in measures_oxford.CountryName.unique():
+    if country not in COUNTRIES_KEPT_CLUSTERING:
         continue  # TODO: Maybe not the right place to do this, but at least we're sure to only predict on those on which we have data
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
@@ -119,6 +126,10 @@ for continent, country, province in zip(
                     "PopulationD": PopulationD,
                     "PopulationCI": PopulationCI,
                 }
+                measures_oxford_i = measures_oxford[
+                    (measures_oxford.CountryName == country) & (measures_oxford.Date >= date_day_since100)
+                ].drop(["CountryName", "Date"], axis=1).reset_index(drop=True)
+                dict_df_measures_oxford[(continent, country, province)] = measures_oxford_i
             else:
                 print(f"Not enough historical data (less than a week)" +
                       f"for Continent={continent}, Country={country} and Province={province}")
@@ -173,10 +184,7 @@ def residuals_totalcases(list_all_params):
         balance_i = dict_necessary_data_i["balance"]
         fitcasesnd_i = dict_necessary_data_i["fitcasesnd"]
         fitcasesd_i = dict_necessary_data_i["fitcasesd"]
-        date_day_since100_i = dict_necessary_data_i["date_day_since100"]
-        measures_oxford_i = measures_oxford[
-            (measures_oxford.CountryName == country_k) & (measures_oxford.Date >= date_day_since100_i)
-        ].drop(["CountryName", "Date"], axis=1).reset_index(drop=True)
+        measures_oxford_i = dict_df_measures_oxford[(continent_k, country_k, province_k)]
         #if len(measures_oxford_i) == 0:
         #    continue
         def model_covid(
@@ -199,12 +207,9 @@ def residuals_totalcases(list_all_params):
             p_d = dict_fixed_parameters["p_d"]
             p_h = dict_fixed_parameters["p_h"]
             p_v = dict_fixed_parameters["p_v"]
-            gamma_t = 1 / (1 + np.exp(-(
-                    _b0 + _b1 * measures_oxford_i.iloc[int(t), 0].item() + _b2 * measures_oxford_i.iloc[int(t), 1] +
-                    _b3 * measures_oxford_i.iloc[int(t), 2].item() + _b4 * measures_oxford_i.iloc[int(t), 3].item() +
-                    _b5 * measures_oxford_i.iloc[int(t), 4].item() + _b6 * measures_oxford_i.iloc[int(t), 5].item() +
-                    _b7 * measures_oxford_i.iloc[int(t), 6].item())
-              ))
+            gamma_t = 1 / (1 + np.exp(
+                -(_b0 + np.dot([_b1, _b2, _b3, _b4, _b5, _b6, _b7], measures_oxford_i.iloc[int(t), :].tolist()))
+            ))
             assert len(x) == 7, f"Too many input variables, got {len(x)}, expected 7"
             S, E, I, DHD, DQD, DD, DT= x
             # Equations on main variables
@@ -291,10 +296,7 @@ def solve_best_params_and_predict(list_all_optimal_params):
             global_params_fixed=GLOBAL_PARAMS_FIXED_i
         )
         t_predictions_i = [i for i in range(dict_necessary_data_i["maxT"])]
-        date_day_since100_i = dict_necessary_data_i["date_day_since100"]
-        measures_oxford_i = measures_oxford[
-            (measures_oxford.CountryName == country_k) & (measures_oxford.Date >= date_day_since100_i)
-        ].drop(["CountryName", "Date"], axis=1).reset_index(drop=True)
+        measures_oxford_i = dict_df_measures_oxford[(continent_k, country_k, province_k)]
         #if len(measures_oxford_i) == 0:
         #    continue
 
@@ -318,12 +320,9 @@ def solve_best_params_and_predict(list_all_optimal_params):
             p_d = dict_fixed_parameters["p_d"]
             p_h = dict_fixed_parameters["p_h"]
             p_v = dict_fixed_parameters["p_v"]
-            gamma_t = 1 / (1 + np.exp(-(
-                    _b0 + _b1 * measures_oxford_i.iloc[int(t), 0].item() + _b2 * measures_oxford_i.iloc[int(t), 1] +
-                    _b3 * measures_oxford_i.iloc[int(t), 2].item() + _b4 * measures_oxford_i.iloc[int(t), 3].item() +
-                    _b5 * measures_oxford_i.iloc[int(t), 4].item() + _b6 * measures_oxford_i.iloc[int(t), 5].item() +
-                    _b7 * measures_oxford_i.iloc[int(t), 6].item())
-              ))
+            gamma_t = 1 / (1 + np.exp(
+                -(_b0 + np.dot([_b1, _b2, _b3, _b4, _b5, _b6, _b7], measures_oxford_i.iloc[int(t), :].tolist()))
+            ))
             assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
             S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
             # Equations on main variables
