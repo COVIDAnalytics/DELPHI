@@ -1,7 +1,9 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu)
 import pandas as pd
 import numpy as np
+import dateutil.parser as dtparser
 from datetime import datetime, timedelta
+from typing import Union
 
 
 class DELPHIDataSaver:
@@ -200,6 +202,60 @@ def get_initial_conditions(params_fitted, global_params_fixed):
         R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
     ]
     return x_0_cases
+
+
+def preprocess_past_parameters_and_historical_data(
+    continent: str, country: str, province: str,
+    totalcases: pd.DataFrame, pastparameters: Union[None, pd.DataFrame]
+) -> (list, tuple):
+    if totalcases.day_since100.max() < 0:
+        print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
+        return None, None, None, None, None
+
+    if pastparameters is None:
+        parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
+        bounds_params = (
+            (0.75, 1.25), (-30, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+        )
+        date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
+        validcases = totalcases[totalcases.day_since100 >= 0][
+            ["day_since100", "case_cnt", "death_cnt"]
+        ].reset_index(drop=True)
+    else:
+        parameter_list_total = pastparameters[
+            (pastparameters.Country == country) &
+            (pastparameters.Province == province)
+        ]
+        if len(parameter_list_total) > 0:
+            parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
+            parameter_list = parameter_list_line[5:]
+            # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
+            param_list_lower = [x - 0.05 * abs(x) for x in parameter_list]
+            param_list_upper = [x + 0.05 * abs(x) for x in parameter_list]
+            bounds_params = tuple(
+                [(lower, upper)
+                 for lower, upper in zip(param_list_lower, param_list_upper)]
+            )
+            date_day_since100 = pd.to_datetime(parameter_list_line[3])
+            validcases = totalcases[[
+                dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
+                for x in totalcases.date
+            ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+        else:
+            # Otherwise use established lower/upper bounds
+            parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
+            bounds_params = (
+                (0.75, 1.25), (-30, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+            )
+            date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
+            validcases = totalcases[totalcases.day_since100 >= 0][
+                ["day_since100", "case_cnt", "death_cnt"]
+            ].reset_index(drop=True)
+
+    # Maximum timespan of prediction, defaulted to go to 15/06/2020
+    maxT = (datetime(2020, 6, 15) - date_day_since100).days + 1
+    return maxT, date_day_since100, validcases, parameter_list, bounds_params
+
 
 def mape(y_true, y_pred): 
     y_true, y_pred = np.array(y_true), np.array(y_pred)

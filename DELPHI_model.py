@@ -34,9 +34,9 @@ list_df_global_predictions_since_today = []
 list_df_global_predictions_since_100_cases = []
 list_df_global_parameters = []
 for continent, country, province in zip(
-        popcountries.Continent.tolist()[:10],
-        popcountries.Country.tolist()[:10],
-        popcountries.Province.tolist()[:10],
+        popcountries.Continent.tolist(),
+        popcountries.Country.tolist(),
+        popcountries.Province.tolist(),
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
@@ -184,7 +184,7 @@ for continent, country, province in zip(
                 """
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-                params = max(alpha,0), days, max(r_s,0), max(r_dth,0), max(min(p_dth,1),0), max(k1,0), max(k2,0)
+                params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
                 x_0_cases = get_initial_conditions(
                     params_fitted=params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
@@ -231,7 +231,10 @@ for continent, country, province in zip(
                 continent=continent, country=country, province=province,
             )
             # Creating the parameters dataset for this (Continent, Country, Province)
-            mape_data = (mape(fitcasesnd,x_sol_final[15,:len(fitcasesnd)])+ mape(fitcasesd,x_sol_final[14,:len(fitcasesd)])) / 2
+            mape_data = (
+                                mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
+                                mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
+                        ) / 2
             df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
             list_df_global_parameters.append(df_parameters_cont_country_prov)
             # Creating the datasets for predictions of this (Continent, Country, Province)
@@ -242,6 +245,8 @@ for continent, country, province in zip(
             list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
             print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
         else:  # len(validcases) <= 7
+            print(f"Not enough historical data (less than a week)" +
+                  f"for Continent={continent}, Country={country} and Province={province}")
             continue
     else:  # file for that tuple (country, province) doesn't exist in processed files
         continue
