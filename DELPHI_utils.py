@@ -59,10 +59,10 @@ class DELPHIDataCreator:
         self.country = country
         self.province = province
 
-    def create_dataset_parameters(self,mape) -> pd.DataFrame:
+    def create_dataset_parameters(self, mape) -> pd.DataFrame:
         df_parameters = pd.DataFrame({
             "Continent": [self.continent], "Country": [self.country], "Province": [self.province],
-            "Data Start Date": [self.date_day_since100], "MAPE":[mape],"Infection Rate": [self.best_params[0]],
+            "Data Start Date": [self.date_day_since100], "MAPE": [mape], "Infection Rate": [self.best_params[0]],
             "Median Day of Action": [self.best_params[1]], "Rate of Action": [self.best_params[2]],
             "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],
             "Internal Parameter 1": [self.best_params[5]], "Internal Parameter 2": [self.best_params[6]],
@@ -204,23 +204,56 @@ def get_initial_conditions(params_fitted, global_params_fixed):
     return x_0_cases
 
 
-def preprocess_past_parameters_and_historical_data(
+def get_initial_conditions_v3(params_fitted, global_params_fixed):
+    alpha, r_dth, p_dth, k1, k2, b0, b1, b2, b3, b4, b5, b6, b7 = params_fitted
+    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
+    S_0 = (
+            (N - PopulationCI / p_d) -
+            (PopulationCI / p_d * (k1 + k2)) -
+            (PopulationR / p_d) -
+            (PopulationD / p_d)
+    )
+    E_0 = PopulationCI / p_d * k1
+    I_0 = PopulationCI / p_d * k2
+    AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+    DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
+    DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
+    AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
+    DHD_0 = PopulationCI * p_h * p_dth
+    DQD_0 = PopulationCI * (1 - p_h) * p_dth
+    R_0 = PopulationR / p_d
+    D_0 = PopulationD / p_d
+    TH_0 = PopulationCI * p_h
+    DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
+    DVD_0 = (PopulationCI * p_h * p_v) * p_dth
+    DD_0 = PopulationD
+    DT_0 = PopulationI
+    x_0_cases = [
+        S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
+        R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
+    ]
+    return x_0_cases
+
+
+def preprocess_past_parameters_and_historical_data_v3(
     continent: str, country: str, province: str,
     totalcases: pd.DataFrame, pastparameters: Union[None, pd.DataFrame]
 ) -> (list, tuple):
     if totalcases.day_since100.max() < 0:
         print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
-        return None, None, None, None, None
+        return None, None, None, None, None, None, None, None
 
     if pastparameters is None:
-        parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
+        # TODO Initialization of param list was modified for V3, deleted days & r_s and added b_0 at the end
+        parameter_list = [1, 0.2, 0.05, 3, 3, -1]
         bounds_params = (
-            (0.75, 1.25), (-30, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+            (0.75, 1.25), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10), (-10, 10)
         )
         date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
         validcases = totalcases[totalcases.day_since100 >= 0][
             ["day_since100", "case_cnt", "death_cnt"]
         ].reset_index(drop=True)
+        balance, fitcasesnd, fitcasesd = create_fitting_data_from_validcases(validcases)
     else:
         parameter_list_total = pastparameters[
             (pastparameters.Country == country) &
@@ -241,6 +274,7 @@ def preprocess_past_parameters_and_historical_data(
                 dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
                 for x in totalcases.date
             ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+            balance, fitcasesnd, fitcasesd = create_fitting_data_from_validcases(validcases)
         else:
             # Otherwise use established lower/upper bounds
             parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
@@ -251,12 +285,59 @@ def preprocess_past_parameters_and_historical_data(
             validcases = totalcases[totalcases.day_since100 >= 0][
                 ["day_since100", "case_cnt", "death_cnt"]
             ].reset_index(drop=True)
+            balance, fitcasesnd, fitcasesd = create_fitting_data_from_validcases(validcases)
 
     # Maximum timespan of prediction, defaulted to go to 15/06/2020
     maxT = (datetime(2020, 6, 15) - date_day_since100).days + 1
-    return maxT, date_day_since100, validcases, parameter_list, bounds_params
+    return (
+        maxT, date_day_since100, validcases, balance,
+        fitcasesnd, fitcasesd, parameter_list, bounds_params
+    )
+
+
+def create_fitting_data_from_validcases(validcases):
+    validcases_nondeath = validcases["case_cnt"].tolist()
+    validcases_death = validcases["death_cnt"].tolist()
+    balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
+    fitcasesnd = validcases_nondeath
+    fitcasesd = validcases_death
+    return balance, fitcasesnd, fitcasesd
 
 
 def mape(y_true, y_pred): 
     y_true, y_pred = np.array(y_true), np.array(y_pred)
     return np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
+
+
+def read_measures_oxford_data():
+    measures = pd.read_csv('https://ocgptweb.azurewebsites.net/CSVDownload')
+    filtr = ['CountryName', 'CountryCode', 'Date']
+    target = ['ConfirmedCases', 'ConfirmedDeaths']
+    msr = ['S1_School closing',
+           'S2_Workplace closing', 'S3_Cancel public events',
+           'S4_Close public transport',
+           'S5_Public information campaigns',
+           'S6_Restrictions on internal movement',
+           'S7_International travel controls', 'S8_Fiscal measures',
+           'S9_Monetary measures',
+           'S10_Emergency investment in health care',
+           'S11_Investment in Vaccines']
+    measures = measures.loc[:, filtr + msr + target]
+    measures['Date'] = measures['Date'].apply(lambda x: datetime.strptime(str(x), '%Y%m%d'))
+    for col in target:
+        measures[col] = measures[col].fillna(0)
+    measures = measures.loc[:, measures.isnull().mean() < 0.1]
+    msr = set(measures.columns).intersection(set(msr))
+    measures = measures.fillna(0)
+    for col in msr:
+        measures[col] = measures[col].apply(lambda x: int(x > 0))
+    measures = measures[[
+        'CountryName', 'Date', 'S1_School closing', 'S2_Workplace closing', 'S3_Cancel public events',
+       'S4_Close public transport', 'S5_Public information campaigns',
+       'S6_Restrictions on internal movement', 'S7_International travel controls'
+    ]]
+    measures["CountryName"] = measures.CountryName.replace({
+        "United States": "US", "South Korea": "Korea, South", "Democratic Republic of Congo": "Congo (Kinshasa)",
+        "Czech Republic": "Czechia", "Slovak Republic": "Slovakia",
+    })
+    return measures
