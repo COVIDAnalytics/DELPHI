@@ -4,7 +4,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
-from DELPHI_utils import DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions
+from DELPHI_utils import DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 import dateutil.parser as dtparser
 import os
 
@@ -34,9 +34,9 @@ list_df_global_predictions_since_today = []
 list_df_global_predictions_since_100_cases = []
 list_df_global_parameters = []
 for continent, country, province in zip(
-        popcountries.Continent.tolist(),
-        popcountries.Country.tolist(),
-        popcountries.Province.tolist(),
+        popcountries.Continent.tolist()[:10],
+        popcountries.Country.tolist()[:10],
+        popcountries.Province.tolist()[:10],
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
@@ -54,7 +54,7 @@ for continent, country, province in zip(
             ]
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
-                parameter_list = parameter_list_line[4:]
+                parameter_list = parameter_list_line[5:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
                 param_list_lower = [x - 0.05 * abs(x) for x in parameter_list]
                 param_list_upper = [x + 0.05 * abs(x) for x in parameter_list]
@@ -71,7 +71,7 @@ for continent, country, province in zip(
                 # Otherwise use established lower/upper bounds
                 parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
                 bounds_params = (
-                    (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+                    (0.75, 1.25), (-30, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
                 )
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
                 validcases = totalcases[totalcases.day_since100 >= 0][
@@ -81,7 +81,7 @@ for continent, country, province in zip(
             # Otherwise use established lower/upper bounds
             parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
             bounds_params = (
-                (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+                (0.75, 1.25), (-30, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
             )
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
             validcases = totalcases[totalcases.day_since100 >= 0][
@@ -231,7 +231,8 @@ for continent, country, province in zip(
                 continent=continent, country=country, province=province,
             )
             # Creating the parameters dataset for this (Continent, Country, Province)
-            df_parameters_cont_country_prov = data_creator.create_dataset_parameters()
+            mape_data = (mape(fitcasesnd,x_sol_final[15,:len(fitcasesnd)])+ mape(fitcasesd,x_sol_final[14,:len(fitcasesd)])) / 2
+            df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
             list_df_global_parameters.append(df_parameters_cont_country_prov)
             # Creating the datasets for predictions of this (Continent, Country, Province)
             df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (

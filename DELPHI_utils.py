@@ -57,10 +57,10 @@ class DELPHIDataCreator:
         self.country = country
         self.province = province
 
-    def create_dataset_parameters(self) -> pd.DataFrame:
+    def create_dataset_parameters(self,mape) -> pd.DataFrame:
         df_parameters = pd.DataFrame({
             "Continent": [self.continent], "Country": [self.country], "Province": [self.province],
-            "Data Start Date": [self.date_day_since100], "Infection Rate": [self.best_params[0]],
+            "Data Start Date": [self.date_day_since100], "MAPE":[mape],"Infection Rate": [self.best_params[0]],
             "Median Day of Action": [self.best_params[1]], "Rate of Action": [self.best_params[2]],
             "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],
             "Internal Parameter 1": [self.best_params[5]], "Internal Parameter 2": [self.best_params[6]],
@@ -200,3 +200,7 @@ def get_initial_conditions(params_fitted, global_params_fixed):
         R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
     ]
     return x_0_cases
+
+def mape(y_true, y_pred): 
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    return np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
