@@ -71,7 +71,7 @@ for continent, country, province in zip(
                 # Otherwise use established lower/upper bounds
                 parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
                 bounds_params = (
-                    (0.75, 1.25), (-30, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+                    (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
                 )
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
                 validcases = totalcases[totalcases.day_since100 >= 0][
@@ -81,7 +81,7 @@ for continent, country, province in zip(
             # Otherwise use established lower/upper bounds
             parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
             bounds_params = (
-                (0.75, 1.25), (-30, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+                (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
             )
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
             validcases = totalcases[totalcases.day_since100 >= 0][
