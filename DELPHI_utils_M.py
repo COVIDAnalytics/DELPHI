@@ -51,7 +51,7 @@ class DELPHIDataCreator:
             self, x_sol_final: np.array, date_day_since100: datetime,
             best_params: np.array, continent: str, country: str, province: str,
     ):
-        assert len(best_params) == 7, f"Expected 7 best parameters, got {len(best_params)}"
+        assert len(best_params) == 13, f"Expected 13 best parameters, got {len(best_params)}"
         self.x_sol_final = x_sol_final
         self.date_day_since100 = date_day_since100
         self.best_params = best_params
@@ -173,8 +173,8 @@ class DELPHIAggregations:
         return df
 
 
-def get_initial_conditions(params_fitted, global_params_fixed):
-    alpha, days, r_s, r_dth, p_dth, k1, k2 = params_fitted
+def get_initial_conditions_v4_final_solve(params_fitted, global_params_fixed):
+    alpha, r_dth, p_dth, k1, k2, b0, b1, b2, b3, b4, b5, b6, b7 = params_fitted
     N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
     S_0 = (
             (N - PopulationCI / p_d) -
@@ -184,21 +184,22 @@ def get_initial_conditions(params_fitted, global_params_fixed):
     )
     E_0 = PopulationCI / p_d * k1
     I_0 = PopulationCI / p_d * k2
-    # AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
-    # DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
-    # DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
-    # AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
+    AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+    DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
+    DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
+    AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
     DHD_0 = PopulationCI * p_h * p_dth
     DQD_0 = PopulationCI * (1 - p_h) * p_dth
-    # R_0 = PopulationR / p_d
-    # D_0 = PopulationD / p_d
-    # TH_0 = PopulationCI * p_h
-    # DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
-    # DVD_0 = (PopulationCI * p_h * p_v) * p_dth
+    R_0 = PopulationR / p_d
+    D_0 = PopulationD / p_d
+    TH_0 = PopulationCI * p_h
+    DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
+    DVD_0 = (PopulationCI * p_h * p_v) * p_dth
     DD_0 = PopulationD
     DT_0 = PopulationI
     x_0_cases = [
-        S_0, E_0, I_0, DHD_0, DQD_0, DD_0, DT_0
+        S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
+        R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
     ]
     return x_0_cases
 
@@ -243,9 +244,9 @@ def preprocess_past_parameters_and_historical_data_v3(
 
     if pastparameters is None:
         # TODO Initialization of param list was modified for V3, deleted days & r_s and added b_0 at the end
-        parameter_list = [1, 0.2, 0.05, 3, 3, -1]
+        parameter_list = [1, 0.2, 0.05, 3, 3, 0]
         bounds_params = (
-            (0.75, 1.25), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10), (-10, 10)
+            (0.75, 1.25), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10), (-2, 2)
         )
         date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
         validcases = totalcases[totalcases.day_since100 >= 0][
