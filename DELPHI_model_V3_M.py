@@ -129,7 +129,9 @@ for continent, country, province in zip(
                 measures_oxford_i = measures_oxford[
                     (measures_oxford.CountryName == country) & (measures_oxford.Date >= date_day_since100)
                 ].drop(["CountryName", "Date"], axis=1).reset_index(drop=True)
-                dict_df_measures_oxford[(continent, country, province)] = measures_oxford_i
+                measures_oxford_i.columns = [f"policy_{i+1}" for i in range(len(measures_oxford_i.columns))]
+                print(measures_oxford_i.to_dict())
+                dict_df_measures_oxford[(continent, country, province)] = measures_oxford_i.to_dict()
             else:
                 print(f"Not enough historical data (less than a week)" +
                       f"for Continent={continent}, Country={country} and Province={province}")
@@ -211,10 +213,10 @@ def residuals_totalcases(list_all_params):
             #     -(_b0 + np.dot([_b1, _b2, _b3, _b4, _b5, _b6, _b7], measures_oxford_i.iloc[int(t), :].tolist()))
             # ))
             gamma_t = 1 / (1 + np.exp(-(
-                    _b0 + _b1 * measures_oxford_i.iloc[int(t), 0].item() + _b2 * measures_oxford_i.iloc[int(t), 1] +
-                    _b3 * measures_oxford_i.iloc[int(t), 2].item() + _b4 * measures_oxford_i.iloc[int(t), 3].item() +
-                    _b5 * measures_oxford_i.iloc[int(t), 4].item() + _b6 * measures_oxford_i.iloc[int(t), 5].item() +
-                    _b7 * measures_oxford_i.iloc[int(t), 6].item())
+                    _b0 + _b1 * measures_oxford_i["policy_1"][int(t)] + _b2 * measures_oxford_i["policy_2"][int(t)] +
+                    _b3 * measures_oxford_i["policy_3"][int(t)] + _b4 * measures_oxford_i["policy_4"][int(t)] +
+                    _b5 * measures_oxford_i["policy_5"][int(t)] + _b6 * measures_oxford_i["policy_6"][int(t)] +
+                    _b7 * measures_oxford_i["policy_7"][int(t)])
               ))
             assert len(x) == 7, f"Too many input variables, got {len(x)}, expected 7"
             S, E, I, DHD, DQD, DD, DT= x
@@ -326,8 +328,11 @@ def solve_best_params_and_predict(list_all_optimal_params):
             p_d = dict_fixed_parameters["p_d"]
             p_h = dict_fixed_parameters["p_h"]
             p_v = dict_fixed_parameters["p_v"]
-            gamma_t = 1 / (1 + np.exp(
-                -(_b0 + np.dot([_b1, _b2, _b3, _b4, _b5, _b6, _b7], measures_oxford_i.iloc[int(t), :].tolist()))
+            gamma_t = 1 / (1 + np.exp(-(
+                    _b0 + _b1 * measures_oxford_i["policy_1"][int(t)] + _b2 * measures_oxford_i["policy_2"][int(t)] +
+                    _b3 * measures_oxford_i["policy_3"][int(t)] + _b4 * measures_oxford_i["policy_4"][int(t)] +
+                    _b5 * measures_oxford_i["policy_5"][int(t)] + _b6 * measures_oxford_i["policy_6"][int(t)] +
+                    _b7 * measures_oxford_i["policy_7"][int(t)])
             ))
             assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
             S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
