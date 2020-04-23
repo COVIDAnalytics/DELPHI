@@ -15,33 +15,33 @@ from multiprocessing import Pool
 
 
 def residuals_inner(sublist_params):
-    b0, b1, b2, b3, b4, b5, b6, alpha_0, alpha_1, dict_necessary_data_i, \
-    dict_fixed_parameters, mobility_data_i, continent_k, country_k, province_k = sublist_params
+    _b0, _b1, _b2, _b3, _b4, _b5, _b6, _alpha_0, _alpha_1, _dict_necessary_data_k, \
+    dict_fixed_parameters, _mobility_data_k, continent_k, country_k, province_k = sublist_params
     params = (
-        b0, b1, b2, b3, b4, b5, b6, alpha_0, alpha_1
+        _b0, _b1, _b2, _b3, _b4, _b5, _b6, _alpha_0, _alpha_1
     )
     GLOBAL_PARAMS_FIXED_k = (
-        dict_necessary_data_i["N"], dict_necessary_data_i["PopulationCI"],
-        dict_necessary_data_i["PopulationR"], dict_necessary_data_i["PopulationD"],
-        dict_necessary_data_i["PopulationI"], dict_fixed_parameters["p_d"],
+        _dict_necessary_data_k["N"], _dict_necessary_data_k["PopulationCI"],
+        _dict_necessary_data_k["PopulationR"], _dict_necessary_data_k["PopulationD"],
+        _dict_necessary_data_k["PopulationI"], dict_fixed_parameters["p_d"],
         dict_fixed_parameters["p_h"], dict_fixed_parameters["p_v"],
     )
     # Variables Initialization for the ODE system
-    x_0_cases_i = get_initial_conditions_v5(
-        params_used_init=list(dict_necessary_data_i["dict_nonfitted_params"].values()),  # r_dth, p_dth, k_1, k_2 country-specific non-fitted,
+    x_0_cases_k = get_initial_conditions_v5(
+        params_used_init=list(_dict_necessary_data_k["dict_nonfitted_params"].values()),  # r_dth, p_dth, k_1, k_2 country-specific non-fitted,
         global_params_fixed=GLOBAL_PARAMS_FIXED_k,
     )
     # Fitting Data and Fitting Timespan
     t_cases = (
-            dict_necessary_data_i["validcases"]["day_since100"].tolist() -
-            dict_necessary_data_i["validcases"].loc[0, "day_since100"]
+            _dict_necessary_data_k["validcases"]["day_since100"].tolist() -
+            _dict_necessary_data_k["validcases"].loc[0, "day_since100"]
     )
-    balance_i = dict_necessary_data_i["balance"]
-    fitcasesnd_i = dict_necessary_data_i["fitcasesnd"]
-    fitcasesd_i = dict_necessary_data_i["fitcasesd"]
+    balance_k = _dict_necessary_data_k["balance"]
+    fitcasesnd_k = _dict_necessary_data_k["fitcasesnd"]
+    fitcasesd_k = _dict_necessary_data_k["fitcasesd"]
 
     def model_covid(
-            t, x, _b0, _b1, _b2, _b3, _b4, _b5, _b6, _alpha_0, _alpha_1,
+            t, x, _b0_val, _b1_val, _b2_val, _b3_val, _b4_val, _b5_val, _b6_val, _alpha_0_val, _alpha_1_val,
     ):
         """
         SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -52,9 +52,9 @@ def residuals_inner(sublist_params):
         y = [0 S, 1 E,  2 I, 3 AR,   4 DHR,  5 DQR, 6 AD,
         7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
         """
-        _r_dth, _p_dth, _k1, _k2 = list(dict_necessary_data_i["dict_nonfitted_params"].values())
-        pop_density_i = dict_necessary_data_i["pop_density"]
-        N = dict_necessary_data_i["N"]
+        _r_dth, _p_dth, _k1, _k2 = list(_dict_necessary_data_k["dict_nonfitted_params"].values())
+        pop_density_k = _dict_necessary_data_k["pop_density"]
+        N_k = _dict_necessary_data_k["N"]
         r_i = dict_fixed_parameters["r_i"]  # Rate of infection leaving incubation phase
         r_d = dict_fixed_parameters["r_d"]  # Rate of detection
         # r_ri = dict_fixed_parameters["r_ri"]  # Rate of recovery not under infection
@@ -64,16 +64,16 @@ def residuals_inner(sublist_params):
         p_h = dict_fixed_parameters["p_h"]
         # p_v = dict_fixed_parameters["p_v"]
         gamma_t = 1 / (1 + np.exp(-(
-                _b0 + _b1 * mobility_data_i["mobility_1"][int(t)] + _b2 * mobility_data_i["mobility_2"][int(t)] +
-                _b3 * mobility_data_i["mobility_3"][int(t)] + _b4 * mobility_data_i["mobility_4"][int(t)] +
-                _b5 * mobility_data_i["mobility_5"][int(t)] + _b6 * mobility_data_i["mobility_6"][int(t)]
+                _b0_val + _b1_val * _mobility_data_k["mobility_1"][int(t)] + _b2_val * _mobility_data_k["mobility_2"][int(t)] +
+                _b3_val * _mobility_data_k["mobility_3"][int(t)] + _b4_val * _mobility_data_k["mobility_4"][int(t)] +
+                _b5_val * _mobility_data_k["mobility_5"][int(t)] + _b6_val * _mobility_data_k["mobility_6"][int(t)]
         )))
-        _alpha_p = _alpha_0 + _alpha_1 * pop_density_i
+        _alpha_p = _alpha_0_val + _alpha_1_val * pop_density_k
         assert len(x) == 7, f"Too many input variables, got {len(x)}, expected 7"
         S, E, I, DHD, DQD, DD, DT = x
         # Equations on main variables
-        dSdt = -_alpha_p * gamma_t * S * I / N
-        dEdt = _alpha_p * gamma_t * S * I / N - r_i * E
+        dSdt = -_alpha_p * gamma_t * S * I / N_k
+        dEdt = _alpha_p * gamma_t * S * I / N_k - r_i * E
         dIdt = r_i * E - r_d * I
         # dARdt = r_d * (1 - _p_dth) * (1 - p_d) * I - r_ri * AR
         # dDHRdt = r_d * (1 - _p_dth) * p_d * p_h * I - r_rh * DHR
@@ -95,15 +95,15 @@ def residuals_inner(sublist_params):
 
     x_sol_i = solve_ivp(
         fun=model_covid,
-        y0=x_0_cases_i,
+        y0=x_0_cases_k,
         t_span=[t_cases[0], t_cases[-1]],
         t_eval=t_cases,
         args=tuple(params),
     ).y
-    weights_i = list(range(1, len(fitcasesnd_i) + 1))
+    weights_i = list(range(1, len(fitcasesnd_k) + 1))
     residuals_value_i = sum(
-        np.multiply((x_sol_i[6, :] - fitcasesnd_i) ** 2, weights_i)
-        + balance_i * balance_i * np.multiply((x_sol_i[5, :] - fitcasesd_i) ** 2, weights_i)
+        np.multiply((x_sol_i[6, :] - fitcasesnd_k) ** 2, weights_i)
+        + balance_k * balance_k * np.multiply((x_sol_i[5, :] - fitcasesd_k) ** 2, weights_i)
     )
     return residuals_value_i
 
@@ -221,7 +221,7 @@ def solve_best_params_and_predict(list_all_optimal_params):
 
 
 if __name__ == '__main__':
-    yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+    yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
     # TODO: Find a way to make these paths automatic, whoever the user is...
     PATH_TO_FOLDER_DANGER_MAP = (
         #"E:/Github/covid19orc/danger_map"
@@ -366,7 +366,7 @@ if __name__ == '__main__':
     # Number of threads to use
     pool = Pool(8)
     list_best_params = minimize(
-        c,
+        residuals_totalcases,
         np.array(list_all_params_fitted),
         method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
         bounds=tuple(list_all_bounds_fitted),
