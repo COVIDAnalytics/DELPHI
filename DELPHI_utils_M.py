@@ -51,7 +51,7 @@ class DELPHIDataCreator:
             self, x_sol_final: np.array, date_day_since100: datetime,
             best_params: np.array, continent: str, country: str, province: str,
     ):
-        assert len(best_params) == 13, f"Expected 13 best parameters, got {len(best_params)}"
+        assert len(best_params) == 9, f"Expected 9 best parameters, got {len(best_params)}"
         self.x_sol_final = x_sol_final
         self.date_day_since100 = date_day_since100
         self.best_params = best_params
@@ -173,7 +173,38 @@ class DELPHIAggregations:
         return df
 
 
-def get_initial_conditions_v4_final_solve(params_fitted, global_params_fixed):
+def get_initial_conditions_v5_final_prediction(params_used_init, global_params_fixed):
+    r_dth, p_dth, k1, k2 = params_used_init
+    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
+    S_0 = (
+            (N - PopulationCI / p_d) -
+            (PopulationCI / p_d * (k1 + k2)) -
+            (PopulationR / p_d) -
+            (PopulationD / p_d)
+    )
+    E_0 = PopulationCI / p_d * k1
+    I_0 = PopulationCI / p_d * k2
+    AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+    DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
+    DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
+    AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
+    DHD_0 = PopulationCI * p_h * p_dth
+    DQD_0 = PopulationCI * (1 - p_h) * p_dth
+    R_0 = PopulationR / p_d
+    D_0 = PopulationD / p_d
+    TH_0 = PopulationCI * p_h
+    DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
+    DVD_0 = (PopulationCI * p_h * p_v) * p_dth
+    DD_0 = PopulationD
+    DT_0 = PopulationI
+    x_0_cases = [
+        S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
+        R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
+    ]
+    return x_0_cases
+
+
+def get_initial_conditions_v4_final_prediction(params_fitted, global_params_fixed):
     alpha, r_dth, p_dth, k1, k2, b0, b1, b2, b3, b4, b5, b6, b7 = params_fitted
     N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
     S_0 = (
@@ -234,15 +265,117 @@ def get_initial_conditions_v3(params_fitted, global_params_fixed):
     return x_0_cases
 
 
-def preprocess_past_parameters_and_historical_data_v3(
-    continent: str, country: str, province: str,
-    totalcases: pd.DataFrame, pastparameters: Union[None, pd.DataFrame]
-) -> (list, tuple):
+def get_initial_conditions_v5(params_used_init, global_params_fixed):
+    r_dth, p_dth, k1, k2 = params_used_init
+    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
+    S_0 = (
+            (N - PopulationCI / p_d) -
+            (PopulationCI / p_d * (k1 + k2)) -
+            (PopulationR / p_d) -
+            (PopulationD / p_d)
+    )
+    E_0 = PopulationCI / p_d * k1
+    I_0 = PopulationCI / p_d * k2
+    # AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+    # DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
+    # DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
+    # AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
+    DHD_0 = PopulationCI * p_h * p_dth
+    DQD_0 = PopulationCI * (1 - p_h) * p_dth
+    # R_0 = PopulationR / p_d
+    # D_0 = PopulationD / p_d
+    # TH_0 = PopulationCI * p_h
+    # DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
+    # DVD_0 = (PopulationCI * p_h * p_v) * p_dth
+    DD_0 = PopulationD
+    DT_0 = PopulationI
+    x_0_cases = [
+        S_0, E_0, I_0, DHD_0, DQD_0, DD_0, DT_0
+    ]
+    return x_0_cases
+
+
+def preprocess_past_parameters_and_historical_data_v5(
+        continent: str, country: str, province: str,
+        totalcases: pd.DataFrame, pastparameters: Union[None, pd.DataFrame]
+):
     if totalcases.day_since100.max() < 0:
         print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
         return None, None, None, None, None, None, None, None
 
     if pastparameters is None:
+        raise ValueError(f"No past parameters for {country}, {province}, can't run full model")
+        # parameter_list = [1, 0.2, 0.05, 3, 3, 0]
+        # bounds_params = (
+        #    (0.75, 1.25), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10), (-2, 2)
+        # )
+        # date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
+        # validcases = totalcases[totalcases.day_since100 >= 0][
+        #    ["day_since100", "case_cnt", "death_cnt"]
+        # ].reset_index(drop=True)
+        # balance, fitcasesnd, fitcasesd = create_fitting_data_from_validcases(validcases)
+    else:
+        parameter_list_total = pastparameters[
+            (pastparameters.Country == country) &
+            (pastparameters.Province == province)
+        ].reset_index(drop=True)
+        if len(parameter_list_total) > 0:
+            # TODO: Add the day since 100 parameter because needed later + deal with initial value of other parameters
+            parameter_list_line = parameter_list_total.loc[
+                len(parameter_list_total) - 1,
+                ["Data Start Date", "Rate of Death", "Mortality Rate", "Internal Parameter 1", "Internal Parameter 2"]
+            ].tolist()
+            dict_nonfitted_params = {
+                "r_dth": parameter_list_line[1],
+                "p_dth": parameter_list_line[2],
+                "k1": parameter_list_line[3],
+                "k2": parameter_list_line[4],
+            }
+
+            # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
+            #param_list_lower = [x - 0.05 * abs(x) for x in parameter_list]
+            #param_list_upper = [x + 0.05 * abs(x) for x in parameter_list]
+            #bounds_params = tuple(
+            #    [(lower, upper)
+            #     for lower, upper in zip(param_list_lower, param_list_upper)]
+            #)
+            date_day_since100 = pd.to_datetime(parameter_list_line[0])
+            validcases = totalcases[[
+                dtparser.parse(x) >= dtparser.parse(parameter_list_line[0])
+                for x in totalcases.date
+            ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+            balance, fitcasesnd, fitcasesd = create_fitting_data_from_validcases(validcases)
+        else:
+            raise ValueError(f"No past parameters for {country}, {province}, can't run full model")
+            # Otherwise use established lower/upper bounds
+            #parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
+            #bounds_params = (
+            #    (0.75, 1.25), (-30, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+            #)
+            #date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
+            #validcases = totalcases[totalcases.day_since100 >= 0][
+            #    ["day_since100", "case_cnt", "death_cnt"]
+            #].reset_index(drop=True)
+            #balance, fitcasesnd, fitcasesd = create_fitting_data_from_validcases(validcases)
+
+    # Maximum timespan of prediction, defaulted to go to 15/06/2020
+    maxT = (datetime(2020, 6, 15) - date_day_since100).days + 1
+    return (
+        maxT, date_day_since100, validcases, balance,
+        fitcasesnd, fitcasesd, dict_nonfitted_params
+    )
+
+
+def preprocess_past_parameters_and_historical_data_v3(
+    continent: str, country: str, province: str,
+    totalcases: pd.DataFrame, pastparameters: Union[None, pd.DataFrame]
+):
+    if totalcases.day_since100.max() < 0:
+        print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
+        return None, None, None, None, None, None, None, None
+
+    if pastparameters is None:
+        raise ValueError("No pas parameters for this country")
         # TODO Initialization of param list was modified for V3, deleted days & r_s and added b_0 at the end
         parameter_list = [1, 0.2, 0.05, 3, 3, 0]
         bounds_params = (
@@ -340,3 +473,31 @@ def read_measures_oxford_data():
         "Czech Republic": "Czechia", "Slovak Republic": "Slovakia",
     })
     return measures
+
+
+def read_mobility_data():
+    mobility = pd.read_csv('https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv')
+    mobility_states = mobility[mobility['sub_region_2'].apply(lambda x: str(x) == 'nan')][
+        mobility['sub_region_1'].apply(lambda x: str(x) != 'nan')
+    ].query("country_region_code == 'US'").dropna(axis=1)
+    mobility_states.drop("country_region", axis=1, inplace=True)
+    mobility_states.columns = [
+        "country", "province", "date",
+        "mobility_retail_recreation", "mobility_grocery_pharmacy",
+        "mobility_parks", "mobility_transit", "mobility_workplaces", "mobility_residential"
+    ]
+    mobility_states["date"] = pd.to_datetime(mobility_states.date)
+    mobility_states.reset_index(drop=True, inplace=True)
+    return mobility_states
+
+
+def read_pop_density_data():
+    # Population density is by square mile
+    pop_density = pd.read_csv(
+        "https://raw.githubusercontent.com/camillol/cs424p3/master/data/Population-Density%20By%20State.csv"
+    )
+    pop_density.columns = ["col1", "col2", "province", "pop_density"]
+    pop_density.drop(["col1", "col2"], axis=1, inplace=True)
+    pop_density["country"] = "US"
+    pop_density = pop_density[["country", "province", "pop_density"]]
+    return pop_density
