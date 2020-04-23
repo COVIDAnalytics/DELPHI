@@ -503,5 +503,7 @@ def read_pop_density_data():
     pop_density.drop(["col1", "col2"], axis=1, inplace=True)
     pop_density["country"] = "US"
     pop_density = pop_density[["country", "province", "pop_density"]]
+    pop_density = pop_density[pop_density.province != "District of Columbia"]
+    pop_density.reset_index(drop=True, inplace=True)
     pop_density["pop_density"] = pop_density["pop_density"] / pop_density["pop_density"].max()
     return pop_density
