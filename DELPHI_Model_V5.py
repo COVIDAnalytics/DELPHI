@@ -70,10 +70,15 @@ def residuals_inner(sublist_params):
         )))
         _alpha_p = _alpha_0_val + _alpha_1_val * pop_density_k
         assert len(x) == 7, f"Too many input variables, got {len(x)}, expected 7"
+        # _alpha_t = _alpha_0_val + _alpha_1_val * pop_density_k + _b1_val * _mobility_data_k["mobility_1"][int(t)] + _b2_val * _mobility_data_k["mobility_2"][int(t)] +
+        #         _b3_val * _mobility_data_k["mobility_3"][int(t)] + _b4_val * _mobility_data_k["mobility_4"][int(t)] +
+        #         _b5_val * _mobility_data_k["mobility_5"][int(t)] + _b6_val * _mobility_data_k["mobility_6"][int(t)]
         S, E, I, DHD, DQD, DD, DT = x
         # Equations on main variables
         dSdt = -_alpha_p * gamma_t * S * I / N_k
         dEdt = _alpha_p * gamma_t * S * I / N_k - r_i * E
+        # dSdt = -_alpha_t * S * I / N_k
+        # dEdt = _alpha_t * S * I / N_k - r_i * E
         dIdt = r_i * E - r_d * I
         # dARdt = r_d * (1 - _p_dth) * (1 - p_d) * I - r_ri * AR
         # dDHRdt = r_d * (1 - _p_dth) * p_d * p_h * I - r_rh * DHR
@@ -184,10 +189,15 @@ def solve_best_params_and_predict(list_all_optimal_params):
             )))
             _alpha_p = _alpha_0 + _alpha_1 * pop_density
             assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
+            # _alpha_t = _alpha_0 + _alpha_1 * pop_density + _b1 * mobility_data_k["mobility_1"][int(t)] + _b2 * mobility_data_k["mobility_2"][int(t)] +
+            #         _b3 * mobility_data_k["mobility_3"][int(t)] + _b4 * mobility_data_k["mobility_4"][int(t)] +
+            #         _b5 * mobility_data_k["mobility_5"][int(t)] + _b6 * mobility_data_k["mobility_6"][int(t)]
             S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
             # Equations on main variables
             dSdt = -_alpha_p * gamma_t * S * I / N
             dEdt = _alpha_p * gamma_t * S * I / N - r_i * E
+            # dSdt = -_alpha_t * S * I / N
+            # dEdt = _alpha_t * S * I / N - r_i * E
             dIdt = r_i * E - r_d * I
             dARdt = r_d * (1 - _p_dth) * (1 - p_d) * I - r_ri * AR
             dDHRdt = r_d * (1 - _p_dth) * p_d * p_h * I - r_rh * DHR
@@ -221,12 +231,12 @@ def solve_best_params_and_predict(list_all_optimal_params):
 
 
 if __name__ == '__main__':
-    yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
+    yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
     # TODO: Find a way to make these paths automatic, whoever the user is...
     PATH_TO_FOLDER_DANGER_MAP = (
-        #"E:/Github/covid19orc/danger_map"
-        "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-        "4. COVID19_Global/covid19orc/danger_map"
+        "E:/Github/covid19orc/danger_map"
+        # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+        # "4. COVID19_Global/covid19orc/danger_map"
     )
     PATH_TO_WEBSITE_PREDICTED = (
         "E:/Github/website/data"
@@ -356,8 +366,8 @@ if __name__ == '__main__':
             continue
     # And now we add b_0, b_1, b_2, ..., b_6 and alpha_0, alpha_1 since they are common to
     # all states in the US, so only need to appear once
-    list_all_params_fitted = [0, 0, 0, 0, 0, 0, 0, 0.5, 0.5]
-    list_all_bounds_fitted = [(-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (0, 1), (0, 1), ]
+    list_all_params_fitted = [0, 0, 0, 0, 0, 0, 0, 1, 0.5]
+    list_all_bounds_fitted = [(-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (0, 2), (0, 1), ]
     # Will have to be fed as: ((min_bound_1, max_bound_1), ..., (min_bound_K, max_bound_K))
     print("Finished preprocessing all files, starting modeling V3")
     # Modeling V5
@@ -399,6 +409,7 @@ if __name__ == '__main__':
                               mape(fitcasesnd_j, x_sol_final_j[15, :len(fitcasesnd_j)]) +
                               mape(fitcasesd_j, x_sol_final_j[14, :len(fitcasesd_j)])
                       ) / 2
+        print(mape_data_j)
         # TODO Uncomment to generate parameters table (and generate it properly)
         #df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data_j)
         #list_df_global_parameters.append(df_parameters_cont_country_prov)
