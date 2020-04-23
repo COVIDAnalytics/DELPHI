@@ -4,6 +4,8 @@ The repository contains code for a Mathematica implementation of the epidemiolog
 
 http://www.covidanalytics.io/
 
-The code was written with Mathematica 12.1 but should work with any version greater than 10.0.
+The notebook code was written with Mathematica 12.1 but should work with any version greater than 10.0.
+
+We also included a python implementation using scipy.solve_ivp. It has been tested on Python 3.7.
 
 Documentation is contained in the pdf document: DELPHI_Explainer.
