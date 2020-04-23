@@ -486,6 +486,9 @@ def read_mobility_data():
         "mobility_retail_recreation", "mobility_grocery_pharmacy",
         "mobility_parks", "mobility_transit", "mobility_workplaces", "mobility_residential"
     ]
+    for col in ["mobility_retail_recreation", "mobility_grocery_pharmacy",
+        "mobility_parks", "mobility_transit", "mobility_workplaces", "mobility_residential"]:
+        mobility_states[col] = mobility_states[col] / 100
     mobility_states["date"] = pd.to_datetime(mobility_states.date)
     mobility_states.reset_index(drop=True, inplace=True)
     return mobility_states
@@ -500,4 +503,5 @@ def read_pop_density_data():
     pop_density.drop(["col1", "col2"], axis=1, inplace=True)
     pop_density["country"] = "US"
     pop_density = pop_density[["country", "province", "pop_density"]]
+    pop_density["pop_density"] = pop_density["pop_density"] / pop_density["pop_density"].max()
     return pop_density
