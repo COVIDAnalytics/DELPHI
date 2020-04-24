@@ -15,10 +15,10 @@ from multiprocessing import Pool
 
 
 def residuals_inner(sublist_params):
-    _b0, _b1, _b2, _b3, _b4, _b5, _b6, _alpha_0, _alpha_1, _dict_necessary_data_k, \
+    _b0, _b1, _b2, _b3, _b4, _b5, _b6, _alpha, _dict_necessary_data_k, \
     dict_fixed_parameters, _mobility_data_k, continent_k, country_k, province_k = sublist_params
     params = (
-        _b0, _b1, _b2, _b3, _b4, _b5, _b6, _alpha_0, _alpha_1
+        _b0, _b1, _b2, _b3, _b4, _b5, _b6, _alpha
     )
     GLOBAL_PARAMS_FIXED_k = (
         _dict_necessary_data_k["N"], _dict_necessary_data_k["PopulationCI"],
@@ -41,7 +41,7 @@ def residuals_inner(sublist_params):
     fitcasesd_k = _dict_necessary_data_k["fitcasesd"]
 
     def model_covid(
-            t, x, _b0_val, _b1_val, _b2_val, _b3_val, _b4_val, _b5_val, _b6_val, _alpha_0_val, _alpha_1_val,
+            t, x, _b0_val, _b1_val, _b2_val, _b3_val, _b4_val, _b5_val, _b6_val, _alpha_val,
     ):
         """
         SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -53,7 +53,7 @@ def residuals_inner(sublist_params):
         7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
         """
         _r_dth, _p_dth, _k1, _k2 = list(_dict_necessary_data_k["dict_nonfitted_params"].values())
-        pop_density_k = _dict_necessary_data_k["pop_density"]
+        #pop_density_k = _dict_necessary_data_k["pop_density"]
         N_k = _dict_necessary_data_k["N"]
         r_i = dict_fixed_parameters["r_i"]  # Rate of infection leaving incubation phase
         r_d = dict_fixed_parameters["r_d"]  # Rate of detection
@@ -68,15 +68,15 @@ def residuals_inner(sublist_params):
                 _b3_val * _mobility_data_k["mobility_3"][int(t)] + _b4_val * _mobility_data_k["mobility_4"][int(t)] +
                 _b5_val * _mobility_data_k["mobility_5"][int(t)] + _b6_val * _mobility_data_k["mobility_6"][int(t)]
         )))
-        _alpha_p = _alpha_0_val + _alpha_1_val * pop_density_k
+        #_alpha_p = _alpha_0_val + _alpha_1_val * pop_density_k
         assert len(x) == 7, f"Too many input variables, got {len(x)}, expected 7"
         # _alpha_t = _alpha_0_val + _alpha_1_val * pop_density_k + _b1_val * _mobility_data_k["mobility_1"][int(t)] + _b2_val * _mobility_data_k["mobility_2"][int(t)] +
         #         _b3_val * _mobility_data_k["mobility_3"][int(t)] + _b4_val * _mobility_data_k["mobility_4"][int(t)] +
         #         _b5_val * _mobility_data_k["mobility_5"][int(t)] + _b6_val * _mobility_data_k["mobility_6"][int(t)]
         S, E, I, DHD, DQD, DD, DT = x
         # Equations on main variables
-        dSdt = -_alpha_p * gamma_t * S * I / N_k
-        dEdt = _alpha_p * gamma_t * S * I / N_k - r_i * E
+        dSdt = -_alpha_val * gamma_t * S * I / N_k
+        dEdt = _alpha_val * gamma_t * S * I / N_k - r_i * E
         # dSdt = -_alpha_t * S * I / N_k
         # dEdt = _alpha_t * S * I / N_k - r_i * E
         dIdt = r_i * E - r_d * I
@@ -119,16 +119,19 @@ def residuals_totalcases(list_all_params):
     params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
     """
     sublist_params_total = list()
+    params_common = list_all_params[:7]  # b_0,...,b_6: common parameters for gamma_t
+    params_alpha_states = list_all_params[7:]  # alpha_1, ..., alpha_51 for each state
     for k, (continent_k, country_k, province_k) in enumerate(list_tuples_with_data):
         # Parameters retrieval for this tuple (continent, country, province)
         sublist_params = list()
         dict_necessary_data_k = dict_necessary_data_per_tuple[(continent_k, country_k, province_k)]
-        sublist_params.extend(list_all_params)
+        sublist_params.extend(params_common)  # This is b_0,...,b_6 common to all
+        sublist_params.append(params_alpha_states[k])  # This is alpha_k
         sublist_params.append(dict_necessary_data_k)
         sublist_params.append(dict_fixed_parameters)
         sublist_params.append(dict_df_mobility_data[(continent_k, country_k, province_k)])
         sublist_params.extend([continent_k, country_k, province_k])
-        # sublist_params = [b0, b1, b2, b3, b4, b5, b6, alpha_0, alpha_1, dict_necessary_data_k, \
+        # sublist_params = [b0, b1, b2, b3, b4, b5, b6, alpha_k dict_necessary_data_k, \
         # dict_fixed_parameters, mobility_data_k, continent_k, country_k, province_k]
         sublist_params_total.append(sublist_params)
     residuals_value_total = sum(pool.map(residuals_inner, sublist_params_total))
@@ -137,13 +140,16 @@ def residuals_totalcases(list_all_params):
 
 def solve_best_params_and_predict(list_all_optimal_params):
     dict_all_solutions = {}
+    params_common_optimal = list_all_optimal_params[:7]  # b_0,...,b_6: common parameters for gamma_t
+    params_alpha_states_optimal = list_all_optimal_params[7:]  # alpha_1, ..., alpha_51 for each state
     for k, (continent_k, country_k, province_k) in enumerate(list_tuples_with_data):
         # Parameters retrieval for this tuple (continent, country, province)
         # sublist_params = np.array(sublist_params)
-        b0, b1, b2, b3, b4, b5, b6, alpha_0, alpha_1,  = list_all_optimal_params
+        b0, b1, b2, b3, b4, b5, b6 = params_common_optimal
+        alpha = params_alpha_states_optimal[k]
         dict_necessary_data_k = dict_necessary_data_per_tuple[(continent_k, country_k, province_k)]
         optimal_params_k = (
-            b0, b1, b2, b3, b4, b5, b6, max(alpha_0, 0), max(alpha_1, 0),
+            b0, b1, b2, b3, b4, b5, b6, max(alpha, 0),
         )
         GLOBAL_PARAMS_FIXED_k = (
             dict_necessary_data_k["N"], dict_necessary_data_k["PopulationCI"],
@@ -153,14 +159,14 @@ def solve_best_params_and_predict(list_all_optimal_params):
         )
         # Variables Initialization for the ODE system
         x_0_cases_k = get_initial_conditions_v5_final_prediction(
-            params_used_init =list(dict_necessary_data_k["dict_nonfitted_params"].values()),  # r_dth, p_dth, k_1, k_2 country-specific non-fitted
+            params_used_init=list(dict_necessary_data_k["dict_nonfitted_params"].values()),  # r_dth, p_dth, k_1, k_2 country-specific non-fitted
             global_params_fixed=GLOBAL_PARAMS_FIXED_k
         )
         t_predictions_k = [i for i in range(dict_necessary_data_k["maxT"])]
         mobility_data_k = dict_df_mobility_data[(continent_k, country_k, province_k)]
 
         def model_covid(
-                t, x, _b0, _b1, _b2, _b3, _b4, _b5, _b6, _alpha_0, _alpha_1,
+                t, x, _b0, _b1, _b2, _b3, _b4, _b5, _b6, _alpha,
         ):
             """
             SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -172,7 +178,7 @@ def solve_best_params_and_predict(list_all_optimal_params):
             7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
             """
             _r_dth, _p_dth, _k1, _k2 = list(dict_necessary_data_k["dict_nonfitted_params"].values())
-            pop_density = dict_necessary_data_k["pop_density"]
+            # pop_density = dict_necessary_data_k["pop_density"]
             N = dict_necessary_data_k["N"]
             r_i = dict_fixed_parameters["r_i"]  # Rate of infection leaving incubation phase
             r_d = dict_fixed_parameters["r_d"]  # Rate of detection
@@ -187,15 +193,15 @@ def solve_best_params_and_predict(list_all_optimal_params):
                     _b3 * mobility_data_k["mobility_3"][int(t)] + _b4 * mobility_data_k["mobility_4"][int(t)] +
                     _b5 * mobility_data_k["mobility_5"][int(t)] + _b6 * mobility_data_k["mobility_6"][int(t)]
             )))
-            _alpha_p = _alpha_0 + _alpha_1 * pop_density
+            #_alpha_p = _alpha_0 + _alpha_1 * pop_density
             assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
             # _alpha_t = _alpha_0 + _alpha_1 * pop_density + _b1 * mobility_data_k["mobility_1"][int(t)] + _b2 * mobility_data_k["mobility_2"][int(t)] +
             #         _b3 * mobility_data_k["mobility_3"][int(t)] + _b4 * mobility_data_k["mobility_4"][int(t)] +
             #         _b5 * mobility_data_k["mobility_5"][int(t)] + _b6 * mobility_data_k["mobility_6"][int(t)]
             S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
             # Equations on main variables
-            dSdt = -_alpha_p * gamma_t * S * I / N
-            dEdt = _alpha_p * gamma_t * S * I / N - r_i * E
+            dSdt = -_alpha * gamma_t * S * I / N
+            dEdt = _alpha * gamma_t * S * I / N - r_i * E
             # dSdt = -_alpha_t * S * I / N
             # dEdt = _alpha_t * S * I / N - r_i * E
             dIdt = r_i * E - r_d * I
@@ -231,7 +237,7 @@ def solve_best_params_and_predict(list_all_optimal_params):
 
 
 if __name__ == '__main__':
-    yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+    yesterday = "".join(str(datetime.now().date() - timedelta(days=0)).split("-"))
     # TODO: Find a way to make these paths automatic, whoever the user is...
     PATH_TO_FOLDER_DANGER_MAP = (
         "E:/Github/covid19orc/danger_map"
@@ -287,9 +293,12 @@ if __name__ == '__main__':
         "p_d": 0.2,
         "p_h": 0.15
     }
-    COUNTRIES_KEPT_MOBILITY = [
-        "US"
-    ]
+    COUNTRIES_KEPT_MOBILITY = ["US"]
+    # We start with params b_0, b_1, b_2, ..., b_6 since they are common to all states in the US
+    # and then alpha_i for i in n_states (so ~50) which are fitted for each state will be added in the for loop below
+    list_all_params_fitted = [0, 0, 0, 0, 0, 0, 0]
+    list_all_bounds_fitted = [(-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2)]
+    # Will have to be fed as: ((min_bound_1, max_bound_1), ..., (min_bound_K, max_bound_K))
     for continent, country, province in zip(
             popcountries.Continent.tolist(),
             popcountries.Country.tolist(),
@@ -303,7 +312,7 @@ if __name__ == '__main__':
             totalcases = pd.read_csv(
                 f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
             )
-            maxT, date_day_since100, validcases, balance, fitcasesnd, fitcasesd, dict_nonfitted_params = (
+            maxT, date_day_since100, validcases, balance, fitcasesnd, fitcasesd, dict_nonfitted_params, alpha_past_params, alpha_bounds = (
                 preprocess_past_parameters_and_historical_data_v5(
                     continent=continent, country=country, province=province,
                     totalcases=totalcases, pastparameters=pastparameters
@@ -311,11 +320,13 @@ if __name__ == '__main__':
             )
             # Only returns (None, None, None, None,...) if there are not enough cases in that (continent, country, province)
             if (
-                    (maxT, date_day_since100, validcases, balance, fitcasesnd, fitcasesd, dict_nonfitted_params)
-                    != (None, None, None, None, None, None, None)
+                    (maxT, date_day_since100, validcases, balance, fitcasesnd, fitcasesd, dict_nonfitted_params, alpha_past_params, alpha_bounds)
+                    != (None, None, None, None, None, None, None, None, None)
             ):
                 if len(validcases) > 7:
                     list_tuples_with_data.append((continent, country, province))
+                    list_all_params_fitted.append(alpha_past_params)
+                    list_all_bounds_fitted.append(alpha_bounds)
                     PopulationT = popcountries[
                         (popcountries.Country == country) & (popcountries.Province == province)
                     ].pop2016.item()
@@ -325,9 +336,9 @@ if __name__ == '__main__':
                     PopulationR = validcases.loc[0, "death_cnt"] * 5
                     PopulationD = validcases.loc[0, "death_cnt"]
                     PopulationCI = PopulationI - PopulationD - PopulationR
-                    pop_density = df_pop_density[
-                        (df_pop_density.province == province)
-                    ].reset_index(drop=True).loc[0, "pop_density"].item()
+                    #pop_density = df_pop_density[
+                    #    (df_pop_density.province == province)
+                    #].reset_index(drop=True).loc[0, "pop_density"].item()
                     dict_necessary_data_per_tuple[(continent, country, province)] = {
                         "maxT": maxT,
                         "date_day_since100": date_day_since100,
@@ -341,7 +352,7 @@ if __name__ == '__main__':
                         "PopulationR": PopulationR,
                         "PopulationD": PopulationD,
                         "PopulationCI": PopulationCI,
-                        "pop_density": pop_density
+                        #"pop_density": pop_density
                     }
                     mobility_data_i = mobility_data[
                         (mobility_data.province == province) & (mobility_data.date >= date_day_since100)
@@ -364,12 +375,8 @@ if __name__ == '__main__':
                     continue
         else:
             continue
-    # And now we add b_0, b_1, b_2, ..., b_6 and alpha_0, alpha_1 since they are common to
-    # all states in the US, so only need to appear once
-    list_all_params_fitted = [0, 0, 0, 0, 0, 0, 0, 1, 0.5]
-    list_all_bounds_fitted = [(-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (0, 2), (0, 1), ]
-    # Will have to be fed as: ((min_bound_1, max_bound_1), ..., (min_bound_K, max_bound_K))
-    print("Finished preprocessing all files, starting modeling V3")
+
+    print("Finished preprocessing all files, starting modeling V5")
     # Modeling V5
     time_before = datetime.now()
     print(f"Starting Minimization at {time_before}")

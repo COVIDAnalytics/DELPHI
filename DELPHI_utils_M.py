@@ -301,7 +301,7 @@ def preprocess_past_parameters_and_historical_data_v5(
 ):
     if totalcases.day_since100.max() < 0:
         print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
-        return None, None, None, None, None, None, None, None
+        return None, None, None, None, None, None, None, None, None
 
     if pastparameters is None:
         raise ValueError(f"No past parameters for {country}, {province}, can't run full model")
@@ -323,15 +323,18 @@ def preprocess_past_parameters_and_historical_data_v5(
             # TODO: Add the day since 100 parameter because needed later + deal with initial value of other parameters
             parameter_list_line = parameter_list_total.loc[
                 len(parameter_list_total) - 1,
-                ["Data Start Date", "Rate of Death", "Mortality Rate", "Internal Parameter 1", "Internal Parameter 2"]
+                ["Data Start Date", "Infection Rate", "Rate of Death", "Mortality Rate",
+                 "Internal Parameter 1", "Internal Parameter 2"]
             ].tolist()
+            date_day_since100 = pd.to_datetime(parameter_list_line[0])
+            alpha_past_params = parameter_list_line[1]
+            alpha_bounds = (0, 2)
             dict_nonfitted_params = {
-                "r_dth": parameter_list_line[1],
-                "p_dth": parameter_list_line[2],
-                "k1": parameter_list_line[3],
-                "k2": parameter_list_line[4],
+                "r_dth": parameter_list_line[2],
+                "p_dth": parameter_list_line[3],
+                "k1": parameter_list_line[4],
+                "k2": parameter_list_line[5],
             }
-
             # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
             #param_list_lower = [x - 0.05 * abs(x) for x in parameter_list]
             #param_list_upper = [x + 0.05 * abs(x) for x in parameter_list]
@@ -339,7 +342,7 @@ def preprocess_past_parameters_and_historical_data_v5(
             #    [(lower, upper)
             #     for lower, upper in zip(param_list_lower, param_list_upper)]
             #)
-            date_day_since100 = pd.to_datetime(parameter_list_line[0])
+
             validcases = totalcases[[
                 dtparser.parse(x) >= dtparser.parse(parameter_list_line[0])
                 for x in totalcases.date
@@ -362,7 +365,8 @@ def preprocess_past_parameters_and_historical_data_v5(
     maxT = (datetime(2020, 6, 15) - date_day_since100).days + 1
     return (
         maxT, date_day_since100, validcases, balance,
-        fitcasesnd, fitcasesd, dict_nonfitted_params
+        fitcasesnd, fitcasesd, dict_nonfitted_params,
+        alpha_past_params, alpha_bounds
     )
 
 
