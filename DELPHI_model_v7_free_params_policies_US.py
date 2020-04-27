@@ -17,9 +17,9 @@ import matplotlib.pyplot as plt
 yesterday = "".join(str(datetime.now().date() - timedelta(days=3)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    "E:/Github/covid19orc/danger_map"
-        # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-        # "4. COVID19_Global/covid19orc/danger_map"
+    #"E:/Github/covid19orc/danger_map"
+    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    "4. COVID19_Global/covid19orc/danger_map"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data"
@@ -47,7 +47,7 @@ for continent, country, province in zip(
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv") and country == "US" and province=="California":
+    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv") and (country == "US") and (province in ["California", "New York", "Massachusetts"]):
         totalcases = pd.read_csv(
             f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
@@ -72,7 +72,7 @@ for continent, country, province in zip(
                 p_dth_ = parameter_list_line[3]
                 k1_ = parameter_list_line[4]
                 k2_ = parameter_list_line[5]
-                n_params_in_gamma_t = 8  # Intercept + 6 variables (b0, ..., b7)
+                n_params_in_gamma_t = 8  # Intercept + 7 variables (b1, ..., b6) + days_param
                 parameter_list = [alpha_, r_dth_, p_dth_, k1_, k2_] + [0 for _ in range(n_params_in_gamma_t)]
                 parameter_list = np.array(parameter_list)
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
@@ -81,7 +81,7 @@ for continent, country, province in zip(
                 bounds_params = tuple(
                     [
                         (lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)
-                    ] + [(-5, 0) for _ in range(n_params_in_gamma_t)]
+                    ] + [(-5, 0) for _ in range(n_params_in_gamma_t - 1)] + [(0, 10)]  # That's for days_param
                 )
                 validcases = totalcases[[
                     dtparser.parse(x) >= dtparser.parse(parameter_list_line[0])
@@ -160,7 +160,7 @@ for continent, country, province in zip(
 
 
             def model_covid(
-                    t, x, alpha, r_dth, p_dth, k1, k2, b0, b1, b2, b3, b4, b5, b6, b7
+                    t, x, alpha, r_dth, p_dth, k1, k2, b1, b2, b3, b4, b5, b6, b7, days_param
             ):
                 """
                 SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -178,15 +178,25 @@ for continent, country, province in zip(
                 r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                 r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-                gamma_t = 1 / (1 + np.exp(-(
-                        b0 + b1 * policy_data_us_only_tuple["policy_1"][int(t)] +
+                # gamma_t = 1 / (1 + np.exp(-(
+                #         b0 + b1 * policy_data_us_only_tuple["policy_1"][int(t)] +
+                #         b2 * policy_data_us_only_tuple["policy_2"][int(t)] +
+                #         b3 * policy_data_us_only_tuple["policy_3"][int(t)] +
+                #         b4 * policy_data_us_only_tuple["policy_4"][int(t)] +
+                #         b5 * policy_data_us_only_tuple["policy_5"][int(t)] +
+                #         b6 * policy_data_us_only_tuple["policy_6"][int(t)] +
+                #         b7 * policy_data_us_only_tuple["policy_7"][int(t)]
+                # ) * t))
+                inside_arctan = (
+                        b1 * policy_data_us_only_tuple["policy_1"][int(t)] +
                         b2 * policy_data_us_only_tuple["policy_2"][int(t)] +
                         b3 * policy_data_us_only_tuple["policy_3"][int(t)] +
                         b4 * policy_data_us_only_tuple["policy_4"][int(t)] +
                         b5 * policy_data_us_only_tuple["policy_5"][int(t)] +
                         b6 * policy_data_us_only_tuple["policy_6"][int(t)] +
                         b7 * policy_data_us_only_tuple["policy_7"][int(t)]
-                )))
+                )
+                gamma_t = (2/np.pi) * np.arctan(inside_arctan * (t - days_param) / 20) + 1
                 assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 # Equations on main variables
@@ -219,10 +229,10 @@ for continent, country, province in zip(
                 params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
                 """
                 # Variables Initialization for the ODE system
-                alpha, r_dth, p_dth, k1, k2, b0, b1, b2, b3, b4, b5, b6, b7 = params
+                alpha, r_dth, p_dth, k1, k2, b1, b2, b3, b4, b5, b6, b7, days_param = params
                 params = (
                     max(alpha, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0),
-                    b0, b1, b2, b3, b4, b5, b6, b7
+                    b1, b2, b3, b4, b5, b6, b7, days_param
                 )
                 x_0_cases = get_initial_conditions_v7_free_params(
                     params_fitted=params,
@@ -283,9 +293,12 @@ for continent, country, province in zip(
                                         mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesd) - 15: len(fitcasesd)])
                                 ) / 2
             print("Total MAPE=", mape_data, "\t MAPE on last 15 days=", mape_data_last_15)
+            print(best_params)
             print(country + "," + province)
+            plt.figure()
             plt.plot(fitcasesnd)
             plt.plot(x_sol_final[15, :])
+            plt.title(f"{province} Predictions & Historical for # Cases")
             plt.savefig(province+"_prediction.png")
             df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
             list_df_global_parameters.append(df_parameters_cont_country_prov)

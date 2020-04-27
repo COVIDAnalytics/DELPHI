@@ -297,7 +297,7 @@ def get_initial_conditions_v5(params_used_init, global_params_fixed):
 
 
 def get_initial_conditions_v7_free_params(params_fitted, global_params_fixed):
-    alpha, r_dth, p_dth, k1, k2, b0, b1, b2, b3, b4, b5, b6, b7 = params_fitted
+    alpha, r_dth, p_dth, k1, k2, b1, b2, b3, b4, b5, b6, b7, days_param = params_fitted
     N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
     S_0 = (
             (N - PopulationCI / p_d) -
@@ -581,9 +581,9 @@ def convert_dates_us_policies(x):
 
 def read_policy_data_us_only():
     data_path = (
-    "E:/Github/DELPHI/data_sandbox"
-            # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-            # "4. COVID19_Global/DELPHI/data_sandbox"
+    #"E:/Github/DELPHI/data_sandbox"
+            "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+            "4. COVID19_Global/DELPHI/data_sandbox"
     )
     df = pd.read_csv(data_path + "/25042020_raw_policy_data_US_only.csv")
     df.State = df.State.apply(lambda x: x[0].upper() + x[1:])
