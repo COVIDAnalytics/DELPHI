@@ -328,7 +328,7 @@ def preprocess_past_parameters_and_historical_data_v5(
             ].tolist()
             date_day_since100 = pd.to_datetime(parameter_list_line[0])
             alpha_past_params = parameter_list_line[1]
-            alpha_bounds = (0, 2)
+            alpha_bounds = (0, 4)
             dict_nonfitted_params = {
                 "r_dth": parameter_list_line[2],
                 "p_dth": parameter_list_line[3],

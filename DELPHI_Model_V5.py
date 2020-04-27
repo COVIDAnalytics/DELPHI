@@ -237,7 +237,7 @@ def solve_best_params_and_predict(list_all_optimal_params):
 
 
 if __name__ == '__main__':
-    yesterday = "".join(str(datetime.now().date() - timedelta(days=0)).split("-"))
+    yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
     # TODO: Find a way to make these paths automatic, whoever the user is...
     PATH_TO_FOLDER_DANGER_MAP = (
         "E:/Github/covid19orc/danger_map"
@@ -296,8 +296,8 @@ if __name__ == '__main__':
     COUNTRIES_KEPT_MOBILITY = ["US"]
     # We start with params b_0, b_1, b_2, ..., b_6 since they are common to all states in the US
     # and then alpha_i for i in n_states (so ~50) which are fitted for each state will be added in the for loop below
-    list_all_params_fitted = [0, 0, 0, 0, 0, 0, 0]
-    list_all_bounds_fitted = [(-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2)]
+    list_all_params_fitted = [0, 1, 1, 1, 1, 1, -1]
+    list_all_bounds_fitted = [(-3, 3), (-3, 3), (-3, 3), (-3, 3), (-3, 3), (-3, 3), (-3, 2)]
     # Will have to be fed as: ((min_bound_1, max_bound_1), ..., (min_bound_K, max_bound_K))
     for continent, country, province in zip(
             popcountries.Continent.tolist(),
@@ -387,7 +387,7 @@ if __name__ == '__main__':
         np.array(list_all_params_fitted),
         method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
         bounds=tuple(list_all_bounds_fitted),
-        options={'maxiter': 100, 'verbose': 3}
+        options={'maxiter': 500, 'verbose': 3}
     ).x
     pool.close()
 
