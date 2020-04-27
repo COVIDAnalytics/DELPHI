@@ -241,9 +241,9 @@ if __name__ == '__main__':
     yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
     # TODO: Find a way to make these paths automatic, whoever the user is...
     PATH_TO_FOLDER_DANGER_MAP = (
-        #"E:/Github/covid19orc/danger_map"
-         "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-         "4. COVID19_Global/covid19orc/danger_map"
+        "E:/Github/covid19orc/danger_map"
+         # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+         # "4. COVID19_Global/covid19orc/danger_map"
     )
     PATH_TO_WEBSITE_PREDICTED = (
         "E:/Github/website/data"
@@ -385,13 +385,11 @@ if __name__ == '__main__':
     print(f"Starting Minimization at {time_before}")
     # Number of threads to use
     pool = Pool(8)
-    list_best_params = minimize(
+    output = differential_evolution(
         residuals_totalcases,
-        np.array(list_all_params_fitted),
-        method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
-        bounds=tuple(list_all_bounds_fitted),
-        options={'maxiter': 100, 'verbose': 3}
-    ).x
+        bounds=tuple(list_all_bounds_fitted))
+    print(output.fun)
+    list_best_params = output.x
     pool.close()
 
     # list_best_params = differential_evolution(

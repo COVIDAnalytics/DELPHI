@@ -12,13 +12,14 @@ from DELPHI_utils_v7_free_params_policies_US import (
 )
 import dateutil.parser as dtparser
 import os
+import matplotlib.pyplot as plt
 
 yesterday = "".join(str(datetime.now().date() - timedelta(days=3)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    # "E:/Github/covid19orc/danger_map"
-        "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-        "4. COVID19_Global/covid19orc/danger_map"
+    "E:/Github/covid19orc/danger_map"
+        # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+        # "4. COVID19_Global/covid19orc/danger_map"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data"
@@ -46,13 +47,11 @@ for continent, country, province in zip(
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
+    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv") and country == "US" and province=="California":
         totalcases = pd.read_csv(
             f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
-        if (country, province) != ("US", "New York"):
-            continue
-        elif totalcases.day_since100.max() < 0:
+        if totalcases.day_since100.max() < 0:
             print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
             continue
 
@@ -77,12 +76,12 @@ for continent, country, province in zip(
                 parameter_list = [alpha_, r_dth_, p_dth_, k1_, k2_] + [0 for _ in range(n_params_in_gamma_t)]
                 parameter_list = np.array(parameter_list)
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                param_list_lower = [x - 0.05 * abs(x) for x in parameter_list[:5]]
-                param_list_upper = [x + 0.05 * abs(x) for x in parameter_list[:5]]
+                param_list_lower = [x - 0.5 * abs(x) for x in parameter_list[:5]]
+                param_list_upper = [x + 0.5 * abs(x) for x in parameter_list[:5]]
                 bounds_params = tuple(
                     [
                         (lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)
-                    ] + [(-2, 2) for _ in range(n_params_in_gamma_t)]
+                    ] + [(-5, 0) for _ in range(n_params_in_gamma_t)]
                 )
                 validcases = totalcases[[
                     dtparser.parse(x) >= dtparser.parse(parameter_list_line[0])
@@ -284,6 +283,10 @@ for continent, country, province in zip(
                                         mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesd) - 15: len(fitcasesd)])
                                 ) / 2
             print("Total MAPE=", mape_data, "\t MAPE on last 15 days=", mape_data_last_15)
+            print(country + "," + province)
+            plt.plot(fitcasesnd)
+            plt.plot(x_sol_final[15, :])
+            plt.savefig(province+"_prediction.png")
             df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
             list_df_global_parameters.append(df_parameters_cont_country_prov)
             # Creating the datasets for predictions of this (Continent, Country, Province)

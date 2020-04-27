@@ -581,8 +581,9 @@ def convert_dates_us_policies(x):
 
 def read_policy_data_us_only():
     data_path = (
-            "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-            "4. COVID19_Global/DELPHI/data_sandbox"
+    "E:/Github/DELPHI/data_sandbox"
+            # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+            # "4. COVID19_Global/DELPHI/data_sandbox"
     )
     df = pd.read_csv(data_path + "/25042020_raw_policy_data_US_only.csv")
     df.State = df.State.apply(lambda x: x[0].upper() + x[1:])

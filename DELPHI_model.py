@@ -8,7 +8,7 @@ from DELPHI_utils import DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver,
 import dateutil.parser as dtparser
 import os
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
     "E:/Github/covid19orc/danger_map"
@@ -33,6 +33,7 @@ pastparameters = None
 list_df_global_predictions_since_today = []
 list_df_global_predictions_since_100_cases = []
 list_df_global_parameters = []
+obj_value = 0
 for continent, country, province in zip(
         popcountries.Continent.tolist(),
         popcountries.Country.tolist(),
@@ -40,13 +41,14 @@ for continent, country, province in zip(
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
+    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv") and country == "US" and province == "New York":
         totalcases = pd.read_csv(
             f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
         if totalcases.day_since100.max() < 0:
             print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
             continue
+        print(country+ " " +province)
         if pastparameters is not None:
             parameter_list_total = pastparameters[
                 (pastparameters.Country == country) &
@@ -202,12 +204,16 @@ for continent, country, province in zip(
                     + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
                 )
                 return residuals_value
-            best_params = minimize(
+            output = minimize(
                 residuals_totalcases,
                 parameter_list,
                 method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
-                bounds=bounds_params
-            ).x
+                bounds=bounds_params,
+        options={'maxiter': 1000, 'verbose': 0}
+            )
+            best_params = output.x
+            obj_value = obj_value + output.fun
+            print(obj_value)
             t_predictions = [i for i in range(maxT)]
 
             def solve_best_params_and_predict(optimal_params):
@@ -235,6 +241,13 @@ for continent, country, province in zip(
                                 mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
                                 mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
                         ) / 2
+            mape_data_2 = (
+                    mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
+                    mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
+            ) / 2
+            print(fitcasesd[-15:])
+            print(x_sol_final[14, len(fitcasesnd)-15:len(fitcasesnd)])
+            print(mape_data_2)
             df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
             list_df_global_parameters.append(df_parameters_cont_country_prov)
             # Creating the datasets for predictions of this (Continent, Country, Province)
@@ -271,5 +284,5 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
 )
-delphi_data_saver.save_all_datasets(save_since_100_cases=False)
+# delphi_data_saver.save_all_datasets(save_since_100_cases=False)
 print("Exported all 3 datasets to website & danger_map repositories")

@@ -51,7 +51,7 @@ class DELPHIDataCreator:
             self, x_sol_final: np.array, date_day_since100: datetime,
             best_params: np.array, continent: str, country: str, province: str,
     ):
-        assert len(best_params) == 9, f"Expected 9 best parameters, got {len(best_params)}"
+        assert len(best_params) == 12, f"Expected 9 best parameters, got {len(best_params)}"
         self.x_sol_final = x_sol_final
         self.date_day_since100 = date_day_since100
         self.best_params = best_params
@@ -338,8 +338,8 @@ def preprocess_past_parameters_and_historical_data_v5(
 
             parameter_list = parameter_list_line[1:6]  # b_0, b_1, b_2, b_3, b_4, b_5, b_6, alpha, r_dth, p_dth, k1, k2
             # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-            param_list_lower = [x - 0.5 * abs(x) for x in parameter_list]
-            param_list_upper = [x + 0.5 * abs(x) for x in parameter_list]
+            param_list_lower = [x - 1 * abs(x) for x in parameter_list]
+            param_list_upper = [x + 3 * abs(x) for x in parameter_list]
             bounds_params = tuple(
                 [(lower, upper)
                  for lower, upper in zip(param_list_lower, param_list_upper)]
