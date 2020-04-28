@@ -14,24 +14,24 @@ import dateutil.parser as dtparser
 import os
 import matplotlib.pyplot as plt
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=3)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=4)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    #"E:/Github/covid19orc/danger_map"
+    #"E:/Github/covid19orc/danger_map/"
     "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    "4. COVID19_Global/covid19orc/danger_map"
+    "4. COVID19_Global/covid19orc/danger_map/"
 )
 PATH_TO_WEBSITE_PREDICTED = (
-    "E:/Github/website/data"
+    "E:/Github/website/data/"
 )
 policy_data_us_only = read_policy_data_us_only()
-os.chdir(PATH_TO_FOLDER_DANGER_MAP)
+#os.chdir(PATH_TO_FOLDER_DANGER_MAP)
 popcountries = pd.read_csv(
-    f"processed/Global/Population_Global.csv"
+    PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
 )
 try:
     pastparameters = pd.read_csv(
-        f"predicted/Parameters_Global_Python_{yesterday}.csv"
+        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_Python_{yesterday}.csv"
     )
 except:
     pastparameters = None
@@ -47,9 +47,12 @@ for continent, country, province in zip(
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv") and (country == "US") and (province in ["California", "New York", "Massachusetts"]):
+    if (
+            os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv")
+            and (country == "US") and (province in ["California", "New York", "Massachusetts"])
+    ):
         totalcases = pd.read_csv(
-            f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
+            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
         if totalcases.day_since100.max() < 0:
             print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
@@ -139,7 +142,7 @@ for continent, country, province in zip(
             RecoverHD = 15  # Recovery Time when Hospitalized
             VentilatedD = 10  # Recovery Time when Ventilated
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
-            maxT = (datetime(2020, 6, 15) - date_day_since100).days + 1
+            maxT = (datetime(2020, 7, 15) - date_day_since100).days + 1
             p_v = 0.25  # Percentage of ventilated
             p_d = 0.2  # Percentage of infection cases detected.
             p_h = 0.15  # Percentage of detected cases hospitalized
@@ -155,9 +158,8 @@ for continent, country, province in zip(
             )
             policy_data_us_only_tuple = query_us_policy_data_tuple(
                 policy_data_us_only=policy_data_us_only, country=country, province=province,
-                date_day_since100=date_day_since100, maxT=maxT
+                date_day_since100=date_day_since100, maxT=maxT, future_policy="minimization only"
             )
-
 
             def model_covid(
                     t, x, alpha, r_dth, p_dth, k1, k2, b1, b2, b3, b4, b5, b6, b7, days_param
@@ -197,6 +199,7 @@ for continent, country, province in zip(
                         b7 * policy_data_us_only_tuple["policy_7"][int(t)]
                 )
                 gamma_t = (2/np.pi) * np.arctan(inside_arctan * (t - days_param) / 20) + 1
+                #gamma_t = np.tanh(inside_arctan * (t - days_param) / 20) + 1
                 assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 # Equations on main variables
@@ -260,55 +263,123 @@ for continent, country, province in zip(
                 bounds=bounds_params
             ).x
             t_predictions = [i for i in range(maxT)]
-
-
-            def solve_best_params_and_predict(optimal_params):
-                # Variables Initialization for the ODE system
-                x_0_cases = get_initial_conditions_v7_free_params(
-                    params_fitted=optimal_params,
-                    global_params_fixed=GLOBAL_PARAMS_FIXED
+            plt.figure(figsize=(14, 6))
+            list_to_plot = []
+            for j, future_policy_j in enumerate(["current", "no policy", "current 4weeks then open schools"]):
+                policy_data_us_only_tuple_policy_j = query_us_policy_data_tuple(
+                    policy_data_us_only=policy_data_us_only, country=country, province=province,
+                    date_day_since100=date_day_since100, maxT=maxT, future_policy=future_policy_j
                 )
-                x_sol_best = solve_ivp(
-                    fun=model_covid,
-                    y0=x_0_cases,
-                    t_span=[t_predictions[0], t_predictions[-1]],
-                    t_eval=t_predictions,
-                    args=tuple(optimal_params),
-                ).y
-                return x_sol_best
+
+                def model_covid_predictions(
+                        t, x, alpha, r_dth, p_dth, k1, k2, b1, b2, b3, b4, b5, b6, b7, days_param
+                ):
+                    """
+                    SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
+                    alpha: Infection rate
+                    days: Median day of action
+                    r_s: Median rate of action
+                    p_dth: Mortality rate
+                    k1: Internal parameter 1
+                    k2: Internal parameter 2
+                    y = [0 S, 1 E,  2 I, 3 AR,   4 DHR,  5 DQR, 6 AD,
+                    7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
+                    """
+                    r_i = np.log(2) / IncubeD  # Rate of infection leaving incubation phase
+                    r_d = np.log(2) / DetectD  # Rate of detection
+                    r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
+                    r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
+                    r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
+                    inside_arctan = (
+                            b1 * policy_data_us_only_tuple_policy_j["policy_1"][int(t)] +
+                            b2 * policy_data_us_only_tuple_policy_j["policy_2"][int(t)] +
+                            b3 * policy_data_us_only_tuple_policy_j["policy_3"][int(t)] +
+                            b4 * policy_data_us_only_tuple_policy_j["policy_4"][int(t)] +
+                            b5 * policy_data_us_only_tuple_policy_j["policy_5"][int(t)] +
+                            b6 * policy_data_us_only_tuple_policy_j["policy_6"][int(t)] +
+                            b7 * policy_data_us_only_tuple_policy_j["policy_7"][int(t)]
+                    )
+                    gamma_t = (2/np.pi) * np.arctan(inside_arctan * (t - days_param) / 20) + 1
+                    #gamma_t = np.tanh(inside_arctan * (t - days_param) / 20) + 1
+                    assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
+                    S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
+                    # Equations on main variables
+                    dSdt = -alpha * gamma_t * S * I / N
+                    dEdt = alpha * gamma_t * S * I / N - r_i * E
+                    dIdt = r_i * E - r_d * I
+                    dARdt = r_d * (1 - p_dth) * (1 - p_d) * I - r_ri * AR
+                    dDHRdt = r_d * (1 - p_dth) * p_d * p_h * I - r_rh * DHR
+                    dDQRdt = r_d * (1 - p_dth) * p_d * (1 - p_h) * I - r_ri * DQR
+                    dADdt = r_d * p_dth * (1 - p_d) * I - r_dth * AD
+                    dDHDdt = r_d * p_dth * p_d * p_h * I - r_dth * DHD
+                    dDQDdt = r_d * p_dth * p_d * (1 - p_h) * I - r_dth * DQD
+                    dRdt = r_ri * (AR + DQR) + r_rh * DHR
+                    dDdt = r_dth * (AD + DQD + DHD)
+                    # Helper states (usually important for some kind of output)
+                    dTHdt = r_d * p_d * p_h * I
+                    dDVRdt = r_d * (1 - p_dth) * p_d * p_h * p_v * I - r_rv * DVR
+                    dDVDdt = r_d * p_dth * p_d * p_h * p_v * I - r_dth * DVD
+                    dDDdt = r_dth * (DHD + DQD)
+                    dDTdt = r_d * p_d * I
+                    return [
+                        dSdt, dEdt, dIdt, dARdt, dDHRdt, dDQRdt, dADdt, dDHDdt, dDQDdt,
+                        dRdt, dDdt, dTHdt, dDVRdt, dDVDdt, dDDdt, dDTdt
+                    ]
+
+                def solve_best_params_and_predict(optimal_params):
+                    # Variables Initialization for the ODE system
+                    x_0_cases = get_initial_conditions_v7_free_params(
+                        params_fitted=optimal_params,
+                        global_params_fixed=GLOBAL_PARAMS_FIXED
+                    )
+                    x_sol_best = solve_ivp(
+                        fun=model_covid_predictions,
+                        y0=x_0_cases,
+                        t_span=[t_predictions[0], t_predictions[-1]],
+                        t_eval=t_predictions,
+                        args=tuple(optimal_params),
+                    ).y
+                    return x_sol_best
 
 
-            x_sol_final = solve_best_params_and_predict(best_params)
-            data_creator = DELPHIDataCreator(
-                x_sol_final=x_sol_final, date_day_since100=date_day_since100, best_params=best_params,
-                continent=continent, country=country, province=province,
-            )
-            # Creating the parameters dataset for this (Continent, Country, Province)
-            mape_data = (
-                                mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
-                                mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
-                        ) / 2
-            mape_data_last_15 = (
-                                        mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd) - 15: len(fitcasesnd)]) +
-                                        mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesd) - 15: len(fitcasesd)])
-                                ) / 2
-            print("Total MAPE=", mape_data, "\t MAPE on last 15 days=", mape_data_last_15)
-            print(best_params)
-            print(country + "," + province)
-            plt.figure()
-            plt.plot(fitcasesnd)
-            plt.plot(x_sol_final[15, :])
-            plt.title(f"{province} Predictions & Historical for # Cases")
-            plt.savefig(province+"_prediction.png")
-            df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
-            list_df_global_parameters.append(df_parameters_cont_country_prov)
-            # Creating the datasets for predictions of this (Continent, Country, Province)
-            df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
-                data_creator.create_datasets_predictions()
-            )
-            list_df_global_predictions_since_today.append(df_predictions_since_today_cont_country_prov)
-            list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
+                vars()[f"x_sol_final_{j}"] = solve_best_params_and_predict(best_params)
+                data_creator = DELPHIDataCreator(
+                    x_sol_final=vars()[f"x_sol_final_{j}"], date_day_since100=date_day_since100, best_params=best_params,
+                    continent=continent, country=country, province=province,
+                )
+                # Creating the parameters dataset for this (Continent, Country, Province)
+                mape_data = (
+                                    mape(fitcasesnd, vars()[f"x_sol_final_{j}"][15, :len(fitcasesnd)]) +
+                                    mape(fitcasesd, vars()[f"x_sol_final_{j}"][14, :len(fitcasesd)])
+                            ) / 2
+                mape_data_last_15 = (
+                                            mape(fitcasesnd[-15:], vars()[f"x_sol_final_{j}"][15, len(fitcasesnd) - 15: len(fitcasesnd)]) +
+                                            mape(fitcasesd[-15:], vars()[f"x_sol_final_{j}"][14, len(fitcasesd) - 15: len(fitcasesd)])
+                                    ) / 2
+                print("Total MAPE=", mape_data, "\t MAPE on last 15 days=", mape_data_last_15)
+                print(f"State {province}, Policy {future_policy_j}\n" +
+                      f"Cases last 15 predictions: {vars()[f'x_sol_final_{j}'][15, -20:]}" +
+                      f"Deaths last 15 predictions: {vars()[f'x_sol_final_{j}'][14, -20:]}")
+                print(best_params)
+                print(country + "," + province)
+                #plt.plot(fitcasesnd)
+                plt.semilogy(vars()[f"x_sol_final_{j}"][15, :], label=f"Future Policy: {future_policy_j}")
+                #plt.savefig(province+"_prediction.png")
+                df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
+                list_df_global_parameters.append(df_parameters_cont_country_prov)
+                # Creating the datasets for predictions of this (Continent, Country, Province)
+                df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
+                    data_creator.create_datasets_predictions()
+                )
+                # TODO: Need to deal with the saving and concatenation of files, maybe add a column for "future_policy"
+                list_df_global_predictions_since_today.append(df_predictions_since_today_cont_country_prov)
+                list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
             print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
+            plt.semilogy(fitcasesnd, label="Historical Data")
+            plt.legend()
+            plt.title(f"{province} Predictions & Historical for # Cases")
+            plt.savefig(province + "_prediction.png")
+            print("--------------------------------------------------------------------------")
         else:  # len(validcases) <= 7
             print(f"Not enough historical data (less than a week)" +
                   f"for Continent={continent}, Country={country} and Province={province}")

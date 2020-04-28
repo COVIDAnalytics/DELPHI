@@ -699,23 +699,79 @@ def query_us_policy_data_tuple(
         province: str,
         date_day_since100: datetime,
         maxT: int,
+        future_policy: str
 ):
     policy_data_us_only_i = policy_data_us_only[
         (policy_data_us_only.country == country) &
         (policy_data_us_only.province == province) &
         (policy_data_us_only.date >= date_day_since100)
         ].drop(["country", "province", "date"], axis=1).reset_index(drop=True)
-    policy_data_us_only_i.columns = [f"policy_{i + 1}" for i in range(len(policy_data_us_only_i.columns))]
-    length_to_complete_for_prediction = maxT - len(policy_data_us_only_i)
-    if length_to_complete_for_prediction > 0:
-        df_to_append_measures_i = pd.DataFrame({
-            f"policy_{i + 1}": [
-                policy_data_us_only_i.loc[len(policy_data_us_only_i) - 1, f"policy_{i + 1}"].item()
-                for _ in range(length_to_complete_for_prediction)
-            ]
-            for i in range(len(policy_data_us_only_i.columns))
-        })
-        policy_data_us_only_i = pd.concat([policy_data_us_only_i, df_to_append_measures_i]).reset_index(drop=True)
     n_policies = len(policy_data_us_only_i.columns)
-    assert n_policies == 7, f"Expected 7 possible measures/policies, got {n_policies}"
-    return policy_data_us_only_i
+    policy_data_us_only_i.columns = [f"policy_{i + 1}" for i in range(n_policies)]
+    policy_data_us_only_i.reset_index(drop=True, inplace=True)
+    if future_policy == "minimization only":
+        assert n_policies == 7, f"Expected 7 possible measures/policies, got {n_policies}"
+        return policy_data_us_only_i
+    else:
+        length_to_complete_for_prediction = maxT - len(policy_data_us_only_i)
+        if length_to_complete_for_prediction > 0:
+            if future_policy == "current":
+                df_to_append_measures_i = pd.DataFrame({
+                    f"policy_{i + 1}": [
+                        policy_data_us_only_i.loc[len(policy_data_us_only_i) - 1, f"policy_{i + 1}"].item()
+                        for _ in range(length_to_complete_for_prediction)
+                    ]
+                    for i in range(n_policies)
+                })
+                policy_data_us_only_i = pd.concat([policy_data_us_only_i, df_to_append_measures_i]).reset_index(drop=True)
+                assert n_policies == 7, f"Expected 7 possible measures/policies, got {n_policies}"
+                policy_data_us_only_i.columns = [f"policy_{i + 1}" for i in range(n_policies)]
+                return policy_data_us_only_i
+            elif future_policy == "no policy":
+                df_to_append_measures_i = pd.DataFrame({
+                    'NO_MEASURE': [1 for _ in range(length_to_complete_for_prediction)],
+                    'MASS_GATHERINGS_ONLY': [0 for _ in range(length_to_complete_for_prediction)],
+                    'MASS_GATHERINGS_PERMITTED_BUT_OTHERS': [0 for _ in range(length_to_complete_for_prediction)],
+                    'MASS_GATHERINGS_AND_SCHOOLS_ONLY': [0 for _ in range(length_to_complete_for_prediction)],
+                    'MASS_GATHERINGS_AND_OTHERS_NO_SCHOOLS': [0 for _ in range(length_to_complete_for_prediction)],
+                    'MASS_GATHERINGS_AND_SCHOOLS_AND_OTHERS': [0 for _ in range(length_to_complete_for_prediction)],
+                    'LOCKDOWN': [0 for _ in range(length_to_complete_for_prediction)],
+                })
+                df_to_append_measures_i.columns = [f"policy_{i+1}" for i in range(n_policies)]
+                policy_data_us_only_i = pd.concat([policy_data_us_only_i, df_to_append_measures_i]).reset_index(drop=True)
+                policy_data_us_only_i.columns = [f"policy_{i+1}" for i in range(n_policies)]
+                assert n_policies == 7, f"Expected 7 possible measures/policies, got {n_policies}"
+                return policy_data_us_only_i
+            elif future_policy == "current 4weeks then open schools":
+                length_current = 4 * 7  # 4 weeks
+                length_open_schools = length_to_complete_for_prediction - length_current
+                assert length_open_schools > 0, \
+                    "Implementing current for 4 weeks would be equivalent to the 'current' policy as not enough days"
+                df_to_append_measures_i_current = pd.DataFrame({
+                    f"policy_{i + 1}": [
+                        policy_data_us_only_i.loc[len(policy_data_us_only_i) - 1, f"policy_{i + 1}"].item()
+                        for _ in range(length_current)
+                    ]
+                    for i in range(n_policies)
+                })
+                df_to_append_measures_i_open_schools = pd.DataFrame({
+                    'NO_MEASURE': [0 for _ in range(length_open_schools)],
+                    'MASS_GATHERINGS_ONLY': [0 for _ in range(length_open_schools)],
+                    'MASS_GATHERINGS_PERMITTED_BUT_OTHERS': [0 for _ in range(length_open_schools)],
+                    'MASS_GATHERINGS_AND_SCHOOLS_ONLY': [0 for _ in range(length_open_schools)],
+                    'MASS_GATHERINGS_AND_OTHERS_NO_SCHOOLS': [1 for _ in range(length_open_schools)],  # Re-open schools, rest is sanctionned
+                    'MASS_GATHERINGS_AND_SCHOOLS_AND_OTHERS': [0 for _ in range(length_open_schools)],
+                    'LOCKDOWN': [0 for _ in range(length_open_schools)],
+                })
+                df_to_append_measures_i_open_schools.columns = [f"policy_{i + 1}" for i in range(n_policies)]
+                policy_data_us_only_i = pd.concat([
+                    policy_data_us_only_i, df_to_append_measures_i_current, df_to_append_measures_i_open_schools
+                ]).reset_index(drop=True)
+                assert n_policies == 7, f"Expected 7 possible measures/policies, got {n_policies}"
+                policy_data_us_only_i.columns = [f"policy_{i+1}" for i in range(n_policies)]
+                return policy_data_us_only_i
+            else:
+                raise NotImplementedError(
+                    "Haven't implemented this possible future policy, expected" +
+                    "{'current', 'no policy', 'current 4weeks then open schooles'}"
+                )
