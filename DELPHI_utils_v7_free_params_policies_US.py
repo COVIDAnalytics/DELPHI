@@ -775,3 +775,9 @@ def query_us_policy_data_tuple(
                     "Haven't implemented this possible future policy, expected" +
                     "{'current', 'no policy', 'current 4weeks then open schooles'}"
                 )
+
+def gamma(day, state, params_dic):
+    dsd, mda, roa = params_dic[state]
+    t = (day - datetime.strptime(dsd, '%Y-%m-%d')).days
+    gm = (2 / np.pi) * np.arctan(-(t - mda) / 20 * roa) + 1
+    return gm

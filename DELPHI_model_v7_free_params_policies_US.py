@@ -8,11 +8,12 @@ from DELPHI_utils_v7_free_params_policies_US import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver,
     get_initial_conditions_v7_free_params, mape,
     read_mobility_data, query_mobility_data_tuple,
-    read_policy_data_us_only, query_us_policy_data_tuple
+    read_policy_data_us_only, query_us_policy_data_tuple, gamma
 )
 import dateutil.parser as dtparser
 import os
 import matplotlib.pyplot as plt
+from copy import deepcopy
 
 yesterday = "".join(str(datetime.now().date() - timedelta(days=4)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
@@ -35,6 +36,19 @@ try:
     )
 except:
     pastparameters = None
+
+policy_data_us_only['province_cl'] = policy_data_us_only['province'].apply(lambda x: x.replace(',','').strip().lower())
+states_set = set(policy_data_us_only['province_cl'])
+pastparameters_copy = deepcopy(pastparameters)
+pastparameters_copy['Province'] = pastparameters_copy['Province'].apply(lambda x: str(x).replace(',','').strip().lower())
+params_dic = {}
+for state in states_set:
+    params_dic[state] = pastparameters_copy.query('Province == @state')[['Data Start Date', 'Median Day of Action', 'Rate of Action']].iloc[0]
+
+policy_data_us_only['Gamma'] = [gamma(day, state, params_dic) for day, state in zip(policy_data_us_only['date'], policy_data_us_only['province_cl'])]
+n_measures = policy_data_us_only.iloc[:, 3:-2].shape[1]
+policies_dic_shift = {policy_data_us_only.columns[3 + i]: policy_data_us_only[policy_data_us_only.iloc[:, 3 + i] == 1].iloc[:, -1].mean() for i in range(n_measures)}
+
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today = []
 list_df_global_predictions_since_100_cases = []
