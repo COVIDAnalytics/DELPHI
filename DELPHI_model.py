@@ -41,7 +41,7 @@ for continent, country, province in zip(
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv") and country == "US" and province == "New York":
+    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
         totalcases = pd.read_csv(
             f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
@@ -241,13 +241,13 @@ for continent, country, province in zip(
                                 mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
                                 mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
                         ) / 2
-            mape_data_2 = (
-                    mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
-                    mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
-            ) / 2
-            print(fitcasesd[-15:])
+            # mape_data_2 = (
+            #         mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
+            #         mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
+            # ) / 2
+            # print(fitcasesd[-15:])
             print(x_sol_final[14, len(fitcasesnd)-15:len(fitcasesnd)])
-            print(mape_data_2)
+            # print(mape_data_2)
             df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
             list_df_global_parameters.append(df_parameters_cont_country_prov)
             # Creating the datasets for predictions of this (Continent, Country, Province)
@@ -284,5 +284,5 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
 )
-# delphi_data_saver.save_all_datasets(save_since_100_cases=False)
+delphi_data_saver.save_all_datasets(save_since_100_cases=False)
 print("Exported all 3 datasets to website & danger_map repositories")

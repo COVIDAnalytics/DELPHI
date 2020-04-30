@@ -581,9 +581,9 @@ def convert_dates_us_policies(x):
 
 def read_policy_data_us_only():
     data_path = (
-    #"E:/Github/DELPHI/data_sandbox"
-            "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-            "4. COVID19_Global/DELPHI/data_sandbox"
+    "E:/Github/DELPHI/data_sandbox"
+            # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+            # "4. COVID19_Global/DELPHI/data_sandbox"
     )
     df = pd.read_csv(data_path + "/25042020_raw_policy_data_US_only.csv")
     df.State = df.State.apply(lambda x: x[0].upper() + x[1:])
@@ -695,11 +695,13 @@ def read_policy_data_us_only():
 
 def query_us_policy_data_tuple(
         policy_data_us_only: pd.DataFrame,
+        policies_dic_shift,
         country: str,
         province: str,
         date_day_since100: datetime,
         maxT: int,
-        future_policy: str
+        future_policy: str,
+        future_policy_time: int
 ):
     policy_data_us_only_i = policy_data_us_only[
         (policy_data_us_only.country == country) &
@@ -727,7 +729,7 @@ def query_us_policy_data_tuple(
                 assert n_policies == 7, f"Expected 7 possible measures/policies, got {n_policies}"
                 policy_data_us_only_i.columns = [f"policy_{i + 1}" for i in range(n_policies)]
                 return policy_data_us_only_i
-            elif future_policy == "no policy":
+            elif future_policy == "NO_MEASURE":
                 df_to_append_measures_i = pd.DataFrame({
                     'NO_MEASURE': [1 for _ in range(length_to_complete_for_prediction)],
                     'MASS_GATHERINGS_ONLY': [0 for _ in range(length_to_complete_for_prediction)],
@@ -742,11 +744,11 @@ def query_us_policy_data_tuple(
                 policy_data_us_only_i.columns = [f"policy_{i+1}" for i in range(n_policies)]
                 assert n_policies == 7, f"Expected 7 possible measures/policies, got {n_policies}"
                 return policy_data_us_only_i
-            elif future_policy == "current 4weeks then open schools":
-                length_current = 4 * 7  # 4 weeks
+            elif future_policy == "MASS_GATHERINGS_AND_OTHERS_NO_SCHOOLS":
+                length_current = future_policy_time
                 length_open_schools = length_to_complete_for_prediction - length_current
                 assert length_open_schools > 0, \
-                    "Implementing current for 4 weeks would be equivalent to the 'current' policy as not enough days"
+                    f"Implementing current for {length_current} days would be equivalent to the 'current' policy as not enough days"
                 df_to_append_measures_i_current = pd.DataFrame({
                     f"policy_{i + 1}": [
                         policy_data_us_only_i.loc[len(policy_data_us_only_i) - 1, f"policy_{i + 1}"].item()

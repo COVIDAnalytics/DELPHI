@@ -4,7 +4,7 @@ import numpy as np
 import dateutil.parser as dtparser
 from datetime import datetime, timedelta
 from typing import Union
-
+from copy import deepcopy
 
 class DELPHIDataSaver:
     def __init__(
@@ -123,8 +123,8 @@ class DELPHIDataCreator:
             "Active Ventilated": active_ventilated,
         })
         return df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov
-
-
+    
+    
 class DELPHIAggregations:
     @staticmethod
     def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
@@ -309,6 +309,129 @@ def mape(y_true, y_pred):
     return np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
 
 
+def convert_dates_us_policies(x):
+    if x == "Not implemented":
+        return np.nan
+    else:
+        x_long = x + "20"
+        return pd.to_datetime(x_long, format="%d-%b-%Y")
+
+
+
+def read_policy_data_us_only():
+    data_path = (
+    "E:/Github/DELPHI/data_sandbox"
+            # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+            # "4. COVID19_Global/DELPHI/data_sandbox"
+    )
+    df = pd.read_csv(data_path + "/25042020_raw_policy_data_US_only.csv")
+    df.State = df.State.apply(lambda x: x[0].upper() + x[1:])
+    concat_data = []
+    for i, measure in enumerate(df.Measure.unique()):
+        df_temp = df[df.Measure == measure].reset_index(drop=True)
+        df_concat = pd.DataFrame({
+            f"province_{i}": df_temp.State,
+            f"{measure}": df_temp.Date
+        })
+        concat_data.append(df_concat)
+
+    df_format = pd.concat(concat_data, axis=1)
+    df_format.drop(
+        [f"province_{i}" for i in range(1, len(df.Measure.unique()))],
+        axis=1, inplace=True
+    )
+    df_format.columns = ["province"] + list(df_format.columns)[1:]
+    for col in list(df_format.columns)[1:]:
+        df_format[col] = df_format[col].apply(
+            lambda x: convert_dates_us_policies(x)
+        )
+
+    n_dates = (datetime.now() - datetime(2020, 3, 1)).days + 1
+    list_all_dates = [
+        datetime(2020, 3, 1) + timedelta(days=i)
+        for i in range(n_dates)
+    ]
+    df_format["province"] = df_format.province.replace({
+        "District-of-columbia": "District of Columbia",
+        "New-york": "New York", "North-carolina": "North Carolina",
+        "North-dakota": "North Dakota", "Rhode-island": "Rhode Island",
+        "South-carolina": "South Carolina", "South-dakota": "South Dakota",
+        "West-virginia": "West Virginia", "New-jersey": "New Jersey",
+        "New-hampshire": "New Hampshire", "New-mexico": "New Mexico",
+    })
+    df_to_concat_final = []
+    for i, province in enumerate(df_format.province.unique()):
+        df_temp = df_format[
+            df_format.province == province
+            ].reset_index(drop=True)
+        columns_to_iter = [
+            "Mass_Gathering_Restrictions", "Initial_Business_Closure",
+            "Educational_Facilities_Closed", "Non_Essential_Services_Closed",
+            "Stay_at_home_order"
+        ]
+        df_i = pd.DataFrame({
+            "province": [province for _ in range(n_dates)],
+            "date": list_all_dates,
+            "Mass_Gathering_Restrictions": [0 for _ in range(n_dates)],
+            "Initial_Business_Closure": [0 for _ in range(n_dates)],
+            "Educational_Facilities_Closed": [0 for _ in range(n_dates)],
+            "Non_Essential_Services_Closed": [0 for _ in range(n_dates)],
+            "Stay_at_home_order": [0 for _ in range(n_dates)],
+            "Travel_severely_limited": [0 for _ in range(n_dates)],
+        })
+        date_mgr = df_temp.iloc[0, 1]
+        date_ibc = df_temp.iloc[0, 2]
+        date_efc = df_temp.iloc[0, 3]
+        date_nesc = df_temp.iloc[0, 4]
+        date_saho = df_temp.iloc[0, 5]
+        # No date_tsl as no state actually implemented it
+        for col, date_col in zip(
+                columns_to_iter,
+                [date_mgr, date_ibc, date_efc, date_nesc, date_saho]
+        ):
+            df_i.loc[df_i["date"] >= date_col, col] = 1
+        df_to_concat_final.append(df_i)
+
+    df_final = pd.concat(df_to_concat_final)
+    df_final.reset_index(drop=True, inplace=True)
+    output = deepcopy(df_final)
+    msr = ['NO_MEASURE', 'MASS_GATHERINGS_ONLY', 'MASS_GATHERINGS_PERMITTED_BUT_OTHERS',
+           'MASS_GATHERINGS_AND_SCHOOLS_ONLY', 'MASS_GATHERINGS_AND_OTHERS_NO_SCHOOLS',
+           'MASS_GATHERINGS_AND_SCHOOLS_AND_OTHERS', 'LOCKDOWN']
+    output['NO_MEASURE'] = (df_final.sum(axis=1) == 0).apply(lambda x: int(x))
+    output['MASS_GATHERINGS_ONLY'] = [int(a and b) for a, b in
+                                      zip(df_final.sum(axis=1) == 1, df_final['Mass_Gathering_Restrictions'] == 1)]
+    output['MASS_GATHERINGS_PERMITTED_BUT_OTHERS'] = [int(a and b and c) for a, b, c in
+                                                      zip(df_final.sum(axis=1) > 0,
+                                                          df_final['Mass_Gathering_Restrictions'] == 0,
+                                                          df_final['Stay_at_home_order'] == 0)]
+    output['MASS_GATHERINGS_AND_SCHOOLS_ONLY'] = [
+        int(a and b and c)
+        for a, b, c in zip(
+            df_final.sum(axis=1) == 2,
+            df_final['Educational_Facilities_Closed'] == 1,
+            df_final['Mass_Gathering_Restrictions'] == 1)
+    ]
+    output['MASS_GATHERINGS_AND_OTHERS_NO_SCHOOLS'] = [
+        int(a and b and c and d) for a, b, c, d in
+        zip(df_final.sum(axis=1) > 1,
+            df_final['Educational_Facilities_Closed'] == 0,
+            df_final['Mass_Gathering_Restrictions'] == 1,
+            df_final['Stay_at_home_order'] == 0)
+    ]
+    output['MASS_GATHERINGS_AND_SCHOOLS_AND_OTHERS'] = [
+        int(a and b and c and d) for a, b, c, d in
+        zip(df_final.sum(axis=1) > 2,
+            df_final['Educational_Facilities_Closed'] == 1,
+            df_final['Mass_Gathering_Restrictions'] == 1,
+            df_final['Stay_at_home_order'] == 0)
+    ]
+    output['LOCKDOWN'] = (df_final['Stay_at_home_order'] == 1).apply(lambda x: int(x))
+    output['country'] = "US"
+    output = output.loc[:, ['country', 'province', 'date'] + msr]
+    return output
+
+
 def read_measures_oxford_data():
     measures = pd.read_csv('https://ocgptweb.azurewebsites.net/CSVDownload')
     filtr = ['CountryName', 'CountryCode', 'Date']
@@ -341,3 +464,9 @@ def read_measures_oxford_data():
         "Czech Republic": "Czechia", "Slovak Republic": "Slovakia",
     })
     return measures
+
+def gammat(day, state, params_dic):
+    dsd, mda, roa = params_dic[state]
+    t = (day - datetime.strptime(dsd, '%m/%d/%Y')).days
+    gm = (2 / np.pi) * np.arctan(-(t - mda) / 20 * roa) + 1
+    return gm

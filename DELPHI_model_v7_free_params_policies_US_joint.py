@@ -5,9 +5,9 @@ from scipy.integrate import solve_ivp
 from scipy.optimize import minimize, dual_annealing, differential_evolution
 from datetime import datetime, timedelta
 from DELPHI_utils_M import (
-    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, read_measures_oxford_data,
+    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, 
     get_initial_conditions_v3, mape, preprocess_past_parameters_and_historical_data_v3,
-    get_initial_conditions_v4_final_prediction
+    get_initial_conditions_v4_final_prediction, read_policy_data_us_only, query_us_policy_data_tuple
 )
 import os
 import time
@@ -15,9 +15,9 @@ from multiprocessing import Pool
 
 
 def residuals_inner(sublist_params):
-    alpha, r_dth, p_dth, k1, k2, b1, b2, b3, b4, b5, b6, b7, dict_necessary_data_i, dict_fixed_parameters, measures_oxford_i, continent_k, country_k, province_k = sublist_params
+    alpha, r_dth, p_dth, k1, k2, b0, b1, b2, b3, b4, b5, b6, b7, dict_necessary_data_i, dict_fixed_parameters, policy_data_us_only_tuple, continent_k, country_k, province_k = sublist_params
     params = (
-        max(alpha, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0),
+        max(alpha, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0), b0,
          b1, b2, b3, b4, b5, b6, b7
     )
     GLOBAL_PARAMS_FIXED_k = (
@@ -39,11 +39,10 @@ def residuals_inner(sublist_params):
     balance_i = dict_necessary_data_i["balance"]
     fitcasesnd_i = dict_necessary_data_i["fitcasesnd"]
     fitcasesd_i = dict_necessary_data_i["fitcasesd"]
-    #if len(measures_oxford_i) == 0:
-    #    continue
+    
     N = dict_necessary_data_i["N"]
     def model_covid(
-            t, x, _alpha, _r_dth, _p_dth, _k1, _k2, _b1, _b2, _b3, _b4, _b5, _b6, _b7
+            t, x, _alpha, _r_dth, _p_dth, _k1, _k2, _b0, _b1, _b2, _b3, _b4, _b5, _b6, _b7
     ):
         """
         SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -62,12 +61,16 @@ def residuals_inner(sublist_params):
         p_d = dict_fixed_parameters["p_d"]
         p_h = dict_fixed_parameters["p_h"]
         # p_v = dict_fixed_parameters["p_v"]
-        gamma_t = 1 / (1 + np.exp(-(
-                _b1 * measures_oxford_i["policy_1"][int(t)] + _b2 * measures_oxford_i["policy_2"][int(t)] +
-                _b3 * measures_oxford_i["policy_3"][int(t)] + _b4 * measures_oxford_i["policy_4"][int(t)] +
-                _b5 * measures_oxford_i["policy_5"][int(t)] + _b6 * measures_oxford_i["policy_6"][int(t)] +
-                _b7 * measures_oxford_i["policy_7"][int(t)])
-          ))
+        inside_arctan = (
+                _b1 * policy_data_us_only_tuple["policy_1"][int(t)] +
+                _b2 * policy_data_us_only_tuple["policy_2"][int(t)] +
+                _b3 * policy_data_us_only_tuple["policy_3"][int(t)] +
+                _b4 * policy_data_us_only_tuple["policy_4"][int(t)] +
+                _b5 * policy_data_us_only_tuple["policy_5"][int(t)] +
+                _b6 * policy_data_us_only_tuple["policy_6"][int(t)] +
+                _b7 * policy_data_us_only_tuple["policy_7"][int(t)]
+        )
+        gamma_t = (2/np.pi) * np.arctan(inside_arctan * (t - _b0) / 20) + 1
         assert len(x) == 7, f"Too many input variables, got {len(x)}, expected 7"
         S, E, I, DHD, DQD, DD, DT= x
         # Equations on main variables
@@ -122,7 +125,11 @@ def residuals_totalcases(list_all_params):
         dict_necessary_data_i = dict_necessary_data_per_tuple[(continent_k, country_k, province_k)]
         sublist_params.append(dict_necessary_data_i)
         sublist_params.append(dict_fixed_parameters)
-        sublist_params.append(dict_df_measures_oxford[(continent_k, country_k, province_k)])
+        sublist_params.append(query_us_policy_data_tuple(
+                policy_data_us_only=policy_data_us_only, country=country_k, province=province_k,
+                date_day_since100=dict_necessary_data_per_tuple[(continent_k, country_k, province_k)]["date_day_since100"], 
+                maxT=dict_necessary_data_per_tuple[(continent_k, country_k, province_k)]["maxT"]
+            ))
         sublist_params.extend([continent_k, country_k, province_k])
         sublist_params_total.append(sublist_params)
     residuals_value_total = sum(pool.map(residuals_inner,sublist_params_total))
@@ -138,11 +145,11 @@ def solve_best_params_and_predict(list_all_optimal_params):
         sublist_params = list_all_params_without_common[6*k: 6*k + 6]
         sublist_params.extend(list_all_params_common)
         # sublist_params = np.array(sublist_params)
-        alpha, r_dth, p_dth, k1, k2, b1, b2, b3, b4, b5, b6, b7 = sublist_params
+        alpha, r_dth, p_dth, k1, k2, b0, b1, b2, b3, b4, b5, b6, b7 = sublist_params
         dict_necessary_data_i = dict_necessary_data_per_tuple[(continent_k, country_k, province_k)]
         optimal_params_i = (
             max(alpha, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0),
-            b1, b2, b3, b4, b5, b6, b7
+            b0, b1, b2, b3, b4, b5, b6, b7
         )
         GLOBAL_PARAMS_FIXED_i = (
             dict_necessary_data_i["N"], dict_necessary_data_i["PopulationCI"],
@@ -156,12 +163,14 @@ def solve_best_params_and_predict(list_all_optimal_params):
             global_params_fixed=GLOBAL_PARAMS_FIXED_i
         )
         t_predictions_i = [i for i in range(dict_necessary_data_i["maxT"])]
-        measures_oxford_i = dict_df_measures_oxford[(continent_k, country_k, province_k)]
-        #if len(measures_oxford_i) == 0:
-        #    continue
+        policy_data_us_only_tuple = query_us_policy_data_tuple(
+                policy_data_us_only=policy_data_us_only, country=country_k, province=province_k,
+                date_day_since100=dict_necessary_data_i["date_day_since100"], 
+                maxT=dict_necessary_data_i["maxT"]
+            )
 
         def model_covid(
-                t, x, _alpha, _r_dth, _p_dth, _k1, _k2, _b1, _b2, _b3, _b4, _b5, _b6, _b7
+                t, x, _alpha, _r_dth, _p_dth, _k1, _k2, _b0, _b1, _b2, _b3, _b4, _b5, _b6, _b7
         ):
             """
             SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -180,12 +189,16 @@ def solve_best_params_and_predict(list_all_optimal_params):
             p_d = dict_fixed_parameters["p_d"]
             p_h = dict_fixed_parameters["p_h"]
             p_v = dict_fixed_parameters["p_v"]
-            gamma_t = 1 / (1 + np.exp(-(
-                    _b1 * measures_oxford_i["policy_1"][int(t)] + _b2 * measures_oxford_i["policy_2"][int(t)] +
-                    _b3 * measures_oxford_i["policy_3"][int(t)] + _b4 * measures_oxford_i["policy_4"][int(t)] +
-                    _b5 * measures_oxford_i["policy_5"][int(t)] + _b6 * measures_oxford_i["policy_6"][int(t)] +
-                    _b7 * measures_oxford_i["policy_7"][int(t)])
-            ))
+            inside_arctan = (
+                    _b1 * policy_data_us_only_tuple["policy_1"][int(t)] +
+                    _b2 * policy_data_us_only_tuple["policy_2"][int(t)] +
+                    _b3 * policy_data_us_only_tuple["policy_3"][int(t)] +
+                    _b4 * policy_data_us_only_tuple["policy_4"][int(t)] +
+                    _b5 * policy_data_us_only_tuple["policy_5"][int(t)] +
+                    _b6 * policy_data_us_only_tuple["policy_6"][int(t)] +
+                    _b7 * policy_data_us_only_tuple["policy_7"][int(t)]
+            )
+            gamma_t = (2/np.pi) * np.arctan(inside_arctan * (t - _b0) / 20) + 1
             assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
             S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
             # Equations on main variables
@@ -223,7 +236,9 @@ def solve_best_params_and_predict(list_all_optimal_params):
 
 
 if __name__ == '__main__':
-    yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+    yesterday = "".join(str(datetime.now().date() - timedelta(days=3)).split("-"))
+    
+    policy_data_us_only = read_policy_data_us_only()
     # TODO: Find a way to make these paths automatic, whoever the user is...
     PATH_TO_FOLDER_DANGER_MAP = (
         "E:/Github/covid19orc/danger_map"
@@ -237,8 +252,6 @@ if __name__ == '__main__':
     popcountries = pd.read_csv(
         f"processed/Global/Population_Global.csv"
     )
-    measures_oxford = read_measures_oxford_data()
-    dict_df_measures_oxford = {}
     # TODO: Uncomment these and delete the line with pastparameters=None once 1st run in Python is done!
     # try:
     #     pastparameters = pd.read_csv(
@@ -281,17 +294,14 @@ if __name__ == '__main__':
         "p_h": 0.15
     }
     COUNTRIES_KEPT_CLUSTERING = [
-        'France', 'Turkey', 'India', 'Israel', 'Singapore', 'Indonesia', 'Iran', 'Brazil', 'Switzerland',
-        'Peru', 'Ireland', 'Austria', 'Netherlands', 'Sweden', 'Chile', 'Morocco', 'Moldova', 'Greece',
-        'Italy', 'Japan', 'Korea, South', 'Vietnam', 'Mongolia', 'Russia', 'Romania', 'United Arab Emirates',
-        'Serbia', 'South Africa', 'Spain', 'Germany', 'United Kingdom', 'Belgium', 'Portugal', 'Ecuador'
+        'US'
     ]
     for continent, country, province in zip(
             popcountries.Continent.tolist(),
             popcountries.Country.tolist(),
             popcountries.Province.tolist(),
     ):
-        if country not in COUNTRIES_KEPT_CLUSTERING:
+        if country not in COUNTRIES_KEPT_CLUSTERING or province not in ["California","New York","Massachusetts"]:
             continue  # TODO: Maybe not the right place to do this, but at least we're sure to only predict on those on which we have data
         country_sub = country.replace(" ", "_")
         province_sub = province.replace(" ", "_")
@@ -338,20 +348,6 @@ if __name__ == '__main__':
                         "PopulationD": PopulationD,
                         "PopulationCI": PopulationCI,
                     }
-                    measures_oxford_i = measures_oxford[
-                        (measures_oxford.CountryName == country) & (measures_oxford.Date >= date_day_since100)
-                    ].drop(["CountryName", "Date"], axis=1).reset_index(drop=True)
-                    measures_oxford_i.columns = [f"policy_{i+1}" for i in range(len(measures_oxford_i.columns))]
-                    length_to_complete_for_prediction = maxT - len(measures_oxford_i)
-                    df_to_append_measures_i = pd.DataFrame({
-                        f"policy_{i+1}": [
-                            measures_oxford_i.loc[len(measures_oxford_i)-1, f"policy_{i+1}"].item()
-                            for _ in range(length_to_complete_for_prediction)
-                        ]
-                        for i in range(len(measures_oxford_i.columns))
-                    })
-                    measures_oxford_i = pd.concat([measures_oxford_i, df_to_append_measures_i]).reset_index(drop=True)
-                    dict_df_measures_oxford[(continent, country, province)] = measures_oxford_i.to_dict()
                 else:
                     print(f"Not enough historical data (less than a week)" +
                           f"for Continent={continent}, Country={country} and Province={province}")
@@ -360,8 +356,8 @@ if __name__ == '__main__':
             continue
     
     # And now we add b_1, b_2, ..., b_9 since they are common to all regions in the world, so only need to appear once
-    list_all_params_fitted.extend([0, 0, 0, 0, 0, 0, 0, ])
-    list_all_bounds_fitted.extend([(-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), (-2, 2), ])
+    list_all_params_fitted.extend([0,0, 0, 0, 0, 0, 0, ])
+    list_all_bounds_fitted.extend([ (-2, 0), (-2, 0), (-2, 0), (-2, 0), (-2, 0), (-2, 0), (-2, 0), ])
     print("Finished preprocessing all files, starting modeling V3")
     # Modeling V3
     time_before = datetime.now()
@@ -374,7 +370,7 @@ if __name__ == '__main__':
         np.array(list_all_params_fitted),
         method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
         bounds=tuple(list_all_bounds_fitted),
-        options={'maxiter': 100, 'verbose': 3}
+        options={'maxiter': 1000, 'verbose': 3}
     ).x
     pool.close()
 
@@ -441,9 +437,14 @@ if __name__ == '__main__':
         fitcasesnd_j = dict_necessary_data_j_opt["fitcasesnd"]
         fitcasesd_j = dict_necessary_data_j_opt["fitcasesd"]
         mape_data_j = (
-                mape(fitcasesnd_j, x_sol_final_j[15, :len(fitcasesnd_j)]) +
-                mape(fitcasesd_j, x_sol_final_j[14, :len(fitcasesd_j)])
-        ) / 2
+                            mape(fitcasesnd_j, x_sol_final_j[15, :len(fitcasesnd_j)]) +
+                            mape(fitcasesd_j, x_sol_final_j[14, :len(fitcasesd_j)])
+                    ) / 2
+        mape_data_last_15_j = (
+                                    mape(fitcasesnd_j[-15:], x_sol_final_j[15, len(fitcasesnd_j) - 15: len(fitcasesnd_j)]) +
+                                    mape(fitcasesd_j[-15:], x_sol_final_j[14, len(fitcasesd_j) - 15: len(fitcasesd_j)])
+                            ) / 2
+        print("Total MAPE=", mape_data_j, "\t MAPE on last 15 days=", mape_data_last_15_j)
         df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data_j)
         list_df_global_parameters.append(df_parameters_cont_country_prov)
         # Creating the datasets for predictions of this (Continent, Country, Province)
@@ -454,27 +455,27 @@ if __name__ == '__main__':
         list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
         print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
 
-    today_date_str = "".join(str(datetime.now().date()).split("-"))
-    df_global_parameters = pd.concat(list_df_global_parameters)
-    df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
-    df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_today
-    )
-    # TODO: Discuss with website team how to save this file to visualize it and compare with historical data
-    df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-    df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_100_cases
-    )
-    df_global_predictions_since_100_cases.to_csv(
-        "./Global_Python_21042020.csv"
-    )
-    delphi_data_saver = DELPHIDataSaver(
-        path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
-        path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
-        df_global_parameters=df_global_parameters,
-        df_global_predictions_since_today=df_global_predictions_since_today,
-        df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
-    )
+    # today_date_str = "".join(str(datetime.now().date()).split("-"))
+    # df_global_parameters = pd.concat(list_df_global_parameters)
+    # df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
+    # df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
+    #     df_global_predictions_since_today
+    # )
+    # # TODO: Discuss with website team how to save this file to visualize it and compare with historical data
+    # df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
+    # df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
+    #     df_global_predictions_since_100_cases
+    # )
+    # df_global_predictions_since_100_cases.to_csv(
+    #     "./Global_Python_21042020.csv"
+    # )
+    # delphi_data_saver = DELPHIDataSaver(
+    #     path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
+    #     path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
+    #     df_global_parameters=df_global_parameters,
+    #     df_global_predictions_since_today=df_global_predictions_since_today,
+    #     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
+    # )
     # TODO: Uncomment when finished
     # delphi_data_saver.save_all_datasets(save_since_100_cases=False)
     print("Exported all 3 datasets to website & danger_map repositories")

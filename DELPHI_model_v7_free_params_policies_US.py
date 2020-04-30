@@ -15,12 +15,12 @@ import os
 import matplotlib.pyplot as plt
 from copy import deepcopy
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=4)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    #"E:/Github/covid19orc/danger_map/"
-    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    "4. COVID19_Global/covid19orc/danger_map/"
+    "E:/Github/covid19orc/danger_map/"
+    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    # "4. COVID19_Global/covid19orc/danger_map/"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data/"
@@ -156,7 +156,7 @@ for continent, country, province in zip(
             RecoverHD = 15  # Recovery Time when Hospitalized
             VentilatedD = 10  # Recovery Time when Ventilated
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
-            maxT = (datetime(2020, 7, 15) - date_day_since100).days + 1
+            maxT = (datetime(2020, 9, 15) - date_day_since100).days + 1
             p_v = 0.25  # Percentage of ventilated
             p_d = 0.2  # Percentage of infection cases detected.
             p_h = 0.15  # Percentage of detected cases hospitalized
