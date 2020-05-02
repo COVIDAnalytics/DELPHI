@@ -4,7 +4,7 @@ import numpy as np
 from datetime import datetime, timedelta
 from copy import deepcopy
 from itertools import compress
-import pickle
+import json
 
 time_dict = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
 
@@ -95,26 +95,26 @@ class DELPHIDataSaver:
         )
         with open(
                 self.PATH_TO_FOLDER_DANGER_MAP +
-                f'/predicted/US_Python_{today_date_str}_Scenarios_since_100_cases.pickle', 'wb'
+                f'/predicted/US_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
         ) as handle:
-            pickle.dump(dict_predictions_policies_US_since_100_cases, handle, protocol=pickle.HIGHEST_PROTOCOL)
+            json.dump(dict_predictions_policies_US_since_100_cases, handle)
 
         with open(
-                self.PATH_TO_FOLDER_DANGER_MAP + f'/predicted/US_Python_Scenarios_since_100_cases.pickle', 'wb'
+                self.PATH_TO_FOLDER_DANGER_MAP + f'/predicted/US_Python_Scenarios_since_100_cases.json', 'w'
         ) as handle:
-            pickle.dump(dict_predictions_policies_US_since_100_cases, handle, protocol=pickle.HIGHEST_PROTOCOL)
+            json.dump(dict_predictions_policies_US_since_100_cases, handle)
 
         if website:
             with open(
                 self.PATH_TO_WEBSITE_PREDICTED +
-                f'/predicted/US_Python_{today_date_str}_Scenarios_since_100_cases.pickle', 'wb'
+                f'/predicted/US_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
             ) as handle:
-                pickle.dump(dict_predictions_policies_US_since_100_cases, handle, protocol=pickle.HIGHEST_PROTOCOL)
+                json.dump(dict_predictions_policies_US_since_100_cases, handle)
 
             with open(
-                    self.PATH_TO_WEBSITE_PREDICTED + f'/predicted/US_Python_Scenarios_since_100_cases.pickle', 'wb'
+                    self.PATH_TO_WEBSITE_PREDICTED + f'/predicted/US_Python_Scenarios_since_100_cases.json', 'w'
             ) as handle:
-                pickle.dump(dict_predictions_policies_US_since_100_cases, handle, protocol=pickle.HIGHEST_PROTOCOL)
+                json.dump(dict_predictions_policies_US_since_100_cases, handle)
 
 
 class DELPHIDataCreator:

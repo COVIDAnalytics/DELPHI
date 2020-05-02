@@ -15,9 +15,9 @@ import matplotlib.pyplot as plt
 yesterday = "".join(str(datetime.now().date() - timedelta(days=4)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    "E:/Github/covid19orc/danger_map/"
-    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    # "4. COVID19_Global/covid19orc/danger_map/"
+    # "E:/Github/covid19orc/danger_map/"
+    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    "4. COVID19_Global/covid19orc/danger_map/"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data/"
@@ -252,17 +252,17 @@ for continent, country, province in zip(
 # Appending parameters, aggregations per country, per continent, and for the world
 # for predictions today & since 100
 today_date_str = "".join(str(datetime.now().date()).split("-"))
-list_df_global_predictions_since_today_scenarios = pd.concat(
+df_global_predictions_since_today_scenarios = pd.concat(
     list_df_global_predictions_since_today_scenarios
 ).reset_index(drop=True)
-list_df_global_predictions_since_100_cases_scenarios = pd.concat(
+df_global_predictions_since_100_cases_scenarios = pd.concat(
     list_df_global_predictions_since_100_cases_scenarios
 ).reset_index(drop=True)
 delphi_data_saver = DELPHIDataSaver(
     path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
     path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
-    df_global_predictions_since_today=list_df_global_predictions_since_today_scenarios,
-    df_global_predictions_since_100_cases=list_df_global_predictions_since_100_cases_scenarios,
+    df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
+    df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
 delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False)
 print("Exported all policy-dependent predictions for US states to website & danger_map repositories")
