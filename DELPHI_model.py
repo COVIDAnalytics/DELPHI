@@ -4,16 +4,18 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
-from DELPHI_utils import DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
+from DELPHI_utils import (
+    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
+)
 import dateutil.parser as dtparser
 import os
 
 yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    "E:/Github/covid19orc/danger_map"
-    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    # "4. COVID19_Global/covid19orc/danger_map"
+    # "E:/Github/covid19orc/danger_map"
+    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    "4. COVID19_Global/covid19orc/danger_map"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data"
@@ -22,13 +24,12 @@ os.chdir(PATH_TO_FOLDER_DANGER_MAP)
 popcountries = pd.read_csv(
     f"processed/Global/Population_Global.csv"
 )
-# TODO: Uncomment these and delete the line with pastparameters=None once 1st run in Python is done!
-# try:
-#     pastparameters = pd.read_csv(
-#         f"predicted/Parameters_Global_{yesterday}.csv"
-#     )
-# except:
-pastparameters = None
+try:
+    pastparameters = pd.read_csv(
+        f"predicted/Parameters_Global_Python_{yesterday}.csv"
+    )
+except:
+    pastparameters = None
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today = []
 list_df_global_predictions_since_100_cases = []
@@ -284,5 +285,5 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
 )
-delphi_data_saver.save_all_datasets(save_since_100_cases=False)
+delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
 print("Exported all 3 datasets to website & danger_map repositories")

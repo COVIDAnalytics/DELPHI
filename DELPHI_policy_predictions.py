@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
-from DELPHI_utils_v8 import (
+from DELPHI_utils import (
     DELPHIDataCreator, DELPHIDataSaver,
     get_initial_conditions, mape, read_policy_data_us_only,
     get_normalized_policy_shifts_and_current_policy
@@ -15,9 +15,9 @@ import matplotlib.pyplot as plt
 yesterday = "".join(str(datetime.now().date() - timedelta(days=4)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    # "E:/Github/covid19orc/danger_map/"
-    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    "4. COVID19_Global/covid19orc/danger_map/"
+    "E:/Github/covid19orc/danger_map/"
+    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    # "4. COVID19_Global/covid19orc/danger_map/"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data/"
