@@ -261,6 +261,7 @@ df_global_predictions_since_100_cases_scenarios = pd.concat(
 delphi_data_saver = DELPHIDataSaver(
     path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
     path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
+    df_global_parameters=None,
     df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )

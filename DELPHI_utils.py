@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+from typing import Union
 from copy import deepcopy
 from itertools import compress
 import json
@@ -13,7 +14,7 @@ class DELPHIDataSaver:
     def __init__(
             self, path_to_folder_danger_map: str,
             path_to_website_predicted: str,
-            df_global_parameters: pd.DataFrame,
+            df_global_parameters: Union[pd.DataFrame, None],
             df_global_predictions_since_today: pd.DataFrame,
             df_global_predictions_since_100_cases: pd.DataFrame,
     ):
@@ -65,10 +66,20 @@ class DELPHIDataSaver:
     @staticmethod
     def create_nested_dict_from_final_dataframe(df_predictions: pd.DataFrame) -> dict:
         dict_all_results = {}
+        default_policy = "Lockdown"
+        default_policy_enaction_time = "Now"
         for province in df_predictions.Province.unique():
             df_predictions_province = df_predictions[df_predictions.Province == province].reset_index(drop=True)
             dict_all_results[province] = {
                 "Day": sorted(list(df_predictions_province.Day.unique())),
+                "Total Detected True": df_predictions_province[
+                    (df_predictions_province.Policy == default_policy)
+                    & (df_predictions_province.Time == default_policy_enaction_time)
+                    ].sort_values("Day")["Total Detected True"].tolist(),
+                "Total Detected Deaths True": df_predictions_province[
+                    (df_predictions_province.Policy == default_policy)
+                    & (df_predictions_province.Time == default_policy_enaction_time)
+                    ].sort_values("Day")["Total Detected Deaths True"].tolist(),
             }
             dict_all_results[province].update({
                 policy: {
@@ -77,18 +88,10 @@ class DELPHIDataSaver:
                             (df_predictions_province.Policy == policy)
                             & (df_predictions_province.Time == policy_enaction_time)
                         ].sort_values("Day")["Total Detected"].tolist(),
-                        "Total Detected True": df_predictions_province[
-                            (df_predictions_province.Policy == policy)
-                            & (df_predictions_province.Time == policy_enaction_time)
-                        ].sort_values("Day")["Total Detected True"].tolist(),
                         "Total Detected Deaths": df_predictions_province[
                             (df_predictions_province.Policy == policy)
                             & (df_predictions_province.Time == policy_enaction_time)
                         ].sort_values("Day")["Total Detected Deaths"].tolist(),
-                        "Total Detected Deaths True": df_predictions_province[
-                            (df_predictions_province.Policy == policy)
-                            & (df_predictions_province.Time == policy_enaction_time)
-                        ].sort_values("Day")["Total Detected Deaths True"].tolist(),
                     }
                     for policy_enaction_time in df_predictions_province.Time.unique()
                 }
