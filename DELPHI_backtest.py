@@ -287,5 +287,9 @@ for continent, country, province in zip(
 today_date_str = "".join(str(datetime.now().date()).split("-"))
 df_backtest_performance = pd.concat(list_df_backtest_performance).reset_index(drop=True)
 df_backtest_performance_final = add_aggregations_backtest(df_backtest_performance)
-df_backtest_performance_final.to_csv("./df_backtest_performance.csv", index=False)
+df_backtest_performance_final.to_csv(
+    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    f"4. COVID19_Global/DELPHI/backtesting/{today_date_str}_backtest_performance_python.csv",
+    index=False
+)
 print("Exported backtest results to danger_map repository")

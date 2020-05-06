@@ -614,9 +614,9 @@ def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataF
     ].mean().reset_index()
     columns_nan = ["country", "province", "train_start_date", "train_end_date", "test_start_date", "test_end_date"]
     for col in columns_nan:
-        df_temp_continent[col] = np.nan
+        df_temp_continent[col] = "None"
     for col in columns_nan[1:]:
-        df_temp_country[col] = np.nan
+        df_temp_country[col] = "None"
 
     all_columns = [
         "continent", "country", "province", "train_start_date", "train_end_date",
@@ -628,5 +628,7 @@ def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataF
     df_backtest_perf_final = pd.concat([df_backtest_performance, df_temp_continent, df_temp_country]).sort_values(
         ["continent", "country", "province"]
     ).reset_index(drop=True)
+    for col in ["train_mape_cases", "train_mape_deaths", "test_mape_cases", "test_mape_deaths"]:
+        df_backtest_perf_final[col] = df_backtest_perf_final[col].round(3)
 
     return df_backtest_perf_final
