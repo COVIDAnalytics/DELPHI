@@ -24,25 +24,25 @@ class DELPHIDataSaver:
         today_date_str = "".join(str(datetime.now().date()).split("-"))
         # Save parameters
         self.df_global_parameters.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_Python_{today_date_str}.csv"
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
         )
         self.df_global_parameters.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_Python_{today_date_str}.csv"
+            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
         )
         # Save predictions since today
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_Python_{today_date_str}.csv"
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_{today_date_str}.csv", index=False
         )
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Python_{today_date_str}.csv"
+            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_{today_date_str}.csv", index=False
         )
         if save_since_100_cases:
             # Save predictions since 100 cases
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}.csv"
+                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}.csv", index=False
             )
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_{today_date_str}.csv"
+                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_{today_date_str}.csv", index=False
             )
 
 
