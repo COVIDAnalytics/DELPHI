@@ -4,35 +4,36 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
-from DELPHI_utils import DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
+from DELPHI_utils import (
+    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
+)
 import dateutil.parser as dtparser
 import os
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    "E:/Github/covid19orc/danger_map"
-    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    # "4. COVID19_Global/covid19orc/danger_map"
+    # "E:/Github/covid19orc/danger_map"
+    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    "4. COVID19_Global/covid19orc/danger_map"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data"
 )
-os.chdir(PATH_TO_FOLDER_DANGER_MAP)
 popcountries = pd.read_csv(
-    f"processed/Global/Population_Global.csv"
+    PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
 )
-# TODO: Uncomment these and delete the line with pastparameters=None once 1st run in Python is done!
-# try:
-#     pastparameters = pd.read_csv(
-#         f"predicted/Parameters_Global_{yesterday}.csv"
-#     )
-# except:
-pastparameters = None
+try:
+    pastparameters = pd.read_csv(
+        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_Python_{yesterday}.csv"
+    )
+except:
+    pastparameters = None
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today = []
 list_df_global_predictions_since_100_cases = []
 list_df_global_parameters = []
+obj_value = 0
 for continent, country, province in zip(
         popcountries.Continent.tolist(),
         popcountries.Country.tolist(),
@@ -42,19 +43,26 @@ for continent, country, province in zip(
     province_sub = province.replace(" ", "_")
     if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
         totalcases = pd.read_csv(
-            f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
+            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
         if totalcases.day_since100.max() < 0:
             print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
             continue
+        print(country + ", " + province)
         if pastparameters is not None:
             parameter_list_total = pastparameters[
                 (pastparameters.Country == country) &
                 (pastparameters.Province == province)
-            ]
+            ].reset_index(drop=True)
             if len(parameter_list_total) > 0:
-                parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
-                parameter_list = parameter_list_line[5:]
+                columns_of_interest = [
+                    "Data Start Date", "Infection Rate", "Median Day of Action", "Rate of Action",
+                    "Rate of Death", "Mortality Rate", "Internal Parameter 1", "Internal Parameter 2"
+                ]
+                parameter_list_line = parameter_list_total.loc[
+                    len(parameter_list_total)-1, columns_of_interest
+                ].values.tolist()
+                parameter_list = parameter_list_line[1:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
                 param_list_lower = [x - 0.05 * abs(x) for x in parameter_list]
                 param_list_upper = [x + 0.05 * abs(x) for x in parameter_list]
@@ -62,9 +70,9 @@ for continent, country, province in zip(
                     [(lower, upper)
                      for lower, upper in zip(param_list_lower, param_list_upper)]
                 )
-                date_day_since100 = pd.to_datetime(parameter_list_line[3])
+                date_day_since100 = pd.to_datetime(parameter_list_line[0])
                 validcases = totalcases[[
-                    dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
+                    dtparser.parse(x) >= dtparser.parse(parameter_list_line[0])
                     for x in totalcases.date
                 ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
@@ -73,7 +81,7 @@ for continent, country, province in zip(
                 bounds_params = (
                     (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
                 )
-                date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
+                date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
                 validcases = totalcases[totalcases.day_since100 >= 0][
                     ["day_since100", "case_cnt", "death_cnt"]
                 ].reset_index(drop=True)
@@ -83,7 +91,7 @@ for continent, country, province in zip(
             bounds_params = (
                 (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
             )
-            date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].item())
+            date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
             validcases = totalcases[totalcases.day_since100 >= 0][
                 ["day_since100", "case_cnt", "death_cnt"]
             ].reset_index(drop=True)
@@ -95,7 +103,7 @@ for continent, country, province in zip(
             DetectD = 2
             PopulationT = popcountries[
                 (popcountries.Country == country) & (popcountries.Province == province)
-            ].pop2016.item()
+            ].pop2016.iloc[-1]
             # We do not scale
             N = PopulationT
             PopulationI = validcases.loc[0, "case_cnt"]
@@ -202,12 +210,16 @@ for continent, country, province in zip(
                     + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
                 )
                 return residuals_value
-            best_params = minimize(
+            output = minimize(
                 residuals_totalcases,
                 parameter_list,
                 method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
-                bounds=bounds_params
-            ).x
+                bounds=bounds_params,
+                options={'maxiter': 1000, 'verbose': 0}
+            )
+            best_params = output.x
+            obj_value = obj_value + output.fun
+            print(obj_value)
             t_predictions = [i for i in range(maxT)]
 
             def solve_best_params_and_predict(optimal_params):
@@ -235,6 +247,13 @@ for continent, country, province in zip(
                                 mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
                                 mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
                         ) / 2
+            # mape_data_2 = (
+            #         mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
+            #         mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
+            # ) / 2
+            # print(fitcasesd[-15:])
+            print(x_sol_final[14, len(fitcasesnd)-15:len(fitcasesnd)])
+            # print(mape_data_2)
             df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
             list_df_global_parameters.append(df_parameters_cont_country_prov)
             # Creating the datasets for predictions of this (Continent, Country, Province)
@@ -271,5 +290,5 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
 )
-delphi_data_saver.save_all_datasets(save_since_100_cases=False)
+delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
 print("Exported all 3 datasets to website & danger_map repositories")
