@@ -28,39 +28,43 @@ class DELPHIDataSaver:
         today_date_str = "".join(str(datetime.now().date()).split("-"))
         # Save parameters
         self.df_global_parameters.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_Python_{today_date_str}.csv"
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_Python_{today_date_str}.csv", index=False
         )
         # Save predictions since today
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_Python_{today_date_str}_Scenarios.csv"
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_Python_{today_date_str}_Scenarios.csv", index=False
         )
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_Python_Scenarios.csv"
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_Python_Scenarios.csv", index=False
         )
         if website:
             self.df_global_parameters.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_Python_{today_date_str}.csv"
+                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_Python_{today_date_str}.csv",
+                index=False
             )
             self.df_global_predictions_since_today.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Python_{today_date_str}_Scenarios.csv"
+                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Python_{today_date_str}_Scenarios.csv",
+                index=False
             )
             self.df_global_predictions_since_today.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Python_Scenarios.csv"
+                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Python_Scenarios.csv", index=False
             )
         if save_since_100_cases:
             # Save predictions since 100 cases
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}_Scenarios.csv"
+                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}_Scenarios.csv",
+                index=False
             )
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_Scenarios.csv"
+                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_Scenarios.csv", index=False
             )
             if website:
                 self.df_global_predictions_since_100_cases.to_csv(
-                    self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_{today_date_str}_Scenarios.csv"
+                    self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_{today_date_str}_Scenarios.csv",
+                    index=False
                 )
                 self.df_global_predictions_since_100_cases.to_csv(
-                    self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_Scenarios.csv"
+                    self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_Scenarios.csv", index=False
                 )
 
     @staticmethod
@@ -598,3 +602,31 @@ def get_normalized_policy_shifts_and_current_policy(
         dict_policies_shift[policy] = dict_policies_shift[policy] / normalize_val
 
     return dict_policies_shift, dict_last_policy
+
+
+def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataFrame:
+    df_temp = df_backtest_performance.copy()
+    df_temp_continent = df_temp.groupby("continent")[
+        "train_mape_cases", "train_mape_deaths", "test_mape_cases", "test_mape_deaths"
+    ].mean().reset_index()
+    df_temp_country = df_temp.groupby(["continent", "country"])[
+        "train_mape_cases", "train_mape_deaths", "test_mape_cases", "test_mape_deaths"
+    ].mean().reset_index()
+    columns_nan = ["country", "province", "train_start_date", "train_end_date", "test_start_date", "test_end_date"]
+    for col in columns_nan:
+        df_temp_continent[col] = np.nan
+    for col in columns_nan[1:]:
+        df_temp_country[col] = np.nan
+
+    all_columns = [
+        "continent", "country", "province", "train_start_date", "train_end_date",
+        "train_mape_cases", "train_mape_deaths", "test_start_date", "test_end_date",
+        "test_mape_cases", "test_mape_deaths"
+    ]
+    df_temp_continent = df_temp_continent[all_columns]
+    df_temp_country = df_temp_country[all_columns]
+    df_backtest_perf_final = pd.concat([df_backtest_performance, df_temp_continent, df_temp_country]).sort_values(
+        ["continent", "country", "province"]
+    ).reset_index(drop=True)
+
+    return df_backtest_perf_final

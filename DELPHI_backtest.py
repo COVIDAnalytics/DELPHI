@@ -5,7 +5,8 @@ from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from DELPHI_utils import (
-    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
+    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver,
+    get_initial_conditions, mape, add_aggregations_backtest
 )
 import dateutil.parser as dtparser
 import os
@@ -15,10 +16,10 @@ yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = (
     # "E:/Github/covid19orc/danger_map"
     "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    "4. COVID19_Global/covid19orc/danger_map"
+    "4. COVID19_Global/covid19orc/danger_map/"
 )
 PATH_TO_WEBSITE_PREDICTED = (
-    "E:/Github/website/data"
+    "E:/Github/website/data/"
 )
 popcountries = pd.read_csv(
     PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
@@ -30,9 +31,7 @@ try:
 except:
     pastparameters = None
 # Initalizing lists of the different dataframes that will be concatenated in the end
-list_df_global_predictions_since_today = []
-list_df_global_predictions_since_100_cases = []
-list_df_global_parameters = []
+list_df_backtest_performance = []
 obj_value = 0
 for continent, country, province in zip(
         popcountries.Continent.tolist(),
@@ -41,7 +40,7 @@ for continent, country, province in zip(
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
+    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
         totalcases = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
@@ -98,6 +97,8 @@ for continent, country, province in zip(
 
         # Now we start the modeling part:
         if len(validcases) > 7:
+            n_days_test = int(0.25 * len(validcases))
+            n_days_fitting = len(validcases) - n_days_test
             IncubeD = 5
             RecoverID = 10
             DetectD = 2
@@ -125,17 +126,21 @@ for continent, country, province in zip(
             RecoverHD = 15  # Recovery Time when Hospitalized
             VentilatedD = 10  # Recovery Time when Ventilated
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
-            maxT = (datetime(2020, 6, 15) - date_day_since100).days + 1
+            # maxT = (datetime(2020, 6, 15) - date_day_since100).days + 1
             p_v = 0.25  # Percentage of ventilated
             p_d = 0.2  # Percentage of infection cases detected.
             p_h = 0.15  # Percentage of detected cases hospitalized
             """ Fit on Total Cases """
-            t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
+            t_cases_all = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
+            t_cases_fit = t_cases_all[:n_days_fitting]
             validcases_nondeath = validcases["case_cnt"].tolist()
             validcases_death = validcases["death_cnt"].tolist()
-            balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
-            fitcasesnd = validcases_nondeath
-            fitcasesd = validcases_death
+            fitcasesnd = validcases_nondeath[:n_days_fitting]
+            fitcasesd = validcases_death[:n_days_fitting]
+            balance = fitcasesnd[-1] / max(fitcasesd[-1], 10) / 3
+            testcasesnd = validcases_nondeath[n_days_fitting:]
+            testcasesd = validcases_death[n_days_fitting:]
+            assert len(testcasesnd) == n_days_test
             GLOBAL_PARAMS_FIXED = (
                 N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v
             )
@@ -200,8 +205,8 @@ for continent, country, province in zip(
                 x_sol = solve_ivp(
                     fun=model_covid,
                     y0=x_0_cases,
-                    t_span=[t_cases[0], t_cases[-1]],
-                    t_eval=t_cases,
+                    t_span=[t_cases_fit[0], t_cases_fit[-1]],
+                    t_eval=t_cases_fit,
                     args=tuple(params),
                 ).y
                 weights = list(range(1, len(fitcasesnd) + 1))
@@ -219,8 +224,7 @@ for continent, country, province in zip(
             )
             best_params = output.x
             obj_value = obj_value + output.fun
-            print(obj_value)
-            t_predictions = [i for i in range(maxT)]
+            # print(obj_value)
 
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
@@ -231,8 +235,8 @@ for continent, country, province in zip(
                 x_sol_best = solve_ivp(
                     fun=model_covid,
                     y0=x_0_cases,
-                    t_span=[t_predictions[0], t_predictions[-1]],
-                    t_eval=t_predictions,
+                    t_span=[t_cases_all[0], t_cases_all[-1]],
+                    t_eval=t_cases_all,
                     args=tuple(optimal_params),
                 ).y
                 return x_sol_best
@@ -243,26 +247,34 @@ for continent, country, province in zip(
                 continent=continent, country=country, province=province,
             )
             # Creating the parameters dataset for this (Continent, Country, Province)
-            mape_data = (
-                                mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
-                                mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
-                        ) / 2
-            # mape_data_2 = (
-            #         mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
-            #         mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
-            # ) / 2
-            # print(fitcasesd[-15:])
-            print(x_sol_final[14, len(fitcasesnd)-15:len(fitcasesnd)])
-            # print(mape_data_2)
-            df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
-            list_df_global_parameters.append(df_parameters_cont_country_prov)
-            # Creating the datasets for predictions of this (Continent, Country, Province)
-            df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
-                data_creator.create_datasets_predictions()
+            mape_train_nondeath = (
+                    mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)])
             )
-            list_df_global_predictions_since_today.append(df_predictions_since_today_cont_country_prov)
-            list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
-            print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
+            mape_train_death = (
+                    mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
+            )
+            mape_test_nondeath = (
+                    mape(testcasesnd, x_sol_final[15, -len(testcasesnd):])
+            )
+            mape_test_death = (
+                    mape(testcasesd, x_sol_final[14, -len(testcasesd):])
+            )
+            df_backtest_performance_tuple = pd.DataFrame({
+                "continent": [continent],
+                "country": [country],
+                "province": [province],
+                "train_start_date": [date_day_since100],
+                "train_end_date": [date_day_since100 + timedelta(days=n_days_fitting - 1)],
+                "train_mape_cases": [mape_train_nondeath],
+                "train_mape_deaths": [mape_train_death],
+                "test_start_date": [date_day_since100 + timedelta(days=n_days_fitting)],
+                "test_end_date": [date_day_since100 + timedelta(days=n_days_fitting + n_days_test - 1)],
+                "test_mape_cases": [mape_test_nondeath],
+                "test_mape_deaths": [mape_test_death],
+            })
+            # Appending the dataset for backtest performance of this (Continent, Country, Province)
+            list_df_backtest_performance.append(df_backtest_performance_tuple)
+            print(f"Finished backtesting for Continent={continent}, Country={country} and Province={province}")
         else:  # len(validcases) <= 7
             print(f"Not enough historical data (less than a week)" +
                   f"for Continent={continent}, Country={country} and Province={province}")
@@ -273,22 +285,7 @@ for continent, country, province in zip(
 # Appending parameters, aggregations per country, per continent, and for the world
 # for predictions today & since 100
 today_date_str = "".join(str(datetime.now().date()).split("-"))
-df_global_parameters = pd.concat(list_df_global_parameters)
-df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
-df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
-    df_global_predictions_since_today
-)
-# TODO: Discuss with website team how to save this file to visualize it and compare with historical data
-df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
-    df_global_predictions_since_100_cases
-)
-delphi_data_saver = DELPHIDataSaver(
-    path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
-    path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
-    df_global_parameters=df_global_parameters,
-    df_global_predictions_since_today=df_global_predictions_since_today,
-    df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
-)
-delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
-print("Exported all 3 datasets to website & danger_map repositories")
+df_backtest_performance = pd.concat(list_df_backtest_performance).reset_index(drop=True)
+df_backtest_performance_final = add_aggregations_backtest(df_backtest_performance)
+df_backtest_performance_final.to_csv("./df_backtest_performance.csv", index=False)
+print("Exported backtest results to danger_map repository")
