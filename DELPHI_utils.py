@@ -729,4 +729,5 @@ def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataF
     for col in ["train_mape_cases", "train_mape_deaths", "test_mape_cases", "test_mape_deaths"]:
         df_backtest_perf_final[col] = df_backtest_perf_final[col].round(3)
 
+    df_backtest_perf_final.drop_duplicates(subset=["continent", "country", "province"], inplace=True)
     return df_backtest_perf_final
