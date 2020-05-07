@@ -10,7 +10,7 @@ from DELPHI_utils import (
 import dateutil.parser as dtparser
 import os
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
     # "E:/Github/covid19orc/danger_map"
@@ -55,17 +55,15 @@ for continent, country, province in zip(
                 (pastparameters.Province == province)
             ].reset_index(drop=True)
             if len(parameter_list_total) > 0:
-                columns_of_interest = [
-                    "Data Start Date", "Infection Rate", "Median Day of Action", "Rate of Action",
-                    "Rate of Death", "Mortality Rate", "Internal Parameter 1", "Internal Parameter 2"
-                ]
-                parameter_list_line = parameter_list_total.loc[
-                    len(parameter_list_total)-1, columns_of_interest
-                ].values.tolist()
-                parameter_list = parameter_list_line[1:]
+                parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
+                if param_MATHEMATICA:
+                    parameter_list = parameter_list_line[4:]
+                    parameter_list[3] = np.log(2) / parameter_list[3]
+                else:
+                    parameter_list = parameter_list_line[5:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                param_list_lower = [x - 0.05 * abs(x) for x in parameter_list]
-                param_list_upper = [x + 0.05 * abs(x) for x in parameter_list]
+                param_list_lower = [x - 0.1 * abs(x) for x in parameter_list]
+                param_list_upper = [x + 0.1 * abs(x) for x in parameter_list]
                 bounds_params = tuple(
                     [(lower, upper)
                      for lower, upper in zip(param_list_lower, param_list_upper)]

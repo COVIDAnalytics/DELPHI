@@ -28,14 +28,17 @@ class DELPHIDataSaver:
         today_date_str = "".join(str(datetime.now().date()).split("-"))
         # Save parameters
         self.df_global_parameters.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_Python_{today_date_str}.csv", index=False
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
+        )
+        self.df_global_parameters.to_csv(
+            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
         )
         # Save predictions since today
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_Python_{today_date_str}_Scenarios.csv", index=False
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_{today_date_str}.csv", index=False
         )
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_Python_Scenarios.csv", index=False
+            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_{today_date_str}.csv", index=False
         )
         if website:
             self.df_global_parameters.to_csv(
@@ -52,11 +55,10 @@ class DELPHIDataSaver:
         if save_since_100_cases:
             # Save predictions since 100 cases
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}_Scenarios.csv",
-                index=False
+                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}.csv", index=False
             )
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_Scenarios.csv", index=False
+                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_{today_date_str}.csv", index=False
             )
             if website:
                 self.df_global_predictions_since_100_cases.to_csv(
@@ -210,7 +212,7 @@ class DELPHIDataCreator:
             "Active Ventilated": active_ventilated,
         })
         return df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov
-    
+
     def create_datasets_predictions_scenario(
             self, policy="Lockdown", time=0, totalcases=None,
     ) -> (pd.DataFrame, pd.DataFrame):
@@ -297,10 +299,106 @@ class DELPHIDataCreator:
             df_predictions_since_100_cont_country_prov.drop(
                 ["country", "province", "date"], axis=1, inplace=True
             )
-        return df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov    
+        return df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov
 
 
 class DELPHIAggregations:
+    @staticmethod
+    def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
+        df = df[df["Province"] != "None"]
+        df_agg_country = df.groupby(["Continent", "Country", "Day"]).sum().reset_index()
+        df_agg_country["Province"] = "None"
+        df_agg_country = df_agg_country[[
+            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+        ]]
+        return df_agg_country
+
+    @staticmethod
+    def get_aggregation_per_continent(df: pd.DataFrame) -> pd.DataFrame:
+        df_agg_continent = df.groupby(["Continent", "Day"]).sum().reset_index()
+        df_agg_continent["Country"] = "None"
+        df_agg_continent["Province"] = "None"
+        df_agg_continent = df_agg_continent[[
+            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+        ]]
+        return df_agg_continent
+
+    @staticmethod
+    def get_aggregation_world(df: pd.DataFrame) -> pd.DataFrame:
+        df_agg_world = df.groupby("Day").sum().reset_index()
+        df_agg_world["Continent"] = "None"
+        df_agg_world["Country"] = "None"
+        df_agg_world["Province"] = "None"
+        df_agg_world = df_agg_world[[
+            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+        ]]
+        return df_agg_world
+
+    @staticmethod
+    def append_all_aggregations(df: pd.DataFrame) -> pd.DataFrame:
+        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(df)
+        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(df)
+        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world(df)
+        df = pd.concat([
+            df, df_agg_since_today_per_country,
+            df_agg_since_today_per_continent, df_agg_since_today_world
+        ])
+        df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
+        return df
+
+
+class DELPHIAggregations:
+    @staticmethod
+    def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
+        df = df[df["Province"] != "None"]
+        df_agg_country = df.groupby(["Continent", "Country", "Day"]).sum().reset_index()
+        df_agg_country["Province"] = "None"
+        df_agg_country = df_agg_country[[
+            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+        ]]
+        return df_agg_country
+
+    @staticmethod
+    def get_aggregation_per_continent(df: pd.DataFrame) -> pd.DataFrame:
+        df_agg_continent = df.groupby(["Continent", "Day"]).sum().reset_index()
+        df_agg_continent["Country"] = "None"
+        df_agg_continent["Province"] = "None"
+        df_agg_continent = df_agg_continent[[
+            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+        ]]
+        return df_agg_continent
+
+    @staticmethod
+    def get_aggregation_world(df: pd.DataFrame) -> pd.DataFrame:
+        df_agg_world = df.groupby("Day").sum().reset_index()
+        df_agg_world["Continent"] = "None"
+        df_agg_world["Country"] = "None"
+        df_agg_world["Province"] = "None"
+        df_agg_world = df_agg_world[[
+            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+        ]]
+        return df_agg_world
+
+    @staticmethod
+    def append_all_aggregations(df: pd.DataFrame) -> pd.DataFrame:
+        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(df)
+        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(df)
+        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world(df)
+        df = pd.concat([
+            df, df_agg_since_today_per_country,
+            df_agg_since_today_per_continent, df_agg_since_today_world
+        ])
+        df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
+        return df
+
+
+class DELPHIAggregationsPolicies:
     @staticmethod
     def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
         df = df[df["Province"] != "None"]
@@ -388,7 +486,7 @@ def create_fitting_data_from_validcases(validcases):
     return balance, fitcasesnd, fitcasesd
 
 
-def mape(y_true, y_pred): 
+def mape(y_true, y_pred):
     y_true, y_pred = np.array(y_true), np.array(y_pred)
     return np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
 
