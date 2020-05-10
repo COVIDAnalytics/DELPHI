@@ -605,9 +605,10 @@ def convert_dates_us_policies(x):
 
 def read_policy_data_us_only():
     data_path = (
-        "E:/Github/DELPHI/data_sandbox"
+         "E:/Github/DELPHI/data_sandbox"
         # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
         # "4. COVID19_Global/DELPHI/data_sandbox"
+        # "C:/Users/omars/Desktop/covid19_dimitris/DELPHI/data_sandbox"
     )
     df = pd.read_csv(data_path + "/25042020_raw_policy_data_US_only.csv")
     df.State = df.State.apply(lambda x: x[0].upper() + x[1:])
@@ -724,37 +725,97 @@ def read_policy_data_us_only():
 
 
 def read_measures_oxford_data():
-    measures = pd.read_csv('https://ocgptweb.azurewebsites.net/CSVDownload')
+    measures = pd.read_csv('https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv')
     filtr = ['CountryName', 'CountryCode', 'Date']
     target = ['ConfirmedCases', 'ConfirmedDeaths']
-    msr = ['S1_School closing',
-           'S2_Workplace closing', 'S3_Cancel public events',
-           'S4_Close public transport',
-           'S5_Public information campaigns',
-           'S6_Restrictions on internal movement',
-           'S7_International travel controls', 'S8_Fiscal measures',
-           'S9_Monetary measures',
-           'S10_Emergency investment in health care',
-           'S11_Investment in Vaccines']
+    msr = ['C1_School closing',
+           'C2_Workplace closing', 'C3_Cancel public events',
+           'C4_Restrictions on gatherings',
+           'C5_Close public transport',
+           'C6_Stay at home requirements',
+           'C7_Restrictions on internal movement', 'C8_International travel controls']
     measures = measures.loc[:, filtr + msr + target]
     measures['Date'] = measures['Date'].apply(lambda x: datetime.strptime(str(x), '%Y%m%d'))
     for col in target:
         measures[col] = measures[col].fillna(0)
-    measures = measures.loc[:, measures.isnull().mean() < 0.1]
+    #measures = measures.loc[:, measures.isnull().mean() < 0.1]
     msr = set(measures.columns).intersection(set(msr))
     measures = measures.fillna(0)
     for col in msr:
         measures[col] = measures[col].apply(lambda x: int(x > 0))
-    measures = measures[[
-        'CountryName', 'Date', 'S1_School closing', 'S2_Workplace closing', 'S3_Cancel public events',
-        'S4_Close public transport', 'S5_Public information campaigns',
-        'S6_Restrictions on internal movement', 'S7_International travel controls'
-    ]]
+    measures = measures[
+        ['CountryName', 'Date'] + list(sorted(msr))
+    ]
     measures["CountryName"] = measures.CountryName.replace({
         "United States": "US", "South Korea": "Korea, South", "Democratic Republic of Congo": "Congo (Kinshasa)",
         "Czech Republic": "Czechia", "Slovak Republic": "Slovakia",
     })
-    return measures
+    
+    measures = measures.fillna(0)
+    msr = ['No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
+           'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
+           'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown']
+    
+    measures['Restrict_Mass_Gatherings'] = [int(a or b or c) for a, b, c in zip(measures['C3_Cancel public events'], 
+             measures['C4_Restrictions on gatherings'], measures['C5_Close public transport'])]
+    measures['Others'] = [int(a or b or c) for a, b, c in zip(measures['C2_Workplace closing'],
+             measures['C7_Restrictions on internal movement'], measures['C8_International travel controls'])]
+    
+    del measures['C2_Workplace closing']
+    del measures['C3_Cancel public events']
+    del measures['C4_Restrictions on gatherings']
+    del measures['C5_Close public transport']
+    del measures['C7_Restrictions on internal movement']
+    del measures['C8_International travel controls']
+    
+    output = deepcopy(measures)
+    output['No_Measure'] = (measures.iloc[:, 2:].sum(axis=1) == 0).apply(lambda x: int(x))
+    output['Restrict_Mass_Gatherings'] = [int(a and b) for a, b in
+                                      zip(measures.iloc[:, 2:].sum(axis=1) == 1, measures['Restrict_Mass_Gatherings'] == 1)]
+    output['Mass_Gatherings_Authorized_But_Others_Restricted'] = [
+        int(a and b and c) for a, b, c in zip(
+            measures.iloc[:, 2:].sum(axis=1) > 0,
+            measures['Restrict_Mass_Gatherings'] == 0,
+            measures['C6_Stay at home requirements'] == 0,
+        )
+    ]
+    output['Restrict_Mass_Gatherings_and_Schools'] = [
+        int(a and b and c)
+        for a, b, c in zip(
+            measures.iloc[:, 2:].sum(axis=1) == 2,
+            measures['C1_School closing'] == 1,
+            measures['Restrict_Mass_Gatherings'] == 1,
+        )
+    ]
+    output['Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others'] = [
+        int(a and b and c and d) for a, b, c, d in zip(
+            measures.iloc[:, 2:].sum(axis=1) > 1,
+            measures['C1_School closing'] == 0,
+            measures['Restrict_Mass_Gatherings'] == 1,
+            measures['C6_Stay at home requirements'] == 0,
+        )
+    ]
+    
+    output['Restrict_Mass_Gatherings_and_Schools_and_Others'] = [
+        int(a and b and c and d) for a, b, c, d in zip(
+            measures.iloc[:, 2:].sum(axis=1) > 2,
+            measures['C1_School closing'] == 1,
+            measures['Restrict_Mass_Gatherings'] == 1,
+            measures['C6_Stay at home requirements'] == 0,
+        )
+    ]
+    output['Lockdown'] = (measures['C6_Stay at home requirements'] == 1).apply(lambda x: int(x))
+    
+    
+    output.rename(columns={'CountryName':'country',
+                          'Date':'date'}, 
+                 inplace=True)
+    
+    output['province'] = "None"
+    
+    output = output.loc[:, ['country', 'province', 'date'] + msr]
+    
+    return output
 
 
 def gamma_t(day, state, params_dic):
@@ -796,6 +857,58 @@ def get_normalized_policy_shifts_and_current_policy(
     dict_policies_shift = {
         policy_data_us_only.columns[3 + i]: policy_data_us_only[
                                                 policy_data_us_only.iloc[:, 3 + i] == 1
+                                            ].iloc[:, -1].mean()
+        for i in range(n_measures)
+    }
+    normalize_val = dict_policies_shift["No_Measure"]
+    for policy in dict_policies_shift.keys():
+        dict_policies_shift[policy] = dict_policies_shift[policy] / normalize_val
+
+    return dict_policies_shift, dict_last_policy
+
+def get_normalized_policy_shifts_and_current_policy_all_countries(
+        policy_data_countries: pd.DataFrame,
+        pastparameters: pd.DataFrame,
+):
+    dict_last_policy = {}
+    policy_list = ['No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
+                   'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
+                   'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown']
+    policy_data_countries['country_cl'] = policy_data_countries['country'].apply(
+        lambda x: x.replace(',', '').strip().lower()
+    )
+    
+    pastparameters_copy = deepcopy(pastparameters)
+    pastparameters_copy['Country'] = pastparameters_copy['Country'].apply(
+        lambda x: str(x).replace(',', '').strip().lower())
+    
+    params_countries = pastparameters_copy['Country']
+    params_countries = set(params_countries)
+    policy_data_countries_bis = policy_data_countries.query("country_cl in @params_countries")
+    countries_upper_set = set(policy_data_countries['country'])
+    
+    for country in countries_upper_set:
+        dict_last_policy[country] = list(compress(policy_list, (policy_data_countries.query('country == @country')[
+                                                                 policy_data_countries.query('country == @country')[
+                                                                     "date"] == policy_data_countries.query('country == @country').date.max()][
+                                                                 policy_list] == 1).values.flatten().tolist()))[0]
+    countries_set = set(policy_data_countries['country_cl'])
+    
+
+    params_dic = {}
+    
+    
+    for country in countries_set:
+        params_dic[country] = pastparameters_copy.query('Country == @country')[
+                ['Data Start Date', 'Median Day of Action', 'Rate of Action']].iloc[0]
+
+    policy_data_countries_bis['Gamma'] = [gamma_t(day, country, params_dic) for day, country in
+                                    zip(policy_data_countries_bis['date'], policy_data_countries_bis['country_cl'])]
+    
+    n_measures = policy_data_countries_bis.iloc[:, 3:-2].shape[1]
+    dict_policies_shift = {
+        policy_data_countries_bis.columns[3 + i]: policy_data_countries_bis[
+                                                policy_data_countries_bis.iloc[:, 3 + i] == 1
                                             ].iloc[:, -1].mean()
         for i in range(n_measures)
     }
