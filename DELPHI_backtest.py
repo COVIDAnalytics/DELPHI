@@ -25,10 +25,12 @@ popcountries = pd.read_csv(
 )
 try:
     pastparameters = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_Python_{yesterday}.csv"
+        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv"
     )
 except:
-    pastparameters = None
+    raise ValueError(
+        f"Need latest parameters to do proper backtesting; seems like they're not available for {yesterday}"
+    )
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_backtest_performance = []
 obj_value = 0
