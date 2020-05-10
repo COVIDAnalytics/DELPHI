@@ -13,9 +13,9 @@ import os
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    # "E:/Github/covid19orc/danger_map"
-    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    "4. COVID19_Global/covid19orc/danger_map"
+    "E:/Github/covid19orc/danger_map/"
+    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    # "4. COVID19_Global/covid19orc/danger_map"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data"
@@ -29,6 +29,7 @@ try:
     )
 except:
     pastparameters = None
+param_MATHEMATICA = False
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today = []
 list_df_global_predictions_since_100_cases = []
@@ -41,7 +42,7 @@ for continent, country, province in zip(
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    if os.path.exists(f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
+    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
         totalcases = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
@@ -68,9 +69,9 @@ for continent, country, province in zip(
                     [(lower, upper)
                      for lower, upper in zip(param_list_lower, param_list_upper)]
                 )
-                date_day_since100 = pd.to_datetime(parameter_list_line[0])
+                date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 validcases = totalcases[[
-                    dtparser.parse(x) >= dtparser.parse(parameter_list_line[0])
+                    dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
                     for x in totalcases.date
                 ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
