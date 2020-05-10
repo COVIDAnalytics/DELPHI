@@ -158,6 +158,79 @@ class DELPHIDataCreator:
         })
         return df_parameters
 
+    def create_df_backtest_performance_tuple(
+            self,
+            fitcasesnd,
+            fitcasesd,
+            testcasesnd,
+            testcasesd,
+            n_days_fitting,
+            n_days_test,
+    ):
+        # Cases Train
+        mae_train_nondeath, mape_train_nondeath = mae_and_mape(fitcasesnd, self.x_sol_final[15, :len(fitcasesnd)])
+        mse_train_nondeath = mse(fitcasesnd, self.x_sol_final[15, :len(fitcasesnd)])
+        sign_mape_train_nondeath = sign_mape(fitcasesnd, self.x_sol_final[15, :len(fitcasesnd)])
+        # Deaths Train
+        mae_train_death, mape_train_death = mae_and_mape(fitcasesd, self.x_sol_final[14, :len(fitcasesd)])
+        mse_train_death = mse(fitcasesd, self.x_sol_final[14, :len(fitcasesd)])
+        sign_mape_train_death = sign_mape(fitcasesd, self.x_sol_final[14, :len(fitcasesd)])
+        # Cases Test
+        mae_test_nondeath, mape_test_nondeath = mae_and_mape(testcasesnd, self.x_sol_final[15, -len(testcasesnd):])
+        mse_test_nondeath = mse(testcasesnd, self.x_sol_final[15, -len(testcasesnd):])
+        sign_mape_test_nondeath = sign_mape(testcasesnd, self.x_sol_final[15, -len(testcasesnd):])
+        # Deaths Test
+        mae_test_death, mape_test_death = mae_and_mape(testcasesd, self.x_sol_final[14, -len(testcasesd):])
+        mse_test_death = mse(testcasesd, self.x_sol_final[14, -len(testcasesd):])
+        sign_mape_test_death = sign_mape(testcasesd, self.x_sol_final[14, -len(testcasesd):])
+        # MAPE on Daily Delta since last day of training for Cases
+        true_last_train_cases = fitcasesnd[-1]
+        pred_last_train_cases = self.x_sol_final[15, len(fitcasesnd)-1]
+        mape_daily_delta_cases = mape_daily_delta_since_last_train(
+            true_last_train_cases,
+            pred_last_train_cases,
+            testcasesnd,
+            self.x_sol_final[15, -len(testcasesnd):]
+        )
+        # MAPE on Daily Delta since last day of training for Deaths
+        true_last_train_deaths = fitcasesd[-1]
+        pred_last_train_deaths = self.x_sol_final[14, len(fitcasesd) - 1]
+        mape_daily_delta_deaths = mape_daily_delta_since_last_train(
+            true_last_train_deaths,
+            pred_last_train_deaths,
+            testcasesd,
+            self.x_sol_final[14, -len(testcasesd):]
+        )
+        # Create dataframe with all metrics
+        df_backtest_performance_tuple = pd.DataFrame({
+            "continent": [self.continent],
+            "country": [self.country],
+            "province": [self.province],
+            "train_start_date": [self.date_day_since100],
+            "train_end_date": [self.date_day_since100 + timedelta(days=n_days_fitting - 1)],
+            "train_mape_cases": [mape_train_nondeath],
+            "train_mape_deaths": [mape_train_death],
+            "train_sign_mpe_cases": [sign_mape_train_nondeath],
+            "train_sign_mpe_deaths": [sign_mape_train_death],
+            "train_mae_cases": [mae_train_nondeath],
+            "train_mae_deaths": [mae_train_death],
+            "train_mse_cases": [mse_train_nondeath],
+            "train_mse_deaths": [mse_train_death],
+            "test_start_date": [self.date_day_since100 + timedelta(days=n_days_fitting)],
+            "test_end_date": [self.date_day_since100 + timedelta(days=n_days_fitting + n_days_test - 1)],
+            "test_mape_cases": [mape_test_nondeath],
+            "test_mape_deaths": [mape_test_death],
+            "test_sign_mpe_cases": [sign_mape_test_nondeath],
+            "test_sign_mpe_deaths": [sign_mape_test_death],
+            "test_mae_cases": [mae_test_nondeath],
+            "test_mae_deaths": [mae_test_death],
+            "test_mse_cases": [mse_test_nondeath],
+            "test_mse_deaths": [mse_test_death],
+            "mape_daily_delta_cases": [mape_daily_delta_cases],
+            "mape_daily_delta_deaths": [mape_daily_delta_deaths],
+        })
+        return df_backtest_performance_tuple
+
     def create_datasets_predictions(self) -> (pd.DataFrame, pd.DataFrame):
         n_days_btw_today_since_100 = (datetime.now() - self.date_day_since100).days
         n_days_since_today = self.x_sol_final.shape[1] - n_days_btw_today_since_100
@@ -486,9 +559,40 @@ def create_fitting_data_from_validcases(validcases):
     return balance, fitcasesnd, fitcasesd
 
 
+def sign_mape(y_true, y_pred):
+    # Mean Percentage Error, without the absolute value
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    mpe = np.mean((y_true - y_pred)[y_true > 0] / y_true[y_true > 0]) * 100
+    sign = np.sign(mpe)
+    return sign
+
+
+def mape_daily_delta_since_last_train(true_last_train, pred_last_train, y_true, y_pred):
+    delta_true = np.array([y_true_i - true_last_train for y_true_i in y_true])
+    delta_pred = np.array([y_pred_i - pred_last_train for y_pred_i in y_pred])
+    mape_daily_delta = np.mean(
+        np.abs(delta_true - delta_pred)[delta_true > 0]/delta_true[delta_true > 0]
+    ) * 100
+    return mape_daily_delta
+
+
+def mse(y_true, y_pred):
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    mse = np.mean((y_true - y_pred)**2)
+    return mse
+
+
+def mae_and_mape(y_true, y_pred):
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    mae = np.mean(np.abs((y_true - y_pred)))
+    mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
+    return mae, mape
+
+
 def mape(y_true, y_pred):
     y_true, y_pred = np.array(y_true), np.array(y_pred)
-    return np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
+    mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
+    return mape
 
 
 def convert_dates_us_policies(x):
@@ -703,31 +807,52 @@ def get_normalized_policy_shifts_and_current_policy(
 
 
 def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataFrame:
+
     df_temp = df_backtest_performance.copy()
     df_temp_continent = df_temp.groupby("continent")[
-        "train_mape_cases", "train_mape_deaths", "test_mape_cases", "test_mape_deaths"
+        "train_mape_cases", "train_mape_deaths", "train_mae_cases", 
+        "train_mae_deaths", "train_mse_cases", "train_mse_deaths",
+        "test_mape_cases", "test_mape_deaths", "test_mae_cases", 
+        "test_mae_deaths", "test_mse_cases", "test_mse_deaths",
+        "mape_daily_delta_cases", "mape_daily_delta_deaths",
     ].mean().reset_index()
     df_temp_country = df_temp.groupby(["continent", "country"])[
-        "train_mape_cases", "train_mape_deaths", "test_mape_cases", "test_mape_deaths"
+        "train_mape_cases", "train_mape_deaths", "train_mae_cases",
+        "train_mae_deaths", "train_mse_cases", "train_mse_deaths",
+        "test_mape_cases", "test_mape_deaths", "test_mae_cases",
+        "test_mae_deaths", "test_mse_cases", "test_mse_deaths",
+        "mape_daily_delta_cases", "mape_daily_delta_deaths",
     ].mean().reset_index()
-    columns_nan = ["country", "province", "train_start_date", "train_end_date", "test_start_date", "test_end_date"]
+    columns_nan = [
+        "country", "province", "train_start_date", "train_end_date", "test_start_date", "test_end_date",
+        "train_sign_mpe_cases", "train_sign_mpe_deaths", "test_sign_mpe_cases", "test_sign_mpe_deaths",
+    ]
     for col in columns_nan:
         df_temp_continent[col] = "None"
     for col in columns_nan[1:]:
         df_temp_country[col] = "None"
 
     all_columns = [
-        "continent", "country", "province", "train_start_date", "train_end_date",
-        "train_mape_cases", "train_mape_deaths", "test_start_date", "test_end_date",
-        "test_mape_cases", "test_mape_deaths"
+        "continent", "country", "province", "train_start_date", "train_end_date", "train_mape_cases",
+        "train_mape_deaths", "train_sign_mpe_cases", "train_sign_mpe_deaths", "train_mae_cases", "train_mae_deaths",
+        "train_mse_cases", "train_mse_deaths", "test_start_date", "test_end_date", "test_mape_cases",
+        "test_mape_deaths", "test_sign_mpe_cases", "test_sign_mpe_deaths", "test_mae_cases", "test_mae_deaths",
+        "test_mse_cases", "test_mse_deaths", "mape_daily_delta_cases", "mape_daily_delta_deaths",
     ]
     df_temp_continent = df_temp_continent[all_columns]
     df_temp_country = df_temp_country[all_columns]
     df_backtest_perf_final = pd.concat([df_backtest_performance, df_temp_continent, df_temp_country]).sort_values(
         ["continent", "country", "province"]
     ).reset_index(drop=True)
-    for col in ["train_mape_cases", "train_mape_deaths", "test_mape_cases", "test_mape_deaths"]:
+    for col in [
+        "train_mape_deaths", "train_mae_cases", "train_mae_deaths",
+        "train_mse_cases", "train_mse_deaths", "test_mape_cases", "test_mape_deaths",
+        "test_mae_cases", "test_mae_deaths", "test_mse_cases", "test_mse_deaths",
+        "mape_daily_delta_cases", "mape_daily_delta_deaths",
+
+    ]:
         df_backtest_perf_final[col] = df_backtest_perf_final[col].round(3)
 
     df_backtest_perf_final.drop_duplicates(subset=["continent", "country", "province"], inplace=True)
+    df_backtest_perf_final.reset_index(drop=True, inplace=True)
     return df_backtest_perf_final

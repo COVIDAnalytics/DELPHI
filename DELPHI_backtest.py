@@ -5,13 +5,12 @@ from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from DELPHI_utils import (
-    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver,
-    get_initial_conditions, mape, add_aggregations_backtest
+    DELPHIDataCreator, get_initial_conditions, add_aggregations_backtest,
 )
 import dateutil.parser as dtparser
 import os
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
     # "E:/Github/covid19orc/danger_map"
@@ -96,8 +95,8 @@ for continent, country, province in zip(
             ].reset_index(drop=True)
 
         # Now we start the modeling part:
-        if len(validcases) > 7:
-            n_days_test = int(0.25 * len(validcases))
+        if len(validcases) > 30:  # Cuz otherwise less train than testing data...
+            n_days_test = 15  # Set as default
             n_days_fitting = len(validcases) - n_days_test
             IncubeD = 5
             RecoverID = 10
@@ -246,38 +245,20 @@ for continent, country, province in zip(
                 x_sol_final=x_sol_final, date_day_since100=date_day_since100, best_params=best_params,
                 continent=continent, country=country, province=province,
             )
-            # Creating the parameters dataset for this (Continent, Country, Province)
-            mape_train_nondeath = (
-                    mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)])
+            df_backtest_performance_tuple = data_creator.create_df_backtest_performance_tuple(
+                fitcasesnd=fitcasesnd,
+                fitcasesd=fitcasesd,
+                testcasesnd=testcasesnd,
+                testcasesd=testcasesd,
+                n_days_fitting=n_days_fitting,
+                n_days_test=n_days_test,
             )
-            mape_train_death = (
-                    mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
-            )
-            mape_test_nondeath = (
-                    mape(testcasesnd, x_sol_final[15, -len(testcasesnd):])
-            )
-            mape_test_death = (
-                    mape(testcasesd, x_sol_final[14, -len(testcasesd):])
-            )
-            df_backtest_performance_tuple = pd.DataFrame({
-                "continent": [continent],
-                "country": [country],
-                "province": [province],
-                "train_start_date": [date_day_since100],
-                "train_end_date": [date_day_since100 + timedelta(days=n_days_fitting - 1)],
-                "train_mape_cases": [mape_train_nondeath],
-                "train_mape_deaths": [mape_train_death],
-                "test_start_date": [date_day_since100 + timedelta(days=n_days_fitting)],
-                "test_end_date": [date_day_since100 + timedelta(days=n_days_fitting + n_days_test - 1)],
-                "test_mape_cases": [mape_test_nondeath],
-                "test_mape_deaths": [mape_test_death],
-            })
             # Appending the dataset for backtest performance of this (Continent, Country, Province)
             list_df_backtest_performance.append(df_backtest_performance_tuple)
-            print(f"Finished backtesting for Continent={continent}, Country={country} and Province={province}")
+            print(f"Finished backtesting for Continent={continent}, Country={country}, Province={province}")
         else:  # len(validcases) <= 7
-            print(f"Not enough historical data (less than a week)" +
-                  f"for Continent={continent}, Country={country} and Province={province}")
+            print(f"Not enough historical data (less than 1 month)" +
+                  f"for Continent={continent}, Country={country}, Province={province}")
             continue
     else:  # file for that tuple (country, province) doesn't exist in processed files
         continue
@@ -288,8 +269,9 @@ today_date_str = "".join(str(datetime.now().date()).split("-"))
 df_backtest_performance = pd.concat(list_df_backtest_performance).reset_index(drop=True)
 df_backtest_performance_final = add_aggregations_backtest(df_backtest_performance)
 df_backtest_performance_final.to_csv(
-    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    f"4. COVID19_Global/DELPHI/backtesting/{today_date_str}_backtest_performance_python.csv",
+    f"./backtesting/{today_date_str}_backtest_performance_python.csv",
+    #"/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    #f"4. COVID19_Global/DELPHI/backtesting/{today_date_str}_backtest_performance_python.csv",
     index=False
 )
 print("Exported backtest results to danger_map repository")
