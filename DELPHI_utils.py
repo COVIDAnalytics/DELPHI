@@ -733,14 +733,19 @@ def read_measures_oxford_data():
            'C4_Restrictions on gatherings',
            'C5_Close public transport',
            'C6_Stay at home requirements',
-           'C7_Restrictions on internal movement', 'C8_International travel controls']
+           'C7_Restrictions on internal movement', 'C8_International travel controls'
+           , 'H1_Public information campaigns']
     measures = measures.loc[:, filtr + msr + target]
     measures['Date'] = measures['Date'].apply(lambda x: datetime.strptime(str(x), '%Y%m%d'))
     for col in target:
-        measures[col] = measures[col].fillna(0)
+        #measures[col] = measures[col].fillna(0)
+        measures[col] = measures.groupby('CountryName')[col].ffill()
+
     #measures = measures.loc[:, measures.isnull().mean() < 0.1]
     msr = set(measures.columns).intersection(set(msr))
-    measures = measures.fillna(0)
+    
+    #measures = measures.fillna(0)
+    measures = measures.dropna()
     for col in msr:
         measures[col] = measures[col].apply(lambda x: int(x > 0))
     measures = measures[
@@ -897,7 +902,7 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
 
     params_dic = {}
     
-    
+    countries_set = countries_set.intersection(params_countries)
     for country in countries_set:
         params_dic[country] = pastparameters_copy.query('Country == @country')[
                 ['Data Start Date', 'Median Day of Action', 'Rate of Action']].iloc[0]
