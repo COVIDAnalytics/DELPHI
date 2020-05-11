@@ -25,7 +25,7 @@ popcountries = pd.read_csv(
 )
 try:
     pastparameters = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_Python_{yesterday}.csv"
+        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv"
     )
 except:
     pastparameters = None
