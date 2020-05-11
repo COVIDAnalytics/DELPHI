@@ -2,7 +2,6 @@
 import pandas as pd
 import numpy as np
 from scipy.integrate import solve_ivp
-from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from DELPHI_utils import (
     DELPHIDataCreator, get_initial_conditions, add_aggregations_backtest,
@@ -10,7 +9,7 @@ from DELPHI_utils import (
 import dateutil.parser as dtparser
 import os
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
     # "E:/Github/covid19orc/danger_map"
@@ -191,42 +190,7 @@ for continent, country, province in zip(
                     dRdt, dDdt, dTHdt, dDVRdt, dDVDdt, dDDdt, dDTdt
                 ]
 
-            def residuals_totalcases(params):
-                """
-                Wanted to start with solve_ivp because figures will be faster to debug
-                params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
-                """
-                # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-                params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
-                x_0_cases = get_initial_conditions(
-                    params_fitted=params,
-                    global_params_fixed=GLOBAL_PARAMS_FIXED
-                )
-                x_sol = solve_ivp(
-                    fun=model_covid,
-                    y0=x_0_cases,
-                    t_span=[t_cases_fit[0], t_cases_fit[-1]],
-                    t_eval=t_cases_fit,
-                    args=tuple(params),
-                ).y
-                weights = list(range(1, len(fitcasesnd) + 1))
-                residuals_value = sum(
-                    np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
-                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
-                )
-                return residuals_value
-            output = minimize(
-                residuals_totalcases,
-                parameter_list,
-                method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
-                bounds=bounds_params,
-                options={'maxiter': 1000, 'verbose': 0}
-            )
-            best_params = output.x
-            obj_value = obj_value + output.fun
-            # print(obj_value)
-
+            best_params = parameter_list
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
                 x_0_cases = get_initial_conditions(
