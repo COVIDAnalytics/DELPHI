@@ -29,7 +29,7 @@ policy_data_countries = read_measures_oxford_data()
 #os.chdir(PATH_TO_FOLDER_DANGER_MAP)
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
 pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv")
-param_MATHEMATICA = True
+param_MATHEMATICA = False
 # True if we use the Mathematica run parameters, False if we use those from Python runs
 # This is because the pastparameters dataframe's columns are not in the same order in both cases
 
@@ -163,8 +163,8 @@ for continent, country, province in zip(
                             gamma_t = (
                                 gamma_t + min(
                                     (2-gamma_t_future) / (1 - dict_policies_shift[future_policy]),
-                                    (gamma_t_future / dict_policies_shift[dict_last_policy[province]]) *
-                                    (dict_policies_shift[future_policy] - dict_policies_shift[dict_last_policy[province]])
+                                    (gamma_t_future / dict_policies_shift[dict_last_policy[country]]) *
+                                    (dict_policies_shift[future_policy] - dict_policies_shift[dict_last_policy[country]])
                                 )
                             )
                         assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"

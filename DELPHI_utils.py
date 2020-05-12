@@ -350,7 +350,7 @@ class DELPHIDataCreator:
         })
         if totalcases is not None:  # Merging the historical values to both dataframes when available
             df_predictions_since_today_cont_country_prov = df_predictions_since_today_cont_country_prov.merge(
-                totalcases[["country", "province", "date", "case_cnt", "death_cnt"]],
+                totalcases[["country", "province", "date", "case_cnt", "death_cnt"]].fillna('None') ,
                 left_on=["Country", "Province", "Day"],
                 right_on=["country", "province", "date"],
                 how="left",
