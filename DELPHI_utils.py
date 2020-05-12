@@ -363,7 +363,7 @@ class DELPHIDataCreator:
                 ["country", "province", "date"], axis=1, inplace=True
             )
             df_predictions_since_100_cont_country_prov = df_predictions_since_100_cont_country_prov.merge(
-                totalcases[["country", "province", "date", "case_cnt", "death_cnt"]],
+                totalcases[["country", "province", "date", "case_cnt", "death_cnt"]].fillna('None'),
                 left_on=["Country", "Province", "Day"],
                 right_on=["country", "province", "date"],
                 how="left",
@@ -608,10 +608,10 @@ def convert_dates_us_policies(x):
 
 def read_policy_data_us_only():
     data_path = (
-         "E:/Github/DELPHI/data_sandbox"
+        # "E:/Github/DELPHI/data_sandbox"
         # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
         # "4. COVID19_Global/DELPHI/data_sandbox"
-        # "C:/Users/omars/Desktop/covid19_dimitris/DELPHI/data_sandbox"
+         "C:/Users/omars/Desktop/covid19_dimitris/DELPHI/data_sandbox"
     )
     df = pd.read_csv(data_path + "/25042020_raw_policy_data_US_only.csv")
     df.State = df.State.apply(lambda x: x[0].upper() + x[1:])

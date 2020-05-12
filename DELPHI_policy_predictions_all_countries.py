@@ -12,12 +12,12 @@ import dateutil.parser as dtparser
 import os
 import matplotlib.pyplot as plt
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=4)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=5)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
     "E:/Github/covid19orc/danger_map/"
     # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    # "4. COVID19_Global/covid19orc/danger_map"
+    # "4. COVID19_Global/covid19orc/danger_map/"
     #"C:/Users/omars/Desktop/covid19_dimitris/covid19orc/danger_map/"
 )
 PATH_TO_WEBSITE_PREDICTED = (
@@ -39,6 +39,9 @@ dict_policies_shift, dict_last_policy = get_normalized_policy_shifts_and_current
     policy_data_countries,
     pastparameters=pastparameters,
 )
+
+dict_policies_shift['Restrict_Mass_Gatherings_and_Schools'] = dict_policies_shift['Restrict_Mass_Gatherings_and_Schools_and_Others']
+
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today_scenarios = []
 list_df_global_predictions_since_100_cases_scenarios = []
@@ -51,7 +54,7 @@ for continent, country, province in zip(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if (
-            (os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"))
+            (os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv")) and (country in dict_last_policy.keys())
     ):
         totalcases = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
@@ -79,12 +82,14 @@ for continent, country, province in zip(
                     for x in totalcases.date
                 ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
-                raise ValueError(f"Must have past parameters for {country} and {province}")
+                print(f"Must have past parameters for {country} and {province}")
+                continue
         else:
-            raise ValueError("Must have past parameters")
+            print("Must have past parameters")
+            continue
 
         # Now we start the modeling part:
-        if len(validcases) > 7:
+        if len(validcases) > 15:
             IncubeD = 5
             RecoverID = 10
             DetectD = 2
@@ -267,5 +272,8 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
+
+#df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
+
 delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
