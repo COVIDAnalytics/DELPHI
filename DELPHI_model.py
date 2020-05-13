@@ -10,7 +10,7 @@ from DELPHI_utils import (
 import dateutil.parser as dtparser
 import os
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
     "E:/Github/covid19orc/danger_map/"
@@ -25,7 +25,7 @@ popcountries = pd.read_csv(
 )
 try:
     pastparameters = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_Python_{yesterday}.csv"
+        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv"
     )
 except:
     pastparameters = None

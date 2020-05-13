@@ -40,6 +40,9 @@ class DELPHIDataSaver:
         self.df_global_predictions_since_today.to_csv(
             self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_{today_date_str}.csv", index=False
         )
+        self.df_global_predictions_since_today.to_csv(
+            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global.csv", index=False
+        )
         if website:
             self.df_global_parameters.to_csv(
                 self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_Python_{today_date_str}.csv",
@@ -167,19 +170,19 @@ class DELPHIDataCreator:
         ]
         # Predictions
         total_detected = self.x_sol_final[15, :]  # DT
-        total_detected = [round(x, 0) for x in total_detected]
+        total_detected = [int(round(x, 0)) for x in total_detected]
         active_cases = (
                 self.x_sol_final[4, :] + self.x_sol_final[5, :] + self.x_sol_final[7, :] + self.x_sol_final[8, :]
         )  # DHR + DQR + DHD + DQD
-        active_cases = [round(x, 0) for x in active_cases]
+        active_cases = [int(round(x, 0)) for x in active_cases]
         active_hospitalized = self.x_sol_final[4, :] + self.x_sol_final[7, :]  # DHR + DHD
-        active_hospitalized = [round(x, 0) for x in active_hospitalized]
+        active_hospitalized = [int(round(x, 0)) for x in active_hospitalized]
         cumulative_hospitalized = self.x_sol_final[11, :]  # TH
-        cumulative_hospitalized = [round(x, 0) for x in cumulative_hospitalized]
+        cumulative_hospitalized = [int(round(x, 0)) for x in cumulative_hospitalized]
         total_detected_deaths = self.x_sol_final[14, :]  # DD
-        total_detected_deaths = [round(x, 0) for x in total_detected_deaths]
+        total_detected_deaths = [int(round(x, 0)) for x in total_detected_deaths]
         active_ventilated = self.x_sol_final[12, :] + self.x_sol_final[13, :]  # DVR + DVD
-        active_ventilated = [round(x, 0) for x in active_ventilated]
+        active_ventilated = [int(round(x, 0)) for x in active_ventilated]
         # Generation of the dataframe since today
         df_predictions_since_today_cont_country_prov = pd.DataFrame({
             "Continent": [self.continent for _ in range(n_days_since_today)],
@@ -224,19 +227,19 @@ class DELPHIDataCreator:
         ]
         # Predictions
         total_detected = self.x_sol_final[15, :]  # DT
-        total_detected = [round(x, 0) for x in total_detected]
+        total_detected = [int(round(x, 0)) for x in total_detected]
         active_cases = (
                 self.x_sol_final[4, :] + self.x_sol_final[5, :] + self.x_sol_final[7, :] + self.x_sol_final[8, :]
         )  # DHR + DQR + DHD + DQD
-        active_cases = [round(x, 0) for x in active_cases]
+        active_cases = [int(round(x, 0)) for x in active_cases]
         active_hospitalized = self.x_sol_final[4, :] + self.x_sol_final[7, :]  # DHR + DHD
-        active_hospitalized = [round(x, 0) for x in active_hospitalized]
+        active_hospitalized = [int(round(x, 0)) for x in active_hospitalized]
         cumulative_hospitalized = self.x_sol_final[11, :]  # TH
-        cumulative_hospitalized = [round(x, 0) for x in cumulative_hospitalized]
+        cumulative_hospitalized = [int(round(x, 0)) for x in cumulative_hospitalized]
         total_detected_deaths = self.x_sol_final[14, :]  # DD
-        total_detected_deaths = [round(x, 0) for x in total_detected_deaths]
+        total_detected_deaths = [int(round(x, 0)) for x in total_detected_deaths]
         active_ventilated = self.x_sol_final[12, :] + self.x_sol_final[13, :]  # DVR + DVD
-        active_ventilated = [round(x, 0) for x in active_ventilated]
+        active_ventilated = [int(round(x, 0)) for x in active_ventilated]
         # Generation of the dataframe since today
         df_predictions_since_today_cont_country_prov = pd.DataFrame({
             "Policy": [policy for _ in range(n_days_since_today)],
