@@ -7,7 +7,22 @@ from copy import deepcopy
 from itertools import compress
 import json
 
-time_dict = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
+TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
+MAPPING_STATE_CODE_TO_STATE_NAME ={
+    'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
+    'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'DC': 'District of Columbia',
+    'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho', 'IL': 'Illinois',
+    'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas', 'KY': 'Kentucky', 'LA': 'Louisiana',
+    'ME': 'Maine', 'MD': 'Maryland', 'MA': 'Massachusetts', 'MI': 'Michigan',
+    'MN': 'Minnesota', 'MS': 'Mississippi', 'MO': 'Missouri', 'MT': 'Montana',
+    'NE': 'Nebraska', 'NV': 'Nevada', 'NH': 'New Hampshire', 'NJ': 'New Jersey',
+    'NM': 'New Mexico', 'NY': 'New York', 'NC': 'North Carolina', 'ND': 'North Dakota',
+    'OH': 'Ohio', 'OK': 'Oklahoma', 'OR': 'Oregon', 'PA': 'Pennsylvania',
+    'RI': 'Rhode Island', 'SC': 'South Carolina', 'SD': 'South Dakota', 'TN': 'Tennessee',
+    'TX': 'Texas', 'UT': 'Utah', 'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington',
+    'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming', "AS": "American Samoa",
+    "GU": "Guam", "MP": "Northern Marianas", "PR": "Puerto Rico", "VI": "Virgin Islands"
+}
 
 
 class DELPHIDataSaver:
@@ -139,16 +154,24 @@ class DELPHIDataCreator:
     def __init__(
             self, x_sol_final: np.array, date_day_since100: datetime,
             best_params: np.array, continent: str, country: str, province: str,
+            testing_data_included: bool = False,
     ):
-        assert len(best_params) == 7, f"Expected 7 best parameters, got {len(best_params)}"
+        if testing_data_included:
+            assert len(best_params) == 9, f"Expected 9 best parameters, got {len(best_params)}"
+        else:
+            assert len(best_params) == 7, f"Expected 7 best parameters, got {len(best_params)}"
         self.x_sol_final = x_sol_final
         self.date_day_since100 = date_day_since100
         self.best_params = best_params
         self.continent = continent
         self.country = country
         self.province = province
+        self.testing_data_included = testing_data_included
 
     def create_dataset_parameters(self, mape) -> pd.DataFrame:
+        if self.testing_data_included:
+            print(f"Parameters dataset created without the testing data parameters" +
+                  " beta_0, beta_1: code will have to be modified")
         df_parameters = pd.DataFrame({
             "Continent": [self.continent], "Country": [self.country], "Province": [self.province],
             "Data Start Date": [self.date_day_since100], "MAPE": [mape], "Infection Rate": [self.best_params[0]],
@@ -316,7 +339,7 @@ class DELPHIDataCreator:
         # Generation of the dataframe since today
         df_predictions_since_today_cont_country_prov = pd.DataFrame({
             "Policy": [policy for _ in range(n_days_since_today)],
-            "Time": [time_dict[time] for _ in range(n_days_since_today)],
+            "Time": [TIME_DICT[time] for _ in range(n_days_since_today)],
             "Continent": [self.continent for _ in range(n_days_since_today)],
             "Country": [self.country for _ in range(n_days_since_today)],
             "Province": [self.province for _ in range(n_days_since_today)],
@@ -336,7 +359,7 @@ class DELPHIDataCreator:
         ]
         df_predictions_since_100_cont_country_prov = pd.DataFrame({
             "Policy": [policy for _ in range(len(all_dates_since_100))],
-            "Time": [time_dict[time] for _ in range(len(all_dates_since_100))],
+            "Time": [TIME_DICT[time] for _ in range(len(all_dates_since_100))],
             "Continent": [self.continent for _ in range(len(all_dates_since_100))],
             "Country": [self.country for _ in range(len(all_dates_since_100))],
             "Province": [self.province for _ in range(len(all_dates_since_100))],
@@ -524,6 +547,36 @@ class DELPHIAggregationsPolicies:
 
 def get_initial_conditions(params_fitted, global_params_fixed):
     alpha, days, r_s, r_dth, p_dth, k1, k2 = params_fitted
+    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
+    S_0 = (
+            (N - PopulationCI / p_d) -
+            (PopulationCI / p_d * (k1 + k2)) -
+            (PopulationR / p_d) -
+            (PopulationD / p_d)
+    )
+    E_0 = PopulationCI / p_d * k1
+    I_0 = PopulationCI / p_d * k2
+    AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+    DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
+    DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
+    AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
+    DHD_0 = PopulationCI * p_h * p_dth
+    DQD_0 = PopulationCI * (1 - p_h) * p_dth
+    R_0 = PopulationR / p_d
+    D_0 = PopulationD / p_d
+    TH_0 = PopulationCI * p_h
+    DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
+    DVD_0 = (PopulationCI * p_h * p_v) * p_dth
+    DD_0 = PopulationD
+    DT_0 = PopulationI
+    x_0_cases = [
+        S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
+        R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
+    ]
+    return x_0_cases
+
+def get_initial_conditions_with_testing(params_fitted, global_params_fixed):
+    alpha, days, r_s, r_dth, p_dth, k1, k2, beta_0, beta_1 = params_fitted
     N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
     S_0 = (
             (N - PopulationCI / p_d) -
@@ -981,3 +1034,33 @@ def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataF
     df_backtest_perf_final.drop_duplicates(subset=["continent", "country", "province"], inplace=True)
     df_backtest_perf_final.reset_index(drop=True, inplace=True)
     return df_backtest_perf_final
+
+
+def get_testing_data_us() -> pd.DataFrame:
+    """
+    :return: a DataFrame where the column of interest is 'testing_cnt_daily'
+    which gives the numbers of new daily tests per state
+    """
+    df_test = pd.read_csv("https://covidtracking.com/api/v1/states/daily.csv")
+    df_test["country"] = "US"
+    df_test["continent"] = "North America"
+    df_test["province"] = df_test.state.map(MAPPING_STATE_CODE_TO_STATE_NAME)
+    df_test.drop("state", axis=1, inplace=True)
+    df_test["date"] = df_test.date.apply(lambda x: str(x)[:4] + "-" + str(x)[4:6] + "-" + str(x)[6:])
+    df_test["date"] = pd.to_datetime(df_test.date)
+    df_test = df_test.sort_values(["province", "date"]).reset_index(drop=True)
+    df_test = df_test[[
+        "continent", "country", "province", "date", "totalTestResults"
+    ]]
+    df_test.rename(columns={"totalTestResults": "testing_cnt"}, inplace=True)
+    list_df_concat = []
+    for state in df_test.province.unique():
+        df_temp = df_test[df_test.province == state].reset_index(drop=True)
+        df_temp["testing_cnt_shift"] = df_temp.testing_cnt.shift(1)
+        df_temp["testing_cnt_daily"] = df_temp.testing_cnt - df_temp.testing_cnt_shift
+        df_temp.loc[0, "testing_cnt_daily"] = df_temp.loc[0, "testing_cnt"]
+        list_df_concat.append(df_temp)
+
+    df_test_final = pd.concat(list_df_concat).reset_index(drop=True)
+    df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
+    return df_test_final
