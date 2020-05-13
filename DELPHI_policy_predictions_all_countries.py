@@ -5,24 +5,27 @@ from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
 from DELPHI_utils import (
     DELPHIDataCreator, DELPHIDataSaver,
-    get_initial_conditions, mape, read_policy_data_us_only,
-    get_normalized_policy_shifts_and_current_policy
+    get_initial_conditions, mape,
+    read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries
 )
 import dateutil.parser as dtparser
 import os
 import matplotlib.pyplot as plt
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=4)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=5)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
     "E:/Github/covid19orc/danger_map/"
     # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
     # "4. COVID19_Global/covid19orc/danger_map/"
+    #"C:/Users/omars/Desktop/covid19_dimitris/covid19orc/danger_map/"
 )
 PATH_TO_WEBSITE_PREDICTED = (
-    "E:/Github/website/data/"
+    "E:/Github/website/data"
+    #"C:/Users/omars/Desktop/covid19_dimitris/predicted"
 )
-policy_data_us_only = read_policy_data_us_only()
+
+policy_data_countries = read_measures_oxford_data()
 #os.chdir(PATH_TO_FOLDER_DANGER_MAP)
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
 pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv")
@@ -32,10 +35,13 @@ param_MATHEMATICA = False
 
 # Get the policies shifts from the CART tree to compute different values of gamma(t)
 # Depending on the policy in place in the future to affect predictions
-dict_policies_shift, dict_last_policy = get_normalized_policy_shifts_and_current_policy(
-    policy_data_us_only=policy_data_us_only,
+dict_policies_shift, dict_last_policy = get_normalized_policy_shifts_and_current_policy_all_countries(
+    policy_data_countries,
     pastparameters=pastparameters,
 )
+
+dict_policies_shift['Restrict_Mass_Gatherings_and_Schools'] = dict_policies_shift['Restrict_Mass_Gatherings_and_Schools_and_Others']
+
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today_scenarios = []
 list_df_global_predictions_since_100_cases_scenarios = []
@@ -48,8 +54,7 @@ for continent, country, province in zip(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if (
-            (os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"))
-            and (country == "US")
+            (os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv")) and (country in dict_last_policy.keys())
     ):
         totalcases = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
@@ -77,12 +82,14 @@ for continent, country, province in zip(
                     for x in totalcases.date
                 ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
-                raise ValueError(f"Must have past parameters for {country} and {province}")
+                print(f"Must have past parameters for {country} and {province}")
+                continue
         else:
-            raise ValueError("Must have past parameters")
+            print("Must have past parameters")
+            continue
 
         # Now we start the modeling part:
-        if len(validcases) > 7:
+        if len(validcases) > 15:
             IncubeD = 5
             RecoverID = 10
             DetectD = 2
@@ -161,8 +168,8 @@ for continent, country, province in zip(
                             gamma_t = (
                                 gamma_t + min(
                                     (2-gamma_t_future) / (1 - dict_policies_shift[future_policy]),
-                                    (gamma_t_future / dict_policies_shift[dict_last_policy[province]]) *
-                                    (dict_policies_shift[future_policy] - dict_policies_shift[dict_last_policy[province]])
+                                    (gamma_t_future / dict_policies_shift[dict_last_policy[country]]) *
+                                    (dict_policies_shift[future_policy] - dict_policies_shift[dict_last_policy[country]])
                                 )
                             )
                         assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
@@ -265,5 +272,8 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
+
+#df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
+
 delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False)
-print("Exported all policy-dependent predictions for US states to website & danger_map repositories")
+print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")

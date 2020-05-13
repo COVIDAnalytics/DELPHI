@@ -5,17 +5,17 @@ from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from DELPHI_utils import (
-    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
+    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions_with_testing, mape, get_testing_data_us
 )
 import dateutil.parser as dtparser
 import os
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=3)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    "E:/Github/covid19orc/danger_map/"
-    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    # "4. COVID19_Global/covid19orc/danger_map/"
+    # "E:/Github/covid19orc/danger_map/"
+    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    "4. COVID19_Global/covid19orc/danger_map/"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data"
@@ -23,12 +23,14 @@ PATH_TO_WEBSITE_PREDICTED = (
 popcountries = pd.read_csv(
     PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
 )
+df_testing_us = get_testing_data_us()
 try:
     pastparameters = pd.read_csv(
         PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv"
     )
 except:
-    pastparameters = None
+    raise ValueError("Need pastparameters for this experimentation phase")
+    # pastparameters = None
 param_MATHEMATICA = False
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today = []
@@ -40,6 +42,8 @@ for continent, country, province in zip(
         popcountries.Country.tolist(),
         popcountries.Province.tolist(),
 ):
+    if country != "US":
+        continue
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
@@ -61,10 +65,10 @@ for continent, country, province in zip(
                     parameter_list = parameter_list_line[4:]
                     parameter_list[3] = np.log(2) / parameter_list[3]
                 else:
-                    parameter_list = parameter_list_line[5:]
+                    parameter_list = parameter_list_line[5:] + [0.2, 0.2]  # The 2 Parameters for testing equation
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                param_list_lower = [x - 0.1 * abs(x) for x in parameter_list]
-                param_list_upper = [x + 0.1 * abs(x) for x in parameter_list]
+                param_list_lower = [x - 0.1 * abs(x) for x in parameter_list[:-2]] + [0, 0]  # Lower bound for 2 params for testing is 0
+                param_list_upper = [x + 0.1 * abs(x) for x in parameter_list[:-2]] + [1, 1]  # Upper bound for 2 params for testing is 1
                 bounds_params = tuple(
                     [(lower, upper)
                      for lower, upper in zip(param_list_lower, param_list_upper)]
@@ -76,9 +80,9 @@ for continent, country, province in zip(
                 ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
                 # Otherwise use established lower/upper bounds
-                parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
+                parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3] + [0.2, 0.2]  # The 2 Parameters for testing equation
                 bounds_params = (
-                    (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+                    (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10), (0, 1), (0, 1)
                 )
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
                 validcases = totalcases[totalcases.day_since100 >= 0][
@@ -86,9 +90,9 @@ for continent, country, province in zip(
                 ].reset_index(drop=True)
         else:
             # Otherwise use established lower/upper bounds
-            parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
+            parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3] + [0.2, 0.2]  # The 2 Parameters for testing equation
             bounds_params = (
-                (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+                (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10), (0, 1), (0, 1)
             )
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
             validcases = totalcases[totalcases.day_since100 >= 0][
@@ -128,6 +132,12 @@ for continent, country, province in zip(
             p_v = 0.25  # Percentage of ventilated
             p_d = 0.2  # Percentage of infection cases detected.
             p_h = 0.15  # Percentage of detected cases hospitalized
+            testing_data_province = df_testing_us[
+                (df_testing_us.province == province) & (df_testing_us.date >= date_day_since100)
+            ]
+            dict_testing_data_province = {
+                t: daily_test for t, daily_test in enumerate(testing_data_province.testing_cnt_daily.tolist())
+            }
             """ Fit on Total Cases """
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
@@ -138,9 +148,15 @@ for continent, country, province in zip(
             GLOBAL_PARAMS_FIXED = (
                 N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v
             )
+            t_max_fitting = t_cases[-1]
+            daily_testing_percentage_growth = (
+                    ((dict_testing_data_province[t_max_fitting] - dict_testing_data_province[t_max_fitting - 1]) / dict_testing_data_province[t_max_fitting - 1]) +
+                    ((dict_testing_data_province[t_max_fitting - 1] - dict_testing_data_province[t_max_fitting - 2]) / dict_testing_data_province[t_max_fitting - 2]) +
+                    ((dict_testing_data_province[t_max_fitting - 2] - dict_testing_data_province[t_max_fitting - 3]) / dict_testing_data_province[t_max_fitting - 3])
+             ) / 3
 
             def model_covid(
-                    t, x, alpha, days, r_s, r_dth, p_dth, k1, k2
+                    t, x, alpha, days, r_s, r_dth, p_dth, k1, k2, beta_0, beta_1
             ):
                 """
                 SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -178,7 +194,11 @@ for continent, country, province in zip(
                 dDVRdt = r_d * (1 - p_dth) * p_d * p_h * p_v * I - r_rv * DVR
                 dDVDdt = r_d * p_dth * p_d * p_h * p_v * I - r_dth * DVD
                 dDDdt = r_dth * (DHD + DQD)
-                dDTdt = r_d * p_d * I
+                # dDTdt = r_d * p_d * I
+                if t <= t_max_fitting:
+                    dDTdt = dict_testing_data_province[int(t)] * (beta_0 + beta_1 * I / N)
+                else:
+                    dDTdt = dict_testing_data_province[t_max_fitting] * daily_testing_percentage_growth * (beta_0 + beta_1 * I / N)
                 return [
                     dSdt, dEdt, dIdt, dARdt, dDHRdt, dDQRdt, dADdt, dDHDdt, dDQDdt,
                     dRdt, dDdt, dTHdt, dDVRdt, dDVDdt, dDDdt, dDTdt
@@ -190,9 +210,12 @@ for continent, country, province in zip(
                 params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-                params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
-                x_0_cases = get_initial_conditions(
+                alpha, days, r_s, r_dth, p_dth, k1, k2, beta_0, beta_1 = params
+                params = (
+                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0),
+                    max(k1, 0), max(k2, 0), max(beta_0, 0), max(beta_1, 0)
+                )
+                x_0_cases = get_initial_conditions_with_testing(
                     params_fitted=params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
                 )
@@ -218,12 +241,12 @@ for continent, country, province in zip(
             )
             best_params = output.x
             obj_value = obj_value + output.fun
-            print(obj_value)
+            print(best_params)
             t_predictions = [i for i in range(maxT)]
 
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
-                x_0_cases = get_initial_conditions(
+                x_0_cases = get_initial_conditions_with_testing(
                     params_fitted=optimal_params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
                 )
@@ -239,20 +262,18 @@ for continent, country, province in zip(
             x_sol_final = solve_best_params_and_predict(best_params)
             data_creator = DELPHIDataCreator(
                 x_sol_final=x_sol_final, date_day_since100=date_day_since100, best_params=best_params,
-                continent=continent, country=country, province=province, testing_data_included=False
+                continent=continent, country=country, province=province, testing_data_included=True
             )
             # Creating the parameters dataset for this (Continent, Country, Province)
             mape_data = (
                                 mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
                                 mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
                         ) / 2
-            # mape_data_2 = (
-            #         mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
-            #         mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
-            # ) / 2
-            # print(fitcasesd[-15:])
-            print(x_sol_final[14, len(fitcasesnd)-15:len(fitcasesnd)])
-            # print(mape_data_2)
+            mape_data_2 = (
+                    mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
+                    mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
+            ) / 2
+            print(mape_data_2)
             df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
             list_df_global_parameters.append(df_parameters_cont_country_prov)
             # Creating the datasets for predictions of this (Continent, Country, Province)
@@ -289,5 +310,5 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
 )
-delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
+# delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
 print("Exported all 3 datasets to website & danger_map repositories")

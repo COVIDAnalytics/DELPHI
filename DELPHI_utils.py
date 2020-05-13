@@ -7,7 +7,22 @@ from copy import deepcopy
 from itertools import compress
 import json
 
-time_dict = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
+TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
+MAPPING_STATE_CODE_TO_STATE_NAME ={
+    'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
+    'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'DC': 'District of Columbia',
+    'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho', 'IL': 'Illinois',
+    'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas', 'KY': 'Kentucky', 'LA': 'Louisiana',
+    'ME': 'Maine', 'MD': 'Maryland', 'MA': 'Massachusetts', 'MI': 'Michigan',
+    'MN': 'Minnesota', 'MS': 'Mississippi', 'MO': 'Missouri', 'MT': 'Montana',
+    'NE': 'Nebraska', 'NV': 'Nevada', 'NH': 'New Hampshire', 'NJ': 'New Jersey',
+    'NM': 'New Mexico', 'NY': 'New York', 'NC': 'North Carolina', 'ND': 'North Dakota',
+    'OH': 'Ohio', 'OK': 'Oklahoma', 'OR': 'Oregon', 'PA': 'Pennsylvania',
+    'RI': 'Rhode Island', 'SC': 'South Carolina', 'SD': 'South Dakota', 'TN': 'Tennessee',
+    'TX': 'Texas', 'UT': 'Utah', 'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington',
+    'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming', "AS": "American Samoa",
+    "GU": "Guam", "MP": "Northern Marianas", "PR": "Puerto Rico", "VI": "Virgin Islands"
+}
 
 
 class DELPHIDataSaver:
@@ -142,16 +157,24 @@ class DELPHIDataCreator:
     def __init__(
             self, x_sol_final: np.array, date_day_since100: datetime,
             best_params: np.array, continent: str, country: str, province: str,
+            testing_data_included: bool = False,
     ):
-        assert len(best_params) == 7, f"Expected 7 best parameters, got {len(best_params)}"
+        if testing_data_included:
+            assert len(best_params) == 9, f"Expected 9 best parameters, got {len(best_params)}"
+        else:
+            assert len(best_params) == 7, f"Expected 7 best parameters, got {len(best_params)}"
         self.x_sol_final = x_sol_final
         self.date_day_since100 = date_day_since100
         self.best_params = best_params
         self.continent = continent
         self.country = country
         self.province = province
+        self.testing_data_included = testing_data_included
 
     def create_dataset_parameters(self, mape) -> pd.DataFrame:
+        if self.testing_data_included:
+            print(f"Parameters dataset created without the testing data parameters" +
+                  " beta_0, beta_1: code will have to be modified")
         df_parameters = pd.DataFrame({
             "Continent": [self.continent], "Country": [self.country], "Province": [self.province],
             "Data Start Date": [self.date_day_since100], "MAPE": [mape], "Infection Rate": [self.best_params[0]],
@@ -160,6 +183,82 @@ class DELPHIDataCreator:
             "Internal Parameter 1": [self.best_params[5]], "Internal Parameter 2": [self.best_params[6]],
         })
         return df_parameters
+
+    def create_df_backtest_performance_tuple(
+            self,
+            fitcasesnd,
+            fitcasesd,
+            testcasesnd,
+            testcasesd,
+            n_days_fitting,
+            n_days_test,
+    ):
+        # Cases Train
+        mae_train_nondeath, mape_train_nondeath = mae_and_mape(fitcasesnd, self.x_sol_final[15, :len(fitcasesnd)])
+        mse_train_nondeath = mse(fitcasesnd, self.x_sol_final[15, :len(fitcasesnd)])
+        sign_mape_train_nondeath = sign_mape(fitcasesnd, self.x_sol_final[15, :len(fitcasesnd)])
+        # Deaths Train
+        mae_train_death, mape_train_death = mae_and_mape(fitcasesd, self.x_sol_final[14, :len(fitcasesd)])
+        mse_train_death = mse(fitcasesd, self.x_sol_final[14, :len(fitcasesd)])
+        sign_mape_train_death = sign_mape(fitcasesd, self.x_sol_final[14, :len(fitcasesd)])
+        # Cases Test
+        mae_test_nondeath, mape_test_nondeath = mae_and_mape(testcasesnd, self.x_sol_final[15, -len(testcasesnd):])
+        mse_test_nondeath = mse(testcasesnd, self.x_sol_final[15, -len(testcasesnd):])
+        sign_mape_test_nondeath = sign_mape(testcasesnd, self.x_sol_final[15, -len(testcasesnd):])
+        # Deaths Test
+        mae_test_death, mape_test_death = mae_and_mape(testcasesd, self.x_sol_final[14, -len(testcasesd):])
+        mse_test_death = mse(testcasesd, self.x_sol_final[14, -len(testcasesd):])
+        sign_mape_test_death = sign_mape(testcasesd, self.x_sol_final[14, -len(testcasesd):])
+        # MAPE on Daily Delta since last day of training for Cases
+        true_last_train_cases = fitcasesnd[-1]
+        pred_last_train_cases = self.x_sol_final[15, len(fitcasesnd)-1]
+        mape_daily_delta_cases = mape_daily_delta_since_last_train(
+            true_last_train_cases,
+            pred_last_train_cases,
+            testcasesnd,
+            self.x_sol_final[15, -len(testcasesnd):]
+        )
+        # MAPE on Daily Delta since last day of training for Deaths
+        true_last_train_deaths = fitcasesd[-1]
+        pred_last_train_deaths = self.x_sol_final[14, len(fitcasesd) - 1]
+        mape_daily_delta_deaths = mape_daily_delta_since_last_train(
+            true_last_train_deaths,
+            pred_last_train_deaths,
+            testcasesd,
+            self.x_sol_final[14, -len(testcasesd):]
+        )
+        # Create dataframe with all metrics
+        df_backtest_performance_tuple = pd.DataFrame({
+            "continent": [self.continent],
+            "country": [self.country],
+            "province": [self.province],
+            "train_start_date": [(self.date_day_since100)],
+            "train_end_date": [self.date_day_since100 + timedelta(days=n_days_fitting - 1)],
+            "train_mape_cases": [mape_train_nondeath],
+            "train_mape_deaths": [mape_train_death],
+            "train_sign_mpe_cases": [sign_mape_train_nondeath],
+            "train_sign_mpe_deaths": [sign_mape_train_death],
+            "train_mae_cases": [mae_train_nondeath],
+            "train_mae_deaths": [mae_train_death],
+            "train_mse_cases": [mse_train_nondeath],
+            "train_mse_deaths": [mse_train_death],
+            "test_start_date": [self.date_day_since100 + timedelta(days=n_days_fitting)],
+            "test_end_date": [self.date_day_since100 + timedelta(days=n_days_fitting + n_days_test - 1)],
+            "test_mape_cases": [mape_test_nondeath],
+            "test_mape_deaths": [mape_test_death],
+            "test_sign_mpe_cases": [sign_mape_test_nondeath],
+            "test_sign_mpe_deaths": [sign_mape_test_death],
+            "test_mae_cases": [mae_test_nondeath],
+            "test_mae_deaths": [mae_test_death],
+            "test_mse_cases": [mse_test_nondeath],
+            "test_mse_deaths": [mse_test_death],
+            "mape_daily_delta_cases": [mape_daily_delta_cases],
+            "mape_daily_delta_deaths": [mape_daily_delta_deaths],
+        })
+        for col in ["train_start_date", "train_end_date", "test_start_date", "test_end_date"]:
+            df_backtest_performance_tuple[col] = df_backtest_performance_tuple[col].apply(lambda x: str(x.date()))
+
+        return df_backtest_performance_tuple
 
     def create_datasets_predictions(self) -> (pd.DataFrame, pd.DataFrame):
         n_days_btw_today_since_100 = (datetime.now() - self.date_day_since100).days
@@ -243,7 +342,7 @@ class DELPHIDataCreator:
         # Generation of the dataframe since today
         df_predictions_since_today_cont_country_prov = pd.DataFrame({
             "Policy": [policy for _ in range(n_days_since_today)],
-            "Time": [time_dict[time] for _ in range(n_days_since_today)],
+            "Time": [TIME_DICT[time] for _ in range(n_days_since_today)],
             "Continent": [self.continent for _ in range(n_days_since_today)],
             "Country": [self.country for _ in range(n_days_since_today)],
             "Province": [self.province for _ in range(n_days_since_today)],
@@ -263,7 +362,7 @@ class DELPHIDataCreator:
         ]
         df_predictions_since_100_cont_country_prov = pd.DataFrame({
             "Policy": [policy for _ in range(len(all_dates_since_100))],
-            "Time": [time_dict[time] for _ in range(len(all_dates_since_100))],
+            "Time": [TIME_DICT[time] for _ in range(len(all_dates_since_100))],
             "Continent": [self.continent for _ in range(len(all_dates_since_100))],
             "Country": [self.country for _ in range(len(all_dates_since_100))],
             "Province": [self.province for _ in range(len(all_dates_since_100))],
@@ -277,7 +376,7 @@ class DELPHIDataCreator:
         })
         if totalcases is not None:  # Merging the historical values to both dataframes when available
             df_predictions_since_today_cont_country_prov = df_predictions_since_today_cont_country_prov.merge(
-                totalcases[["country", "province", "date", "case_cnt", "death_cnt"]],
+                totalcases[["country", "province", "date", "case_cnt", "death_cnt"]].fillna('None') ,
                 left_on=["Country", "Province", "Day"],
                 right_on=["country", "province", "date"],
                 how="left",
@@ -290,7 +389,7 @@ class DELPHIDataCreator:
                 ["country", "province", "date"], axis=1, inplace=True
             )
             df_predictions_since_100_cont_country_prov = df_predictions_since_100_cont_country_prov.merge(
-                totalcases[["country", "province", "date", "case_cnt", "death_cnt"]],
+                totalcases[["country", "province", "date", "case_cnt", "death_cnt"]].fillna('None'),
                 left_on=["Country", "Province", "Day"],
                 right_on=["country", "province", "date"],
                 how="left",
@@ -479,6 +578,36 @@ def get_initial_conditions(params_fitted, global_params_fixed):
     ]
     return x_0_cases
 
+def get_initial_conditions_with_testing(params_fitted, global_params_fixed):
+    alpha, days, r_s, r_dth, p_dth, k1, k2, beta_0, beta_1 = params_fitted
+    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
+    S_0 = (
+            (N - PopulationCI / p_d) -
+            (PopulationCI / p_d * (k1 + k2)) -
+            (PopulationR / p_d) -
+            (PopulationD / p_d)
+    )
+    E_0 = PopulationCI / p_d * k1
+    I_0 = PopulationCI / p_d * k2
+    AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+    DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
+    DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
+    AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
+    DHD_0 = PopulationCI * p_h * p_dth
+    DQD_0 = PopulationCI * (1 - p_h) * p_dth
+    R_0 = PopulationR / p_d
+    D_0 = PopulationD / p_d
+    TH_0 = PopulationCI * p_h
+    DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
+    DVD_0 = (PopulationCI * p_h * p_v) * p_dth
+    DD_0 = PopulationD
+    DT_0 = PopulationI
+    x_0_cases = [
+        S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
+        R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
+    ]
+    return x_0_cases
+
 
 def create_fitting_data_from_validcases(validcases):
     validcases_nondeath = validcases["case_cnt"].tolist()
@@ -489,9 +618,40 @@ def create_fitting_data_from_validcases(validcases):
     return balance, fitcasesnd, fitcasesd
 
 
+def sign_mape(y_true, y_pred):
+    # Mean Percentage Error, without the absolute value
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    mpe = np.mean((y_true - y_pred)[y_true > 0] / y_true[y_true > 0]) * 100
+    sign = np.sign(mpe)
+    return sign
+
+
+def mape_daily_delta_since_last_train(true_last_train, pred_last_train, y_true, y_pred):
+    delta_true = np.array([y_true_i - true_last_train for y_true_i in y_true])
+    delta_pred = np.array([y_pred_i - pred_last_train for y_pred_i in y_pred])
+    mape_daily_delta = np.mean(
+        np.abs(delta_true - delta_pred)[delta_true > 0]/delta_true[delta_true > 0]
+    ) * 100
+    return mape_daily_delta
+
+
+def mse(y_true, y_pred):
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    mse = np.mean((y_true - y_pred)**2)
+    return mse
+
+
+def mae_and_mape(y_true, y_pred):
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    mae = np.mean(np.abs((y_true - y_pred)))
+    mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
+    return mae, mape
+
+
 def mape(y_true, y_pred):
     y_true, y_pred = np.array(y_true), np.array(y_pred)
-    return np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
+    mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
+    return mape
 
 
 def convert_dates_us_policies(x):
@@ -504,9 +664,10 @@ def convert_dates_us_policies(x):
 
 def read_policy_data_us_only():
     data_path = (
-        "E:/Github/DELPHI/data_sandbox"
+        # "E:/Github/DELPHI/data_sandbox"
         # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
         # "4. COVID19_Global/DELPHI/data_sandbox"
+         "C:/Users/omars/Desktop/covid19_dimitris/DELPHI/data_sandbox"
     )
     df = pd.read_csv(data_path + "/25042020_raw_policy_data_US_only.csv")
     df.State = df.State.apply(lambda x: x[0].upper() + x[1:])
@@ -623,37 +784,102 @@ def read_policy_data_us_only():
 
 
 def read_measures_oxford_data():
-    measures = pd.read_csv('https://ocgptweb.azurewebsites.net/CSVDownload')
+    measures = pd.read_csv('https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv')
     filtr = ['CountryName', 'CountryCode', 'Date']
     target = ['ConfirmedCases', 'ConfirmedDeaths']
-    msr = ['S1_School closing',
-           'S2_Workplace closing', 'S3_Cancel public events',
-           'S4_Close public transport',
-           'S5_Public information campaigns',
-           'S6_Restrictions on internal movement',
-           'S7_International travel controls', 'S8_Fiscal measures',
-           'S9_Monetary measures',
-           'S10_Emergency investment in health care',
-           'S11_Investment in Vaccines']
+    msr = ['C1_School closing',
+           'C2_Workplace closing', 'C3_Cancel public events',
+           'C4_Restrictions on gatherings',
+           'C5_Close public transport',
+           'C6_Stay at home requirements',
+           'C7_Restrictions on internal movement', 'C8_International travel controls'
+           , 'H1_Public information campaigns']
     measures = measures.loc[:, filtr + msr + target]
     measures['Date'] = measures['Date'].apply(lambda x: datetime.strptime(str(x), '%Y%m%d'))
     for col in target:
-        measures[col] = measures[col].fillna(0)
-    measures = measures.loc[:, measures.isnull().mean() < 0.1]
+        #measures[col] = measures[col].fillna(0)
+        measures[col] = measures.groupby('CountryName')[col].ffill()
+
+    #measures = measures.loc[:, measures.isnull().mean() < 0.1]
     msr = set(measures.columns).intersection(set(msr))
-    measures = measures.fillna(0)
+    
+    #measures = measures.fillna(0)
+    measures = measures.dropna()
     for col in msr:
         measures[col] = measures[col].apply(lambda x: int(x > 0))
-    measures = measures[[
-        'CountryName', 'Date', 'S1_School closing', 'S2_Workplace closing', 'S3_Cancel public events',
-        'S4_Close public transport', 'S5_Public information campaigns',
-        'S6_Restrictions on internal movement', 'S7_International travel controls'
-    ]]
+    measures = measures[
+        ['CountryName', 'Date'] + list(sorted(msr))
+    ]
     measures["CountryName"] = measures.CountryName.replace({
         "United States": "US", "South Korea": "Korea, South", "Democratic Republic of Congo": "Congo (Kinshasa)",
         "Czech Republic": "Czechia", "Slovak Republic": "Slovakia",
     })
-    return measures
+    
+    measures = measures.fillna(0)
+    msr = ['No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
+           'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
+           'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown']
+    
+    measures['Restrict_Mass_Gatherings'] = [int(a or b or c) for a, b, c in zip(measures['C3_Cancel public events'], 
+             measures['C4_Restrictions on gatherings'], measures['C5_Close public transport'])]
+    measures['Others'] = [int(a or b or c) for a, b, c in zip(measures['C2_Workplace closing'],
+             measures['C7_Restrictions on internal movement'], measures['C8_International travel controls'])]
+    
+    del measures['C2_Workplace closing']
+    del measures['C3_Cancel public events']
+    del measures['C4_Restrictions on gatherings']
+    del measures['C5_Close public transport']
+    del measures['C7_Restrictions on internal movement']
+    del measures['C8_International travel controls']
+    
+    output = deepcopy(measures)
+    output['No_Measure'] = (measures.iloc[:, 2:].sum(axis=1) == 0).apply(lambda x: int(x))
+    output['Restrict_Mass_Gatherings'] = [int(a and b) for a, b in
+                                      zip(measures.iloc[:, 2:].sum(axis=1) == 1, measures['Restrict_Mass_Gatherings'] == 1)]
+    output['Mass_Gatherings_Authorized_But_Others_Restricted'] = [
+        int(a and b and c) for a, b, c in zip(
+            measures.iloc[:, 2:].sum(axis=1) > 0,
+            measures['Restrict_Mass_Gatherings'] == 0,
+            measures['C6_Stay at home requirements'] == 0,
+        )
+    ]
+    output['Restrict_Mass_Gatherings_and_Schools'] = [
+        int(a and b and c)
+        for a, b, c in zip(
+            measures.iloc[:, 2:].sum(axis=1) == 2,
+            measures['C1_School closing'] == 1,
+            measures['Restrict_Mass_Gatherings'] == 1,
+        )
+    ]
+    output['Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others'] = [
+        int(a and b and c and d) for a, b, c, d in zip(
+            measures.iloc[:, 2:].sum(axis=1) > 1,
+            measures['C1_School closing'] == 0,
+            measures['Restrict_Mass_Gatherings'] == 1,
+            measures['C6_Stay at home requirements'] == 0,
+        )
+    ]
+    
+    output['Restrict_Mass_Gatherings_and_Schools_and_Others'] = [
+        int(a and b and c and d) for a, b, c, d in zip(
+            measures.iloc[:, 2:].sum(axis=1) > 2,
+            measures['C1_School closing'] == 1,
+            measures['Restrict_Mass_Gatherings'] == 1,
+            measures['C6_Stay at home requirements'] == 0,
+        )
+    ]
+    output['Lockdown'] = (measures['C6_Stay at home requirements'] == 1).apply(lambda x: int(x))
+    
+    
+    output.rename(columns={'CountryName':'country',
+                          'Date':'date'}, 
+                 inplace=True)
+    
+    output['province'] = "None"
+    
+    output = output.loc[:, ['country', 'province', 'date'] + msr]
+    
+    return output
 
 
 def gamma_t(day, state, params_dic):
@@ -704,33 +930,140 @@ def get_normalized_policy_shifts_and_current_policy(
 
     return dict_policies_shift, dict_last_policy
 
+def get_normalized_policy_shifts_and_current_policy_all_countries(
+        policy_data_countries: pd.DataFrame,
+        pastparameters: pd.DataFrame,
+):
+    dict_last_policy = {}
+    policy_list = ['No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
+                   'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
+                   'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown']
+    policy_data_countries['country_cl'] = policy_data_countries['country'].apply(
+        lambda x: x.replace(',', '').strip().lower()
+    )
+    
+    pastparameters_copy = deepcopy(pastparameters)
+    pastparameters_copy['Country'] = pastparameters_copy['Country'].apply(
+        lambda x: str(x).replace(',', '').strip().lower())
+    
+    params_countries = pastparameters_copy['Country']
+    params_countries = set(params_countries)
+    policy_data_countries_bis = policy_data_countries.query("country_cl in @params_countries")
+    countries_upper_set = set(policy_data_countries['country'])
+    
+    for country in countries_upper_set:
+        dict_last_policy[country] = list(compress(policy_list, (policy_data_countries.query('country == @country')[
+                                                                 policy_data_countries.query('country == @country')[
+                                                                     "date"] == policy_data_countries.query('country == @country').date.max()][
+                                                                 policy_list] == 1).values.flatten().tolist()))[0]
+    countries_set = set(policy_data_countries['country_cl'])
+    
+
+    params_dic = {}
+    
+    countries_set = countries_set.intersection(params_countries)
+    for country in countries_set:
+        params_dic[country] = pastparameters_copy.query('Country == @country')[
+                ['Data Start Date', 'Median Day of Action', 'Rate of Action']].iloc[0]
+
+    policy_data_countries_bis['Gamma'] = [gamma_t(day, country, params_dic) for day, country in
+                                    zip(policy_data_countries_bis['date'], policy_data_countries_bis['country_cl'])]
+    
+    n_measures = policy_data_countries_bis.iloc[:, 3:-2].shape[1]
+    dict_policies_shift = {
+        policy_data_countries_bis.columns[3 + i]: policy_data_countries_bis[
+                                                policy_data_countries_bis.iloc[:, 3 + i] == 1
+                                            ].iloc[:, -1].mean()
+        for i in range(n_measures)
+    }
+    normalize_val = dict_policies_shift["No_Measure"]
+    for policy in dict_policies_shift.keys():
+        dict_policies_shift[policy] = dict_policies_shift[policy] / normalize_val
+
+    return dict_policies_shift, dict_last_policy
+
 
 def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataFrame:
     df_temp = df_backtest_performance.copy()
-    df_temp_continent = df_temp.groupby("continent")[
-        "train_mape_cases", "train_mape_deaths", "test_mape_cases", "test_mape_deaths"
-    ].mean().reset_index()
-    df_temp_country = df_temp.groupby(["continent", "country"])[
-        "train_mape_cases", "train_mape_deaths", "test_mape_cases", "test_mape_deaths"
-    ].mean().reset_index()
-    columns_nan = ["country", "province", "train_start_date", "train_end_date", "test_start_date", "test_end_date"]
-    for col in columns_nan:
+    df_temp_continent = df_temp.groupby("continent")[[
+        "train_mape_cases", "train_mape_deaths", "train_mae_cases",
+        "train_mae_deaths", "train_mse_cases", "train_mse_deaths",
+        "test_mape_cases", "test_mape_deaths", "test_mae_cases",
+        "test_mae_deaths", "test_mse_cases", "test_mse_deaths",
+        "mape_daily_delta_cases", "mape_daily_delta_deaths",
+    ]].mean().reset_index()
+    df_temp_country = df_temp.groupby(["continent", "country"])[[
+        "train_mape_cases", "train_mape_deaths", "train_mae_cases",
+        "train_mae_deaths", "train_mse_cases", "train_mse_deaths",
+        "test_mape_cases", "test_mape_deaths", "test_mae_cases",
+        "test_mae_deaths", "test_mse_cases", "test_mse_deaths",
+        "mape_daily_delta_cases", "mape_daily_delta_deaths",
+    ]].mean().reset_index()
+    columns_none = [
+        "country", "province", "train_start_date", "train_end_date", "test_start_date", "test_end_date",
+    ]
+    columns_nan = [
+        "train_sign_mpe_cases", "train_sign_mpe_deaths", "test_sign_mpe_cases", "test_sign_mpe_deaths",
+    ]
+    for col in columns_none:
         df_temp_continent[col] = "None"
-    for col in columns_nan[1:]:
+    for col in columns_none[1:]:
         df_temp_country[col] = "None"
+    for col in columns_nan:
+        df_temp_continent[col] = np.nan
+        df_temp_country[col] = np.nan
 
     all_columns = [
-        "continent", "country", "province", "train_start_date", "train_end_date",
-        "train_mape_cases", "train_mape_deaths", "test_start_date", "test_end_date",
-        "test_mape_cases", "test_mape_deaths"
+        "continent", "country", "province", "train_start_date", "train_end_date", "train_mape_cases",
+        "train_mape_deaths", "train_sign_mpe_cases", "train_sign_mpe_deaths", "train_mae_cases", "train_mae_deaths",
+        "train_mse_cases", "train_mse_deaths", "test_start_date", "test_end_date", "test_mape_cases",
+        "test_mape_deaths", "test_sign_mpe_cases", "test_sign_mpe_deaths", "test_mae_cases", "test_mae_deaths",
+        "test_mse_cases", "test_mse_deaths", "mape_daily_delta_cases", "mape_daily_delta_deaths",
     ]
     df_temp_continent = df_temp_continent[all_columns]
     df_temp_country = df_temp_country[all_columns]
     df_backtest_perf_final = pd.concat([df_backtest_performance, df_temp_continent, df_temp_country]).sort_values(
         ["continent", "country", "province"]
     ).reset_index(drop=True)
-    for col in ["train_mape_cases", "train_mape_deaths", "test_mape_cases", "test_mape_deaths"]:
+    for col in [
+        "train_mape_cases", "train_mape_deaths", "train_mae_cases", "train_mae_deaths",
+        "train_mse_cases", "train_mse_deaths", "test_mape_cases", "test_mape_deaths",
+        "test_mae_cases", "test_mae_deaths", "test_mse_cases", "test_mse_deaths",
+        "mape_daily_delta_cases", "mape_daily_delta_deaths",
+
+    ]:
         df_backtest_perf_final[col] = df_backtest_perf_final[col].round(3)
 
     df_backtest_perf_final.drop_duplicates(subset=["continent", "country", "province"], inplace=True)
+    df_backtest_perf_final.reset_index(drop=True, inplace=True)
     return df_backtest_perf_final
+
+
+def get_testing_data_us() -> pd.DataFrame:
+    """
+    :return: a DataFrame where the column of interest is 'testing_cnt_daily'
+    which gives the numbers of new daily tests per state
+    """
+    df_test = pd.read_csv("https://covidtracking.com/api/v1/states/daily.csv")
+    df_test["country"] = "US"
+    df_test["continent"] = "North America"
+    df_test["province"] = df_test.state.map(MAPPING_STATE_CODE_TO_STATE_NAME)
+    df_test.drop("state", axis=1, inplace=True)
+    df_test["date"] = df_test.date.apply(lambda x: str(x)[:4] + "-" + str(x)[4:6] + "-" + str(x)[6:])
+    df_test["date"] = pd.to_datetime(df_test.date)
+    df_test = df_test.sort_values(["province", "date"]).reset_index(drop=True)
+    df_test = df_test[[
+        "continent", "country", "province", "date", "totalTestResults"
+    ]]
+    df_test.rename(columns={"totalTestResults": "testing_cnt"}, inplace=True)
+    list_df_concat = []
+    for state in df_test.province.unique():
+        df_temp = df_test[df_test.province == state].reset_index(drop=True)
+        df_temp["testing_cnt_shift"] = df_temp.testing_cnt.shift(1)
+        df_temp["testing_cnt_daily"] = df_temp.testing_cnt - df_temp.testing_cnt_shift
+        df_temp.loc[0, "testing_cnt_daily"] = df_temp.loc[0, "testing_cnt"]
+        list_df_concat.append(df_temp)
+
+    df_test_final = pd.concat(list_df_concat).reset_index(drop=True)
+    df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
+    return df_test_final
