@@ -1,0 +1,17 @@
+filepaths:
+  delphi_repo:
+    omar: C:/Users/omars/Desktop/covid19_dimitris/DELPHI/
+    michael: E:/Github/DELPHI/
+    hamza: /Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/4. COVID19_Global/DELPHI/
+  data_sandbox:
+    omar: C:/Users/omars/Desktop/covid19_dimitris/DELPHI/data_sandbox/
+    michael: E:/Github/DELPHI/data_sandbox/
+    hamza: /Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/4. COVID19_Global/DELPHI/data_sandbox/
+  danger_map:
+    omar: C:/
+    michael: E:/Github/covid19orc/danger_map/
+    hamza: /Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/4. COVID19_Global/covid19orc/danger_map/
+  website:
+    omar: C:/
+    michael: E:/Github/website/data
+    hamza: /Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/4. COVID19_Global/website/
