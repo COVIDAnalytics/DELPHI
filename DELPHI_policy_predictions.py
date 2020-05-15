@@ -26,7 +26,10 @@ policy_data_us_only = read_policy_data_us_only()
 #os.chdir(PATH_TO_FOLDER_DANGER_MAP)
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
 pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv")
-param_MATHEMATICA = False
+if pd.to_datetime(yesterday) < pd.to_datetime("2020-05-07"):
+    param_MATHEMATICA = True
+else:
+    param_MATHEMATICA = False
 # True if we use the Mathematica run parameters, False if we use those from Python runs
 # This is because the pastparameters dataframe's columns are not in the same order in both cases
 

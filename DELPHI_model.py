@@ -29,7 +29,10 @@ try:
     )
 except:
     pastparameters = None
-param_MATHEMATICA = False
+if pd.to_datetime(yesterday) < pd.to_datetime("2020-05-07"):
+    param_MATHEMATICA = True
+else:
+    param_MATHEMATICA = False
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today = []
 list_df_global_predictions_since_100_cases = []
