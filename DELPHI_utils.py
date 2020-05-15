@@ -662,125 +662,157 @@ def convert_dates_us_policies(x):
         return pd.to_datetime(x_long, format="%d-%b-%Y")
 
 
-def read_policy_data_us_only():
-    data_path = (
-        # "E:/Github/DELPHI/data_sandbox"
-        # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-        # "4. COVID19_Global/DELPHI/data_sandbox"
-         "C:/Users/omars/Desktop/covid19_dimitris/DELPHI/data_sandbox"
-    )
-    df = pd.read_csv(data_path + "/25042020_raw_policy_data_US_only.csv")
-    df.State = df.State.apply(lambda x: x[0].upper() + x[1:])
-    concat_data = []
-    for i, measure in enumerate(df.Measure.unique()):
-        df_temp = df[df.Measure == measure].reset_index(drop=True)
-        df_concat = pd.DataFrame({
-            f"province_{i}": df_temp.State,
-            f"{measure}": df_temp.Date
-        })
-        concat_data.append(df_concat)
+def check_us_policy_data_consistency(policies: list, df_policy_raw_us: pd.DataFrame):
+    for policy in policies:
+        assert (len(df_policy_raw_us.loc[
+                    (df_policy_raw_us[f"{policy}_start_date"].isnull()) &
+                    (~df_policy_raw_us[f"{policy}_end_date"].isnull()), :
+        ]) == 0), f"Problem in data, policy {policy} has no start date but has an end date"
 
-    df_format = pd.concat(concat_data, axis=1)
-    df_format.drop(
-        [f"province_{i}" for i in range(1, len(df.Measure.unique()))],
-        axis=1, inplace=True
-    )
-    df_format.columns = ["province"] + list(df_format.columns)[1:]
-    for col in list(df_format.columns)[1:]:
-        df_format[col] = df_format[col].apply(
-            lambda x: convert_dates_us_policies(x)
-        )
 
+def create_features_from_ihme_dates(
+        df_policy_raw_us: pd.DataFrame,
+        dict_state_to_policy_dates: dict,
+        policies: list,
+) -> pd.DataFrame:
+    list_df_concat = []
     n_dates = (datetime.now() - datetime(2020, 3, 1)).days + 1
-    list_all_dates = [
+    date_range = [
         datetime(2020, 3, 1) + timedelta(days=i)
         for i in range(n_dates)
     ]
-    df_format["province"] = df_format.province.replace({
-        "District-of-columbia": "District of Columbia",
-        "New-york": "New York", "North-carolina": "North Carolina",
-        "North-dakota": "North Dakota", "Rhode-island": "Rhode Island",
-        "South-carolina": "South Carolina", "South-dakota": "South Dakota",
-        "West-virginia": "West Virginia", "New-jersey": "New Jersey",
-        "New-hampshire": "New Hampshire", "New-mexico": "New Mexico",
-    })
-    df_to_concat_final = []
-    for i, province in enumerate(df_format.province.unique()):
-        df_temp = df_format[
-            df_format.province == province
-            ].reset_index(drop=True)
-        columns_to_iter = [
-            "Mass_Gathering_Restrictions", "Initial_Business_Closure",
-            "Educational_Facilities_Closed", "Non_Essential_Services_Closed",
-            "Stay_at_home_order"
-        ]
-        df_i = pd.DataFrame({
-            "province": [province for _ in range(n_dates)],
-            "date": list_all_dates,
-            "Mass_Gathering_Restrictions": [0 for _ in range(n_dates)],
-            "Initial_Business_Closure": [0 for _ in range(n_dates)],
-            "Educational_Facilities_Closed": [0 for _ in range(n_dates)],
-            "Non_Essential_Services_Closed": [0 for _ in range(n_dates)],
-            "Stay_at_home_order": [0 for _ in range(n_dates)],
-            "Travel_severely_limited": [0 for _ in range(n_dates)],
+    for location in df_policy_raw_us.location_name.unique():
+        df_temp = pd.DataFrame({
+            "continent": ["North America" for _ in range(len(date_range))],
+            "country": ["US" for _ in range(len(date_range))],
+            "province": [location for _ in range(len(date_range))],
+            "date": date_range,
         })
-        date_mgr = df_temp.iloc[0, 1]
-        date_ibc = df_temp.iloc[0, 2]
-        date_efc = df_temp.iloc[0, 3]
-        date_nesc = df_temp.iloc[0, 4]
-        date_saho = df_temp.iloc[0, 5]
-        # No date_tsl as no state actually implemented it
-        for col, date_col in zip(
-                columns_to_iter,
-                [date_mgr, date_ibc, date_efc, date_nesc, date_saho]
-        ):
-            df_i.loc[df_i["date"] >= date_col, col] = 1
-        df_to_concat_final.append(df_i)
+        for policy in policies:
+            start_date_policy_location = dict_state_to_policy_dates[location][policy][0]
+            start_date_policy_location = (
+                start_date_policy_location if start_date_policy_location is not np.nan
+                else "2030-01-02"
+            )
+            end_date_policy_location = (dict_state_to_policy_dates[location][policy][1])
+            end_date_policy_location = (
+                end_date_policy_location if end_date_policy_location is not np.nan
+                else "2030-01-01"
+            )
+            df_temp[policy] = 0
+            df_temp.loc[
+                ((df_temp.date >= start_date_policy_location) &
+                 (df_temp.date <= end_date_policy_location)),
+                policy
+            ] = 1
 
-    df_final = pd.concat(df_to_concat_final)
-    df_final.reset_index(drop=True, inplace=True)
-    output = deepcopy(df_final)
+        list_df_concat.append(df_temp)
+
+    df_policies_US = pd.concat(list_df_concat).reset_index(drop=True)
+    df_policies_US.rename(columns={
+        "travel_limit": "Travel_severely_limited",
+        "stay_home": "Stay_at_home_order",
+        "educational_fac": "Educational_Facilities_Closed",
+        "any_gathering_restrict": "Mass_Gathering_Restrictions",
+        "any_business": "Initial_Business_Closure",
+        "all_non-ess_business": "Non_Essential_Services_Closed"
+    }, inplace=True)
+    return df_policies_US
+
+
+def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFrame:
+    df_policies_US_final = deepcopy(df_policies_US)
     msr = ['No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
            'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
            'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown']
-    output['No_Measure'] = (df_final.sum(axis=1) == 0).apply(lambda x: int(x))
-    output['Restrict_Mass_Gatherings'] = [int(a and b) for a, b in
-                                      zip(df_final.sum(axis=1) == 1, df_final['Mass_Gathering_Restrictions'] == 1)]
-    output['Mass_Gatherings_Authorized_But_Others_Restricted'] = [
+    df_policies_US_final['No_Measure'] = (df_policies_US.sum(axis=1) == 0).apply(lambda x: int(x))
+    df_policies_US_final['Restrict_Mass_Gatherings'] = [int(a and b) for a, b in
+                                                        zip(df_policies_US.sum(axis=1) == 1,
+                                                            df_policies_US['Mass_Gathering_Restrictions'] == 1)]
+    df_policies_US_final['Mass_Gatherings_Authorized_But_Others_Restricted'] = [
         int(a and b and c) for a, b, c in zip(
-            df_final.sum(axis=1) > 0,
-            df_final['Mass_Gathering_Restrictions'] == 0,
-            df_final['Stay_at_home_order'] == 0,
+            df_policies_US.sum(axis=1) > 0,
+            df_policies_US['Mass_Gathering_Restrictions'] == 0,
+            df_policies_US['Stay_at_home_order'] == 0,
         )
     ]
-    output['Restrict_Mass_Gatherings_and_Schools'] = [
+    df_policies_US_final['Restrict_Mass_Gatherings_and_Schools'] = [
         int(a and b and c)
         for a, b, c in zip(
-            df_final.sum(axis=1) == 2,
-            df_final['Educational_Facilities_Closed'] == 1,
-            df_final['Mass_Gathering_Restrictions'] == 1,
+            df_policies_US.sum(axis=1) == 2,
+            df_policies_US['Educational_Facilities_Closed'] == 1,
+            df_policies_US['Mass_Gathering_Restrictions'] == 1,
         )
     ]
-    output['Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others'] = [
+    df_policies_US_final['Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others'] = [
         int(a and b and c and d) for a, b, c, d in zip(
-            df_final.sum(axis=1) > 1,
-            df_final['Educational_Facilities_Closed'] == 0,
-            df_final['Mass_Gathering_Restrictions'] == 1,
-            df_final['Stay_at_home_order'] == 0,
+            df_policies_US.sum(axis=1) > 1,
+            df_policies_US['Educational_Facilities_Closed'] == 0,
+            df_policies_US['Mass_Gathering_Restrictions'] == 1,
+            df_policies_US['Stay_at_home_order'] == 0,
         )
     ]
-    output['Restrict_Mass_Gatherings_and_Schools_and_Others'] = [
+    df_policies_US_final['Restrict_Mass_Gatherings_and_Schools_and_Others'] = [
         int(a and b and c and d) for a, b, c, d in zip(
-            df_final.sum(axis=1) > 2,
-            df_final['Educational_Facilities_Closed'] == 1,
-            df_final['Mass_Gathering_Restrictions'] == 1,
-            df_final['Stay_at_home_order'] == 0,
+            df_policies_US.sum(axis=1) > 2,
+            df_policies_US['Educational_Facilities_Closed'] == 1,
+            df_policies_US['Mass_Gathering_Restrictions'] == 1,
+            df_policies_US['Stay_at_home_order'] == 0,
         )
     ]
-    output['Lockdown'] = (df_final['Stay_at_home_order'] == 1).apply(lambda x: int(x))
-    output['country'] = "US"
-    output = output.loc[:, ['country', 'province', 'date'] + msr]
-    return output
+    df_policies_US_final['Lockdown'] = (df_policies_US['Stay_at_home_order'] == 1).apply(lambda x: int(x))
+    df_policies_US_final['country'] = "US"
+    df_policies_US_final = df_policies_US_final.loc[:, ['country', 'province', 'date'] + msr]
+    return df_policies_US_final
+
+
+def read_policy_data_us_only():
+    data_path = (
+        # "E:/Github/DELPHI/data_sandbox"
+        "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+        "4. COVID19_Global/DELPHI/data_sandbox"
+         #"C:/Users/omars/Desktop/covid19_dimitris/DELPHI/data_sandbox"
+    )
+    policies = [
+        "travel_limit", "stay_home", "educational_fac", "any_gathering_restrict",
+        "any_business", "all_non-ess_business"
+    ]
+    list_US_states = [
+        'Alabama', 'Alaska', 'Arizona', 'Arkansas',
+        'California', 'Colorado', 'Connecticut', 'Delaware',
+        'District of Columbia', 'Florida', 'Georgia', 'Hawaii', 'Idaho',
+        'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+        'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+        'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada',
+        'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
+        'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon',
+        'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota',
+        'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
+        'West Virginia', 'Wisconsin', 'Wyoming'
+    ]
+    df = pd.read_csv(data_path + "/10052020_raw_policy_data_US_only.csv")
+    df = df[df.location_name.isin(list_US_states)][[
+        "location_name", "travel_limit_start_date", "travel_limit_end_date",
+        "stay_home_start_date", "stay_home_end_date", "educational_fac_start_date",
+        "educational_fac_end_date", "any_gathering_restrict_start_date",
+        "any_gathering_restrict_end_date", "any_business_start_date", "any_business_end_date",
+        "all_non-ess_business_start_date", "all_non-ess_business_end_date"
+    ]]
+    dict_state_to_policy_dates = {}
+    for location in df.location_name.unique():
+        df_temp = df[df.location_name == location].reset_index(drop=True)
+        dict_state_to_policy_dates[location] = {
+            policy: [df_temp.loc[0, f"{policy}_start_date"], df_temp.loc[0, f"{policy}_end_date"]]
+            for policy in policies
+        }
+    check_us_policy_data_consistency(policies=policies, df_policy_raw_us=df)
+    df_policies_US = create_features_from_ihme_dates(
+        df_policy_raw_us=df,
+        dict_state_to_policy_dates=dict_state_to_policy_dates,
+        policies=policies,
+    )
+    df_policies_US_final = create_final_policy_features_us(df_policies_US=df_policies_US)
+    return df_policies_US_final
 
 
 def read_measures_oxford_data():
