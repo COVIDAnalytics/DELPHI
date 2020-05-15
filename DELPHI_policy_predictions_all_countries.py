@@ -11,25 +11,24 @@ from DELPHI_utils import (
 import dateutil.parser as dtparser
 import os
 import matplotlib.pyplot as plt
+import yaml
 
+with open("config.yml", "r") as ymlfile:
+    CONFIG = yaml.load(ymlfile)
+CONFIG_FILEPATHS = CONFIG["FILEPATHS"]
+USER_RUNNING = "omar"
 yesterday = "".join(str(datetime.now().date() - timedelta(days=5)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
-PATH_TO_FOLDER_DANGER_MAP = (
-    "E:/Github/covid19orc/danger_map/"
-    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    # "4. COVID19_Global/covid19orc/danger_map/"
-    #"C:/Users/omars/Desktop/covid19_dimitris/covid19orc/danger_map/"
-)
-PATH_TO_WEBSITE_PREDICTED = (
-    "E:/Github/website/data"
-    #"C:/Users/omars/Desktop/covid19_dimitris/predicted"
-)
+PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
 
 policy_data_countries = read_measures_oxford_data()
-#os.chdir(PATH_TO_FOLDER_DANGER_MAP)
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
 pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv")
-param_MATHEMATICA = False
+if pd.to_datetime(yesterday) < pd.to_datetime("2020-05-07"):
+    param_MATHEMATICA = True
+else:
+    param_MATHEMATICA = False
 # True if we use the Mathematica run parameters, False if we use those from Python runs
 # This is because the pastparameters dataframe's columns are not in the same order in both cases
 
