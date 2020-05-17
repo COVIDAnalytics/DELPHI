@@ -1,4 +1,4 @@
-# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu)
+# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
 from scipy.integrate import solve_ivp
@@ -8,9 +8,11 @@ from DELPHI_utils import (
     get_initial_conditions, mape,
     read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries
 )
-from DELPHI_params import (date_MATHEMATICA, validcases_threshold_policy,
-                           IncubeD, RecoverID, RecoverHD, DetectD,
-                           VentilatedD, default_maxT, p_v, p_d, p_h, future_policies, future_times) 
+from DELPHI_params import (
+    date_MATHEMATICA, validcases_threshold_policy,
+    IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
+    default_maxT, p_v, p_d, p_h, future_policies, future_times
+)
 import dateutil.parser as dtparser
 import os
 import matplotlib.pyplot as plt
@@ -41,7 +43,7 @@ dict_policies_shift, dict_last_policy = get_normalized_policy_shifts_and_current
     policy_data_countries,
     pastparameters=pastparameters,
 )
-
+# Setting same value for these 2 policies because of the inherent structure of the tree
 dict_policies_shift[future_policies[3]] = dict_policies_shift[future_policies[5]]
 
 # Initalizing lists of the different dataframes that will be concatenated in the end
@@ -56,7 +58,8 @@ for continent, country, province in zip(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if (
-            (os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv")) and (country in dict_last_policy.keys())
+            (os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"))
+            and (country in dict_last_policy.keys())
     ):
         totalcases = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
@@ -261,6 +264,5 @@ delphi_data_saver = DELPHIDataSaver(
 )
 
 #df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-
 delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")

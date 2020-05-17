@@ -1,4 +1,4 @@
-# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu)
+# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
 from scipy.integrate import solve_ivp
