@@ -8,6 +8,9 @@ from DELPHI_utils import (
     get_initial_conditions, mape, read_policy_data_us_only,
     get_normalized_policy_shifts_and_current_policy
 )
+from DELPHI_params import (date_MATHEMATICA, validcases_threshold,
+                           IncubeD, RecoverID, RecoverHD, DetectD,
+                           VentilatedD, default_maxT, p_v, p_d, p_h, future_policies, future_times) 
 import dateutil.parser as dtparser
 import os
 import matplotlib.pyplot as plt
@@ -16,7 +19,7 @@ import yaml
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile)
-CONFIG_FILEPATHS = CONFIG["FILEPATHS"]
+CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
@@ -25,7 +28,7 @@ PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"]["michael"]
 policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
 pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv")
-if pd.to_datetime(yesterday) < pd.to_datetime("2020-05-07"):
+if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
     param_MATHEMATICA = True
 else:
     param_MATHEMATICA = False
@@ -84,10 +87,7 @@ for continent, country, province in zip(
             raise ValueError("Must have past parameters")
 
         # Now we start the modeling part:
-        if len(validcases) > 7:
-            IncubeD = 5
-            RecoverID = 10
-            DetectD = 2
+        if len(validcases) > validcases_threshold:
             PopulationT = popcountries[
                 (popcountries.Country == country) & (popcountries.Province == province)
             ].pop2016.item()
@@ -109,13 +109,8 @@ for continent, country, province in zip(
             """
             # Currently fit on alpha, a and b, r_dth,
             # & initial condition of exposed state and infected state
-            RecoverHD = 15  # Recovery Time when Hospitalized
-            VentilatedD = 10  # Recovery Time when Ventilated
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
-            maxT = (datetime(2020, 9, 15) - date_day_since100).days + 1
-            p_v = 0.25  # Percentage of ventilated
-            p_d = 0.2  # Percentage of infection cases detected.
-            p_h = 0.15  # Percentage of detected cases hospitalized
+            maxT = (default_maxT - date_day_since100).days + 1
             """ Fit on Total Cases """
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
@@ -128,12 +123,6 @@ for continent, country, province in zip(
             )
             best_params = parameter_list
             t_predictions = [i for i in range(maxT)]
-            future_policies = [
-                'No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
-                'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-                'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'
-            ]
-            future_times = [0, 7, 14, 28, 42]
             plt.figure(figsize=(14, 6))
             for future_policy in future_policies:
                 for future_time in future_times:
@@ -158,7 +147,7 @@ for continent, country, province in zip(
                         r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
                         gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                         gamma_t_future = (2 / np.pi) * np.arctan(-(t_cases[-1] + future_time - days) / 20 * r_s) + 1
-                        gamma_0 = (2 / np.pi) * np.arctan(days / 20 * r_s) + 1
+                        #gamma_0 = (2 / np.pi) * np.arctan(days / 20 * r_s) + 1
                         if t > t_cases[-1] + future_time:
                             gamma_t = (
                                 gamma_t + min(
