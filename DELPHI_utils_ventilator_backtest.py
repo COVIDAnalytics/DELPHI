@@ -39,24 +39,24 @@ class DELPHIDataSaver:
         self.df_global_predictions_since_today = df_global_predictions_since_today
         self.df_global_predictions_since_100_cases = df_global_predictions_since_100_cases
 
-    def save_all_datasets(self, save_since_100_cases=False, website=False):
-        today_date_str = "".join(str(datetime.now().date()).split("-"))
+    def save_all_datasets(self, i, save_since_100_cases=False, website=False):
+        today_date_str = "".join(str(datetime.now().date() - timedelta(days=45 - i - 1)).split("-"))
         # Save parameters
         self.df_global_parameters.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_Ventilators_{today_date_str}.csv", index=False
         )
         self.df_global_parameters.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
+            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_Ventilators_{today_date_str}.csv", index=False
         )
         # Save predictions since today
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_{today_date_str}.csv", index=False
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_Ventilators_{today_date_str}.csv", index=False
         )
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_{today_date_str}.csv", index=False
+            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Ventilators_{today_date_str}.csv", index=False
         )
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global.csv", index=False
+            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Ventilators.csv", index=False
         )
         if website:
             self.df_global_parameters.to_csv(
@@ -260,11 +260,11 @@ class DELPHIDataCreator:
 
         return df_backtest_performance_tuple
 
-    def create_datasets_predictions(self) -> (pd.DataFrame, pd.DataFrame):
-        n_days_btw_today_since_100 = (datetime.now() - self.date_day_since100).days
+    def create_datasets_predictions(self,j) -> (pd.DataFrame, pd.DataFrame):
+        n_days_btw_today_since_100 = ((datetime.now() - timedelta(days=45 - j - 1)) - self.date_day_since100).days
         n_days_since_today = self.x_sol_final.shape[1] - n_days_btw_today_since_100
         all_dates_since_today = [
-            str((datetime.now() + timedelta(days=i)).date())
+            str((datetime.now() - timedelta(days=45 - j - 1) + timedelta(days=i)).date())
             for i in range(n_days_since_today)
         ]
         # Predictions
@@ -282,6 +282,10 @@ class DELPHIDataCreator:
         total_detected_deaths = [int(round(x, 0)) for x in total_detected_deaths]
         active_ventilated = self.x_sol_final[12, :] + self.x_sol_final[13, :]  # DVR + DVD
         active_ventilated = [int(round(x, 0)) for x in active_ventilated]
+        cumulative_ventilated = self.x_sol_final[16, :]   # DVC
+        cumulative_ventilated = [int(round(x, 0)) for x in cumulative_ventilated]
+        discharged_ventilated = self.x_sol_final[17, :]   # DVDi
+        discharged_ventilated = [int(round(x, 0)) for x in discharged_ventilated]        
         # Generation of the dataframe since today
         df_predictions_since_today_cont_country_prov = pd.DataFrame({
             "Continent": [self.continent for _ in range(n_days_since_today)],
@@ -294,6 +298,8 @@ class DELPHIDataCreator:
             "Cumulative Hospitalized": cumulative_hospitalized[n_days_btw_today_since_100:],
             "Total Detected Deaths": total_detected_deaths[n_days_btw_today_since_100:],
             "Active Ventilated": active_ventilated[n_days_btw_today_since_100:],
+            "Cumulative Ventilated": cumulative_ventilated[n_days_btw_today_since_100:],
+            "Discharged Ventilated": discharged_ventilated[n_days_btw_today_since_100:]    
         })
 
         # Generation of the dataframe from the day since 100th case
@@ -312,6 +318,9 @@ class DELPHIDataCreator:
             "Cumulative Hospitalized": cumulative_hospitalized,
             "Total Detected Deaths": total_detected_deaths,
             "Active Ventilated": active_ventilated,
+            "Cumulative Ventilated": cumulative_ventilated,
+            "Discharged Ventilated": discharged_ventilated  
+
         })
         return df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov
 
@@ -339,6 +348,10 @@ class DELPHIDataCreator:
         total_detected_deaths = [int(round(x, 0)) for x in total_detected_deaths]
         active_ventilated = self.x_sol_final[12, :] + self.x_sol_final[13, :]  # DVR + DVD
         active_ventilated = [int(round(x, 0)) for x in active_ventilated]
+        cumulative_ventilated = self.x_sol_final[16, :]   # DVC
+        cumulative_ventilated = [int(round(x, 0)) for x in cumulative_ventilated]
+        discharged_ventilated = self.x_sol_final[17, :]   # DVDi
+        discharged_ventilated = [int(round(x, 0)) for x in discharged_ventilated]        
         # Generation of the dataframe since today
         df_predictions_since_today_cont_country_prov = pd.DataFrame({
             "Policy": [policy for _ in range(n_days_since_today)],
@@ -353,6 +366,8 @@ class DELPHIDataCreator:
             "Cumulative Hospitalized": cumulative_hospitalized[n_days_btw_today_since_100:],
             "Total Detected Deaths": total_detected_deaths[n_days_btw_today_since_100:],
             "Active Ventilated": active_ventilated[n_days_btw_today_since_100:],
+            "Cumulative Ventilated": cumulative_ventilated[n_days_btw_today_since_100:],
+            "Discharged Ventilated": discharged_ventilated[n_days_btw_today_since_100:]            
         })
 
         # Generation of the dataframe from the day since 100th case
@@ -373,6 +388,8 @@ class DELPHIDataCreator:
             "Cumulative Hospitalized": cumulative_hospitalized,
             "Total Detected Deaths": total_detected_deaths,
             "Active Ventilated": active_ventilated,
+            "Cumulative Ventilated": cumulative_ventilated,
+            "Discharged Ventilated": discharged_ventilated  
         })
         if totalcases is not None:  # Merging the historical values to both dataframes when available
             df_predictions_since_today_cont_country_prov = df_predictions_since_today_cont_country_prov.merge(
@@ -412,7 +429,8 @@ class DELPHIAggregations:
         df_agg_country["Province"] = "None"
         df_agg_country = df_agg_country[[
             'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated', 
+            'Cumulative Ventilated', 'Discharged Ventilated'
         ]]
         return df_agg_country
 
@@ -423,7 +441,8 @@ class DELPHIAggregations:
         df_agg_continent["Province"] = "None"
         df_agg_continent = df_agg_continent[[
             'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated', 
+            'Cumulative Ventilated', 'Discharged Ventilated'
         ]]
         return df_agg_continent
 
@@ -435,7 +454,8 @@ class DELPHIAggregations:
         df_agg_world["Province"] = "None"
         df_agg_world = df_agg_world[[
             'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated', 
+            'Cumulative Ventilated', 'Discharged Ventilated'
         ]]
         return df_agg_world
 
@@ -460,7 +480,8 @@ class DELPHIAggregations:
         df_agg_country["Province"] = "None"
         df_agg_country = df_agg_country[[
             'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated', 
+            'Cumulative Ventilated', 'Discharged Ventilated'
         ]]
         return df_agg_country
 
@@ -471,7 +492,8 @@ class DELPHIAggregations:
         df_agg_continent["Province"] = "None"
         df_agg_continent = df_agg_continent[[
             'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated', 
+            'Cumulative Ventilated', 'Discharged Ventilated'
         ]]
         return df_agg_continent
 
@@ -483,7 +505,8 @@ class DELPHIAggregations:
         df_agg_world["Province"] = "None"
         df_agg_world = df_agg_world[[
             'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
+            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated', 
+            'Cumulative Ventilated', 'Discharged Ventilated'
         ]]
         return df_agg_world
 
@@ -570,11 +593,13 @@ def get_initial_conditions(params_fitted, global_params_fixed):
     TH_0 = PopulationCI * p_h
     DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)
     DVD_0 = (PopulationCI * p_h * p_v) * p_dth
+    DVC_0 = (PopulationCI * p_h * p_v) 
+    DVDi_0 = 0
     DD_0 = PopulationD
     DT_0 = PopulationI
     x_0_cases = [
         S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0,
-        R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0
+        R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0, DVC_0, DVDi_0
     ]
     return x_0_cases
 

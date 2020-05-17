@@ -9,12 +9,13 @@ from DELPHI_utils import (
 import dateutil.parser as dtparser
 import os
 
-two_weeks_ago = "".join(str(datetime.now().date() - timedelta(days=15)).split("-"))
+for i in range(15):
+two_weeks_ago = "".join(str(datetime.now().date() - timedelta(days=45 - i)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
-    # "E:/Github/covid19orc/danger_map"
-    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    "4. COVID19_Global/covid19orc/danger_map/"
+    "E:/Github/covid19orc/danger_map"
+    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    # "4. COVID19_Global/covid19orc/danger_map/"
 )
 PATH_TO_WEBSITE_PREDICTED = (
     "E:/Github/website/data/"
@@ -244,8 +245,8 @@ df_backtest_performance = pd.concat(list_df_backtest_performance).reset_index(dr
 df_backtest_performance_final = add_aggregations_backtest(df_backtest_performance)
 df_backtest_performance_final.to_csv(
     #f"./backtesting/{today_date_str}_backtest_performance_python.csv",
-    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    f"4. COVID19_Global/{today_date_str}_backtest_performance_python.csv",
+    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    # f"4. COVID19_Global/{today_date_str}_backtest_performance_python.csv",
     index=False
 )
 print("Exported backtest results to danger_map repository")

@@ -6,7 +6,8 @@ from datetime import datetime, timedelta
 from DELPHI_utils import (
     DELPHIDataCreator, DELPHIDataSaver,
     get_initial_conditions, mape, read_policy_data_us_only,
-    get_normalized_policy_shifts_and_current_policy
+    get_normalized_policy_shifts_and_current_policy,
+    get_testing_data_us
 )
 import dateutil.parser as dtparser
 import os
