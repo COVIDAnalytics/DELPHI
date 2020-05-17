@@ -1,4 +1,4 @@
-# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu)
+# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
@@ -6,23 +6,8 @@ from typing import Union
 from copy import deepcopy
 from itertools import compress
 import json
-
-TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
-MAPPING_STATE_CODE_TO_STATE_NAME ={
-    'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
-    'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'DC': 'District of Columbia',
-    'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho', 'IL': 'Illinois',
-    'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas', 'KY': 'Kentucky', 'LA': 'Louisiana',
-    'ME': 'Maine', 'MD': 'Maryland', 'MA': 'Massachusetts', 'MI': 'Michigan',
-    'MN': 'Minnesota', 'MS': 'Mississippi', 'MO': 'Missouri', 'MT': 'Montana',
-    'NE': 'Nebraska', 'NV': 'Nevada', 'NH': 'New Hampshire', 'NJ': 'New Jersey',
-    'NM': 'New Mexico', 'NY': 'New York', 'NC': 'North Carolina', 'ND': 'North Dakota',
-    'OH': 'Ohio', 'OK': 'Oklahoma', 'OR': 'Oregon', 'PA': 'Pennsylvania',
-    'RI': 'Rhode Island', 'SC': 'South Carolina', 'SD': 'South Dakota', 'TN': 'Tennessee',
-    'TX': 'Texas', 'UT': 'Utah', 'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington',
-    'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming', "AS": "American Samoa",
-    "GU": "Guam", "MP": "Northern Marianas", "PR": "Puerto Rico", "VI": "Virgin Islands"
-}
+from DELPHI_params import (TIME_DICT, MAPPING_STATE_CODE_TO_STATE_NAME, default_policy,
+                           default_policy_enaction_time, future_policies)
 
 
 class DELPHIDataSaver:
@@ -90,10 +75,12 @@ class DELPHIDataSaver:
     @staticmethod
     def create_nested_dict_from_final_dataframe(df_predictions: pd.DataFrame) -> dict:
         dict_all_results = {}
-        default_policy = "Lockdown"
-        default_policy_enaction_time = "Now"
+        # default_policy = "Lockdown"
+        # default_policy_enaction_time = "Now"
         for province in df_predictions.Province.unique():
             df_predictions_province = df_predictions[df_predictions.Province == province].reset_index(drop=True)
+            # The first part contains only ground truth value, so it doesn't matter which
+            # policy/enaction time we choose to report these values
             dict_all_results[province] = {
                 "Day": sorted(list(df_predictions_province.Day.unique())),
                 "Total Detected True": df_predictions_province[
@@ -722,21 +709,19 @@ def create_features_from_ihme_dates(
 
 def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFrame:
     df_policies_US_final = deepcopy(df_policies_US)
-    msr = ['No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
-           'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-           'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown']
-    df_policies_US_final['No_Measure'] = (df_policies_US.sum(axis=1) == 0).apply(lambda x: int(x))
-    df_policies_US_final['Restrict_Mass_Gatherings'] = [int(a and b) for a, b in
+    msr = future_policies
+    df_policies_US_final[msr[0]] = (df_policies_US.sum(axis=1) == 0).apply(lambda x: int(x))
+    df_policies_US_final[msr[1]] = [int(a and b) for a, b in
                                                         zip(df_policies_US.sum(axis=1) == 1,
                                                             df_policies_US['Mass_Gathering_Restrictions'] == 1)]
-    df_policies_US_final['Mass_Gatherings_Authorized_But_Others_Restricted'] = [
+    df_policies_US_final[msr[2]] = [
         int(a and b and c) for a, b, c in zip(
             df_policies_US.sum(axis=1) > 0,
             df_policies_US['Mass_Gathering_Restrictions'] == 0,
             df_policies_US['Stay_at_home_order'] == 0,
         )
     ]
-    df_policies_US_final['Restrict_Mass_Gatherings_and_Schools'] = [
+    df_policies_US_final[msr[3]] = [
         int(a and b and c)
         for a, b, c in zip(
             df_policies_US.sum(axis=1) == 2,
@@ -744,7 +729,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
             df_policies_US['Mass_Gathering_Restrictions'] == 1,
         )
     ]
-    df_policies_US_final['Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others'] = [
+    df_policies_US_final[msr[4]] = [
         int(a and b and c and d) for a, b, c, d in zip(
             df_policies_US.sum(axis=1) > 1,
             df_policies_US['Educational_Facilities_Closed'] == 0,
@@ -752,7 +737,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
             df_policies_US['Stay_at_home_order'] == 0,
         )
     ]
-    df_policies_US_final['Restrict_Mass_Gatherings_and_Schools_and_Others'] = [
+    df_policies_US_final[msr[5]] = [
         int(a and b and c and d) for a, b, c, d in zip(
             df_policies_US.sum(axis=1) > 2,
             df_policies_US['Educational_Facilities_Closed'] == 1,
@@ -760,7 +745,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
             df_policies_US['Stay_at_home_order'] == 0,
         )
     ]
-    df_policies_US_final['Lockdown'] = (df_policies_US['Stay_at_home_order'] == 1).apply(lambda x: int(x))
+    df_policies_US_final[msr[6]] = (df_policies_US['Stay_at_home_order'] == 1).apply(lambda x: int(x))
     df_policies_US_final['country'] = "US"
     df_policies_US_final = df_policies_US_final.loc[:, ['country', 'province', 'date'] + msr]
     return df_policies_US_final
@@ -813,13 +798,11 @@ def read_measures_oxford_data():
     measures = pd.read_csv('https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv')
     filtr = ['CountryName', 'CountryCode', 'Date']
     target = ['ConfirmedCases', 'ConfirmedDeaths']
-    msr = ['C1_School closing',
-           'C2_Workplace closing', 'C3_Cancel public events',
-           'C4_Restrictions on gatherings',
-           'C5_Close public transport',
-           'C6_Stay at home requirements',
-           'C7_Restrictions on internal movement', 'C8_International travel controls'
-           , 'H1_Public information campaigns']
+    msr = [
+        'C1_School closing', 'C2_Workplace closing', 'C3_Cancel public events', 'C4_Restrictions on gatherings',
+        'C5_Close public transport', 'C6_Stay at home requirements', 'C7_Restrictions on internal movement',
+        'C8_International travel controls', 'H1_Public information campaigns'
+    ]
     measures = measures.loc[:, filtr + msr + target]
     measures['Date'] = measures['Date'].apply(lambda x: datetime.strptime(str(x), '%Y%m%d'))
     for col in target:
@@ -842,14 +825,22 @@ def read_measures_oxford_data():
     })
     
     measures = measures.fillna(0)
-    msr = ['No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
-           'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-           'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown']
+    msr = future_policies
     
-    measures['Restrict_Mass_Gatherings'] = [int(a or b or c) for a, b, c in zip(measures['C3_Cancel public events'], 
-             measures['C4_Restrictions on gatherings'], measures['C5_Close public transport'])]
-    measures['Others'] = [int(a or b or c) for a, b, c in zip(measures['C2_Workplace closing'],
-             measures['C7_Restrictions on internal movement'], measures['C8_International travel controls'])]
+    measures['Restrict_Mass_Gatherings'] = [
+        int(a or b or c) for a, b, c in zip(
+            measures['C3_Cancel public events'],
+            measures['C4_Restrictions on gatherings'],
+            measures['C5_Close public transport']
+        )
+    ]
+    measures['Others'] = [
+        int(a or b or c) for a, b, c in zip(
+            measures['C2_Workplace closing'],
+            measures['C7_Restrictions on internal movement'],
+            measures['C8_International travel controls']
+        )
+    ]
     
     del measures['C2_Workplace closing']
     del measures['C3_Cancel public events']
@@ -859,17 +850,21 @@ def read_measures_oxford_data():
     del measures['C8_International travel controls']
     
     output = deepcopy(measures)
-    output['No_Measure'] = (measures.iloc[:, 2:].sum(axis=1) == 0).apply(lambda x: int(x))
-    output['Restrict_Mass_Gatherings'] = [int(a and b) for a, b in
-                                      zip(measures.iloc[:, 2:].sum(axis=1) == 1, measures['Restrict_Mass_Gatherings'] == 1)]
-    output['Mass_Gatherings_Authorized_But_Others_Restricted'] = [
+    output[msr[0]] = (measures.iloc[:, 2:].sum(axis=1) == 0).apply(lambda x: int(x))
+    output[msr[1]] = [
+        int(a and b) for a, b in zip(
+            measures.iloc[:, 2:].sum(axis=1) == 1,
+            measures['Restrict_Mass_Gatherings'] == 1
+        )
+    ]
+    output[msr[2]] = [
         int(a and b and c) for a, b, c in zip(
             measures.iloc[:, 2:].sum(axis=1) > 0,
             measures['Restrict_Mass_Gatherings'] == 0,
             measures['C6_Stay at home requirements'] == 0,
         )
     ]
-    output['Restrict_Mass_Gatherings_and_Schools'] = [
+    output[msr[3]] = [
         int(a and b and c)
         for a, b, c in zip(
             measures.iloc[:, 2:].sum(axis=1) == 2,
@@ -877,7 +872,7 @@ def read_measures_oxford_data():
             measures['Restrict_Mass_Gatherings'] == 1,
         )
     ]
-    output['Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others'] = [
+    output[msr[4]] = [
         int(a and b and c and d) for a, b, c, d in zip(
             measures.iloc[:, 2:].sum(axis=1) > 1,
             measures['C1_School closing'] == 0,
@@ -885,8 +880,7 @@ def read_measures_oxford_data():
             measures['C6_Stay at home requirements'] == 0,
         )
     ]
-    
-    output['Restrict_Mass_Gatherings_and_Schools_and_Others'] = [
+    output[msr[5]] = [
         int(a and b and c and d) for a, b, c, d in zip(
             measures.iloc[:, 2:].sum(axis=1) > 2,
             measures['C1_School closing'] == 1,
@@ -894,17 +888,10 @@ def read_measures_oxford_data():
             measures['C6_Stay at home requirements'] == 0,
         )
     ]
-    output['Lockdown'] = (measures['C6_Stay at home requirements'] == 1).apply(lambda x: int(x))
-    
-    
-    output.rename(columns={'CountryName':'country',
-                          'Date':'date'}, 
-                 inplace=True)
-    
+    output[msr[6]] = (measures['C6_Stay at home requirements'] == 1).apply(lambda x: int(x))
+    output.rename(columns={'CountryName': 'country', 'Date': 'date'}, inplace=True)
     output['province'] = "None"
-    
     output = output.loc[:, ['country', 'province', 'date'] + msr]
-    
     return output
 
 
@@ -920,89 +907,94 @@ def get_normalized_policy_shifts_and_current_policy(
         pastparameters: pd.DataFrame,
 ):
     dict_last_policy = {}
-    policy_list = ['No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
-                   'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-                   'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown']
+    policy_list = future_policies
     policy_data_us_only['province_cl'] = policy_data_us_only['province'].apply(
         lambda x: x.replace(',', '').strip().lower()
     )
     states_upper_set = set(policy_data_us_only['province'])
     for state in states_upper_set:
-        dict_last_policy[state] = list(compress(policy_list, (policy_data_us_only.query('province == @state')[
-                                                                 policy_data_us_only.query('province == @state')[
-                                                                     "date"] == policy_data_us_only.date.max()][
-                                                                 policy_list] == 1).values.flatten().tolist()))[0]
+        dict_last_policy[state] = list(compress(
+            policy_list,
+            (policy_data_us_only.query('province == @state')[
+                 policy_data_us_only.query('province == @state')["date"] == policy_data_us_only.date.max()
+             ][policy_list] == 1).values.flatten().tolist()
+        ))[0]
     states_set = set(policy_data_us_only['province_cl'])
     pastparameters_copy = deepcopy(pastparameters)
     pastparameters_copy['Province'] = pastparameters_copy['Province'].apply(
-        lambda x: str(x).replace(',', '').strip().lower())
+        lambda x: str(x).replace(',', '').strip().lower()
+    )
     params_dic = {}
     for state in states_set:
         params_dic[state] = pastparameters_copy.query('Province == @state')[
-            ['Data Start Date', 'Median Day of Action', 'Rate of Action']].iloc[0]
+            ['Data Start Date', 'Median Day of Action', 'Rate of Action']
+        ].iloc[0]
 
-    policy_data_us_only['Gamma'] = [gamma_t(day, state, params_dic) for day, state in
-                                    zip(policy_data_us_only['date'], policy_data_us_only['province_cl'])]
-    n_measures = policy_data_us_only.iloc[:, 3:-2].shape[1]
+    policy_data_us_only['Gamma'] = [
+        gamma_t(day, state, params_dic) for day, state in
+        zip(policy_data_us_only['date'], policy_data_us_only['province_cl'])
+    ]
+    n_measures = policy_data_us_only.iloc[:, 3: -2].shape[1]
     dict_policies_shift = {
         policy_data_us_only.columns[3 + i]: policy_data_us_only[
                                                 policy_data_us_only.iloc[:, 3 + i] == 1
                                             ].iloc[:, -1].mean()
         for i in range(n_measures)
     }
-    normalize_val = dict_policies_shift["No_Measure"]
+    normalize_val = dict_policies_shift[policy_list[0]]
     for policy in dict_policies_shift.keys():
         dict_policies_shift[policy] = dict_policies_shift[policy] / normalize_val
 
     return dict_policies_shift, dict_last_policy
+
 
 def get_normalized_policy_shifts_and_current_policy_all_countries(
         policy_data_countries: pd.DataFrame,
         pastparameters: pd.DataFrame,
 ):
     dict_last_policy = {}
-    policy_list = ['No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
-                   'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-                   'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown']
+    policy_list = future_policies
     policy_data_countries['country_cl'] = policy_data_countries['country'].apply(
         lambda x: x.replace(',', '').strip().lower()
     )
-    
     pastparameters_copy = deepcopy(pastparameters)
     pastparameters_copy['Country'] = pastparameters_copy['Country'].apply(
-        lambda x: str(x).replace(',', '').strip().lower())
-    
+        lambda x: str(x).replace(',', '').strip().lower()
+    )
     params_countries = pastparameters_copy['Country']
     params_countries = set(params_countries)
     policy_data_countries_bis = policy_data_countries.query("country_cl in @params_countries")
     countries_upper_set = set(policy_data_countries['country'])
     
     for country in countries_upper_set:
-        dict_last_policy[country] = list(compress(policy_list, (policy_data_countries.query('country == @country')[
-                                                                 policy_data_countries.query('country == @country')[
-                                                                     "date"] == policy_data_countries.query('country == @country').date.max()][
-                                                                 policy_list] == 1).values.flatten().tolist()))[0]
+        dict_last_policy[country] = list(compress(
+            policy_list,
+            (policy_data_countries.query('country == @country')[
+                 policy_data_countries.query('country == @country')["date"]
+                 == policy_data_countries.query('country == @country').date.max()
+             ][policy_list] == 1).values.flatten().tolist()
+        ))[0]
     countries_set = set(policy_data_countries['country_cl'])
-    
 
     params_dic = {}
-    
     countries_set = countries_set.intersection(params_countries)
     for country in countries_set:
         params_dic[country] = pastparameters_copy.query('Country == @country')[
-                ['Data Start Date', 'Median Day of Action', 'Rate of Action']].iloc[0]
+                ['Data Start Date', 'Median Day of Action', 'Rate of Action']
+        ].iloc[0]
 
-    policy_data_countries_bis['Gamma'] = [gamma_t(day, country, params_dic) for day, country in
-                                    zip(policy_data_countries_bis['date'], policy_data_countries_bis['country_cl'])]
-    
+    policy_data_countries_bis['Gamma'] = [
+        gamma_t(day, country, params_dic) for day, country in
+        zip(policy_data_countries_bis['date'], policy_data_countries_bis['country_cl'])
+    ]
     n_measures = policy_data_countries_bis.iloc[:, 3:-2].shape[1]
     dict_policies_shift = {
         policy_data_countries_bis.columns[3 + i]: policy_data_countries_bis[
-                                                policy_data_countries_bis.iloc[:, 3 + i] == 1
-                                            ].iloc[:, -1].mean()
+                                                      policy_data_countries_bis.iloc[:, 3 + i] == 1
+                                                  ].iloc[:, -1].mean()
         for i in range(n_measures)
     }
-    normalize_val = dict_policies_shift["No_Measure"]
+    normalize_val = dict_policies_shift[policy_list[0]]
     for policy in dict_policies_shift.keys():
         dict_policies_shift[policy] = dict_policies_shift[policy] / normalize_val
 
