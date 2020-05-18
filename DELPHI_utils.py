@@ -902,18 +902,18 @@ def gamma_t(day, state, params_dic):
     return gamma
 
 
-def get_normalized_policy_shifts_and_current_policy(
+def get_normalized_policy_shifts_and_current_policy_us_only(
         policy_data_us_only: pd.DataFrame,
         pastparameters: pd.DataFrame,
 ):
-    dict_last_policy = {}
+    dict_current_policy = {}
     policy_list = future_policies
     policy_data_us_only['province_cl'] = policy_data_us_only['province'].apply(
         lambda x: x.replace(',', '').strip().lower()
     )
     states_upper_set = set(policy_data_us_only['province'])
     for state in states_upper_set:
-        dict_last_policy[state] = list(compress(
+        dict_current_policy[state] = list(compress(
             policy_list,
             (policy_data_us_only.query('province == @state')[
                  policy_data_us_only.query('province == @state')["date"] == policy_data_us_only.date.max()
@@ -935,29 +935,30 @@ def get_normalized_policy_shifts_and_current_policy(
         zip(policy_data_us_only['date'], policy_data_us_only['province_cl'])
     ]
     n_measures = policy_data_us_only.iloc[:, 3: -2].shape[1]
-    dict_policies_shift = {
+    dict_normalized_policy_gamma = {
         policy_data_us_only.columns[3 + i]: policy_data_us_only[
                                                 policy_data_us_only.iloc[:, 3 + i] == 1
                                             ].iloc[:, -1].mean()
         for i in range(n_measures)
     }
-    normalize_val = dict_policies_shift[policy_list[0]]
-    for policy in dict_policies_shift.keys():
-        dict_policies_shift[policy] = dict_policies_shift[policy] / normalize_val
+    normalize_val = dict_normalized_policy_gamma[policy_list[0]]
+    for policy in dict_normalized_policy_gamma.keys():
+        dict_normalized_policy_gamma[policy] = dict_normalized_policy_gamma[policy] / normalize_val
 
-    return dict_policies_shift, dict_last_policy
+    return dict_normalized_policy_gamma, dict_current_policy
 
 
 def get_normalized_policy_shifts_and_current_policy_all_countries(
         policy_data_countries: pd.DataFrame,
         pastparameters: pd.DataFrame,
 ):
-    dict_last_policy = {}
+    dict_current_policy = {}
     policy_list = future_policies
     policy_data_countries['country_cl'] = policy_data_countries['country'].apply(
         lambda x: x.replace(',', '').strip().lower()
     )
     pastparameters_copy = deepcopy(pastparameters)
+    print(pastparameters_copy)
     pastparameters_copy['Country'] = pastparameters_copy['Country'].apply(
         lambda x: str(x).replace(',', '').strip().lower()
     )
@@ -967,7 +968,7 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
     countries_upper_set = set(policy_data_countries['country'])
     
     for country in countries_upper_set:
-        dict_last_policy[country] = list(compress(
+        dict_current_policy[country] = list(compress(
             policy_list,
             (policy_data_countries.query('country == @country')[
                  policy_data_countries.query('country == @country')["date"]
@@ -988,17 +989,17 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
         zip(policy_data_countries_bis['date'], policy_data_countries_bis['country_cl'])
     ]
     n_measures = policy_data_countries_bis.iloc[:, 3:-2].shape[1]
-    dict_policies_shift = {
+    dict_normalized_policy_gamma = {
         policy_data_countries_bis.columns[3 + i]: policy_data_countries_bis[
                                                       policy_data_countries_bis.iloc[:, 3 + i] == 1
                                                   ].iloc[:, -1].mean()
         for i in range(n_measures)
     }
-    normalize_val = dict_policies_shift[policy_list[0]]
-    for policy in dict_policies_shift.keys():
-        dict_policies_shift[policy] = dict_policies_shift[policy] / normalize_val
+    normalize_val = dict_normalized_policy_gamma[policy_list[0]]
+    for policy in dict_normalized_policy_gamma.keys():
+        dict_normalized_policy_gamma[policy] = dict_normalized_policy_gamma[policy] / normalize_val
 
-    return dict_policies_shift, dict_last_policy
+    return dict_normalized_policy_gamma, dict_current_policy
 
 
 def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataFrame:
