@@ -12,7 +12,7 @@ import yaml
 
 
 with open("config.yml", "r") as ymlfile:
-    CONFIG = yaml.load(ymlfile)
+    CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["FILEPATHS"]
 USER_RUNNING = "hamza"
 # TODO: Find a way to make these paths automatic, whoever the user is...

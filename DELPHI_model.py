@@ -1,6 +1,7 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
+import dateutil.parser as dtparser
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
@@ -9,14 +10,13 @@ from DELPHI_utils import (
 )
 from DELPHI_params import (date_MATHEMATICA, default_parameter_list, default_bounds_params,
                            validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
-                           VentilatedD, default_maxT, p_v, p_d, p_h, max_iter) 
-import dateutil.parser as dtparser
+                           VentilatedD, default_maxT, p_v, p_d, p_h, max_iter)
 import os
 import yaml
 
 
 with open("config.yml", "r") as ymlfile:
-    CONFIG = yaml.load(ymlfile)
+    CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))

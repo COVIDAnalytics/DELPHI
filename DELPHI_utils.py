@@ -75,13 +75,18 @@ class DELPHIDataSaver:
     @staticmethod
     def create_nested_dict_from_final_dataframe(df_predictions: pd.DataFrame) -> dict:
         dict_all_results = {}
-        # default_policy = "Lockdown"
-        # default_policy_enaction_time = "Now"
-        for province in df_predictions.Province.unique():
-            df_predictions_province = df_predictions[df_predictions.Province == province].reset_index(drop=True)
+        keys_country_province = list(set([
+            (country, province) for country, province in
+            zip(df_predictions.Country.tolist(), df_predictions.Province.tolist())
+        ]))
+        for country, province in keys_country_province:
+            key_dict = country + "___" + province
+            df_predictions_province = df_predictions[
+                (df_predictions.Country == country) & (df_predictions.Province == province)
+            ].reset_index(drop=True)
             # The first part contains only ground truth value, so it doesn't matter which
             # policy/enaction time we choose to report these values
-            dict_all_results[province] = {
+            dict_all_results[key_dict] = {
                 "Day": sorted(list(df_predictions_province.Day.unique())),
                 "Total Detected True": df_predictions_province[
                     (df_predictions_province.Policy == default_policy)
@@ -92,7 +97,7 @@ class DELPHIDataSaver:
                     & (df_predictions_province.Time == default_policy_enaction_time)
                     ].sort_values("Day")["Total Detected Deaths True"].tolist(),
             }
-            dict_all_results[province].update({
+            dict_all_results[key_dict].update({
                 policy: {
                     policy_enaction_time: {
                         "Total Detected": df_predictions_province[
@@ -113,31 +118,31 @@ class DELPHIDataSaver:
 
     def save_policy_predictions_to_dict_pickle(self, website=False):
         today_date_str = "".join(str(datetime.now().date()).split("-"))
-        dict_predictions_policies_US_since_100_cases = DELPHIDataSaver.create_nested_dict_from_final_dataframe(
+        dict_predictions_policies_world_since_100_cases = DELPHIDataSaver.create_nested_dict_from_final_dataframe(
             self.df_global_predictions_since_100_cases
         )
         with open(
                 self.PATH_TO_FOLDER_DANGER_MAP +
-                f'/predicted/US_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
+                f'/predicted/world_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
         ) as handle:
-            json.dump(dict_predictions_policies_US_since_100_cases, handle)
+            json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
         with open(
-                self.PATH_TO_FOLDER_DANGER_MAP + f'/predicted/US_Python_Scenarios_since_100_cases.json', 'w'
+                self.PATH_TO_FOLDER_DANGER_MAP + f'/predicted/world_Python_Scenarios_since_100_cases.json', 'w'
         ) as handle:
-            json.dump(dict_predictions_policies_US_since_100_cases, handle)
+            json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
         if website:
             with open(
                 self.PATH_TO_WEBSITE_PREDICTED +
-                f'/predicted/US_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
+                f'/predicted/world_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
             ) as handle:
-                json.dump(dict_predictions_policies_US_since_100_cases, handle)
+                json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
             with open(
-                    self.PATH_TO_WEBSITE_PREDICTED + f'/predicted/US_Python_Scenarios_since_100_cases.json', 'w'
+                    self.PATH_TO_WEBSITE_PREDICTED + f'/predicted/world_Python_Scenarios_since_100_cases.json', 'w'
             ) as handle:
-                json.dump(dict_predictions_policies_US_since_100_cases, handle)
+                json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
 
 class DELPHIDataCreator:
@@ -902,18 +907,18 @@ def gamma_t(day, state, params_dic):
     return gamma
 
 
-def get_normalized_policy_shifts_and_current_policy(
+def get_normalized_policy_shifts_and_current_policy_us_only(
         policy_data_us_only: pd.DataFrame,
         pastparameters: pd.DataFrame,
 ):
-    dict_last_policy = {}
+    dict_current_policy = {}
     policy_list = future_policies
     policy_data_us_only['province_cl'] = policy_data_us_only['province'].apply(
         lambda x: x.replace(',', '').strip().lower()
     )
     states_upper_set = set(policy_data_us_only['province'])
     for state in states_upper_set:
-        dict_last_policy[state] = list(compress(
+        dict_current_policy[("US", state)] = list(compress(
             policy_list,
             (policy_data_us_only.query('province == @state')[
                  policy_data_us_only.query('province == @state')["date"] == policy_data_us_only.date.max()
@@ -935,24 +940,24 @@ def get_normalized_policy_shifts_and_current_policy(
         zip(policy_data_us_only['date'], policy_data_us_only['province_cl'])
     ]
     n_measures = policy_data_us_only.iloc[:, 3: -2].shape[1]
-    dict_policies_shift = {
+    dict_normalized_policy_gamma = {
         policy_data_us_only.columns[3 + i]: policy_data_us_only[
                                                 policy_data_us_only.iloc[:, 3 + i] == 1
                                             ].iloc[:, -1].mean()
         for i in range(n_measures)
     }
-    normalize_val = dict_policies_shift[policy_list[0]]
-    for policy in dict_policies_shift.keys():
-        dict_policies_shift[policy] = dict_policies_shift[policy] / normalize_val
+    normalize_val = dict_normalized_policy_gamma[policy_list[0]]
+    for policy in dict_normalized_policy_gamma.keys():
+        dict_normalized_policy_gamma[policy] = dict_normalized_policy_gamma[policy] / normalize_val
 
-    return dict_policies_shift, dict_last_policy
+    return dict_normalized_policy_gamma, dict_current_policy
 
 
 def get_normalized_policy_shifts_and_current_policy_all_countries(
         policy_data_countries: pd.DataFrame,
         pastparameters: pd.DataFrame,
 ):
-    dict_last_policy = {}
+    dict_current_policy = {}
     policy_list = future_policies
     policy_data_countries['country_cl'] = policy_data_countries['country'].apply(
         lambda x: x.replace(',', '').strip().lower()
@@ -967,7 +972,7 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
     countries_upper_set = set(policy_data_countries['country'])
     
     for country in countries_upper_set:
-        dict_last_policy[country] = list(compress(
+        dict_current_policy[(country, "None")] = list(compress(
             policy_list,
             (policy_data_countries.query('country == @country')[
                  policy_data_countries.query('country == @country')["date"]
@@ -988,17 +993,17 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
         zip(policy_data_countries_bis['date'], policy_data_countries_bis['country_cl'])
     ]
     n_measures = policy_data_countries_bis.iloc[:, 3:-2].shape[1]
-    dict_policies_shift = {
+    dict_normalized_policy_gamma = {
         policy_data_countries_bis.columns[3 + i]: policy_data_countries_bis[
                                                       policy_data_countries_bis.iloc[:, 3 + i] == 1
                                                   ].iloc[:, -1].mean()
         for i in range(n_measures)
     }
-    normalize_val = dict_policies_shift[policy_list[0]]
-    for policy in dict_policies_shift.keys():
-        dict_policies_shift[policy] = dict_policies_shift[policy] / normalize_val
+    normalize_val = dict_normalized_policy_gamma[policy_list[0]]
+    for policy in dict_normalized_policy_gamma.keys():
+        dict_normalized_policy_gamma[policy] = dict_normalized_policy_gamma[policy] / normalize_val
 
-    return dict_policies_shift, dict_last_policy
+    return dict_normalized_policy_gamma, dict_current_policy
 
 
 def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataFrame:

@@ -17,7 +17,7 @@ RecoverID = 10
 RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
-default_maxT = datetime(2020, 6, 15)  # Maximum timespan of prediction, defaulted to go to 15/06/2020
+default_maxT = datetime(2020, 6, 15)  # Maximum timespan of prediction
 p_v = 0.25  # Percentage of ventilated
 p_d = 0.2  # Percentage of infection cases detected.
 p_h = 0.15  # Percentage of detected cases hospitalized
@@ -28,6 +28,7 @@ future_policies = [
     'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
     'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'
 ]
+default_maxT_policies = datetime(2020, 9, 15)  # Maximum timespan of prediction under different policy scenarios
 future_times = [0, 7, 14, 28, 42]
 
 # Additional utils inputs
