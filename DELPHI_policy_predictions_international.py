@@ -57,8 +57,6 @@ dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
         pastparameters=pastparameters,
     )
 )
-dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
-dict_normalized_policy_gamma_international.update(dict_normalized_policy_gamma_us_only)
 dict_current_policy_international = dict_current_policy_countries.copy()
 dict_current_policy_international.update(dict_current_policy_us_only)
 
@@ -71,6 +69,11 @@ for continent, country, province in zip(
         popcountries.Country.tolist(),
         popcountries.Province.tolist(),
 ):
+    if country == "US":  # This line is necessary because the keys are the same in both cases
+        dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
+    else:
+        dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
+
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if (

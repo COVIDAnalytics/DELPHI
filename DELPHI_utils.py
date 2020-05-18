@@ -1090,3 +1090,6 @@ def get_testing_data_us() -> pd.DataFrame:
     df_test_final = pd.concat(list_df_concat).reset_index(drop=True)
     df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
     return df_test_final
+
+def create_df_policy_change_tracking():
+    return ""
