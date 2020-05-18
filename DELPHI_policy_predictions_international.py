@@ -71,8 +71,6 @@ for continent, country, province in zip(
         popcountries.Country.tolist(),
         popcountries.Province.tolist(),
 ):
-    if country not in ["France", "Italy", "Spain", "Japan", "Singapore", "Brazil"]:
-        continue
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if (
