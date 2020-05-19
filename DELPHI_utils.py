@@ -116,7 +116,7 @@ class DELPHIDataSaver:
 
         return dict_all_results
 
-    def save_policy_predictions_to_dict_pickle(self, website=False):
+    def save_policy_predictions_to_dict_pickle(self, website=False, local_delphi=False):
         today_date_str = "".join(str(datetime.now().date()).split("-"))
         dict_predictions_policies_world_since_100_cases = DELPHIDataSaver.create_nested_dict_from_final_dataframe(
             self.df_global_predictions_since_100_cases
@@ -131,6 +131,12 @@ class DELPHIDataSaver:
                 self.PATH_TO_FOLDER_DANGER_MAP + f'/predicted/world_Python_Scenarios_since_100_cases.json', 'w'
         ) as handle:
             json.dump(dict_predictions_policies_world_since_100_cases, handle)
+
+        if local_delphi:
+            with open(
+                    f'./world_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
+            ) as handle:
+                json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
         if website:
             with open(
