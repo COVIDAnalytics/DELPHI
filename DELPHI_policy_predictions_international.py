@@ -74,6 +74,8 @@ for continent, country, province in zip(
     else:
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
 
+    # if country not in ["France", "Spain", "Italy", "Greece", "Brazil"]:
+    #     continue
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if (
@@ -148,7 +150,7 @@ for continent, country, province in zip(
             )
             best_params = parameter_list
             t_predictions = [i for i in range(maxT)]
-            # plt.figure(figsize=(16, 10))
+            # plt.figure(figsize=(20, 10))
             for future_policy in future_policies:
                 for future_time in future_times:
                     def model_covid_predictions(
@@ -246,11 +248,11 @@ for continent, country, province in zip(
                     )
                     # print(best_params)
                     # print(country + ", " + province)
-                    # if future_policy in [
-                    #     'No_Measure', 'Restrict_Mass_Gatherings', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others', 'Lockdown'
-                    # ]:
-                    #     plt.plot(x_sol_final[15, :], label=f"Future Policy: {future_policy} in {future_time} days")
-                    # Creating the datasets for predictions of this (Continent, Country, Province)
+                    if future_policy in [
+                        'No_Measure', 'Restrict_Mass_Gatherings', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others', 'Lockdown'
+                    ]:
+                        plt.plot(x_sol_final[15, :], label=f"Future Policy: {future_policy} in {future_time} days")
+                    #Creating the datasets for predictions of this (Continent, Country, Province)
                     df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
                         data_creator.create_datasets_predictions_scenario(
                             policy=future_policy,
@@ -264,6 +266,11 @@ for continent, country, province in zip(
                         df_predictions_since_100_cont_country_prov)
             print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
             # plt.plot(fitcasesnd, label="Historical Data")
+            # dates_values = [
+            #     str((date_day_since100+timedelta(days=i)).date()) if i%5 == 0 else " "
+            #     for i in range(len(x_sol_final[15,:]))
+            # ]
+            # plt.xticks(t_predictions, dates_values, rotation=90, fontsize=10)
             # plt.legend()
             # plt.title(f"{country}, {province} Predictions & Historical for # Cases")
             # plt.savefig(country + "_" + province + "_prediction_cases.png")
@@ -292,5 +299,5 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
 # df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False, local_delphi=False)
+# delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False, local_delphi=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
