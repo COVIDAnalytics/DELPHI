@@ -547,7 +547,7 @@ class DELPHIAggregationsPolicies:
 
 
 def get_initial_conditions(params_fitted, global_params_fixed):
-    alpha, days, r_s, r_dth, p_dth, k1, k2 = params_fitted
+    alpha, days, r_s, r_dth, p_dth, k1, k2 = params_fitted[:7]
     N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
     S_0 = (
             (N - PopulationCI / p_d) -
