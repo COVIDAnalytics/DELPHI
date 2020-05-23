@@ -73,8 +73,8 @@ for continent, country, province in zip(
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
     else:
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
-    if country not in ["France", "Spain", "Greece", "Italy"]:
-        continue
+    #if country not in ["France", "Spain", "Greece", "Italy"]:
+    #    continue
     # if country not in ["France", "Spain", "Italy", "Greece", "Brazil"]:
     #     continue
     country_sub = country.replace(" ", "_")
