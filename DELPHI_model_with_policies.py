@@ -556,7 +556,7 @@ for continent, country, province in zip(
                 """
                 # Variables Initialization for the ODE system
                 #print(f"Initial length of params in Residual Totalcases: {len(params)}")
-                if len(params) == 7:
+                if len(params) == n_params_without_policy_params:
                     alpha, days, r_s, r_dth, p_dth, k1, k2 = params
                     params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
                 elif len(params) == 8:
@@ -981,9 +981,9 @@ for continent, country, province in zip(
 
 
             x_sol_final = solve_best_params_and_predict(best_params)
-            if len(best_params) > 7:
-                best_params_base = best_params[:7]
-                best_params_policies = best_params[7:]
+            if len(best_params) > n_params_without_policy_params:
+                best_params_base = best_params[:n_params_without_policy_params]
+                best_params_policies = best_params[n_params_without_policy_params:]
             else:
                 best_params_base = best_params
                 best_params_policies = []
@@ -1016,8 +1016,6 @@ for continent, country, province in zip(
             # Then we add it to the list of df to be concatenated to update the tracking df
             list_df_policy_tracking_concat.append(df_temp_policy_change_tracking_tuple_updated)
             # Creating the datasets for predictions of this (Continent, Country, Province)
-            # TODO Check this
-            # TODO: Need to modify the data creator at least for the best_params saving!
             data_creator = DELPHIDataCreator(
                 x_sol_final=x_sol_final, date_day_since100=date_day_since100, best_params=best_params_base,
                 continent=continent, country=country, province=province,
@@ -1049,6 +1047,7 @@ print("Saved the dataset of initial tracking")
 #    print(e, f"No params file for {yesterday}")
 
 today_date_str = "".join(str(datetime.now().date()).split("-"))
+df_global_parameters_continuous_retraining = pd.concat(list_df_global_parameters).reset_index(drop=True)
 df_global_predictions_since_today_scenarios = pd.concat(
     list_df_global_predictions_since_today
 ).reset_index(drop=True)
@@ -1057,6 +1056,7 @@ df_global_predictions_since_100_cases_scenarios = pd.concat(
 ).reset_index(drop=True)
 df_global_predictions_since_100_cases_scenarios.to_csv(f"./predictions_DELPHI_3_continuous_retraining_{today_date_str}_2",
                                                        index=False)
+# TODO: Modify data saver in order to save separately the new parameters dataframe
 # delphi_data_saver = DELPHIDataSaver(
 #     path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
 #     path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,

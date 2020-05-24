@@ -1,13 +1,8 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
-from datetime import datetime, timedelta
-from typing import Union
-from copy import deepcopy
-from itertools import compress
 import json
-from DELPHI_params import (n_params_without_policy_params, TIME_DICT, MAPPING_STATE_CODE_TO_STATE_NAME, default_policy,
-                           default_policy_enaction_time, future_policies)
+from DELPHI_params import n_params_without_policy_params
 
 
 def update_tracking_without_policy_change(
@@ -65,10 +60,6 @@ def update_tracking_when_policy_changed(
         current_policy_in_new_data=current_policy_in_new_data,
         dict_normalized_policy_gamma_international=dict_normalized_policy_gamma_international
     )
-    #df_updated = update_n_params_fitted_with_policy_change(
-    #    df_updated=df_updated,
-    #    yesterday=yesterday,
-    #)
     df_updated.loc[0, "n_params_constant_from_tree"] = (
             df_updated.loc[0, "n_policy_changes"] - df_updated.loc[0, "n_params_fitted"]
     )
@@ -95,30 +86,6 @@ def add_policy_shift_initial_param(
     return updated_policy_shift_names
 
 
-# def update_n_params_fitted_with_policy_change(
-#         df_updated: pd.DataFrame, yesterday: str
-# ) -> pd.DataFrame:
-#     """
-#     When we update the policy (i.e. when there's been a change in policy) the former current_policy becomes last_policy
-#     and the new current_policy is for sure not fitted as it is 1 day old. If it is ready to be fitted, we need to update
-#     the flags for param fitting 'last/current_policy_fitted'
-#     """
-#     n_days_data_before_fitting = 10
-#     flag_new_param_fitted = len(df_updated[
-#         (df_updated.n_days_enacted_last_policy >= n_days_data_before_fitting)
-#         & (df_updated.n_policy_changes >= 1)
-#         & (df_updated.last_policy_fitted == False)
-#     ]) > 0
-#     if flag_new_param_fitted:
-#         df_updated.loc[0, "n_params_fitted"] = df_updated.loc[0, "n_params_fitted"] + 1
-#         df_updated.loc[0, "last_policy_fitted"] = True
-#         df_updated.loc[0, "params_fitting_starting_dates"] = (
-#                 df_updated.loc[0, "params_fitting_starting_dates"] + str(pd.to_datetime(yesterday).date()) + ";"
-#         )
-#
-#     return df_updated
-
-
 def update_n_params_fitted_without_policy_change(
         df_updated: pd.DataFrame, yesterday: str,
 ) -> pd.DataFrame:
@@ -128,22 +95,11 @@ def update_n_params_fitted_without_policy_change(
     instead of using a constant value, and if so, update the flags for param fitting 'last/current_policy_fitted'
     """
     n_days_data_before_fitting = 10
-    # flag_new_param_fitted_last_policy = len(df_updated[
-    #     (df_updated.n_days_enacted_last_policy >= n_days_data_before_fitting)
-    #     & (df_updated.n_policy_changes >= 1)
-    #     & (df_updated.last_policy_fitted == False)
-    # ]) > 0
     flag_new_param_fitted_current_policy = len(df_updated[
         (df_updated.n_days_enacted_current_policy >= n_days_data_before_fitting)
         & (df_updated.n_policy_changes >= 1)
         & (df_updated.current_policy_fitted == False)
     ]) > 0
-    # if flag_new_param_fitted_last_policy:
-    #     df_updated.loc[0, "n_params_fitted"] = df_updated.loc[0, "n_params_fitted"] + 1
-    #     df_updated.loc[0, "last_policy_fitted"] = True
-    #     df_updated.loc[0, "params_fitting_starting_dates"] = (
-    #             df_updated.loc[0, "params_fitting_starting_dates"] + str(pd.to_datetime(yesterday).date()) + ";"
-    #     )
 
     if flag_new_param_fitted_current_policy:
         # The policy change id is the n_policy_changes - 1 (so when there's the first policy change, its id will be '0')
@@ -220,7 +176,6 @@ def get_params_constant_policies(
         params_constant = [float(params_constant[int(policy_id)]) for policy_id in policy_shifts_constant_ids]
         start_dates_constant = df_updated.policy_shift_dates.iloc[0].strip().split(";")[:-1]
         start_dates_constant = [start_dates_constant[int(policy_id)] for policy_id in policy_shifts_constant_ids]
-        # TODO: Need to use the column "policy_changes_constant_end_dates" with json
         dict_policy_changes_constant_end_dates = json.loads(df_updated.loc[0, "policy_changes_constant_end_dates"])
         end_dates_constant = [
             get_constant_params_end_date(
@@ -278,8 +233,6 @@ def get_policy_shift_names_tuples(df_updated: pd.DataFrame):
 def get_list_and_bounds_params(
         df_updated: pd.DataFrame, parameter_list_line: list, param_MATHEMATICA: bool
 ):
-    # TODO: Need to modify this as it needs to take parameter_list_line and eventually add
-    #       the fitted params from df_updated directly as they'll be stored and updated there!!
     if param_MATHEMATICA:
         parameter_list_fitted = parameter_list_line[4:]
         parameter_list_fitted[3] = np.log(2) / parameter_list_fitted[3]
@@ -293,79 +246,6 @@ def get_list_and_bounds_params(
     bounds_params_fitted = tuple(
         [(lower, upper) for lower, upper in zip(param_bounds_list_lower, param_bounds_list_upper)]
     )
-
-    # We might be storing NaN values for the policy parameters so we want to make sure to only have non-NaN values
-    # parameter_list_fitted = [param for param in parameter_list_fitted if param is not np.nan]
-    # if len(parameter_list_fitted) > n_params_without_policy_params:  # Saved 7 basic parameters + some for policy change
-    #     params_base_fitted_saved = parameter_list_fitted[:n_params_without_policy_params]
-    #     param_base_list_lower = [x - 0.1 * abs(x) for x in params_base_fitted_saved]
-    #     param_base_list_upper = [x + 0.1 * abs(x) for x in params_base_fitted_saved]
-    #     params_policy_fitted_saved = parameter_list_fitted[n_params_without_policy_params:]
-    #     params_policies_fitted, start_dates_fitting_policies = get_params_fitted_policies(df_updated)
-    #     assert params_policies_fitted is not None, "Supposed to have at least one fitted parameter for policies"
-    #     if len(params_policy_fitted_saved) == len(params_policies_fitted):  # No new fitted parameter
-    #         # Allowing a 30% drift for the extra policy parameters fitted and saved
-    #         # (as they're != from initial value a priori because of the 30% drift allowed at each fit)
-    #         params_policies_lower_bounds = [x - 0.1 * abs(x) for x in params_policy_fitted_saved]
-    #         params_policies_upper_bounds = [x + 0.1 * abs(x) for x in params_policy_fitted_saved]
-    #         bounds_params_fitted = tuple(
-    #             [(lower, upper) for lower, upper in zip(param_base_list_lower, param_base_list_upper)] +
-    #             [
-    #                 (lower_pol, upper_pol) for lower_pol, upper_pol
-    #                 in zip(params_policies_lower_bounds, params_policies_upper_bounds)
-    #             ]
-    #         )
-    #         parameter_list_fitted = params_base_fitted_saved + params_policies_fitted
-    #         assert len(parameter_list_fitted) == len(bounds_params_fitted), \
-    #             f"Should have n_params=n_bounds, got {len(parameter_list_fitted)}!={len(bounds_params_fitted)}"
-    #     elif len(params_policy_fitted_saved) < len(params_policies_fitted):  # 1 new fitted parameter
-    #         # The initial values are thus all the ones saved in the parameters dataset (with possible 30% drift)
-    #         # + extra parameters that are new and have initial values from latest CART
-    #         new_params_policy_fitted = params_policy_fitted_saved + params_policies_fitted[len(params_policy_fitted_saved):]
-    #         params_policies_lower_bounds = [x - 0.1 * abs(x) for x in new_params_policy_fitted]
-    #         params_policies_upper_bounds = [x + 0.1 * abs(x) for x in new_params_policy_fitted]
-    #         bounds_params_fitted = tuple(
-    #             [(lower, upper) for lower, upper in zip(param_base_list_lower, param_base_list_upper)] +
-    #             [
-    #                 (lower_pol, upper_pol) for lower_pol, upper_pol
-    #                 in zip(params_policies_lower_bounds, params_policies_upper_bounds)
-    #             ]
-    #         )
-    #         parameter_list_fitted = params_base_fitted_saved + new_params_policy_fitted
-    #         assert len(parameter_list_fitted) == len(bounds_params_fitted), \
-    #             f"Should have n_params=n_bounds, got {len(parameter_list_fitted)}!={len(bounds_params_fitted)}"
-    #
-    #     else:
-    #         raise ValueError(
-    #             "Number of parameters for policy fitted and saved in Params file should be <= than in tracking file " +
-    #             f"but got {len(params_policy_fitted_saved)} > {len(params_policies_fitted)}"
-    #         )
-    #
-    # elif len(parameter_list_fitted) == n_params_without_policy_params:  # Only saved the 7 basic parameters so far
-    #     # Allowing a 10% drift for the 7 initial parameters
-    #     param_list_lower = [x - 0.1 * abs(x) for x in parameter_list_fitted]
-    #     param_list_upper = [x + 0.1 * abs(x) for x in parameter_list_fitted]
-    #     params_policies_fitted, start_dates_fitting_policies = get_params_fitted_policies(df_updated)
-    #     if (params_policies_fitted, start_dates_fitting_policies) != ([], []):
-    #         # Allowing a 30% drift for the extra policy parameters fitted
-    #         params_policies_lower_bounds = [x - 0.1 * abs(x) for x in params_policies_fitted]
-    #         params_policies_upper_bounds = [x + 0.1 * abs(x) for x in params_policies_fitted]
-    #         bounds_params_fitted = tuple(
-    #             [(lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)] +
-    #             [
-    #                 (lower_pol, upper_pol) for lower_pol, upper_pol
-    #                 in zip(params_policies_lower_bounds, params_policies_upper_bounds)
-    #             ]
-    #         )
-    #         parameter_list_fitted.extend(params_policies_fitted)
-    #     else:
-    #         bounds_params_fitted = tuple(
-    #             [(lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)]
-    #         )
-    # else:
-    #     raise ValueError(f"Expected at least {n_params_without_policy_params}" +
-    #                      f"parameters saved, got {len(parameter_list_fitted)}")
-
     assert len(start_dates_fitting_policies) == len(parameter_list_fitted) - n_params_without_policy_params, \
         "Should have as many extra fitted policy params as start fitting dates for policy params"
     return parameter_list_fitted, start_dates_fitting_policies, bounds_params_fitted
