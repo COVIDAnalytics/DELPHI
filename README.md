@@ -10,4 +10,4 @@ We also included a python implementation using scipy.solve_ivp. It has been test
 
 Documentation is contained in the pdf document: DELPHI_Explainer.
 
-Code created by Michael Lingzhi Li, Hamza Tazi Bouardi, and Omar Skali Lami
+Code created by Michael Lingzhi Li, Hamza Tazi Bouardi, and Omar Skali Lami.
