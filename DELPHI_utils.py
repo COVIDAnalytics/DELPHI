@@ -74,19 +74,24 @@ class DELPHIDataSaver:
 
     @staticmethod
     def create_nested_dict_from_final_dataframe(df_predictions: pd.DataFrame) -> dict:
-        dict_all_results = {}
+        dict_all_results = {
+            continent: {} for continent in df_predictions.Continent.unique()
+        }
+        for continent in dict_all_results.keys():
+            countries_in_continent = list(df_predictions[df_predictions.Continent == continent].Country.unique())
+            dict_all_results[continent] = {country: {} for country in countries_in_continent}
+
         keys_country_province = list(set([
-            (country, province) for country, province in
-            zip(df_predictions.Country.tolist(), df_predictions.Province.tolist())
+            (continent, country, province) for continent, country, province in
+            zip(df_predictions.Continent.tolist(), df_predictions.Country.tolist(), df_predictions.Province.tolist())
         ]))
-        for country, province in keys_country_province:
-            key_dict = country + "___" + province
+        for continent, country, province in keys_country_province:
             df_predictions_province = df_predictions[
                 (df_predictions.Country == country) & (df_predictions.Province == province)
             ].reset_index(drop=True)
             # The first part contains only ground truth value, so it doesn't matter which
             # policy/enaction time we choose to report these values
-            dict_all_results[key_dict] = {
+            dict_all_results[continent][country][province] = {
                 "Day": sorted(list(df_predictions_province.Day.unique())),
                 "Total Detected True": df_predictions_province[
                     (df_predictions_province.Policy == default_policy)
@@ -97,7 +102,7 @@ class DELPHIDataSaver:
                     & (df_predictions_province.Time == default_policy_enaction_time)
                     ].sort_values("Day")["Total Detected Deaths True"].tolist(),
             }
-            dict_all_results[key_dict].update({
+            dict_all_results[continent][country][province].update({
                 policy: {
                     policy_enaction_time: {
                         "Total Detected": df_predictions_province[
