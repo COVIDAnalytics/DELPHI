@@ -21,7 +21,8 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-for n_days_before in range(20, 0, -1):
+max_days_before = (datetime.now().date() - datetime(2020, 4, 27).date()).days - 1
+for n_days_before in range(max_days_before, max_days_before - 1, -1):
     yesterday = "".join(str(datetime.now().date() - timedelta(days=n_days_before)).split("-"))
     # TODO: Find a way to make these paths automatic, whoever the user is...
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -66,10 +67,10 @@ for n_days_before in range(20, 0, -1):
 
     # Dataset with history of previous policy changes
     POLICY_TRACKING_ALREADY_EXISTS = False
-    if os.path.exists(CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_updated.csv"):
+    if os.path.exists(CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_init_2704.csv"):
         POLICY_TRACKING_ALREADY_EXISTS = True
         df_policy_change_tracking_world = pd.read_csv(
-            CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_updated.csv"
+            CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_init_2704.csv"
         )
     else:
         dict_policy_change_tracking_world = {
@@ -163,5 +164,6 @@ for n_days_before in range(20, 0, -1):
     df_tracking = pd.concat([df_policy_change_tracking_world] + list_df_policy_tracking_concat).sort_values(
         by=["continent", "country", "province", "date"]
     ).reset_index(drop=True)
-    df_tracking.to_csv(CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_updated.csv", index=False)
+    df_tracking.to_csv(CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] +
+                       f"policy_change_tracking_world_updated.csv", index=False)
     print("Saved the dataset of tracking")

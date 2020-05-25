@@ -785,7 +785,7 @@ def read_policy_data_us_only(filepath_data_sandbox: str):
         'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
         'West Virginia', 'Wisconsin', 'Wyoming'
     ]
-    df = pd.read_csv(filepath_data_sandbox + "10052020_raw_policy_data_US_only.csv")
+    df = pd.read_csv(filepath_data_sandbox + "20052020_raw_policy_data_US_only.csv")
     df = df[df.location_name.isin(list_US_states)][[
         "location_name", "travel_limit_start_date", "travel_limit_end_date",
         "stay_home_start_date", "stay_home_end_date", "educational_fac_start_date",
