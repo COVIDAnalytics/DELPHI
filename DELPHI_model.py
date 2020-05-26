@@ -10,7 +10,7 @@ from DELPHI_utils import (
 import dateutil.parser as dtparser
 import os
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = (
     "E:/Github/covid19orc/danger_map/"
@@ -127,7 +127,7 @@ for continent, country, province in zip(
             RecoverHD = 15  # Recovery Time when Hospitalized
             VentilatedD = 10  # Recovery Time when Ventilated
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
-            maxT = (datetime(2020, 6, 15) - date_day_since100).days + 1
+            maxT = (datetime(2020, 7, 15) - date_day_since100).days + 1
             p_v = 0.25  # Percentage of ventilated
             p_d = 0.2  # Percentage of infection cases detected.
             p_h = 0.15  # Percentage of detected cases hospitalized
@@ -221,7 +221,6 @@ for continent, country, province in zip(
             )
             best_params = output.x
             obj_value = obj_value + output.fun
-            print(obj_value)
             t_predictions = [i for i in range(maxT)]
 
             def solve_best_params_and_predict(optimal_params):
@@ -253,8 +252,6 @@ for continent, country, province in zip(
             #         mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
             #         mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
             # ) / 2
-            # print(fitcasesd[-15:])
-            print(x_sol_final[14, len(fitcasesnd)-15:len(fitcasesnd)])
             # print(mape_data_2)
             df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
             list_df_global_parameters.append(df_parameters_cont_country_prov)
