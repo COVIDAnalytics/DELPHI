@@ -233,11 +233,11 @@ def get_policy_shift_names_tuples(df_updated: pd.DataFrame):
 def get_list_and_bounds_params(
         df_updated: pd.DataFrame, parameter_list_line: list, param_MATHEMATICA: bool
 ):
-    if param_MATHEMATICA:
-        parameter_list_fitted = parameter_list_line[4:]
-        parameter_list_fitted[3] = np.log(2) / parameter_list_fitted[3]
-    else:
-        parameter_list_fitted = parameter_list_line[5:]
+    # if param_MATHEMATICA:
+    #     parameter_list_fitted = parameter_list_line[4:]
+    #     parameter_list_fitted[3] = np.log(2) / parameter_list_fitted[3]
+    # else:
+    parameter_list_fitted = parameter_list_line[5:]
 
     params_policies_fitted, start_dates_fitting_policies = get_params_fitted_policies(df_updated)
     parameter_list_fitted = parameter_list_fitted + params_policies_fitted
