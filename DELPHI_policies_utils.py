@@ -95,6 +95,7 @@ def update_n_params_fitted_without_policy_change(
     instead of using a constant value, and if so, update the flags for param fitting 'last/current_policy_fitted'
     """
     n_days_data_before_fitting = 10
+    print(df_updated[["province", "n_days_enacted_current_policy", "n_policy_changes", "current_policy_fitted"]])
     flag_new_param_fitted_current_policy = len(df_updated[
         (df_updated.n_days_enacted_current_policy >= n_days_data_before_fitting)
         & (df_updated.n_policy_changes >= 1)
@@ -102,6 +103,7 @@ def update_n_params_fitted_without_policy_change(
     ]) > 0
 
     if flag_new_param_fitted_current_policy:
+        print("Supposed to be updating the # fitting params as got in the if/else statement")
         # The policy change id is the n_policy_changes - 1 (so when there's the first policy change, its id will be '0')
         policy_change_id_str = str(int(df_updated.loc[0, "n_policy_changes"] - 1))
         df_updated.loc[0, "n_params_fitted"] = df_updated.loc[0, "n_params_fitted"] + 1
@@ -233,11 +235,11 @@ def get_policy_shift_names_tuples(df_updated: pd.DataFrame):
 def get_list_and_bounds_params(
         df_updated: pd.DataFrame, parameter_list_line: list, param_MATHEMATICA: bool
 ):
-    # if param_MATHEMATICA:
-    #     parameter_list_fitted = parameter_list_line[4:]
-    #     parameter_list_fitted[3] = np.log(2) / parameter_list_fitted[3]
-    # else:
-    parameter_list_fitted = parameter_list_line[5:]
+    if param_MATHEMATICA:
+        parameter_list_fitted = parameter_list_line[4:]
+        parameter_list_fitted[3] = np.log(2) / parameter_list_fitted[3]
+    else:
+        parameter_list_fitted = parameter_list_line[5:]
 
     params_policies_fitted, start_dates_fitting_policies = get_params_fitted_policies(df_updated)
     parameter_list_fitted = parameter_list_fitted + params_policies_fitted

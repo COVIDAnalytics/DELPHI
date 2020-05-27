@@ -30,9 +30,9 @@ import matplotlib.pyplot as plt
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "michael"
+USER_RUNNING = "hamza"
 max_days_before = (datetime.now().date() - datetime(2020, 4, 28).date()).days - 1
-for n_days_before in range(max_days_before-1, 0, -1):
+for n_days_before in range(max_days_before-1, 10, -1):
     yesterday = "".join(str(datetime.now().date() - timedelta(days=n_days_before)).split("-"))
     print(yesterday)
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -104,8 +104,6 @@ for n_days_before in range(max_days_before-1, 0, -1):
             popcountries.Country.tolist(),
             popcountries.Province.tolist(),
     ):
-        # if country not in ["US"]:
-        #     continue
         country_sub = country.replace(" ", "_")
         province_sub = province.replace(" ", "_")
         if (
@@ -129,6 +127,7 @@ for n_days_before in range(max_days_before-1, 0, -1):
                     POLICY_TRACKING_ALREADY_EXISTS and
                     (df_temp_policy_change_tracking_tuple_previous.date.max() != str(pd.to_datetime(yesterday).date()))
             ):
+                print("Updating Tracking as supposed to")
                 df_temp_policy_change_tracking_tuple_previous = df_temp_policy_change_tracking_tuple_previous.iloc[
                         len(df_temp_policy_change_tracking_tuple_previous) - 1:, :
                 ].reset_index(drop=True)
@@ -137,6 +136,7 @@ for n_days_before in range(max_days_before-1, 0, -1):
                 df_temp_policy_change_tracking_tuple_updated = df_temp_policy_change_tracking_tuple_previous.copy()
                 df_temp_policy_change_tracking_tuple_updated.loc[0, "date"] = str(pd.to_datetime(yesterday).date())
                 if current_policy_in_tracking != current_policy_in_new_data:
+                    print(f"There's a Policy Change on {yesterday}")
                     df_temp_policy_change_tracking_tuple_updated = update_tracking_when_policy_changed(
                         df_updated=df_temp_policy_change_tracking_tuple_updated,
                         df_previous=df_temp_policy_change_tracking_tuple_previous,
@@ -146,6 +146,7 @@ for n_days_before in range(max_days_before-1, 0, -1):
                         dict_normalized_policy_gamma_international=dict_normalized_policy_gamma_international
                     )
                 else:
+                    print(f"There's no Policy Change on {yesterday}")
                     df_temp_policy_change_tracking_tuple_updated = update_tracking_without_policy_change(
                         df_updated=df_temp_policy_change_tracking_tuple_updated,
                         yesterday=yesterday,
@@ -605,17 +606,20 @@ for n_days_before in range(max_days_before-1, 0, -1):
                     )
                     return residuals_value
                 print(f"# Params Fitted: {len(parameter_list_fitted)}, Params Fitted: {parameter_list_fitted}")
-                output = minimize(
-                    residuals_totalcases,
-                    parameter_list_fitted,
-                    method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
-                    bounds=bounds_params_fitted,
-                    options={'maxiter': max_iter, 'verbose': 0}
-                )
-                print("FINISHED MINIMIZING!")
-                best_params = output.x
-                obj_value = obj_value + output.fun
-                print(output.fun)
+                if province not in ["Georgia", "Tennessee"]:
+                    best_params = parameter_list_fitted
+                else:
+                    output = minimize(
+                        residuals_totalcases,
+                        parameter_list_fitted,
+                        method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
+                        bounds=bounds_params_fitted,
+                        options={'maxiter': max_iter, 'verbose': 0}
+                    )
+                    print("FINISHED MINIMIZING!")
+                    best_params = output.x
+                    obj_value = obj_value + output.fun
+                    print(output.fun)
                 t_predictions = [i for i in range(maxT)]
                 if N_POLICIES_FITTED_TUPLE == 0:  # No fitted params but at least constant ones are still taken into account
                     def model_covid_predictions(
@@ -1033,6 +1037,7 @@ for n_days_before in range(max_days_before-1, 0, -1):
                 list_df_global_predictions_since_today.append(df_predictions_since_today_cont_country_prov)
                 list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
                 print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
+                print("##############################################################################################")
             else:  # len(validcases) <= 7
                 print(f"Not enough historical data (less than a week)" +
                       f"for Continent={continent}, Country={country} and Province={province}")
