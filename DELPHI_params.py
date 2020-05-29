@@ -17,7 +17,7 @@ RecoverID = 10
 RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
-default_maxT = datetime(2020, 6, 15)  # Maximum timespan of prediction
+default_maxT = datetime(2020, 7, 15)  # Maximum timespan of prediction
 p_v = 0.25  # Percentage of ventilated
 p_d = 0.2  # Percentage of infection cases detected.
 p_h = 0.15  # Percentage of detected cases hospitalized
@@ -50,3 +50,18 @@ MAPPING_STATE_CODE_TO_STATE_NAME ={
 }
 default_policy = "Lockdown"  # Eventually change to future_policies[-1]
 default_policy_enaction_time = 'Now'  # Eventually change to TIME_DICT[0]
+provinces_Brazil = [
+    'Acre', 'Alagoas', 'Amapa', 'Amazonas', 'Bahia', 'Ceara', 'Distrito Federal', 'Espirito Santo', 'Goias',
+    'Maranhao', 'MatoGrosso', 'MatoGrosso do Sul', 'Minas Gerais', 'Para', 'Paraiba', 'Parana', 'Pernambuco',
+    'Piaui', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondonia', 'Roraima', 'Santa Catarina',
+    'Sao Paulo', 'Sergipe', 'Tocantins'
+]
+provinces_Peru = [
+    'Amazonas', 'Ancash', 'Apurimac', 'Arequipa', 'Ayacucho', 'Cajamarca', 'Cusco', 'Callao', 'Huancavelica',
+    'Huanuco', 'Ica', 'Junin', 'La Libertad', 'Lambayeque', 'Lima', 'Loreto', 'Madre de dios', 'Moquegua',
+    'Pasco', 'Piura', 'Puno', 'San Martin', 'Tacna', 'Tumbes', 'Ucayali'
+]
+provinces_South_Africa = [
+    'Eastern Cape', 'Free State', 'Gauteng', 'KwaZulu Natal', 'Limpopo',
+    'Mpumalanga', 'Northern Cape', 'North West', 'Western Cape'
+]
