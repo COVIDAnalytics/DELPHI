@@ -31,7 +31,7 @@ with open("config.yml", "r") as ymlfile:
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
 max_days_before = (datetime.now().date() - datetime(2020, 4, 28).date()).days - 1
-for n_days_before in range(max_days_before - 1, 1, -1):
+for n_days_before in range(max_days_before - 2, 1, -1):
     yesterday = "".join(str(datetime.now().date() - timedelta(days=n_days_before)).split("-"))
     print(yesterday)
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -102,6 +102,7 @@ for n_days_before in range(max_days_before - 1, 1, -1):
             popcountries.Country.tolist(),
             popcountries.Province.tolist(),
     ):
+        CREATED_COUNTRY_IN_TRACKING = False
         country_sub = country.replace(" ", "_")
         province_sub = province.replace(" ", "_")
         if (
@@ -119,6 +120,7 @@ for n_days_before in range(max_days_before - 1, 1, -1):
                     dict_current_policy_international=dict_current_policy_international
                 )
                 list_df_policy_tracking_concat.append(df_temp_policy_change_tracking_tuple_previous)
+                CREATED_COUNTRY_IN_TRACKING = True
 
             # In any case we update the tracking below
             if (
@@ -151,6 +153,7 @@ for n_days_before in range(max_days_before - 1, 1, -1):
             elif (
                     POLICY_TRACKING_ALREADY_EXISTS and
                     (df_temp_policy_change_tracking_tuple_previous.date.max() == str(pd.to_datetime(yesterday).date()))
+                    and (CREATED_COUNTRY_IN_TRACKING == False)
             ):    # Already contains the latest yesterday date so has already been updated
                 print(country, province)
                 df_temp_policy_change_tracking_tuple_updated = df_temp_policy_change_tracking_tuple_previous.copy()
