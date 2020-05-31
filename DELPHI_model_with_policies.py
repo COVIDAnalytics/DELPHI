@@ -31,7 +31,7 @@ with open("config.yml", "r") as ymlfile:
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
 max_days_before = (datetime.now().date() - datetime(2020, 4, 28).date()).days - 1
-for n_days_before in range(max_days_before - 1, 0, -1):
+for n_days_before in range(max_days_before - 1, 1, -1):
     yesterday = "".join(str(datetime.now().date() - timedelta(days=n_days_before)).split("-"))
     print(yesterday)
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
