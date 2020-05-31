@@ -95,12 +95,20 @@ def update_n_params_fitted_without_policy_change(
     instead of using a constant value, and if so, update the flags for param fitting 'last/current_policy_fitted'
     """
     n_days_data_before_fitting = 10
-    print(df_updated[["province", "n_days_enacted_current_policy", "n_policy_changes", "current_policy_fitted"]])
-    flag_new_param_fitted_current_policy = len(df_updated[
+    df_temp_updated = df_updated[
         (df_updated.n_days_enacted_current_policy >= n_days_data_before_fitting)
         & (df_updated.n_policy_changes >= 1)
         & (df_updated.current_policy_fitted == False)
-    ]) > 0
+    ]
+    df_temp_updated_2 = df_updated[
+        (df_updated.n_days_enacted_current_policy >= n_days_data_before_fitting)
+        & (df_updated.n_policy_changes >= 1)
+        & (df_updated.current_policy_fitted is False)
+    ]
+    n_days_enacted_current_policy_temp = df_updated.n_days_enacted_current_policy[0]
+    n_policy_changes_temp = df_updated.n_policy_changes[0]
+    current_policy_fitted_temp = df_updated.current_policy_fitted[0]
+    flag_new_param_fitted_current_policy = len(df_temp_updated) > 0
 
     if flag_new_param_fitted_current_policy:
         print("Supposed to be updating the # fitting params as got in the if/else statement")
@@ -235,11 +243,11 @@ def get_policy_shift_names_tuples(df_updated: pd.DataFrame):
 def get_list_and_bounds_params(
         df_updated: pd.DataFrame, parameter_list_line: list, param_MATHEMATICA: bool
 ):
-    if param_MATHEMATICA:
-        parameter_list_fitted = parameter_list_line[4:]
-        parameter_list_fitted[3] = np.log(2) / parameter_list_fitted[3]
-    else:
-        parameter_list_fitted = parameter_list_line[5:]
+    # if param_MATHEMATICA:
+    #     parameter_list_fitted = parameter_list_line[4:]
+    #     parameter_list_fitted[3] = np.log(2) / parameter_list_fitted[3]
+    # else:
+    parameter_list_fitted = parameter_list_line[5:]
 
     params_policies_fitted, start_dates_fitting_policies = get_params_fitted_policies(df_updated)
     parameter_list_fitted = parameter_list_fitted + params_policies_fitted
@@ -270,7 +278,7 @@ def add_policy_tracking_row_country(
         "current_policy": [current_policy], "start_date_current_policy": [yesterday_date],
         "end_date_current_policy": [" "], "n_days_enacted_current_policy": [1], "policy_shift_names": [" "],
         "policy_shift_dates": [" "], "policy_shift_initial_param_values": [" "],"n_params_fitted": [0],
-        "current_policy_fitted": [" "], "last_policy_fitted": [" "], "params_fitting_starting_dates": [" "],
+        "current_policy_fitted": [False], "last_policy_fitted": [False], "params_fitting_starting_dates": [" "],
         "n_params_constant_from_tree": [0], "policy_changes_ids_fitted": [" "], "policy_changes_ids_constant": [" "],
         "policy_changes_constant_end_dates": [json.dumps({})]  # This is going to be a json dictionary
     }

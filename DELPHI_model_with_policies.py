@@ -26,19 +26,19 @@ import yaml
 import os
 import matplotlib.pyplot as plt
 
-
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
 max_days_before = (datetime.now().date() - datetime(2020, 4, 28).date()).days - 1
-for n_days_before in range(max_days_before-1, 10, -1):
+for n_days_before in range(max_days_before - 1, 0, -1):
     yesterday = "".join(str(datetime.now().date() - timedelta(days=n_days_before)).split("-"))
     print(yesterday)
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+    PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
     PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
     policy_data_countries = read_measures_oxford_data()
-    policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
+    policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=PATH_TO_DATA_SANDBOX)
     popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
     pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{yesterday}.csv")
     if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
@@ -73,10 +73,10 @@ for n_days_before in range(max_days_before-1, 10, -1):
 
     # Dataset with history of previous policy changes
     POLICY_TRACKING_ALREADY_EXISTS = False
-    if os.path.exists(CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_updated.csv"):
+    if os.path.exists(PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated.csv"):
         POLICY_TRACKING_ALREADY_EXISTS = True
         df_policy_change_tracking_world = pd.read_csv(
-            CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_updated.csv"
+            PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated.csv"
         )
     else:
         dict_policy_change_tracking_world = {
@@ -96,8 +96,6 @@ for n_days_before in range(max_days_before-1, 10, -1):
     list_df_global_predictions_since_100_cases = []
     list_df_global_parameters = []
     list_df_policy_tracking_concat = []
-    #list_df_global_predictions_since_today_scenarios = []
-    #list_df_global_predictions_since_100_cases_scenarios = []
     obj_value = 0
     for continent, country, province in zip(
             popcountries.Continent.tolist(),
@@ -127,7 +125,6 @@ for n_days_before in range(max_days_before-1, 10, -1):
                     POLICY_TRACKING_ALREADY_EXISTS and
                     (df_temp_policy_change_tracking_tuple_previous.date.max() != str(pd.to_datetime(yesterday).date()))
             ):
-                print("Updating Tracking as supposed to")
                 df_temp_policy_change_tracking_tuple_previous = df_temp_policy_change_tracking_tuple_previous.iloc[
                         len(df_temp_policy_change_tracking_tuple_previous) - 1:, :
                 ].reset_index(drop=True)
@@ -160,9 +157,15 @@ for n_days_before in range(max_days_before-1, 10, -1):
                 df_temp_policy_change_tracking_tuple_updated = df_temp_policy_change_tracking_tuple_updated.iloc[
                         len(df_temp_policy_change_tracking_tuple_updated) - 1:, :
                 ].reset_index(drop=True)
+                raise ValueError(
+                    f"Policy Tracking line for {country}, {province} already exists on {yesterday}; " +
+                    "make sure you want to re-predict on that day and if so modify the code to get rid of the " +
+                    "current policy tracking line (otherwise you'll get a duplicateç"
+                )
             else:
                 raise NotImplementedError(
-                    f"Either Policy Tracking file doesn't exist or there is a problem with max date for {country, province}"
+                    f"Either Policy Tracking file doesn't exist or there is a problem "
+                    f"with max date for {country, province}"
                 )
             ### The whole if/else above is meant to retrieve & update the policy change tracking: now starts the fitting
             totalcases = pd.read_csv(
@@ -560,7 +563,6 @@ for n_days_before in range(max_days_before-1, 10, -1):
                     params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
                     """
                     # Variables Initialization for the ODE system
-                    #print(f"Initial length of params in Residual Totalcases: {len(params)}")
                     if len(params) == n_params_without_policy_params:
                         alpha, days, r_s, r_dth, p_dth, k1, k2 = params
                         params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
@@ -606,20 +608,17 @@ for n_days_before in range(max_days_before-1, 10, -1):
                     )
                     return residuals_value
                 print(f"# Params Fitted: {len(parameter_list_fitted)}, Params Fitted: {parameter_list_fitted}")
-                if province not in ["Georgia", "Tennessee"]:
-                    best_params = parameter_list_fitted
-                else:
-                    output = minimize(
-                        residuals_totalcases,
-                        parameter_list_fitted,
-                        method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
-                        bounds=bounds_params_fitted,
-                        options={'maxiter': max_iter, 'verbose': 0}
-                    )
-                    print("FINISHED MINIMIZING!")
-                    best_params = output.x
-                    obj_value = obj_value + output.fun
-                    print(output.fun)
+                output = minimize(
+                    residuals_totalcases,
+                    parameter_list_fitted,
+                    method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
+                    bounds=bounds_params_fitted,
+                    options={'maxiter': max_iter, 'verbose': 0}
+                )
+                print("FINISHED MINIMIZING")
+                best_params = output.x
+                obj_value = obj_value + output.fun
+                print(output.fun)
                 t_predictions = [i for i in range(maxT)]
                 if N_POLICIES_FITTED_TUPLE == 0:  # No fitted params but at least constant ones are still taken into account
                     def model_covid_predictions(
@@ -999,22 +998,21 @@ for n_days_before in range(max_days_before-1, 10, -1):
                 #print(fitcasesnd)
                 #print("Historical Cases:", x_sol_final[15, :])
                 #print("Historical Deaths:", x_sol_final[14, :])
-                mape_data = (
+                mape_data = round((
                         mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
                         mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
-                ) / 2
+                ) / 2, 3)
                 try:
-                    mape_data_2 = (
+                    mape_data_last_15 = round((
                               mape(fitcasesnd[-15:],
                                    x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
                               mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
-                      ) / 2
+                      ) / 2, 3)
                 except:
-                    mape_data_2 = "Less than 15 historical points"
+                    mape_data_last_15 = "Less than 15 historical points"
                 print(
-                    #"Policy: ", future_policy, "\t Enacting Time: ", future_time,
                     "\t Total MAPE=", mape_data,
-                    "\t MAPE on last 15 days=", mape_data_2
+                    "\t MAPE on last 15 days=", mape_data_last_15
                 )
                 df_temp_policy_change_tracking_tuple_updated = update_tracking_fitted_params(
                     df_updated=df_temp_policy_change_tracking_tuple_updated,
@@ -1037,7 +1035,7 @@ for n_days_before in range(max_days_before-1, 10, -1):
                 list_df_global_predictions_since_today.append(df_predictions_since_today_cont_country_prov)
                 list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
                 print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
-                print("##############################################################################################")
+                print("###########################################################################################")
             else:  # len(validcases) <= 7
                 print(f"Not enough historical data (less than a week)" +
                       f"for Continent={continent}, Country={country} and Province={province}")
@@ -1051,10 +1049,9 @@ for n_days_before in range(max_days_before-1, 10, -1):
         by=["continent", "country", "province", "date"]
     ).reset_index(drop=True)
     df_tracking.to_csv(
-        CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_updated.csv",
+        PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated.csv",
         index=False
     )
-    print("Saved the dataset of initial tracking")
     today_date_str = "".join(str(datetime.now().date()).split("-"))
     day_after_yesterday_date_str = "".join(str((pd.to_datetime(yesterday) + timedelta(days=1)).date()).split("-"))
     df_global_parameters_continuous_retraining = pd.concat(list_df_global_parameters).reset_index(drop=True)
@@ -1068,9 +1065,10 @@ for n_days_before in range(max_days_before-1, 10, -1):
         list_df_global_predictions_since_100_cases
     ).reset_index(drop=True)
     df_global_predictions_since_100_cases_scenarios.to_csv(
-        CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] +
+        PATH_TO_DATA_SANDBOX +
         f"predictions_DELPHI_3_continuous_retraining_{day_after_yesterday_date_str}.csv",
         index=False)
+    print("Saved the dataset of updated tracking & predictions in data_sandbox, Parameters_CR_Global in danger_map")
     print("#############################################################")
 # TODO: Modify data saver in order to save separately the new parameters dataframe
 # delphi_data_saver = DELPHIDataSaver(
