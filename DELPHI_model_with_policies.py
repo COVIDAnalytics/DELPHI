@@ -153,13 +153,18 @@ for n_days_before in range(max_days_before - 2, 1, -1):
             elif (
                     POLICY_TRACKING_ALREADY_EXISTS and
                     (df_temp_policy_change_tracking_tuple_previous.date.max() == str(pd.to_datetime(yesterday).date()))
-                    and (CREATED_COUNTRY_IN_TRACKING == False)
+                    and (CREATED_COUNTRY_IN_TRACKING == True)
             ):    # Already contains the latest yesterday date so has already been updated
                 print(country, province)
                 df_temp_policy_change_tracking_tuple_updated = df_temp_policy_change_tracking_tuple_previous.copy()
                 df_temp_policy_change_tracking_tuple_updated = df_temp_policy_change_tracking_tuple_updated.iloc[
                         len(df_temp_policy_change_tracking_tuple_updated) - 1:, :
                 ].reset_index(drop=True)
+            elif(
+                    POLICY_TRACKING_ALREADY_EXISTS and
+                    (df_temp_policy_change_tracking_tuple_previous.date.max() == str(pd.to_datetime(yesterday).date()))
+                    and (CREATED_COUNTRY_IN_TRACKING == False)
+            ):
                 raise ValueError(
                     f"Policy Tracking line for {country}, {province} already exists on {yesterday}; " +
                     "make sure you want to re-predict on that day and if so modify the code to get rid of the " +
