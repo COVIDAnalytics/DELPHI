@@ -310,3 +310,54 @@ def update_tracking_fitted_params(
         params_all_updated_str = ";".join(params_all_updated) + ";"
         df_updated.loc[0, "policy_shift_initial_param_values"] = str(params_all_updated_str)
     return df_updated
+
+
+def update_gamma_t_with_fitted_params():
+    return ""
+
+
+def update_gamma_t_with_constant_params(
+        t, gamma_t, N_POLICIES_CONSTANT_TUPLE, t_start_end_constant_policy, date_yesterday_int,
+        policy_shift_names_constant, dict_normalized_policy_gamma_countries, params_policies_constant,
+        t_cases, future_time
+):
+    for param_policy_constant_i in range(N_POLICIES_CONSTANT_TUPLE):
+        start_date_constant_i = t_start_end_constant_policy[param_policy_constant_i][0]
+        end_date_constant_i = t_start_end_constant_policy[param_policy_constant_i][1]
+        if end_date_constant_i != date_yesterday_int:
+            assert end_date_constant_i < date_yesterday_int
+            if (
+                    (t >= start_date_constant_i)
+                    and (t <= end_date_constant_i)
+            ):
+                past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
+                current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
+                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[current_new_policy_cst]
+                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                gamma_t = gamma_t + min(
+                    (2 - gamma_t) / (1 - normalized_gamma_current_policy),
+                    (gamma_t / normalized_gamma_past_policy) * params_policies_constant[param_policy_constant_i]
+                )
+        else:
+            # if end date of a constant param is set to yesterday,
+            # it means that it continues even in the future
+            if t >= start_date_constant_i:
+                # however if t is after the future_time we are predicting for, then we should not use the same
+                # list of parameters etc. but rather the previous way of predicting for policies (adding the constant
+                # in the future)
+                if t <= t_cases[-1] + future_time:
+                    past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
+                    current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
+                    normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                        current_new_policy_cst
+                    ]
+                    normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[
+                        past_policy_cst
+                    ]
+                    gamma_t = gamma_t + min(
+                        (2 - gamma_t) / (1 - normalized_gamma_current_policy),
+                        (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
+                            param_policy_constant_i
+                        ]
+                    )
+    return gamma_t

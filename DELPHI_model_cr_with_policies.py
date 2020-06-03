@@ -1,4 +1,5 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
+# This is DELPHI with Continuous Retraining on Policies implemented
 import pandas as pd
 import numpy as np
 import dateutil.parser as dtparser
@@ -30,17 +31,20 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-max_days_before = (datetime.now().date() - datetime(2020, 4, 28).date()).days - 1
-for n_days_before in range(max_days_before - 2, 1, -1):
+max_days_before = (datetime.now().date() - datetime(2020, 5, 18).date()).days - 1
+time_start = datetime.now()
+# TODO: NEED TO CHECK WHY WHEN I HAVE 2 FITTED PARAMETERS IT DOESN'T WORK (NIGERIA)
+for n_days_before in range(max_days_before - 1, 1, -1):
     yesterday = "".join(str(datetime.now().date() - timedelta(days=n_days_before)).split("-"))
     print(yesterday)
+    print(f"Runtime for {yesterday}: {datetime.now() - time_start}")
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
     PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
     PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
     policy_data_countries = read_measures_oxford_data()
     policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=PATH_TO_DATA_SANDBOX)
     popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
-    pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{yesterday}.csv")
+    pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{yesterday}_newtry.csv")
     if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
         param_MATHEMATICA = True
     else:
@@ -66,17 +70,15 @@ for n_days_before in range(max_days_before - 2, 1, -1):
             pastparameters=pastparameters,
         )
     )
-    dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
-    dict_normalized_policy_gamma_international.update(dict_normalized_policy_gamma_us_only)
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
 
     # Dataset with history of previous policy changes
     POLICY_TRACKING_ALREADY_EXISTS = False
-    if os.path.exists(PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated.csv"):
+    if os.path.exists(PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry.csv"):
         POLICY_TRACKING_ALREADY_EXISTS = True
         df_policy_change_tracking_world = pd.read_csv(
-            PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated.csv"
+            PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry.csv"
         )
     else:
         dict_policy_change_tracking_world = {
@@ -102,6 +104,10 @@ for n_days_before in range(max_days_before - 2, 1, -1):
             popcountries.Country.tolist(),
             popcountries.Province.tolist(),
     ):
+        if country == "US":  # This line is necessary because the keys are the same in both cases
+            dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
+        else:
+            dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
         CREATED_COUNTRY_IN_TRACKING = False
         country_sub = country.replace(" ", "_")
         province_sub = province.replace(" ", "_")
@@ -257,6 +263,9 @@ for n_days_before in range(max_days_before - 2, 1, -1):
                      validcases[validcases.date == dates_constant[1]].day_since100.iloc[0]]
                     for dates_constant in start_end_dates_constant
                 ]
+                date_yesterday_int = validcases[
+                    validcases.date == str(pd.to_datetime(yesterday).date())
+                ].day_since100.iloc[0]
                 #print("t_cases, start fitting policies & start/end constant policies")
                 #print(t_cases, "\n", t_start_fitting_policies, "\n", t_start_end_constant_policy)
                 validcases_nondeath = validcases["case_cnt"].tolist()
@@ -652,7 +661,8 @@ for n_days_before in range(max_days_before - 2, 1, -1):
                         for param_policy_constant_i in range(N_POLICIES_CONSTANT_TUPLE):
                             start_date_constant_i = t_start_end_constant_policy[param_policy_constant_i][0]
                             end_date_constant_i = t_start_end_constant_policy[param_policy_constant_i][1]
-                            if end_date_constant_i != str(pd.to_datetime(yesterday).date()):
+                            if end_date_constant_i != date_yesterday_int:
+                                assert end_date_constant_i < date_yesterday_int
                                 if (
                                         (t >= start_date_constant_i)
                                         and (t <= end_date_constant_i)
@@ -739,7 +749,8 @@ for n_days_before in range(max_days_before - 2, 1, -1):
                         for param_policy_constant_i in range(N_POLICIES_CONSTANT_TUPLE):
                             start_date_constant_i = t_start_end_constant_policy[param_policy_constant_i][0]
                             end_date_constant_i = t_start_end_constant_policy[param_policy_constant_i][1]
-                            if end_date_constant_i != str(pd.to_datetime(yesterday).date()):
+                            if end_date_constant_i != date_yesterday_int:
+                                assert end_date_constant_i < date_yesterday_int
                                 if (
                                         (t >= start_date_constant_i)
                                         and (t <= end_date_constant_i)
@@ -830,7 +841,8 @@ for n_days_before in range(max_days_before - 2, 1, -1):
                         for param_policy_constant_i in range(N_POLICIES_CONSTANT_TUPLE):
                             start_date_constant_i = t_start_end_constant_policy[param_policy_constant_i][0]
                             end_date_constant_i = t_start_end_constant_policy[param_policy_constant_i][1]
-                            if end_date_constant_i != str(pd.to_datetime(yesterday).date()):
+                            if end_date_constant_i != date_yesterday_int:
+                                assert end_date_constant_i < date_yesterday_int
                                 if (
                                         (t >= start_date_constant_i)
                                         and (t <= end_date_constant_i)
@@ -922,7 +934,8 @@ for n_days_before in range(max_days_before - 2, 1, -1):
                         for param_policy_constant_i in range(N_POLICIES_CONSTANT_TUPLE):
                             start_date_constant_i = t_start_end_constant_policy[param_policy_constant_i][0]
                             end_date_constant_i = t_start_end_constant_policy[param_policy_constant_i][1]
-                            if end_date_constant_i != str(pd.to_datetime(yesterday).date()):
+                            if end_date_constant_i != date_yesterday_int:
+                                assert end_date_constant_i < date_yesterday_int
                                 if (
                                         (t >= start_date_constant_i)
                                         and (t <= end_date_constant_i)
@@ -1057,14 +1070,14 @@ for n_days_before in range(max_days_before - 2, 1, -1):
         by=["continent", "country", "province", "date"]
     ).reset_index(drop=True)
     df_tracking.to_csv(
-        PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated.csv",
+        PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry.csv",
         index=False
     )
     today_date_str = "".join(str(datetime.now().date()).split("-"))
     day_after_yesterday_date_str = "".join(str((pd.to_datetime(yesterday) + timedelta(days=1)).date()).split("-"))
     df_global_parameters_continuous_retraining = pd.concat(list_df_global_parameters).reset_index(drop=True)
     df_global_parameters_continuous_retraining.to_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{day_after_yesterday_date_str}.csv", index=False
+        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{day_after_yesterday_date_str}_newtry.csv", index=False
     )
     df_global_predictions_since_today_scenarios = pd.concat(
         list_df_global_predictions_since_today
@@ -1074,7 +1087,7 @@ for n_days_before in range(max_days_before - 2, 1, -1):
     ).reset_index(drop=True)
     df_global_predictions_since_100_cases_scenarios.to_csv(
         PATH_TO_DATA_SANDBOX +
-        f"predictions_DELPHI_3_continuous_retraining_{day_after_yesterday_date_str}.csv",
+        f"predictions_DELPHI_3_continuous_retraining_{day_after_yesterday_date_str}_newtry.csv",
         index=False)
     print("Saved the dataset of updated tracking & predictions in data_sandbox, Parameters_CR_Global in danger_map")
     print("#############################################################")
