@@ -31,9 +31,9 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-max_days_before = (datetime.now().date() - datetime(2020, 5, 18).date()).days - 1
+max_days_before = (datetime.now().date() - datetime(2020, 5, 27).date()).days - 1
+# TODO: Need to restart at yesterday = May 29
 time_start = datetime.now()
-# TODO: NEED TO CHECK WHY WHEN I HAVE 2 FITTED PARAMETERS IT DOESN'T WORK (NIGERIA)
 for n_days_before in range(max_days_before - 1, 1, -1):
     yesterday = "".join(str(datetime.now().date() - timedelta(days=n_days_before)).split("-"))
     print(yesterday)
@@ -108,6 +108,7 @@ for n_days_before in range(max_days_before - 1, 1, -1):
             dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
         else:
             dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
+
         CREATED_COUNTRY_IN_TRACKING = False
         country_sub = country.replace(" ", "_")
         province_sub = province.replace(" ", "_")

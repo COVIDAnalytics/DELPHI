@@ -296,17 +296,16 @@ def update_tracking_fitted_params(
     else:
         policy_shifts_fitted_ids = list(set(df_updated.loc[0, "policy_changes_ids_fitted"].strip()))
         policy_shifts_fitted_ids = [int(x) for x in policy_shifts_fitted_ids]
+        # print("Policy Shifts Fitted IDs (should be 1):", policy_shifts_fitted_ids)
         assert len(new_best_params_fitted_policies) == len(policy_shifts_fitted_ids) == n_policy_shifts_fitted, \
             "Supposed to have as many policy shift ids as new best params for fitted policies"
         params_all_saved = np.array(df_updated.policy_shift_initial_param_values.iloc[0].strip().split(";")[:-1])
         params_all_saved = np.array([float(x) for x in params_all_saved])
+        # print("Parameters saved in policy tracking: ", params_all_saved)
         for i, j in zip(policy_shifts_fitted_ids, range(len(new_best_params_fitted_policies))):
             params_all_saved[i] = new_best_params_fitted_policies[j]
-
-        params_all_updated = [
-            str(new_best_params_fitted_policies[i]) if i in policy_shifts_fitted_ids else str(params_all_saved[i])
-            for i in range(len(params_all_saved))
-        ]
+        # print("Parameters Updated with new value:", params_all_saved)
+        params_all_updated = [str(x) for x in params_all_saved]
         params_all_updated_str = ";".join(params_all_updated) + ";"
         df_updated.loc[0, "policy_shift_initial_param_values"] = str(params_all_updated_str)
     return df_updated
