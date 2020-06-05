@@ -31,7 +31,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-max_days_before = (datetime.now().date() - datetime(2020, 5, 27).date()).days - 1
+max_days_before = (datetime.now().date() - datetime(2020, 5, 30).date()).days - 1
 # TODO: Need to restart at yesterday = May 29
 time_start = datetime.now()
 for n_days_before in range(max_days_before - 1, 1, -1):
@@ -41,7 +41,7 @@ for n_days_before in range(max_days_before - 1, 1, -1):
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
     PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
     PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
-    policy_data_countries = read_measures_oxford_data()
+    policy_data_countries = read_measures_oxford_data(yesterday=yesterday)
     policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=PATH_TO_DATA_SANDBOX)
     popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
     pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{yesterday}_newtry.csv")
@@ -1088,7 +1088,7 @@ for n_days_before in range(max_days_before - 1, 1, -1):
     ).reset_index(drop=True)
     df_global_predictions_since_100_cases_scenarios.to_csv(
         PATH_TO_DATA_SANDBOX +
-        f"predictions_DELPHI_3_continuous_retraining_{day_after_yesterday_date_str}_newtry.csv",
+        f"./predicted_CR/predictions_DELPHI_3_continuous_retraining_{day_after_yesterday_date_str}_newtry.csv",
         index=False)
     print("Saved the dataset of updated tracking & predictions in data_sandbox, Parameters_CR_Global in danger_map")
     print("#############################################################")

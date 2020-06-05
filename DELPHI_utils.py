@@ -810,7 +810,7 @@ def read_policy_data_us_only(filepath_data_sandbox: str):
     return df_policies_US_final
 
 
-def read_measures_oxford_data():
+def read_measures_oxford_data(yesterday: str):
     measures = pd.read_csv('https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv')
     filtr = ['CountryName', 'CountryCode', 'Date']
     target = ['ConfirmedCases', 'ConfirmedDeaths']
@@ -908,6 +908,7 @@ def read_measures_oxford_data():
     output.rename(columns={'CountryName': 'country', 'Date': 'date'}, inplace=True)
     output['province'] = "None"
     output = output.loc[:, ['country', 'province', 'date'] + msr]
+    output = output[output.date <= yesterday].reset_index(drop=True)
     return output
 
 

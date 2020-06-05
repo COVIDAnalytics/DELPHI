@@ -28,7 +28,7 @@ yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
-policy_data_countries = read_measures_oxford_data()
+policy_data_countries = read_measures_oxford_data(yesterday)
 policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
 pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv")
@@ -138,7 +138,7 @@ for continent, country, province in zip(
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
             maxT = (default_maxT_policies - date_day_since100).days + 1
             """ Fit on Total Cases """
-            validcases = validcases[validcases.date <= str(pd.to_datetime(yesterday).date())]
+            validcases = validcases[validcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date())]
             print(validcases.date.max(), yesterday)
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
@@ -238,11 +238,15 @@ for continent, country, province in zip(
                                         mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
                                         mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
                                 ) / 2
-                    mape_data_2 = (
-                                          mape(fitcasesnd[-15:],
-                                               x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
-                                          mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
-                                  ) / 2
+                    try:
+                        mape_data_2 = (
+                                              mape(fitcasesnd[-15:],
+                                                   x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
+                                              mape(fitcasesd[-15:],
+                                                   x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
+                                      ) / 2
+                    except IndexError:
+                        mape_data_2 = mape_data
                     print(
                         "Policy: ", future_policy, "\t Enacting Time: ", future_time, "\t Total MAPE=", mape_data,
                         "\t MAPE on last 15 days=", mape_data_2
