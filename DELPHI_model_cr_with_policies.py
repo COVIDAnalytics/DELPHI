@@ -30,12 +30,13 @@ import matplotlib.pyplot as plt
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "hamza"
-max_days_before = (datetime.now().date() - datetime(2020, 5, 30).date()).days - 1
-# TODO: Need to restart at yesterday = May 29
+USER_RUNNING = "michael"
+training_start_date = "2020-04-15"
+training_end_date = "2020-06-04"
+max_days_before = (pd.to_datetime(training_end_date) - pd.to_datetime(training_start_date).date()).days - 1
 time_start = datetime.now()
 for n_days_before in range(max_days_before - 1, 1, -1):
-    yesterday = "".join(str(datetime.now().date() - timedelta(days=n_days_before)).split("-"))
+    yesterday = "".join(str(pd.to_datetime(training_end_date).date() - timedelta(days=n_days_before)).split("-"))
     print(yesterday)
     print(f"Runtime for {yesterday}: {datetime.now() - time_start}")
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -44,10 +45,15 @@ for n_days_before in range(max_days_before - 1, 1, -1):
     policy_data_countries = read_measures_oxford_data(yesterday=yesterday)
     policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=PATH_TO_DATA_SANDBOX)
     popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
-    pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{yesterday}_newtry.csv")
-    if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
+    if pd.to_datetime(yesterday) <= pd.to_datetime(training_start_date):
+        pastparameters = pd.read_csv(
+            PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv"
+        )
         param_MATHEMATICA = True
     else:
+        pastparameters = pd.read_csv(
+            PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{yesterday}_newtry_michael.csv"
+        )
         param_MATHEMATICA = False
     # True if we use the Mathematica run parameters, False if we use those from Python runs
     # This is because the pastparameters dataframe's columns are not in the same order in both cases
@@ -75,10 +81,10 @@ for n_days_before in range(max_days_before - 1, 1, -1):
 
     # Dataset with history of previous policy changes
     POLICY_TRACKING_ALREADY_EXISTS = False
-    if os.path.exists(PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry.csv"):
+    if os.path.exists(PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry_michael.csv"):
         POLICY_TRACKING_ALREADY_EXISTS = True
         df_policy_change_tracking_world = pd.read_csv(
-            PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry.csv"
+            PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry_michael.csv"
         )
     else:
         dict_policy_change_tracking_world = {
@@ -1071,14 +1077,14 @@ for n_days_before in range(max_days_before - 1, 1, -1):
         by=["continent", "country", "province", "date"]
     ).reset_index(drop=True)
     df_tracking.to_csv(
-        PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry.csv",
+        PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry_michael.csv",
         index=False
     )
     today_date_str = "".join(str(datetime.now().date()).split("-"))
     day_after_yesterday_date_str = "".join(str((pd.to_datetime(yesterday) + timedelta(days=1)).date()).split("-"))
     df_global_parameters_continuous_retraining = pd.concat(list_df_global_parameters).reset_index(drop=True)
     df_global_parameters_continuous_retraining.to_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{day_after_yesterday_date_str}_newtry.csv", index=False
+        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{day_after_yesterday_date_str}_newtry_michael.csv", index=False
     )
     df_global_predictions_since_today_scenarios = pd.concat(
         list_df_global_predictions_since_today
@@ -1088,7 +1094,7 @@ for n_days_before in range(max_days_before - 1, 1, -1):
     ).reset_index(drop=True)
     df_global_predictions_since_100_cases_scenarios.to_csv(
         PATH_TO_DATA_SANDBOX +
-        f"./predicted_CR/predictions_DELPHI_3_continuous_retraining_{day_after_yesterday_date_str}_newtry.csv",
+        f"./predictions_DELPHI_3_continuous_retraining_{day_after_yesterday_date_str}_newtry_michael.csv",
         index=False)
     print("Saved the dataset of updated tracking & predictions in data_sandbox, Parameters_CR_Global in danger_map")
     print("#############################################################")
