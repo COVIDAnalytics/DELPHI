@@ -45,15 +45,12 @@ class DELPHIDataSaver:
         )
         if website:
             self.df_global_parameters.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_Python_{today_date_str}.csv",
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_{today_date_str}.csv",
                 index=False
             )
             self.df_global_predictions_since_today.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_Python_{today_date_str}_Scenarios.csv",
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_{today_date_str}.csv",
                 index=False
-            )
-            self.df_global_predictions_since_today.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_Python_Scenarios.csv", index=False
             )
         if save_since_100_cases:
             # Save predictions since 100 cases
@@ -65,11 +62,8 @@ class DELPHIDataSaver:
             )
             if website:
                 self.df_global_predictions_since_100_cases.to_csv(
-                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{today_date_str}_Scenarios.csv",
+                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{today_date_str}.csv",
                     index=False
-                )
-                self.df_global_predictions_since_100_cases.to_csv(
-                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_Scenarios.csv", index=False
                 )
 
     @staticmethod
