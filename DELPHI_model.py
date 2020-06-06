@@ -76,26 +76,28 @@ for continent, country, province in zip(
                      for lower, upper in zip(param_list_lower, param_list_upper)]
                 )
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
-                validcases = totalcases[[
-                    dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
-                    for x in totalcases.date
-                ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                validcases = totalcases[
+                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+                ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
                 # Otherwise use established lower/upper bounds
                 parameter_list = default_parameter_list
                 bounds_params = default_bounds_params
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
-                validcases = totalcases[totalcases.day_since100 >= 0][
-                    ["day_since100", "case_cnt", "death_cnt"]
-                ].reset_index(drop=True)
+                validcases = totalcases[
+                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+                ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         else:
             # Otherwise use established lower/upper bounds
             parameter_list = default_parameter_list
             bounds_params = default_bounds_params
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
-            validcases = totalcases[totalcases.day_since100 >= 0][
-                ["day_since100", "case_cnt", "death_cnt"]
-            ].reset_index(drop=True)
+            validcases = totalcases[
+                (totalcases.day_since100 >= 0) &
+                (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+            ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
 
         # Now we start the modeling part:
         if len(validcases) > validcases_threshold:
