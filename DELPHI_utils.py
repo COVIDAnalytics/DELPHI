@@ -31,29 +31,29 @@ class DELPHIDataSaver:
             self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
         )
         self.df_global_parameters.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
+            self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_{today_date_str}.csv", index=False
         )
         # Save predictions since today
         self.df_global_predictions_since_today.to_csv(
             self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_{today_date_str}.csv", index=False
         )
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_{today_date_str}.csv", index=False
+            self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_{today_date_str}.csv", index=False
         )
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global.csv", index=False
+            self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global.csv", index=False
         )
         if website:
             self.df_global_parameters.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_Python_{today_date_str}.csv",
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_Python_{today_date_str}.csv",
                 index=False
             )
             self.df_global_predictions_since_today.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Python_{today_date_str}_Scenarios.csv",
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_Python_{today_date_str}_Scenarios.csv",
                 index=False
             )
             self.df_global_predictions_since_today.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Python_Scenarios.csv", index=False
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_Python_Scenarios.csv", index=False
             )
         if save_since_100_cases:
             # Save predictions since 100 cases
@@ -61,15 +61,15 @@ class DELPHIDataSaver:
                 self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}.csv", index=False
             )
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_{today_date_str}.csv", index=False
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{today_date_str}.csv", index=False
             )
             if website:
                 self.df_global_predictions_since_100_cases.to_csv(
-                    self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_{today_date_str}_Scenarios.csv",
+                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{today_date_str}_Scenarios.csv",
                     index=False
                 )
                 self.df_global_predictions_since_100_cases.to_csv(
-                    self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_Scenarios.csv", index=False
+                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_Scenarios.csv", index=False
                 )
 
     @staticmethod
@@ -135,14 +135,14 @@ class DELPHIDataSaver:
         if website:
             with open(
                 self.PATH_TO_WEBSITE_PREDICTED +
-                f'/predicted/world_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
+                f'/assets/policies/World_Scenarios.json', 'w'
             ) as handle:
                 json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
-            with open(
-                    self.PATH_TO_WEBSITE_PREDICTED + f'/predicted/world_Python_Scenarios_since_100_cases.json', 'w'
-            ) as handle:
-                json.dump(dict_predictions_policies_world_since_100_cases, handle)
+            # with open(
+            #         self.PATH_TO_WEBSITE_PREDICTED + f'/data/predicted/world_Python_Scenarios_since_100_cases.json', 'w'
+            # ) as handle:
+            #     json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
 
 class DELPHIDataCreator:
