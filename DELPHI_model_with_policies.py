@@ -1,42 +1,95 @@
-# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu)
+# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
+import dateutil.parser as dtparser
 from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
 from DELPHI_utils import (
     DELPHIDataCreator, DELPHIDataSaver,
-    get_initial_conditions, mape, read_policy_data_us_only,
-    get_normalized_policy_shifts_and_current_policy
+    get_initial_conditions, mape,
+    read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries,
+    get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
 )
-import dateutil.parser as dtparser
+from DELPHI_policies_utils import update_tracking_when_policy_changed, update_tracking_without_policy_change
+from DELPHI_params import (
+    date_MATHEMATICA, validcases_threshold_policy,
+    IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
+    default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
+)
+import yaml
 import os
 import matplotlib.pyplot as plt
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=4)).split("-"))
+
+with open("config.yml", "r") as ymlfile:
+    CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+CONFIG_FILEPATHS = CONFIG["filepaths"]
+USER_RUNNING = "hamza"
+yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
-PATH_TO_FOLDER_DANGER_MAP = (
-    "E:/Github/covid19orc/danger_map/"
-    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    # "4. COVID19_Global/covid19orc/danger_map/"
-)
-PATH_TO_WEBSITE_PREDICTED = (
-    "E:/Github/website/data/"
-)
-policy_data_us_only = read_policy_data_us_only()
-#os.chdir(PATH_TO_FOLDER_DANGER_MAP)
+PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
+policy_data_countries = read_measures_oxford_data()
+policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
 pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv")
-param_MATHEMATICA = True
+if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
+    param_MATHEMATICA = True
+else:
+    param_MATHEMATICA = False
 # True if we use the Mathematica run parameters, False if we use those from Python runs
 # This is because the pastparameters dataframe's columns are not in the same order in both cases
 
 # Get the policies shifts from the CART tree to compute different values of gamma(t)
 # Depending on the policy in place in the future to affect predictions
-dict_policies_shift, dict_last_policy = get_normalized_policy_shifts_and_current_policy(
-    policy_data_us_only=policy_data_us_only,
-    pastparameters=pastparameters,
+dict_normalized_policy_gamma_countries, dict_current_policy_countries = (
+    get_normalized_policy_shifts_and_current_policy_all_countries(
+        policy_data_countries=policy_data_countries[policy_data_countries.date <= yesterday],
+        pastparameters=pastparameters,
+    )
 )
+# Setting same value for these 2 policies because of the inherent structure of the tree
+dict_normalized_policy_gamma_countries[future_policies[3]] = dict_normalized_policy_gamma_countries[future_policies[5]]
+
+## US Only Policies
+dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
+    get_normalized_policy_shifts_and_current_policy_us_only(
+        policy_data_us_only=policy_data_us_only[policy_data_us_only.date <= yesterday],
+        pastparameters=pastparameters,
+    )
+)
+dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
+dict_normalized_policy_gamma_international.update(dict_normalized_policy_gamma_us_only)
+dict_current_policy_international = dict_current_policy_countries.copy()
+dict_current_policy_international.update(dict_current_policy_us_only)
+
+# Dataset with history of previous policy changes
+POLICY_TRACKING_ALREADY_EXISTS = False
+if os.path.exists(CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_updated.csv"):
+    POLICY_TRACKING_ALREADY_EXISTS = True
+    df_policy_change_tracking_world = pd.read_csv(
+        CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_updated.csv"
+    )
+else:
+    dict_policy_change_tracking_world = {
+        "continent": [np.nan], "country": [np.nan], "province": [np.nan], "date": [np.nan],
+        "policy_shift_initial_param_list": [np.nan], "n_policies_enacted": [np.nan], "n_policy_changes": [np.nan],
+        "last_policy": [np.nan], "start_date_last_policy": [np.nan],
+        "end_date_last_policy": [np.nan], "n_days_enacted_last_policy": [np.nan], "current_policy": [np.nan],
+        "start_date_current_policy": [np.nan], "end_date_current_policy": [np.nan],
+        "n_days_enacted_current_policy": [np.nan], "n_params_fitted": [np.nan], "n_params_constant_tree": [np.nan],
+        "init_values_params": [np.nan],
+    }
+    # for new_feature in [
+    #     "policy_enacted", "start_date_policy", "end_date_policy", "n_days_enacted_policy", "flag_fit_policy"
+    #
+    # ]:
+    #    dict_policy_change_tracking_world.update({f"{new_feature}_{i}": [np.nan] for i in range(10)})
+    df_policy_change_tracking_world = pd.DataFrame(dict_policy_change_tracking_world)
+
+
 # Initalizing lists of the different dataframes that will be concatenated in the end
+list_df_policy_tracking_concat = []
 list_df_global_predictions_since_today_scenarios = []
 list_df_global_predictions_since_100_cases_scenarios = []
 obj_value = 0
@@ -45,11 +98,50 @@ for continent, country, province in zip(
         popcountries.Country.tolist(),
         popcountries.Province.tolist(),
 ):
+    if (country, province) not in dict_current_policy_international.keys():
+        continue
+    # if province not in ["Georgia", "Tennessee"]:
+    #     continue
+
+    if POLICY_TRACKING_ALREADY_EXISTS:
+        df_temp_policy_change_tracking_tuple_previous = df_policy_change_tracking_world[
+            (df_policy_change_tracking_world.country == country)
+            & (df_policy_change_tracking_world.province == province)
+        ].sort_values(by="date").reset_index(drop=True)
+        df_temp_policy_change_tracking_tuple_previous = df_temp_policy_change_tracking_tuple_previous.iloc[
+            len(df_temp_policy_change_tracking_tuple_previous) - 1:, :
+        ].reset_index(drop=True)
+        current_policy_in_tracking = df_temp_policy_change_tracking_tuple_previous.loc[0, "current_policy"]
+        current_policy_in_new_data = dict_current_policy_international[(country, province)]
+        df_temp_policy_change_tracking_tuple_updated = df_temp_policy_change_tracking_tuple_previous.copy()
+        df_temp_policy_change_tracking_tuple_updated.loc[0, "date"] = str(pd.to_datetime(yesterday).date())
+        if current_policy_in_tracking != current_policy_in_new_data:
+            df_temp_policy_change_tracking_tuple_updated = update_tracking_when_policy_changed(
+                df_updated=df_temp_policy_change_tracking_tuple_updated,
+                df_previous=df_temp_policy_change_tracking_tuple_previous,
+                yesterday=yesterday,
+                current_policy_in_tracking=current_policy_in_tracking,
+                current_policy_in_new_data=current_policy_in_new_data,
+                dict_normalized_policy_gamma_international=dict_normalized_policy_gamma_international
+            )
+            list_df_policy_tracking_concat.append(df_temp_policy_change_tracking_tuple_updated)
+            continue
+        else:
+            df_temp_policy_change_tracking_tuple_updated = update_tracking_without_policy_change(
+                df_updated=df_temp_policy_change_tracking_tuple_updated,
+                yesterday=yesterday,
+            )
+            list_df_policy_tracking_concat.append(df_temp_policy_change_tracking_tuple_updated)
+            continue
+    else:
+        raise ValueError("The tracking file should exist")
+
+
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if (
             (os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"))
-            and (country == "US")
+            and ((country, province) in dict_current_policy_international.keys())
     ):
         totalcases = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
@@ -62,7 +154,7 @@ for continent, country, province in zip(
             parameter_list_total = pastparameters[
                 (pastparameters.Country == country) &
                 (pastparameters.Province == province)
-            ]
+                ]
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 if param_MATHEMATICA:
@@ -77,18 +169,17 @@ for continent, country, province in zip(
                     for x in totalcases.date
                 ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
-                raise ValueError(f"Must have past parameters for {country} and {province}")
+                print(f"Must have past parameters for {country} and {province}")
+                continue
         else:
-            raise ValueError("Must have past parameters")
+            print("Must have past parameters")
+            continue
 
         # Now we start the modeling part:
-        if len(validcases) > 7:
-            IncubeD = 5
-            RecoverID = 10
-            DetectD = 2
+        if len(validcases) > validcases_threshold_policy:
             PopulationT = popcountries[
                 (popcountries.Country == country) & (popcountries.Province == province)
-            ].pop2016.item()
+                ].pop2016.item()
             # We do not scale
             N = PopulationT
             PopulationI = validcases.loc[0, "case_cnt"]
@@ -106,14 +197,8 @@ for continent, country, province in zip(
             balance: Ratio of Fitting between cases and deaths
             """
             # Currently fit on alpha, a and b, r_dth,
-            # & initial condition of exposed state and infected state
-            RecoverHD = 15  # Recovery Time when Hospitalized
-            VentilatedD = 10  # Recovery Time when Ventilated
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
-            maxT = (datetime(2020, 9, 15) - date_day_since100).days + 1
-            p_v = 0.25  # Percentage of ventilated
-            p_d = 0.2  # Percentage of infection cases detected.
-            p_h = 0.15  # Percentage of detected cases hospitalized
+            maxT = (default_maxT_policies - date_day_since100).days + 1
             """ Fit on Total Cases """
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
@@ -126,13 +211,7 @@ for continent, country, province in zip(
             )
             best_params = parameter_list
             t_predictions = [i for i in range(maxT)]
-            future_policies = [
-                'No_Measure', 'Restrict_Mass_Gatherings', 'Mass_Gatherings_Authorized_But_Others_Restricted',
-                'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-                'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'
-            ]
-            future_times = [0, 7, 14, 28, 42]
-            plt.figure(figsize=(14, 6))
+            # plt.figure(figsize=(16, 10))
             for future_policy in future_policies:
                 for future_time in future_times:
                     def model_covid_predictions(
@@ -156,14 +235,16 @@ for continent, country, province in zip(
                         r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
                         gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                         gamma_t_future = (2 / np.pi) * np.arctan(-(t_cases[-1] + future_time - days) / 20 * r_s) + 1
-                        gamma_0 = (2 / np.pi) * np.arctan(days / 20 * r_s) + 1
+                        # gamma_0 = (2 / np.pi) * np.arctan(days / 20 * r_s) + 1
                         if t > t_cases[-1] + future_time:
-                            gamma_t = (
-                                gamma_t + min(
-                                    (2-gamma_t_future) / (1 - dict_policies_shift[future_policy]),
-                                    (gamma_t_future / dict_policies_shift[dict_last_policy[province]]) *
-                                    (dict_policies_shift[future_policy] - dict_policies_shift[dict_last_policy[province]])
-                                )
+                            normalized_gamma_future_policy = dict_normalized_policy_gamma_countries[future_policy]
+                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                                dict_current_policy_international[(country, province)]
+                            ]
+                            gamma_t = gamma_t + min(
+                                (2 - gamma_t_future) / (1 - normalized_gamma_future_policy),
+                                (gamma_t_future / normalized_gamma_current_policy) *
+                                (normalized_gamma_future_policy - normalized_gamma_current_policy)
                             )
                         assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                         S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
@@ -189,7 +270,8 @@ for continent, country, province in zip(
                             dSdt, dEdt, dIdt, dARdt, dDHRdt, dDQRdt, dADdt, dDHDdt, dDQDdt,
                             dRdt, dDdt, dTHdt, dDVRdt, dDVDdt, dDDdt, dDTdt
                         ]
-        
+
+
                     def solve_best_params_and_predict(optimal_params):
                         # Variables Initialization for the ODE system
                         x_0_cases = get_initial_conditions(
@@ -205,6 +287,7 @@ for continent, country, province in zip(
                         ).y
                         return x_sol_best
 
+
                     x_sol_final = solve_best_params_and_predict(best_params)
                     data_creator = DELPHIDataCreator(
                         x_sol_final=x_sol_final, date_day_since100=date_day_since100, best_params=best_params,
@@ -216,16 +299,20 @@ for continent, country, province in zip(
                                         mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
                                 ) / 2
                     mape_data_2 = (
-                            mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
-                            mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
-                    ) / 2
+                                          mape(fitcasesnd[-15:],
+                                               x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
+                                          mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
+                                  ) / 2
                     print(
                         "Policy: ", future_policy, "\t Enacting Time: ", future_time, "\t Total MAPE=", mape_data,
                         "\t MAPE on last 15 days=", mape_data_2
                     )
                     # print(best_params)
                     # print(country + ", " + province)
-                    # plt.semilogy(x_sol_final[15, :], label=f"Future Policy: {future_policy} in {future_time} days")
+                    # if future_policy in [
+                    #     'No_Measure', 'Restrict_Mass_Gatherings', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others', 'Lockdown'
+                    # ]:
+                    #     plt.plot(x_sol_final[15, :], label=f"Future Policy: {future_policy} in {future_time} days")
                     # Creating the datasets for predictions of this (Continent, Country, Province)
                     df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
                         data_creator.create_datasets_predictions_scenario(
@@ -234,13 +321,15 @@ for continent, country, province in zip(
                             totalcases=totalcases,
                         )
                     )
-                    list_df_global_predictions_since_today_scenarios.append(df_predictions_since_today_cont_country_prov)
-                    list_df_global_predictions_since_100_cases_scenarios.append(df_predictions_since_100_cont_country_prov)
+                    list_df_global_predictions_since_today_scenarios.append(
+                        df_predictions_since_today_cont_country_prov)
+                    list_df_global_predictions_since_100_cases_scenarios.append(
+                        df_predictions_since_100_cont_country_prov)
             print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
-            # plt.semilogy(fitcasesnd, label="Historical Data")
+            # plt.plot(fitcasesnd, label="Historical Data")
             # plt.legend()
-            # plt.title(f"{province} Predictions & Historical for # Cases")
-            # plt.savefig(province + "_prediction.png")
+            # plt.title(f"{country}, {province} Predictions & Historical for # Cases")
+            # plt.savefig(country + "_" + province + "_prediction_cases.png")
             print("--------------------------------------------------------------------------")
         else:  # len(validcases) <= 7
             print(f"Not enough historical data (less than a week)" +
@@ -251,19 +340,26 @@ for continent, country, province in zip(
 
 # Appending parameters, aggregations per country, per continent, and for the world
 # for predictions today & since 100
-today_date_str = "".join(str(datetime.now().date()).split("-"))
-df_global_predictions_since_today_scenarios = pd.concat(
-    list_df_global_predictions_since_today_scenarios
+df_tracking = pd.concat([df_policy_change_tracking_world] + list_df_policy_tracking_concat).sort_values(
+    by=["continent", "country", "province", "date"]
 ).reset_index(drop=True)
-df_global_predictions_since_100_cases_scenarios = pd.concat(
-    list_df_global_predictions_since_100_cases_scenarios
-).reset_index(drop=True)
-delphi_data_saver = DELPHIDataSaver(
-    path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
-    path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
-    df_global_parameters=None,
-    df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
-    df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
-)
-delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False)
-print("Exported all policy-dependent predictions for US states to website & danger_map repositories")
+df_tracking.to_csv(CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] + f"policy_change_tracking_world_updated.csv", index=False)
+print("Saved the dataset of initial tracking")
+
+# today_date_str = "".join(str(datetime.now().date()).split("-"))
+# df_global_predictions_since_today_scenarios = pd.concat(
+#     list_df_global_predictions_since_today_scenarios
+# ).reset_index(drop=True)
+# df_global_predictions_since_100_cases_scenarios = pd.concat(
+#     list_df_global_predictions_since_100_cases_scenarios
+# ).reset_index(drop=True)
+# delphi_data_saver = DELPHIDataSaver(
+#     path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
+#     path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
+#     df_global_parameters=None,
+#     df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
+#     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
+# )
+# # df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
+# delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False)
+print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
