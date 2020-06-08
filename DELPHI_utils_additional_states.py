@@ -63,10 +63,59 @@ def read_policy_data_us_only_jj_version(filepath_data_sandbox: str):
         df_policies_US_final.province == "New York"
         ]
     df_policies_US_final_NYC.province.replace({"New York": "NY-NJ Metropolitan"}, inplace=True)
-    # Concatenating
+
+    df_policies_US_final_NHM = df_policies_US_final[
+        df_policies_US_final.province == "Connecticut"
+        ]
+    df_policies_US_final_NHM.province.replace({"Connecticut": "New-Haven Metropolitan"}, inplace=True)
+
+    df_policies_US_final_MMinM = df_policies_US_final[
+        df_policies_US_final.province == "Minnesota"
+        ]
+    df_policies_US_final_MMinM.province.replace({"Minnesota": "Minneapolis Metropolitan"}, inplace=True)
+    df_policies_US_final_DCArl = df_policies_US_final[
+        df_policies_US_final.province == "Virginia"
+        ]
+    df_policies_US_final_DCArl.province.replace({"Virginia": "Washington-Arlington-Alexandria Metropolitan"}, inplace=True)
+
+    df_policies_US_final_Tucson = df_policies_US_final[
+        df_policies_US_final.province == "Arizona"
+        ]
+    df_policies_US_final_Tucson.province.replace({"Arizona": "Tucson Metropolitan"}, inplace=True)
+
+    df_policies_US_final_Phoenix = df_policies_US_final[
+        df_policies_US_final.province == "Arizona"
+        ]
+    df_policies_US_final_Phoenix.province.replace({"Arizona": "Phoenix Metropolitan"}, inplace=True)
+
+    df_policies_US_final_LAOC = df_policies_US_final[
+        df_policies_US_final.province == "California"
+        ]
+    df_policies_US_final_LAOC.province.replace({"California": "LA-LB-OC Metropolitan"}, inplace=True)
+
+    df_policies_US_final_Houston = df_policies_US_final[
+        df_policies_US_final.province == "Texas"
+        ]
+    df_policies_US_final_Houston.province.replace({"Texas": "Houston Metropolitan"}, inplace=True)
+
+    df_policies_US_final_Dallas = df_policies_US_final[
+        df_policies_US_final.province == "Texas"
+        ]
+    df_policies_US_final_Dallas.province.replace({"Texas": "DALLAS-FW-ARLINGTON Metropolitan"}, inplace=True)
+
+    df_policies_US_final_Baltimore = df_policies_US_final[
+        df_policies_US_final.province == "Maryland"
+        ]
+    df_policies_US_final_Baltimore.province.replace({"Maryland": "Baltimore-Columbia-Towson Metropolitan"}, inplace=True)
+
+# Concatenating
     df_policies_US_final = pd.concat([
-        df_policies_US_final, df_policies_US_final_Chicago, df_policies_US_final_Detroit, df_policies_US_final_NYC
+        df_policies_US_final, df_policies_US_final_Chicago, df_policies_US_final_Detroit, df_policies_US_final_NYC,
+        df_policies_US_final_NHM, df_policies_US_final_MMinM, df_policies_US_final_Baltimore,df_policies_US_final_Dallas,
+        df_policies_US_final_Houston,df_policies_US_final_LAOC,df_policies_US_final_Phoenix,df_policies_US_final_Tucson,
+        df_policies_US_final_DCArl
     ]).reset_index(drop=True)
+
     return df_policies_US_final
 
 

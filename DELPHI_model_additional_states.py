@@ -17,13 +17,19 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "hamza"
-ADDING_NEW_REGION = False  # True if we have to train a new region (Province/State etc.) from April 1st to now
+USER_RUNNING = "ali"
+ADDING_NEW_REGION = True  # True if we have to train a new region (Province/State etc.) from April 1st to now
 # training_start_date is the first date of parameters that will be used
 # Note that we take the parameters from the day before of the predictions, e.g. if I want to predict
 # using the historical data up to May 25th then I need to use the past parameters of May 24th
+# Phoenix, LA, Baltimore => 2020/04/01 Done
+# Washington => 2020/04/20 Done
+# Minneapolis => 2020/04/23 Done
+# Houston => 2020/04/05 processing
+# Dallas => 2020/04/06  "DALLAS-FW-ARLINGTON_Metropolitan" ready
+# Tucson => 2020/04/03  Done
 if ADDING_NEW_REGION:
-    training_start_date = datetime(2020, 4, 1)
+    training_start_date = datetime(2020, 4, 6)
 else:  # Then it should be the day before which we want to predict in order to update the predictions
     training_start_date = datetime(2020, 5, 26)
 
@@ -58,7 +64,7 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
         country_sub = country.replace(" ", "_")
         province_sub = province.replace(" ", "_")
         # TODO still missing Russia here as we don't have the data yet
-        if province_sub not in ["Chicago_Metropolitan", "Detroit_Metropolitan", "NY-NJ_Metropolitan"]:
+        if province_sub not in ["DALLAS-FW-ARLINGTON_Metropolitan"]:
             continue
         # if country_sub not in ["Brazil", "South_Africa", "Peru", "US"]:
         #     continue

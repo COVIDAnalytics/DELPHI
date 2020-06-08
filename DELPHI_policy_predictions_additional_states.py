@@ -24,7 +24,7 @@ import matplotlib.pyplot as plt
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "hamza"
+USER_RUNNING = "ali"
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 day_after_yesterday = "".join(str(pd.to_datetime(yesterday).date() + timedelta(days=1)).split("-"))
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
@@ -80,11 +80,18 @@ for continent, country, province in zip(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     # TODO still missing Russia here as we don't have the data yet
-    if country_sub not in ["South_Africa", "Peru", "Brazil", "US"]:
+    if country_sub not in ["US"]:
         continue
     if country_sub == "US":
-        if province_sub not in ["Chicago_Metropolitan", "Detroit_Metropolitan", "NY-NJ_Metropolitan"]:
+        if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
+                                "Baltimore-Columbia-Towson_Metropolitan", "Washington-Arlington-Alexandria_Metropolitan",
+                                "Tucson_Metropolitan","Minneapolis_Metropolitan", "Houston_Metropolitan",
+                                "DALLAS-FW-ARLINGTON_Metropolitan"]:
             continue
+        # if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
+        #                         "Baltimore-Columbia-Towson_Metropolitan", "Washington-Arlington-Alexandria_Metropolitan",
+        #                         "Tucson_Metropolitan","Minneapolis_Metropolitan", "Houston_Metropolitan",
+        #                         "DALLAS-FW-ARLINGTON_Metropolitan"]:
 
     if os.path.exists(
             PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"):
@@ -293,7 +300,7 @@ df_global_predictions_since_100_cases_scenarios = pd.concat(
     list_df_global_predictions_since_100_cases_scenarios
 ).reset_index(drop=True)
 df_global_predictions_since_100_cases_scenarios.to_csv(
-    PATH_TO_DATA_SANDBOX + f'policy_scenario_predictions/df_scenarios_provinces_j&j_{day_after_yesterday}.csv',
+    PATH_TO_DATA_SANDBOX + f'predicted/policy_scenario_predictions/df_scenarios_provinces_j&j_{day_after_yesterday}.csv',
     index=False
 )
 print("Exported all policy-dependent predictions for all countries to data_sandbox")
