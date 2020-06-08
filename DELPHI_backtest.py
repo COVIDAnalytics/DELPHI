@@ -2,34 +2,38 @@
 import pandas as pd
 import numpy as np
 from scipy.integrate import solve_ivp
-from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from DELPHI_utils import (
-    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver,
-    get_initial_conditions, mape, add_aggregations_backtest
+    DELPHIDataCreator, get_initial_conditions, add_aggregations_backtest,
 )
 import dateutil.parser as dtparser
 import os
+import yaml
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
+
+with open("config.yml", "r") as ymlfile:
+    CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+CONFIG_FILEPATHS = CONFIG["FILEPATHS"]
+USER_RUNNING = "hamza"
 # TODO: Find a way to make these paths automatic, whoever the user is...
-PATH_TO_FOLDER_DANGER_MAP = (
-    # "E:/Github/covid19orc/danger_map"
-    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    "4. COVID19_Global/covid19orc/danger_map/"
-)
-PATH_TO_WEBSITE_PREDICTED = (
-    "E:/Github/website/data/"
-)
+two_weeks_ago = "".join(str(datetime.now().date() - timedelta(days=15)).split("-"))
+PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"]["michael"]
 popcountries = pd.read_csv(
     PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
 )
 try:
     pastparameters = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_Python_{yesterday}.csv"
+        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{two_weeks_ago}.csv"
     )
 except:
-    pastparameters = None
+    raise ValueError(
+        f"Need latest parameters to do proper backtesting; seems like they're not available for {two_weeks_ago}"
+    )
+if pd.to_datetime(two_weeks_ago) < pd.to_datetime("2020-05-07"):
+    param_MATHEMATICA = True
+else:
+    param_MATHEMATICA = False
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_backtest_performance = []
 obj_value = 0
@@ -61,7 +65,11 @@ for continent, country, province in zip(
                 parameter_list_line = parameter_list_total.loc[
                     len(parameter_list_total)-1, columns_of_interest
                 ].values.tolist()
-                parameter_list = parameter_list_line[1:]
+                if param_MATHEMATICA:
+                    parameter_list = parameter_list_line[1:]
+                    parameter_list[3] = np.log(2) / parameter_list[3]
+                else:
+                    parameter_list = parameter_list_line[1:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
                 param_list_lower = [x - 0.05 * abs(x) for x in parameter_list]
                 param_list_upper = [x + 0.05 * abs(x) for x in parameter_list]
@@ -96,8 +104,8 @@ for continent, country, province in zip(
             ].reset_index(drop=True)
 
         # Now we start the modeling part:
-        if len(validcases) > 7:
-            n_days_test = int(0.25 * len(validcases))
+        if len(validcases) > 30:  # Cuz otherwise less train than testing data...
+            n_days_test = 15  # Set as default
             n_days_fitting = len(validcases) - n_days_test
             IncubeD = 5
             RecoverID = 10
@@ -190,42 +198,7 @@ for continent, country, province in zip(
                     dRdt, dDdt, dTHdt, dDVRdt, dDVDdt, dDDdt, dDTdt
                 ]
 
-            def residuals_totalcases(params):
-                """
-                Wanted to start with solve_ivp because figures will be faster to debug
-                params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
-                """
-                # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-                params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
-                x_0_cases = get_initial_conditions(
-                    params_fitted=params,
-                    global_params_fixed=GLOBAL_PARAMS_FIXED
-                )
-                x_sol = solve_ivp(
-                    fun=model_covid,
-                    y0=x_0_cases,
-                    t_span=[t_cases_fit[0], t_cases_fit[-1]],
-                    t_eval=t_cases_fit,
-                    args=tuple(params),
-                ).y
-                weights = list(range(1, len(fitcasesnd) + 1))
-                residuals_value = sum(
-                    np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
-                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
-                )
-                return residuals_value
-            output = minimize(
-                residuals_totalcases,
-                parameter_list,
-                method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
-                bounds=bounds_params,
-                options={'maxiter': 1000, 'verbose': 0}
-            )
-            best_params = output.x
-            obj_value = obj_value + output.fun
-            # print(obj_value)
-
+            best_params = parameter_list
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
                 x_0_cases = get_initial_conditions(
@@ -246,38 +219,20 @@ for continent, country, province in zip(
                 x_sol_final=x_sol_final, date_day_since100=date_day_since100, best_params=best_params,
                 continent=continent, country=country, province=province,
             )
-            # Creating the parameters dataset for this (Continent, Country, Province)
-            mape_train_nondeath = (
-                    mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)])
+            df_backtest_performance_tuple = data_creator.create_df_backtest_performance_tuple(
+                fitcasesnd=fitcasesnd,
+                fitcasesd=fitcasesd,
+                testcasesnd=testcasesnd,
+                testcasesd=testcasesd,
+                n_days_fitting=n_days_fitting,
+                n_days_test=n_days_test,
             )
-            mape_train_death = (
-                    mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
-            )
-            mape_test_nondeath = (
-                    mape(testcasesnd, x_sol_final[15, -len(testcasesnd):])
-            )
-            mape_test_death = (
-                    mape(testcasesd, x_sol_final[14, -len(testcasesd):])
-            )
-            df_backtest_performance_tuple = pd.DataFrame({
-                "continent": [continent],
-                "country": [country],
-                "province": [province],
-                "train_start_date": [date_day_since100],
-                "train_end_date": [date_day_since100 + timedelta(days=n_days_fitting - 1)],
-                "train_mape_cases": [mape_train_nondeath],
-                "train_mape_deaths": [mape_train_death],
-                "test_start_date": [date_day_since100 + timedelta(days=n_days_fitting)],
-                "test_end_date": [date_day_since100 + timedelta(days=n_days_fitting + n_days_test - 1)],
-                "test_mape_cases": [mape_test_nondeath],
-                "test_mape_deaths": [mape_test_death],
-            })
             # Appending the dataset for backtest performance of this (Continent, Country, Province)
             list_df_backtest_performance.append(df_backtest_performance_tuple)
-            print(f"Finished backtesting for Continent={continent}, Country={country} and Province={province}")
+            print(f"Finished backtesting for Continent={continent}, Country={country}, Province={province}")
         else:  # len(validcases) <= 7
-            print(f"Not enough historical data (less than a week)" +
-                  f"for Continent={continent}, Country={country} and Province={province}")
+            print(f"Not enough historical data (less than 1 month)" +
+                  f"for Continent={continent}, Country={country}, Province={province}")
             continue
     else:  # file for that tuple (country, province) doesn't exist in processed files
         continue
@@ -288,8 +243,9 @@ today_date_str = "".join(str(datetime.now().date()).split("-"))
 df_backtest_performance = pd.concat(list_df_backtest_performance).reset_index(drop=True)
 df_backtest_performance_final = add_aggregations_backtest(df_backtest_performance)
 df_backtest_performance_final.to_csv(
+    #f"./backtesting/{today_date_str}_backtest_performance_python.csv",
     "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    f"4. COVID19_Global/DELPHI/backtesting/{today_date_str}_backtest_performance_python.csv",
+    f"4. COVID19_Global/{today_date_str}_backtest_performance_python.csv",
     index=False
 )
 print("Exported backtest results to danger_map repository")

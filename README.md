@@ -11,3 +11,7 @@ We also included a python implementation using scipy.solve_ivp. It has been test
 Documentation is contained in the pdf document: DELPHI_Explainer.
 
 Code created by Michael Lingzhi Li, Hamza Tazi Bouardi, and Omar Skali Lami.
+
+Please Cite the following when you are utilizing our results:
+
+ML Li, H Tazi Bouardi, O Skali Lami, N Trichakis, T Trikalinos, D Bertsimas. Forecasting COVID-19 and Analyzing the Effect of Government Interventions. (2020) submitted for publication.
