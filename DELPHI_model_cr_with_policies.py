@@ -7,7 +7,7 @@ from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from DELPHI_utils import (
-    DELPHIDataCreator, DELPHIDataSaver,
+    DELPHIDataCreator, DELPHIDataSaver, DELPHIAggregations,
     get_initial_conditions, mape,
     read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries,
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
@@ -1108,10 +1108,14 @@ for n_days_before in range(max_days_before, 1, -1):
     df_global_predictions_since_100_cases_scenarios = pd.concat(
         list_df_global_predictions_since_100_cases
     ).reset_index(drop=True)
+    df_global_predictions_since_100_cases_scenarios = DELPHIAggregations.append_all_aggregations(
+        df_global_predictions_since_100_cases_scenarios
+    ).reset_index(drop=True)
     df_global_predictions_since_100_cases_scenarios.to_csv(
         PATH_TO_DATA_SANDBOX +
         f"./predictions_DELPHI_3_continuous_retraining_{day_after_yesterday_date_str}_final.csv",
-        index=False)
+        index=False
+    )
     print("Saved the dataset of updated tracking & predictions in data_sandbox, Parameters_CR_Global in danger_map")
     print("#############################################################")
 # TODO: Modify data saver in order to save separately the new parameters dataframe
