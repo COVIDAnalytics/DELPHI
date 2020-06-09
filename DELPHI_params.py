@@ -104,3 +104,8 @@ provinces_Russia = [
     'Vologda Oblast', 'Voronezh Oblast', 'Yamalo-Nenetskiy AO',
     'Yaroslavl Oblast', 'Zabaykalskiy Kray'
 ]
+
+provinces_Chile =  ['Antofagasta', 'Araucania', 'Arica y Parinacota', 'Atacama',
+     'Aysen', 'Biobio', 'Coquimbo', 'Los Lagos', 'Los Rios',
+     'Magallanes', 'Maule', 'Nuble', "O'Higgins", 'Santiago',
+     'Tarapaca', 'Valparaiso']
