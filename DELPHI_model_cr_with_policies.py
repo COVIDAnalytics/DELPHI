@@ -1099,7 +1099,7 @@ for n_days_before in range(max_days_before, 1, -1):
     # ]).sort_values(["Continent", "Country", "Province"]).reset_index(drop=True)
     df_global_parameters_continuous_retraining.to_csv(
         PATH_TO_FOLDER_DANGER_MAP +
-        f"predicted/parameters_global_CR_all/Parameters_Global_CR_{day_after_yesterday_date_str}_final.csv",
+        f"predicted/parameters_global_CR_all/Parameters_Global_CR_{day_after_yesterday_date_str}.csv",
         index=False
     )
     df_global_predictions_since_today_scenarios = pd.concat(
