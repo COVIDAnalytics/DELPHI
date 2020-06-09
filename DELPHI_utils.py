@@ -455,54 +455,6 @@ class DELPHIAggregations:
         return df
 
 
-class DELPHIAggregations:
-    @staticmethod
-    def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
-        df = df[df["Province"] != "None"]
-        df_agg_country = df.groupby(["Continent", "Country", "Day"]).sum().reset_index()
-        df_agg_country["Province"] = "None"
-        df_agg_country = df_agg_country[[
-            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
-        ]]
-        return df_agg_country
-
-    @staticmethod
-    def get_aggregation_per_continent(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_continent = df.groupby(["Continent", "Day"]).sum().reset_index()
-        df_agg_continent["Country"] = "None"
-        df_agg_continent["Province"] = "None"
-        df_agg_continent = df_agg_continent[[
-            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
-        ]]
-        return df_agg_continent
-
-    @staticmethod
-    def get_aggregation_world(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_world = df.groupby("Day").sum().reset_index()
-        df_agg_world["Continent"] = "None"
-        df_agg_world["Country"] = "None"
-        df_agg_world["Province"] = "None"
-        df_agg_world = df_agg_world[[
-            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
-        ]]
-        return df_agg_world
-
-    @staticmethod
-    def append_all_aggregations(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(df)
-        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(df)
-        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world(df)
-        df = pd.concat([
-            df, df_agg_since_today_per_country,
-            df_agg_since_today_per_continent, df_agg_since_today_world
-        ])
-        df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
-        return df
-
-
 class DELPHIAggregationsPolicies:
     @staticmethod
     def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
