@@ -341,121 +341,826 @@ Africa,South Africa,Western Cape,2020-06-12,1366,87,23,205,50,3
 Africa,South Africa,Western Cape,2020-06-13,1367,83,22,205,50,3
 Africa,South Africa,Western Cape,2020-06-14,1368,79,21,205,50,3
 Africa,South Africa,Western Cape,2020-06-15,1369,75,21,205,51,2
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-03-23,123,117,18,18,1,4
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-03-24,146,133,20,21,2,5
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-03-25,194,172,26,28,2,6
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-03-26,259,226,35,38,3,8
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-03-27,340,292,45,50,4,11
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-03-28,435,368,58,64,6,14
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-03-29,544,454,71,81,8,17
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-03-30,668,549,86,99,10,20
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-03-31,806,653,103,120,13,24
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-01,958,765,121,143,16,28
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-02,1125,885,141,168,20,33
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-03,1307,1013,162,195,25,38
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-04,1503,1148,184,224,30,43
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-05,1712,1289,207,256,36,48
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-06,1934,1434,232,289,43,53
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-07,2166,1581,256,324,51,58
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-08,2408,1730,281,360,59,64
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-09,2659,1880,307,398,68,69
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-10,2919,2030,333,437,78,75
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-11,3184,2178,358,477,89,80
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-12,3453,2322,383,517,101,86
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-13,3725,2461,408,558,114,91
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-14,3999,2594,431,599,128,95
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-15,4272,2720,454,640,142,100
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-16,4544,2838,476,681,157,104
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-17,4814,2948,496,721,173,108
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-18,5081,3049,515,761,190,112
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-19,5343,3142,533,801,207,115
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-20,5600,3224,549,839,226,118
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-21,5850,3295,564,877,244,121
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-22,6092,3356,577,913,264,123
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-23,6327,3407,588,948,284,124
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-24,6554,3448,598,982,304,126
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-25,6774,3481,606,1015,325,127
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-26,6986,3504,613,1047,347,128
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-27,7188,3517,618,1077,368,128
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-28,7380,3521,621,1106,391,128
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-29,7564,3516,624,1134,413,128
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-04-30,7739,3504,624,1160,436,127
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-01,7906,3485,624,1185,458,126
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-02,8064,3460,622,1209,481,125
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-03,8214,3428,620,1231,504,124
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-04,8354,3389,616,1252,528,122
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-05,8486,3345,611,1272,551,121
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-06,8611,3297,605,1291,574,119
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-07,8729,3244,598,1308,597,117
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-08,8839,3189,591,1325,620,115
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-09,8943,3130,583,1341,643,112
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-10,9039,3067,574,1355,666,110
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-11,9129,3002,564,1368,689,108
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-12,9213,2935,554,1381,712,105
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-13,9291,2866,544,1393,734,102
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-14,9364,2797,534,1404,757,100
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-15,9432,2726,523,1414,779,97
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-16,9495,2655,512,1423,801,95
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-17,9553,2583,500,1432,822,92
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-18,9607,2512,489,1440,844,89
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-19,9657,2440,477,1448,865,87
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-20,9703,2369,465,1455,885,84
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-21,9746,2298,453,1461,906,81
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-22,9786,2229,442,1467,926,79
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-23,9822,2160,430,1472,946,76
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-24,9855,2092,418,1477,966,74
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-25,9886,2025,407,1482,985,71
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-26,9914,1959,395,1486,1004,69
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-27,9940,1895,384,1490,1023,67
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-28,9964,1833,373,1494,1041,64
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-29,9986,1772,362,1497,1059,62
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-30,10006,1712,351,1500,1077,60
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-05-31,10024,1654,340,1503,1094,58
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-01,10041,1597,330,1505,1111,56
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-02,10056,1542,320,1508,1128,54
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-03,10071,1489,310,1510,1144,52
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-04,10083,1437,300,1512,1160,50
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-05,10095,1387,291,1513,1176,48
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-06,10106,1338,281,1515,1191,47
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-07,10116,1291,272,1516,1206,45
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-08,10124,1246,263,1518,1221,43
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-09,10133,1202,255,1519,1236,42
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-10,10140,1160,246,1520,1250,40
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-11,10147,1119,238,1521,1264,39
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-12,10153,1079,230,1522,1278,37
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-13,10158,1041,223,1523,1291,36
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-14,10163,1005,215,1524,1304,35
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-15,10168,969,208,1524,1317,34
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-16,10172,935,201,1525,1329,32
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-17,10176,903,195,1525,1342,31
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-18,10179,871,188,1526,1353,30
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-19,10182,841,182,1526,1365,29
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-20,10185,812,176,1527,1377,28
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-21,10188,784,170,1527,1388,27
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-22,10190,757,164,1528,1399,26
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-23,10192,731,158,1528,1410,25
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-24,10194,706,153,1528,1420,24
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-25,10196,682,148,1528,1430,24
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-26,10197,659,143,1529,1440,23
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-27,10199,637,138,1529,1450,22
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-28,10200,616,133,1529,1460,21
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-29,10201,595,129,1529,1469,21
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-06-30,10202,576,125,1529,1478,20
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-01,10203,557,120,1530,1487,19
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-02,10204,538,116,1530,1496,19
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-03,10204,521,113,1530,1505,18
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-04,10205,504,109,1530,1513,17
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-05,10206,488,105,1530,1521,17
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-06,10206,472,102,1530,1529,16
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-07,10207,457,98,1530,1537,16
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-08,10207,443,95,1530,1545,15
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-09,10208,429,92,1530,1552,15
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-10,10208,416,89,1530,1559,14
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-11,10208,403,86,1530,1566,14
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-12,10209,391,83,1530,1573,14
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-13,10209,379,80,1530,1580,13
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-14,10209,367,78,1530,1587,13
-North America,US,Baltimore-Columbia-Towson Metropolitan,2020-07-15,10209,356,75,1531,1593,12
+Asia,Russia,Briansk Oblast,2020-04-11,123,123,18,18,0,5
+Asia,Russia,Briansk Oblast,2020-04-12,129,121,19,19,0,5
+Asia,Russia,Briansk Oblast,2020-04-13,139,123,19,21,0,5
+Asia,Russia,Briansk Oblast,2020-04-14,153,129,20,23,0,5
+Asia,Russia,Briansk Oblast,2020-04-15,172,139,22,26,0,5
+Asia,Russia,Briansk Oblast,2020-04-16,195,152,25,29,1,6
+Asia,Russia,Briansk Oblast,2020-04-17,224,171,28,34,1,6
+Asia,Russia,Briansk Oblast,2020-04-18,259,194,32,39,1,7
+Asia,Russia,Briansk Oblast,2020-04-19,301,222,36,45,1,8
+Asia,Russia,Briansk Oblast,2020-04-20,350,256,42,52,1,9
+Asia,Russia,Briansk Oblast,2020-04-21,407,295,48,61,1,11
+Asia,Russia,Briansk Oblast,2020-04-22,471,338,56,71,2,12
+Asia,Russia,Briansk Oblast,2020-04-23,542,386,64,81,2,14
+Asia,Russia,Briansk Oblast,2020-04-24,621,438,72,93,2,16
+Asia,Russia,Briansk Oblast,2020-04-25,706,493,81,106,3,18
+Asia,Russia,Briansk Oblast,2020-04-26,798,550,91,120,3,20
+Asia,Russia,Briansk Oblast,2020-04-27,894,609,101,134,4,22
+Asia,Russia,Briansk Oblast,2020-04-28,994,668,111,149,4,25
+Asia,Russia,Briansk Oblast,2020-04-29,1099,727,122,165,5,27
+Asia,Russia,Briansk Oblast,2020-04-30,1206,784,132,181,5,29
+Asia,Russia,Briansk Oblast,2020-05-01,1315,841,142,197,6,31
+Asia,Russia,Briansk Oblast,2020-05-02,1426,895,152,214,7,33
+Asia,Russia,Briansk Oblast,2020-05-03,1537,946,161,231,8,35
+Asia,Russia,Briansk Oblast,2020-05-04,1648,994,170,247,8,36
+Asia,Russia,Briansk Oblast,2020-05-05,1758,1038,179,264,9,38
+Asia,Russia,Briansk Oblast,2020-05-06,1867,1078,186,280,10,39
+Asia,Russia,Briansk Oblast,2020-05-07,1975,1114,194,296,11,41
+Asia,Russia,Briansk Oblast,2020-05-08,2080,1146,200,312,12,42
+Asia,Russia,Briansk Oblast,2020-05-09,2183,1174,206,327,13,43
+Asia,Russia,Briansk Oblast,2020-05-10,2282,1196,212,342,14,43
+Asia,Russia,Briansk Oblast,2020-05-11,2379,1214,216,357,15,44
+Asia,Russia,Briansk Oblast,2020-05-12,2472,1228,220,371,16,44
+Asia,Russia,Briansk Oblast,2020-05-13,2562,1238,223,384,17,45
+Asia,Russia,Briansk Oblast,2020-05-14,2648,1244,226,397,19,45
+Asia,Russia,Briansk Oblast,2020-05-15,2731,1246,228,410,20,45
+Asia,Russia,Briansk Oblast,2020-05-16,2809,1243,229,421,21,45
+Asia,Russia,Briansk Oblast,2020-05-17,2884,1238,230,433,22,44
+Asia,Russia,Briansk Oblast,2020-05-18,2955,1229,230,443,23,44
+Asia,Russia,Briansk Oblast,2020-05-19,3022,1217,229,453,24,44
+Asia,Russia,Briansk Oblast,2020-05-20,3086,1203,228,463,25,43
+Asia,Russia,Briansk Oblast,2020-05-21,3147,1186,227,472,26,42
+Asia,Russia,Briansk Oblast,2020-05-22,3203,1166,225,480,28,42
+Asia,Russia,Briansk Oblast,2020-05-23,3256,1145,222,488,29,41
+Asia,Russia,Briansk Oblast,2020-05-24,3306,1122,220,496,30,40
+Asia,Russia,Briansk Oblast,2020-05-25,3353,1097,216,503,31,39
+Asia,Russia,Briansk Oblast,2020-05-26,3397,1071,213,510,32,38
+Asia,Russia,Briansk Oblast,2020-05-27,3438,1044,210,516,33,37
+Asia,Russia,Briansk Oblast,2020-05-28,3476,1016,206,521,34,36
+Asia,Russia,Briansk Oblast,2020-05-29,3511,987,202,527,35,35
+Asia,Russia,Briansk Oblast,2020-05-30,3544,957,197,532,36,34
+Asia,Russia,Briansk Oblast,2020-05-31,3575,928,193,536,37,32
+Asia,Russia,Briansk Oblast,2020-06-01,3604,898,188,541,38,31
+Asia,Russia,Briansk Oblast,2020-06-02,3630,868,184,545,38,30
+Asia,Russia,Briansk Oblast,2020-06-03,3655,837,179,548,39,29
+Asia,Russia,Briansk Oblast,2020-06-04,3677,807,174,552,40,28
+Asia,Russia,Briansk Oblast,2020-06-05,3698,777,169,555,41,27
+Asia,Russia,Briansk Oblast,2020-06-06,3717,748,165,558,42,26
+Asia,Russia,Briansk Oblast,2020-06-07,3735,719,160,560,43,25
+Asia,Russia,Briansk Oblast,2020-06-08,3752,690,155,563,43,24
+Asia,Russia,Briansk Oblast,2020-06-09,3767,662,150,565,44,23
+Asia,Russia,Briansk Oblast,2020-06-10,3780,635,145,567,45,22
+Asia,Russia,Briansk Oblast,2020-06-11,3793,608,141,569,45,21
+Asia,Russia,Briansk Oblast,2020-06-12,3805,582,136,571,46,20
+Asia,Russia,Briansk Oblast,2020-06-13,3815,556,131,572,47,19
+Asia,Russia,Briansk Oblast,2020-06-14,3825,532,127,574,47,18
+Asia,Russia,Briansk Oblast,2020-06-15,3834,508,122,575,48,17
+Asia,Russia,Briansk Oblast,2020-06-16,3843,485,118,576,48,16
+Asia,Russia,Briansk Oblast,2020-06-17,3850,462,114,578,49,15
+Asia,Russia,Briansk Oblast,2020-06-18,3857,440,110,579,49,15
+Asia,Russia,Briansk Oblast,2020-06-19,3863,420,106,579,50,14
+Asia,Russia,Briansk Oblast,2020-06-20,3869,399,102,580,50,13
+Asia,Russia,Briansk Oblast,2020-06-21,3874,380,98,581,51,12
+Asia,Russia,Briansk Oblast,2020-06-22,3879,362,94,582,51,12
+Asia,Russia,Briansk Oblast,2020-06-23,3883,344,91,582,52,11
+Asia,Russia,Briansk Oblast,2020-06-24,3887,327,87,583,52,11
+Asia,Russia,Briansk Oblast,2020-06-25,3891,310,84,584,53,10
+Asia,Russia,Briansk Oblast,2020-06-26,3894,295,80,584,53,9
+Asia,Russia,Briansk Oblast,2020-06-27,3897,280,77,585,53,9
+Asia,Russia,Briansk Oblast,2020-06-28,3900,265,74,585,54,8
+Asia,Russia,Briansk Oblast,2020-06-29,3902,252,71,585,54,8
+Asia,Russia,Briansk Oblast,2020-06-30,3904,239,68,586,54,8
+Asia,Russia,Briansk Oblast,2020-07-01,3906,226,65,586,54,7
+Asia,Russia,Briansk Oblast,2020-07-02,3908,214,63,586,55,7
+Asia,Russia,Briansk Oblast,2020-07-03,3910,203,60,586,55,6
+Asia,Russia,Briansk Oblast,2020-07-04,3911,192,58,587,55,6
+Asia,Russia,Briansk Oblast,2020-07-05,3913,182,55,587,56,6
+Asia,Russia,Briansk Oblast,2020-07-06,3914,172,53,587,56,5
+Asia,Russia,Briansk Oblast,2020-07-07,3915,163,51,587,56,5
+Asia,Russia,Briansk Oblast,2020-07-08,3916,154,49,587,56,5
+Asia,Russia,Briansk Oblast,2020-07-09,3917,146,46,588,56,4
+Asia,Russia,Briansk Oblast,2020-07-10,3918,138,44,588,57,4
+Asia,Russia,Briansk Oblast,2020-07-11,3919,130,43,588,57,4
+Asia,Russia,Briansk Oblast,2020-07-12,3919,123,41,588,57,4
+Asia,Russia,Briansk Oblast,2020-07-13,3920,117,39,588,57,3
+Asia,Russia,Briansk Oblast,2020-07-14,3920,110,37,588,57,3
+Asia,Russia,Briansk Oblast,2020-07-15,3921,104,36,588,57,3
+Asia,Russia,Komi Republic,2020-04-07,101,83,12,12,3,3
+Asia,Russia,Komi Republic,2020-04-08,130,106,16,17,3,4
+Asia,Russia,Komi Republic,2020-04-09,155,123,19,21,3,5
+Asia,Russia,Komi Republic,2020-04-10,179,139,22,24,3,5
+Asia,Russia,Komi Republic,2020-04-11,205,155,25,28,3,6
+Asia,Russia,Komi Republic,2020-04-12,234,173,28,32,3,6
+Asia,Russia,Komi Republic,2020-04-13,267,194,31,37,3,7
+Asia,Russia,Komi Republic,2020-04-14,304,218,35,43,3,8
+Asia,Russia,Komi Republic,2020-04-15,347,246,40,49,3,9
+Asia,Russia,Komi Republic,2020-04-16,395,277,45,57,3,10
+Asia,Russia,Komi Republic,2020-04-17,450,312,51,65,3,12
+Asia,Russia,Komi Republic,2020-04-18,510,351,58,74,4,13
+Asia,Russia,Komi Republic,2020-04-19,577,393,65,84,4,14
+Asia,Russia,Komi Republic,2020-04-20,649,438,73,95,4,16
+Asia,Russia,Komi Republic,2020-04-21,726,485,81,106,4,18
+Asia,Russia,Komi Republic,2020-04-22,808,534,89,119,4,20
+Asia,Russia,Komi Republic,2020-04-23,894,584,98,131,4,21
+Asia,Russia,Komi Republic,2020-04-24,983,633,106,145,4,23
+Asia,Russia,Komi Republic,2020-04-25,1074,682,115,158,4,25
+Asia,Russia,Komi Republic,2020-04-26,1167,729,123,172,5,27
+Asia,Russia,Komi Republic,2020-04-27,1261,773,131,186,5,28
+Asia,Russia,Komi Republic,2020-04-28,1354,815,139,200,5,30
+Asia,Russia,Komi Republic,2020-04-29,1447,854,147,214,5,31
+Asia,Russia,Komi Republic,2020-04-30,1539,889,153,228,6,32
+Asia,Russia,Komi Republic,2020-05-01,1629,919,160,242,6,34
+Asia,Russia,Komi Republic,2020-05-02,1716,946,165,255,6,34
+Asia,Russia,Komi Republic,2020-05-03,1800,968,170,267,6,35
+Asia,Russia,Komi Republic,2020-05-04,1882,987,175,280,7,36
+Asia,Russia,Komi Republic,2020-05-05,1961,1001,178,291,7,36
+Asia,Russia,Komi Republic,2020-05-06,2036,1011,181,303,7,37
+Asia,Russia,Komi Republic,2020-05-07,2108,1017,184,313,7,37
+Asia,Russia,Komi Republic,2020-05-08,2176,1018,185,324,8,37
+Asia,Russia,Komi Republic,2020-05-09,2240,1017,186,333,8,37
+Asia,Russia,Komi Republic,2020-05-10,2301,1012,187,342,8,36
+Asia,Russia,Komi Republic,2020-05-11,2358,1004,187,351,9,36
+Asia,Russia,Komi Republic,2020-05-12,2412,994,186,359,9,36
+Asia,Russia,Komi Republic,2020-05-13,2462,980,185,367,9,35
+Asia,Russia,Komi Republic,2020-05-14,2509,964,184,374,10,34
+Asia,Russia,Komi Republic,2020-05-15,2553,946,182,380,10,34
+Asia,Russia,Komi Republic,2020-05-16,2594,927,180,386,10,33
+Asia,Russia,Komi Republic,2020-05-17,2632,906,177,392,11,32
+Asia,Russia,Komi Republic,2020-05-18,2668,884,174,397,11,31
+Asia,Russia,Komi Republic,2020-05-19,2700,860,171,402,11,30
+Asia,Russia,Komi Republic,2020-05-20,2730,835,168,407,12,29
+Asia,Russia,Komi Republic,2020-05-21,2758,810,165,411,12,28
+Asia,Russia,Komi Republic,2020-05-22,2784,785,161,415,12,28
+Asia,Russia,Komi Republic,2020-05-23,2807,759,157,418,12,27
+Asia,Russia,Komi Republic,2020-05-24,2829,733,153,422,13,26
+Asia,Russia,Komi Republic,2020-05-25,2849,707,149,425,13,25
+Asia,Russia,Komi Republic,2020-05-26,2867,680,145,427,13,24
+Asia,Russia,Komi Republic,2020-05-27,2884,654,141,430,14,23
+Asia,Russia,Komi Republic,2020-05-28,2899,629,137,432,14,22
+Asia,Russia,Komi Republic,2020-05-29,2913,603,133,434,14,21
+Asia,Russia,Komi Republic,2020-05-30,2926,578,129,436,14,20
+Asia,Russia,Komi Republic,2020-05-31,2937,554,125,438,15,19
+Asia,Russia,Komi Republic,2020-06-01,2948,530,121,439,15,18
+Asia,Russia,Komi Republic,2020-06-02,2957,507,117,441,15,17
+Asia,Russia,Komi Republic,2020-06-03,2966,484,113,442,15,16
+Asia,Russia,Komi Republic,2020-06-04,2974,462,109,443,16,16
+Asia,Russia,Komi Republic,2020-06-05,2981,441,105,445,16,15
+Asia,Russia,Komi Republic,2020-06-06,2988,420,101,445,16,14
+Asia,Russia,Komi Republic,2020-06-07,2994,400,97,446,16,13
+Asia,Russia,Komi Republic,2020-06-08,2999,381,94,447,16,13
+Asia,Russia,Komi Republic,2020-06-09,3004,362,90,448,17,12
+Asia,Russia,Komi Republic,2020-06-10,3008,344,87,449,17,11
+Asia,Russia,Komi Republic,2020-06-11,3012,327,84,449,17,11
+Asia,Russia,Komi Republic,2020-06-12,3016,311,80,450,17,10
+Asia,Russia,Komi Republic,2020-06-13,3019,295,77,450,17,10
+Asia,Russia,Komi Republic,2020-06-14,3022,280,74,451,18,9
+Asia,Russia,Komi Republic,2020-06-15,3025,266,71,451,18,9
+Asia,Russia,Komi Republic,2020-06-16,3027,252,68,451,18,8
+Asia,Russia,Komi Republic,2020-06-17,3029,239,66,452,18,8
+Asia,Russia,Komi Republic,2020-06-18,3031,226,63,452,18,7
+Asia,Russia,Komi Republic,2020-06-19,3033,214,60,452,18,7
+Asia,Russia,Komi Republic,2020-06-20,3035,203,58,452,18,6
+Asia,Russia,Komi Republic,2020-06-21,3036,192,55,453,19,6
+Asia,Russia,Komi Republic,2020-06-22,3037,182,53,453,19,6
+Asia,Russia,Komi Republic,2020-06-23,3038,172,51,453,19,5
+Asia,Russia,Komi Republic,2020-06-24,3039,163,49,453,19,5
+Asia,Russia,Komi Republic,2020-06-25,3040,154,47,453,19,5
+Asia,Russia,Komi Republic,2020-06-26,3041,145,45,453,19,4
+Asia,Russia,Komi Republic,2020-06-27,3042,137,43,454,19,4
+Asia,Russia,Komi Republic,2020-06-28,3043,130,41,454,19,4
+Asia,Russia,Komi Republic,2020-06-29,3043,123,39,454,20,4
+Asia,Russia,Komi Republic,2020-06-30,3044,116,38,454,20,3
+Asia,Russia,Komi Republic,2020-07-01,3044,110,36,454,20,3
+Asia,Russia,Komi Republic,2020-07-02,3045,104,34,454,20,3
+Asia,Russia,Komi Republic,2020-07-03,3045,98,33,454,20,3
+Asia,Russia,Komi Republic,2020-07-04,3045,92,31,454,20,3
+Asia,Russia,Komi Republic,2020-07-05,3046,87,30,454,20,3
+Asia,Russia,Komi Republic,2020-07-06,3046,83,29,454,20,2
+Asia,Russia,Komi Republic,2020-07-07,3046,78,27,454,20,2
+Asia,Russia,Komi Republic,2020-07-08,3046,74,26,454,20,2
+Asia,Russia,Komi Republic,2020-07-09,3047,70,25,454,20,2
+Asia,Russia,Komi Republic,2020-07-10,3047,66,24,454,21,2
+Asia,Russia,Komi Republic,2020-07-11,3047,62,23,454,21,2
+Asia,Russia,Komi Republic,2020-07-12,3047,59,22,454,21,2
+Asia,Russia,Komi Republic,2020-07-13,3047,55,21,454,21,2
+Asia,Russia,Komi Republic,2020-07-14,3047,52,20,454,21,1
+Asia,Russia,Komi Republic,2020-07-15,3047,49,19,454,21,1
+Asia,Russia,Krasnodarskiy Kray,2020-04-09,105,99,15,15,1,4
+Asia,Russia,Krasnodarskiy Kray,2020-04-10,125,111,17,18,2,4
+Asia,Russia,Krasnodarskiy Kray,2020-04-11,147,125,19,21,2,5
+Asia,Russia,Krasnodarskiy Kray,2020-04-12,170,140,22,25,2,5
+Asia,Russia,Krasnodarskiy Kray,2020-04-13,195,154,24,28,2,6
+Asia,Russia,Krasnodarskiy Kray,2020-04-14,220,169,27,32,3,6
+Asia,Russia,Krasnodarskiy Kray,2020-04-15,245,182,30,36,3,7
+Asia,Russia,Krasnodarskiy Kray,2020-04-16,271,195,32,40,3,7
+Asia,Russia,Krasnodarskiy Kray,2020-04-17,296,207,34,44,4,8
+Asia,Russia,Krasnodarskiy Kray,2020-04-18,322,219,36,47,4,8
+Asia,Russia,Krasnodarskiy Kray,2020-04-19,347,229,38,51,4,8
+Asia,Russia,Krasnodarskiy Kray,2020-04-20,371,238,40,55,4,9
+Asia,Russia,Krasnodarskiy Kray,2020-04-21,395,246,42,58,5,9
+Asia,Russia,Krasnodarskiy Kray,2020-04-22,419,252,43,62,5,9
+Asia,Russia,Krasnodarskiy Kray,2020-04-23,441,258,45,65,5,9
+Asia,Russia,Krasnodarskiy Kray,2020-04-24,463,263,46,69,5,10
+Asia,Russia,Krasnodarskiy Kray,2020-04-25,484,266,47,72,6,10
+Asia,Russia,Krasnodarskiy Kray,2020-04-26,504,268,48,75,6,10
+Asia,Russia,Krasnodarskiy Kray,2020-04-27,523,270,48,78,6,10
+Asia,Russia,Krasnodarskiy Kray,2020-04-28,541,270,49,80,6,10
+Asia,Russia,Krasnodarskiy Kray,2020-04-29,559,270,49,83,6,10
+Asia,Russia,Krasnodarskiy Kray,2020-04-30,575,269,49,85,7,10
+Asia,Russia,Krasnodarskiy Kray,2020-05-01,591,267,49,88,7,10
+Asia,Russia,Krasnodarskiy Kray,2020-05-02,605,264,49,90,7,9
+Asia,Russia,Krasnodarskiy Kray,2020-05-03,619,261,49,92,7,9
+Asia,Russia,Krasnodarskiy Kray,2020-05-04,632,257,49,94,7,9
+Asia,Russia,Krasnodarskiy Kray,2020-05-05,645,252,48,96,7,9
+Asia,Russia,Krasnodarskiy Kray,2020-05-06,656,248,48,98,8,9
+Asia,Russia,Krasnodarskiy Kray,2020-05-07,667,242,47,99,8,9
+Asia,Russia,Krasnodarskiy Kray,2020-05-08,677,237,46,101,8,8
+Asia,Russia,Krasnodarskiy Kray,2020-05-09,686,231,46,102,8,8
+Asia,Russia,Krasnodarskiy Kray,2020-05-10,695,225,45,103,8,8
+Asia,Russia,Krasnodarskiy Kray,2020-05-11,703,218,44,105,8,8
+Asia,Russia,Krasnodarskiy Kray,2020-05-12,710,212,43,106,8,7
+Asia,Russia,Krasnodarskiy Kray,2020-05-13,717,205,42,107,8,7
+Asia,Russia,Krasnodarskiy Kray,2020-05-14,724,199,41,108,8,7
+Asia,Russia,Krasnodarskiy Kray,2020-05-15,730,192,40,109,8,7
+Asia,Russia,Krasnodarskiy Kray,2020-05-16,735,185,39,109,8,6
+Asia,Russia,Krasnodarskiy Kray,2020-05-17,740,179,38,110,9,6
+Asia,Russia,Krasnodarskiy Kray,2020-05-18,745,172,37,111,9,6
+Asia,Russia,Krasnodarskiy Kray,2020-05-19,749,165,36,112,9,6
+Asia,Russia,Krasnodarskiy Kray,2020-05-20,753,159,35,112,9,5
+Asia,Russia,Krasnodarskiy Kray,2020-05-21,757,152,34,113,9,5
+Asia,Russia,Krasnodarskiy Kray,2020-05-22,760,146,33,113,9,5
+Asia,Russia,Krasnodarskiy Kray,2020-05-23,764,140,32,114,9,5
+Asia,Russia,Krasnodarskiy Kray,2020-05-24,766,134,31,114,9,5
+Asia,Russia,Krasnodarskiy Kray,2020-05-25,769,128,30,114,9,4
+Asia,Russia,Krasnodarskiy Kray,2020-05-26,771,123,29,115,9,4
+Asia,Russia,Krasnodarskiy Kray,2020-05-27,773,117,28,115,9,4
+Asia,Russia,Krasnodarskiy Kray,2020-05-28,775,112,27,115,9,4
+Asia,Russia,Krasnodarskiy Kray,2020-05-29,777,107,26,116,9,4
+Asia,Russia,Krasnodarskiy Kray,2020-05-30,779,102,25,116,9,3
+Asia,Russia,Krasnodarskiy Kray,2020-05-31,780,97,24,116,9,3
+Asia,Russia,Krasnodarskiy Kray,2020-06-01,782,92,23,116,9,3
+Asia,Russia,Krasnodarskiy Kray,2020-06-02,783,88,22,117,9,3
+Asia,Russia,Krasnodarskiy Kray,2020-06-03,784,83,21,117,9,3
+Asia,Russia,Krasnodarskiy Kray,2020-06-04,785,79,21,117,9,3
+Asia,Russia,Krasnodarskiy Kray,2020-06-05,786,75,20,117,9,2
+Asia,Russia,Krasnodarskiy Kray,2020-06-06,787,71,19,117,9,2
+Asia,Russia,Krasnodarskiy Kray,2020-06-07,788,68,18,117,9,2
+Asia,Russia,Krasnodarskiy Kray,2020-06-08,788,64,18,117,9,2
+Asia,Russia,Krasnodarskiy Kray,2020-06-09,789,61,17,117,9,2
+Asia,Russia,Krasnodarskiy Kray,2020-06-10,790,58,16,118,9,2
+Asia,Russia,Krasnodarskiy Kray,2020-06-11,790,55,16,118,9,2
+Asia,Russia,Krasnodarskiy Kray,2020-06-12,791,52,15,118,9,2
+Asia,Russia,Krasnodarskiy Kray,2020-06-13,791,49,14,118,9,2
+Asia,Russia,Krasnodarskiy Kray,2020-06-14,791,47,14,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-15,792,44,13,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-16,792,42,13,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-17,792,40,12,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-18,793,37,12,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-19,793,35,11,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-20,793,33,11,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-21,793,32,10,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-22,793,30,10,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-23,794,28,9,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-24,794,27,9,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-25,794,25,9,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-26,794,24,8,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-27,794,22,8,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-28,794,21,7,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-29,794,20,7,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-06-30,794,19,7,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-07-01,794,18,7,118,9,1
+Asia,Russia,Krasnodarskiy Kray,2020-07-02,794,17,6,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-03,794,16,6,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-04,795,15,6,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-05,795,14,5,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-06,795,13,5,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-07,795,13,5,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-08,795,12,5,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-09,795,11,5,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-10,795,11,4,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-11,795,10,4,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-12,795,9,4,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-13,795,9,4,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-14,795,8,4,118,9,0
+Asia,Russia,Krasnodarskiy Kray,2020-07-15,795,8,3,118,9,0
+Asia,Russia,Leningradskaya Oblast,2020-04-09,112,112,17,17,0,4
+Asia,Russia,Leningradskaya Oblast,2020-04-10,120,112,17,18,0,4
+Asia,Russia,Leningradskaya Oblast,2020-04-11,134,119,18,20,0,4
+Asia,Russia,Leningradskaya Oblast,2020-04-12,153,130,20,23,0,5
+Asia,Russia,Leningradskaya Oblast,2020-04-13,178,146,23,27,0,5
+Asia,Russia,Leningradskaya Oblast,2020-04-14,210,168,27,31,0,6
+Asia,Russia,Leningradskaya Oblast,2020-04-15,248,194,31,37,0,7
+Asia,Russia,Leningradskaya Oblast,2020-04-16,295,227,37,44,0,8
+Asia,Russia,Leningradskaya Oblast,2020-04-17,350,267,43,53,0,10
+Asia,Russia,Leningradskaya Oblast,2020-04-18,416,313,51,62,1,12
+Asia,Russia,Leningradskaya Oblast,2020-04-19,492,367,60,74,1,14
+Asia,Russia,Leningradskaya Oblast,2020-04-20,579,428,70,87,1,16
+Asia,Russia,Leningradskaya Oblast,2020-04-21,677,496,81,102,1,18
+Asia,Russia,Leningradskaya Oblast,2020-04-22,787,571,93,118,1,21
+Asia,Russia,Leningradskaya Oblast,2020-04-23,908,653,107,136,1,24
+Asia,Russia,Leningradskaya Oblast,2020-04-24,1040,739,122,156,2,27
+Asia,Russia,Leningradskaya Oblast,2020-04-25,1181,829,137,177,2,31
+Asia,Russia,Leningradskaya Oblast,2020-04-26,1332,923,153,200,2,34
+Asia,Russia,Leningradskaya Oblast,2020-04-27,1491,1019,169,224,3,37
+Asia,Russia,Leningradskaya Oblast,2020-04-28,1657,1115,186,249,3,41
+Asia,Russia,Leningradskaya Oblast,2020-04-29,1828,1210,203,274,3,44
+Asia,Russia,Leningradskaya Oblast,2020-04-30,2004,1304,219,301,4,48
+Asia,Russia,Leningradskaya Oblast,2020-05-01,2184,1395,236,328,4,51
+Asia,Russia,Leningradskaya Oblast,2020-05-02,2365,1483,252,355,5,54
+Asia,Russia,Leningradskaya Oblast,2020-05-03,2547,1566,267,382,6,57
+Asia,Russia,Leningradskaya Oblast,2020-05-04,2729,1644,282,409,6,60
+Asia,Russia,Leningradskaya Oblast,2020-05-05,2911,1715,295,437,7,63
+Asia,Russia,Leningradskaya Oblast,2020-05-06,3090,1781,308,463,8,65
+Asia,Russia,Leningradskaya Oblast,2020-05-07,3266,1839,320,490,8,67
+Asia,Russia,Leningradskaya Oblast,2020-05-08,3439,1890,331,516,9,69
+Asia,Russia,Leningradskaya Oblast,2020-05-09,3608,1935,341,541,10,70
+Asia,Russia,Leningradskaya Oblast,2020-05-10,3772,1973,350,566,11,72
+Asia,Russia,Leningradskaya Oblast,2020-05-11,3932,2003,357,590,11,73
+Asia,Russia,Leningradskaya Oblast,2020-05-12,4085,2026,364,613,12,73
+Asia,Russia,Leningradskaya Oblast,2020-05-13,4233,2041,369,635,13,74
+Asia,Russia,Leningradskaya Oblast,2020-05-14,4375,2050,373,656,14,74
+Asia,Russia,Leningradskaya Oblast,2020-05-15,4511,2054,376,677,15,74
+Asia,Russia,Leningradskaya Oblast,2020-05-16,4641,2051,378,696,16,74
+Asia,Russia,Leningradskaya Oblast,2020-05-17,4766,2043,380,715,17,73
+Asia,Russia,Leningradskaya Oblast,2020-05-18,4883,2028,380,732,18,73
+Asia,Russia,Leningradskaya Oblast,2020-05-19,4994,2009,379,749,18,72
+Asia,Russia,Leningradskaya Oblast,2020-05-20,5099,1985,377,765,19,71
+Asia,Russia,Leningradskaya Oblast,2020-05-21,5199,1957,375,780,20,70
+Asia,Russia,Leningradskaya Oblast,2020-05-22,5293,1926,372,794,21,69
+Asia,Russia,Leningradskaya Oblast,2020-05-23,5382,1892,368,807,22,67
+Asia,Russia,Leningradskaya Oblast,2020-05-24,5465,1854,363,820,23,66
+Asia,Russia,Leningradskaya Oblast,2020-05-25,5542,1813,358,831,24,64
+Asia,Russia,Leningradskaya Oblast,2020-05-26,5615,1770,353,842,25,63
+Asia,Russia,Leningradskaya Oblast,2020-05-27,5683,1726,347,852,25,61
+Asia,Russia,Leningradskaya Oblast,2020-05-28,5747,1680,341,862,26,59
+Asia,Russia,Leningradskaya Oblast,2020-05-29,5806,1633,334,871,27,57
+Asia,Russia,Leningradskaya Oblast,2020-05-30,5862,1585,327,879,28,55
+Asia,Russia,Leningradskaya Oblast,2020-05-31,5913,1536,320,887,29,54
+Asia,Russia,Leningradskaya Oblast,2020-06-01,5960,1486,312,894,29,52
+Asia,Russia,Leningradskaya Oblast,2020-06-02,6004,1436,305,901,30,50
+Asia,Russia,Leningradskaya Oblast,2020-06-03,6045,1387,297,907,31,48
+Asia,Russia,Leningradskaya Oblast,2020-06-04,6083,1338,289,912,32,46
+Asia,Russia,Leningradskaya Oblast,2020-06-05,6118,1289,281,918,32,44
+Asia,Russia,Leningradskaya Oblast,2020-06-06,6150,1240,273,923,33,43
+Asia,Russia,Leningradskaya Oblast,2020-06-07,6180,1192,265,927,34,41
+Asia,Russia,Leningradskaya Oblast,2020-06-08,6207,1145,257,931,34,39
+Asia,Russia,Leningradskaya Oblast,2020-06-09,6232,1098,249,935,35,37
+Asia,Russia,Leningradskaya Oblast,2020-06-10,6255,1053,241,938,36,36
+Asia,Russia,Leningradskaya Oblast,2020-06-11,6277,1009,234,942,36,34
+Asia,Russia,Leningradskaya Oblast,2020-06-12,6296,966,226,944,37,33
+Asia,Russia,Leningradskaya Oblast,2020-06-13,6314,924,218,947,37,31
+Asia,Russia,Leningradskaya Oblast,2020-06-14,6331,883,211,950,38,30
+Asia,Russia,Leningradskaya Oblast,2020-06-15,6346,843,204,952,38,28
+Asia,Russia,Leningradskaya Oblast,2020-06-16,6360,805,197,954,39,27
+Asia,Russia,Leningradskaya Oblast,2020-06-17,6372,768,190,956,39,26
+Asia,Russia,Leningradskaya Oblast,2020-06-18,6384,732,183,958,40,24
+Asia,Russia,Leningradskaya Oblast,2020-06-19,6394,697,176,959,40,23
+Asia,Russia,Leningradskaya Oblast,2020-06-20,6404,664,169,961,41,22
+Asia,Russia,Leningradskaya Oblast,2020-06-21,6413,632,163,962,41,21
+Asia,Russia,Leningradskaya Oblast,2020-06-22,6421,601,157,963,42,20
+Asia,Russia,Leningradskaya Oblast,2020-06-23,6428,572,151,964,42,19
+Asia,Russia,Leningradskaya Oblast,2020-06-24,6435,543,145,965,43,18
+Asia,Russia,Leningradskaya Oblast,2020-06-25,6441,516,139,966,43,17
+Asia,Russia,Leningradskaya Oblast,2020-06-26,6446,490,134,967,43,16
+Asia,Russia,Leningradskaya Oblast,2020-06-27,6451,465,129,968,44,15
+Asia,Russia,Leningradskaya Oblast,2020-06-28,6456,442,123,968,44,14
+Asia,Russia,Leningradskaya Oblast,2020-06-29,6460,419,119,969,44,13
+Asia,Russia,Leningradskaya Oblast,2020-06-30,6463,397,114,970,45,13
+Asia,Russia,Leningradskaya Oblast,2020-07-01,6467,377,109,970,45,12
+Asia,Russia,Leningradskaya Oblast,2020-07-02,6470,357,105,970,45,11
+Asia,Russia,Leningradskaya Oblast,2020-07-03,6473,338,100,971,46,10
+Asia,Russia,Leningradskaya Oblast,2020-07-04,6475,320,96,971,46,10
+Asia,Russia,Leningradskaya Oblast,2020-07-05,6478,303,92,972,46,9
+Asia,Russia,Leningradskaya Oblast,2020-07-06,6480,287,88,972,46,9
+Asia,Russia,Leningradskaya Oblast,2020-07-07,6481,272,85,972,47,8
+Asia,Russia,Leningradskaya Oblast,2020-07-08,6483,257,81,972,47,8
+Asia,Russia,Leningradskaya Oblast,2020-07-09,6485,243,78,973,47,7
+Asia,Russia,Leningradskaya Oblast,2020-07-10,6486,230,74,973,47,7
+Asia,Russia,Leningradskaya Oblast,2020-07-11,6487,218,71,973,47,6
+Asia,Russia,Leningradskaya Oblast,2020-07-12,6488,206,68,973,48,6
+Asia,Russia,Leningradskaya Oblast,2020-07-13,6489,195,65,973,48,6
+Asia,Russia,Leningradskaya Oblast,2020-07-14,6490,184,62,974,48,5
+Asia,Russia,Leningradskaya Oblast,2020-07-15,6491,174,60,974,48,5
+Asia,Russia,Moscow,2020-03-22,191,191,29,29,0,7
+Asia,Russia,Moscow,2020-03-23,299,283,43,45,0,11
+Asia,Russia,Moscow,2020-03-24,407,369,57,61,1,14
+Asia,Russia,Moscow,2020-03-25,524,459,72,79,2,17
+Asia,Russia,Moscow,2020-03-26,657,558,88,98,2,21
+Asia,Russia,Moscow,2020-03-27,809,670,106,121,3,25
+Asia,Russia,Moscow,2020-03-28,986,798,127,148,4,30
+Asia,Russia,Moscow,2020-03-29,1191,946,151,179,6,35
+Asia,Russia,Moscow,2020-03-30,1430,1116,179,214,7,41
+Asia,Russia,Moscow,2020-03-31,1705,1310,211,256,9,48
+Asia,Russia,Moscow,2020-04-01,2022,1533,248,303,11,57
+Asia,Russia,Moscow,2020-04-02,2387,1789,290,358,14,66
+Asia,Russia,Moscow,2020-04-03,2806,2080,338,421,16,77
+Asia,Russia,Moscow,2020-04-04,3283,2409,393,493,19,89
+Asia,Russia,Moscow,2020-04-05,3827,2781,454,574,23,103
+Asia,Russia,Moscow,2020-04-06,4443,3199,524,666,27,118
+Asia,Russia,Moscow,2020-04-07,5142,3671,602,771,32,135
+Asia,Russia,Moscow,2020-04-08,5930,4200,690,890,38,155
+Asia,Russia,Moscow,2020-04-09,6813,4785,788,1022,44,176
+Asia,Russia,Moscow,2020-04-10,7798,5432,896,1170,51,200
+Asia,Russia,Moscow,2020-04-11,8896,6148,1016,1334,59,226
+Asia,Russia,Moscow,2020-04-12,10121,6940,1149,1518,68,256
+Asia,Russia,Moscow,2020-04-13,11477,7810,1295,1722,78,287
+Asia,Russia,Moscow,2020-04-14,12969,8755,1454,1945,89,322
+Asia,Russia,Moscow,2020-04-15,14604,9777,1627,2191,102,360
+Asia,Russia,Moscow,2020-04-16,16394,10884,1815,2459,116,400
+Asia,Russia,Moscow,2020-04-17,18353,12084,2019,2753,132,444
+Asia,Russia,Moscow,2020-04-18,20484,13375,2238,3073,149,491
+Asia,Russia,Moscow,2020-04-19,22787,14750,2473,3418,168,542
+Asia,Russia,Moscow,2020-04-20,25267,16208,2723,3790,188,595
+Asia,Russia,Moscow,2020-04-21,27934,17752,2989,4190,211,651
+Asia,Russia,Moscow,2020-04-22,30799,19391,3272,4620,235,711
+Asia,Russia,Moscow,2020-04-23,33863,21119,3571,5079,262,774
+Asia,Russia,Moscow,2020-04-24,37120,22923,3885,5568,291,840
+Asia,Russia,Moscow,2020-04-25,40567,24796,4212,6085,322,908
+Asia,Russia,Moscow,2020-04-26,44209,26736,4553,6631,355,979
+Asia,Russia,Moscow,2020-04-27,48054,28750,4907,7208,391,1052
+Asia,Russia,Moscow,2020-04-28,52104,30836,5276,7816,429,1128
+Asia,Russia,Moscow,2020-04-29,56343,32972,5656,8452,469,1205
+Asia,Russia,Moscow,2020-04-30,60762,35145,6044,9114,513,1284
+Asia,Russia,Moscow,2020-05-01,65354,37347,6440,9803,558,1364
+Asia,Russia,Moscow,2020-05-02,70120,39576,6843,10518,606,1444
+Asia,Russia,Moscow,2020-05-03,75064,41837,7254,11260,657,1526
+Asia,Russia,Moscow,2020-05-04,80174,44117,7671,12026,710,1608
+Asia,Russia,Moscow,2020-05-05,85430,46393,8090,12814,766,1690
+Asia,Russia,Moscow,2020-05-06,90814,48649,8509,13622,823,1771
+Asia,Russia,Moscow,2020-05-07,96319,50875,8926,14448,884,1851
+Asia,Russia,Moscow,2020-05-08,101938,53071,9341,15291,946,1929
+Asia,Russia,Moscow,2020-05-09,107674,55242,9754,16151,1011,2007
+Asia,Russia,Moscow,2020-05-10,113510,57375,10163,17027,1078,2083
+Asia,Russia,Moscow,2020-05-11,119422,59446,10564,17913,1147,2157
+Asia,Russia,Moscow,2020-05-12,125391,61441,10956,18809,1217,2227
+Asia,Russia,Moscow,2020-05-13,131404,63351,11336,19711,1290,2295
+Asia,Russia,Moscow,2020-05-14,137451,65173,11703,20618,1364,2359
+Asia,Russia,Moscow,2020-05-15,143531,66911,12059,21530,1440,2420
+Asia,Russia,Moscow,2020-05-16,149637,68567,12402,22445,1517,2478
+Asia,Russia,Moscow,2020-05-17,155744,70123,12730,23362,1595,2532
+Asia,Russia,Moscow,2020-05-18,161836,71565,13041,24275,1674,2582
+Asia,Russia,Moscow,2020-05-19,167896,72885,13333,25184,1754,2627
+Asia,Russia,Moscow,2020-05-20,173914,74082,13606,26087,1835,2668
+Asia,Russia,Moscow,2020-05-21,179883,75155,13859,26982,1916,2704
+Asia,Russia,Moscow,2020-05-22,185798,76109,14092,27870,1998,2736
+Asia,Russia,Moscow,2020-05-23,191656,76951,14307,28748,2080,2764
+Asia,Russia,Moscow,2020-05-24,197438,77668,14501,29616,2162,2787
+Asia,Russia,Moscow,2020-05-25,203133,78257,14673,30470,2244,2805
+Asia,Russia,Moscow,2020-05-26,208731,78716,14823,31310,2326,2819
+Asia,Russia,Moscow,2020-05-27,214225,79048,14952,32134,2408,2828
+Asia,Russia,Moscow,2020-05-28,219610,79254,15058,32941,2489,2832
+Asia,Russia,Moscow,2020-05-29,224880,79337,15143,33732,2569,2832
+Asia,Russia,Moscow,2020-05-30,230034,79304,15207,34505,2649,2828
+Asia,Russia,Moscow,2020-05-31,235065,79157,15251,35260,2728,2819
+Asia,Russia,Moscow,2020-06-01,239964,78892,15273,35995,2806,2807
+Asia,Russia,Moscow,2020-06-02,244732,78519,15275,36710,2884,2790
+Asia,Russia,Moscow,2020-06-03,249369,78045,15257,37405,2959,2770
+Asia,Russia,Moscow,2020-06-04,253876,77478,15222,38081,3034,2747
+Asia,Russia,Moscow,2020-06-05,258249,76821,15169,38737,3107,2720
+Asia,Russia,Moscow,2020-06-06,262485,76075,15098,39373,3179,2690
+Asia,Russia,Moscow,2020-06-07,266576,75239,15010,39986,3249,2657
+Asia,Russia,Moscow,2020-06-08,270517,74309,14903,40578,3318,2621
+Asia,Russia,Moscow,2020-06-09,274312,73297,14780,41147,3386,2582
+Asia,Russia,Moscow,2020-06-10,277971,72220,14643,41696,3451,2540
+Asia,Russia,Moscow,2020-06-11,281500,71088,14493,42225,3515,2497
+Asia,Russia,Moscow,2020-06-12,284901,69906,14331,42735,3578,2452
+Asia,Russia,Moscow,2020-06-13,288171,68676,14158,43226,3638,2405
+Asia,Russia,Moscow,2020-06-14,291304,67392,13972,43696,3697,2357
+Asia,Russia,Moscow,2020-06-15,294293,66050,13774,44144,3754,2306
+Asia,Russia,Moscow,2020-06-16,297153,64668,13566,44573,3809,2254
+Asia,Russia,Moscow,2020-06-17,299892,63258,13350,44984,3863,2202
+Asia,Russia,Moscow,2020-06-18,302516,61828,13127,45377,3914,2149
+Asia,Russia,Moscow,2020-06-19,305028,60382,12898,45754,3964,2095
+Asia,Russia,Moscow,2020-06-20,307425,58919,12662,46114,4012,2041
+Asia,Russia,Moscow,2020-06-21,309703,57433,12420,46455,4059,1986
+Asia,Russia,Moscow,2020-06-22,311863,55926,12172,46779,4103,1930
+Asia,Russia,Moscow,2020-06-23,313917,54413,11919,47088,4146,1875
+Asia,Russia,Moscow,2020-06-24,315874,52903,11664,47381,4188,1819
+Asia,Russia,Moscow,2020-06-25,317738,51400,11407,47661,4227,1764
+Asia,Russia,Moscow,2020-06-26,319512,49906,11148,47927,4265,1710
+Asia,Russia,Moscow,2020-06-27,321194,48420,10888,48179,4302,1656
+Asia,Russia,Moscow,2020-06-28,322782,46936,10626,48417,4337,1602
+Asia,Russia,Moscow,2020-06-29,324278,45456,10362,48642,4370,1548
+Asia,Russia,Moscow,2020-06-30,325694,43993,10099,48854,4402,1495
+Asia,Russia,Moscow,2020-07-01,327036,42551,9836,49055,4433,1443
+Asia,Russia,Moscow,2020-07-02,328309,41134,9576,49246,4462,1392
+Asia,Russia,Moscow,2020-07-03,329513,39741,9318,49427,4490,1342
+Asia,Russia,Moscow,2020-07-04,330649,38372,9061,49597,4516,1293
+Asia,Russia,Moscow,2020-07-05,331715,37020,8806,49757,4541,1245
+Asia,Russia,Moscow,2020-07-06,332715,35689,8552,49907,4565,1197
+Asia,Russia,Moscow,2020-07-07,333657,34386,8302,50049,4588,1151
+Asia,Russia,Moscow,2020-07-08,334546,33114,8055,50182,4610,1106
+Asia,Russia,Moscow,2020-07-09,335385,31874,7813,50308,4630,1062
+Asia,Russia,Moscow,2020-07-10,336175,30666,7574,50426,4650,1019
+Asia,Russia,Moscow,2020-07-11,336917,29488,7339,50538,4668,977
+Asia,Russia,Moscow,2020-07-12,337609,28335,7107,50641,4686,937
+Asia,Russia,Moscow,2020-07-13,338258,27213,6880,50739,4702,897
+Asia,Russia,Moscow,2020-07-14,338867,26122,6657,50830,4718,859
+Asia,Russia,Moscow,2020-07-15,339438,25064,6439,50916,4733,822
+Asia,Russia,Moscow Oblast,2020-03-29,112,112,17,17,0,4
+Asia,Russia,Moscow Oblast,2020-03-30,117,109,17,18,1,4
+Asia,Russia,Moscow Oblast,2020-03-31,128,112,17,19,2,4
+Asia,Russia,Moscow Oblast,2020-04-01,144,120,19,22,2,4
+Asia,Russia,Moscow Oblast,2020-04-02,168,135,21,25,2,5
+Asia,Russia,Moscow Oblast,2020-04-03,200,157,25,30,3,6
+Asia,Russia,Moscow Oblast,2020-04-04,244,190,30,37,4,7
+Asia,Russia,Moscow Oblast,2020-04-05,303,234,38,45,4,9
+Asia,Russia,Moscow Oblast,2020-04-06,379,292,47,57,5,11
+Asia,Russia,Moscow Oblast,2020-04-07,476,366,59,71,7,14
+Asia,Russia,Moscow Oblast,2020-04-08,595,457,73,89,8,17
+Asia,Russia,Moscow Oblast,2020-04-09,737,564,91,110,10,21
+Asia,Russia,Moscow Oblast,2020-04-10,902,686,111,135,13,25
+Asia,Russia,Moscow Oblast,2020-04-11,1091,823,133,164,16,30
+Asia,Russia,Moscow Oblast,2020-04-12,1301,971,157,195,19,36
+Asia,Russia,Moscow Oblast,2020-04-13,1530,1128,183,230,23,42
+Asia,Russia,Moscow Oblast,2020-04-14,1777,1293,211,267,27,48
+Asia,Russia,Moscow Oblast,2020-04-15,2040,1460,239,306,31,54
+Asia,Russia,Moscow Oblast,2020-04-16,2314,1629,268,347,36,60
+Asia,Russia,Moscow Oblast,2020-04-17,2598,1797,297,390,41,66
+Asia,Russia,Moscow Oblast,2020-04-18,2890,1961,325,433,47,72
+Asia,Russia,Moscow Oblast,2020-04-19,3186,2119,353,478,52,78
+Asia,Russia,Moscow Oblast,2020-04-20,3485,2269,380,523,58,83
+Asia,Russia,Moscow Oblast,2020-04-21,3784,2410,406,568,63,88
+Asia,Russia,Moscow Oblast,2020-04-22,4081,2540,431,612,69,93
+Asia,Russia,Moscow Oblast,2020-04-23,4375,2659,454,656,75,97
+Asia,Russia,Moscow Oblast,2020-04-24,4665,2766,475,700,81,101
+Asia,Russia,Moscow Oblast,2020-04-25,4948,2860,494,742,86,104
+Asia,Russia,Moscow Oblast,2020-04-26,5223,2941,511,784,92,107
+Asia,Russia,Moscow Oblast,2020-04-27,5491,3010,527,824,97,110
+Asia,Russia,Moscow Oblast,2020-04-28,5749,3065,540,862,103,111
+Asia,Russia,Moscow Oblast,2020-04-29,5998,3108,552,900,108,113
+Asia,Russia,Moscow Oblast,2020-04-30,6237,3139,561,936,113,114
+Asia,Russia,Moscow Oblast,2020-05-01,6465,3158,568,970,118,114
+Asia,Russia,Moscow Oblast,2020-05-02,6683,3166,574,1002,122,114
+Asia,Russia,Moscow Oblast,2020-05-03,6891,3163,578,1034,127,114
+Asia,Russia,Moscow Oblast,2020-05-04,7087,3150,580,1063,131,113
+Asia,Russia,Moscow Oblast,2020-05-05,7273,3128,581,1091,135,112
+Asia,Russia,Moscow Oblast,2020-05-06,7449,3098,580,1117,139,111
+Asia,Russia,Moscow Oblast,2020-05-07,7614,3060,577,1142,142,110
+Asia,Russia,Moscow Oblast,2020-05-08,7770,3016,574,1165,146,108
+Asia,Russia,Moscow Oblast,2020-05-09,7916,2965,569,1187,149,106
+Asia,Russia,Moscow Oblast,2020-05-10,8052,2908,562,1208,152,103
+Asia,Russia,Moscow Oblast,2020-05-11,8180,2847,555,1227,155,101
+Asia,Russia,Moscow Oblast,2020-05-12,8300,2782,548,1245,157,99
+Asia,Russia,Moscow Oblast,2020-05-13,8411,2713,539,1262,160,96
+Asia,Russia,Moscow Oblast,2020-05-14,8514,2641,529,1277,162,93
+Asia,Russia,Moscow Oblast,2020-05-15,8610,2567,519,1292,164,90
+Asia,Russia,Moscow Oblast,2020-05-16,8700,2491,509,1305,166,87
+Asia,Russia,Moscow Oblast,2020-05-17,8782,2414,497,1317,168,85
+Asia,Russia,Moscow Oblast,2020-05-18,8859,2335,486,1329,170,82
+Asia,Russia,Moscow Oblast,2020-05-19,8929,2257,474,1339,172,79
+Asia,Russia,Moscow Oblast,2020-05-20,8995,2178,462,1349,173,76
+Asia,Russia,Moscow Oblast,2020-05-21,9055,2099,450,1358,174,73
+Asia,Russia,Moscow Oblast,2020-05-22,9110,2021,437,1367,176,70
+Asia,Russia,Moscow Oblast,2020-05-23,9161,1943,425,1374,177,67
+Asia,Russia,Moscow Oblast,2020-05-24,9208,1867,413,1381,178,64
+Asia,Russia,Moscow Oblast,2020-05-25,9251,1792,400,1388,179,61
+Asia,Russia,Moscow Oblast,2020-05-26,9291,1718,388,1394,180,59
+Asia,Russia,Moscow Oblast,2020-05-27,9327,1646,375,1399,181,56
+Asia,Russia,Moscow Oblast,2020-05-28,9360,1575,363,1404,181,53
+Asia,Russia,Moscow Oblast,2020-05-29,9391,1506,351,1409,182,51
+Asia,Russia,Moscow Oblast,2020-05-30,9418,1439,339,1413,183,49
+Asia,Russia,Moscow Oblast,2020-05-31,9444,1374,328,1417,183,46
+Asia,Russia,Moscow Oblast,2020-06-01,9467,1311,316,1420,184,44
+Asia,Russia,Moscow Oblast,2020-06-02,9488,1251,305,1423,184,42
+Asia,Russia,Moscow Oblast,2020-06-03,9507,1192,294,1426,185,40
+Asia,Russia,Moscow Oblast,2020-06-04,9525,1135,283,1429,185,38
+Asia,Russia,Moscow Oblast,2020-06-05,9541,1080,273,1431,186,36
+Asia,Russia,Moscow Oblast,2020-06-06,9555,1028,262,1433,186,34
+Asia,Russia,Moscow Oblast,2020-06-07,9568,977,252,1435,186,32
+Asia,Russia,Moscow Oblast,2020-06-08,9580,928,243,1437,187,30
+Asia,Russia,Moscow Oblast,2020-06-09,9591,882,233,1439,187,29
+Asia,Russia,Moscow Oblast,2020-06-10,9601,837,224,1440,187,27
+Asia,Russia,Moscow Oblast,2020-06-11,9610,795,215,1442,187,26
+Asia,Russia,Moscow Oblast,2020-06-12,9618,754,207,1443,187,24
+Asia,Russia,Moscow Oblast,2020-06-13,9626,715,199,1444,188,23
+Asia,Russia,Moscow Oblast,2020-06-14,9632,678,191,1445,188,21
+Asia,Russia,Moscow Oblast,2020-06-15,9639,642,183,1446,188,20
+Asia,Russia,Moscow Oblast,2020-06-16,9644,608,175,1447,188,19
+Asia,Russia,Moscow Oblast,2020-06-17,9649,576,168,1447,188,18
+Asia,Russia,Moscow Oblast,2020-06-18,9653,545,161,1448,188,17
+Asia,Russia,Moscow Oblast,2020-06-19,9657,516,154,1449,188,16
+Asia,Russia,Moscow Oblast,2020-06-20,9661,488,148,1449,189,15
+Asia,Russia,Moscow Oblast,2020-06-21,9664,462,142,1450,189,14
+Asia,Russia,Moscow Oblast,2020-06-22,9667,437,136,1450,189,13
+Asia,Russia,Moscow Oblast,2020-06-23,9670,413,130,1451,189,12
+Asia,Russia,Moscow Oblast,2020-06-24,9672,391,125,1451,189,12
+Asia,Russia,Moscow Oblast,2020-06-25,9675,369,119,1451,189,11
+Asia,Russia,Moscow Oblast,2020-06-26,9677,349,114,1451,189,10
+Asia,Russia,Moscow Oblast,2020-06-27,9678,330,109,1452,189,10
+Asia,Russia,Moscow Oblast,2020-06-28,9680,312,105,1452,189,9
+Asia,Russia,Moscow Oblast,2020-06-29,9681,294,100,1452,189,9
+Asia,Russia,Moscow Oblast,2020-06-30,9683,278,96,1452,189,8
+Asia,Russia,Moscow Oblast,2020-07-01,9684,263,92,1453,189,8
+Asia,Russia,Moscow Oblast,2020-07-02,9685,248,88,1453,189,7
+Asia,Russia,Moscow Oblast,2020-07-03,9686,234,84,1453,189,7
+Asia,Russia,Moscow Oblast,2020-07-04,9687,221,80,1453,189,6
+Asia,Russia,Moscow Oblast,2020-07-05,9687,209,77,1453,189,6
+Asia,Russia,Moscow Oblast,2020-07-06,9688,197,73,1453,189,5
+Asia,Russia,Moscow Oblast,2020-07-07,9689,186,70,1453,189,5
+Asia,Russia,Moscow Oblast,2020-07-08,9689,176,67,1453,189,5
+Asia,Russia,Moscow Oblast,2020-07-09,9690,166,64,1453,189,4
+Asia,Russia,Moscow Oblast,2020-07-10,9690,157,61,1454,189,4
+Asia,Russia,Moscow Oblast,2020-07-11,9691,148,58,1454,189,4
+Asia,Russia,Moscow Oblast,2020-07-12,9691,139,56,1454,189,4
+Asia,Russia,Moscow Oblast,2020-07-13,9691,132,53,1454,189,3
+Asia,Russia,Moscow Oblast,2020-07-14,9691,124,51,1454,189,3
+Asia,Russia,Moscow Oblast,2020-07-15,9692,117,49,1454,189,3
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-10,119,113,17,17,1,4
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-11,150,136,21,22,2,5
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-12,190,165,26,28,2,6
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-13,237,200,31,35,2,7
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-14,288,236,37,42,3,9
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-15,342,273,43,50,3,10
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-16,399,311,50,59,4,12
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-17,458,347,56,68,4,13
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-18,517,382,62,77,5,14
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-19,576,414,68,85,5,15
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-20,634,444,73,94,6,16
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-21,692,471,78,103,7,17
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-22,748,496,83,111,7,18
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-23,803,517,87,120,8,19
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-24,856,534,91,127,8,20
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-25,906,549,94,135,9,20
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-26,955,561,97,142,9,20
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-27,1001,569,99,149,10,21
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-28,1044,575,101,156,10,21
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-29,1085,578,102,162,11,21
+Asia,Russia,Nizhegorodskaya Oblast,2020-04-30,1124,579,103,168,11,21
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-01,1160,577,104,173,11,21
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-02,1194,573,104,178,12,21
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-03,1226,567,104,183,12,20
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-04,1255,560,104,187,13,20
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-05,1282,551,103,191,13,20
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-06,1308,540,102,195,13,19
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-07,1331,529,101,199,13,19
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-08,1353,516,99,202,14,18
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-09,1372,503,98,205,14,18
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-10,1391,489,96,208,14,17
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-11,1407,474,94,210,14,17
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-12,1423,459,92,213,14,16
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-13,1437,444,90,215,15,16
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-14,1450,428,88,217,15,15
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-15,1462,413,85,218,15,14
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-16,1472,397,83,220,15,14
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-17,1482,382,81,221,15,13
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-18,1491,367,78,223,15,13
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-19,1499,352,76,224,15,12
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-20,1506,337,74,225,15,12
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-21,1513,322,71,226,15,11
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-22,1519,308,69,227,16,11
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-23,1525,294,67,228,16,10
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-24,1529,280,64,229,16,10
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-25,1534,267,62,229,16,9
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-26,1538,255,60,230,16,9
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-27,1542,242,58,230,16,8
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-28,1545,231,56,231,16,8
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-29,1548,219,54,231,16,7
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-30,1551,208,51,232,16,7
+Asia,Russia,Nizhegorodskaya Oblast,2020-05-31,1553,198,50,232,16,7
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-01,1555,188,48,232,16,6
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-02,1557,178,46,233,16,6
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-03,1559,169,44,233,16,6
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-04,1560,160,42,233,16,5
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-05,1562,151,40,233,16,5
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-06,1563,143,39,234,16,5
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-07,1564,136,37,234,16,4
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-08,1565,128,36,234,16,4
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-09,1566,122,34,234,16,4
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-10,1567,115,33,234,16,4
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-11,1568,109,31,234,16,3
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-12,1568,103,30,234,16,3
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-13,1569,97,29,234,16,3
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-14,1569,92,28,235,16,3
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-15,1570,87,26,235,16,3
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-16,1570,82,25,235,16,2
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-17,1571,77,24,235,16,2
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-18,1571,73,23,235,16,2
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-19,1571,69,22,235,16,2
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-20,1572,65,21,235,16,2
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-21,1572,61,20,235,16,2
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-22,1572,58,19,235,16,2
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-23,1572,55,19,235,16,2
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-24,1572,51,18,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-25,1573,49,17,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-26,1573,46,16,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-27,1573,43,15,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-28,1573,41,15,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-29,1573,38,14,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-06-30,1573,36,14,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-01,1573,34,13,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-02,1573,32,12,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-03,1573,30,12,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-04,1573,29,11,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-05,1573,27,11,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-06,1573,25,10,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-07,1574,24,10,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-08,1574,23,9,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-09,1574,21,9,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-10,1574,20,9,235,16,1
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-11,1574,19,8,235,16,0
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-12,1574,18,8,235,16,0
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-13,1574,17,7,235,16,0
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-14,1574,16,7,235,16,0
+Asia,Russia,Nizhegorodskaya Oblast,2020-07-15,1574,15,7,235,16,0
+Asia,Russia,Saint Petersburg,2020-04-01,125,113,17,17,2,4
+Asia,Russia,Saint Petersburg,2020-04-02,132,113,17,18,2,4
+Asia,Russia,Saint Petersburg,2020-04-03,143,116,18,20,2,4
+Asia,Russia,Saint Petersburg,2020-04-04,158,124,19,22,2,5
+Asia,Russia,Saint Petersburg,2020-04-05,178,135,22,25,2,5
+Asia,Russia,Saint Petersburg,2020-04-06,204,152,24,29,3,6
+Asia,Russia,Saint Petersburg,2020-04-07,238,175,28,34,3,6
+Asia,Russia,Saint Petersburg,2020-04-08,280,204,33,40,3,8
+Asia,Russia,Saint Petersburg,2020-04-09,332,242,39,48,3,9
+Asia,Russia,Saint Petersburg,2020-04-10,397,290,47,58,3,11
+Asia,Russia,Saint Petersburg,2020-04-11,477,349,57,70,4,13
+Asia,Russia,Saint Petersburg,2020-04-12,574,421,68,84,4,16
+Asia,Russia,Saint Petersburg,2020-04-13,690,507,82,102,4,19
+Asia,Russia,Saint Petersburg,2020-04-14,828,608,99,122,5,22
+Asia,Russia,Saint Petersburg,2020-04-15,990,727,118,147,5,27
+Asia,Russia,Saint Petersburg,2020-04-16,1179,864,140,175,6,32
+Asia,Russia,Saint Petersburg,2020-04-17,1397,1020,166,208,7,38
+Asia,Russia,Saint Petersburg,2020-04-18,1645,1196,195,245,8,44
+Asia,Russia,Saint Petersburg,2020-04-19,1925,1392,227,287,9,51
+Asia,Russia,Saint Petersburg,2020-04-20,2240,1609,263,334,11,59
+Asia,Russia,Saint Petersburg,2020-04-21,2590,1846,302,387,12,68
+Asia,Russia,Saint Petersburg,2020-04-22,2974,2102,345,444,14,77
+Asia,Russia,Saint Petersburg,2020-04-23,3395,2376,391,507,16,88
+Asia,Russia,Saint Petersburg,2020-04-24,3854,2670,441,576,18,98
+Asia,Russia,Saint Petersburg,2020-04-25,4348,2980,493,650,21,110
+Asia,Russia,Saint Petersburg,2020-04-26,4876,3304,548,730,24,122
+Asia,Russia,Saint Petersburg,2020-04-27,5439,3639,606,814,27,134
+Asia,Russia,Saint Petersburg,2020-04-28,6034,3986,666,903,30,146
+Asia,Russia,Saint Petersburg,2020-04-29,6663,4343,728,998,34,159
+Asia,Russia,Saint Petersburg,2020-04-30,7320,4706,791,1096,38,173
+Asia,Russia,Saint Petersburg,2020-05-01,8005,5071,856,1199,43,186
+Asia,Russia,Saint Petersburg,2020-05-02,8713,5437,921,1305,48,199
+Asia,Russia,Saint Petersburg,2020-05-03,9444,5802,987,1415,53,212
+Asia,Russia,Saint Petersburg,2020-05-04,10198,6166,1052,1528,58,226
+Asia,Russia,Saint Petersburg,2020-05-05,10969,6524,1118,1644,64,238
+Asia,Russia,Saint Petersburg,2020-05-06,11754,6873,1182,1761,71,251
+Asia,Russia,Saint Petersburg,2020-05-07,12551,7211,1246,1881,77,263
+Asia,Russia,Saint Petersburg,2020-05-08,13357,7537,1307,2002,84,275
+Asia,Russia,Saint Petersburg,2020-05-09,14170,7849,1367,2124,91,286
+Asia,Russia,Saint Petersburg,2020-05-10,14988,8147,1425,2246,99,297
+Asia,Russia,Saint Petersburg,2020-05-11,15808,8427,1481,2369,107,306
+Asia,Russia,Saint Petersburg,2020-05-12,16627,8689,1534,2492,115,316
+Asia,Russia,Saint Petersburg,2020-05-13,17442,8932,1584,2615,123,324
+Asia,Russia,Saint Petersburg,2020-05-14,18253,9155,1631,2736,132,332
+Asia,Russia,Saint Petersburg,2020-05-15,19056,9358,1675,2857,141,339
+Asia,Russia,Saint Petersburg,2020-05-16,19851,9538,1716,2976,150,345
+Asia,Russia,Saint Petersburg,2020-05-17,20633,9697,1753,3093,159,350
+Asia,Russia,Saint Petersburg,2020-05-18,21402,9832,1786,3209,168,355
+Asia,Russia,Saint Petersburg,2020-05-19,22157,9944,1816,3322,178,359
+Asia,Russia,Saint Petersburg,2020-05-20,22896,10035,1842,3433,188,361
+Asia,Russia,Saint Petersburg,2020-05-21,23619,10106,1865,3541,198,364
+Asia,Russia,Saint Petersburg,2020-05-22,24326,10156,1884,3647,207,365
+Asia,Russia,Saint Petersburg,2020-05-23,25014,10186,1900,3750,217,366
+Asia,Russia,Saint Petersburg,2020-05-24,25681,10193,1911,3850,227,365
+Asia,Russia,Saint Petersburg,2020-05-25,26326,10178,1919,3947,237,364
+Asia,Russia,Saint Petersburg,2020-05-26,26951,10145,1924,4041,248,363
+Asia,Russia,Saint Petersburg,2020-05-27,27556,10095,1926,4132,258,360
+Asia,Russia,Saint Petersburg,2020-05-28,28141,10030,1924,4219,268,358
+Asia,Russia,Saint Petersburg,2020-05-29,28705,9949,1920,4304,278,354
+Asia,Russia,Saint Petersburg,2020-05-30,29248,9853,1913,4385,288,350
+Asia,Russia,Saint Petersburg,2020-05-31,29767,9739,1902,4463,297,346
+Asia,Russia,Saint Petersburg,2020-06-01,30264,9611,1889,4538,307,341
+Asia,Russia,Saint Petersburg,2020-06-02,30740,9471,1873,4609,317,335
+Asia,Russia,Saint Petersburg,2020-06-03,31197,9322,1855,4678,327,329
+Asia,Russia,Saint Petersburg,2020-06-04,31635,9164,1836,4743,336,323
+Asia,Russia,Saint Petersburg,2020-06-05,32053,8998,1814,4806,345,317
+Asia,Russia,Saint Petersburg,2020-06-06,32451,8823,1790,4866,354,310
+Asia,Russia,Saint Petersburg,2020-06-07,32828,8637,1764,4922,364,303
+Asia,Russia,Saint Petersburg,2020-06-08,33185,8445,1737,4976,372,296
+Asia,Russia,Saint Petersburg,2020-06-09,33524,8247,1708,5027,381,289
+Asia,Russia,Saint Petersburg,2020-06-10,33847,8047,1678,5075,390,281
+Asia,Russia,Saint Petersburg,2020-06-11,34155,7844,1647,5121,398,273
+Asia,Russia,Saint Petersburg,2020-06-12,34446,7639,1615,5165,406,266
+Asia,Russia,Saint Petersburg,2020-06-13,34721,7430,1583,5206,414,258
+Asia,Russia,Saint Petersburg,2020-06-14,34978,7218,1549,5245,422,250
+Asia,Russia,Saint Petersburg,2020-06-15,35221,7006,1514,5281,430,242
+Asia,Russia,Saint Petersburg,2020-06-16,35451,6793,1479,5316,437,234
+Asia,Russia,Saint Petersburg,2020-06-17,35668,6582,1444,5348,444,227
+Asia,Russia,Saint Petersburg,2020-06-18,35873,6373,1409,5379,451,219
+Asia,Russia,Saint Petersburg,2020-06-19,36065,6165,1373,5408,458,211
+Asia,Russia,Saint Petersburg,2020-06-20,36245,5958,1338,5435,465,204
+Asia,Russia,Saint Petersburg,2020-06-21,36414,5752,1302,5460,471,196
+Asia,Russia,Saint Petersburg,2020-06-22,36572,5550,1266,5484,477,189
+Asia,Russia,Saint Petersburg,2020-06-23,36720,5351,1230,5506,483,182
+Asia,Russia,Saint Petersburg,2020-06-24,36860,5156,1195,5527,489,175
+Asia,Russia,Saint Petersburg,2020-06-25,36990,4964,1160,5547,495,168
+Asia,Russia,Saint Petersburg,2020-06-26,37112,4777,1126,5565,500,161
+Asia,Russia,Saint Petersburg,2020-06-27,37226,4592,1091,5582,506,154
+Asia,Russia,Saint Petersburg,2020-06-28,37331,4412,1057,5598,511,148
+Asia,Russia,Saint Petersburg,2020-06-29,37430,4236,1024,5613,516,142
+Asia,Russia,Saint Petersburg,2020-06-30,37522,4065,991,5627,520,136
+Asia,Russia,Saint Petersburg,2020-07-01,37609,3899,959,5639,525,130
+Asia,Russia,Saint Petersburg,2020-07-02,37689,3738,927,5652,530,124
+Asia,Russia,Saint Petersburg,2020-07-03,37764,3581,896,5663,534,118
+Asia,Russia,Saint Petersburg,2020-07-04,37833,3428,866,5673,538,113
+Asia,Russia,Saint Petersburg,2020-07-05,37897,3280,836,5683,542,108
+Asia,Russia,Saint Petersburg,2020-07-06,37956,3137,807,5692,546,103
+Asia,Russia,Saint Petersburg,2020-07-07,38012,2999,779,5700,549,98
+Asia,Russia,Saint Petersburg,2020-07-08,38063,2866,751,5708,553,93
+Asia,Russia,Saint Petersburg,2020-07-09,38111,2738,724,5715,556,89
+Asia,Russia,Saint Petersburg,2020-07-10,38155,2614,698,5722,559,85
+Asia,Russia,Saint Petersburg,2020-07-11,38196,2494,672,5728,562,80
+Asia,Russia,Saint Petersburg,2020-07-12,38234,2379,647,5733,565,76
+Asia,Russia,Saint Petersburg,2020-07-13,38269,2268,623,5739,568,73
+Asia,Russia,Saint Petersburg,2020-07-14,38301,2162,600,5743,571,69
+Asia,Russia,Saint Petersburg,2020-07-15,38331,2060,577,5748,574,65
 North America,US,Chicago Metropolitan,2020-03-17,147,141,21,21,1,5
 North America,US,Chicago Metropolitan,2020-03-18,198,183,28,29,2,7
 North America,US,Chicago Metropolitan,2020-03-19,305,277,42,45,3,10
@@ -547,114 +1252,6 @@ North America,US,Chicago Metropolitan,2020-06-12,53601,7167,1425,8039,7502,253
 North America,US,Chicago Metropolitan,2020-06-13,53647,6955,1384,8046,7589,246
 North America,US,Chicago Metropolitan,2020-06-14,53690,6750,1344,8053,7674,239
 North America,US,Chicago Metropolitan,2020-06-15,53729,6551,1305,8058,7758,231
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-03-30,1078,976,146,146,17,37
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-03-31,1263,1092,167,174,21,41
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-01,1440,1193,185,201,25,44
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-02,1617,1287,202,227,29,48
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-03,1796,1378,219,254,33,51
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-04,1981,1469,236,282,38,54
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-05,2171,1559,253,310,43,58
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-06,2367,1648,270,340,48,61
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-07,2569,1738,287,370,53,64
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-08,2775,1826,304,401,59,67
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-09,2984,1912,320,432,65,70
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-10,3196,1995,336,464,71,73
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-11,3410,2074,352,496,78,76
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-12,3625,2149,367,528,84,79
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-13,3840,2220,382,561,91,81
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-14,4053,2285,395,593,98,83
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-15,4265,2344,408,624,105,85
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-16,4474,2396,420,656,112,87
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-17,4680,2443,431,687,120,89
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-18,4882,2482,440,717,127,90
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-19,5080,2516,449,747,135,91
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-20,5273,2543,456,776,142,92
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-21,5461,2562,463,804,150,93
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-22,5643,2575,468,831,157,93
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-23,5818,2581,472,857,165,93
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-24,5988,2580,475,883,173,93
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-25,6151,2575,477,907,180,93
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-26,6309,2564,478,931,188,92
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-27,6460,2547,478,954,195,91
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-28,6603,2524,477,975,202,90
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-29,6740,2496,475,996,209,89
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-04-30,6871,2464,472,1015,216,88
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-01,6995,2429,469,1034,223,86
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-02,7114,2390,465,1052,230,85
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-03,7227,2348,460,1069,236,83
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-04,7333,2302,454,1085,243,82
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-05,7433,2253,448,1100,249,80
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-06,7527,2202,441,1114,255,78
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-07,7616,2149,434,1127,261,76
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-08,7700,2094,426,1140,267,74
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-09,7779,2039,418,1152,272,72
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-10,7853,1982,410,1163,278,69
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-11,7923,1924,401,1173,283,67
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-12,7987,1866,392,1183,288,65
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-13,8048,1807,383,1192,292,63
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-14,8104,1748,374,1200,297,61
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-15,8158,1690,364,1208,301,58
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-16,8207,1632,355,1216,306,56
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-17,8253,1574,345,1223,310,54
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-18,8296,1516,336,1229,313,52
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-19,8335,1459,326,1235,317,50
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-20,8372,1404,317,1240,321,48
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-21,8406,1349,307,1246,324,46
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-22,8438,1295,298,1250,327,44
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-23,8467,1243,288,1255,330,42
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-24,8495,1192,279,1259,333,40
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-25,8520,1142,270,1263,336,38
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-26,8543,1093,261,1266,338,37
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-27,8564,1045,252,1269,341,35
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-28,8584,1000,243,1272,343,33
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-29,8602,955,235,1275,345,32
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-30,8619,912,227,1278,347,30
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-05-31,8634,871,219,1280,349,29
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-01,8648,830,211,1282,351,27
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-02,8661,791,203,1284,353,26
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-03,8673,754,195,1286,355,25
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-04,8684,718,188,1287,356,23
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-05,8695,684,181,1289,358,22
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-06,8704,651,174,1290,359,21
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-07,8712,619,167,1292,360,20
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-08,8720,588,161,1293,362,19
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-09,8727,559,155,1294,363,18
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-10,8734,531,148,1295,364,17
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-11,8739,504,143,1296,365,16
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-12,8745,478,137,1296,366,15
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-13,8750,454,131,1297,367,14
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-14,8754,431,126,1298,368,13
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-15,8759,408,121,1298,368,13
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-16,8762,387,116,1299,369,12
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-17,8766,367,111,1300,370,11
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-18,8769,348,107,1300,370,11
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-19,8772,329,102,1300,371,10
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-20,8774,312,98,1301,372,9
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-21,8777,295,94,1301,372,9
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-22,8779,280,90,1302,373,8
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-23,8781,265,86,1302,373,8
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-24,8783,250,82,1302,373,7
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-25,8784,237,79,1302,374,7
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-26,8786,224,75,1303,374,7
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-27,8787,212,72,1303,375,6
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-28,8788,200,69,1303,375,6
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-29,8789,190,66,1303,375,5
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-06-30,8790,179,63,1303,375,5
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-01,8791,169,61,1303,376,5
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-02,8792,160,58,1303,376,5
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-03,8793,151,55,1304,376,4
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-04,8793,143,53,1304,376,4
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-05,8794,135,51,1304,377,4
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-06,8794,128,48,1304,377,3
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-07,8795,121,46,1304,377,3
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-08,8795,114,44,1304,377,3
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-09,8796,108,42,1304,377,3
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-10,8796,102,40,1304,377,3
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-11,8797,96,39,1304,378,3
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-12,8797,91,37,1304,378,2
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-13,8797,86,35,1304,378,2
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-14,8797,81,34,1304,378,2
-North America,US,DALLAS-FW-ARLINGTON Metropolitan,2020-07-15,8798,76,32,1304,378,2
 North America,US,Detroit Metropolitan,2020-03-19,279,261,39,39,3,10
 North America,US,Detroit Metropolitan,2020-03-20,345,310,47,49,5,12
 North America,US,Detroit Metropolitan,2020-03-21,491,433,66,71,9,16
@@ -744,237 +1341,6 @@ North America,US,Detroit Metropolitan,2020-06-12,30419,1046,297,4560,5388,33
 North America,US,Detroit Metropolitan,2020-06-13,30421,992,284,4560,5405,31
 North America,US,Detroit Metropolitan,2020-06-14,30423,940,272,4561,5422,29
 North America,US,Detroit Metropolitan,2020-06-15,30424,891,260,4561,5437,28
-North America,US,Houston Metropolitan,2020-03-29,850,820,123,123,5,31
-North America,US,Houston Metropolitan,2020-03-30,1020,931,142,148,7,35
-North America,US,Houston Metropolitan,2020-03-31,1231,1076,167,180,10,40
-North America,US,Houston Metropolitan,2020-04-01,1475,1242,194,217,13,46
-North America,US,Houston Metropolitan,2020-04-02,1742,1421,225,257,17,53
-North America,US,Houston Metropolitan,2020-04-03,2028,1607,256,300,20,60
-North America,US,Houston Metropolitan,2020-04-04,2331,1796,289,345,25,67
-North America,US,Houston Metropolitan,2020-04-05,2645,1985,321,392,29,73
-North America,US,Houston Metropolitan,2020-04-06,2969,2171,354,441,34,80
-North America,US,Houston Metropolitan,2020-04-07,3299,2351,386,490,40,87
-North America,US,Houston Metropolitan,2020-04-08,3633,2523,417,540,46,93
-North America,US,Houston Metropolitan,2020-04-09,3967,2684,447,591,52,99
-North America,US,Houston Metropolitan,2020-04-10,4299,2833,475,640,58,104
-North America,US,Houston Metropolitan,2020-04-11,4628,2970,501,690,65,109
-North America,US,Houston Metropolitan,2020-04-12,4951,3092,525,738,72,113
-North America,US,Houston Metropolitan,2020-04-13,5265,3199,547,785,79,117
-North America,US,Houston Metropolitan,2020-04-14,5570,3289,566,831,86,120
-North America,US,Houston Metropolitan,2020-04-15,5863,3362,583,875,93,123
-North America,US,Houston Metropolitan,2020-04-16,6144,3418,597,917,101,124
-North America,US,Houston Metropolitan,2020-04-17,6413,3460,609,957,108,126
-North America,US,Houston Metropolitan,2020-04-18,6670,3488,619,996,115,127
-North America,US,Houston Metropolitan,2020-04-19,6913,3501,626,1032,123,127
-North America,US,Houston Metropolitan,2020-04-20,7141,3499,630,1067,130,127
-North America,US,Houston Metropolitan,2020-04-21,7356,3483,633,1099,137,126
-North America,US,Houston Metropolitan,2020-04-22,7558,3456,633,1129,144,125
-North America,US,Houston Metropolitan,2020-04-23,7747,3419,632,1158,151,123
-North America,US,Houston Metropolitan,2020-04-24,7924,3373,629,1184,158,121
-North America,US,Houston Metropolitan,2020-04-25,8088,3318,624,1209,164,119
-North America,US,Houston Metropolitan,2020-04-26,8239,3254,617,1231,170,116
-North America,US,Houston Metropolitan,2020-04-27,8380,3183,610,1252,177,114
-North America,US,Houston Metropolitan,2020-04-28,8510,3107,601,1272,182,111
-North America,US,Houston Metropolitan,2020-04-29,8631,3027,591,1290,188,107
-North America,US,Houston Metropolitan,2020-04-30,8742,2943,580,1307,193,104
-North America,US,Houston Metropolitan,2020-05-01,8844,2855,568,1322,199,101
-North America,US,Houston Metropolitan,2020-05-02,8937,2765,556,1336,203,97
-North America,US,Houston Metropolitan,2020-05-03,9022,2672,543,1349,208,94
-North America,US,Houston Metropolitan,2020-05-04,9100,2579,529,1361,213,90
-North America,US,Houston Metropolitan,2020-05-05,9172,2486,516,1371,217,87
-North America,US,Houston Metropolitan,2020-05-06,9237,2393,502,1381,221,83
-North America,US,Houston Metropolitan,2020-05-07,9297,2300,488,1390,224,80
-North America,US,Houston Metropolitan,2020-05-08,9351,2208,473,1398,228,77
-North America,US,Houston Metropolitan,2020-05-09,9400,2117,459,1406,231,73
-North America,US,Houston Metropolitan,2020-05-10,9445,2027,444,1412,235,70
-North America,US,Houston Metropolitan,2020-05-11,9486,1940,430,1418,238,67
-North America,US,Houston Metropolitan,2020-05-12,9523,1854,416,1424,240,63
-North America,US,Houston Metropolitan,2020-05-13,9556,1770,402,1429,243,60
-North America,US,Houston Metropolitan,2020-05-14,9587,1689,388,1433,245,57
-North America,US,Houston Metropolitan,2020-05-15,9614,1610,374,1438,248,55
-North America,US,Houston Metropolitan,2020-05-16,9638,1533,361,1441,250,52
-North America,US,Houston Metropolitan,2020-05-17,9661,1459,347,1445,252,49
-North America,US,Houston Metropolitan,2020-05-18,9681,1388,335,1448,254,46
-North America,US,Houston Metropolitan,2020-05-19,9699,1320,322,1450,255,44
-North America,US,Houston Metropolitan,2020-05-20,9715,1254,310,1453,257,42
-North America,US,Houston Metropolitan,2020-05-21,9730,1190,298,1455,258,39
-North America,US,Houston Metropolitan,2020-05-22,9743,1129,286,1457,260,37
-North America,US,Houston Metropolitan,2020-05-23,9755,1071,275,1459,261,35
-North America,US,Houston Metropolitan,2020-05-24,9766,1015,264,1460,262,33
-North America,US,Houston Metropolitan,2020-05-25,9776,962,253,1462,263,31
-North America,US,Houston Metropolitan,2020-05-26,9784,911,243,1463,264,29
-North America,US,Houston Metropolitan,2020-05-27,9792,862,233,1464,265,28
-North America,US,Houston Metropolitan,2020-05-28,9799,816,224,1465,266,26
-North America,US,Houston Metropolitan,2020-05-29,9805,772,214,1466,267,25
-North America,US,Houston Metropolitan,2020-05-30,9811,730,205,1467,268,23
-North America,US,Houston Metropolitan,2020-05-31,9816,690,197,1468,268,22
-North America,US,Houston Metropolitan,2020-06-01,9820,653,189,1469,269,20
-North America,US,Houston Metropolitan,2020-06-02,9824,617,181,1469,270,19
-North America,US,Houston Metropolitan,2020-06-03,9828,583,173,1470,270,18
-North America,US,Houston Metropolitan,2020-06-04,9831,550,166,1470,271,17
-North America,US,Houston Metropolitan,2020-06-05,9834,520,158,1471,271,16
-North America,US,Houston Metropolitan,2020-06-06,9836,491,152,1471,272,15
-North America,US,Houston Metropolitan,2020-06-07,9839,463,145,1471,272,14
-North America,US,Houston Metropolitan,2020-06-08,9841,437,139,1472,272,13
-North America,US,Houston Metropolitan,2020-06-09,9843,413,133,1472,273,12
-North America,US,Houston Metropolitan,2020-06-10,9844,389,127,1472,273,12
-North America,US,Houston Metropolitan,2020-06-11,9846,367,121,1472,273,11
-North America,US,Houston Metropolitan,2020-06-12,9847,347,116,1473,273,10
-North America,US,Houston Metropolitan,2020-06-13,9848,327,111,1473,274,10
-North America,US,Houston Metropolitan,2020-06-14,9849,308,106,1473,274,9
-North America,US,Houston Metropolitan,2020-06-15,9850,291,101,1473,274,8
-North America,US,Houston Metropolitan,2020-06-16,9851,274,97,1473,274,8
-North America,US,Houston Metropolitan,2020-06-17,9852,259,93,1473,274,7
-North America,US,Houston Metropolitan,2020-06-18,9852,244,89,1473,274,7
-North America,US,Houston Metropolitan,2020-06-19,9853,230,85,1473,275,6
-North America,US,Houston Metropolitan,2020-06-20,9853,217,81,1473,275,6
-North America,US,Houston Metropolitan,2020-06-21,9854,205,77,1474,275,6
-North America,US,Houston Metropolitan,2020-06-22,9854,193,74,1474,275,5
-North America,US,Houston Metropolitan,2020-06-23,9854,182,71,1474,275,5
-North America,US,Houston Metropolitan,2020-06-24,9855,172,67,1474,275,5
-North America,US,Houston Metropolitan,2020-06-25,9855,162,64,1474,275,4
-North America,US,Houston Metropolitan,2020-06-26,9855,153,62,1474,275,4
-North America,US,Houston Metropolitan,2020-06-27,9856,144,59,1474,275,4
-North America,US,Houston Metropolitan,2020-06-28,9856,136,56,1474,275,4
-North America,US,Houston Metropolitan,2020-06-29,9856,128,54,1474,275,3
-North America,US,Houston Metropolitan,2020-06-30,9856,121,51,1474,276,3
-North America,US,Houston Metropolitan,2020-07-01,9856,114,49,1474,276,3
-North America,US,Houston Metropolitan,2020-07-02,9856,107,47,1474,276,3
-North America,US,Houston Metropolitan,2020-07-03,9856,101,45,1474,276,3
-North America,US,Houston Metropolitan,2020-07-04,9856,96,43,1474,276,2
-North America,US,Houston Metropolitan,2020-07-05,9857,90,41,1474,276,2
-North America,US,Houston Metropolitan,2020-07-06,9857,85,39,1474,276,2
-North America,US,Houston Metropolitan,2020-07-07,9857,80,37,1474,276,2
-North America,US,Houston Metropolitan,2020-07-08,9857,76,35,1474,276,2
-North America,US,Houston Metropolitan,2020-07-09,9857,72,34,1474,276,2
-North America,US,Houston Metropolitan,2020-07-10,9857,68,32,1474,276,2
-North America,US,Houston Metropolitan,2020-07-11,9857,64,31,1474,276,1
-North America,US,Houston Metropolitan,2020-07-12,9857,60,30,1474,276,1
-North America,US,Houston Metropolitan,2020-07-13,9857,57,28,1474,276,1
-North America,US,Houston Metropolitan,2020-07-14,9857,54,27,1474,276,1
-North America,US,Houston Metropolitan,2020-07-15,9857,51,26,1474,276,1
-North America,US,LA-LB-OC Metropolitan,2020-03-16,116,110,16,16,1,4
-North America,US,LA-LB-OC Metropolitan,2020-03-17,137,124,19,20,2,5
-North America,US,LA-LB-OC Metropolitan,2020-03-18,175,153,24,25,2,6
-North America,US,LA-LB-OC Metropolitan,2020-03-19,229,196,30,33,3,7
-North America,US,LA-LB-OC Metropolitan,2020-03-20,301,254,40,44,4,9
-North America,US,LA-LB-OC Metropolitan,2020-03-21,394,329,52,58,5,12
-North America,US,LA-LB-OC Metropolitan,2020-03-22,514,425,67,76,7,16
-North America,US,LA-LB-OC Metropolitan,2020-03-23,665,546,86,99,9,20
-North America,US,LA-LB-OC Metropolitan,2020-03-24,854,696,110,127,12,26
-North America,US,LA-LB-OC Metropolitan,2020-03-25,1087,880,139,162,16,33
-North America,US,LA-LB-OC Metropolitan,2020-03-26,1369,1100,174,204,20,41
-North America,US,LA-LB-OC Metropolitan,2020-03-27,1703,1356,216,255,26,50
-North America,US,LA-LB-OC Metropolitan,2020-03-28,2092,1650,263,313,33,61
-North America,US,LA-LB-OC Metropolitan,2020-03-29,2533,1977,316,379,41,73
-North America,US,LA-LB-OC Metropolitan,2020-03-30,3020,2329,373,452,51,86
-North America,US,LA-LB-OC Metropolitan,2020-03-31,3548,2700,434,531,63,100
-North America,US,LA-LB-OC Metropolitan,2020-04-01,4112,3082,497,616,76,114
-North America,US,LA-LB-OC Metropolitan,2020-04-02,4702,3465,562,704,92,128
-North America,US,LA-LB-OC Metropolitan,2020-04-03,5309,3843,626,795,109,142
-North America,US,LA-LB-OC Metropolitan,2020-04-04,5927,4209,688,888,128,155
-North America,US,LA-LB-OC Metropolitan,2020-04-05,6548,4554,748,981,149,168
-North America,US,LA-LB-OC Metropolitan,2020-04-06,7166,4876,806,1074,172,180
-North America,US,LA-LB-OC Metropolitan,2020-04-07,7779,5174,859,1166,196,190
-North America,US,LA-LB-OC Metropolitan,2020-04-08,8382,5445,909,1256,222,200
-North America,US,LA-LB-OC Metropolitan,2020-04-09,8969,5684,955,1344,250,209
-North America,US,LA-LB-OC Metropolitan,2020-04-10,9533,5886,995,1429,278,216
-North America,US,LA-LB-OC Metropolitan,2020-04-11,10074,6054,1030,1510,308,222
-North America,US,LA-LB-OC Metropolitan,2020-04-12,10593,6190,1060,1588,339,226
-North America,US,LA-LB-OC Metropolitan,2020-04-13,11089,6296,1085,1662,371,230
-North America,US,LA-LB-OC Metropolitan,2020-04-14,11561,6374,1106,1733,403,232
-North America,US,LA-LB-OC Metropolitan,2020-04-15,12006,6420,1122,1800,437,234
-North America,US,LA-LB-OC Metropolitan,2020-04-16,12423,6437,1133,1863,470,234
-North America,US,LA-LB-OC Metropolitan,2020-04-17,12815,6429,1140,1921,504,233
-North America,US,LA-LB-OC Metropolitan,2020-04-18,13183,6399,1143,1977,538,232
-North America,US,LA-LB-OC Metropolitan,2020-04-19,13528,6348,1142,2028,572,230
-North America,US,LA-LB-OC Metropolitan,2020-04-20,13849,6278,1138,2076,606,227
-North America,US,LA-LB-OC Metropolitan,2020-04-21,14146,6188,1131,2121,641,223
-North America,US,LA-LB-OC Metropolitan,2020-04-22,14421,6084,1121,2162,675,219
-North America,US,LA-LB-OC Metropolitan,2020-04-23,14675,5966,1108,2200,708,214
-North America,US,LA-LB-OC Metropolitan,2020-04-24,14911,5838,1093,2236,742,209
-North America,US,LA-LB-OC Metropolitan,2020-04-25,15129,5700,1076,2269,774,204
-North America,US,LA-LB-OC Metropolitan,2020-04-26,15330,5554,1057,2299,807,198
-North America,US,LA-LB-OC Metropolitan,2020-04-27,15513,5401,1037,2326,839,193
-North America,US,LA-LB-OC Metropolitan,2020-04-28,15681,5242,1015,2351,870,186
-North America,US,LA-LB-OC Metropolitan,2020-04-29,15835,5079,992,2374,901,180
-North America,US,LA-LB-OC Metropolitan,2020-04-30,15977,4914,969,2396,931,174
-North America,US,LA-LB-OC Metropolitan,2020-05-01,16106,4748,945,2415,960,168
-North America,US,LA-LB-OC Metropolitan,2020-05-02,16225,4582,920,2433,989,162
-North America,US,LA-LB-OC Metropolitan,2020-05-03,16332,4415,894,2449,1017,155
-North America,US,LA-LB-OC Metropolitan,2020-05-04,16429,4248,869,2464,1045,149
-North America,US,LA-LB-OC Metropolitan,2020-05-05,16518,4083,843,2477,1071,143
-North America,US,LA-LB-OC Metropolitan,2020-05-06,16599,3921,817,2489,1097,137
-North America,US,LA-LB-OC Metropolitan,2020-05-07,16672,3762,791,2500,1122,131
-North America,US,LA-LB-OC Metropolitan,2020-05-08,16739,3606,766,2510,1147,125
-North America,US,LA-LB-OC Metropolitan,2020-05-09,16800,3453,741,2519,1171,120
-North America,US,LA-LB-OC Metropolitan,2020-05-10,16854,3303,715,2527,1194,114
-North America,US,LA-LB-OC Metropolitan,2020-05-11,16904,3158,691,2535,1216,109
-North America,US,LA-LB-OC Metropolitan,2020-05-12,16948,3017,666,2541,1238,104
-North America,US,LA-LB-OC Metropolitan,2020-05-13,16989,2880,643,2547,1258,99
-North America,US,LA-LB-OC Metropolitan,2020-05-14,17025,2748,619,2553,1279,94
-North America,US,LA-LB-OC Metropolitan,2020-05-15,17058,2620,596,2558,1298,89
-North America,US,LA-LB-OC Metropolitan,2020-05-16,17088,2497,574,2562,1317,85
-North America,US,LA-LB-OC Metropolitan,2020-05-17,17114,2378,552,2566,1335,81
-North America,US,LA-LB-OC Metropolitan,2020-05-18,17138,2264,531,2570,1353,76
-North America,US,LA-LB-OC Metropolitan,2020-05-19,17160,2155,511,2573,1370,73
-North America,US,LA-LB-OC Metropolitan,2020-05-20,17179,2049,491,2576,1386,69
-North America,US,LA-LB-OC Metropolitan,2020-05-21,17197,1949,471,2579,1402,65
-North America,US,LA-LB-OC Metropolitan,2020-05-22,17213,1852,453,2581,1417,62
-North America,US,LA-LB-OC Metropolitan,2020-05-23,17227,1760,435,2583,1431,58
-North America,US,LA-LB-OC Metropolitan,2020-05-24,17240,1672,417,2585,1445,55
-North America,US,LA-LB-OC Metropolitan,2020-05-25,17251,1587,400,2587,1459,52
-North America,US,LA-LB-OC Metropolitan,2020-05-26,17261,1507,384,2588,1472,50
-North America,US,LA-LB-OC Metropolitan,2020-05-27,17270,1430,368,2590,1485,47
-North America,US,LA-LB-OC Metropolitan,2020-05-28,17278,1357,353,2591,1497,44
-North America,US,LA-LB-OC Metropolitan,2020-05-29,17286,1288,338,2592,1508,42
-North America,US,LA-LB-OC Metropolitan,2020-05-30,17292,1222,324,2593,1520,40
-North America,US,LA-LB-OC Metropolitan,2020-05-31,17298,1159,310,2594,1530,37
-North America,US,LA-LB-OC Metropolitan,2020-06-01,17303,1099,297,2595,1541,35
-North America,US,LA-LB-OC Metropolitan,2020-06-02,17308,1042,285,2595,1551,33
-North America,US,LA-LB-OC Metropolitan,2020-06-03,17312,987,273,2596,1560,32
-North America,US,LA-LB-OC Metropolitan,2020-06-04,17316,936,261,2596,1569,30
-North America,US,LA-LB-OC Metropolitan,2020-06-05,17319,887,250,2597,1578,28
-North America,US,LA-LB-OC Metropolitan,2020-06-06,17322,841,239,2597,1587,27
-North America,US,LA-LB-OC Metropolitan,2020-06-07,17325,797,229,2598,1595,25
-North America,US,LA-LB-OC Metropolitan,2020-06-08,17327,755,219,2598,1602,24
-North America,US,LA-LB-OC Metropolitan,2020-06-09,17329,716,210,2599,1610,22
-North America,US,LA-LB-OC Metropolitan,2020-06-10,17331,678,200,2599,1617,21
-North America,US,LA-LB-OC Metropolitan,2020-06-11,17333,643,192,2599,1624,20
-North America,US,LA-LB-OC Metropolitan,2020-06-12,17335,609,183,2599,1631,19
-North America,US,LA-LB-OC Metropolitan,2020-06-13,17336,577,175,2599,1637,18
-North America,US,LA-LB-OC Metropolitan,2020-06-14,17337,547,168,2600,1643,17
-North America,US,LA-LB-OC Metropolitan,2020-06-15,17338,518,160,2600,1649,16
-North America,US,LA-LB-OC Metropolitan,2020-06-16,17339,491,153,2600,1655,15
-North America,US,LA-LB-OC Metropolitan,2020-06-17,17340,466,147,2600,1660,14
-North America,US,LA-LB-OC Metropolitan,2020-06-18,17341,441,140,2600,1665,13
-North America,US,LA-LB-OC Metropolitan,2020-06-19,17341,418,134,2600,1670,13
-North America,US,LA-LB-OC Metropolitan,2020-06-20,17342,396,128,2600,1675,12
-North America,US,LA-LB-OC Metropolitan,2020-06-21,17342,376,123,2600,1680,11
-North America,US,LA-LB-OC Metropolitan,2020-06-22,17343,356,117,2601,1684,11
-North America,US,LA-LB-OC Metropolitan,2020-06-23,17343,338,112,2601,1688,10
-North America,US,LA-LB-OC Metropolitan,2020-06-24,17344,320,107,2601,1692,9
-North America,US,LA-LB-OC Metropolitan,2020-06-25,17344,304,102,2601,1696,9
-North America,US,LA-LB-OC Metropolitan,2020-06-26,17344,288,98,2601,1700,8
-North America,US,LA-LB-OC Metropolitan,2020-06-27,17345,273,94,2601,1704,8
-North America,US,LA-LB-OC Metropolitan,2020-06-28,17345,259,89,2601,1707,7
-North America,US,LA-LB-OC Metropolitan,2020-06-29,17345,246,85,2601,1710,7
-North America,US,LA-LB-OC Metropolitan,2020-06-30,17345,233,82,2601,1714,7
-North America,US,LA-LB-OC Metropolitan,2020-07-01,17345,221,78,2601,1717,6
-North America,US,LA-LB-OC Metropolitan,2020-07-02,17345,210,75,2601,1720,6
-North America,US,LA-LB-OC Metropolitan,2020-07-03,17346,199,71,2601,1722,6
-North America,US,LA-LB-OC Metropolitan,2020-07-04,17346,189,68,2601,1725,5
-North America,US,LA-LB-OC Metropolitan,2020-07-05,17346,179,65,2601,1728,5
-North America,US,LA-LB-OC Metropolitan,2020-07-06,17346,170,62,2601,1730,5
-North America,US,LA-LB-OC Metropolitan,2020-07-07,17346,161,59,2601,1732,5
-North America,US,LA-LB-OC Metropolitan,2020-07-08,17346,153,57,2601,1735,4
-North America,US,LA-LB-OC Metropolitan,2020-07-09,17346,146,54,2601,1737,4
-North America,US,LA-LB-OC Metropolitan,2020-07-10,17346,138,52,2601,1739,4
-North America,US,LA-LB-OC Metropolitan,2020-07-11,17346,131,50,2601,1741,4
-North America,US,LA-LB-OC Metropolitan,2020-07-12,17346,125,47,2601,1743,3
-North America,US,LA-LB-OC Metropolitan,2020-07-13,17346,118,45,2601,1745,3
-North America,US,LA-LB-OC Metropolitan,2020-07-14,17346,113,43,2601,1747,3
-North America,US,LA-LB-OC Metropolitan,2020-07-15,17346,107,41,2601,1748,3
 North America,US,NY-NJ Metropolitan,2020-03-15,587,545,82,82,7,20
 North America,US,NY-NJ Metropolitan,2020-03-16,1229,1146,173,178,13,43
 North America,US,NY-NJ Metropolitan,2020-03-17,2152,1991,303,316,25,74
@@ -1068,119 +1434,6 @@ North America,US,NY-NJ Metropolitan,2020-06-12,291029,37819,6933,43648,70263,136
 North America,US,NY-NJ Metropolitan,2020-06-13,291109,36814,6742,43660,70888,1327
 North America,US,NY-NJ Metropolitan,2020-06-14,291182,35839,6557,43671,71501,1292
 North America,US,NY-NJ Metropolitan,2020-06-15,291248,34893,6377,43681,72102,1258
-North America,US,New-Haven Metropolitan,2020-03-25,127,115,17,17,2,4
-North America,US,New-Haven Metropolitan,2020-03-26,141,122,19,19,3,5
-North America,US,New-Haven Metropolitan,2020-03-27,174,147,23,24,4,5
-North America,US,New-Haven Metropolitan,2020-03-28,223,187,29,32,5,7
-North America,US,New-Haven Metropolitan,2020-03-29,288,239,37,41,7,9
-North America,US,New-Haven Metropolitan,2020-03-30,369,305,48,54,9,11
-North America,US,New-Haven Metropolitan,2020-03-31,467,384,60,68,11,14
-North America,US,New-Haven Metropolitan,2020-04-01,584,475,75,86,15,18
-North America,US,New-Haven Metropolitan,2020-04-02,719,580,91,106,19,22
-North America,US,New-Haven Metropolitan,2020-04-03,873,697,110,129,24,26
-North America,US,New-Haven Metropolitan,2020-04-04,1045,825,131,155,30,31
-North America,US,New-Haven Metropolitan,2020-04-05,1235,964,153,183,37,36
-North America,US,New-Haven Metropolitan,2020-04-06,1443,1113,177,215,45,41
-North America,US,New-Haven Metropolitan,2020-04-07,1667,1268,203,248,54,47
-North America,US,New-Haven Metropolitan,2020-04-08,1906,1430,229,284,65,53
-North America,US,New-Haven Metropolitan,2020-04-09,2158,1595,257,322,77,59
-North America,US,New-Haven Metropolitan,2020-04-10,2422,1763,285,361,91,65
-North America,US,New-Haven Metropolitan,2020-04-11,2696,1932,313,403,106,71
-North America,US,New-Haven Metropolitan,2020-04-12,2979,2099,341,445,123,78
-North America,US,New-Haven Metropolitan,2020-04-13,3268,2264,369,488,141,84
-North America,US,New-Haven Metropolitan,2020-04-14,3562,2424,397,532,160,89
-North America,US,New-Haven Metropolitan,2020-04-15,3859,2579,424,577,181,95
-North America,US,New-Haven Metropolitan,2020-04-16,4157,2727,450,622,204,100
-North America,US,New-Haven Metropolitan,2020-04-17,4456,2867,475,667,227,106
-North America,US,New-Haven Metropolitan,2020-04-18,4754,2999,499,711,253,110
-North America,US,New-Haven Metropolitan,2020-04-19,5051,3122,521,756,279,115
-North America,US,New-Haven Metropolitan,2020-04-20,5345,3236,542,800,307,119
-North America,US,New-Haven Metropolitan,2020-04-21,5633,3340,562,843,335,123
-North America,US,New-Haven Metropolitan,2020-04-22,5915,3431,580,885,365,126
-North America,US,New-Haven Metropolitan,2020-04-23,6189,3510,596,926,396,129
-North America,US,New-Haven Metropolitan,2020-04-24,6456,3578,610,967,428,131
-North America,US,New-Haven Metropolitan,2020-04-25,6716,3636,623,1006,461,133
-North America,US,New-Haven Metropolitan,2020-04-26,6968,3683,634,1043,494,135
-North America,US,New-Haven Metropolitan,2020-04-27,7212,3721,643,1080,528,136
-North America,US,New-Haven Metropolitan,2020-04-28,7446,3747,650,1115,563,137
-North America,US,New-Haven Metropolitan,2020-04-29,7670,3762,656,1149,598,137
-North America,US,New-Haven Metropolitan,2020-04-30,7885,3768,660,1181,634,137
-North America,US,New-Haven Metropolitan,2020-05-01,8091,3765,663,1212,670,137
-North America,US,New-Haven Metropolitan,2020-05-02,8288,3754,664,1241,706,136
-North America,US,New-Haven Metropolitan,2020-05-03,8476,3736,664,1270,743,136
-North America,US,New-Haven Metropolitan,2020-05-04,8654,3708,662,1296,779,134
-North America,US,New-Haven Metropolitan,2020-05-05,8822,3674,659,1321,816,133
-North America,US,New-Haven Metropolitan,2020-05-06,8981,3633,655,1345,852,131
-North America,US,New-Haven Metropolitan,2020-05-07,9133,3587,650,1368,889,130
-North America,US,New-Haven Metropolitan,2020-05-08,9276,3535,644,1390,925,128
-North America,US,New-Haven Metropolitan,2020-05-09,9411,3480,637,1410,961,125
-North America,US,New-Haven Metropolitan,2020-05-10,9537,3419,629,1429,997,123
-North America,US,New-Haven Metropolitan,2020-05-11,9656,3354,620,1447,1033,121
-North America,US,New-Haven Metropolitan,2020-05-12,9767,3286,611,1463,1069,118
-North America,US,New-Haven Metropolitan,2020-05-13,9871,3215,600,1479,1104,115
-North America,US,New-Haven Metropolitan,2020-05-14,9969,3142,590,1494,1138,113
-North America,US,New-Haven Metropolitan,2020-05-15,10061,3068,579,1507,1172,110
-North America,US,New-Haven Metropolitan,2020-05-16,10147,2992,567,1520,1206,107
-North America,US,New-Haven Metropolitan,2020-05-17,10227,2914,556,1532,1239,104
-North America,US,New-Haven Metropolitan,2020-05-18,10301,2835,543,1543,1272,101
-North America,US,New-Haven Metropolitan,2020-05-19,10369,2755,531,1554,1304,98
-North America,US,New-Haven Metropolitan,2020-05-20,10433,2676,518,1563,1336,95
-North America,US,New-Haven Metropolitan,2020-05-21,10493,2597,506,1572,1367,92
-North America,US,New-Haven Metropolitan,2020-05-22,10549,2518,493,1581,1397,89
-North America,US,New-Haven Metropolitan,2020-05-23,10600,2440,480,1588,1427,86
-North America,US,New-Haven Metropolitan,2020-05-24,10648,2362,467,1595,1456,84
-North America,US,New-Haven Metropolitan,2020-05-25,10691,2285,454,1602,1485,81
-North America,US,New-Haven Metropolitan,2020-05-26,10732,2209,441,1608,1513,78
-North America,US,New-Haven Metropolitan,2020-05-27,10769,2134,429,1614,1540,75
-North America,US,New-Haven Metropolitan,2020-05-28,10804,2061,416,1619,1567,73
-North America,US,New-Haven Metropolitan,2020-05-29,10836,1989,404,1624,1593,70
-North America,US,New-Haven Metropolitan,2020-05-30,10865,1919,391,1628,1619,67
-North America,US,New-Haven Metropolitan,2020-05-31,10892,1850,379,1632,1643,65
-North America,US,New-Haven Metropolitan,2020-06-01,10917,1782,367,1636,1668,62
-North America,US,New-Haven Metropolitan,2020-06-02,10940,1717,355,1639,1691,60
-North America,US,New-Haven Metropolitan,2020-06-03,10961,1653,344,1642,1715,58
-North America,US,New-Haven Metropolitan,2020-06-04,10981,1591,333,1645,1737,56
-North America,US,New-Haven Metropolitan,2020-06-05,10998,1531,322,1648,1759,53
-North America,US,New-Haven Metropolitan,2020-06-06,11015,1472,311,1650,1780,51
-North America,US,New-Haven Metropolitan,2020-06-07,11029,1416,300,1653,1801,49
-North America,US,New-Haven Metropolitan,2020-06-08,11043,1361,290,1655,1821,47
-North America,US,New-Haven Metropolitan,2020-06-09,11055,1308,280,1657,1841,45
-North America,US,New-Haven Metropolitan,2020-06-10,11067,1256,270,1658,1860,44
-North America,US,New-Haven Metropolitan,2020-06-11,11077,1207,261,1660,1879,42
-North America,US,New-Haven Metropolitan,2020-06-12,11087,1159,251,1661,1897,40
-North America,US,New-Haven Metropolitan,2020-06-13,11096,1113,242,1663,1914,38
-North America,US,New-Haven Metropolitan,2020-06-14,11104,1068,234,1664,1931,37
-North America,US,New-Haven Metropolitan,2020-06-15,11111,1025,225,1665,1948,35
-North America,US,New-Haven Metropolitan,2020-06-16,11117,984,217,1666,1964,34
-North America,US,New-Haven Metropolitan,2020-06-17,11124,944,209,1667,1980,32
-North America,US,New-Haven Metropolitan,2020-06-18,11129,906,201,1668,1995,31
-North America,US,New-Haven Metropolitan,2020-06-19,11134,869,194,1668,2009,30
-North America,US,New-Haven Metropolitan,2020-06-20,11139,834,187,1669,2024,29
-North America,US,New-Haven Metropolitan,2020-06-21,11143,800,180,1670,2037,27
-North America,US,New-Haven Metropolitan,2020-06-22,11147,767,173,1670,2051,26
-North America,US,New-Haven Metropolitan,2020-06-23,11150,736,167,1671,2064,25
-North America,US,New-Haven Metropolitan,2020-06-24,11153,706,160,1671,2077,24
-North America,US,New-Haven Metropolitan,2020-06-25,11156,677,154,1672,2089,23
-North America,US,New-Haven Metropolitan,2020-06-26,11158,650,148,1672,2101,22
-North America,US,New-Haven Metropolitan,2020-06-27,11161,623,143,1672,2112,21
-North America,US,New-Haven Metropolitan,2020-06-28,11163,598,137,1673,2123,20
-North America,US,New-Haven Metropolitan,2020-06-29,11165,573,132,1673,2134,19
-North America,US,New-Haven Metropolitan,2020-06-30,11167,550,127,1673,2145,19
-North America,US,New-Haven Metropolitan,2020-07-01,11168,528,122,1673,2155,18
-North America,US,New-Haven Metropolitan,2020-07-02,11170,506,117,1674,2165,17
-North America,US,New-Haven Metropolitan,2020-07-03,11171,486,113,1674,2174,16
-North America,US,New-Haven Metropolitan,2020-07-04,11172,466,109,1674,2184,16
-North America,US,New-Haven Metropolitan,2020-07-05,11173,447,104,1674,2193,15
-North America,US,New-Haven Metropolitan,2020-07-06,11174,429,100,1674,2201,14
-North America,US,New-Haven Metropolitan,2020-07-07,11175,412,96,1674,2210,14
-North America,US,New-Haven Metropolitan,2020-07-08,11176,395,93,1675,2218,13
-North America,US,New-Haven Metropolitan,2020-07-09,11176,379,89,1675,2226,13
-North America,US,New-Haven Metropolitan,2020-07-10,11177,364,86,1675,2233,12
-North America,US,New-Haven Metropolitan,2020-07-11,11178,349,82,1675,2241,12
-North America,US,New-Haven Metropolitan,2020-07-12,11178,336,79,1675,2248,11
-North America,US,New-Haven Metropolitan,2020-07-13,11179,322,76,1675,2255,11
-North America,US,New-Haven Metropolitan,2020-07-14,11179,309,73,1675,2262,10
-North America,US,New-Haven Metropolitan,2020-07-15,11179,297,70,1675,2268,10
 North America,US,None,2020-03-15,587,545,82,82,7,20
 North America,US,None,2020-03-16,1229,1146,173,178,13,43
 North America,US,None,2020-03-17,2299,2132,324,337,26,79
@@ -1274,232 +1527,6 @@ North America,US,None,2020-06-12,375049,46032,8655,56247,83153,1649
 North America,US,None,2020-06-13,375177,44761,8410,56266,83882,1604
 North America,US,None,2020-06-14,375295,43529,8173,56285,84597,1560
 North America,US,None,2020-06-15,375401,42335,7942,56300,85297,1517
-North America,US,Phoenix Metropolitan,2020-03-23,156,144,22,22,2,5
-North America,US,Phoenix Metropolitan,2020-03-24,196,173,26,28,3,6
-North America,US,Phoenix Metropolitan,2020-03-25,255,220,34,36,3,8
-North America,US,Phoenix Metropolitan,2020-03-26,329,277,43,47,4,10
-North America,US,Phoenix Metropolitan,2020-03-27,412,340,53,60,5,13
-North America,US,Phoenix Metropolitan,2020-03-28,504,407,64,74,7,15
-North America,US,Phoenix Metropolitan,2020-03-29,602,476,76,88,8,18
-North America,US,Phoenix Metropolitan,2020-03-30,704,545,87,104,10,20
-North America,US,Phoenix Metropolitan,2020-03-31,811,613,99,120,12,23
-North America,US,Phoenix Metropolitan,2020-04-01,921,680,110,136,15,25
-North America,US,Phoenix Metropolitan,2020-04-02,1033,745,122,153,17,28
-North America,US,Phoenix Metropolitan,2020-04-03,1146,807,133,170,20,30
-North America,US,Phoenix Metropolitan,2020-04-04,1260,866,143,187,23,32
-North America,US,Phoenix Metropolitan,2020-04-05,1373,921,153,204,26,34
-North America,US,Phoenix Metropolitan,2020-04-06,1486,972,163,221,29,36
-North America,US,Phoenix Metropolitan,2020-04-07,1598,1018,171,238,33,37
-North America,US,Phoenix Metropolitan,2020-04-08,1708,1059,180,254,37,39
-North America,US,Phoenix Metropolitan,2020-04-09,1816,1096,187,271,40,40
-North America,US,Phoenix Metropolitan,2020-04-10,1921,1129,194,286,44,41
-North America,US,Phoenix Metropolitan,2020-04-11,2024,1156,200,302,48,42
-North America,US,Phoenix Metropolitan,2020-04-12,2123,1178,205,317,52,43
-North America,US,Phoenix Metropolitan,2020-04-13,2218,1196,210,331,56,44
-North America,US,Phoenix Metropolitan,2020-04-14,2310,1209,213,345,61,44
-North America,US,Phoenix Metropolitan,2020-04-15,2399,1218,217,358,65,44
-North America,US,Phoenix Metropolitan,2020-04-16,2483,1223,219,371,69,44
-North America,US,Phoenix Metropolitan,2020-04-17,2564,1224,221,383,73,44
-North America,US,Phoenix Metropolitan,2020-04-18,2641,1220,222,394,77,44
-North America,US,Phoenix Metropolitan,2020-04-19,2714,1213,222,405,82,44
-North America,US,Phoenix Metropolitan,2020-04-20,2783,1203,222,416,86,43
-North America,US,Phoenix Metropolitan,2020-04-21,2848,1190,221,425,90,43
-North America,US,Phoenix Metropolitan,2020-04-22,2910,1175,220,435,94,42
-North America,US,Phoenix Metropolitan,2020-04-23,2968,1157,219,443,98,41
-North America,US,Phoenix Metropolitan,2020-04-24,3023,1137,217,452,102,41
-North America,US,Phoenix Metropolitan,2020-04-25,3074,1114,214,459,105,40
-North America,US,Phoenix Metropolitan,2020-04-26,3122,1090,211,466,109,39
-North America,US,Phoenix Metropolitan,2020-04-27,3166,1065,208,473,113,38
-North America,US,Phoenix Metropolitan,2020-04-28,3208,1038,205,479,116,37
-North America,US,Phoenix Metropolitan,2020-04-29,3248,1011,201,485,120,36
-North America,US,Phoenix Metropolitan,2020-04-30,3284,983,197,491,123,35
-North America,US,Phoenix Metropolitan,2020-05-01,3318,953,193,496,126,34
-North America,US,Phoenix Metropolitan,2020-05-02,3349,924,189,501,129,32
-North America,US,Phoenix Metropolitan,2020-05-03,3378,894,184,505,132,31
-North America,US,Phoenix Metropolitan,2020-05-04,3405,864,180,509,135,30
-North America,US,Phoenix Metropolitan,2020-05-05,3430,834,175,513,138,29
-North America,US,Phoenix Metropolitan,2020-05-06,3453,804,170,516,140,28
-North America,US,Phoenix Metropolitan,2020-05-07,3475,774,166,519,143,27
-North America,US,Phoenix Metropolitan,2020-05-08,3494,745,161,522,145,26
-North America,US,Phoenix Metropolitan,2020-05-09,3512,715,156,525,148,25
-North America,US,Phoenix Metropolitan,2020-05-10,3529,687,151,528,150,24
-North America,US,Phoenix Metropolitan,2020-05-11,3544,659,147,530,152,23
-North America,US,Phoenix Metropolitan,2020-05-12,3558,631,142,532,154,22
-North America,US,Phoenix Metropolitan,2020-05-13,3571,605,137,534,156,21
-North America,US,Phoenix Metropolitan,2020-05-14,3583,578,133,536,158,20
-North America,US,Phoenix Metropolitan,2020-05-15,3594,553,128,537,159,19
-North America,US,Phoenix Metropolitan,2020-05-16,3604,528,124,539,161,18
-North America,US,Phoenix Metropolitan,2020-05-17,3613,504,120,540,163,17
-North America,US,Phoenix Metropolitan,2020-05-18,3621,481,115,541,164,16
-North America,US,Phoenix Metropolitan,2020-05-19,3629,458,111,543,166,15
-North America,US,Phoenix Metropolitan,2020-05-20,3636,437,107,544,167,15
-North America,US,Phoenix Metropolitan,2020-05-21,3642,416,103,545,168,14
-North America,US,Phoenix Metropolitan,2020-05-22,3648,396,99,545,169,13
-North America,US,Phoenix Metropolitan,2020-05-23,3653,376,95,546,171,12
-North America,US,Phoenix Metropolitan,2020-05-24,3658,358,92,547,172,12
-North America,US,Phoenix Metropolitan,2020-05-25,3662,340,88,548,173,11
-North America,US,Phoenix Metropolitan,2020-05-26,3666,323,85,548,174,10
-North America,US,Phoenix Metropolitan,2020-05-27,3670,306,81,549,174,10
-North America,US,Phoenix Metropolitan,2020-05-28,3673,291,78,549,175,9
-North America,US,Phoenix Metropolitan,2020-05-29,3676,276,75,550,176,9
-North America,US,Phoenix Metropolitan,2020-05-30,3679,261,72,550,177,8
-North America,US,Phoenix Metropolitan,2020-05-31,3681,248,69,550,178,8
-North America,US,Phoenix Metropolitan,2020-06-01,3684,235,66,551,178,7
-North America,US,Phoenix Metropolitan,2020-06-02,3686,222,64,551,179,7
-North America,US,Phoenix Metropolitan,2020-06-03,3687,211,61,551,179,7
-North America,US,Phoenix Metropolitan,2020-06-04,3689,199,58,552,180,6
-North America,US,Phoenix Metropolitan,2020-06-05,3690,189,56,552,181,6
-North America,US,Phoenix Metropolitan,2020-06-06,3692,179,54,552,181,6
-North America,US,Phoenix Metropolitan,2020-06-07,3693,169,51,552,182,5
-North America,US,Phoenix Metropolitan,2020-06-08,3694,160,49,552,182,5
-North America,US,Phoenix Metropolitan,2020-06-09,3695,151,47,552,182,5
-North America,US,Phoenix Metropolitan,2020-06-10,3696,143,45,553,183,4
-North America,US,Phoenix Metropolitan,2020-06-11,3697,135,43,553,183,4
-North America,US,Phoenix Metropolitan,2020-06-12,3698,127,41,553,183,4
-North America,US,Phoenix Metropolitan,2020-06-13,3698,120,39,553,184,4
-North America,US,Phoenix Metropolitan,2020-06-14,3699,114,38,553,184,3
-North America,US,Phoenix Metropolitan,2020-06-15,3699,107,36,553,184,3
-North America,US,Phoenix Metropolitan,2020-06-16,3700,102,35,553,185,3
-North America,US,Phoenix Metropolitan,2020-06-17,3700,96,33,553,185,3
-North America,US,Phoenix Metropolitan,2020-06-18,3701,91,32,553,185,3
-North America,US,Phoenix Metropolitan,2020-06-19,3701,85,30,553,185,2
-North America,US,Phoenix Metropolitan,2020-06-20,3701,81,29,553,185,2
-North America,US,Phoenix Metropolitan,2020-06-21,3702,76,28,553,186,2
-North America,US,Phoenix Metropolitan,2020-06-22,3702,72,26,553,186,2
-North America,US,Phoenix Metropolitan,2020-06-23,3702,68,25,554,186,2
-North America,US,Phoenix Metropolitan,2020-06-24,3702,64,24,554,186,2
-North America,US,Phoenix Metropolitan,2020-06-25,3703,60,23,554,186,2
-North America,US,Phoenix Metropolitan,2020-06-26,3703,57,22,554,186,2
-North America,US,Phoenix Metropolitan,2020-06-27,3703,54,21,554,187,1
-North America,US,Phoenix Metropolitan,2020-06-28,3703,51,20,554,187,1
-North America,US,Phoenix Metropolitan,2020-06-29,3703,48,19,554,187,1
-North America,US,Phoenix Metropolitan,2020-06-30,3703,45,18,554,187,1
-North America,US,Phoenix Metropolitan,2020-07-01,3703,43,18,554,187,1
-North America,US,Phoenix Metropolitan,2020-07-02,3703,40,17,554,187,1
-North America,US,Phoenix Metropolitan,2020-07-03,3703,38,16,554,187,1
-North America,US,Phoenix Metropolitan,2020-07-04,3704,36,15,554,187,1
-North America,US,Phoenix Metropolitan,2020-07-05,3704,34,15,554,187,1
-North America,US,Phoenix Metropolitan,2020-07-06,3704,32,14,554,187,1
-North America,US,Phoenix Metropolitan,2020-07-07,3704,30,13,554,187,1
-North America,US,Phoenix Metropolitan,2020-07-08,3704,28,13,554,187,1
-North America,US,Phoenix Metropolitan,2020-07-09,3704,27,12,554,187,1
-North America,US,Phoenix Metropolitan,2020-07-10,3704,25,12,554,188,1
-North America,US,Phoenix Metropolitan,2020-07-11,3704,24,11,554,188,1
-North America,US,Phoenix Metropolitan,2020-07-12,3704,23,11,554,188,1
-North America,US,Phoenix Metropolitan,2020-07-13,3704,21,10,554,188,0
-North America,US,Phoenix Metropolitan,2020-07-14,3704,20,10,554,188,0
-North America,US,Phoenix Metropolitan,2020-07-15,3704,19,9,554,188,0
-North America,US,Tucson Metropolitan,2020-03-27,102,78,12,12,4,3
-North America,US,Tucson Metropolitan,2020-03-28,135,105,16,17,5,4
-North America,US,Tucson Metropolitan,2020-03-29,162,124,19,21,6,5
-North America,US,Tucson Metropolitan,2020-03-30,187,139,22,24,7,5
-North America,US,Tucson Metropolitan,2020-03-31,211,154,24,28,8,6
-North America,US,Tucson Metropolitan,2020-04-01,237,168,27,32,9,6
-North America,US,Tucson Metropolitan,2020-04-02,263,183,29,36,11,7
-North America,US,Tucson Metropolitan,2020-04-03,292,198,32,40,12,7
-North America,US,Tucson Metropolitan,2020-04-04,322,214,35,45,14,8
-North America,US,Tucson Metropolitan,2020-04-05,354,231,38,50,15,9
-North America,US,Tucson Metropolitan,2020-04-06,388,248,41,55,17,9
-North America,US,Tucson Metropolitan,2020-04-07,423,266,44,60,19,10
-North America,US,Tucson Metropolitan,2020-04-08,460,284,47,65,21,10
-North America,US,Tucson Metropolitan,2020-04-09,498,301,51,71,23,11
-North America,US,Tucson Metropolitan,2020-04-10,537,319,54,77,25,12
-North America,US,Tucson Metropolitan,2020-04-11,576,336,57,83,28,12
-North America,US,Tucson Metropolitan,2020-04-12,616,352,60,89,30,13
-North America,US,Tucson Metropolitan,2020-04-13,656,367,63,95,32,13
-North America,US,Tucson Metropolitan,2020-04-14,695,382,66,101,35,14
-North America,US,Tucson Metropolitan,2020-04-15,735,395,68,107,38,14
-North America,US,Tucson Metropolitan,2020-04-16,774,406,71,113,40,15
-North America,US,Tucson Metropolitan,2020-04-17,812,417,73,118,43,15
-North America,US,Tucson Metropolitan,2020-04-18,850,426,75,124,46,15
-North America,US,Tucson Metropolitan,2020-04-19,887,433,77,129,48,16
-North America,US,Tucson Metropolitan,2020-04-20,922,439,78,135,51,16
-North America,US,Tucson Metropolitan,2020-04-21,957,444,79,140,54,16
-North America,US,Tucson Metropolitan,2020-04-22,990,447,80,145,57,16
-North America,US,Tucson Metropolitan,2020-04-23,1022,449,81,150,59,16
-North America,US,Tucson Metropolitan,2020-04-24,1053,449,82,154,62,16
-North America,US,Tucson Metropolitan,2020-04-25,1082,448,82,159,65,16
-North America,US,Tucson Metropolitan,2020-04-26,1110,446,82,163,67,16
-North America,US,Tucson Metropolitan,2020-04-27,1137,442,82,167,70,16
-North America,US,Tucson Metropolitan,2020-04-28,1162,438,82,171,72,16
-North America,US,Tucson Metropolitan,2020-04-29,1186,433,82,174,75,15
-North America,US,Tucson Metropolitan,2020-04-30,1209,426,81,178,77,15
-North America,US,Tucson Metropolitan,2020-05-01,1230,419,80,181,80,15
-North America,US,Tucson Metropolitan,2020-05-02,1250,411,79,184,82,15
-North America,US,Tucson Metropolitan,2020-05-03,1269,403,78,187,84,14
-North America,US,Tucson Metropolitan,2020-05-04,1287,394,77,189,86,14
-North America,US,Tucson Metropolitan,2020-05-05,1303,384,76,192,88,14
-North America,US,Tucson Metropolitan,2020-05-06,1319,374,75,194,90,13
-North America,US,Tucson Metropolitan,2020-05-07,1333,364,73,196,92,13
-North America,US,Tucson Metropolitan,2020-05-08,1347,353,72,198,94,12
-North America,US,Tucson Metropolitan,2020-05-09,1359,343,70,200,95,12
-North America,US,Tucson Metropolitan,2020-05-10,1371,332,69,202,97,12
-North America,US,Tucson Metropolitan,2020-05-11,1381,321,67,204,98,11
-North America,US,Tucson Metropolitan,2020-05-12,1391,310,65,205,100,11
-North America,US,Tucson Metropolitan,2020-05-13,1401,299,64,206,101,10
-North America,US,Tucson Metropolitan,2020-05-14,1409,288,62,208,102,10
-North America,US,Tucson Metropolitan,2020-05-15,1417,277,60,209,104,10
-North America,US,Tucson Metropolitan,2020-05-16,1424,266,58,210,105,9
-North America,US,Tucson Metropolitan,2020-05-17,1431,256,57,211,106,9
-North America,US,Tucson Metropolitan,2020-05-18,1437,246,55,212,107,8
-North America,US,Tucson Metropolitan,2020-05-19,1443,235,53,213,108,8
-North America,US,Tucson Metropolitan,2020-05-20,1448,225,51,214,109,8
-North America,US,Tucson Metropolitan,2020-05-21,1453,216,50,214,110,7
-North America,US,Tucson Metropolitan,2020-05-22,1457,206,48,215,110,7
-North America,US,Tucson Metropolitan,2020-05-23,1461,197,46,216,111,7
-North America,US,Tucson Metropolitan,2020-05-24,1465,188,45,216,112,6
-North America,US,Tucson Metropolitan,2020-05-25,1468,179,43,217,112,6
-North America,US,Tucson Metropolitan,2020-05-26,1471,171,42,217,113,6
-North America,US,Tucson Metropolitan,2020-05-27,1474,163,40,218,114,5
-North America,US,Tucson Metropolitan,2020-05-28,1477,155,39,218,114,5
-North America,US,Tucson Metropolitan,2020-05-29,1479,148,37,218,115,5
-North America,US,Tucson Metropolitan,2020-05-30,1481,141,36,219,115,5
-North America,US,Tucson Metropolitan,2020-05-31,1483,134,34,219,116,4
-North America,US,Tucson Metropolitan,2020-06-01,1485,127,33,219,116,4
-North America,US,Tucson Metropolitan,2020-06-02,1486,121,32,219,116,4
-North America,US,Tucson Metropolitan,2020-06-03,1488,114,31,220,117,4
-North America,US,Tucson Metropolitan,2020-06-04,1489,109,29,220,117,3
-North America,US,Tucson Metropolitan,2020-06-05,1490,103,28,220,117,3
-North America,US,Tucson Metropolitan,2020-06-06,1492,98,27,220,117,3
-North America,US,Tucson Metropolitan,2020-06-07,1493,93,26,220,118,3
-North America,US,Tucson Metropolitan,2020-06-08,1493,88,25,220,118,3
-North America,US,Tucson Metropolitan,2020-06-09,1494,83,24,221,118,3
-North America,US,Tucson Metropolitan,2020-06-10,1495,79,23,221,118,2
-North America,US,Tucson Metropolitan,2020-06-11,1496,75,22,221,119,2
-North America,US,Tucson Metropolitan,2020-06-12,1496,71,21,221,119,2
-North America,US,Tucson Metropolitan,2020-06-13,1497,67,20,221,119,2
-North America,US,Tucson Metropolitan,2020-06-14,1497,63,19,221,119,2
-North America,US,Tucson Metropolitan,2020-06-15,1498,60,18,221,119,2
-North America,US,Tucson Metropolitan,2020-06-16,1498,56,18,221,119,2
-North America,US,Tucson Metropolitan,2020-06-17,1499,53,17,221,119,2
-North America,US,Tucson Metropolitan,2020-06-18,1499,50,16,221,119,2
-North America,US,Tucson Metropolitan,2020-06-19,1499,48,15,221,120,1
-North America,US,Tucson Metropolitan,2020-06-20,1499,45,15,221,120,1
-North America,US,Tucson Metropolitan,2020-06-21,1500,43,14,221,120,1
-North America,US,Tucson Metropolitan,2020-06-22,1500,40,14,221,120,1
-North America,US,Tucson Metropolitan,2020-06-23,1500,38,13,221,120,1
-North America,US,Tucson Metropolitan,2020-06-24,1500,36,12,221,120,1
-North America,US,Tucson Metropolitan,2020-06-25,1500,34,12,221,120,1
-North America,US,Tucson Metropolitan,2020-06-26,1501,32,11,221,120,1
-North America,US,Tucson Metropolitan,2020-06-27,1501,30,11,222,120,1
-North America,US,Tucson Metropolitan,2020-06-28,1501,28,10,222,120,1
-North America,US,Tucson Metropolitan,2020-06-29,1501,27,10,222,120,1
-North America,US,Tucson Metropolitan,2020-06-30,1501,25,9,222,120,1
-North America,US,Tucson Metropolitan,2020-07-01,1501,24,9,222,120,1
-North America,US,Tucson Metropolitan,2020-07-02,1501,23,9,222,120,1
-North America,US,Tucson Metropolitan,2020-07-03,1501,21,8,222,120,1
-North America,US,Tucson Metropolitan,2020-07-04,1501,20,8,222,120,1
-North America,US,Tucson Metropolitan,2020-07-05,1501,19,8,222,120,1
-North America,US,Tucson Metropolitan,2020-07-06,1501,18,7,222,120,0
-North America,US,Tucson Metropolitan,2020-07-07,1501,17,7,222,120,0
-North America,US,Tucson Metropolitan,2020-07-08,1501,16,7,222,120,0
-North America,US,Tucson Metropolitan,2020-07-09,1501,15,6,222,120,0
-North America,US,Tucson Metropolitan,2020-07-10,1502,14,6,222,120,0
-North America,US,Tucson Metropolitan,2020-07-11,1502,13,6,222,120,0
-North America,US,Tucson Metropolitan,2020-07-12,1502,13,5,222,120,0
-North America,US,Tucson Metropolitan,2020-07-13,1502,12,5,222,120,0
-North America,US,Tucson Metropolitan,2020-07-14,1502,11,5,222,120,0
-North America,US,Tucson Metropolitan,2020-07-15,1502,11,5,222,120,0
 South America,Brazil,Amapa,2020-04-08,107,95,14,14,2,4
 South America,Brazil,Amapa,2020-04-09,141,122,19,19,2,5
 South America,Brazil,Amapa,2020-04-10,171,143,22,24,3,5

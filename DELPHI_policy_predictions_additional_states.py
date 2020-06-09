@@ -25,7 +25,8 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "ali"
-yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+# yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+yesterday = "".join(str(datetime(2020,6,1).date() - timedelta(days=1)).split("-"))
 day_after_yesterday = "".join(str(pd.to_datetime(yesterday).date() + timedelta(days=1)).split("-"))
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 #PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -80,14 +81,14 @@ for continent, country, province in zip(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     # TODO still missing Russia here as we don't have the data yet
-    if country_sub not in ["US"]:
+    if country_sub not in ["Russia"]:
         continue
-    if country_sub == "US":
-        if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
-                                "Baltimore-Columbia-Towson_Metropolitan", "Washington-Arlington-Alexandria_Metropolitan",
-                                "Tucson_Metropolitan","Minneapolis_Metropolitan", "Houston_Metropolitan",
-                                "DALLAS-FW-ARLINGTON_Metropolitan"]:
-            continue
+    # if country_sub == "US":
+    #     if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
+    #                             "Baltimore-Columbia-Towson_Metropolitan", "Washington-Arlington-Alexandria_Metropolitan",
+    #                             "Tucson_Metropolitan","Minneapolis_Metropolitan", "Houston_Metropolitan",
+    #                             "DALLAS-FW-ARLINGTON_Metropolitan"]:
+    #         continue
         # if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
         #                         "Baltimore-Columbia-Towson_Metropolitan", "Washington-Arlington-Alexandria_Metropolitan",
         #                         "Tucson_Metropolitan","Minneapolis_Metropolitan", "Houston_Metropolitan",

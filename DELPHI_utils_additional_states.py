@@ -5,7 +5,7 @@ from datetime import datetime
 from copy import deepcopy
 from itertools import compress
 from DELPHI_params import (future_policies, provinces_Brazil,
-                           provinces_Peru, provinces_South_Africa)
+                           provinces_Peru, provinces_South_Africa,provinces_Russia)
 from DELPHI_utils import (check_us_policy_data_consistency, create_features_from_ihme_dates,
                           create_final_policy_features_us)
 
@@ -64,56 +64,10 @@ def read_policy_data_us_only_jj_version(filepath_data_sandbox: str):
         ]
     df_policies_US_final_NYC.province.replace({"New York": "NY-NJ Metropolitan"}, inplace=True)
 
-    df_policies_US_final_NHM = df_policies_US_final[
-        df_policies_US_final.province == "Connecticut"
-        ]
-    df_policies_US_final_NHM.province.replace({"Connecticut": "New-Haven Metropolitan"}, inplace=True)
-
-    df_policies_US_final_MMinM = df_policies_US_final[
-        df_policies_US_final.province == "Minnesota"
-        ]
-    df_policies_US_final_MMinM.province.replace({"Minnesota": "Minneapolis Metropolitan"}, inplace=True)
-    df_policies_US_final_DCArl = df_policies_US_final[
-        df_policies_US_final.province == "Virginia"
-        ]
-    df_policies_US_final_DCArl.province.replace({"Virginia": "Washington-Arlington-Alexandria Metropolitan"}, inplace=True)
-
-    df_policies_US_final_Tucson = df_policies_US_final[
-        df_policies_US_final.province == "Arizona"
-        ]
-    df_policies_US_final_Tucson.province.replace({"Arizona": "Tucson Metropolitan"}, inplace=True)
-
-    df_policies_US_final_Phoenix = df_policies_US_final[
-        df_policies_US_final.province == "Arizona"
-        ]
-    df_policies_US_final_Phoenix.province.replace({"Arizona": "Phoenix Metropolitan"}, inplace=True)
-
-    df_policies_US_final_LAOC = df_policies_US_final[
-        df_policies_US_final.province == "California"
-        ]
-    df_policies_US_final_LAOC.province.replace({"California": "LA-LB-OC Metropolitan"}, inplace=True)
-
-    df_policies_US_final_Houston = df_policies_US_final[
-        df_policies_US_final.province == "Texas"
-        ]
-    df_policies_US_final_Houston.province.replace({"Texas": "Houston Metropolitan"}, inplace=True)
-
-    df_policies_US_final_Dallas = df_policies_US_final[
-        df_policies_US_final.province == "Texas"
-        ]
-    df_policies_US_final_Dallas.province.replace({"Texas": "DALLAS-FW-ARLINGTON Metropolitan"}, inplace=True)
-
-    df_policies_US_final_Baltimore = df_policies_US_final[
-        df_policies_US_final.province == "Maryland"
-        ]
-    df_policies_US_final_Baltimore.province.replace({"Maryland": "Baltimore-Columbia-Towson Metropolitan"}, inplace=True)
 
 # Concatenating
     df_policies_US_final = pd.concat([
-        df_policies_US_final, df_policies_US_final_Chicago, df_policies_US_final_Detroit, df_policies_US_final_NYC,
-        df_policies_US_final_NHM, df_policies_US_final_MMinM, df_policies_US_final_Baltimore,df_policies_US_final_Dallas,
-        df_policies_US_final_Houston,df_policies_US_final_LAOC,df_policies_US_final_Phoenix,df_policies_US_final_Tucson,
-        df_policies_US_final_DCArl
+        df_policies_US_final, df_policies_US_final_Chicago, df_policies_US_final_Detroit, df_policies_US_final_NYC
     ]).reset_index(drop=True)
 
     return df_policies_US_final
@@ -294,6 +248,13 @@ def read_measures_oxford_data_jj_version():
     output = output.loc[:, ['country', 'province', 'date'] + msr]
 
     # Adding provinces for South Africa, Brazil, Peru
+    # Russia
+    outputs_provinces_Russia = []
+    for province in provinces_Russia:
+        output_Russia_temp = output[output.country == "Russia"]
+        output_Russia_temp.loc[:, "province"] = province
+        outputs_provinces_Russia.append(output_Russia_temp)
+    outputs_provinces_Russia = pd.concat(outputs_provinces_Russia).reset_index(drop=True)
     # Brazil
     outputs_provinces_Brazil = []
     for province in provinces_Brazil:
@@ -317,7 +278,7 @@ def read_measures_oxford_data_jj_version():
     outputs_provinces_Peru = pd.concat(outputs_provinces_Peru).reset_index(drop=True)
 
     output = pd.concat([
-        output, outputs_provinces_Brazil, outputs_provinces_South_Africa, outputs_provinces_Peru
+        output, outputs_provinces_Brazil, outputs_provinces_South_Africa, outputs_provinces_Peru, outputs_provinces_Russia
     ]).sort_values(["country", "province", "date"]).reset_index(drop=True)
     return output
 

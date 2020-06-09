@@ -71,3 +71,36 @@ provinces_South_Africa = [
     'Eastern Cape', 'Free State', 'Gauteng', 'KwaZulu Natal', 'Limpopo',
     'Mpumalanga', 'Northern Cape', 'North West', 'Western Cape'
 ]
+
+provinces_Russia = [
+    'Altayskiy Kray', 'Amursk Oblast', 'Arkhangelsk Oblast',
+    'Astrahan Oblast', 'Belgorod Oblast', 'Briansk Oblast',
+    'Chechen Republic', 'Cheliabinsk Oblast',
+    'Chukotskiy Autonomous Oblast', 'Habarovskiy Kray',
+    'Hanty-Mansiyskiy AO', 'Ingushetia Republic', 'Irkutsk Oblast',
+    'Ivanovo Oblast', 'Jewish Autonomous Oblast', 'Kaliningrad Oblast',
+    'Kaluga Oblast', 'Kamchatskiy Kray', 'Kemerovo Oblast',
+    'Kirov Oblast', 'Komi Republic', 'Kostroma Oblast',
+    'Krasnodarskiy Kray', 'Krasnoyarskiy Kray', 'Kurgan Oblast',
+    'Kursk Oblast', 'Leningradskaya Oblast', 'Lipetsk Oblast',
+    'Magadan Oblast', 'Moscow', 'Moscow Oblast', 'Murmansk Oblast',
+    'Nenetskiy Autonomous Oblast', 'Nizhegorodskaya Oblast',
+    'Novgorod Oblast', 'Novosibirsk Oblast', 'Omsk Oblast',
+    'Orel Oblast', 'Orenburg Oblast', 'Pensa Oblast', 'Perm Oblast',
+    'Primorskiy Kray', 'Pskov Oblast', 'Republic of Adygeia',
+    'Republic of Bashkortostan', 'Republic of Buriatia',
+    'Republic of Chuvashia', 'Republic of Dagestan',
+    'Republic of Hakassia', 'Republic of Kabardino-Balkaria',
+    'Republic of Kalmykia', 'Republic of Karachaevo-Cherkessia',
+    'Republic of Karelia', 'Republic of Mariy El',
+    'Republic of Mordovia', 'Republic of North Osetia-Alania',
+    'Republic of Tatarstan', 'Republic of Tyva',
+    'Republic of Udmurtia', 'Rostov Oblast', 'Ryazan Oblast',
+    'Saha Republic', 'Saint Petersburg', 'Sakhalin Oblast',
+    'Samara Oblast', 'Saratov Oblast', 'Smolensk Oblast',
+    'Stavropolskiy Kray', 'Sverdlov Oblast', 'Tambov Oblast',
+    'Tomsk Oblast', 'Tula Oblast', 'Tumen Oblast', 'Tver Oblast',
+    'Ulianovsk Oblast', 'Vladimir Oblast', 'Volgograd Oblast',
+    'Vologda Oblast', 'Voronezh Oblast', 'Yamalo-Nenetskiy AO',
+    'Yaroslavl Oblast', 'Zabaykalskiy Kray'
+]
