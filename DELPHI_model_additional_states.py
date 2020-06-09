@@ -29,11 +29,12 @@ ADDING_NEW_REGION = True  # True if we have to train a new region (Province/Stat
 # Dallas => 2020/04/06  "DALLAS-FW-ARLINGTON_Metropolitan" ready
 # Tucson => 2020/04/03  Done
 if ADDING_NEW_REGION:
-    training_start_date = datetime(2020, 4, 6)
+    training_start_date = datetime(2020, 4, 1)
 else:  # Then it should be the day before which we want to predict in order to update the predictions
     training_start_date = datetime(2020, 5, 26)
 
-training_last_date = datetime.now() - timedelta(days=1)
+training_end_date = datetime(2020, 6, 7)
+training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_april_1 = (training_last_date - training_start_date).days
 for n_days_before in range(n_days_to_april_1, 0, -1):
@@ -64,17 +65,17 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
         country_sub = country.replace(" ", "_")
         province_sub = province.replace(" ", "_")
         # TODO still missing Russia here as we don't have the data yet
-        if province_sub not in ["DALLAS-FW-ARLINGTON_Metropolitan"]:
-            continue
-        # if country_sub not in ["Brazil", "South_Africa", "Peru", "US"]:
+        # if province_sub not in ["DALLAS-FW-ARLINGTON_Metropolitan"]:
         #     continue
+        if country_sub not in ["Chile"]:
+            continue
 
         if os.path.exists(PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"):
             print(country + ", " + province)
             totalcases = pd.read_csv(
                 PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"
             )
-            if totalcases.day_since100.max() < 0:
+            if totalcases.day_since100.max() < 8:
                 print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
                 continue
             if pastparameters is not None:
