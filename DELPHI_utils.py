@@ -68,19 +68,24 @@ class DELPHIDataSaver:
 
     @staticmethod
     def create_nested_dict_from_final_dataframe(df_predictions: pd.DataFrame) -> dict:
-        dict_all_results = {}
+        dict_all_results = {
+            continent: {} for continent in df_predictions.Continent.unique()
+        }
+        for continent in dict_all_results.keys():
+            countries_in_continent = list(df_predictions[df_predictions.Continent == continent].Country.unique())
+            dict_all_results[continent] = {country: {} for country in countries_in_continent}
+
         keys_country_province = list(set([
-            (country, province) for country, province in
-            zip(df_predictions.Country.tolist(), df_predictions.Province.tolist())
+            (continent, country, province) for continent, country, province in
+            zip(df_predictions.Continent.tolist(), df_predictions.Country.tolist(), df_predictions.Province.tolist())
         ]))
-        for country, province in keys_country_province:
-            key_dict = country + "___" + province
+        for continent, country, province in keys_country_province:
             df_predictions_province = df_predictions[
                 (df_predictions.Country == country) & (df_predictions.Province == province)
             ].reset_index(drop=True)
             # The first part contains only ground truth value, so it doesn't matter which
             # policy/enaction time we choose to report these values
-            dict_all_results[key_dict] = {
+            dict_all_results[continent][country][province] = {
                 "Day": sorted(list(df_predictions_province.Day.unique())),
                 "Total Detected True": df_predictions_province[
                     (df_predictions_province.Policy == default_policy)
@@ -91,7 +96,7 @@ class DELPHIDataSaver:
                     & (df_predictions_province.Time == default_policy_enaction_time)
                     ].sort_values("Day")["Total Detected Deaths True"].tolist(),
             }
-            dict_all_results[key_dict].update({
+            dict_all_results[continent][country][province].update({
                 policy: {
                     policy_enaction_time: {
                         "Total Detected": df_predictions_province[
@@ -110,7 +115,7 @@ class DELPHIDataSaver:
 
         return dict_all_results
 
-    def save_policy_predictions_to_dict_pickle(self, website=False):
+    def save_policy_predictions_to_dict_pickle(self, website=False, local_delphi=False):
         today_date_str = "".join(str(datetime.now().date()).split("-"))
         dict_predictions_policies_world_since_100_cases = DELPHIDataSaver.create_nested_dict_from_final_dataframe(
             self.df_global_predictions_since_100_cases
@@ -125,6 +130,12 @@ class DELPHIDataSaver:
                 self.PATH_TO_FOLDER_DANGER_MAP + f'/predicted/world_Python_Scenarios_since_100_cases.json', 'w'
         ) as handle:
             json.dump(dict_predictions_policies_world_since_100_cases, handle)
+
+        if local_delphi:
+            with open(
+                    f'./world_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
+            ) as handle:
+                json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
         if website:
             with open(
@@ -438,54 +449,6 @@ class DELPHIAggregations:
         return df
 
 
-class DELPHIAggregations:
-    @staticmethod
-    def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
-        df = df[df["Province"] != "None"]
-        df_agg_country = df.groupby(["Continent", "Country", "Day"]).sum().reset_index()
-        df_agg_country["Province"] = "None"
-        df_agg_country = df_agg_country[[
-            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
-        ]]
-        return df_agg_country
-
-    @staticmethod
-    def get_aggregation_per_continent(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_continent = df.groupby(["Continent", "Day"]).sum().reset_index()
-        df_agg_continent["Country"] = "None"
-        df_agg_continent["Province"] = "None"
-        df_agg_continent = df_agg_continent[[
-            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
-        ]]
-        return df_agg_continent
-
-    @staticmethod
-    def get_aggregation_world(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_world = df.groupby("Day").sum().reset_index()
-        df_agg_world["Continent"] = "None"
-        df_agg_world["Country"] = "None"
-        df_agg_world["Province"] = "None"
-        df_agg_world = df_agg_world[[
-            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
-        ]]
-        return df_agg_world
-
-    @staticmethod
-    def append_all_aggregations(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(df)
-        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(df)
-        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world(df)
-        df = pd.concat([
-            df, df_agg_since_today_per_country,
-            df_agg_since_today_per_continent, df_agg_since_today_world
-        ])
-        df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
-        return df
-
-
 class DELPHIAggregationsPolicies:
     @staticmethod
     def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
@@ -535,7 +498,7 @@ class DELPHIAggregationsPolicies:
 
 
 def get_initial_conditions(params_fitted, global_params_fixed):
-    alpha, days, r_s, r_dth, p_dth, k1, k2 = params_fitted
+    alpha, days, r_s, r_dth, p_dth, k1, k2 = params_fitted[:7]
     N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
     S_0 = (
             (N - PopulationCI / p_d) -
@@ -768,7 +731,7 @@ def read_policy_data_us_only(filepath_data_sandbox: str):
         'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
         'West Virginia', 'Wisconsin', 'Wyoming'
     ]
-    df = pd.read_csv(filepath_data_sandbox + "10052020_raw_policy_data_US_only.csv")
+    df = pd.read_csv(filepath_data_sandbox + "24052020_raw_policy_data_US_only.csv")
     df = df[df.location_name.isin(list_US_states)][[
         "location_name", "travel_limit_start_date", "travel_limit_end_date",
         "stay_home_start_date", "stay_home_end_date", "educational_fac_start_date",
@@ -793,7 +756,7 @@ def read_policy_data_us_only(filepath_data_sandbox: str):
     return df_policies_US_final
 
 
-def read_measures_oxford_data():
+def read_measures_oxford_data(yesterday: str):
     measures = pd.read_csv('https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv')
     filtr = ['CountryName', 'CountryCode', 'Date']
     target = ['ConfirmedCases', 'ConfirmedDeaths']
@@ -891,6 +854,7 @@ def read_measures_oxford_data():
     output.rename(columns={'CountryName': 'country', 'Date': 'date'}, inplace=True)
     output['province'] = "None"
     output = output.loc[:, ['country', 'province', 'date'] + msr]
+    output = output[output.date <= yesterday].reset_index(drop=True)
     return output
 
 
@@ -963,8 +927,8 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
     params_countries = pastparameters_copy['Country']
     params_countries = set(params_countries)
     policy_data_countries_bis = policy_data_countries.query("country_cl in @params_countries")
-    countries_upper_set = set(policy_data_countries['country'])
-    
+    countries_upper_set = set(policy_data_countries[policy_data_countries.country != "US"]['country'])
+    # countries_in_oxford_and_params = params_countries.intersection(countries_upper_set)
     for country in countries_upper_set:
         dict_current_policy[(country, "None")] = list(compress(
             policy_list,
@@ -973,6 +937,18 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
                  == policy_data_countries.query('country == @country').date.max()
              ][policy_list] == 1).values.flatten().tolist()
         ))[0]
+    countries_common = sorted([x.lower() for x in countries_upper_set])
+    pastparam_tuples_in_oxford = pastparameters_copy[
+        (pastparameters_copy.Country.isin(countries_common)) &
+        (pastparameters_copy.Province != "None")
+    ].reset_index(drop=True)
+    pastparam_tuples_in_oxford["tuple_name"] = list(zip(pastparam_tuples_in_oxford.Country,
+                                                        pastparam_tuples_in_oxford.Province))
+    for tuple in pastparam_tuples_in_oxford.tuple_name.unique():
+        country, province = tuple
+        country = country[0].upper() + country[1:]
+        dict_current_policy[(country, province)] = dict_current_policy[(country, "None")]
+
     countries_set = set(policy_data_countries['country_cl'])
 
     params_dic = {}
