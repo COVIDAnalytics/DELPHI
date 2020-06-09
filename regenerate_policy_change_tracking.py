@@ -24,10 +24,10 @@ USER_RUNNING = "hamza"
 max_days_before = (datetime.now().date() - datetime(2020, 4, 27).date()).days - 1
 for n_days_before in range(max_days_before, max_days_before - 1, -1):
     yesterday = "".join(str(datetime.now().date() - timedelta(days=n_days_before)).split("-"))
-    # TODO: Find a way to make these paths automatic, whoever the user is...
+    print(yesterday)
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
     PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
-    policy_data_countries = read_measures_oxford_data()
+    policy_data_countries = read_measures_oxford_data(yesterday=yesterday)
     policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
     popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
     try:
@@ -165,5 +165,5 @@ for n_days_before in range(max_days_before, max_days_before - 1, -1):
         by=["continent", "country", "province", "date"]
     ).reset_index(drop=True)
     df_tracking.to_csv(CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING] +
-                       f"policy_change_tracking_world_updated.csv", index=False)
+                       f"policy_change_tracking_world_updated_newtry.csv", index=False)
     print("Saved the dataset of tracking")

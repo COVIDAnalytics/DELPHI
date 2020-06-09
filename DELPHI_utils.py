@@ -981,8 +981,8 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
     params_countries = pastparameters_copy['Country']
     params_countries = set(params_countries)
     policy_data_countries_bis = policy_data_countries.query("country_cl in @params_countries")
-    countries_upper_set = set(policy_data_countries['country'])
-    
+    countries_upper_set = set(policy_data_countries[policy_data_countries.country != "US"]['country'])
+    # countries_in_oxford_and_params = params_countries.intersection(countries_upper_set)
     for country in countries_upper_set:
         dict_current_policy[(country, "None")] = list(compress(
             policy_list,
@@ -991,6 +991,18 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
                  == policy_data_countries.query('country == @country').date.max()
              ][policy_list] == 1).values.flatten().tolist()
         ))[0]
+    countries_common = sorted([x.lower() for x in countries_upper_set])
+    pastparam_tuples_in_oxford = pastparameters_copy[
+        (pastparameters_copy.Country.isin(countries_common)) &
+        (pastparameters_copy.Province != "None")
+    ].reset_index(drop=True)
+    pastparam_tuples_in_oxford["tuple_name"] = list(zip(pastparam_tuples_in_oxford.Country,
+                                                        pastparam_tuples_in_oxford.Province))
+    for tuple in pastparam_tuples_in_oxford.tuple_name.unique():
+        country, province = tuple
+        country = country[0].upper() + country[1:]
+        dict_current_policy[(country, province)] = dict_current_policy[(country, "None")]
+
     countries_set = set(policy_data_countries['country_cl'])
 
     params_dic = {}

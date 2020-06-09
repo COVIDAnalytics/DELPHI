@@ -31,7 +31,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-training_start_date = "2020-06-06"
+training_start_date = "2020-04-30"
 training_end_date = "2020-06-08"
 max_days_before = (pd.to_datetime(training_end_date) - pd.to_datetime(training_start_date)).days
 time_start = datetime.now()
@@ -56,7 +56,7 @@ for n_days_before in range(max_days_before, 1, -1):
     #     )
     #     param_MATHEMATICA = False
     pastparameters = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{yesterday}_newtry.csv"
+        PATH_TO_FOLDER_DANGER_MAP + f"predicted/parameters_global_CR_all/Parameters_Global_CR_{yesterday}.csv"
     )
     param_MATHEMATICA = False
     # True if we use the Mathematica run parameters, False if we use those from Python runs
@@ -85,10 +85,10 @@ for n_days_before in range(max_days_before, 1, -1):
 
     # Dataset with history of previous policy changes
     POLICY_TRACKING_ALREADY_EXISTS = False
-    if os.path.exists(PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry.csv"):
+    if os.path.exists(PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_final.csv"):
         POLICY_TRACKING_ALREADY_EXISTS = True
         df_policy_change_tracking_world = pd.read_csv(
-            PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry.csv"
+            PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_final.csv"
         )
     else:
         dict_policy_change_tracking_world = {
@@ -118,6 +118,9 @@ for n_days_before in range(max_days_before, 1, -1):
             dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
         else:
             dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
+
+        if country not in ["Canada", "Australia"]:
+            continue
 
         CREATED_COUNTRY_IN_TRACKING = False
         country_sub = country.replace(" ", "_")
@@ -185,7 +188,7 @@ for n_days_before in range(max_days_before, 1, -1):
                 raise ValueError(
                     f"Policy Tracking line for {country}, {province} already exists on {yesterday}; " +
                     "make sure you want to re-predict on that day and if so modify the code to get rid of the " +
-                    "current policy tracking line (otherwise you'll get a duplicateç"
+                    "current policy tracking line (otherwise you'll get a duplicate)"
                 )
             else:
                 raise NotImplementedError(
@@ -1080,14 +1083,24 @@ for n_days_before in range(max_days_before, 1, -1):
         by=["continent", "country", "province", "date"]
     ).reset_index(drop=True)
     df_tracking.to_csv(
-        PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_newtry.csv",
+        PATH_TO_DATA_SANDBOX + f"policy_change_tracking_world_updated_final.csv",
         index=False
     )
     today_date_str = "".join(str(datetime.now().date()).split("-"))
     day_after_yesterday_date_str = "".join(str((pd.to_datetime(yesterday) + timedelta(days=1)).date()).split("-"))
     df_global_parameters_continuous_retraining = pd.concat(list_df_global_parameters).reset_index(drop=True)
+    # The code below is commented out but can be used if adding a country from scratch (ie April 28) in DELPHI 3.0+CR
+    # df_global_parameters_continuous_retraining = pd.concat([
+    #     pd.read_csv(
+    #         PATH_TO_FOLDER_DANGER_MAP +
+    #         f"predicted/parameters_global_CR_all/Parameters_Global_CR_{day_after_yesterday_date_str}_newtry.csv"
+    #     ),
+    #     df_global_parameters_continuous_retraining
+    # ]).sort_values(["Continent", "Country", "Province"]).reset_index(drop=True)
     df_global_parameters_continuous_retraining.to_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{day_after_yesterday_date_str}_newtry.csv", index=False
+        PATH_TO_FOLDER_DANGER_MAP +
+        f"predicted/parameters_global_CR_all/Parameters_Global_CR_{day_after_yesterday_date_str}_final.csv",
+        index=False
     )
     df_global_predictions_since_today_scenarios = pd.concat(
         list_df_global_predictions_since_today
@@ -1097,7 +1110,7 @@ for n_days_before in range(max_days_before, 1, -1):
     ).reset_index(drop=True)
     df_global_predictions_since_100_cases_scenarios.to_csv(
         PATH_TO_DATA_SANDBOX +
-        f"./predictions_DELPHI_3_continuous_retraining_{day_after_yesterday_date_str}_newtry.csv",
+        f"./predictions_DELPHI_3_continuous_retraining_{day_after_yesterday_date_str}_final.csv",
         index=False)
     print("Saved the dataset of updated tracking & predictions in data_sandbox, Parameters_CR_Global in danger_map")
     print("#############################################################")
