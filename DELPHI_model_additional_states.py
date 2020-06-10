@@ -17,8 +17,8 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "ali"
-ADDING_NEW_REGION = True  # True if we have to train a new region (Province/State etc.) from April 1st to now
+USER_RUNNING = "mohammad"
+ADDING_NEW_REGION = False  # True if we have to train a new region (Province/State etc.) from April 1st to now
 # training_start_date is the first date of parameters that will be used
 # Note that we take the parameters from the day before of the predictions, e.g. if I want to predict
 # using the historical data up to May 25th then I need to use the past parameters of May 24th
@@ -29,9 +29,9 @@ ADDING_NEW_REGION = True  # True if we have to train a new region (Province/Stat
 # Dallas => 2020/04/06  "DALLAS-FW-ARLINGTON_Metropolitan" ready
 # Tucson => 2020/04/03  Done
 if ADDING_NEW_REGION:
-    training_start_date = datetime(2020, 4, 1)
+    training_start_date = datetime(2020, 4, 11)
 else:  # Then it should be the day before which we want to predict in order to update the predictions
-    training_start_date = datetime(2020, 5, 26)
+    training_start_date = datetime(2020, 5, 25)
 
 training_end_date = datetime(2020, 6, 7)
 training_last_date = training_end_date - timedelta(days=1)
@@ -65,9 +65,9 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
         country_sub = country.replace(" ", "_")
         province_sub = province.replace(" ", "_")
         # TODO still missing Russia here as we don't have the data yet
-        # if province_sub not in ["DALLAS-FW-ARLINGTON_Metropolitan"]:
+        # if province_sub not in ["Espiritu_Santo", "Mato_Grosso", "Mato_Grosso_do_Sul"]:
         #     continue
-        if country_sub not in ["Chile"]:
+        if country_sub not in ["Brazil", "Mexico"]:
             continue
 
         if os.path.exists(PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"):
@@ -297,6 +297,7 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
     df_global_parameters.to_csv(
         PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{day_after_yesterday}.csv", index=False
     )
+
     df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
     #df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
     #    df_global_predictions_since_100_cases

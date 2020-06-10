@@ -60,7 +60,7 @@ provinces_Brazil = [
     'Acre', 'Alagoas', 'Amapa', 'Amazonas', 'Bahia', 'Ceara', 'Distrito Federal', 'Espirito Santo', 'Goias',
     'Maranhao', 'MatoGrosso', 'MatoGrosso do Sul', 'Minas Gerais', 'Para', 'Paraiba', 'Parana', 'Pernambuco',
     'Piaui', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondonia', 'Roraima', 'Santa Catarina',
-    'Sao Paulo', 'Sergipe', 'Tocantins'
+    'Sao Paulo', 'Sergipe', 'Tocantins', 'Espiritu Santo', 'Mato Grosso', 'Mato Grosso do Sul'
 ]
 provinces_Peru = [
     'Amazonas', 'Ancash', 'Apurimac', 'Arequipa', 'Ayacucho', 'Cajamarca', 'Cusco', 'Callao', 'Huancavelica',
@@ -105,7 +105,19 @@ provinces_Russia = [
     'Yaroslavl Oblast', 'Zabaykalskiy Kray'
 ]
 
-provinces_Chile =  ['Antofagasta', 'Araucania', 'Arica y Parinacota', 'Atacama',
+provinces_Chile = [
+    'Antofagasta', 'Araucania', 'Arica y Parinacota', 'Atacama',
      'Aysen', 'Biobio', 'Coquimbo', 'Los Lagos', 'Los Rios',
      'Magallanes', 'Maule', 'Nuble', "O'Higgins", 'Santiago',
-     'Tarapaca', 'Valparaiso']
+     'Tarapaca', 'Valparaiso'
+]
+
+provinces_Mexico = [
+    'Aguascalientes', 'Baja California', 'Baja California Sur',
+ 'Campeche', 'Chiapas', 'Chihuahua', 'Ciudad de Mexico', 'Coahuila',
+ 'Colima', 'Durango', 'Guanajuato', 'Guerrero', 'Hidalgo',
+ 'Jalisco', 'Mexico', 'Michoacan', 'Morelos', 'Nayarit',
+ 'Nuevo Leon', 'Oaxaca', 'Puebla', 'Queretaro', 'Quintana Roo',
+ 'San Luis Potosi', 'Sinaloa', 'Sonora', 'Tabasco', 'Tamaulipas',
+ 'Tlaxcala', 'Veracruz', 'Yucatan', 'Zacatecas'
+]
