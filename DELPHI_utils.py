@@ -8,7 +8,7 @@ from itertools import compress
 import json
 from DELPHI_params import (TIME_DICT, MAPPING_STATE_CODE_TO_STATE_NAME, default_policy,
                            default_policy_enaction_time, future_policies, provinces_Brazil,
-                           provinces_Peru, provinces_South_Africa)
+                           provinces_Peru, provinces_South_Africa, provinces_Mexico)
 
 
 class DELPHIDataSaver:
@@ -936,9 +936,12 @@ def get_normalized_policy_shifts_and_current_policy_us_only(
     )
     params_dic = {}
     for state in states_set:
-        params_dic[state] = pastparameters_copy.query('Province == @state')[
+        df_state = pastparameters_copy.query('Province == @state')[
             ['Data Start Date', 'Median Day of Action', 'Rate of Action']
-        ].iloc[0]
+        ]
+        if df_state.shape[0] == 0:
+            print("State ", state, " does not exist in Parameters_J&J_Global_")
+        params_dic[state] = df_state.iloc[0]
 
     policy_data_us_only['Gamma'] = [
         gamma_t(day, state, params_dic) for day, state in

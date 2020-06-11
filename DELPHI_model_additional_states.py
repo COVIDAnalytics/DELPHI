@@ -22,12 +22,6 @@ ADDING_NEW_REGION = False  # True if we have to train a new region (Province/Sta
 # training_start_date is the first date of parameters that will be used
 # Note that we take the parameters from the day before of the predictions, e.g. if I want to predict
 # using the historical data up to May 25th then I need to use the past parameters of May 24th
-# Phoenix, LA, Baltimore => 2020/04/01 Done
-# Washington => 2020/04/20 Done
-# Minneapolis => 2020/04/23 Done
-# Houston => 2020/04/05 processing
-# Dallas => 2020/04/06  "DALLAS-FW-ARLINGTON_Metropolitan" ready
-# Tucson => 2020/04/03  Done
 if ADDING_NEW_REGION:
     training_start_date = datetime(2020, 4, 11)
 else:  # Then it should be the day before which we want to predict in order to update the predictions

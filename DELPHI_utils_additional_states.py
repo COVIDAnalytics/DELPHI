@@ -5,7 +5,7 @@ from datetime import datetime
 from copy import deepcopy
 from itertools import compress
 from DELPHI_params import (future_policies, provinces_Brazil,
-                           provinces_Peru, provinces_South_Africa,provinces_Russia,provinces_Chile)
+                           provinces_Peru, provinces_South_Africa,provinces_Russia,provinces_Chile,provinces_Mexico)
 from DELPHI_utils import (check_us_policy_data_consistency, create_features_from_ihme_dates,
                           create_final_policy_features_us)
 
@@ -249,12 +249,20 @@ def read_measures_oxford_data_jj_version():
 
     # Adding provinces for South Africa, Brazil, Peru
 
+    # Mexico
+    outputs_provinces_Mexico = []
+    for province in provinces_Mexico:
+        output_Mexico_temp = output[output.country == "Mexico"]
+        output_Mexico_temp.loc[:, "province"] = province
+        outputs_provinces_Mexico.append(output_Mexico_temp)
+    outputs_provinces_Mexico = pd.concat(outputs_provinces_Mexico).reset_index(drop=True)
+
     # Chile
     outputs_provinces_Chile = []
     for province in provinces_Chile:
-        output_Russia_temp = output[output.country == "Chile"]
-        output_Russia_temp.loc[:, "province"] = province
-        outputs_provinces_Chile.append(output_Russia_temp)
+        output_Chile_temp = output[output.country == "Chile"]
+        output_Chile_temp.loc[:, "province"] = province
+        outputs_provinces_Chile.append(output_Chile_temp)
     outputs_provinces_Chile = pd.concat(outputs_provinces_Chile).reset_index(drop=True)
 
     # Russia
@@ -288,7 +296,7 @@ def read_measures_oxford_data_jj_version():
 
     output = pd.concat([
         output, outputs_provinces_Brazil, outputs_provinces_South_Africa, outputs_provinces_Peru,
-        outputs_provinces_Russia, outputs_provinces_Chile
+        outputs_provinces_Russia, outputs_provinces_Chile, outputs_provinces_Mexico
     ]).sort_values(["country", "province", "date"]).reset_index(drop=True)
     return output
 

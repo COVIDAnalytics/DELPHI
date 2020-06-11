@@ -16,8 +16,7 @@ from DELPHI_params import (
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
     default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
 )
-import yaml
-import os
+import os, sys, yaml
 import matplotlib.pyplot as plt
 
 
@@ -25,8 +24,10 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "ali"
+training_end_date = datetime(2020, 6, 7)
+
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
-yesterday = "".join(str(datetime(2020,6,7).date() - timedelta(days=1)).split("-"))
+yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
 day_after_yesterday = "".join(str(pd.to_datetime(yesterday).date() + timedelta(days=1)).split("-"))
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 #PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -34,6 +35,24 @@ PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
 policy_data_countries = read_measures_oxford_data_jj_version()
 policy_data_us_only = read_policy_data_us_only_jj_version(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv")
+
+PATH_TO_PARAM_GLOBAL = '/Users/ali/Dropbox/J&J_MIT_COVID19/Global_Parameters_DELPHI2_files/'
+def createParameters_JJ_Global(PATH_TO_PARAM_GLOBAL, PATH_TO_DATA_SANDBOX, yesterday ):
+    Parameters_Global = pd.read_csv(PATH_TO_PARAM_GLOBAL+f'Parameters_Global_{yesterday}.csv')
+    Parameters_J = pd.read_csv(PATH_TO_DATA_SANDBOX + f'predicted/parameters/Parameters_J&J_{yesterday}.csv')
+
+    parameter_Global_J = pd.concat([Parameters_J,Parameters_Global]).reset_index(drop=True)
+    already_exist = os.path.exists(PATH_TO_DATA_SANDBOX +f'predicted/parameters/Parameters_J&J_Global_{yesterday}.csv')
+    if already_exist:
+        os.remove(PATH_TO_DATA_SANDBOX +f'predicted/parameters/Parameters_J&J_Global_{yesterday}.csv')
+
+    parameter_Global_J.to_csv(PATH_TO_DATA_SANDBOX + f'predicted/parameters/Parameters_J&J_Global_{yesterday}.csv',index = False)
+    return os.path.exists(PATH_TO_DATA_SANDBOX +f'predicted/parameters/Parameters_J&J_Global_{yesterday}.csv')
+param_global_JJ_created = createParameters_JJ_Global(PATH_TO_PARAM_GLOBAL,PATH_TO_DATA_SANDBOX,yesterday)
+if not param_global_JJ_created:
+    print( f"predicted/parameters/Parameters_J&J_Global_{yesterday}.csv is not created")
+    sys.exit()
+
 pastparameters = pd.read_csv(PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_Global_{yesterday}.csv")
 # TODO/ files Parameters_J&J_Global_{yesterday}.csv must be a concatenation of (1) the existing regular parameter file
 #  (Parameters_Global_{yesterday}.csv) used by DELPHI on the website, and (2) the Parameters_J&J_{yesterday}.csv
@@ -81,7 +100,7 @@ for continent, country, province in zip(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     # TODO still missing Russia here as we don't have the data yet
-    if country_sub not in ["Russia", "Chile"]:
+    if country_sub not in ["Brazil", "Mexico"]:
         continue
     # if country_sub == "US":
     #     if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
