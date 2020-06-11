@@ -31,11 +31,11 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-training_start_date = "2020-04-30"
-training_end_date = "2020-06-08"
+training_start_date = "2020-06-08"
+training_end_date = "2020-06-09"
 max_days_before = (pd.to_datetime(training_end_date) - pd.to_datetime(training_start_date)).days
 time_start = datetime.now()
-for n_days_before in range(max_days_before, 1, -1):
+for n_days_before in range(max_days_before, 0, -1):
     yesterday = "".join(str(pd.to_datetime(training_end_date).date() - timedelta(days=n_days_before)).split("-"))
     print(yesterday)
     print(f"Runtime for {yesterday}: {datetime.now() - time_start}")
@@ -118,9 +118,6 @@ for n_days_before in range(max_days_before, 1, -1):
             dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
         else:
             dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
-
-        if country not in ["Canada", "Australia"]:
-            continue
 
         CREATED_COUNTRY_IN_TRACKING = False
         country_sub = country.replace(" ", "_")

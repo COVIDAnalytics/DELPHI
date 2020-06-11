@@ -2,9 +2,7 @@
 # This is DELPHI with Continuous Retraining on Policies implemented
 import pandas as pd
 import numpy as np
-import dateutil.parser as dtparser
 from scipy.integrate import solve_ivp
-from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from DELPHI_utils import (
     DELPHIDataCreator, DELPHIDataSaver,
@@ -13,8 +11,7 @@ from DELPHI_utils import (
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
 )
 from DELPHI_policies_utils import (
-    update_tracking_when_policy_changed, update_tracking_without_policy_change,
-    get_list_and_bounds_params, get_params_constant_policies, add_policy_tracking_row_country,
+    get_list_and_bounds_params, get_params_constant_policies,
     get_policy_names_before_after_fitted, get_policy_names_before_after_constant,
     update_gamma_t_with_constant_params
 )
@@ -36,7 +33,7 @@ print(yesterday)
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
-policy_data_countries = read_measures_oxford_data()
+policy_data_countries = read_measures_oxford_data(yesterday=yesterday)
 policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=PATH_TO_DATA_SANDBOX)
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
 pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_CR_{yesterday}.csv")
