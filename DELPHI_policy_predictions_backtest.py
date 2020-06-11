@@ -241,6 +241,9 @@ df_min_all = df_min_all[[
     "best_cases_policy_same_as_current_policy", "best_deaths_policy_same_as_current_policy",
     "best_mape_cases_c", "best_mape_deaths_c", "best_mape_cases_d", "best_mape_deaths_d",
 ]]
+for col in ["best_mape_cases_c", "best_mape_deaths_c", "best_mape_cases_d", "best_mape_deaths_d",]:
+    df_min_all[col] = df_min_all[col].round(3)
+
 df_min_all.to_csv(
     f"./backtesting/{testing_date_file}_backtest" +
     f"_policy_predictions_pred_from_{prediction_date_file}.csv",
