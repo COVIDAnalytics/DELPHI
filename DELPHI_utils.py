@@ -140,7 +140,7 @@ class DELPHIDataSaver:
         if website:
             with open(
                 self.PATH_TO_WEBSITE_PREDICTED +
-                f'/assets/policies/World_Scenarios.json', 'w'
+                f'assets/policies/World_Scenarios.json', 'w'
             ) as handle:
                 json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
