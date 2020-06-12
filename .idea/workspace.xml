@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="f720965b-e2ea-4a86-90f2-9c88f0889e26" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Afghanistan_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Afghanistan_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Albania_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Albania_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Algeria_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Algeria_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_AllStates.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_AllStates.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Andorra_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Andorra_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Angola_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Angola_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Antigua_and_Barbuda_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Antigua_and_Barbuda_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Argentina_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Argentina_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Armenia_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Armenia_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Australia_Australian_Capital_Territory.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Australia_Australian_Capital_Territory.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Australia_New_South_Wales.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Australia_New_South_Wales.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Australia_Northern_Territory.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Australia_Northern_Territory.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Australia_Queensland.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Australia_Queensland.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Australia_South_Australia.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Australia_South_Australia.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Australia_Tasmania.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Australia_Tasmania.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Australia_Victoria.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Australia_Victoria.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Australia_Western_Australia.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Australia_Western_Australia.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Austria_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Austria_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Azerbaijan_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Azerbaijan_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Bahamas_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Bahamas_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Bahrain_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Bahrain_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Bangladesh_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Bangladesh_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Barbados_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Barbados_None.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/processed/Cases_Belarus_None.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_Belarus_None.csv" afterDir="false" />
+=======
     <list default="true" id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/DELPHI.iml" afterDir="false" />
@@ -60,6 +87,7 @@
       <change beforePath="$PROJECT_DIR$/DELPHI_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+>>>>>>> d30b717167c854d6433531a5b7b619e0ac687b1c
       <change beforePath="$PROJECT_DIR$/data/processed/Cases_US_Alabama.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_US_Alabama.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/processed/Cases_US_Alaska.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_US_Alaska.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/processed/Cases_US_Arizona.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Cases_US_Arizona.csv" afterDir="false" />
