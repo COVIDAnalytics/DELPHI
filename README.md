@@ -6,7 +6,7 @@ http://www.covidanalytics.io/
 
 The notebook code was written with Mathematica 12.1 but should work with any version greater than 10.0.
 
-We also included a python implementation using scipy.solve_ivp. It has been tested on Python 3.7.
+We also included a python implementation using scipy.solve_ivp in the file DELPHI_model.py. It has been tested on Python 3.7. We are currently transitioning to a newer model that takes care of reopening policies, and there would be a new file for that implementation soon. The documentation would also be updated. 
 
 Documentation is contained in the pdf document: DELPHI_Explainer.
 
