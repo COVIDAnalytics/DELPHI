@@ -18,7 +18,7 @@ from DELPHI_params import (
 import yaml
 import os
 import matplotlib.pyplot as plt
-RUNNING_FOR_JJ = True
+RUNNING_FOR_JJ = False
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
