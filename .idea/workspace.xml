@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data_sandbox/12062020_raw_policy_data_us_only.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200612_final.csv" afterDir="false" />
+    <list default="true" id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="update 3.0+CR 06/12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_model_cr_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_cr_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/policy_change_tracking_world_updated_final.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/policy_change_tracking_world_updated_final.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -261,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592018495397</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="update 3.0+CR 06/12">
+      <created>1592198329816</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1592198329816</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -299,6 +302,7 @@
     <MESSAGE value="branch with the data updated 27/04/2020" />
     <MESSAGE value="consistent folder naming" />
     <MESSAGE value="update 3.0+CR 06/11" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 3.0+CR 06/11" />
+    <MESSAGE value="update 3.0+CR 06/12" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 3.0+CR 06/12" />
   </component>
 </project>
