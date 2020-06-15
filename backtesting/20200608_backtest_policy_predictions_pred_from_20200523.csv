@@ -1,0 +1,169 @@
+country,province,current_policy_0608,best_policy_cases,best_policy_deaths,best_cases_policy_same_as_current_policy,best_deaths_policy_same_as_current_policy,best_mape_cases_c,best_mape_deaths_c,best_mape_cases_d,best_mape_deaths_d
+Afghanistan,None,Lockdown,Lockdown,Lockdown,True,True,4.666,44.44,4.666,44.44
+Azerbaijan,None,Lockdown,No_Measure,No_Measure,False,False,25.469,18.394,25.469,18.394
+Bahrain,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Lockdown,False,True,2.673,21.084,4.913,18.069
+Bangladesh,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,6.305,11.819,17.097,5.769
+Georgia,None,Lockdown,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,2.228,24.095,3.729,23.643
+India,None,Lockdown,Lockdown,Lockdown,True,True,5.161,11.469,5.161,11.469
+Indonesia,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,5.566,16.906,11.437,13.588
+Iran,None,Lockdown,No_Measure,No_Measure,False,False,20.274,4.968,20.274,4.968
+Iraq,None,Lockdown,No_Measure,No_Measure,False,False,36.726,18.007,36.726,18.007
+Israel,None,Lockdown,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,1.996,0.913,2.054,0.893
+Japan,None,Restrict_Mass_Gatherings_and_Schools_and_Others,Lockdown,Lockdown,False,False,11.869,14.031,11.869,14.031
+Jordan,None,Lockdown,No_Measure,No_Measure,False,False,14.568,17.647,14.568,17.647
+Kazakhstan,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,8.995,45.041,14.322,40.612
+"Korea, South",None,Lockdown,No_Measure,No_Measure,False,False,5.45,1.587,5.45,1.587
+Kuwait,None,Lockdown,Lockdown,Lockdown,True,True,32.771,36.812,32.771,36.812
+Lebanon,None,Lockdown,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,24.738,6.891,25.529,6.854
+Malaysia,None,Lockdown,No_Measure,Lockdown,False,True,9.846,5.299,10.436,4.995
+Nepal,None,Lockdown,No_Measure,No_Measure,False,False,32.703,7.476,32.703,7.476
+Oman,None,Lockdown,No_Measure,No_Measure,False,False,20.277,17.713,20.277,17.713
+Pakistan,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Lockdown,False,True,2.728,14.331,4.977,11.71
+Philippines,None,Lockdown,No_Measure,Lockdown,False,True,17.401,10.018,21.46,7.913
+Qatar,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,No_Measure,False,False,4.442,11.919,44.23,8.031
+Russia,None,Lockdown,Lockdown,Lockdown,True,True,3.148,2.837,3.148,2.837
+Saudi Arabia,None,Lockdown,Lockdown,Lockdown,True,True,8.139,17.595,8.139,17.595
+Singapore,None,Lockdown,Lockdown,Lockdown,True,True,4.064,67.714,4.064,67.714
+Sri Lanka,None,Lockdown,No_Measure,Lockdown,False,True,14.397,49.079,22.741,44.747
+Thailand,None,Lockdown,No_Measure,No_Measure,False,False,0.928,1.55,0.928,1.55
+Turkey,None,Lockdown,No_Measure,No_Measure,False,False,4.702,2.701,4.702,2.701
+United Arab Emirates,None,Restrict_Mass_Gatherings_and_Schools_and_Others,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,False,5.243,46.548,9.175,43.781
+Uzbekistan,None,Lockdown,No_Measure,No_Measure,False,False,20.112,4.704,20.112,4.704
+Albania,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,7.869,16.402,11.07,14.824
+Andorra,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,No_Measure,False,False,4.225,0.231,4.233,0.231
+Austria,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,3.18,2.811,3.193,2.802
+Belarus,None,Mass_Gatherings_Authorized_But_Others_Restricted,No_Measure,Lockdown,False,False,1.938,18.707,5.805,16.932
+Belgium,None,Lockdown,No_Measure,Lockdown,False,True,2.295,2.105,2.749,1.889
+Bosnia and Herzegovina,None,Restrict_Mass_Gatherings_and_Schools_and_Others,Lockdown,Lockdown,False,False,2.616,2.723,2.616,2.723
+Bulgaria,None,Lockdown,Lockdown,Lockdown,True,True,7.568,2.595,7.568,2.595
+Croatia,None,Lockdown,No_Measure,No_Measure,False,False,0.262,13.815,0.262,13.815
+Cyprus,None,Lockdown,No_Measure,No_Measure,False,False,2.57,0.98,2.57,0.98
+Czechia,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,8.514,1.21,8.514,1.21
+Denmark,None,Lockdown,No_Measure,Lockdown,False,True,1.759,2.527,2.845,1.883
+Estonia,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,4.168,2.039,4.168,2.039
+Finland,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,3.484,32.915,5.038,32.623
+France,None,Lockdown,No_Measure,No_Measure,False,False,2.646,3.253,2.646,3.253
+Germany,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,3.701,4.183,3.802,4.16
+Greece,None,Lockdown,No_Measure,No_Measure,False,False,3.024,5.514,3.024,5.514
+Hungary,None,Lockdown,No_Measure,No_Measure,False,False,2.623,0.982,2.623,0.982
+Iceland,None,Restrict_Mass_Gatherings_and_Schools_and_Others,Lockdown,No_Measure,False,False,1.434,2.353,1.437,2.353
+Ireland,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,0.06,6.518,0.27,6.43
+Italy,None,Lockdown,No_Measure,No_Measure,False,False,1.121,2.074,1.121,2.074
+Kosovo,None,Lockdown,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,6.521,11.192,7.436,10.806
+Luxembourg,None,Lockdown,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,1.886,0.749,1.934,0.696
+Moldova,None,Lockdown,No_Measure,No_Measure,False,False,4.931,2.487,4.931,2.487
+Netherlands,None,Lockdown,No_Measure,Lockdown,False,True,1.497,0.635,1.962,0.397
+Norway,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,No_Measure,No_Measure,False,False,2.726,5.619,2.726,5.619
+Poland,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,6.563,11.104,12.133,8.946
+Portugal,None,Lockdown,No_Measure,No_Measure,False,False,8.313,7.2,8.313,7.2
+Romania,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,0.887,3.518,2.509,2.847
+San Marino,None,Lockdown,Lockdown,Lockdown,True,True,1.73,14.986,1.73,14.986
+Serbia,None,Lockdown,No_Measure,Lockdown,False,True,2.352,2.78,2.902,2.518
+Slovakia,None,Lockdown,Lockdown,Restrict_Mass_Gatherings_and_Schools,True,False,3.753,23.319,3.853,23.319
+Slovenia,None,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,No_Measure,False,False,0.631,5.591,0.715,5.591
+Spain,None,Lockdown,No_Measure,Lockdown,False,True,3.271,2.04,3.339,2.003
+Sweden,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,6.393,7.874,9.484,6.489
+Switzerland,None,Lockdown,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,0.849,2.665,0.875,2.662
+Ukraine,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,No_Measure,False,False,1.111,6.611,7.343,5.511
+United Kingdom,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,0.961,6.572,2.436,5.378
+Algeria,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Lockdown,False,True,3.749,27.394,5.628,25.484
+Benin,None,Restrict_Mass_Gatherings_and_Schools_and_Others,Lockdown,No_Measure,False,False,35.908,1.471,36.235,1.471
+Burkina Faso,None,Lockdown,No_Measure,Lockdown,False,True,3.047,6.794,4.463,6.128
+Cameroon,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,12.473,25.091,24.297,20.502
+Chad,None,Lockdown,No_Measure,Lockdown,False,True,7.916,26.091,10.878,23.572
+Congo (Kinshasa),None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Lockdown,False,True,5.723,52.054,11.11,45.983
+Cote d'Ivoire,None,Lockdown,No_Measure,Lockdown,False,True,5.821,16.777,10.241,9.858
+Djibouti,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,55.919,67.083,55.919,67.083
+Egypt,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,7.995,28.511,18.435,21.752
+Ethiopia,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,No_Measure,False,False,23.716,29.963,34.583,23.932
+Gabon,None,Lockdown,Lockdown,Lockdown,True,True,12.478,71.0,12.478,71.0
+Ghana,None,Restrict_Mass_Gatherings_and_Schools_and_Others,Lockdown,Lockdown,False,False,13.884,41.337,13.884,41.337
+Jamaica,None,Lockdown,No_Measure,No_Measure,False,False,7.664,7.19,7.664,7.19
+Kenya,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,9.254,30.638,21.944,25.723
+Liberia,None,Lockdown,No_Measure,No_Measure,False,False,10.066,7.0,10.066,7.0
+Madagascar,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,No_Measure,False,False,11.924,72.551,155.373,68.361
+Mali,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,10.193,6.355,10.193,6.355
+Mauritius,None,Lockdown,No_Measure,No_Measure,False,False,0.281,0.0,0.281,0.0
+Morocco,None,Lockdown,Lockdown,Lockdown,True,True,4.957,44.032,4.957,44.032
+Niger,None,Mass_Gatherings_Authorized_But_Others_Restricted,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,6.007,7.096,6.117,7.006
+Nigeria,None,Lockdown,Lockdown,Lockdown,True,True,1.621,30.629,1.621,30.629
+Rwanda,None,Lockdown,No_Measure,No_Measure,False,False,7.638,100.0,7.638,100.0
+Senegal,None,Lockdown,Lockdown,Lockdown,True,True,7.993,19.015,7.993,19.015
+Sierra Leone,None,Lockdown,Lockdown,Lockdown,True,True,3.296,24.419,3.296,24.419
+Somalia,None,Lockdown,Lockdown,Lockdown,True,True,4.018,28.33,4.018,28.33
+South Africa,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,False,False,3.525,8.547,16.626,6.557
+Sudan,None,Lockdown,Lockdown,Restrict_Mass_Gatherings_and_Schools,True,False,4.615,10.307,13.216,6.959
+Tanzania,None,Restrict_Mass_Gatherings_and_Schools_and_Others,Restrict_Mass_Gatherings_and_Schools,No_Measure,False,False,3.259,12.325,3.271,12.325
+Tunisia,None,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,1.593,2.911,1.593,2.911
+Zambia,None,Restrict_Mass_Gatherings_and_Schools_and_Others,Lockdown,Lockdown,False,False,56.103,139.916,56.103,139.916
+Argentina,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,16.625,17.177,27.161,11.32
+Bolivia,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Lockdown,False,True,6.378,25.473,10.436,19.249
+Brazil,None,Lockdown,Lockdown,Lockdown,True,True,1.36,22.742,1.36,22.742
+Chile,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,False,False,12.092,10.318,13.518,6.035
+Colombia,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Lockdown,False,True,6.439,14.447,10.865,12.339
+Ecuador,None,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,No_Measure,False,False,1.515,6.91,4.883,5.846
+Paraguay,None,Lockdown,Lockdown,Lockdown,True,True,18.878,70.588,18.878,70.588
+Peru,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Lockdown,False,True,3.436,2.784,8.091,1.37
+Trinidad and Tobago,None,Lockdown,No_Measure,No_Measure,False,False,0.503,0.0,0.503,0.0
+Uruguay,None,Lockdown,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,4.888,1.569,6.332,1.058
+Venezuela,None,Lockdown,No_Measure,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,False,False,46.443,23.083,52.676,23.05
+Costa Rica,None,Lockdown,No_Measure,No_Measure,False,False,20.133,3.529,20.133,3.529
+Cuba,None,Lockdown,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,2.194,12.102,3.197,11.463
+Dominican Republic,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Lockdown,False,True,2.065,32.61,2.452,29.927
+El Salvador,None,Lockdown,Lockdown,Lockdown,True,True,5.071,28.18,5.071,28.18
+Guatemala,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,No_Measure,False,False,16.064,23.484,76.051,9.218
+Honduras,None,Lockdown,Lockdown,Lockdown,True,True,4.599,37.325,4.599,37.325
+Mexico,None,Lockdown,Restrict_Mass_Gatherings_and_Schools,Restrict_Mass_Gatherings_and_Schools,False,False,2.75,2.022,2.75,2.022
+Panama,None,Lockdown,No_Measure,No_Measure,False,False,8.624,1.946,8.624,1.946
+US,North Carolina,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,5.503,22.254,12.354,16.844
+US,District of Columbia,Lockdown,Lockdown,Lockdown,True,True,0.999,16.011,0.999,16.011
+US,Arizona,Mass_Gatherings_Authorized_But_Others_Restricted,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,False,3.338,14.442,6.455,11.161
+US,Massachusetts,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,1.936,4.888,3.619,4.334
+US,California,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,5.511,5.269,10.39,2.331
+US,Vermont,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,5.657,2.906,5.697,2.799
+US,Florida,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,14.859,4.42,14.859,4.42
+US,Illinois,Lockdown,Lockdown,Lockdown,True,True,2.517,8.842,2.517,8.842
+US,Maine,Lockdown,No_Measure,Lockdown,False,True,9.13,11.669,13.532,7.111
+US,Georgia,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,5.725,4.267,5.725,4.267
+US,North Dakota,Mass_Gatherings_Authorized_But_Others_Restricted,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,4.994,2.628,7.134,2.444
+US,New Mexico,Restrict_Mass_Gatherings_and_Schools_and_Others,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,False,1.019,8.809,3.592,7.212
+US,Rhode Island,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,2.871,12.566,2.871,12.566
+US,Minnesota,Restrict_Mass_Gatherings_and_Schools_and_Others,Lockdown,Lockdown,False,False,15.215,50.222,15.215,50.222
+US,Colorado,Restrict_Mass_Gatherings_and_Schools_and_Others,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,False,0.725,6.329,2.673,5.498
+US,Kansas,Restrict_Mass_Gatherings_and_Schools_and_Others,Lockdown,Lockdown,False,False,8.117,39.434,8.117,39.434
+US,South Carolina,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,29.706,12.363,30.19,12.231
+US,Idaho,Mass_Gatherings_Authorized_But_Others_Restricted,No_Measure,No_Measure,False,False,14.949,4.23,14.949,4.23
+US,Kentucky,Restrict_Mass_Gatherings_and_Schools_and_Others,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,False,1.182,9.644,3.073,6.419
+US,Nebraska,Restrict_Mass_Gatherings_and_Schools_and_Others,Lockdown,Lockdown,False,False,7.202,21.22,7.202,21.22
+US,Michigan,Lockdown,No_Measure,No_Measure,False,False,12.816,2.9,12.816,2.9
+US,Louisiana,Mass_Gatherings_Authorized_But_Others_Restricted,No_Measure,No_Measure,False,False,15.463,6.967,15.463,6.967
+US,Tennessee,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,2.643,8.579,8.916,4.556
+US,Alaska,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,15.731,5.882,15.93,5.147
+US,Montana,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,8.317,2.41,8.317,2.41
+US,Oklahoma,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,4.817,11.077,8.578,8.735
+US,New Hampshire,Lockdown,Lockdown,Lockdown,True,True,1.466,6.518,1.466,6.518
+US,West Virginia,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,18.752,4.24,19.548,3.947
+US,Utah,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,6.554,2.361,6.554,2.361
+US,Connecticut,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,4.207,0.873,5.268,0.448
+US,Pennsylvania,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,4.513,8.074,5.991,7.742
+US,Mississippi,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,2.999,2.912,2.999,2.912
+US,Indiana,Restrict_Mass_Gatherings_and_Schools_and_Others,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,False,1.069,7.619,3.016,6.635
+US,Missouri,Mass_Gatherings_Authorized_But_Others_Restricted,No_Measure,Lockdown,False,False,8.175,2.341,9.354,2.074
+US,Washington,Lockdown,No_Measure,No_Measure,False,False,10.051,2.248,10.051,2.248
+US,Arkansas,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,22.239,4.315,22.239,4.315
+US,Oregon,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,True,0.699,13.171,2.906,11.639
+US,Iowa,Restrict_Mass_Gatherings_and_Schools_and_Others,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,False,False,3.389,4.223,8.83,2.374
+US,Hawaii,Lockdown,No_Measure,No_Measure,False,False,2.143,5.882,2.143,5.882
+US,New York,Lockdown,No_Measure,No_Measure,False,False,2.605,0.315,2.605,0.315
+US,Maryland,Restrict_Mass_Gatherings_and_Schools_and_Others,Restrict_Mass_Gatherings_and_Schools,Lockdown,False,False,1.936,16.075,4.074,14.975
+US,New Jersey,Lockdown,No_Measure,Lockdown,False,True,1.872,1.834,3.08,1.452
+US,South Dakota,Mass_Gatherings_Authorized_But_Others_Restricted,No_Measure,Restrict_Mass_Gatherings_and_Schools,False,False,8.664,12.796,9.51,12.706
+US,Virginia,Lockdown,Restrict_Mass_Gatherings_and_Schools,Lockdown,False,True,2.224,13.452,5.144,11.548
+US,Wyoming,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,No_Measure,False,False,6.122,27.252,6.122,27.252
+US,Ohio,Lockdown,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,False,False,3.876,1.794,3.876,1.794
+US,Wisconsin,Restrict_Mass_Gatherings_and_Schools_and_Others,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,Lockdown,False,False,5.446,22.488,10.638,17.606
+US,Alabama,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Lockdown,False,False,7.879,9.051,14.944,5.778
+US,Delaware,Lockdown,Lockdown,Lockdown,True,True,0.969,5.8,0.969,5.8
+US,Texas,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,False,False,5.586,2.567,8.678,0.611
+US,Nevada,Restrict_Mass_Gatherings_and_Schools_and_Others,No_Measure,Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others,False,False,10.402,1.746,12.324,1.291
+New Zealand,None,Mass_Gatherings_Authorized_But_Others_Restricted,No_Measure,No_Measure,False,False,0.184,18.093,0.184,18.093

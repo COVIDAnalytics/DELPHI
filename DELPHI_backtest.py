@@ -8,18 +8,17 @@ from DELPHI_utils import (
 )
 import dateutil.parser as dtparser
 import os
+import yaml
 
-for i in range(15):
-two_weeks_ago = "".join(str(datetime.now().date() - timedelta(days=45 - i)).split("-"))
+
+with open("config.yml", "r") as ymlfile:
+    CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+CONFIG_FILEPATHS = CONFIG["FILEPATHS"]
+USER_RUNNING = "hamza"
 # TODO: Find a way to make these paths automatic, whoever the user is...
-PATH_TO_FOLDER_DANGER_MAP = (
-    "E:/Github/covid19orc/danger_map"
-    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    # "4. COVID19_Global/covid19orc/danger_map/"
-)
-PATH_TO_WEBSITE_PREDICTED = (
-    "E:/Github/website/data/"
-)
+two_weeks_ago = "".join(str(datetime.now().date() - timedelta(days=15)).split("-"))
+PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"]["michael"]
 popcountries = pd.read_csv(
     PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
 )

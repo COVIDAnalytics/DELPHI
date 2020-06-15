@@ -1,25 +1,28 @@
-# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu)
+# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
+import dateutil.parser as dtparser
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from DELPHI_utils import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
-import dateutil.parser as dtparser
+from DELPHI_params import (date_MATHEMATICA, default_parameter_list, default_bounds_params,
+                           validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
+                           VentilatedD, default_maxT, p_v, p_d, p_h, max_iter)
 import os
+import yaml
 
+
+with open("config.yml", "r") as ymlfile:
+    CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+CONFIG_FILEPATHS = CONFIG["filepaths"]
+USER_RUNNING = "hamza"
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
-PATH_TO_FOLDER_DANGER_MAP = (
-    "E:/Github/covid19orc/danger_map/"
-    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    # "4. COVID19_Global/covid19orc/danger_map/"
-)
-PATH_TO_WEBSITE_PREDICTED = (
-    "E:/Github/website/data"
-)
+PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 popcountries = pd.read_csv(
     PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
 )
@@ -29,7 +32,7 @@ try:
     )
 except:
     pastparameters = None
-if pd.to_datetime(yesterday) < pd.to_datetime("2020-05-07"):
+if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
     param_MATHEMATICA = True
 else:
     param_MATHEMATICA = False
@@ -73,36 +76,31 @@ for continent, country, province in zip(
                      for lower, upper in zip(param_list_lower, param_list_upper)]
                 )
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
-                validcases = totalcases[[
-                    dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
-                    for x in totalcases.date
-                ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                validcases = totalcases[
+                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+                ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
                 # Otherwise use established lower/upper bounds
-                parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
-                bounds_params = (
-                    (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
-                )
+                parameter_list = default_parameter_list
+                bounds_params = default_bounds_params
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
-                validcases = totalcases[totalcases.day_since100 >= 0][
-                    ["day_since100", "case_cnt", "death_cnt"]
-                ].reset_index(drop=True)
+                validcases = totalcases[
+                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+                ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         else:
             # Otherwise use established lower/upper bounds
-            parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3]
-            bounds_params = (
-                (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
-            )
+            parameter_list = default_parameter_list
+            bounds_params = default_bounds_params
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
-            validcases = totalcases[totalcases.day_since100 >= 0][
-                ["day_since100", "case_cnt", "death_cnt"]
-            ].reset_index(drop=True)
+            validcases = totalcases[
+                (totalcases.day_since100 >= 0) &
+                (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+            ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
 
         # Now we start the modeling part:
-        if len(validcases) > 7:
-            IncubeD = 5
-            RecoverID = 10
-            DetectD = 2
+        if len(validcases) > validcases_threshold:
             PopulationT = popcountries[
                 (popcountries.Country == country) & (popcountries.Province == province)
             ].pop2016.iloc[-1]
@@ -124,13 +122,8 @@ for continent, country, province in zip(
             """
             # Currently fit on alpha, a and b, r_dth,
             # & initial condition of exposed state and infected state
-            RecoverHD = 15  # Recovery Time when Hospitalized
-            VentilatedD = 10  # Recovery Time when Ventilated
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
-            maxT = (datetime(2020, 7, 15) - date_day_since100).days + 1
-            p_v = 0.25  # Percentage of ventilated
-            p_d = 0.2  # Percentage of infection cases detected.
-            p_h = 0.15  # Percentage of detected cases hospitalized
+            maxT = (default_maxT - date_day_since100).days + 1
             """ Fit on Total Cases """
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
@@ -217,7 +210,7 @@ for continent, country, province in zip(
                 parameter_list,
                 method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
                 bounds=bounds_params,
-                options={'maxiter': 1000, 'verbose': 0}
+                options={'maxiter': max_iter, 'verbose': 0}
             )
             best_params = output.x
             obj_value = obj_value + output.fun
