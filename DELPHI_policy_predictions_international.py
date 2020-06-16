@@ -16,9 +16,10 @@ from DELPHI_params import (
     default_maxT_policies, p_v, p_d, p_h, future_policies, future_policies_JJ, future_times, future_times_JJ
 )
 import yaml
-import os
+import os, sys
 import matplotlib.pyplot as plt
-RUNNING_FOR_JJ = False
+arg = sys.argv[1:len(sys.argv)]
+RUNNING_FOR_JJ = arg[0]
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
