@@ -1,5 +1,5 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
-# This is DELPHI with Continuous Retraining on Policies implemented
+# This is DELPHI with Continuous Retraining on Policies
 import pandas as pd
 import numpy as np
 import dateutil.parser as dtparser
@@ -1025,7 +1025,7 @@ if __name__ == "__main__":
         print(f"Runtime for {yesterday}: {datetime.now() - time_start}")
         PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
         PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
-        PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
+        PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
         policy_data_countries = read_measures_oxford_data(yesterday=yesterday)
         policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=PATH_TO_DATA_SANDBOX)
         popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
@@ -1099,10 +1099,10 @@ if __name__ == "__main__":
             dict_normalized_policy_gamma_us_only=dict_normalized_policy_gamma_us_only,
             dict_normalized_policy_gamma_countries=dict_normalized_policy_gamma_countries,
         )
-        N = mp.cpu_count()
+        n_cpu = mp.cpu_count()
         popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
         list_tuples = popcountries.tuple_area.tolist()
-        with mp.Pool(N) as pool:
+        with mp.Pool(n_cpu) as pool:
             for result_area in tqdm(
                     pool.map_async(
                         solve_and_predict_area_partial, list_tuples,
@@ -1166,14 +1166,14 @@ if __name__ == "__main__":
         )
         print("Saved the dataset of updated tracking & predictions in data_sandbox, Parameters_CR_Global in danger_map")
         print("#############################################################")
-        # TODO: Modify data saver in order to save separately the new parameters dataframe
-        # delphi_data_saver = DELPHIDataSaver(
-        #     path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
-        #     path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
-        #     df_global_parameters=None,
-        #     df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
-        #     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
-        # )
-        # # df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-        # delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False)
-        #print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
+        delphi_data_saver = DELPHIDataSaver(
+            path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
+            path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
+            df_global_parameters=None,
+            df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
+            df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
+            today_date_str=day_after_yesterday_date_str,
+        )
+        # df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
+        delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
+        print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")

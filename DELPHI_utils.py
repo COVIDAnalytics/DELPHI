@@ -17,52 +17,74 @@ class DELPHIDataSaver:
             df_global_parameters: Union[pd.DataFrame, None],
             df_global_predictions_since_today: pd.DataFrame,
             df_global_predictions_since_100_cases: pd.DataFrame,
+            today_date_str:str,
     ):
         self.PATH_TO_FOLDER_DANGER_MAP = path_to_folder_danger_map
         self.PATH_TO_WEBSITE_PREDICTED = path_to_website_predicted
         self.df_global_parameters = df_global_parameters
         self.df_global_predictions_since_today = df_global_predictions_since_today
         self.df_global_predictions_since_100_cases = df_global_predictions_since_100_cases
+        self.today_date_str = today_date_str
 
     def save_all_datasets(self, save_since_100_cases=False, website=False):
-        today_date_str = "".join(str(datetime.now().date()).split("-"))
         # Save parameters
         self.df_global_parameters.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
-        )
-        self.df_global_parameters.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_{today_date_str}.csv", index=False
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{self.today_date_str}.csv", index=False
         )
         # Save predictions since today
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_{today_date_str}.csv", index=False
-        )
-        self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_{today_date_str}.csv", index=False
-        )
-        self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global.csv", index=False
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_{self.today_date_str}.csv", index=False
         )
         if website:
             self.df_global_parameters.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_{today_date_str}.csv",
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_{self.today_date_str}.csv",
                 index=False
             )
             self.df_global_predictions_since_today.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_{today_date_str}.csv",
-                index=False
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_{self.today_date_str}.csv", index=False
+            )
+            self.df_global_predictions_since_today.to_csv(
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global.csv", index=False
             )
         if save_since_100_cases:
             # Save predictions since 100 cases
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}.csv", index=False
-            )
-            self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{today_date_str}.csv", index=False
+                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{self.today_date_str}.csv", index=False
             )
             if website:
                 self.df_global_predictions_since_100_cases.to_csv(
-                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{today_date_str}.csv",
+                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{self.today_date_str}.csv",
+                    index=False
+                )
+
+    def save_all_datasets_continuous_retraining(self, save_since_100_cases=False, website=False):
+        # Save parameters
+        self.df_global_parameters.to_csv(
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{self.today_date_str}_CR.csv", index=False
+        )
+        # Save predictions since today in Danger Map
+        self.df_global_predictions_since_today.to_csv(
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_{self.today_date_str}_CR.csv", index=False
+        )
+        if website:
+            self.df_global_parameters.to_csv(
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_{self.today_date_str}_CR.csv",
+                index=False
+            )
+            self.df_global_predictions_since_today.to_csv(
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_{self.today_date_str}_CR.csv", index=False
+            )
+            self.df_global_predictions_since_today.to_csv(
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_CR.csv", index=False
+            )
+        if save_since_100_cases:
+            # Save predictions since 100 cases
+            self.df_global_predictions_since_100_cases.to_csv(
+                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{self.today_date_str}_CR.csv", index=False
+            )
+            if website:
+                self.df_global_predictions_since_100_cases.to_csv(
+                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{self.today_date_str}_CR.csv",
                     index=False
                 )
 
