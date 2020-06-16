@@ -1175,5 +1175,5 @@ if __name__ == "__main__":
             today_date_str=day_after_yesterday_date_str,
         )
         # df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-        delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
+        delphi_data_saver.save_all_datasets_continuous_retraining(save_since_100_cases=False, website=False)
         print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
