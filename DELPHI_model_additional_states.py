@@ -17,17 +17,17 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "mohammad"
-ADDING_NEW_REGION = False  # True if we have to train a new region (Province/State etc.) from April 1st to now
+USER_RUNNING = "ali"
+ADDING_NEW_REGION = True  # True if we have to train a new region (Province/State etc.) from April 1st to now
 # training_start_date is the first date of parameters that will be used
 # Note that we take the parameters from the day before of the predictions, e.g. if I want to predict
 # using the historical data up to May 25th then I need to use the past parameters of May 24th
 if ADDING_NEW_REGION:
-    training_start_date = datetime(2020, 4, 11)
+    training_start_date = datetime(2020, 4, 1)
 else:  # Then it should be the day before which we want to predict in order to update the predictions
     training_start_date = datetime(2020, 5, 31)
 
-training_end_date = datetime(2020, 6, 14)
+training_end_date = datetime(2020, 6, 16)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_april_1 = (training_last_date - training_start_date).days
@@ -61,9 +61,9 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
         # TODO still missing Russia here as we don't have the data yet
         # if province_sub not in ["Espiritu_Santo", "Mato_Grosso", "Mato_Grosso_do_Sul"]:
         #     continue
-        if province_sub == "Apurimac" and country_sub == "Peru":
-            continue
-        if country_sub not in ["Brazil", "Mexico", "Russia", "Chile", "Peru"]:
+        # if province_sub == "Apurimac" and country_sub == "Peru":
+        #     continue
+        if country_sub not in ["Colombia"]:
             continue
 
         if os.path.exists(PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"):
