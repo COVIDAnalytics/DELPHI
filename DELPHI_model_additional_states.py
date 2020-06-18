@@ -11,6 +11,7 @@ from DELPHI_params import (default_parameter_list, default_bounds_params,
                            validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
                            VentilatedD, default_maxT, p_v, p_d, p_h, max_iter)
 import os
+from os import path
 import yaml
 
 
@@ -58,7 +59,6 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
     ):
         country_sub = country.replace(" ", "_")
         province_sub = province.replace(" ", "_")
-        # TODO still missing Russia here as we don't have the data yet
         # if province_sub not in ["Espiritu_Santo", "Mato_Grosso", "Mato_Grosso_do_Sul"]:
         #     continue
         # if province_sub == "Apurimac" and country_sub == "Peru":
@@ -278,11 +278,9 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
                 continue
         else:  # file for that tuple (country, province) doesn't exist in processed files
             continue
-
-    if ADDING_NEW_REGION:
-        future_params_Brazil_SA_Peru_already_saved = pd.read_csv(
-            PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{day_after_yesterday}.csv"
-        )
+    pathToParam = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{day_after_yesterday}.csv"
+    if ADDING_NEW_REGION and path.exists(pathToParam):
+        future_params_Brazil_SA_Peru_already_saved = pd.read_csv(pathToParam)
         df_global_parameters = pd.concat(
             [future_params_Brazil_SA_Peru_already_saved] + list_df_global_parameters
         ).reset_index(drop=True)
@@ -290,19 +288,17 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
         df_global_parameters = pd.concat(
             list_df_global_parameters
         ).reset_index(drop=True)
-    df_global_parameters.to_csv(
-        PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{day_after_yesterday}.csv", index=False
-    )
+    df_global_parameters.to_csv(pathToParam, index=False)
 
     df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
     #df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
     #    df_global_predictions_since_100_cases
     #)
-    if ADDING_NEW_REGION:
+
+    pathToGlobal = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Global_J&J_{day_after_yesterday}.csv"
+    if ADDING_NEW_REGION and path.exists(pathToGlobal):
         # Getting already saved Brazil, South_Africa & Peru predictions
-        df_global_predictions_since_100_cases_Brazil_SA_Peru_already_saved = pd.read_csv(
-            PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Global_J&J_{day_after_yesterday}.csv"
-        )
+        df_global_predictions_since_100_cases_Brazil_SA_Peru_already_saved = pd.read_csv(pathToGlobal)
         # Concatenating with these South Africa predictions
         df_global_predictions_since_100_cases_all = pd.concat([
             df_global_predictions_since_100_cases_Brazil_SA_Peru_already_saved, df_global_predictions_since_100_cases
@@ -312,9 +308,7 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
             ["Continent", "Country", "Province", "Day"]
         ).reset_index(drop=True)
     # Saving concatenation
-    df_global_predictions_since_100_cases_all.to_csv(
-        PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Global_J&J_{day_after_yesterday}.csv", index=False
-    )
+    df_global_predictions_since_100_cases_all.to_csv( pathToGlobal, index=False )
     print(f"Exported parameters and predictions for all states/provinces in J&J Study for {day_after_yesterday}")
     print("#########################################################################################################")
     print("#########################################################################################################")
