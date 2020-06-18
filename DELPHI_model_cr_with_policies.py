@@ -34,8 +34,8 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-training_start_date = "2020-06-14"  # First date that will be considered for Parameters_Global_<date>.csv
-training_end_date = "2020-06-15"  # First date that excluded for Parameters_Global_<date>.csv
+training_start_date = "2020-06-15"  # First date that will be considered for Parameters_Global_<date>.csv
+training_end_date = "2020-06-16"  # First date that excluded for Parameters_Global_<date>.csv
 max_days_before = (pd.to_datetime(training_end_date) - pd.to_datetime(training_start_date)).days
 time_start = datetime.now()
 

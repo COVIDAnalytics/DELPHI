@@ -27,9 +27,9 @@ CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
-prediction_date = "2020-05-23"
+prediction_date = "2020-06-01"
 prediction_date_file = "".join(prediction_date.split("-"))
-testing_date = "2020-06-08"
+testing_date = "2020-06-15"
 testing_date_file = "".join(testing_date.split("-"))
 n_days_testing_data = (pd.to_datetime(testing_date) - pd.to_datetime(prediction_date)).days
 print(f"Prediction date: {prediction_date} and Testing Date: {testing_date} so " +
