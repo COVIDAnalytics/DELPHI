@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Brazil,Minas Gerais,-27,0.0,0.0,,,,,,
 2020-02-26,Brazil,Minas Gerais,-26,0.0,0.0,,,,,,
 2020-02-27,Brazil,Minas Gerais,-25,0.0,0.0,,,,,,
 2020-02-28,Brazil,Minas Gerais,-24,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Brazil,Minas Gerais,74,13995.0,344.0,,,,,,
 2020-06-06,Brazil,Minas Gerais,75,14939.0,368.0,,,,,,
 2020-06-07,Brazil,Minas Gerais,76,15703.0,376.0,,,,,,
+2020-06-08,Brazil,Minas Gerais,77,15883.0,380.0,,,,,,
+2020-06-09,Brazil,Minas Gerais,78,16102.0,399.0,,,,,,
+2020-06-10,Brazil,Minas Gerais,79,17501.0,409.0,,,,,,
+2020-06-11,Brazil,Minas Gerais,80,18448.0,431.0,,,,,,
+2020-06-12,Brazil,Minas Gerais,81,20106.0,446.0,,,,,,
+2020-06-13,Brazil,Minas Gerais,82,20614.0,454.0,,,,,,

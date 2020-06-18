@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Brazil,Para,-41,0.0,0.0,,,,,,
 2020-02-26,Brazil,Para,-40,0.0,0.0,,,,,,
 2020-02-27,Brazil,Para,-39,0.0,0.0,,,,,,
 2020-02-28,Brazil,Para,-38,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Brazil,Para,60,50960.0,3538.0,,,,,,
 2020-06-06,Brazil,Para,61,53176.0,3612.0,,,,,,
 2020-06-07,Brazil,Para,62,54271.0,3678.0,,,,,,
+2020-06-08,Brazil,Para,63,56032.0,3772.0,,,,,,
+2020-06-09,Brazil,Para,64,59148.0,3853.0,,,,,,
+2020-06-10,Brazil,Para,65,62095.0,3927.0,,,,,,
+2020-06-11,Brazil,Para,66,64126.0,4030.0,,,,,,
+2020-06-12,Brazil,Para,67,66328.0,4132.0,,,,,,
+2020-06-13,Brazil,Para,68,68510.0,4177.0,,,,,,

@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Brazil,Sao Paulo,-19,1.0,0.0,,,,,,
 2020-02-26,Brazil,Sao Paulo,-18,1.0,0.0,,,,,,
 2020-02-27,Brazil,Sao Paulo,-17,1.0,0.0,,,,,,
 2020-02-28,Brazil,Sao Paulo,-16,1.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Brazil,Sao Paulo,82,134565.0,8842.0,,,,,,
 2020-06-06,Brazil,Sao Paulo,83,140549.0,9058.0,,,,,,
 2020-06-07,Brazil,Sao Paulo,84,143073.0,9145.0,,,,,,
+2020-06-08,Brazil,Sao Paulo,85,144593.0,9188.0,,,,,,
+2020-06-09,Brazil,Sao Paulo,86,150138.0,9522.0,,,,,,
+2020-06-10,Brazil,Sao Paulo,87,156316.0,9862.0,,,,,,
+2020-06-11,Brazil,Sao Paulo,88,162520.0,10145.0,,,,,,
+2020-06-12,Brazil,Sao Paulo,89,167900.0,10368.0,,,,,,
+2020-06-13,Brazil,Sao Paulo,90,172875.0,10581.0,,,,,,

@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Chile,Coquimbo,-72,0.0,0.0,,,,,,
 2020-02-26,Chile,Coquimbo,-71,0.0,0.0,,,,,,
 2020-02-27,Chile,Coquimbo,-70,0.0,0.0,,,,,,
 2020-02-28,Chile,Coquimbo,-69,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Chile,Coquimbo,29,832.0,5.0,,,,,,
 2020-06-06,Chile,Coquimbo,30,898.0,5.0,,,,,,
 2020-06-07,Chile,Coquimbo,31,990.0,5.0,,,,,,
+2020-06-08,Chile,Coquimbo,32,1123.0,5.0,,,,,,
+2020-06-09,Chile,Coquimbo,33,1175.0,5.0,,,,,,
+2020-06-10,Chile,Coquimbo,34,1256.0,6.0,,,,,,
+2020-06-11,Chile,Coquimbo,35,1345.0,7.0,,,,,,
+2020-06-12,Chile,Coquimbo,36,1438.0,7.0,,,,,,
+2020-06-13,Chile,Coquimbo,37,1512.0,8.0,,,,,,

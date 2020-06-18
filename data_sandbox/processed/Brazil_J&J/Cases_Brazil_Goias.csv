@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Brazil,Goias,-39,0.0,0.0,,,,,,
 2020-02-26,Brazil,Goias,-38,0.0,0.0,,,,,,
 2020-02-27,Brazil,Goias,-37,0.0,0.0,,,,,,
 2020-02-28,Brazil,Goias,-36,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Brazil,Goias,62,5373.0,167.0,,,,,,
 2020-06-06,Brazil,Goias,63,5669.0,172.0,,,,,,
 2020-06-07,Brazil,Goias,64,5813.0,173.0,,,,,,
+2020-06-08,Brazil,Goias,65,6124.0,173.0,,,,,,
+2020-06-09,Brazil,Goias,66,6521.0,180.0,,,,,,
+2020-06-10,Brazil,Goias,67,7159.0,188.0,,,,,,
+2020-06-11,Brazil,Goias,68,7657.0,189.0,,,,,,
+2020-06-12,Brazil,Goias,69,7846.0,194.0,,,,,,
+2020-06-13,Brazil,Goias,70,7940.0,208.0,,,,,,

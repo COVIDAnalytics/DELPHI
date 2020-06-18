@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Brazil,Parana,-30,0.0,0.0,,,,,,
 2020-02-26,Brazil,Parana,-29,0.0,0.0,,,,,,
 2020-02-27,Brazil,Parana,-28,0.0,0.0,,,,,,
 2020-02-28,Brazil,Parana,-27,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Brazil,Parana,71,6348.0,227.0,,,,,,
 2020-06-06,Brazil,Parana,72,6605.0,232.0,,,,,,
 2020-06-07,Brazil,Parana,73,6897.0,237.0,,,,,,
+2020-06-08,Brazil,Parana,74,7031.0,243.0,,,,,,
+2020-06-09,Brazil,Parana,75,7314.0,253.0,,,,,,
+2020-06-10,Brazil,Parana,76,7831.0,275.0,,,,,,
+2020-06-11,Brazil,Parana,77,8457.0,280.0,,,,,,
+2020-06-12,Brazil,Parana,78,8705.0,294.0,,,,,,
+2020-06-13,Brazil,Parana,79,9233.0,312.0,,,,,,

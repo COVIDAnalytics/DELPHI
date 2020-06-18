@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Brazil,Amapa,-43,0.0,0.0,,,,,,
 2020-02-26,Brazil,Amapa,-42,0.0,0.0,,,,,,
 2020-02-27,Brazil,Amapa,-41,0.0,0.0,,,,,,
 2020-02-28,Brazil,Amapa,-40,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Brazil,Amapa,58,12327.0,260.0,,,,,,
 2020-06-06,Brazil,Amapa,59,12773.0,269.0,,,,,,
 2020-06-07,Brazil,Amapa,60,13045.0,272.0,,,,,,
+2020-06-08,Brazil,Amapa,61,13294.0,278.0,,,,,,
+2020-06-09,Brazil,Amapa,62,13771.0,285.0,,,,,,
+2020-06-10,Brazil,Amapa,63,14623.0,289.0,,,,,,
+2020-06-11,Brazil,Amapa,64,15166.0,303.0,,,,,,
+2020-06-12,Brazil,Amapa,65,15683.0,312.0,,,,,,
+2020-06-13,Brazil,Amapa,66,16322.0,319.0,,,,,,

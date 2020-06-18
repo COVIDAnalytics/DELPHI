@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Mexico,Hidalgo,-56,0.0,0.0,,,,,,
 2020-02-26,Mexico,Hidalgo,-55,0.0,0.0,,,,,,
 2020-02-27,Mexico,Hidalgo,-54,0.0,0.0,,,,,,
 2020-02-28,Mexico,Hidalgo,-53,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Mexico,Hidalgo,45,2101.0,386.0,,,,,,
 2020-06-06,Mexico,Hidalgo,46,2171.0,394.0,,,,,,
 2020-06-07,Mexico,Hidalgo,47,2249.0,402.0,,,,,,
+2020-06-08,Mexico,Hidalgo,48,2266.0,405.0,,,,,,
+2020-06-09,Mexico,Hidalgo,49,2318.0,413.0,,,,,,
+2020-06-10,Mexico,Hidalgo,50,2439.0,430.0,,,,,,
+2020-06-11,Mexico,Hidalgo,51,2492.0,433.0,,,,,,
+2020-06-12,Mexico,Hidalgo,52,2581.0,449.0,,,,,,
+2020-06-13,Mexico,Hidalgo,53,2631.0,456.0,,,,,,

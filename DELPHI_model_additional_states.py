@@ -25,9 +25,9 @@ ADDING_NEW_REGION = False  # True if we have to train a new region (Province/Sta
 if ADDING_NEW_REGION:
     training_start_date = datetime(2020, 4, 11)
 else:  # Then it should be the day before which we want to predict in order to update the predictions
-    training_start_date = datetime(2020, 5, 25)
+    training_start_date = datetime(2020, 5, 31)
 
-training_end_date = datetime(2020, 6, 7)
+training_end_date = datetime(2020, 6, 14)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_april_1 = (training_last_date - training_start_date).days
@@ -61,7 +61,9 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
         # TODO still missing Russia here as we don't have the data yet
         # if province_sub not in ["Espiritu_Santo", "Mato_Grosso", "Mato_Grosso_do_Sul"]:
         #     continue
-        if country_sub not in ["Brazil", "Mexico"]:
+        if province_sub == "Apurimac" and country_sub == "Peru":
+            continue
+        if country_sub not in ["Brazil", "Mexico", "Russia", "Chile", "Peru"]:
             continue
 
         if os.path.exists(PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"):

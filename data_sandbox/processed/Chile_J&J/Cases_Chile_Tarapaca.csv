@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Chile,Tarapaca,-56,0.0,0.0,,,,,,
 2020-02-26,Chile,Tarapaca,-55,0.0,0.0,,,,,,
 2020-02-27,Chile,Tarapaca,-54,0.0,0.0,,,,,,
 2020-02-28,Chile,Tarapaca,-53,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Chile,Tarapaca,45,2965.0,28.0,,,,,,
 2020-06-06,Chile,Tarapaca,46,3094.0,30.0,,,,,,
 2020-06-07,Chile,Tarapaca,47,3250.0,32.0,,,,,,
+2020-06-08,Chile,Tarapaca,48,3392.0,35.0,,,,,,
+2020-06-09,Chile,Tarapaca,49,3491.0,35.0,,,,,,
+2020-06-10,Chile,Tarapaca,50,3591.0,46.0,,,,,,
+2020-06-11,Chile,Tarapaca,51,3696.0,46.0,,,,,,
+2020-06-12,Chile,Tarapaca,52,3823.0,48.0,,,,,,
+2020-06-13,Chile,Tarapaca,53,4004.0,52.0,,,,,,

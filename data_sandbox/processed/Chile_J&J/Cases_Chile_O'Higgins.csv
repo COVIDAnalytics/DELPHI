@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Chile,O'Higgins,-64,0.0,0.0,,,,,,
 2020-02-26,Chile,O'Higgins,-63,0.0,0.0,,,,,,
 2020-02-27,Chile,O'Higgins,-62,0.0,0.0,,,,,,
 2020-02-28,Chile,O'Higgins,-61,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Chile,O'Higgins,37,1016.0,22.0,,,,,,
 2020-06-06,Chile,O'Higgins,38,1111.0,25.0,,,,,,
 2020-06-07,Chile,O'Higgins,39,1183.0,25.0,,,,,,
+2020-06-08,Chile,O'Higgins,40,1255.0,22.0,,,,,,
+2020-06-09,Chile,O'Higgins,41,1317.0,23.0,,,,,,
+2020-06-10,Chile,O'Higgins,42,1442.0,26.0,,,,,,
+2020-06-11,Chile,O'Higgins,43,1552.0,28.0,,,,,,
+2020-06-12,Chile,O'Higgins,44,1629.0,30.0,,,,,,
+2020-06-13,Chile,O'Higgins,45,1788.0,32.0,,,,,,

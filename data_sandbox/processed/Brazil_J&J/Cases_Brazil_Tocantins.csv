@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Brazil,Tocantins,-64,0.0,0.0,,,,,,
 2020-02-26,Brazil,Tocantins,-63,0.0,0.0,,,,,,
 2020-02-27,Brazil,Tocantins,-62,0.0,0.0,,,,,,
 2020-02-28,Brazil,Tocantins,-61,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Brazil,Tocantins,37,5182.0,89.0,,,,,,
 2020-06-06,Brazil,Tocantins,38,5505.0,96.0,,,,,,
 2020-06-07,Brazil,Tocantins,39,5644.0,99.0,,,,,,
+2020-06-08,Brazil,Tocantins,40,5807.0,108.0,,,,,,
+2020-06-09,Brazil,Tocantins,41,6052.0,114.0,,,,,,
+2020-06-10,Brazil,Tocantins,42,6257.0,120.0,,,,,,
+2020-06-11,Brazil,Tocantins,43,6529.0,124.0,,,,,,
+2020-06-12,Brazil,Tocantins,44,6744.0,128.0,,,,,,
+2020-06-13,Brazil,Tocantins,45,6931.0,130.0,,,,,,

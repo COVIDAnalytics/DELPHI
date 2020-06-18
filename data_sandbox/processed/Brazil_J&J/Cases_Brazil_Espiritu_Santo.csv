@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Brazil,Espiritu Santo,-37,0.0,0.0,,,,,,
 2020-02-26,Brazil,Espiritu Santo,-36,0.0,0.0,,,,,,
 2020-02-27,Brazil,Espiritu Santo,-35,0.0,0.0,,,,,,
 2020-02-28,Brazil,Espiritu Santo,-34,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Brazil,Espiritu Santo,64,18109.0,780.0,,,,,,
 2020-06-06,Brazil,Espiritu Santo,65,18950.0,806.0,,,,,,
 2020-06-07,Brazil,Espiritu Santo,66,19619.0,832.0,,,,,,
+2020-06-08,Brazil,Espiritu Santo,67,20659.0,871.0,,,,,,
+2020-06-09,Brazil,Espiritu Santo,68,21964.0,904.0,,,,,,
+2020-06-10,Brazil,Espiritu Santo,69,23344.0,936.0,,,,,,
+2020-06-11,Brazil,Espiritu Santo,70,24229.0,962.0,,,,,,
+2020-06-12,Brazil,Espiritu Santo,71,25257.0,986.0,,,,,,
+2020-06-13,Brazil,Espiritu Santo,72,25932.0,1022.0,,,,,,

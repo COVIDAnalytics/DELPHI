@@ -1,4 +1,5 @@
 date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_hospitalization,new_icu,total_icu,new_recovered,total_recovered
+2020-02-25,Brazil,Mato Grosso do Sul,-46,0.0,0.0,,,,,,
 2020-02-26,Brazil,Mato Grosso do Sul,-45,0.0,0.0,,,,,,
 2020-02-27,Brazil,Mato Grosso do Sul,-44,0.0,0.0,,,,,,
 2020-02-28,Brazil,Mato Grosso do Sul,-43,0.0,0.0,,,,,,
@@ -102,3 +103,9 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-06-05,Brazil,Mato Grosso do Sul,55,1997.0,21.0,,,,,,
 2020-06-06,Brazil,Mato Grosso do Sul,56,2132.0,21.0,,,,,,
 2020-06-07,Brazil,Mato Grosso do Sul,57,2253.0,21.0,,,,,,
+2020-06-08,Brazil,Mato Grosso do Sul,58,2324.0,22.0,,,,,,
+2020-06-09,Brazil,Mato Grosso do Sul,59,2455.0,22.0,,,,,,
+2020-06-10,Brazil,Mato Grosso do Sul,60,2597.0,24.0,,,,,,
+2020-06-11,Brazil,Mato Grosso do Sul,61,2853.0,25.0,,,,,,
+2020-06-12,Brazil,Mato Grosso do Sul,62,3001.0,28.0,,,,,,
+2020-06-13,Brazil,Mato Grosso do Sul,63,3235.0,28.0,,,,,,
