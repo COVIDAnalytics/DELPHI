@@ -24,7 +24,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "ali"
-training_end_date = datetime(2020, 6, 7)
+training_end_date = datetime(2020, 6, 14)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
@@ -99,8 +99,9 @@ for continent, country, province in zip(
 
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    # TODO still missing Russia here as we don't have the data yet
-    if country_sub not in ["Brazil", "Mexico"]:
+    if province_sub == "Apurimac" and country_sub == "Peru":
+        continue
+    if country_sub not in ["Brazil", "Mexico", "Russia", "Chile", "Peru", "South Africa"]:
         continue
     # if country_sub == "US":
     #     if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",

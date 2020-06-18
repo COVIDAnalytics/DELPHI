@@ -66,9 +66,9 @@ def read_policy_data_us_only_jj_version(filepath_data_sandbox: str):
 
 
 # Concatenating
-    df_policies_US_final = pd.concat([
-        df_policies_US_final, df_policies_US_final_Chicago, df_policies_US_final_Detroit, df_policies_US_final_NYC
-    ]).reset_index(drop=True)
+#     df_policies_US_final = pd.concat([
+#         df_policies_US_final, df_policies_US_final_Chicago, df_policies_US_final_Detroit, df_policies_US_final_NYC
+#     ]).reset_index(drop=True)
 
     return df_policies_US_final
 
