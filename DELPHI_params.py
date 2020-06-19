@@ -121,3 +121,11 @@ provinces_Mexico = [
  'San Luis Potosi', 'Sinaloa', 'Sonora', 'Tabasco', 'Tamaulipas',
  'Tlaxcala', 'Veracruz', 'Yucatan', 'Zacatecas'
 ]
+
+provinces_Colombia = [
+    'Amazonas', 'Antioquia', 'Atlantico', 'Bogota', 'Bolivar',
+    'Boyaca', 'Caldas', 'Cauca', 'Cesar', 'Choco', 'Cordoba',
+    'Cundinamarca', 'Huila', 'La Guajira', 'Magdalena', 'Meta',
+    'Narino', 'Norte de Santander', 'Quindio', 'Risaralda', 'Sucre',
+    'Tolima', 'Valle del Cauca'
+]
