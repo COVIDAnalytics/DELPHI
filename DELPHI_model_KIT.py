@@ -127,7 +127,7 @@ for continent, country, province in zip(
             RecoverHD = 15  # Recovery Time when Hospitalized
             VentilatedD = 10  # Recovery Time when Ventilated
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
-            maxT = (datetime(2020, 7, 15) - date_day_since100).days + 1
+            maxT = (datetime(2020, 8, 15) - date_day_since100).days + 1
             p_v = 0.25  # Percentage of ventilated
             p_d = 0.2  # Percentage of infection cases detected.
             p_h = 0.15  # Percentage of detected cases hospitalized
