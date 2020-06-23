@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import dateutil.parser as dtparser
 import multiprocessing as mp
+import time
 from functools import partial
 from tqdm import tqdm_notebook as tqdm
 from scipy.integrate import solve_ivp
@@ -34,8 +35,8 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-training_start_date = "2020-06-15"  # First date that will be considered for Parameters_Global_<date>.csv
-training_end_date = "2020-06-16"  # First date that excluded for Parameters_Global_<date>.csv
+training_start_date = "2020-06-20"  # First date that will be considered for Parameters_Global_<date>.csv
+training_end_date = "2020-06-21"  # First date that excluded for Parameters_Global_<date>.csv
 max_days_before = (pd.to_datetime(training_end_date) - pd.to_datetime(training_start_date)).days
 time_start = datetime.now()
 
@@ -45,6 +46,7 @@ def solve_and_predict_area(
         dict_normalized_policy_gamma_us_only: dict, dict_normalized_policy_gamma_countries: dict,
 
 ):
+    time_beginning_country = time.time()
     continent, country, province = tuple_area
     if country == "US":  # This line is necessary because the keys are the same in both cases
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
@@ -1012,7 +1014,8 @@ def solve_and_predict_area(
             return None
     else:  # file for that tuple (country, province) doesn't exist in processed files
         return None
-
+    time_end_country = time.time() - time_beginning_country
+    print(f"Time it took to run {country, province}: {time_end_country}seconds")
     return (
         df_parameters_cont_country_prov, df_predictions_since_today_cont_country_prov,
         df_predictions_since_100_cont_country_prov, df_temp_policy_change_tracking_tuple_updated, output,
