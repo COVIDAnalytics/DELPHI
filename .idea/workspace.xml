@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backtesting/20200621_backtest_performance_python.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200617_final.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200618_final.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200619_final.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200620_final.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200621_final.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_backtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_backtest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_backtest_policy_predictions.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_backtest_policy_predictions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_model_cr_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_cr_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backtesting/20200615_backtest_policy_predictions_pred_from_20200601.csv" beforeDir="false" afterPath="$PROJECT_DIR$/backtesting/20200615_backtest_policy_predictions_pred_from_20200601.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/policy_change_tracking_world_updated_final.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/policy_change_tracking_world_updated_final.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -303,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592450708060</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update CR+3.0 06/17 -&gt; 06/21 + new backtests with RMSE as well">
+      <created>1592875203013</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1592875203013</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -320,7 +316,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Running code end to end, init at 0 for b_i (i=1:7)" />
     <MESSAGE value="commenting experimental parameters" />
     <MESSAGE value="v5 of the code ready to be optimized" />
     <MESSAGE value="changed names of variables in case of conflicts" />
@@ -345,6 +340,7 @@
     <MESSAGE value="Making sure that postprocessing and saving is consistent between 2.0 and 3.0+CR" />
     <MESSAGE value="changed file naming &amp; update CR+3.0 06/15" />
     <MESSAGE value="new 2.0+policy backtest &amp; update CR+3.0 06/16" />
-    <option name="LAST_COMMIT_MESSAGE" value="new 2.0+policy backtest &amp; update CR+3.0 06/16" />
+    <MESSAGE value="update CR+3.0 06/17 -&gt; 06/21 + new backtests with RMSE as well" />
+    <option name="LAST_COMMIT_MESSAGE" value="update CR+3.0 06/17 -&gt; 06/21 + new backtests with RMSE as well" />
   </component>
 </project>

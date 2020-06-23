@@ -35,23 +35,23 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-training_start_date = "2020-06-20"  # First date that will be considered for Parameters_Global_<date>.csv
-training_end_date = "2020-06-21"  # First date that excluded for Parameters_Global_<date>.csv
+training_start_date = "2020-06-21"  # First date that will be considered for Parameters_Global_<date>.csv
+training_end_date = "2020-06-22"  # First date that excluded for Parameters_Global_<date>.csv
 max_days_before = (pd.to_datetime(training_end_date) - pd.to_datetime(training_start_date)).days
 time_start = datetime.now()
 
 
 def solve_and_predict_area(
-        tuple_area: tuple, yesterday:str, df_policy_change_tracking_world: pd.DataFrame,
-        dict_normalized_policy_gamma_us_only: dict, dict_normalized_policy_gamma_countries: dict,
+        tuple_area: tuple, yesterday_: str, df_policy_change_tracking_world_: pd.DataFrame,
+        dict_normalized_policy_gamma_us_only_: dict, dict_normalized_policy_gamma_countries_: dict,
 
 ):
     time_beginning_country = time.time()
     continent, country, province = tuple_area
     if country == "US":  # This line is necessary because the keys are the same in both cases
-        dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
+        dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only_.copy()
     else:
-        dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
+        dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries_.copy()
 
     CREATED_COUNTRY_IN_TRACKING = False
     country_sub = country.replace(" ", "_")
@@ -60,14 +60,14 @@ def solve_and_predict_area(
             (os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"))
             and ((country, province) in dict_current_policy_international.keys())
     ):
-        df_temp_policy_change_tracking_tuple_previous = df_policy_change_tracking_world[
-            (df_policy_change_tracking_world.country == country)
-            & (df_policy_change_tracking_world.province == province)
+        df_temp_policy_change_tracking_tuple_previous = df_policy_change_tracking_world_[
+            (df_policy_change_tracking_world_.country == country)
+            & (df_policy_change_tracking_world_.province == province)
             ].sort_values(by="date").reset_index(drop=True)
         if len(df_temp_policy_change_tracking_tuple_previous) == 0:
             # Means that this (country, province) doesn't exist yet in the tracking, so create it
             df_temp_policy_change_tracking_tuple_previous = add_policy_tracking_row_country(
-                continent=continent, country=country, province=province, yesterday=yesterday,
+                continent=continent, country=country, province=province, yesterday=yesterday_,
                 dict_current_policy_international=dict_current_policy_international
             )
             list_df_policy_tracking_concat.append(df_temp_policy_change_tracking_tuple_previous)
@@ -76,7 +76,7 @@ def solve_and_predict_area(
         # In any case we update the tracking below
         if (
                 POLICY_TRACKING_ALREADY_EXISTS and
-                (df_temp_policy_change_tracking_tuple_previous.date.max() != str(pd.to_datetime(yesterday).date()))
+                (df_temp_policy_change_tracking_tuple_previous.date.max() != str(pd.to_datetime(yesterday_).date()))
         ):
             df_temp_policy_change_tracking_tuple_previous = df_temp_policy_change_tracking_tuple_previous.iloc[
                                                             len(df_temp_policy_change_tracking_tuple_previous) - 1:, :
@@ -84,26 +84,26 @@ def solve_and_predict_area(
             current_policy_in_tracking = df_temp_policy_change_tracking_tuple_previous.loc[0, "current_policy"]
             current_policy_in_new_data = dict_current_policy_international[(country, province)]
             df_temp_policy_change_tracking_tuple_updated = df_temp_policy_change_tracking_tuple_previous.copy()
-            df_temp_policy_change_tracking_tuple_updated.loc[0, "date"] = str(pd.to_datetime(yesterday).date())
+            df_temp_policy_change_tracking_tuple_updated.loc[0, "date"] = str(pd.to_datetime(yesterday_).date())
             if current_policy_in_tracking != current_policy_in_new_data:
-                print(f"There's a Policy Change on {yesterday}")
+                print(f"There's a Policy Change on {yesterday_}")
                 df_temp_policy_change_tracking_tuple_updated = update_tracking_when_policy_changed(
                     df_updated=df_temp_policy_change_tracking_tuple_updated,
                     df_previous=df_temp_policy_change_tracking_tuple_previous,
-                    yesterday=yesterday,
+                    yesterday=yesterday_,
                     current_policy_in_tracking=current_policy_in_tracking,
                     current_policy_in_new_data=current_policy_in_new_data,
                     dict_normalized_policy_gamma_international=dict_normalized_policy_gamma_international
                 )
             else:
-                print(f"There's no Policy Change on {yesterday}")
+                print(f"There's no Policy Change on {yesterday_}")
                 df_temp_policy_change_tracking_tuple_updated = update_tracking_without_policy_change(
                     df_updated=df_temp_policy_change_tracking_tuple_updated,
-                    yesterday=yesterday,
+                    yesterday=yesterday_,
                 )
         elif (
                 POLICY_TRACKING_ALREADY_EXISTS and
-                (df_temp_policy_change_tracking_tuple_previous.date.max() == str(pd.to_datetime(yesterday).date()))
+                (df_temp_policy_change_tracking_tuple_previous.date.max() == str(pd.to_datetime(yesterday_).date()))
                 and (CREATED_COUNTRY_IN_TRACKING == True)
         ):  # Already contains the latest yesterday date so has already been updated
             print(country, province)
@@ -113,11 +113,11 @@ def solve_and_predict_area(
                                                            ].reset_index(drop=True)
         elif (
                 POLICY_TRACKING_ALREADY_EXISTS and
-                (df_temp_policy_change_tracking_tuple_previous.date.max() == str(pd.to_datetime(yesterday).date()))
+                (df_temp_policy_change_tracking_tuple_previous.date.max() == str(pd.to_datetime(yesterday_).date()))
                 and (CREATED_COUNTRY_IN_TRACKING == False)
         ):
             raise ValueError(
-                f"Policy Tracking line for {country}, {province} already exists on {yesterday}; " +
+                f"Policy Tracking line for {country}, {province} already exists on {yesterday_}; " +
                 "make sure you want to re-predict on that day and if so modify the code to get rid of the " +
                 "current policy tracking line (otherwise you'll get a duplicate)"
             )
@@ -134,7 +134,7 @@ def solve_and_predict_area(
             print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
             return None
 
-        print(f"Current Runtime for {yesterday}: {datetime.now() - time_start}")
+        print(f"Current Runtime for {yesterday_}: {datetime.now() - time_start}")
         print(country + " " + province)
         if pastparameters is not None:
             parameter_list_total = pastparameters[
@@ -153,7 +153,7 @@ def solve_and_predict_area(
                     df_updated=df_temp_policy_change_tracking_tuple_updated
                 )
                 params_policies_constant, start_end_dates_constant = get_params_constant_policies(
-                    df_updated=df_temp_policy_change_tracking_tuple_updated, yesterday=yesterday
+                    df_updated=df_temp_policy_change_tracking_tuple_updated, yesterday=yesterday_
                 )
                 policy_shift_names_constant = get_policy_names_before_after_constant(
                     df_updated=df_temp_policy_change_tracking_tuple_updated
@@ -163,9 +163,9 @@ def solve_and_predict_area(
                     for x in totalcases.date
                 ]][["date", "day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
                 validcases = validcases[
-                    validcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date())
+                    validcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date())
                     ]
-                print("Historical Data until:", validcases.date.max(), f"\t Parameters from: {yesterday}")
+                print("Historical Data until:", validcases.date.max(), f"\t Parameters from: {yesterday_}")
             else:
                 print(f"Must have past parameters for {country}, {province}, at least to create policy shifts...")
                 return None
@@ -211,7 +211,7 @@ def solve_and_predict_area(
                 for dates_constant in start_end_dates_constant
             ]
             date_yesterday_int = validcases[
-                validcases.date == str(pd.to_datetime(yesterday).date())
+                validcases.date == str(pd.to_datetime(yesterday_).date())
                 ].day_since100.iloc[0]
             # print("t_cases, start fitting policies & start/end constant policies")
             # print(t_cases, "\n", t_start_fitting_policies, "\n", t_start_end_constant_policy)
@@ -259,9 +259,9 @@ def solve_and_predict_area(
                             ):
                                 past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                                 current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                     current_new_policy_cst]
-                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                                 gamma_t = gamma_t + min(
                                     (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                     (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -318,9 +318,9 @@ def solve_and_predict_area(
                         if t >= t_start_fitting_policies[param_policy_i]:
                             past_policy = policy_shift_names_fitted[param_policy_i][0]
                             current_new_policy = policy_shift_names_fitted[param_policy_i][1]
-                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                 current_new_policy]
-                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy]
+                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy]
                             gamma_t = gamma_t + min(
                                 (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                 (gamma_t / normalized_gamma_past_policy) * params_policies_fitted[param_policy_i]
@@ -335,9 +335,9 @@ def solve_and_predict_area(
                         ):
                             past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                             current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                 current_new_policy_cst]
-                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                             gamma_t = gamma_t + min(
                                 (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                 (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -394,9 +394,9 @@ def solve_and_predict_area(
                         if t >= t_start_fitting_policies[param_policy_i]:
                             past_policy = policy_shift_names_fitted[param_policy_i][0]
                             current_new_policy = policy_shift_names_fitted[param_policy_i][1]
-                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                 current_new_policy]
-                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy]
+                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy]
                             gamma_t = gamma_t + min(
                                 (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                 (gamma_t / normalized_gamma_past_policy) * params_policies_fitted[param_policy_i]
@@ -411,9 +411,9 @@ def solve_and_predict_area(
                         ):
                             past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                             current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                 current_new_policy_cst]
-                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                             gamma_t = gamma_t + min(
                                 (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                 (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -471,9 +471,9 @@ def solve_and_predict_area(
                         if t >= t_start_fitting_policies[param_policy_i]:
                             past_policy = policy_shift_names_fitted[param_policy_i][0]
                             current_new_policy = policy_shift_names_fitted[param_policy_i][1]
-                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                 current_new_policy]
-                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy]
+                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy]
                             gamma_t = gamma_t + min(
                                 (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                 (gamma_t / normalized_gamma_past_policy) * params_policies_fitted[param_policy_i]
@@ -488,9 +488,9 @@ def solve_and_predict_area(
                         ):
                             past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                             current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                 current_new_policy_cst]
-                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                             gamma_t = gamma_t + min(
                                 (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                 (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -620,9 +620,9 @@ def solve_and_predict_area(
                             ):
                                 past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                                 current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                     current_new_policy_cst]
-                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                                 gamma_t = gamma_t + min(
                                     (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                     (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -634,9 +634,9 @@ def solve_and_predict_area(
                             if t >= start_date_constant_i:
                                 past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                                 current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                     current_new_policy_cst]
-                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                                 gamma_t = gamma_t + min(
                                     (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                     (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -693,9 +693,9 @@ def solve_and_predict_area(
                         if t >= t_start_fitting_policies[param_policy_i]:
                             past_policy = policy_shift_names_fitted[param_policy_i][0]
                             current_new_policy = policy_shift_names_fitted[param_policy_i][1]
-                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                 current_new_policy]
-                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy]
+                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy]
                             gamma_t = gamma_t + min(
                                 (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                 (gamma_t / normalized_gamma_past_policy) * params_policies_fitted[param_policy_i]
@@ -712,9 +712,9 @@ def solve_and_predict_area(
                             ):
                                 past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                                 current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                     current_new_policy_cst]
-                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                                 gamma_t = gamma_t + min(
                                     (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                     (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -726,9 +726,9 @@ def solve_and_predict_area(
                             if t >= start_date_constant_i:
                                 past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                                 current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                     current_new_policy_cst]
-                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                                 gamma_t = gamma_t + min(
                                     (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                     (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -785,9 +785,9 @@ def solve_and_predict_area(
                         if t >= t_start_fitting_policies[param_policy_i]:
                             past_policy = policy_shift_names_fitted[param_policy_i][0]
                             current_new_policy = policy_shift_names_fitted[param_policy_i][1]
-                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                 current_new_policy]
-                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy]
+                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy]
                             gamma_t = gamma_t + min(
                                 (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                 (gamma_t / normalized_gamma_past_policy) * params_policies_fitted[param_policy_i]
@@ -804,9 +804,9 @@ def solve_and_predict_area(
                             ):
                                 past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                                 current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                     current_new_policy_cst]
-                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                                 gamma_t = gamma_t + min(
                                     (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                     (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -818,9 +818,9 @@ def solve_and_predict_area(
                             if t >= start_date_constant_i:
                                 past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                                 current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                     current_new_policy_cst]
-                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                                 gamma_t = gamma_t + min(
                                     (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                     (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -878,9 +878,9 @@ def solve_and_predict_area(
                         if t >= t_start_fitting_policies[param_policy_i]:
                             past_policy = policy_shift_names_fitted[param_policy_i][0]
                             current_new_policy = policy_shift_names_fitted[param_policy_i][1]
-                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                            normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                 current_new_policy]
-                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy]
+                            normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy]
                             gamma_t = gamma_t + min(
                                 (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                 (gamma_t / normalized_gamma_past_policy) * params_policies_fitted[param_policy_i]
@@ -897,9 +897,9 @@ def solve_and_predict_area(
                             ):
                                 past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                                 current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                     current_new_policy_cst]
-                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                                 gamma_t = gamma_t + min(
                                     (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                     (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -911,9 +911,9 @@ def solve_and_predict_area(
                             if t >= start_date_constant_i:
                                 past_policy_cst = policy_shift_names_constant[param_policy_constant_i][0]
                                 current_new_policy_cst = policy_shift_names_constant[param_policy_constant_i][1]
-                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
+                                normalized_gamma_current_policy = dict_normalized_policy_gamma_countries_[
                                     current_new_policy_cst]
-                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries[past_policy_cst]
+                                normalized_gamma_past_policy = dict_normalized_policy_gamma_countries_[past_policy_cst]
                                 gamma_t = gamma_t + min(
                                     (2 - gamma_t) / (1 - normalized_gamma_current_policy),
                                     (gamma_t / normalized_gamma_past_policy) * params_policies_constant[
@@ -1097,10 +1097,10 @@ if __name__ == "__main__":
         list_df_policy_tracking_concat = []
         obj_value = 0
         solve_and_predict_area_partial = partial(
-            solve_and_predict_area, yesterday=yesterday,
-            df_policy_change_tracking_world=df_policy_change_tracking_world,
-            dict_normalized_policy_gamma_us_only=dict_normalized_policy_gamma_us_only,
-            dict_normalized_policy_gamma_countries=dict_normalized_policy_gamma_countries,
+            solve_and_predict_area, yesterday_=yesterday,
+            df_policy_change_tracking_world_=df_policy_change_tracking_world,
+            dict_normalized_policy_gamma_us_only_=dict_normalized_policy_gamma_us_only,
+            dict_normalized_policy_gamma_countries_=dict_normalized_policy_gamma_countries,
         )
         n_cpu = mp.cpu_count()
         popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
