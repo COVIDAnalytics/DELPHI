@@ -20,8 +20,14 @@ Please Cite the following when you are utilizing our results:
 
 ML Li, H Tazi Bouardi, O Skali Lami, N Trichakis, T Trikalinos, D Bertsimas. Forecasting COVID-19 and Analyzing the Effect of Government Interventions. (2020) submitted for publication.
 
+## V2.0 Instructions
 
-### Path File for Python
+To run the V2.0 model successfully, you would require the following files for each region:
+1. Historical Case Files - This should be provided in the same format as the examples given in folder `data/processed`.
+2. Population File - This file should record the population at each location that needs to be predicted. An example of such is in `data/processed/Population_Global.csv`.
+3. Historical Parameter Files (optional) - This file record previously trained parameters and the optimization bounds would be within 10% of the original trained parameters. This should be provided in the format given in the example file `predicted/Parameters_Global_20200621.csv`.
+
+## Path File for Python
 
 To run the model successfully for python, please first add a new user in the `config.yml` file and record the appropriate absolute paths:
 
