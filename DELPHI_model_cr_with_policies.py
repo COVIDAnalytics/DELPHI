@@ -31,8 +31,8 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-training_start_date = "2020-06-09"
-training_end_date = "2020-06-10"
+training_start_date = "2020-06-12"
+training_end_date = "2020-06-13"
 max_days_before = (pd.to_datetime(training_end_date) - pd.to_datetime(training_start_date)).days
 time_start = datetime.now()
 for n_days_before in range(max_days_before, 0, -1):
@@ -199,6 +199,8 @@ for n_days_before in range(max_days_before, 0, -1):
             if totalcases.day_since100.max() < 0:
                 print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
                 continue
+
+            print(f"Current Runtime for {yesterday}: {datetime.now() - time_start}")
             print(country + " " + province)
             if pastparameters is not None:
                 parameter_list_total = pastparameters[
