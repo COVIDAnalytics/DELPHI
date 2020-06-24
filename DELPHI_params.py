@@ -72,7 +72,7 @@ provinces_South_Africa = [
     'Mpumalanga', 'Northern Cape', 'North West', 'Western Cape'
 ]
 
-provinces_Russia = [
+provinces_Russia = ['Altai Republic',
     'Altayskiy Kray', 'Amursk Oblast', 'Arkhangelsk Oblast',
     'Astrahan Oblast', 'Belgorod Oblast', 'Briansk Oblast',
     'Chechen Republic', 'Cheliabinsk Oblast',
@@ -122,10 +122,12 @@ provinces_Mexico = [
  'Tlaxcala', 'Veracruz', 'Yucatan', 'Zacatecas'
 ]
 
-provinces_Colombia = [
-    'Amazonas', 'Antioquia', 'Atlantico', 'Bogota', 'Bolivar',
-    'Boyaca', 'Caldas', 'Cauca', 'Cesar', 'Choco', 'Cordoba',
-    'Cundinamarca', 'Huila', 'La Guajira', 'Magdalena', 'Meta',
-    'Narino', 'Norte de Santander', 'Quindio', 'Risaralda', 'Sucre',
-    'Tolima', 'Valle del Cauca'
+provinces_Colombia =[
+    'Amazonas', 'Antioquia', 'Arauca', 'Atlantico', 'Bogota',
+                     'Bolivar', 'Boyaca', 'Caldas', 'Caqueta', 'Casanare', 'Cauca',
+                     'Cesar', 'Choco', 'Cordoba', 'Cundinamarca', 'Guainia', 'Guaviare',
+                     'Huila', 'La Guajira', 'Magdalena', 'Meta', 'Narino',
+                     'Norte de Santander', 'Putumayo', 'Quindio', 'Risaralda',
+                     'San Andres y Providencia', 'Santander', 'Sucre', 'Tolima',
+                     'Valle del Cauca', 'Vaupes', 'Vichada'
 ]
