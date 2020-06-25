@@ -1,4 +1,741 @@
 Continent,Country,Province,Day,Total Detected,Active,Active Hospitalized,Cumulative Hospitalized,Total Detected Deaths,Active Ventilated
+Africa,South Africa,Eastern Cape,2020-04-13,104,104,16,16,0,4
+Africa,South Africa,Eastern Cape,2020-04-14,135,126,19,20,1,5
+Africa,South Africa,Eastern Cape,2020-04-15,158,141,22,24,2,5
+Africa,South Africa,Eastern Cape,2020-04-16,179,151,24,27,2,6
+Africa,South Africa,Eastern Cape,2020-04-17,197,159,25,30,3,6
+Africa,South Africa,Eastern Cape,2020-04-18,216,166,27,32,3,6
+Africa,South Africa,Eastern Cape,2020-04-19,234,173,28,35,4,6
+Africa,South Africa,Eastern Cape,2020-04-20,254,181,30,38,5,7
+Africa,South Africa,Eastern Cape,2020-04-21,274,189,31,41,5,7
+Africa,South Africa,Eastern Cape,2020-04-22,296,197,33,44,6,7
+Africa,South Africa,Eastern Cape,2020-04-23,319,207,35,48,6,8
+Africa,South Africa,Eastern Cape,2020-04-24,344,217,37,52,7,8
+Africa,South Africa,Eastern Cape,2020-04-25,370,229,39,56,7,8
+Africa,South Africa,Eastern Cape,2020-04-26,399,241,41,60,8,9
+Africa,South Africa,Eastern Cape,2020-04-27,429,255,44,64,9,9
+Africa,South Africa,Eastern Cape,2020-04-28,461,269,46,69,9,10
+Africa,South Africa,Eastern Cape,2020-04-29,496,285,49,74,10,10
+Africa,South Africa,Eastern Cape,2020-04-30,532,302,52,80,11,11
+Africa,South Africa,Eastern Cape,2020-05-01,572,320,56,86,11,12
+Africa,South Africa,Eastern Cape,2020-05-02,613,340,59,92,12,12
+Africa,South Africa,Eastern Cape,2020-05-03,658,361,63,99,13,13
+Africa,South Africa,Eastern Cape,2020-05-04,706,384,67,106,14,14
+Africa,South Africa,Eastern Cape,2020-05-05,757,408,71,113,15,15
+Africa,South Africa,Eastern Cape,2020-05-06,811,434,76,122,16,16
+Africa,South Africa,Eastern Cape,2020-05-07,868,461,81,130,18,17
+Africa,South Africa,Eastern Cape,2020-05-08,929,490,86,139,19,18
+Africa,South Africa,Eastern Cape,2020-05-09,995,521,91,149,20,19
+Africa,South Africa,Eastern Cape,2020-05-10,1064,555,97,160,22,20
+Africa,South Africa,Eastern Cape,2020-05-11,1138,590,104,171,23,21
+Africa,South Africa,Eastern Cape,2020-05-12,1217,628,110,183,25,23
+Africa,South Africa,Eastern Cape,2020-05-13,1300,668,117,195,26,24
+Africa,South Africa,Eastern Cape,2020-05-14,1389,710,125,208,28,26
+Africa,South Africa,Eastern Cape,2020-05-15,1483,755,133,222,30,27
+Africa,South Africa,Eastern Cape,2020-05-16,1583,803,141,237,32,29
+Africa,South Africa,Eastern Cape,2020-05-17,1690,853,150,253,35,31
+Africa,South Africa,Eastern Cape,2020-05-18,1802,907,160,270,37,33
+Africa,South Africa,Eastern Cape,2020-05-19,1922,963,170,288,39,35
+Africa,South Africa,Eastern Cape,2020-05-20,2049,1023,180,307,42,37
+Africa,South Africa,Eastern Cape,2020-05-21,2183,1086,191,327,45,39
+Africa,South Africa,Eastern Cape,2020-05-22,2325,1153,203,349,48,42
+Africa,South Africa,Eastern Cape,2020-05-23,2476,1224,216,371,51,44
+Africa,South Africa,Eastern Cape,2020-05-24,2636,1299,229,395,54,47
+Africa,South Africa,Eastern Cape,2020-05-25,2805,1378,243,421,58,50
+Africa,South Africa,Eastern Cape,2020-05-26,2983,1461,258,447,62,53
+Africa,South Africa,Eastern Cape,2020-05-27,3172,1548,273,476,66,56
+Africa,South Africa,Eastern Cape,2020-05-28,3372,1641,290,506,70,60
+Africa,South Africa,Eastern Cape,2020-05-29,3583,1739,307,537,74,63
+Africa,South Africa,Eastern Cape,2020-05-30,3806,1842,325,571,79,67
+Africa,South Africa,Eastern Cape,2020-05-31,4042,1950,345,606,84,71
+Africa,South Africa,Eastern Cape,2020-06-01,4290,2063,365,644,89,75
+Africa,South Africa,Eastern Cape,2020-06-02,4552,2182,386,683,95,79
+Africa,South Africa,Eastern Cape,2020-06-03,4829,2308,408,724,100,84
+Africa,South Africa,Eastern Cape,2020-06-04,5121,2440,432,768,107,89
+Africa,South Africa,Eastern Cape,2020-06-05,5429,2579,457,814,113,94
+Africa,South Africa,Eastern Cape,2020-06-06,5753,2725,483,863,120,99
+Africa,South Africa,Eastern Cape,2020-06-07,6094,2878,510,914,127,104
+Africa,South Africa,Eastern Cape,2020-06-08,6452,3038,539,968,135,110
+Africa,South Africa,Eastern Cape,2020-06-09,6830,3205,569,1024,143,116
+Africa,South Africa,Eastern Cape,2020-06-10,7228,3382,600,1084,151,123
+Africa,South Africa,Eastern Cape,2020-06-11,7647,3567,634,1147,160,129
+Africa,South Africa,Eastern Cape,2020-06-12,8087,3761,668,1213,170,136
+Africa,South Africa,Eastern Cape,2020-06-13,8548,3963,705,1282,180,144
+Africa,South Africa,Eastern Cape,2020-06-14,9033,4174,743,1355,190,151
+Africa,South Africa,Eastern Cape,2020-06-15,9541,4395,782,1431,201,159
+Africa,South Africa,Eastern Cape,2020-06-16,10076,4627,824,1511,212,168
+Africa,South Africa,Eastern Cape,2020-06-17,10637,4869,867,1596,224,177
+Africa,South Africa,Eastern Cape,2020-06-18,11226,5122,913,1684,237,186
+Africa,South Africa,Eastern Cape,2020-06-19,11842,5385,960,1776,250,195
+Africa,South Africa,Eastern Cape,2020-06-20,12486,5659,1010,1873,264,205
+Africa,South Africa,Eastern Cape,2020-06-21,13162,5945,1061,1974,279,215
+Africa,South Africa,Eastern Cape,2020-06-22,13869,6243,1115,2080,294,226
+Africa,South Africa,Eastern Cape,2020-06-23,14611,6555,1172,2192,310,238
+Africa,South Africa,Eastern Cape,2020-06-24,15386,6880,1230,2308,327,249
+Africa,South Africa,Eastern Cape,2020-06-25,16196,7216,1291,2429,344,261
+Africa,South Africa,Eastern Cape,2020-06-26,17041,7566,1355,2556,363,274
+Africa,South Africa,Eastern Cape,2020-06-27,17924,7928,1421,2689,382,287
+Africa,South Africa,Eastern Cape,2020-06-28,18846,8306,1489,2827,402,301
+Africa,South Africa,Eastern Cape,2020-06-29,19810,8700,1561,2972,423,315
+Africa,South Africa,Eastern Cape,2020-06-30,20816,9109,1635,3122,445,330
+Africa,South Africa,Eastern Cape,2020-07-01,21864,9532,1712,3280,467,345
+Africa,South Africa,Eastern Cape,2020-07-02,22955,9968,1792,3443,491,361
+Africa,South Africa,Eastern Cape,2020-07-03,24090,10420,1874,3613,516,377
+Africa,South Africa,Eastern Cape,2020-07-04,25273,10888,1960,3791,542,394
+Africa,South Africa,Eastern Cape,2020-07-05,26506,11375,2048,3976,569,411
+Africa,South Africa,Eastern Cape,2020-07-06,27790,11880,2141,4168,597,430
+Africa,South Africa,Eastern Cape,2020-07-07,29123,12400,2236,4369,627,448
+Africa,South Africa,Eastern Cape,2020-07-08,30508,12935,2334,4576,657,468
+Africa,South Africa,Eastern Cape,2020-07-09,31944,13486,2435,4792,689,488
+Africa,South Africa,Eastern Cape,2020-07-10,33435,14054,2540,5015,722,508
+Africa,South Africa,Eastern Cape,2020-07-11,34985,14642,2648,5248,756,529
+Africa,South Africa,Eastern Cape,2020-07-12,36593,15249,2760,5489,792,551
+Africa,South Africa,Eastern Cape,2020-07-13,38259,15873,2875,5739,829,573
+Africa,South Africa,Eastern Cape,2020-07-14,39984,16514,2993,5998,867,597
+Africa,South Africa,Eastern Cape,2020-07-15,41771,17173,3115,6266,907,620
+Africa,South Africa,Free State,2020-04-20,100,76,11,11,4,3
+Africa,South Africa,Free State,2020-04-21,101,72,11,12,4,3
+Africa,South Africa,Free State,2020-04-22,102,68,11,12,4,3
+Africa,South Africa,Free State,2020-04-23,102,64,10,12,5,2
+Africa,South Africa,Free State,2020-04-24,103,60,10,12,5,2
+Africa,South Africa,Free State,2020-04-25,103,57,9,12,5,2
+Africa,South Africa,Free State,2020-04-26,104,54,9,12,5,2
+Africa,South Africa,Free State,2020-04-27,105,51,9,12,5,2
+Africa,South Africa,Free State,2020-04-28,106,49,9,12,5,2
+Africa,South Africa,Free State,2020-04-29,107,47,8,12,5,2
+Africa,South Africa,Free State,2020-04-30,108,45,8,13,5,2
+Africa,South Africa,Free State,2020-05-01,109,43,8,13,5,2
+Africa,South Africa,Free State,2020-05-02,110,41,8,13,5,1
+Africa,South Africa,Free State,2020-05-03,111,40,7,13,5,1
+Africa,South Africa,Free State,2020-05-04,113,39,7,13,5,1
+Africa,South Africa,Free State,2020-05-05,114,38,7,14,5,1
+Africa,South Africa,Free State,2020-05-06,116,37,7,14,5,1
+Africa,South Africa,Free State,2020-05-07,118,37,7,14,5,1
+Africa,South Africa,Free State,2020-05-08,120,36,7,14,5,1
+Africa,South Africa,Free State,2020-05-09,122,36,7,15,6,1
+Africa,South Africa,Free State,2020-05-10,125,36,7,15,6,1
+Africa,South Africa,Free State,2020-05-11,127,36,7,15,6,1
+Africa,South Africa,Free State,2020-05-12,130,37,7,16,6,1
+Africa,South Africa,Free State,2020-05-13,133,37,7,16,6,1
+Africa,South Africa,Free State,2020-05-14,136,38,7,17,6,1
+Africa,South Africa,Free State,2020-05-15,140,39,8,17,6,1
+Africa,South Africa,Free State,2020-05-16,143,40,8,18,6,1
+Africa,South Africa,Free State,2020-05-17,147,41,8,18,6,1
+Africa,South Africa,Free State,2020-05-18,151,43,8,19,6,2
+Africa,South Africa,Free State,2020-05-19,156,45,9,20,6,2
+Africa,South Africa,Free State,2020-05-20,161,46,9,21,6,2
+Africa,South Africa,Free State,2020-05-21,166,48,9,21,6,2
+Africa,South Africa,Free State,2020-05-22,172,51,10,22,6,2
+Africa,South Africa,Free State,2020-05-23,177,53,10,23,6,2
+Africa,South Africa,Free State,2020-05-24,184,56,11,24,6,2
+Africa,South Africa,Free State,2020-05-25,190,59,11,25,6,2
+Africa,South Africa,Free State,2020-05-26,197,62,12,26,7,2
+Africa,South Africa,Free State,2020-05-27,205,65,12,27,7,2
+Africa,South Africa,Free State,2020-05-28,212,68,13,28,7,2
+Africa,South Africa,Free State,2020-05-29,221,72,13,30,7,3
+Africa,South Africa,Free State,2020-05-30,229,76,14,31,7,3
+Africa,South Africa,Free State,2020-05-31,239,80,15,32,7,3
+Africa,South Africa,Free State,2020-06-01,248,84,15,34,7,3
+Africa,South Africa,Free State,2020-06-02,258,88,16,35,7,3
+Africa,South Africa,Free State,2020-06-03,269,93,17,37,7,3
+Africa,South Africa,Free State,2020-06-04,280,98,18,38,8,4
+Africa,South Africa,Free State,2020-06-05,291,103,19,40,8,4
+Africa,South Africa,Free State,2020-06-06,303,108,20,42,8,4
+Africa,South Africa,Free State,2020-06-07,316,113,21,44,8,4
+Africa,South Africa,Free State,2020-06-08,329,119,22,46,8,4
+Africa,South Africa,Free State,2020-06-09,343,124,23,48,9,4
+Africa,South Africa,Free State,2020-06-10,357,130,24,50,9,5
+Africa,South Africa,Free State,2020-06-11,372,136,25,52,9,5
+Africa,South Africa,Free State,2020-06-12,387,142,26,54,9,5
+Africa,South Africa,Free State,2020-06-13,403,148,27,57,9,5
+Africa,South Africa,Free State,2020-06-14,420,155,28,59,10,6
+Africa,South Africa,Free State,2020-06-15,437,161,29,62,10,6
+Africa,South Africa,Free State,2020-06-16,454,168,30,65,10,6
+Africa,South Africa,Free State,2020-06-17,472,175,32,67,10,6
+Africa,South Africa,Free State,2020-06-18,491,181,33,70,11,7
+Africa,South Africa,Free State,2020-06-19,510,188,34,73,11,7
+Africa,South Africa,Free State,2020-06-20,530,195,36,76,11,7
+Africa,South Africa,Free State,2020-06-21,550,203,37,79,12,7
+Africa,South Africa,Free State,2020-06-22,571,210,38,82,12,8
+Africa,South Africa,Free State,2020-06-23,592,217,40,85,12,8
+Africa,South Africa,Free State,2020-06-24,614,224,41,88,13,8
+Africa,South Africa,Free State,2020-06-25,636,231,42,92,13,8
+Africa,South Africa,Free State,2020-06-26,658,238,44,95,13,9
+Africa,South Africa,Free State,2020-06-27,682,246,45,99,14,9
+Africa,South Africa,Free State,2020-06-28,705,253,47,102,14,9
+Africa,South Africa,Free State,2020-06-29,729,260,48,106,14,9
+Africa,South Africa,Free State,2020-06-30,754,267,49,109,15,10
+Africa,South Africa,Free State,2020-07-01,779,274,51,113,15,10
+Africa,South Africa,Free State,2020-07-02,804,281,52,117,15,10
+Africa,South Africa,Free State,2020-07-03,830,288,53,121,16,10
+Africa,South Africa,Free State,2020-07-04,856,295,55,125,16,11
+Africa,South Africa,Free State,2020-07-05,882,302,56,129,17,11
+Africa,South Africa,Free State,2020-07-06,909,308,57,133,17,11
+Africa,South Africa,Free State,2020-07-07,936,315,59,137,18,11
+Africa,South Africa,Free State,2020-07-08,963,321,60,141,18,12
+Africa,South Africa,Free State,2020-07-09,990,327,61,145,19,12
+Africa,South Africa,Free State,2020-07-10,1018,333,63,149,19,12
+Africa,South Africa,Free State,2020-07-11,1046,339,64,153,19,12
+Africa,South Africa,Free State,2020-07-12,1074,344,65,158,20,12
+Africa,South Africa,Free State,2020-07-13,1102,350,66,162,20,13
+Africa,South Africa,Free State,2020-07-14,1131,355,67,166,21,13
+Africa,South Africa,Free State,2020-07-15,1159,360,68,170,21,13
+Africa,South Africa,Gauteng,2020-03-20,109,109,16,16,0,4
+Africa,South Africa,Gauteng,2020-03-21,125,118,18,19,0,4
+Africa,South Africa,Gauteng,2020-03-22,139,124,19,21,0,5
+Africa,South Africa,Gauteng,2020-03-23,150,128,20,23,0,5
+Africa,South Africa,Gauteng,2020-03-24,161,130,21,24,0,5
+Africa,South Africa,Gauteng,2020-03-25,171,133,21,26,0,5
+Africa,South Africa,Gauteng,2020-03-26,182,135,22,27,0,5
+Africa,South Africa,Gauteng,2020-03-27,193,137,23,29,0,5
+Africa,South Africa,Gauteng,2020-03-28,204,140,23,31,1,5
+Africa,South Africa,Gauteng,2020-03-29,215,143,24,32,1,5
+Africa,South Africa,Gauteng,2020-03-30,227,146,25,34,1,5
+Africa,South Africa,Gauteng,2020-03-31,239,149,26,36,1,5
+Africa,South Africa,Gauteng,2020-04-01,253,153,26,38,1,6
+Africa,South Africa,Gauteng,2020-04-02,266,158,27,40,1,6
+Africa,South Africa,Gauteng,2020-04-03,280,162,28,42,1,6
+Africa,South Africa,Gauteng,2020-04-04,295,167,29,44,1,6
+Africa,South Africa,Gauteng,2020-04-05,311,173,30,47,1,6
+Africa,South Africa,Gauteng,2020-04-06,327,179,31,49,2,6
+Africa,South Africa,Gauteng,2020-04-07,345,185,33,52,2,7
+Africa,South Africa,Gauteng,2020-04-08,363,192,34,54,2,7
+Africa,South Africa,Gauteng,2020-04-09,382,199,35,57,2,7
+Africa,South Africa,Gauteng,2020-04-10,401,206,37,60,2,7
+Africa,South Africa,Gauteng,2020-04-11,422,214,38,63,2,8
+Africa,South Africa,Gauteng,2020-04-12,443,223,40,67,2,8
+Africa,South Africa,Gauteng,2020-04-13,466,232,41,70,3,8
+Africa,South Africa,Gauteng,2020-04-14,490,242,43,73,3,9
+Africa,South Africa,Gauteng,2020-04-15,514,252,45,77,3,9
+Africa,South Africa,Gauteng,2020-04-16,540,262,47,81,3,10
+Africa,South Africa,Gauteng,2020-04-17,568,274,49,85,3,10
+Africa,South Africa,Gauteng,2020-04-18,596,285,51,89,4,10
+Africa,South Africa,Gauteng,2020-04-19,625,298,53,94,4,11
+Africa,South Africa,Gauteng,2020-04-20,656,311,55,98,4,11
+Africa,South Africa,Gauteng,2020-04-21,689,324,58,103,4,12
+Africa,South Africa,Gauteng,2020-04-22,723,339,60,108,5,12
+Africa,South Africa,Gauteng,2020-04-23,759,354,63,114,5,13
+Africa,South Africa,Gauteng,2020-04-24,796,370,66,119,5,13
+Africa,South Africa,Gauteng,2020-04-25,835,386,69,125,6,14
+Africa,South Africa,Gauteng,2020-04-26,876,404,72,131,6,15
+Africa,South Africa,Gauteng,2020-04-27,918,422,75,138,6,15
+Africa,South Africa,Gauteng,2020-04-28,963,441,79,144,7,16
+Africa,South Africa,Gauteng,2020-04-29,1010,461,82,151,7,17
+Africa,South Africa,Gauteng,2020-04-30,1058,482,86,159,7,17
+Africa,South Africa,Gauteng,2020-05-01,1109,504,90,166,8,18
+Africa,South Africa,Gauteng,2020-05-02,1163,527,94,174,8,19
+Africa,South Africa,Gauteng,2020-05-03,1218,550,98,183,9,20
+Africa,South Africa,Gauteng,2020-05-04,1277,575,103,192,9,21
+Africa,South Africa,Gauteng,2020-05-05,1338,602,107,201,10,22
+Africa,South Africa,Gauteng,2020-05-06,1402,630,112,210,10,23
+Africa,South Africa,Gauteng,2020-05-07,1469,658,117,220,11,24
+Africa,South Africa,Gauteng,2020-05-08,1538,688,123,231,11,25
+Africa,South Africa,Gauteng,2020-05-09,1611,719,128,242,12,26
+Africa,South Africa,Gauteng,2020-05-10,1687,752,134,253,13,27
+Africa,South Africa,Gauteng,2020-05-11,1767,786,140,265,13,29
+Africa,South Africa,Gauteng,2020-05-12,1851,822,146,278,14,30
+Africa,South Africa,Gauteng,2020-05-13,1938,860,153,291,15,31
+Africa,South Africa,Gauteng,2020-05-14,2029,899,160,304,16,33
+Africa,South Africa,Gauteng,2020-05-15,2124,940,167,319,16,34
+Africa,South Africa,Gauteng,2020-05-16,2223,982,175,334,17,36
+Africa,South Africa,Gauteng,2020-05-17,2327,1027,183,349,18,37
+Africa,South Africa,Gauteng,2020-05-18,2436,1074,191,365,19,39
+Africa,South Africa,Gauteng,2020-05-19,2550,1123,200,383,20,41
+Africa,South Africa,Gauteng,2020-05-20,2669,1174,209,400,21,43
+Africa,South Africa,Gauteng,2020-05-21,2793,1227,218,419,22,45
+Africa,South Africa,Gauteng,2020-05-22,2922,1282,228,438,23,46
+Africa,South Africa,Gauteng,2020-05-23,3057,1339,238,459,24,49
+Africa,South Africa,Gauteng,2020-05-24,3199,1400,249,480,25,51
+Africa,South Africa,Gauteng,2020-05-25,3347,1464,261,502,27,53
+Africa,South Africa,Gauteng,2020-05-26,3502,1531,272,525,28,56
+Africa,South Africa,Gauteng,2020-05-27,3663,1600,285,549,29,58
+Africa,South Africa,Gauteng,2020-05-28,3831,1671,298,575,31,61
+Africa,South Africa,Gauteng,2020-05-29,4007,1746,311,601,32,63
+Africa,South Africa,Gauteng,2020-05-30,4190,1824,325,629,34,66
+Africa,South Africa,Gauteng,2020-05-31,4383,1906,339,657,35,69
+Africa,South Africa,Gauteng,2020-06-01,4584,1992,355,688,37,72
+Africa,South Africa,Gauteng,2020-06-02,4794,2082,371,719,39,75
+Africa,South Africa,Gauteng,2020-06-03,5012,2175,387,752,41,79
+Africa,South Africa,Gauteng,2020-06-04,5240,2271,404,786,43,82
+Africa,South Africa,Gauteng,2020-06-05,5478,2372,422,822,45,86
+Africa,South Africa,Gauteng,2020-06-06,5727,2478,441,859,47,90
+Africa,South Africa,Gauteng,2020-06-07,5987,2589,461,898,49,94
+Africa,South Africa,Gauteng,2020-06-08,6259,2705,482,939,51,98
+Africa,South Africa,Gauteng,2020-06-09,6542,2825,503,981,54,102
+Africa,South Africa,Gauteng,2020-06-10,6837,2950,525,1026,56,107
+Africa,South Africa,Gauteng,2020-06-11,7145,3079,549,1072,59,112
+Africa,South Africa,Gauteng,2020-06-12,7467,3216,573,1120,62,117
+Africa,South Africa,Gauteng,2020-06-13,7804,3359,598,1171,65,122
+Africa,South Africa,Gauteng,2020-06-14,8156,3508,625,1223,68,127
+Africa,South Africa,Gauteng,2020-06-15,8522,3664,653,1278,71,133
+Africa,South Africa,Gauteng,2020-06-16,8904,3824,681,1336,74,139
+Africa,South Africa,Gauteng,2020-06-17,9301,3991,711,1395,77,145
+Africa,South Africa,Gauteng,2020-06-18,9715,4165,742,1457,81,151
+Africa,South Africa,Gauteng,2020-06-19,10149,4347,775,1522,85,158
+Africa,South Africa,Gauteng,2020-06-20,10604,4540,809,1591,89,165
+Africa,South Africa,Gauteng,2020-06-21,11078,4741,845,1662,93,172
+Africa,South Africa,Gauteng,2020-06-22,11570,4948,882,1736,97,179
+Africa,South Africa,Gauteng,2020-06-23,12083,5162,920,1812,101,187
+Africa,South Africa,Gauteng,2020-06-24,12616,5385,960,1892,106,195
+Africa,South Africa,Gauteng,2020-06-25,13172,5616,1002,1976,111,204
+Africa,South Africa,Gauteng,2020-06-26,13756,5861,1045,2063,116,212
+Africa,South Africa,Gauteng,2020-06-27,14366,6119,1091,2155,121,222
+Africa,South Africa,Gauteng,2020-06-28,15001,6386,1139,2250,127,231
+Africa,South Africa,Gauteng,2020-06-29,15661,6662,1188,2349,133,241
+Africa,South Africa,Gauteng,2020-06-30,16347,6946,1239,2452,139,252
+Africa,South Africa,Gauteng,2020-07-01,17061,7242,1292,2559,145,262
+Africa,South Africa,Gauteng,2020-07-02,17808,7552,1348,2671,152,274
+Africa,South Africa,Gauteng,2020-07-03,18589,7880,1406,2788,158,286
+Africa,South Africa,Gauteng,2020-07-04,19404,8221,1467,2911,165,298
+Africa,South Africa,Gauteng,2020-07-05,20251,8573,1530,3038,173,311
+Africa,South Africa,Gauteng,2020-07-06,21131,8938,1595,3170,181,324
+Africa,South Africa,Gauteng,2020-07-07,22047,9315,1663,3307,189,338
+Africa,South Africa,Gauteng,2020-07-08,23002,9709,1734,3450,197,352
+Africa,South Africa,Gauteng,2020-07-09,24000,10124,1808,3600,206,367
+Africa,South Africa,Gauteng,2020-07-10,25041,10556,1885,3756,215,383
+Africa,South Africa,Gauteng,2020-07-11,26123,11004,1965,3919,225,399
+Africa,South Africa,Gauteng,2020-07-12,27248,11468,2048,4087,235,416
+Africa,South Africa,Gauteng,2020-07-13,28417,11947,2134,4263,245,433
+Africa,South Africa,Gauteng,2020-07-14,29635,12446,2224,4445,256,451
+Africa,South Africa,Gauteng,2020-07-15,30906,12969,2317,4636,268,470
+Africa,South Africa,KwaZulu Natal,2020-03-26,134,134,20,20,0,5
+Africa,South Africa,KwaZulu Natal,2020-03-27,138,127,19,21,3,5
+Africa,South Africa,KwaZulu Natal,2020-03-28,147,127,20,22,3,5
+Africa,South Africa,KwaZulu Natal,2020-03-29,158,130,20,24,3,5
+Africa,South Africa,KwaZulu Natal,2020-03-30,172,134,22,26,4,5
+Africa,South Africa,KwaZulu Natal,2020-03-31,187,140,23,28,4,5
+Africa,South Africa,KwaZulu Natal,2020-04-01,203,146,24,30,4,5
+Africa,South Africa,KwaZulu Natal,2020-04-02,220,153,25,33,5,6
+Africa,South Africa,KwaZulu Natal,2020-04-03,237,160,27,36,5,6
+Africa,South Africa,KwaZulu Natal,2020-04-04,255,167,28,38,6,6
+Africa,South Africa,KwaZulu Natal,2020-04-05,274,174,29,41,6,6
+Africa,South Africa,KwaZulu Natal,2020-04-06,293,181,31,44,6,7
+Africa,South Africa,KwaZulu Natal,2020-04-07,313,189,32,47,7,7
+Africa,South Africa,KwaZulu Natal,2020-04-08,333,196,34,50,7,7
+Africa,South Africa,KwaZulu Natal,2020-04-09,354,203,35,53,8,7
+Africa,South Africa,KwaZulu Natal,2020-04-10,376,211,37,56,8,8
+Africa,South Africa,KwaZulu Natal,2020-04-11,398,218,38,60,9,8
+Africa,South Africa,KwaZulu Natal,2020-04-12,421,226,40,63,9,8
+Africa,South Africa,KwaZulu Natal,2020-04-13,444,234,41,67,10,8
+Africa,South Africa,KwaZulu Natal,2020-04-14,468,242,43,70,10,9
+Africa,South Africa,KwaZulu Natal,2020-04-15,492,250,44,74,11,9
+Africa,South Africa,KwaZulu Natal,2020-04-16,517,258,46,78,11,9
+Africa,South Africa,KwaZulu Natal,2020-04-17,543,266,48,81,12,10
+Africa,South Africa,KwaZulu Natal,2020-04-18,569,274,49,85,12,10
+Africa,South Africa,KwaZulu Natal,2020-04-19,596,282,51,89,13,10
+Africa,South Africa,KwaZulu Natal,2020-04-20,624,291,53,94,14,11
+Africa,South Africa,KwaZulu Natal,2020-04-21,653,299,54,98,14,11
+Africa,South Africa,KwaZulu Natal,2020-04-22,682,308,56,102,15,11
+Africa,South Africa,KwaZulu Natal,2020-04-23,712,317,58,107,16,11
+Africa,South Africa,KwaZulu Natal,2020-04-24,742,326,60,111,16,12
+Africa,South Africa,KwaZulu Natal,2020-04-25,774,335,61,116,17,12
+Africa,South Africa,KwaZulu Natal,2020-04-26,806,345,63,121,18,12
+Africa,South Africa,KwaZulu Natal,2020-04-27,839,354,65,126,18,13
+Africa,South Africa,KwaZulu Natal,2020-04-28,872,364,67,131,19,13
+Africa,South Africa,KwaZulu Natal,2020-04-29,907,373,69,136,20,13
+Africa,South Africa,KwaZulu Natal,2020-04-30,942,383,71,141,21,14
+Africa,South Africa,KwaZulu Natal,2020-05-01,978,393,73,147,21,14
+Africa,South Africa,KwaZulu Natal,2020-05-02,1015,403,75,152,22,14
+Africa,South Africa,KwaZulu Natal,2020-05-03,1053,414,77,158,23,15
+Africa,South Africa,KwaZulu Natal,2020-05-04,1091,424,79,164,24,15
+Africa,South Africa,KwaZulu Natal,2020-05-05,1131,435,81,170,25,16
+Africa,South Africa,KwaZulu Natal,2020-05-06,1171,446,83,176,26,16
+Africa,South Africa,KwaZulu Natal,2020-05-07,1212,457,85,182,27,16
+Africa,South Africa,KwaZulu Natal,2020-05-08,1255,468,88,188,28,17
+Africa,South Africa,KwaZulu Natal,2020-05-09,1298,479,90,195,29,17
+Africa,South Africa,KwaZulu Natal,2020-05-10,1342,491,92,201,30,18
+Africa,South Africa,KwaZulu Natal,2020-05-11,1387,503,94,208,30,18
+Africa,South Africa,KwaZulu Natal,2020-05-12,1433,515,97,215,32,18
+Africa,South Africa,KwaZulu Natal,2020-05-13,1480,527,99,222,33,19
+Africa,South Africa,KwaZulu Natal,2020-05-14,1527,539,101,229,34,19
+Africa,South Africa,KwaZulu Natal,2020-05-15,1576,551,104,236,35,20
+Africa,South Africa,KwaZulu Natal,2020-05-16,1626,564,106,244,36,20
+Africa,South Africa,KwaZulu Natal,2020-05-17,1677,577,109,252,37,21
+Africa,South Africa,KwaZulu Natal,2020-05-18,1729,590,111,259,38,21
+Africa,South Africa,KwaZulu Natal,2020-05-19,1782,603,114,267,39,22
+Africa,South Africa,KwaZulu Natal,2020-05-20,1836,616,117,275,40,22
+Africa,South Africa,KwaZulu Natal,2020-05-21,1892,630,119,284,42,23
+Africa,South Africa,KwaZulu Natal,2020-05-22,1948,644,122,292,43,23
+Africa,South Africa,KwaZulu Natal,2020-05-23,2005,657,125,301,44,24
+Africa,South Africa,KwaZulu Natal,2020-05-24,2064,671,127,310,45,24
+Africa,South Africa,KwaZulu Natal,2020-05-25,2123,686,130,318,47,25
+Africa,South Africa,KwaZulu Natal,2020-05-26,2184,700,133,328,48,25
+Africa,South Africa,KwaZulu Natal,2020-05-27,2246,715,136,337,49,26
+Africa,South Africa,KwaZulu Natal,2020-05-28,2309,730,139,346,51,26
+Africa,South Africa,KwaZulu Natal,2020-05-29,2373,744,142,356,52,27
+Africa,South Africa,KwaZulu Natal,2020-05-30,2438,760,145,366,54,27
+Africa,South Africa,KwaZulu Natal,2020-05-31,2505,775,148,376,55,28
+Africa,South Africa,KwaZulu Natal,2020-06-01,2573,790,151,386,57,28
+Africa,South Africa,KwaZulu Natal,2020-06-02,2642,806,154,396,58,29
+Africa,South Africa,KwaZulu Natal,2020-06-03,2712,822,157,407,60,29
+Africa,South Africa,KwaZulu Natal,2020-06-04,2783,838,160,417,61,30
+Africa,South Africa,KwaZulu Natal,2020-06-05,2856,854,163,428,63,30
+Africa,South Africa,KwaZulu Natal,2020-06-06,2930,870,166,439,65,31
+Africa,South Africa,KwaZulu Natal,2020-06-07,3005,887,170,451,66,32
+Africa,South Africa,KwaZulu Natal,2020-06-08,3081,903,173,462,68,32
+Africa,South Africa,KwaZulu Natal,2020-06-09,3159,920,176,474,70,33
+Africa,South Africa,KwaZulu Natal,2020-06-10,3238,937,180,486,71,33
+Africa,South Africa,KwaZulu Natal,2020-06-11,3318,954,183,498,73,34
+Africa,South Africa,KwaZulu Natal,2020-06-12,3400,972,187,510,75,35
+Africa,South Africa,KwaZulu Natal,2020-06-13,3482,989,190,522,77,35
+Africa,South Africa,KwaZulu Natal,2020-06-14,3566,1007,193,535,79,36
+Africa,South Africa,KwaZulu Natal,2020-06-15,3652,1024,197,548,81,36
+Africa,South Africa,KwaZulu Natal,2020-06-16,3739,1042,200,561,82,37
+Africa,South Africa,KwaZulu Natal,2020-06-17,3827,1060,204,574,84,38
+Africa,South Africa,KwaZulu Natal,2020-06-18,3916,1078,208,587,86,38
+Africa,South Africa,KwaZulu Natal,2020-06-19,4007,1096,211,601,88,39
+Africa,South Africa,KwaZulu Natal,2020-06-20,4099,1115,215,615,90,40
+Africa,South Africa,KwaZulu Natal,2020-06-21,4192,1133,219,629,92,40
+Africa,South Africa,KwaZulu Natal,2020-06-22,4287,1152,222,643,95,41
+Africa,South Africa,KwaZulu Natal,2020-06-23,4383,1170,226,657,97,42
+Africa,South Africa,KwaZulu Natal,2020-06-24,4480,1189,230,672,99,42
+Africa,South Africa,KwaZulu Natal,2020-06-25,4579,1208,234,687,101,43
+Africa,South Africa,KwaZulu Natal,2020-06-26,4679,1227,237,702,103,44
+Africa,South Africa,KwaZulu Natal,2020-06-27,4781,1246,241,717,105,44
+Africa,South Africa,KwaZulu Natal,2020-06-28,4884,1265,245,733,108,45
+Africa,South Africa,KwaZulu Natal,2020-06-29,4988,1285,249,748,110,46
+Africa,South Africa,KwaZulu Natal,2020-06-30,5093,1304,253,764,112,46
+Africa,South Africa,KwaZulu Natal,2020-07-01,5200,1323,257,780,115,47
+Africa,South Africa,KwaZulu Natal,2020-07-02,5308,1343,261,796,117,48
+Africa,South Africa,KwaZulu Natal,2020-07-03,5418,1362,265,813,120,48
+Africa,South Africa,KwaZulu Natal,2020-07-04,5529,1382,269,829,122,49
+Africa,South Africa,KwaZulu Natal,2020-07-05,5641,1402,273,846,125,50
+Africa,South Africa,KwaZulu Natal,2020-07-06,5755,1421,277,863,127,51
+Africa,South Africa,KwaZulu Natal,2020-07-07,5870,1441,281,880,130,51
+Africa,South Africa,KwaZulu Natal,2020-07-08,5986,1461,285,898,132,52
+Africa,South Africa,KwaZulu Natal,2020-07-09,6104,1481,289,916,135,53
+Africa,South Africa,KwaZulu Natal,2020-07-10,6223,1500,293,933,137,53
+Africa,South Africa,KwaZulu Natal,2020-07-11,6343,1520,297,951,140,54
+Africa,South Africa,KwaZulu Natal,2020-07-12,6465,1540,301,970,143,55
+Africa,South Africa,KwaZulu Natal,2020-07-13,6588,1560,305,988,145,55
+Africa,South Africa,KwaZulu Natal,2020-07-14,6712,1580,309,1007,148,56
+Africa,South Africa,KwaZulu Natal,2020-07-15,6838,1600,313,1026,151,57
+Africa,South Africa,Limpopo,2020-05-21,121,103,15,15,3,4
+Africa,South Africa,Limpopo,2020-05-22,123,99,15,16,3,4
+Africa,South Africa,Limpopo,2020-05-23,126,95,15,16,3,4
+Africa,South Africa,Limpopo,2020-05-24,129,92,15,17,3,3
+Africa,South Africa,Limpopo,2020-05-25,133,90,15,17,3,3
+Africa,South Africa,Limpopo,2020-05-26,138,89,15,18,3,3
+Africa,South Africa,Limpopo,2020-05-27,144,89,15,19,3,3
+Africa,South Africa,Limpopo,2020-05-28,150,89,15,20,3,3
+Africa,South Africa,Limpopo,2020-05-29,157,91,15,21,3,3
+Africa,South Africa,Limpopo,2020-05-30,165,92,16,22,3,3
+Africa,South Africa,Limpopo,2020-05-31,173,94,16,23,3,3
+Africa,South Africa,Limpopo,2020-06-01,181,97,17,25,3,4
+Africa,South Africa,Limpopo,2020-06-02,190,99,17,26,3,4
+Africa,South Africa,Limpopo,2020-06-03,199,102,18,27,3,4
+Africa,South Africa,Limpopo,2020-06-04,209,104,18,29,3,4
+Africa,South Africa,Limpopo,2020-06-05,218,107,19,30,3,4
+Africa,South Africa,Limpopo,2020-06-06,227,109,19,31,3,4
+Africa,South Africa,Limpopo,2020-06-07,236,110,20,33,3,4
+Africa,South Africa,Limpopo,2020-06-08,244,112,20,34,3,4
+Africa,South Africa,Limpopo,2020-06-09,253,113,21,35,3,4
+Africa,South Africa,Limpopo,2020-06-10,261,114,21,36,3,4
+Africa,South Africa,Limpopo,2020-06-11,269,114,21,38,3,4
+Africa,South Africa,Limpopo,2020-06-12,276,114,21,39,3,4
+Africa,South Africa,Limpopo,2020-06-13,283,114,21,40,3,4
+Africa,South Africa,Limpopo,2020-06-14,290,113,21,41,3,4
+Africa,South Africa,Limpopo,2020-06-15,296,112,21,42,3,4
+Africa,South Africa,Limpopo,2020-06-16,302,111,21,43,3,4
+Africa,South Africa,Limpopo,2020-06-17,308,109,21,43,3,4
+Africa,South Africa,Limpopo,2020-06-18,313,108,21,44,3,4
+Africa,South Africa,Limpopo,2020-06-19,318,106,21,45,3,4
+Africa,South Africa,Limpopo,2020-06-20,322,103,20,46,3,4
+Africa,South Africa,Limpopo,2020-06-21,326,101,20,46,3,4
+Africa,South Africa,Limpopo,2020-06-22,330,99,20,47,3,3
+Africa,South Africa,Limpopo,2020-06-23,334,96,19,47,3,3
+Africa,South Africa,Limpopo,2020-06-24,337,93,19,48,3,3
+Africa,South Africa,Limpopo,2020-06-25,340,90,19,48,3,3
+Africa,South Africa,Limpopo,2020-06-26,343,88,18,49,3,3
+Africa,South Africa,Limpopo,2020-06-27,346,85,18,49,3,3
+Africa,South Africa,Limpopo,2020-06-28,348,82,17,50,3,3
+Africa,South Africa,Limpopo,2020-06-29,351,79,17,50,3,3
+Africa,South Africa,Limpopo,2020-06-30,353,76,16,50,3,3
+Africa,South Africa,Limpopo,2020-07-01,354,73,16,50,3,3
+Africa,South Africa,Limpopo,2020-07-02,356,70,15,51,3,2
+Africa,South Africa,Limpopo,2020-07-03,358,67,15,51,3,2
+Africa,South Africa,Limpopo,2020-07-04,359,64,14,51,3,2
+Africa,South Africa,Limpopo,2020-07-05,360,62,14,51,3,2
+Africa,South Africa,Limpopo,2020-07-06,361,59,14,52,3,2
+Africa,South Africa,Limpopo,2020-07-07,362,56,13,52,3,2
+Africa,South Africa,Limpopo,2020-07-08,363,54,13,52,3,2
+Africa,South Africa,Limpopo,2020-07-09,364,51,12,52,3,2
+Africa,South Africa,Limpopo,2020-07-10,365,49,12,52,3,2
+Africa,South Africa,Limpopo,2020-07-11,366,47,11,52,3,2
+Africa,South Africa,Limpopo,2020-07-12,366,44,11,52,3,1
+Africa,South Africa,Limpopo,2020-07-13,367,42,11,52,3,1
+Africa,South Africa,Limpopo,2020-07-14,368,40,10,52,3,1
+Africa,South Africa,Limpopo,2020-07-15,368,38,10,53,3,1
+Africa,South Africa,Mpumalanga,2020-05-24,101,101,15,15,0,4
+Africa,South Africa,Mpumalanga,2020-05-25,104,97,15,16,0,4
+Africa,South Africa,Mpumalanga,2020-05-26,106,94,15,16,0,3
+Africa,South Africa,Mpumalanga,2020-05-27,109,90,14,16,0,3
+Africa,South Africa,Mpumalanga,2020-05-28,112,88,14,17,0,3
+Africa,South Africa,Mpumalanga,2020-05-29,116,86,14,17,0,3
+Africa,South Africa,Mpumalanga,2020-05-30,120,85,14,18,0,3
+Africa,South Africa,Mpumalanga,2020-05-31,125,84,14,19,0,3
+Africa,South Africa,Mpumalanga,2020-06-01,130,84,14,20,0,3
+Africa,South Africa,Mpumalanga,2020-06-02,136,84,14,20,0,3
+Africa,South Africa,Mpumalanga,2020-06-03,143,85,15,21,0,3
+Africa,South Africa,Mpumalanga,2020-06-04,150,87,15,23,0,3
+Africa,South Africa,Mpumalanga,2020-06-05,158,89,16,24,1,3
+Africa,South Africa,Mpumalanga,2020-06-06,167,92,16,25,1,3
+Africa,South Africa,Mpumalanga,2020-06-07,177,96,17,27,1,3
+Africa,South Africa,Mpumalanga,2020-06-08,188,100,18,28,1,4
+Africa,South Africa,Mpumalanga,2020-06-09,199,105,19,30,1,4
+Africa,South Africa,Mpumalanga,2020-06-10,212,111,20,32,1,4
+Africa,South Africa,Mpumalanga,2020-06-11,225,117,21,34,1,4
+Africa,South Africa,Mpumalanga,2020-06-12,240,124,22,36,1,4
+Africa,South Africa,Mpumalanga,2020-06-13,255,131,23,38,1,5
+Africa,South Africa,Mpumalanga,2020-06-14,272,139,25,41,1,5
+Africa,South Africa,Mpumalanga,2020-06-15,290,147,26,43,1,5
+Africa,South Africa,Mpumalanga,2020-06-16,309,156,28,46,1,6
+Africa,South Africa,Mpumalanga,2020-06-17,328,166,29,49,1,6
+Africa,South Africa,Mpumalanga,2020-06-18,349,175,31,52,1,6
+Africa,South Africa,Mpumalanga,2020-06-19,371,186,33,56,1,7
+Africa,South Africa,Mpumalanga,2020-06-20,394,196,35,59,2,7
+Africa,South Africa,Mpumalanga,2020-06-21,418,207,37,63,2,8
+Africa,South Africa,Mpumalanga,2020-06-22,443,218,39,66,2,8
+Africa,South Africa,Mpumalanga,2020-06-23,469,230,41,70,2,8
+Africa,South Africa,Mpumalanga,2020-06-24,496,241,43,74,2,9
+Africa,South Africa,Mpumalanga,2020-06-25,523,253,45,78,2,9
+Africa,South Africa,Mpumalanga,2020-06-26,552,264,47,83,2,10
+Africa,South Africa,Mpumalanga,2020-06-27,581,276,49,87,2,10
+Africa,South Africa,Mpumalanga,2020-06-28,611,287,51,92,3,10
+Africa,South Africa,Mpumalanga,2020-06-29,641,299,54,96,3,11
+Africa,South Africa,Mpumalanga,2020-06-30,672,310,56,101,3,11
+Africa,South Africa,Mpumalanga,2020-07-01,704,321,58,106,3,12
+Africa,South Africa,Mpumalanga,2020-07-02,735,332,60,110,3,12
+Africa,South Africa,Mpumalanga,2020-07-03,768,342,62,115,3,12
+Africa,South Africa,Mpumalanga,2020-07-04,801,353,64,120,4,13
+Africa,South Africa,Mpumalanga,2020-07-05,834,362,66,125,4,13
+Africa,South Africa,Mpumalanga,2020-07-06,867,372,68,130,4,13
+Africa,South Africa,Mpumalanga,2020-07-07,900,381,70,135,4,14
+Africa,South Africa,Mpumalanga,2020-07-08,933,389,71,140,4,14
+Africa,South Africa,Mpumalanga,2020-07-09,966,397,73,145,5,14
+Africa,South Africa,Mpumalanga,2020-07-10,999,404,75,150,5,15
+Africa,South Africa,Mpumalanga,2020-07-11,1033,411,76,155,5,15
+Africa,South Africa,Mpumalanga,2020-07-12,1065,417,77,160,5,15
+Africa,South Africa,Mpumalanga,2020-07-13,1098,422,79,165,6,15
+Africa,South Africa,Mpumalanga,2020-07-14,1130,427,80,170,6,15
+Africa,South Africa,Mpumalanga,2020-07-15,1162,431,81,174,6,15
+Africa,South Africa,North West,2020-05-25,109,103,15,15,1,4
+Africa,South Africa,North West,2020-05-26,115,102,16,16,1,4
+Africa,South Africa,North West,2020-05-27,124,104,16,18,1,4
+Africa,South Africa,North West,2020-05-28,136,110,17,20,1,4
+Africa,South Africa,North West,2020-05-29,153,119,19,22,1,4
+Africa,South Africa,North West,2020-05-30,174,132,21,25,1,5
+Africa,South Africa,North West,2020-05-31,200,149,24,29,1,6
+Africa,South Africa,North West,2020-06-01,232,170,28,34,1,6
+Africa,South Africa,North West,2020-06-02,269,195,32,39,1,7
+Africa,South Africa,North West,2020-06-03,311,224,37,46,1,8
+Africa,South Africa,North West,2020-06-04,357,254,42,53,1,9
+Africa,South Africa,North West,2020-06-05,406,285,47,60,1,11
+Africa,South Africa,North West,2020-06-06,457,317,52,68,1,12
+Africa,South Africa,North West,2020-06-07,510,348,58,76,1,13
+Africa,South Africa,North West,2020-06-08,563,377,63,84,1,14
+Africa,South Africa,North West,2020-06-09,616,405,68,92,1,15
+Africa,South Africa,North West,2020-06-10,669,431,73,99,1,16
+Africa,South Africa,North West,2020-06-11,721,454,77,107,1,17
+Africa,South Africa,North West,2020-06-12,771,474,81,115,2,17
+Africa,South Africa,North West,2020-06-13,819,490,84,122,2,18
+Africa,South Africa,North West,2020-06-14,865,504,87,129,2,18
+Africa,South Africa,North West,2020-06-15,909,515,90,135,2,19
+Africa,South Africa,North West,2020-06-16,951,523,92,142,2,19
+Africa,South Africa,North West,2020-06-17,991,529,93,148,2,19
+Africa,South Africa,North West,2020-06-18,1028,531,95,153,2,19
+Africa,South Africa,North West,2020-06-19,1062,531,96,158,2,19
+Africa,South Africa,North West,2020-06-20,1095,529,96,163,2,19
+Africa,South Africa,North West,2020-06-21,1125,525,96,168,2,19
+Africa,South Africa,North West,2020-06-22,1153,520,96,172,2,19
+Africa,South Africa,North West,2020-06-23,1179,512,95,176,2,18
+Africa,South Africa,North West,2020-06-24,1203,503,95,180,2,18
+Africa,South Africa,North West,2020-06-25,1225,493,94,183,2,18
+Africa,South Africa,North West,2020-06-26,1245,482,92,186,3,17
+Africa,South Africa,North West,2020-06-27,1264,470,91,189,3,17
+Africa,South Africa,North West,2020-06-28,1281,457,89,191,3,16
+Africa,South Africa,North West,2020-06-29,1297,444,88,194,3,16
+Africa,South Africa,North West,2020-06-30,1311,430,86,196,3,15
+Africa,South Africa,North West,2020-07-01,1324,416,84,198,3,15
+Africa,South Africa,North West,2020-07-02,1336,402,82,200,3,14
+Africa,South Africa,North West,2020-07-03,1347,387,80,201,3,14
+Africa,South Africa,North West,2020-07-04,1357,373,78,203,3,13
+Africa,South Africa,North West,2020-07-05,1366,358,75,204,3,12
+Africa,South Africa,North West,2020-07-06,1374,344,73,205,3,12
+Africa,South Africa,North West,2020-07-07,1381,330,71,206,3,11
+Africa,South Africa,North West,2020-07-08,1388,316,69,207,4,11
+Africa,South Africa,North West,2020-07-09,1394,302,66,208,4,10
+Africa,South Africa,North West,2020-07-10,1399,289,64,209,4,10
+Africa,South Africa,North West,2020-07-11,1404,275,62,210,4,9
+Africa,South Africa,North West,2020-07-12,1408,263,60,210,4,9
+Africa,South Africa,North West,2020-07-13,1412,250,58,211,4,8
+Africa,South Africa,North West,2020-07-14,1416,239,56,211,4,8
+Africa,South Africa,North West,2020-07-15,1419,227,54,212,4,8
+Africa,South Africa,Western Cape,2020-03-24,100,100,15,15,0,4
+Africa,South Africa,Western Cape,2020-03-25,103,98,15,15,0,4
+Africa,South Africa,Western Cape,2020-03-26,108,97,15,16,0,4
+Africa,South Africa,Western Cape,2020-03-27,113,98,15,17,1,4
+Africa,South Africa,Western Cape,2020-03-28,119,99,16,18,1,4
+Africa,South Africa,Western Cape,2020-03-29,126,101,16,19,1,4
+Africa,South Africa,Western Cape,2020-03-30,134,104,17,20,1,4
+Africa,South Africa,Western Cape,2020-03-31,144,108,17,22,1,4
+Africa,South Africa,Western Cape,2020-04-01,154,113,18,23,2,4
+Africa,South Africa,Western Cape,2020-04-02,166,119,19,25,2,4
+Africa,South Africa,Western Cape,2020-04-03,179,126,21,27,2,5
+Africa,South Africa,Western Cape,2020-04-04,194,135,22,29,2,5
+Africa,South Africa,Western Cape,2020-04-05,211,145,24,32,3,5
+Africa,South Africa,Western Cape,2020-04-06,230,157,26,34,3,6
+Africa,South Africa,Western Cape,2020-04-07,251,170,28,38,4,6
+Africa,South Africa,Western Cape,2020-04-08,274,185,31,41,4,7
+Africa,South Africa,Western Cape,2020-04-09,301,202,33,45,4,7
+Africa,South Africa,Western Cape,2020-04-10,330,221,37,49,5,8
+Africa,South Africa,Western Cape,2020-04-11,363,243,40,54,5,9
+Africa,South Africa,Western Cape,2020-04-12,399,267,44,60,6,10
+Africa,South Africa,Western Cape,2020-04-13,439,294,48,66,7,11
+Africa,South Africa,Western Cape,2020-04-14,484,324,53,73,7,12
+Africa,South Africa,Western Cape,2020-04-15,533,357,59,80,8,13
+Africa,South Africa,Western Cape,2020-04-16,587,393,65,88,9,14
+Africa,South Africa,Western Cape,2020-04-17,647,433,71,97,10,16
+Africa,South Africa,Western Cape,2020-04-18,713,478,78,107,11,18
+Africa,South Africa,Western Cape,2020-04-19,785,526,86,118,12,19
+Africa,South Africa,Western Cape,2020-04-20,864,579,95,130,14,21
+Africa,South Africa,Western Cape,2020-04-21,951,637,105,143,15,23
+Africa,South Africa,Western Cape,2020-04-22,1046,700,115,157,17,26
+Africa,South Africa,Western Cape,2020-04-23,1150,769,126,172,18,28
+Africa,South Africa,Western Cape,2020-04-24,1263,844,139,189,20,31
+Africa,South Africa,Western Cape,2020-04-25,1387,925,152,208,22,34
+Africa,South Africa,Western Cape,2020-04-26,1520,1013,166,228,25,37
+Africa,South Africa,Western Cape,2020-04-27,1665,1108,182,250,27,41
+Africa,South Africa,Western Cape,2020-04-28,1824,1211,199,274,30,45
+Africa,South Africa,Western Cape,2020-04-29,1995,1322,217,299,33,49
+Africa,South Africa,Western Cape,2020-04-30,2181,1442,237,327,36,53
+Africa,South Africa,Western Cape,2020-05-01,2380,1570,258,357,40,58
+Africa,South Africa,Western Cape,2020-05-02,2595,1707,281,389,44,63
+Africa,South Africa,Western Cape,2020-05-03,2827,1855,305,424,48,68
+Africa,South Africa,Western Cape,2020-05-04,3077,2013,332,462,53,74
+Africa,South Africa,Western Cape,2020-05-05,3347,2184,360,502,58,80
+Africa,South Africa,Western Cape,2020-05-06,3635,2365,390,545,63,87
+Africa,South Africa,Western Cape,2020-05-07,3944,2557,422,592,69,94
+Africa,South Africa,Western Cape,2020-05-08,4273,2761,456,641,76,102
+Africa,South Africa,Western Cape,2020-05-09,4626,2978,492,694,83,110
+Africa,South Africa,Western Cape,2020-05-10,5004,3211,531,751,90,118
+Africa,South Africa,Western Cape,2020-05-11,5407,3458,572,811,98,127
+Africa,South Africa,Western Cape,2020-05-12,5837,3719,616,876,107,137
+Africa,South Africa,Western Cape,2020-05-13,6292,3993,662,944,117,147
+Africa,South Africa,Western Cape,2020-05-14,6775,4282,710,1016,127,158
+Africa,South Africa,Western Cape,2020-05-15,7287,4587,761,1093,138,169
+Africa,South Africa,Western Cape,2020-05-16,7833,4911,815,1175,150,181
+Africa,South Africa,Western Cape,2020-05-17,8411,5253,873,1262,162,193
+Africa,South Africa,Western Cape,2020-05-18,9022,5611,933,1353,176,206
+Africa,South Africa,Western Cape,2020-05-19,9666,5985,996,1450,190,220
+Africa,South Africa,Western Cape,2020-05-20,10343,6375,1062,1551,206,234
+Africa,South Africa,Western Cape,2020-05-21,11057,6783,1130,1659,223,249
+Africa,South Africa,Western Cape,2020-05-22,11811,7213,1203,1772,240,265
+Africa,South Africa,Western Cape,2020-05-23,12606,7664,1279,1891,259,282
+Africa,South Africa,Western Cape,2020-05-24,13440,8133,1358,2016,279,299
+Africa,South Africa,Western Cape,2020-05-25,14312,8619,1441,2147,301,317
+Africa,South Africa,Western Cape,2020-05-26,15224,9123,1526,2284,323,335
+Africa,South Africa,Western Cape,2020-05-27,16178,9645,1615,2427,348,354
+Africa,South Africa,Western Cape,2020-05-28,17178,10190,1707,2577,373,374
+Africa,South Africa,Western Cape,2020-05-29,18225,10758,1804,2734,401,395
+Africa,South Africa,Western Cape,2020-05-30,19318,11346,1904,2898,429,417
+Africa,South Africa,Western Cape,2020-05-31,20454,11950,2007,3068,460,439
+Africa,South Africa,Western Cape,2020-06-01,21633,12571,2112,3245,492,461
+Africa,South Africa,Western Cape,2020-06-02,22858,13209,2222,3429,526,485
+Africa,South Africa,Western Cape,2020-06-03,24133,13868,2334,3620,562,509
+Africa,South Africa,Western Cape,2020-06-04,25460,14552,2451,3819,600,534
+Africa,South Africa,Western Cape,2020-06-05,26837,15256,2572,4026,640,560
+Africa,South Africa,Western Cape,2020-06-06,28260,15975,2695,4239,682,586
+Africa,South Africa,Western Cape,2020-06-07,29728,16706,2821,4459,726,613
+Africa,South Africa,Western Cape,2020-06-08,31242,17452,2949,4686,772,640
+Africa,South Africa,Western Cape,2020-06-09,32805,18214,3081,4921,820,668
+Africa,South Africa,Western Cape,2020-06-10,34423,18999,3216,5163,871,696
+Africa,South Africa,Western Cape,2020-06-11,36093,19803,3355,5414,924,726
+Africa,South Africa,Western Cape,2020-06-12,37810,20620,3496,5671,980,755
+Africa,South Africa,Western Cape,2020-06-13,39571,21446,3639,5936,1038,786
+Africa,South Africa,Western Cape,2020-06-14,41374,22279,3784,6206,1099,816
+Africa,South Africa,Western Cape,2020-06-15,43223,23122,3930,6483,1163,847
+Africa,South Africa,Western Cape,2020-06-16,45122,23980,4080,6768,1229,878
+Africa,South Africa,Western Cape,2020-06-17,47073,24856,4232,7061,1298,910
+Africa,South Africa,Western Cape,2020-06-18,49070,25742,4386,7361,1369,942
+Africa,South Africa,Western Cape,2020-06-19,51107,26631,4542,7666,1444,975
+Africa,South Africa,Western Cape,2020-06-20,53181,27521,4698,7977,1522,1007
+Africa,South Africa,Western Cape,2020-06-21,55292,28411,4854,8294,1602,1039
+Africa,South Africa,Western Cape,2020-06-22,57444,29307,5011,8617,1686,1072
+Africa,South Africa,Western Cape,2020-06-23,59642,30214,5171,8946,1772,1105
+Africa,South Africa,Western Cape,2020-06-24,61883,31128,5332,9282,1862,1138
+Africa,South Africa,Western Cape,2020-06-25,64158,32041,5493,9624,1955,1171
+Africa,South Africa,Western Cape,2020-06-26,66463,32947,5653,9969,2051,1204
+Africa,South Africa,Western Cape,2020-06-27,68794,33845,5812,10319,2150,1237
+Africa,South Africa,Western Cape,2020-06-28,71153,34736,5970,10673,2252,1269
+Africa,South Africa,Western Cape,2020-06-29,73544,35627,6129,11032,2358,1301
+Africa,South Africa,Western Cape,2020-06-30,75972,36521,6288,11396,2467,1334
+Africa,South Africa,Western Cape,2020-07-01,78429,37411,6446,11764,2579,1366
+Africa,South Africa,Western Cape,2020-07-02,80905,38289,6603,12136,2695,1398
+Africa,South Africa,Western Cape,2020-07-03,83396,39150,6757,12509,2814,1429
+Africa,South Africa,Western Cape,2020-07-04,85901,39993,6909,12885,2936,1460
+Africa,South Africa,Western Cape,2020-07-05,88423,40823,7059,13263,3062,1490
+Africa,South Africa,Western Cape,2020-07-06,90965,41645,7207,13645,3191,1519
+Africa,South Africa,Western Cape,2020-07-07,93530,42463,7355,14029,3323,1549
+Africa,South Africa,Western Cape,2020-07-08,96106,43266,7500,14416,3459,1578
+Africa,South Africa,Western Cape,2020-07-09,98687,44046,7642,14803,3598,1606
+Africa,South Africa,Western Cape,2020-07-10,101268,44802,7779,15190,3740,1633
+Africa,South Africa,Western Cape,2020-07-11,103848,45532,7913,15577,3886,1660
+Africa,South Africa,Western Cape,2020-07-12,106431,46242,8043,15965,4035,1685
+Africa,South Africa,Western Cape,2020-07-13,109022,46940,8172,16353,4187,1710
+Africa,South Africa,Western Cape,2020-07-14,111616,47620,8297,16742,4342,1735
+Africa,South Africa,Western Cape,2020-07-15,114204,48276,8418,17131,4501,1758
+Asia,Russia,Altai Republic,2020-05-26,104,104,16,16,0,4
+Asia,Russia,Altai Republic,2020-05-27,107,100,15,16,0,4
+Asia,Russia,Altai Republic,2020-05-28,110,97,15,17,0,4
+Asia,Russia,Altai Republic,2020-05-29,113,94,15,17,0,3
+Asia,Russia,Altai Republic,2020-05-30,117,92,15,18,0,3
+Asia,Russia,Altai Republic,2020-05-31,121,90,15,18,0,3
+Asia,Russia,Altai Republic,2020-06-01,126,89,15,19,0,3
+Asia,Russia,Altai Republic,2020-06-02,131,88,15,20,0,3
+Asia,Russia,Altai Republic,2020-06-03,137,89,15,21,0,3
+Asia,Russia,Altai Republic,2020-06-04,144,90,15,22,0,3
+Asia,Russia,Altai Republic,2020-06-05,152,91,16,23,0,3
+Asia,Russia,Altai Republic,2020-06-06,160,93,16,24,0,3
+Asia,Russia,Altai Republic,2020-06-07,169,96,17,25,0,4
+Asia,Russia,Altai Republic,2020-06-08,179,100,18,27,0,4
+Asia,Russia,Altai Republic,2020-06-09,189,103,18,28,0,4
+Asia,Russia,Altai Republic,2020-06-10,200,108,19,30,0,4
+Asia,Russia,Altai Republic,2020-06-11,212,112,20,32,0,4
+Asia,Russia,Altai Republic,2020-06-12,224,117,21,34,0,4
+Asia,Russia,Altai Republic,2020-06-13,237,122,22,36,0,4
+Asia,Russia,Altai Republic,2020-06-14,250,127,23,38,0,5
+Asia,Russia,Altai Republic,2020-06-15,264,133,24,40,0,5
+Asia,Russia,Altai Republic,2020-06-16,278,138,25,42,0,5
+Asia,Russia,Altai Republic,2020-06-17,292,143,26,44,0,5
+Asia,Russia,Altai Republic,2020-06-18,307,148,27,46,0,5
+Asia,Russia,Altai Republic,2020-06-19,321,153,28,48,0,6
+Asia,Russia,Altai Republic,2020-06-20,336,157,28,50,0,6
+Asia,Russia,Altai Republic,2020-06-21,350,161,29,52,0,6
+Asia,Russia,Altai Republic,2020-06-22,364,165,30,55,0,6
+Asia,Russia,Altai Republic,2020-06-23,378,168,31,57,0,6
+Asia,Russia,Altai Republic,2020-06-24,392,171,31,59,0,6
+Asia,Russia,Altai Republic,2020-06-25,406,174,32,61,0,6
+Asia,Russia,Altai Republic,2020-06-26,419,176,33,63,0,6
+Asia,Russia,Altai Republic,2020-06-27,432,177,33,65,0,6
+Asia,Russia,Altai Republic,2020-06-28,445,178,33,67,0,6
+Asia,Russia,Altai Republic,2020-06-29,457,179,34,69,0,6
+Asia,Russia,Altai Republic,2020-06-30,469,179,34,70,1,6
+Asia,Russia,Altai Republic,2020-07-01,481,179,34,72,1,6
+Asia,Russia,Altai Republic,2020-07-02,492,179,34,74,1,6
+Asia,Russia,Altai Republic,2020-07-03,502,178,34,75,1,6
+Asia,Russia,Altai Republic,2020-07-04,512,176,34,77,1,6
+Asia,Russia,Altai Republic,2020-07-05,522,175,34,78,1,6
+Asia,Russia,Altai Republic,2020-07-06,531,172,34,80,1,6
+Asia,Russia,Altai Republic,2020-07-07,539,170,33,81,1,6
+Asia,Russia,Altai Republic,2020-07-08,548,168,33,82,1,6
+Asia,Russia,Altai Republic,2020-07-09,556,165,33,83,1,6
+Asia,Russia,Altai Republic,2020-07-10,563,162,32,84,1,6
+Asia,Russia,Altai Republic,2020-07-11,570,158,32,85,1,6
+Asia,Russia,Altai Republic,2020-07-12,576,155,32,86,1,5
+Asia,Russia,Altai Republic,2020-07-13,583,151,31,87,1,5
+Asia,Russia,Altai Republic,2020-07-14,588,147,30,88,1,5
+Asia,Russia,Altai Republic,2020-07-15,594,144,30,89,1,5
 Asia,Russia,Altayskiy Kray,2020-04-21,127,127,19,19,0,5
 Asia,Russia,Altayskiy Kray,2020-04-22,157,148,23,24,0,6
 Asia,Russia,Altayskiy Kray,2020-04-23,182,163,25,27,0,6
@@ -17200,6 +17937,84 @@ South America,Peru,Loreto,2020-07-12,11801,2244,463,1768,764,79
 South America,Peru,Loreto,2020-07-13,11923,2217,459,1787,774,78
 South America,Peru,Loreto,2020-07-14,12041,2188,454,1804,784,76
 South America,Peru,Loreto,2020-07-15,12156,2158,450,1822,794,75
+South America,Peru,Madre de dios,2020-04-29,105,105,16,16,0,4
+South America,Peru,Madre de dios,2020-04-30,108,101,15,16,0,4
+South America,Peru,Madre de dios,2020-05-01,111,97,15,17,0,4
+South America,Peru,Madre de dios,2020-05-02,113,94,15,17,1,3
+South America,Peru,Madre de dios,2020-05-03,116,90,15,17,1,3
+South America,Peru,Madre de dios,2020-05-04,119,87,14,18,1,3
+South America,Peru,Madre de dios,2020-05-05,122,85,14,18,1,3
+South America,Peru,Madre de dios,2020-05-06,125,83,14,19,1,3
+South America,Peru,Madre de dios,2020-05-07,129,82,14,19,1,3
+South America,Peru,Madre de dios,2020-05-08,134,81,14,20,1,3
+South America,Peru,Madre de dios,2020-05-09,139,81,14,21,2,3
+South America,Peru,Madre de dios,2020-05-10,145,81,14,22,2,3
+South America,Peru,Madre de dios,2020-05-11,151,82,15,23,2,3
+South America,Peru,Madre de dios,2020-05-12,158,84,15,24,2,3
+South America,Peru,Madre de dios,2020-05-13,166,86,15,25,2,3
+South America,Peru,Madre de dios,2020-05-14,174,89,16,26,2,3
+South America,Peru,Madre de dios,2020-05-15,184,93,17,28,3,3
+South America,Peru,Madre de dios,2020-05-16,194,97,17,29,3,4
+South America,Peru,Madre de dios,2020-05-17,206,102,18,31,3,4
+South America,Peru,Madre de dios,2020-05-18,219,108,19,33,3,4
+South America,Peru,Madre de dios,2020-05-19,232,114,20,35,3,4
+South America,Peru,Madre de dios,2020-05-20,247,122,22,37,3,4
+South America,Peru,Madre de dios,2020-05-21,263,130,23,40,4,5
+South America,Peru,Madre de dios,2020-05-22,281,138,25,42,4,5
+South America,Peru,Madre de dios,2020-05-23,300,148,26,45,4,5
+South America,Peru,Madre de dios,2020-05-24,320,158,28,48,4,6
+South America,Peru,Madre de dios,2020-05-25,342,169,30,51,5,6
+South America,Peru,Madre de dios,2020-05-26,364,181,32,55,5,7
+South America,Peru,Madre de dios,2020-05-27,389,193,34,58,5,7
+South America,Peru,Madre de dios,2020-05-28,414,205,36,62,6,7
+South America,Peru,Madre de dios,2020-05-29,441,219,39,66,6,8
+South America,Peru,Madre de dios,2020-05-30,470,232,41,70,7,8
+South America,Peru,Madre de dios,2020-05-31,500,247,43,75,7,9
+South America,Peru,Madre de dios,2020-06-01,531,261,46,80,8,9
+South America,Peru,Madre de dios,2020-06-02,563,276,49,84,8,10
+South America,Peru,Madre de dios,2020-06-03,596,291,51,89,9,11
+South America,Peru,Madre de dios,2020-06-04,631,306,54,95,9,11
+South America,Peru,Madre de dios,2020-06-05,667,321,57,100,10,12
+South America,Peru,Madre de dios,2020-06-06,703,337,60,105,10,12
+South America,Peru,Madre de dios,2020-06-07,741,352,62,111,11,13
+South America,Peru,Madre de dios,2020-06-08,779,367,65,117,12,13
+South America,Peru,Madre de dios,2020-06-09,818,382,68,123,12,14
+South America,Peru,Madre de dios,2020-06-10,858,396,71,129,13,14
+South America,Peru,Madre de dios,2020-06-11,898,410,73,135,14,15
+South America,Peru,Madre de dios,2020-06-12,939,424,76,141,14,15
+South America,Peru,Madre de dios,2020-06-13,980,437,79,147,15,16
+South America,Peru,Madre de dios,2020-06-14,1021,449,81,153,16,16
+South America,Peru,Madre de dios,2020-06-15,1063,461,83,159,17,17
+South America,Peru,Madre de dios,2020-06-16,1104,472,86,166,18,17
+South America,Peru,Madre de dios,2020-06-17,1146,483,88,172,19,17
+South America,Peru,Madre de dios,2020-06-18,1187,492,90,178,19,18
+South America,Peru,Madre de dios,2020-06-19,1228,501,92,184,20,18
+South America,Peru,Madre de dios,2020-06-20,1268,509,94,190,21,18
+South America,Peru,Madre de dios,2020-06-21,1308,516,95,196,22,19
+South America,Peru,Madre de dios,2020-06-22,1348,522,97,202,23,19
+South America,Peru,Madre de dios,2020-06-23,1388,527,98,208,24,19
+South America,Peru,Madre de dios,2020-06-24,1426,531,99,214,25,19
+South America,Peru,Madre de dios,2020-06-25,1464,535,100,220,26,19
+South America,Peru,Madre de dios,2020-06-26,1501,537,101,225,27,19
+South America,Peru,Madre de dios,2020-06-27,1538,539,102,231,28,19
+South America,Peru,Madre de dios,2020-06-28,1573,539,103,236,29,19
+South America,Peru,Madre de dios,2020-06-29,1608,539,103,241,30,19
+South America,Peru,Madre de dios,2020-06-30,1642,538,103,246,31,19
+South America,Peru,Madre de dios,2020-07-01,1675,536,103,251,32,19
+South America,Peru,Madre de dios,2020-07-02,1707,533,103,256,33,19
+South America,Peru,Madre de dios,2020-07-03,1737,530,103,261,34,19
+South America,Peru,Madre de dios,2020-07-04,1768,526,103,265,35,19
+South America,Peru,Madre de dios,2020-07-05,1797,521,102,269,36,18
+South America,Peru,Madre de dios,2020-07-06,1825,516,102,274,37,18
+South America,Peru,Madre de dios,2020-07-07,1851,510,101,278,38,18
+South America,Peru,Madre de dios,2020-07-08,1877,503,100,282,39,18
+South America,Peru,Madre de dios,2020-07-09,1902,495,99,285,40,17
+South America,Peru,Madre de dios,2020-07-10,1926,488,98,289,41,17
+South America,Peru,Madre de dios,2020-07-11,1949,480,97,292,42,17
+South America,Peru,Madre de dios,2020-07-12,1972,471,96,296,43,17
+South America,Peru,Madre de dios,2020-07-13,1993,462,95,299,43,16
+South America,Peru,Madre de dios,2020-07-14,2013,453,94,302,44,16
+South America,Peru,Madre de dios,2020-07-15,2032,443,92,305,45,15
 South America,Peru,Moquegua,2020-04-29,100,100,15,15,0,4
 South America,Peru,Moquegua,2020-04-30,103,96,15,15,0,4
 South America,Peru,Moquegua,2020-05-01,105,92,14,16,0,3
@@ -17864,689 +18679,3 @@ South America,Peru,Ucayali,2020-07-12,9845,1835,387,1474,249,64
 South America,Peru,Ucayali,2020-07-13,9936,1807,383,1488,252,63
 South America,Peru,Ucayali,2020-07-14,10024,1777,378,1501,254,62
 South America,Peru,Ucayali,2020-07-15,10110,1747,373,1514,256,61
-Africa,South Africa,Eastern Cape,2020-04-13,104,104,16,16,0,4
-Africa,South Africa,Eastern Cape,2020-04-14,135,126,19,20,1,5
-Africa,South Africa,Eastern Cape,2020-04-15,158,141,22,24,2,5
-Africa,South Africa,Eastern Cape,2020-04-16,179,151,24,27,2,6
-Africa,South Africa,Eastern Cape,2020-04-17,197,159,25,30,3,6
-Africa,South Africa,Eastern Cape,2020-04-18,216,166,27,32,3,6
-Africa,South Africa,Eastern Cape,2020-04-19,234,173,28,35,4,6
-Africa,South Africa,Eastern Cape,2020-04-20,254,181,30,38,5,7
-Africa,South Africa,Eastern Cape,2020-04-21,274,189,31,41,5,7
-Africa,South Africa,Eastern Cape,2020-04-22,296,197,33,44,6,7
-Africa,South Africa,Eastern Cape,2020-04-23,319,207,35,48,6,8
-Africa,South Africa,Eastern Cape,2020-04-24,344,217,37,52,7,8
-Africa,South Africa,Eastern Cape,2020-04-25,370,229,39,56,7,8
-Africa,South Africa,Eastern Cape,2020-04-26,399,241,41,60,8,9
-Africa,South Africa,Eastern Cape,2020-04-27,429,255,44,64,9,9
-Africa,South Africa,Eastern Cape,2020-04-28,461,269,46,69,9,10
-Africa,South Africa,Eastern Cape,2020-04-29,496,285,49,74,10,10
-Africa,South Africa,Eastern Cape,2020-04-30,532,302,52,80,11,11
-Africa,South Africa,Eastern Cape,2020-05-01,572,320,56,86,11,12
-Africa,South Africa,Eastern Cape,2020-05-02,613,340,59,92,12,12
-Africa,South Africa,Eastern Cape,2020-05-03,658,361,63,99,13,13
-Africa,South Africa,Eastern Cape,2020-05-04,706,384,67,106,14,14
-Africa,South Africa,Eastern Cape,2020-05-05,757,408,71,113,15,15
-Africa,South Africa,Eastern Cape,2020-05-06,811,434,76,122,16,16
-Africa,South Africa,Eastern Cape,2020-05-07,868,461,81,130,18,17
-Africa,South Africa,Eastern Cape,2020-05-08,929,490,86,139,19,18
-Africa,South Africa,Eastern Cape,2020-05-09,995,521,91,149,20,19
-Africa,South Africa,Eastern Cape,2020-05-10,1064,555,97,160,22,20
-Africa,South Africa,Eastern Cape,2020-05-11,1138,590,104,171,23,21
-Africa,South Africa,Eastern Cape,2020-05-12,1217,628,110,183,25,23
-Africa,South Africa,Eastern Cape,2020-05-13,1300,668,117,195,26,24
-Africa,South Africa,Eastern Cape,2020-05-14,1389,710,125,208,28,26
-Africa,South Africa,Eastern Cape,2020-05-15,1483,755,133,222,30,27
-Africa,South Africa,Eastern Cape,2020-05-16,1583,803,141,237,32,29
-Africa,South Africa,Eastern Cape,2020-05-17,1690,853,150,253,35,31
-Africa,South Africa,Eastern Cape,2020-05-18,1802,907,160,270,37,33
-Africa,South Africa,Eastern Cape,2020-05-19,1922,963,170,288,39,35
-Africa,South Africa,Eastern Cape,2020-05-20,2049,1023,180,307,42,37
-Africa,South Africa,Eastern Cape,2020-05-21,2183,1086,191,327,45,39
-Africa,South Africa,Eastern Cape,2020-05-22,2325,1153,203,349,48,42
-Africa,South Africa,Eastern Cape,2020-05-23,2476,1224,216,371,51,44
-Africa,South Africa,Eastern Cape,2020-05-24,2636,1299,229,395,54,47
-Africa,South Africa,Eastern Cape,2020-05-25,2805,1378,243,421,58,50
-Africa,South Africa,Eastern Cape,2020-05-26,2983,1461,258,447,62,53
-Africa,South Africa,Eastern Cape,2020-05-27,3172,1548,273,476,66,56
-Africa,South Africa,Eastern Cape,2020-05-28,3372,1641,290,506,70,60
-Africa,South Africa,Eastern Cape,2020-05-29,3583,1739,307,537,74,63
-Africa,South Africa,Eastern Cape,2020-05-30,3806,1842,325,571,79,67
-Africa,South Africa,Eastern Cape,2020-05-31,4042,1950,345,606,84,71
-Africa,South Africa,Eastern Cape,2020-06-01,4290,2063,365,644,89,75
-Africa,South Africa,Eastern Cape,2020-06-02,4552,2182,386,683,95,79
-Africa,South Africa,Eastern Cape,2020-06-03,4829,2308,408,724,100,84
-Africa,South Africa,Eastern Cape,2020-06-04,5121,2440,432,768,107,89
-Africa,South Africa,Eastern Cape,2020-06-05,5429,2579,457,814,113,94
-Africa,South Africa,Eastern Cape,2020-06-06,5753,2725,483,863,120,99
-Africa,South Africa,Eastern Cape,2020-06-07,6094,2878,510,914,127,104
-Africa,South Africa,Eastern Cape,2020-06-08,6452,3038,539,968,135,110
-Africa,South Africa,Eastern Cape,2020-06-09,6830,3205,569,1024,143,116
-Africa,South Africa,Eastern Cape,2020-06-10,7228,3382,600,1084,151,123
-Africa,South Africa,Eastern Cape,2020-06-11,7647,3567,634,1147,160,129
-Africa,South Africa,Eastern Cape,2020-06-12,8087,3761,668,1213,170,136
-Africa,South Africa,Eastern Cape,2020-06-13,8548,3963,705,1282,180,144
-Africa,South Africa,Eastern Cape,2020-06-14,9033,4174,743,1355,190,151
-Africa,South Africa,Eastern Cape,2020-06-15,9541,4395,782,1431,201,159
-Africa,South Africa,Eastern Cape,2020-06-16,10076,4627,824,1511,212,168
-Africa,South Africa,Eastern Cape,2020-06-17,10637,4869,867,1596,224,177
-Africa,South Africa,Eastern Cape,2020-06-18,11226,5122,913,1684,237,186
-Africa,South Africa,Eastern Cape,2020-06-19,11842,5385,960,1776,250,195
-Africa,South Africa,Eastern Cape,2020-06-20,12486,5659,1010,1873,264,205
-Africa,South Africa,Eastern Cape,2020-06-21,13162,5945,1061,1974,279,215
-Africa,South Africa,Eastern Cape,2020-06-22,13869,6243,1115,2080,294,226
-Africa,South Africa,Eastern Cape,2020-06-23,14611,6555,1172,2192,310,238
-Africa,South Africa,Eastern Cape,2020-06-24,15386,6880,1230,2308,327,249
-Africa,South Africa,Eastern Cape,2020-06-25,16196,7216,1291,2429,344,261
-Africa,South Africa,Eastern Cape,2020-06-26,17041,7566,1355,2556,363,274
-Africa,South Africa,Eastern Cape,2020-06-27,17924,7928,1421,2689,382,287
-Africa,South Africa,Eastern Cape,2020-06-28,18846,8306,1489,2827,402,301
-Africa,South Africa,Eastern Cape,2020-06-29,19810,8700,1561,2972,423,315
-Africa,South Africa,Eastern Cape,2020-06-30,20816,9109,1635,3122,445,330
-Africa,South Africa,Eastern Cape,2020-07-01,21864,9532,1712,3280,467,345
-Africa,South Africa,Eastern Cape,2020-07-02,22955,9968,1792,3443,491,361
-Africa,South Africa,Eastern Cape,2020-07-03,24090,10420,1874,3613,516,377
-Africa,South Africa,Eastern Cape,2020-07-04,25273,10888,1960,3791,542,394
-Africa,South Africa,Eastern Cape,2020-07-05,26506,11375,2048,3976,569,411
-Africa,South Africa,Eastern Cape,2020-07-06,27790,11880,2141,4168,597,430
-Africa,South Africa,Eastern Cape,2020-07-07,29123,12400,2236,4369,627,448
-Africa,South Africa,Eastern Cape,2020-07-08,30508,12935,2334,4576,657,468
-Africa,South Africa,Eastern Cape,2020-07-09,31944,13486,2435,4792,689,488
-Africa,South Africa,Eastern Cape,2020-07-10,33435,14054,2540,5015,722,508
-Africa,South Africa,Eastern Cape,2020-07-11,34985,14642,2648,5248,756,529
-Africa,South Africa,Eastern Cape,2020-07-12,36593,15249,2760,5489,792,551
-Africa,South Africa,Eastern Cape,2020-07-13,38259,15873,2875,5739,829,573
-Africa,South Africa,Eastern Cape,2020-07-14,39984,16514,2993,5998,867,597
-Africa,South Africa,Eastern Cape,2020-07-15,41771,17173,3115,6266,907,620
-Africa,South Africa,Free State,2020-04-20,100,76,11,11,4,3
-Africa,South Africa,Free State,2020-04-21,101,72,11,12,4,3
-Africa,South Africa,Free State,2020-04-22,102,68,11,12,4,3
-Africa,South Africa,Free State,2020-04-23,102,64,10,12,5,2
-Africa,South Africa,Free State,2020-04-24,103,60,10,12,5,2
-Africa,South Africa,Free State,2020-04-25,103,57,9,12,5,2
-Africa,South Africa,Free State,2020-04-26,104,54,9,12,5,2
-Africa,South Africa,Free State,2020-04-27,105,51,9,12,5,2
-Africa,South Africa,Free State,2020-04-28,106,49,9,12,5,2
-Africa,South Africa,Free State,2020-04-29,107,47,8,12,5,2
-Africa,South Africa,Free State,2020-04-30,108,45,8,13,5,2
-Africa,South Africa,Free State,2020-05-01,109,43,8,13,5,2
-Africa,South Africa,Free State,2020-05-02,110,41,8,13,5,1
-Africa,South Africa,Free State,2020-05-03,111,40,7,13,5,1
-Africa,South Africa,Free State,2020-05-04,113,39,7,13,5,1
-Africa,South Africa,Free State,2020-05-05,114,38,7,14,5,1
-Africa,South Africa,Free State,2020-05-06,116,37,7,14,5,1
-Africa,South Africa,Free State,2020-05-07,118,37,7,14,5,1
-Africa,South Africa,Free State,2020-05-08,120,36,7,14,5,1
-Africa,South Africa,Free State,2020-05-09,122,36,7,15,6,1
-Africa,South Africa,Free State,2020-05-10,125,36,7,15,6,1
-Africa,South Africa,Free State,2020-05-11,127,36,7,15,6,1
-Africa,South Africa,Free State,2020-05-12,130,37,7,16,6,1
-Africa,South Africa,Free State,2020-05-13,133,37,7,16,6,1
-Africa,South Africa,Free State,2020-05-14,136,38,7,17,6,1
-Africa,South Africa,Free State,2020-05-15,140,39,8,17,6,1
-Africa,South Africa,Free State,2020-05-16,143,40,8,18,6,1
-Africa,South Africa,Free State,2020-05-17,147,41,8,18,6,1
-Africa,South Africa,Free State,2020-05-18,151,43,8,19,6,2
-Africa,South Africa,Free State,2020-05-19,156,45,9,20,6,2
-Africa,South Africa,Free State,2020-05-20,161,46,9,21,6,2
-Africa,South Africa,Free State,2020-05-21,166,48,9,21,6,2
-Africa,South Africa,Free State,2020-05-22,172,51,10,22,6,2
-Africa,South Africa,Free State,2020-05-23,177,53,10,23,6,2
-Africa,South Africa,Free State,2020-05-24,184,56,11,24,6,2
-Africa,South Africa,Free State,2020-05-25,190,59,11,25,6,2
-Africa,South Africa,Free State,2020-05-26,197,62,12,26,7,2
-Africa,South Africa,Free State,2020-05-27,205,65,12,27,7,2
-Africa,South Africa,Free State,2020-05-28,212,68,13,28,7,2
-Africa,South Africa,Free State,2020-05-29,221,72,13,30,7,3
-Africa,South Africa,Free State,2020-05-30,229,76,14,31,7,3
-Africa,South Africa,Free State,2020-05-31,239,80,15,32,7,3
-Africa,South Africa,Free State,2020-06-01,248,84,15,34,7,3
-Africa,South Africa,Free State,2020-06-02,258,88,16,35,7,3
-Africa,South Africa,Free State,2020-06-03,269,93,17,37,7,3
-Africa,South Africa,Free State,2020-06-04,280,98,18,38,8,4
-Africa,South Africa,Free State,2020-06-05,291,103,19,40,8,4
-Africa,South Africa,Free State,2020-06-06,303,108,20,42,8,4
-Africa,South Africa,Free State,2020-06-07,316,113,21,44,8,4
-Africa,South Africa,Free State,2020-06-08,329,119,22,46,8,4
-Africa,South Africa,Free State,2020-06-09,343,124,23,48,9,4
-Africa,South Africa,Free State,2020-06-10,357,130,24,50,9,5
-Africa,South Africa,Free State,2020-06-11,372,136,25,52,9,5
-Africa,South Africa,Free State,2020-06-12,387,142,26,54,9,5
-Africa,South Africa,Free State,2020-06-13,403,148,27,57,9,5
-Africa,South Africa,Free State,2020-06-14,420,155,28,59,10,6
-Africa,South Africa,Free State,2020-06-15,437,161,29,62,10,6
-Africa,South Africa,Free State,2020-06-16,454,168,30,65,10,6
-Africa,South Africa,Free State,2020-06-17,472,175,32,67,10,6
-Africa,South Africa,Free State,2020-06-18,491,181,33,70,11,7
-Africa,South Africa,Free State,2020-06-19,510,188,34,73,11,7
-Africa,South Africa,Free State,2020-06-20,530,195,36,76,11,7
-Africa,South Africa,Free State,2020-06-21,550,203,37,79,12,7
-Africa,South Africa,Free State,2020-06-22,571,210,38,82,12,8
-Africa,South Africa,Free State,2020-06-23,592,217,40,85,12,8
-Africa,South Africa,Free State,2020-06-24,614,224,41,88,13,8
-Africa,South Africa,Free State,2020-06-25,636,231,42,92,13,8
-Africa,South Africa,Free State,2020-06-26,658,238,44,95,13,9
-Africa,South Africa,Free State,2020-06-27,682,246,45,99,14,9
-Africa,South Africa,Free State,2020-06-28,705,253,47,102,14,9
-Africa,South Africa,Free State,2020-06-29,729,260,48,106,14,9
-Africa,South Africa,Free State,2020-06-30,754,267,49,109,15,10
-Africa,South Africa,Free State,2020-07-01,779,274,51,113,15,10
-Africa,South Africa,Free State,2020-07-02,804,281,52,117,15,10
-Africa,South Africa,Free State,2020-07-03,830,288,53,121,16,10
-Africa,South Africa,Free State,2020-07-04,856,295,55,125,16,11
-Africa,South Africa,Free State,2020-07-05,882,302,56,129,17,11
-Africa,South Africa,Free State,2020-07-06,909,308,57,133,17,11
-Africa,South Africa,Free State,2020-07-07,936,315,59,137,18,11
-Africa,South Africa,Free State,2020-07-08,963,321,60,141,18,12
-Africa,South Africa,Free State,2020-07-09,990,327,61,145,19,12
-Africa,South Africa,Free State,2020-07-10,1018,333,63,149,19,12
-Africa,South Africa,Free State,2020-07-11,1046,339,64,153,19,12
-Africa,South Africa,Free State,2020-07-12,1074,344,65,158,20,12
-Africa,South Africa,Free State,2020-07-13,1102,350,66,162,20,13
-Africa,South Africa,Free State,2020-07-14,1131,355,67,166,21,13
-Africa,South Africa,Free State,2020-07-15,1159,360,68,170,21,13
-Africa,South Africa,Gauteng,2020-03-20,109,109,16,16,0,4
-Africa,South Africa,Gauteng,2020-03-21,125,118,18,19,0,4
-Africa,South Africa,Gauteng,2020-03-22,139,124,19,21,0,5
-Africa,South Africa,Gauteng,2020-03-23,150,128,20,23,0,5
-Africa,South Africa,Gauteng,2020-03-24,161,130,21,24,0,5
-Africa,South Africa,Gauteng,2020-03-25,171,133,21,26,0,5
-Africa,South Africa,Gauteng,2020-03-26,182,135,22,27,0,5
-Africa,South Africa,Gauteng,2020-03-27,193,137,23,29,0,5
-Africa,South Africa,Gauteng,2020-03-28,204,140,23,31,1,5
-Africa,South Africa,Gauteng,2020-03-29,215,143,24,32,1,5
-Africa,South Africa,Gauteng,2020-03-30,227,146,25,34,1,5
-Africa,South Africa,Gauteng,2020-03-31,239,149,26,36,1,5
-Africa,South Africa,Gauteng,2020-04-01,253,153,26,38,1,6
-Africa,South Africa,Gauteng,2020-04-02,266,158,27,40,1,6
-Africa,South Africa,Gauteng,2020-04-03,280,162,28,42,1,6
-Africa,South Africa,Gauteng,2020-04-04,295,167,29,44,1,6
-Africa,South Africa,Gauteng,2020-04-05,311,173,30,47,1,6
-Africa,South Africa,Gauteng,2020-04-06,327,179,31,49,2,6
-Africa,South Africa,Gauteng,2020-04-07,345,185,33,52,2,7
-Africa,South Africa,Gauteng,2020-04-08,363,192,34,54,2,7
-Africa,South Africa,Gauteng,2020-04-09,382,199,35,57,2,7
-Africa,South Africa,Gauteng,2020-04-10,401,206,37,60,2,7
-Africa,South Africa,Gauteng,2020-04-11,422,214,38,63,2,8
-Africa,South Africa,Gauteng,2020-04-12,443,223,40,67,2,8
-Africa,South Africa,Gauteng,2020-04-13,466,232,41,70,3,8
-Africa,South Africa,Gauteng,2020-04-14,490,242,43,73,3,9
-Africa,South Africa,Gauteng,2020-04-15,514,252,45,77,3,9
-Africa,South Africa,Gauteng,2020-04-16,540,262,47,81,3,10
-Africa,South Africa,Gauteng,2020-04-17,568,274,49,85,3,10
-Africa,South Africa,Gauteng,2020-04-18,596,285,51,89,4,10
-Africa,South Africa,Gauteng,2020-04-19,625,298,53,94,4,11
-Africa,South Africa,Gauteng,2020-04-20,656,311,55,98,4,11
-Africa,South Africa,Gauteng,2020-04-21,689,324,58,103,4,12
-Africa,South Africa,Gauteng,2020-04-22,723,339,60,108,5,12
-Africa,South Africa,Gauteng,2020-04-23,759,354,63,114,5,13
-Africa,South Africa,Gauteng,2020-04-24,796,370,66,119,5,13
-Africa,South Africa,Gauteng,2020-04-25,835,386,69,125,6,14
-Africa,South Africa,Gauteng,2020-04-26,876,404,72,131,6,15
-Africa,South Africa,Gauteng,2020-04-27,918,422,75,138,6,15
-Africa,South Africa,Gauteng,2020-04-28,963,441,79,144,7,16
-Africa,South Africa,Gauteng,2020-04-29,1010,461,82,151,7,17
-Africa,South Africa,Gauteng,2020-04-30,1058,482,86,159,7,17
-Africa,South Africa,Gauteng,2020-05-01,1109,504,90,166,8,18
-Africa,South Africa,Gauteng,2020-05-02,1163,527,94,174,8,19
-Africa,South Africa,Gauteng,2020-05-03,1218,550,98,183,9,20
-Africa,South Africa,Gauteng,2020-05-04,1277,575,103,192,9,21
-Africa,South Africa,Gauteng,2020-05-05,1338,602,107,201,10,22
-Africa,South Africa,Gauteng,2020-05-06,1402,630,112,210,10,23
-Africa,South Africa,Gauteng,2020-05-07,1469,658,117,220,11,24
-Africa,South Africa,Gauteng,2020-05-08,1538,688,123,231,11,25
-Africa,South Africa,Gauteng,2020-05-09,1611,719,128,242,12,26
-Africa,South Africa,Gauteng,2020-05-10,1687,752,134,253,13,27
-Africa,South Africa,Gauteng,2020-05-11,1767,786,140,265,13,29
-Africa,South Africa,Gauteng,2020-05-12,1851,822,146,278,14,30
-Africa,South Africa,Gauteng,2020-05-13,1938,860,153,291,15,31
-Africa,South Africa,Gauteng,2020-05-14,2029,899,160,304,16,33
-Africa,South Africa,Gauteng,2020-05-15,2124,940,167,319,16,34
-Africa,South Africa,Gauteng,2020-05-16,2223,982,175,334,17,36
-Africa,South Africa,Gauteng,2020-05-17,2327,1027,183,349,18,37
-Africa,South Africa,Gauteng,2020-05-18,2436,1074,191,365,19,39
-Africa,South Africa,Gauteng,2020-05-19,2550,1123,200,383,20,41
-Africa,South Africa,Gauteng,2020-05-20,2669,1174,209,400,21,43
-Africa,South Africa,Gauteng,2020-05-21,2793,1227,218,419,22,45
-Africa,South Africa,Gauteng,2020-05-22,2922,1282,228,438,23,46
-Africa,South Africa,Gauteng,2020-05-23,3057,1339,238,459,24,49
-Africa,South Africa,Gauteng,2020-05-24,3199,1400,249,480,25,51
-Africa,South Africa,Gauteng,2020-05-25,3347,1464,261,502,27,53
-Africa,South Africa,Gauteng,2020-05-26,3502,1531,272,525,28,56
-Africa,South Africa,Gauteng,2020-05-27,3663,1600,285,549,29,58
-Africa,South Africa,Gauteng,2020-05-28,3831,1671,298,575,31,61
-Africa,South Africa,Gauteng,2020-05-29,4007,1746,311,601,32,63
-Africa,South Africa,Gauteng,2020-05-30,4190,1824,325,629,34,66
-Africa,South Africa,Gauteng,2020-05-31,4383,1906,339,657,35,69
-Africa,South Africa,Gauteng,2020-06-01,4584,1992,355,688,37,72
-Africa,South Africa,Gauteng,2020-06-02,4794,2082,371,719,39,75
-Africa,South Africa,Gauteng,2020-06-03,5012,2175,387,752,41,79
-Africa,South Africa,Gauteng,2020-06-04,5240,2271,404,786,43,82
-Africa,South Africa,Gauteng,2020-06-05,5478,2372,422,822,45,86
-Africa,South Africa,Gauteng,2020-06-06,5727,2478,441,859,47,90
-Africa,South Africa,Gauteng,2020-06-07,5987,2589,461,898,49,94
-Africa,South Africa,Gauteng,2020-06-08,6259,2705,482,939,51,98
-Africa,South Africa,Gauteng,2020-06-09,6542,2825,503,981,54,102
-Africa,South Africa,Gauteng,2020-06-10,6837,2950,525,1026,56,107
-Africa,South Africa,Gauteng,2020-06-11,7145,3079,549,1072,59,112
-Africa,South Africa,Gauteng,2020-06-12,7467,3216,573,1120,62,117
-Africa,South Africa,Gauteng,2020-06-13,7804,3359,598,1171,65,122
-Africa,South Africa,Gauteng,2020-06-14,8156,3508,625,1223,68,127
-Africa,South Africa,Gauteng,2020-06-15,8522,3664,653,1278,71,133
-Africa,South Africa,Gauteng,2020-06-16,8904,3824,681,1336,74,139
-Africa,South Africa,Gauteng,2020-06-17,9301,3991,711,1395,77,145
-Africa,South Africa,Gauteng,2020-06-18,9715,4165,742,1457,81,151
-Africa,South Africa,Gauteng,2020-06-19,10149,4347,775,1522,85,158
-Africa,South Africa,Gauteng,2020-06-20,10604,4540,809,1591,89,165
-Africa,South Africa,Gauteng,2020-06-21,11078,4741,845,1662,93,172
-Africa,South Africa,Gauteng,2020-06-22,11570,4948,882,1736,97,179
-Africa,South Africa,Gauteng,2020-06-23,12083,5162,920,1812,101,187
-Africa,South Africa,Gauteng,2020-06-24,12616,5385,960,1892,106,195
-Africa,South Africa,Gauteng,2020-06-25,13172,5616,1002,1976,111,204
-Africa,South Africa,Gauteng,2020-06-26,13756,5861,1045,2063,116,212
-Africa,South Africa,Gauteng,2020-06-27,14366,6119,1091,2155,121,222
-Africa,South Africa,Gauteng,2020-06-28,15001,6386,1139,2250,127,231
-Africa,South Africa,Gauteng,2020-06-29,15661,6662,1188,2349,133,241
-Africa,South Africa,Gauteng,2020-06-30,16347,6946,1239,2452,139,252
-Africa,South Africa,Gauteng,2020-07-01,17061,7242,1292,2559,145,262
-Africa,South Africa,Gauteng,2020-07-02,17808,7552,1348,2671,152,274
-Africa,South Africa,Gauteng,2020-07-03,18589,7880,1406,2788,158,286
-Africa,South Africa,Gauteng,2020-07-04,19404,8221,1467,2911,165,298
-Africa,South Africa,Gauteng,2020-07-05,20251,8573,1530,3038,173,311
-Africa,South Africa,Gauteng,2020-07-06,21131,8938,1595,3170,181,324
-Africa,South Africa,Gauteng,2020-07-07,22047,9315,1663,3307,189,338
-Africa,South Africa,Gauteng,2020-07-08,23002,9709,1734,3450,197,352
-Africa,South Africa,Gauteng,2020-07-09,24000,10124,1808,3600,206,367
-Africa,South Africa,Gauteng,2020-07-10,25041,10556,1885,3756,215,383
-Africa,South Africa,Gauteng,2020-07-11,26123,11004,1965,3919,225,399
-Africa,South Africa,Gauteng,2020-07-12,27248,11468,2048,4087,235,416
-Africa,South Africa,Gauteng,2020-07-13,28417,11947,2134,4263,245,433
-Africa,South Africa,Gauteng,2020-07-14,29635,12446,2224,4445,256,451
-Africa,South Africa,Gauteng,2020-07-15,30906,12969,2317,4636,268,470
-Africa,South Africa,KwaZulu Natal,2020-03-26,134,134,20,20,0,5
-Africa,South Africa,KwaZulu Natal,2020-03-27,138,127,19,21,3,5
-Africa,South Africa,KwaZulu Natal,2020-03-28,147,127,20,22,3,5
-Africa,South Africa,KwaZulu Natal,2020-03-29,158,130,20,24,3,5
-Africa,South Africa,KwaZulu Natal,2020-03-30,172,134,22,26,4,5
-Africa,South Africa,KwaZulu Natal,2020-03-31,187,140,23,28,4,5
-Africa,South Africa,KwaZulu Natal,2020-04-01,203,146,24,30,4,5
-Africa,South Africa,KwaZulu Natal,2020-04-02,220,153,25,33,5,6
-Africa,South Africa,KwaZulu Natal,2020-04-03,237,160,27,36,5,6
-Africa,South Africa,KwaZulu Natal,2020-04-04,255,167,28,38,6,6
-Africa,South Africa,KwaZulu Natal,2020-04-05,274,174,29,41,6,6
-Africa,South Africa,KwaZulu Natal,2020-04-06,293,181,31,44,6,7
-Africa,South Africa,KwaZulu Natal,2020-04-07,313,189,32,47,7,7
-Africa,South Africa,KwaZulu Natal,2020-04-08,333,196,34,50,7,7
-Africa,South Africa,KwaZulu Natal,2020-04-09,354,203,35,53,8,7
-Africa,South Africa,KwaZulu Natal,2020-04-10,376,211,37,56,8,8
-Africa,South Africa,KwaZulu Natal,2020-04-11,398,218,38,60,9,8
-Africa,South Africa,KwaZulu Natal,2020-04-12,421,226,40,63,9,8
-Africa,South Africa,KwaZulu Natal,2020-04-13,444,234,41,67,10,8
-Africa,South Africa,KwaZulu Natal,2020-04-14,468,242,43,70,10,9
-Africa,South Africa,KwaZulu Natal,2020-04-15,492,250,44,74,11,9
-Africa,South Africa,KwaZulu Natal,2020-04-16,517,258,46,78,11,9
-Africa,South Africa,KwaZulu Natal,2020-04-17,543,266,48,81,12,10
-Africa,South Africa,KwaZulu Natal,2020-04-18,569,274,49,85,12,10
-Africa,South Africa,KwaZulu Natal,2020-04-19,596,282,51,89,13,10
-Africa,South Africa,KwaZulu Natal,2020-04-20,624,291,53,94,14,11
-Africa,South Africa,KwaZulu Natal,2020-04-21,653,299,54,98,14,11
-Africa,South Africa,KwaZulu Natal,2020-04-22,682,308,56,102,15,11
-Africa,South Africa,KwaZulu Natal,2020-04-23,712,317,58,107,16,11
-Africa,South Africa,KwaZulu Natal,2020-04-24,742,326,60,111,16,12
-Africa,South Africa,KwaZulu Natal,2020-04-25,774,335,61,116,17,12
-Africa,South Africa,KwaZulu Natal,2020-04-26,806,345,63,121,18,12
-Africa,South Africa,KwaZulu Natal,2020-04-27,839,354,65,126,18,13
-Africa,South Africa,KwaZulu Natal,2020-04-28,872,364,67,131,19,13
-Africa,South Africa,KwaZulu Natal,2020-04-29,907,373,69,136,20,13
-Africa,South Africa,KwaZulu Natal,2020-04-30,942,383,71,141,21,14
-Africa,South Africa,KwaZulu Natal,2020-05-01,978,393,73,147,21,14
-Africa,South Africa,KwaZulu Natal,2020-05-02,1015,403,75,152,22,14
-Africa,South Africa,KwaZulu Natal,2020-05-03,1053,414,77,158,23,15
-Africa,South Africa,KwaZulu Natal,2020-05-04,1091,424,79,164,24,15
-Africa,South Africa,KwaZulu Natal,2020-05-05,1131,435,81,170,25,16
-Africa,South Africa,KwaZulu Natal,2020-05-06,1171,446,83,176,26,16
-Africa,South Africa,KwaZulu Natal,2020-05-07,1212,457,85,182,27,16
-Africa,South Africa,KwaZulu Natal,2020-05-08,1255,468,88,188,28,17
-Africa,South Africa,KwaZulu Natal,2020-05-09,1298,479,90,195,29,17
-Africa,South Africa,KwaZulu Natal,2020-05-10,1342,491,92,201,30,18
-Africa,South Africa,KwaZulu Natal,2020-05-11,1387,503,94,208,30,18
-Africa,South Africa,KwaZulu Natal,2020-05-12,1433,515,97,215,32,18
-Africa,South Africa,KwaZulu Natal,2020-05-13,1480,527,99,222,33,19
-Africa,South Africa,KwaZulu Natal,2020-05-14,1527,539,101,229,34,19
-Africa,South Africa,KwaZulu Natal,2020-05-15,1576,551,104,236,35,20
-Africa,South Africa,KwaZulu Natal,2020-05-16,1626,564,106,244,36,20
-Africa,South Africa,KwaZulu Natal,2020-05-17,1677,577,109,252,37,21
-Africa,South Africa,KwaZulu Natal,2020-05-18,1729,590,111,259,38,21
-Africa,South Africa,KwaZulu Natal,2020-05-19,1782,603,114,267,39,22
-Africa,South Africa,KwaZulu Natal,2020-05-20,1836,616,117,275,40,22
-Africa,South Africa,KwaZulu Natal,2020-05-21,1892,630,119,284,42,23
-Africa,South Africa,KwaZulu Natal,2020-05-22,1948,644,122,292,43,23
-Africa,South Africa,KwaZulu Natal,2020-05-23,2005,657,125,301,44,24
-Africa,South Africa,KwaZulu Natal,2020-05-24,2064,671,127,310,45,24
-Africa,South Africa,KwaZulu Natal,2020-05-25,2123,686,130,318,47,25
-Africa,South Africa,KwaZulu Natal,2020-05-26,2184,700,133,328,48,25
-Africa,South Africa,KwaZulu Natal,2020-05-27,2246,715,136,337,49,26
-Africa,South Africa,KwaZulu Natal,2020-05-28,2309,730,139,346,51,26
-Africa,South Africa,KwaZulu Natal,2020-05-29,2373,744,142,356,52,27
-Africa,South Africa,KwaZulu Natal,2020-05-30,2438,760,145,366,54,27
-Africa,South Africa,KwaZulu Natal,2020-05-31,2505,775,148,376,55,28
-Africa,South Africa,KwaZulu Natal,2020-06-01,2573,790,151,386,57,28
-Africa,South Africa,KwaZulu Natal,2020-06-02,2642,806,154,396,58,29
-Africa,South Africa,KwaZulu Natal,2020-06-03,2712,822,157,407,60,29
-Africa,South Africa,KwaZulu Natal,2020-06-04,2783,838,160,417,61,30
-Africa,South Africa,KwaZulu Natal,2020-06-05,2856,854,163,428,63,30
-Africa,South Africa,KwaZulu Natal,2020-06-06,2930,870,166,439,65,31
-Africa,South Africa,KwaZulu Natal,2020-06-07,3005,887,170,451,66,32
-Africa,South Africa,KwaZulu Natal,2020-06-08,3081,903,173,462,68,32
-Africa,South Africa,KwaZulu Natal,2020-06-09,3159,920,176,474,70,33
-Africa,South Africa,KwaZulu Natal,2020-06-10,3238,937,180,486,71,33
-Africa,South Africa,KwaZulu Natal,2020-06-11,3318,954,183,498,73,34
-Africa,South Africa,KwaZulu Natal,2020-06-12,3400,972,187,510,75,35
-Africa,South Africa,KwaZulu Natal,2020-06-13,3482,989,190,522,77,35
-Africa,South Africa,KwaZulu Natal,2020-06-14,3566,1007,193,535,79,36
-Africa,South Africa,KwaZulu Natal,2020-06-15,3652,1024,197,548,81,36
-Africa,South Africa,KwaZulu Natal,2020-06-16,3739,1042,200,561,82,37
-Africa,South Africa,KwaZulu Natal,2020-06-17,3827,1060,204,574,84,38
-Africa,South Africa,KwaZulu Natal,2020-06-18,3916,1078,208,587,86,38
-Africa,South Africa,KwaZulu Natal,2020-06-19,4007,1096,211,601,88,39
-Africa,South Africa,KwaZulu Natal,2020-06-20,4099,1115,215,615,90,40
-Africa,South Africa,KwaZulu Natal,2020-06-21,4192,1133,219,629,92,40
-Africa,South Africa,KwaZulu Natal,2020-06-22,4287,1152,222,643,95,41
-Africa,South Africa,KwaZulu Natal,2020-06-23,4383,1170,226,657,97,42
-Africa,South Africa,KwaZulu Natal,2020-06-24,4480,1189,230,672,99,42
-Africa,South Africa,KwaZulu Natal,2020-06-25,4579,1208,234,687,101,43
-Africa,South Africa,KwaZulu Natal,2020-06-26,4679,1227,237,702,103,44
-Africa,South Africa,KwaZulu Natal,2020-06-27,4781,1246,241,717,105,44
-Africa,South Africa,KwaZulu Natal,2020-06-28,4884,1265,245,733,108,45
-Africa,South Africa,KwaZulu Natal,2020-06-29,4988,1285,249,748,110,46
-Africa,South Africa,KwaZulu Natal,2020-06-30,5093,1304,253,764,112,46
-Africa,South Africa,KwaZulu Natal,2020-07-01,5200,1323,257,780,115,47
-Africa,South Africa,KwaZulu Natal,2020-07-02,5308,1343,261,796,117,48
-Africa,South Africa,KwaZulu Natal,2020-07-03,5418,1362,265,813,120,48
-Africa,South Africa,KwaZulu Natal,2020-07-04,5529,1382,269,829,122,49
-Africa,South Africa,KwaZulu Natal,2020-07-05,5641,1402,273,846,125,50
-Africa,South Africa,KwaZulu Natal,2020-07-06,5755,1421,277,863,127,51
-Africa,South Africa,KwaZulu Natal,2020-07-07,5870,1441,281,880,130,51
-Africa,South Africa,KwaZulu Natal,2020-07-08,5986,1461,285,898,132,52
-Africa,South Africa,KwaZulu Natal,2020-07-09,6104,1481,289,916,135,53
-Africa,South Africa,KwaZulu Natal,2020-07-10,6223,1500,293,933,137,53
-Africa,South Africa,KwaZulu Natal,2020-07-11,6343,1520,297,951,140,54
-Africa,South Africa,KwaZulu Natal,2020-07-12,6465,1540,301,970,143,55
-Africa,South Africa,KwaZulu Natal,2020-07-13,6588,1560,305,988,145,55
-Africa,South Africa,KwaZulu Natal,2020-07-14,6712,1580,309,1007,148,56
-Africa,South Africa,KwaZulu Natal,2020-07-15,6838,1600,313,1026,151,57
-Africa,South Africa,Limpopo,2020-05-21,121,103,15,15,3,4
-Africa,South Africa,Limpopo,2020-05-22,123,99,15,16,3,4
-Africa,South Africa,Limpopo,2020-05-23,126,95,15,16,3,4
-Africa,South Africa,Limpopo,2020-05-24,129,92,15,17,3,3
-Africa,South Africa,Limpopo,2020-05-25,133,90,15,17,3,3
-Africa,South Africa,Limpopo,2020-05-26,138,89,15,18,3,3
-Africa,South Africa,Limpopo,2020-05-27,144,89,15,19,3,3
-Africa,South Africa,Limpopo,2020-05-28,150,89,15,20,3,3
-Africa,South Africa,Limpopo,2020-05-29,157,91,15,21,3,3
-Africa,South Africa,Limpopo,2020-05-30,165,92,16,22,3,3
-Africa,South Africa,Limpopo,2020-05-31,173,94,16,23,3,3
-Africa,South Africa,Limpopo,2020-06-01,181,97,17,25,3,4
-Africa,South Africa,Limpopo,2020-06-02,190,99,17,26,3,4
-Africa,South Africa,Limpopo,2020-06-03,199,102,18,27,3,4
-Africa,South Africa,Limpopo,2020-06-04,209,104,18,29,3,4
-Africa,South Africa,Limpopo,2020-06-05,218,107,19,30,3,4
-Africa,South Africa,Limpopo,2020-06-06,227,109,19,31,3,4
-Africa,South Africa,Limpopo,2020-06-07,236,110,20,33,3,4
-Africa,South Africa,Limpopo,2020-06-08,244,112,20,34,3,4
-Africa,South Africa,Limpopo,2020-06-09,253,113,21,35,3,4
-Africa,South Africa,Limpopo,2020-06-10,261,114,21,36,3,4
-Africa,South Africa,Limpopo,2020-06-11,269,114,21,38,3,4
-Africa,South Africa,Limpopo,2020-06-12,276,114,21,39,3,4
-Africa,South Africa,Limpopo,2020-06-13,283,114,21,40,3,4
-Africa,South Africa,Limpopo,2020-06-14,290,113,21,41,3,4
-Africa,South Africa,Limpopo,2020-06-15,296,112,21,42,3,4
-Africa,South Africa,Limpopo,2020-06-16,302,111,21,43,3,4
-Africa,South Africa,Limpopo,2020-06-17,308,109,21,43,3,4
-Africa,South Africa,Limpopo,2020-06-18,313,108,21,44,3,4
-Africa,South Africa,Limpopo,2020-06-19,318,106,21,45,3,4
-Africa,South Africa,Limpopo,2020-06-20,322,103,20,46,3,4
-Africa,South Africa,Limpopo,2020-06-21,326,101,20,46,3,4
-Africa,South Africa,Limpopo,2020-06-22,330,99,20,47,3,3
-Africa,South Africa,Limpopo,2020-06-23,334,96,19,47,3,3
-Africa,South Africa,Limpopo,2020-06-24,337,93,19,48,3,3
-Africa,South Africa,Limpopo,2020-06-25,340,90,19,48,3,3
-Africa,South Africa,Limpopo,2020-06-26,343,88,18,49,3,3
-Africa,South Africa,Limpopo,2020-06-27,346,85,18,49,3,3
-Africa,South Africa,Limpopo,2020-06-28,348,82,17,50,3,3
-Africa,South Africa,Limpopo,2020-06-29,351,79,17,50,3,3
-Africa,South Africa,Limpopo,2020-06-30,353,76,16,50,3,3
-Africa,South Africa,Limpopo,2020-07-01,354,73,16,50,3,3
-Africa,South Africa,Limpopo,2020-07-02,356,70,15,51,3,2
-Africa,South Africa,Limpopo,2020-07-03,358,67,15,51,3,2
-Africa,South Africa,Limpopo,2020-07-04,359,64,14,51,3,2
-Africa,South Africa,Limpopo,2020-07-05,360,62,14,51,3,2
-Africa,South Africa,Limpopo,2020-07-06,361,59,14,52,3,2
-Africa,South Africa,Limpopo,2020-07-07,362,56,13,52,3,2
-Africa,South Africa,Limpopo,2020-07-08,363,54,13,52,3,2
-Africa,South Africa,Limpopo,2020-07-09,364,51,12,52,3,2
-Africa,South Africa,Limpopo,2020-07-10,365,49,12,52,3,2
-Africa,South Africa,Limpopo,2020-07-11,366,47,11,52,3,2
-Africa,South Africa,Limpopo,2020-07-12,366,44,11,52,3,1
-Africa,South Africa,Limpopo,2020-07-13,367,42,11,52,3,1
-Africa,South Africa,Limpopo,2020-07-14,368,40,10,52,3,1
-Africa,South Africa,Limpopo,2020-07-15,368,38,10,53,3,1
-Africa,South Africa,Mpumalanga,2020-05-24,101,101,15,15,0,4
-Africa,South Africa,Mpumalanga,2020-05-25,104,97,15,16,0,4
-Africa,South Africa,Mpumalanga,2020-05-26,106,94,15,16,0,3
-Africa,South Africa,Mpumalanga,2020-05-27,109,90,14,16,0,3
-Africa,South Africa,Mpumalanga,2020-05-28,112,88,14,17,0,3
-Africa,South Africa,Mpumalanga,2020-05-29,116,86,14,17,0,3
-Africa,South Africa,Mpumalanga,2020-05-30,120,85,14,18,0,3
-Africa,South Africa,Mpumalanga,2020-05-31,125,84,14,19,0,3
-Africa,South Africa,Mpumalanga,2020-06-01,130,84,14,20,0,3
-Africa,South Africa,Mpumalanga,2020-06-02,136,84,14,20,0,3
-Africa,South Africa,Mpumalanga,2020-06-03,143,85,15,21,0,3
-Africa,South Africa,Mpumalanga,2020-06-04,150,87,15,23,0,3
-Africa,South Africa,Mpumalanga,2020-06-05,158,89,16,24,1,3
-Africa,South Africa,Mpumalanga,2020-06-06,167,92,16,25,1,3
-Africa,South Africa,Mpumalanga,2020-06-07,177,96,17,27,1,3
-Africa,South Africa,Mpumalanga,2020-06-08,188,100,18,28,1,4
-Africa,South Africa,Mpumalanga,2020-06-09,199,105,19,30,1,4
-Africa,South Africa,Mpumalanga,2020-06-10,212,111,20,32,1,4
-Africa,South Africa,Mpumalanga,2020-06-11,225,117,21,34,1,4
-Africa,South Africa,Mpumalanga,2020-06-12,240,124,22,36,1,4
-Africa,South Africa,Mpumalanga,2020-06-13,255,131,23,38,1,5
-Africa,South Africa,Mpumalanga,2020-06-14,272,139,25,41,1,5
-Africa,South Africa,Mpumalanga,2020-06-15,290,147,26,43,1,5
-Africa,South Africa,Mpumalanga,2020-06-16,309,156,28,46,1,6
-Africa,South Africa,Mpumalanga,2020-06-17,328,166,29,49,1,6
-Africa,South Africa,Mpumalanga,2020-06-18,349,175,31,52,1,6
-Africa,South Africa,Mpumalanga,2020-06-19,371,186,33,56,1,7
-Africa,South Africa,Mpumalanga,2020-06-20,394,196,35,59,2,7
-Africa,South Africa,Mpumalanga,2020-06-21,418,207,37,63,2,8
-Africa,South Africa,Mpumalanga,2020-06-22,443,218,39,66,2,8
-Africa,South Africa,Mpumalanga,2020-06-23,469,230,41,70,2,8
-Africa,South Africa,Mpumalanga,2020-06-24,496,241,43,74,2,9
-Africa,South Africa,Mpumalanga,2020-06-25,523,253,45,78,2,9
-Africa,South Africa,Mpumalanga,2020-06-26,552,264,47,83,2,10
-Africa,South Africa,Mpumalanga,2020-06-27,581,276,49,87,2,10
-Africa,South Africa,Mpumalanga,2020-06-28,611,287,51,92,3,10
-Africa,South Africa,Mpumalanga,2020-06-29,641,299,54,96,3,11
-Africa,South Africa,Mpumalanga,2020-06-30,672,310,56,101,3,11
-Africa,South Africa,Mpumalanga,2020-07-01,704,321,58,106,3,12
-Africa,South Africa,Mpumalanga,2020-07-02,735,332,60,110,3,12
-Africa,South Africa,Mpumalanga,2020-07-03,768,342,62,115,3,12
-Africa,South Africa,Mpumalanga,2020-07-04,801,353,64,120,4,13
-Africa,South Africa,Mpumalanga,2020-07-05,834,362,66,125,4,13
-Africa,South Africa,Mpumalanga,2020-07-06,867,372,68,130,4,13
-Africa,South Africa,Mpumalanga,2020-07-07,900,381,70,135,4,14
-Africa,South Africa,Mpumalanga,2020-07-08,933,389,71,140,4,14
-Africa,South Africa,Mpumalanga,2020-07-09,966,397,73,145,5,14
-Africa,South Africa,Mpumalanga,2020-07-10,999,404,75,150,5,15
-Africa,South Africa,Mpumalanga,2020-07-11,1033,411,76,155,5,15
-Africa,South Africa,Mpumalanga,2020-07-12,1065,417,77,160,5,15
-Africa,South Africa,Mpumalanga,2020-07-13,1098,422,79,165,6,15
-Africa,South Africa,Mpumalanga,2020-07-14,1130,427,80,170,6,15
-Africa,South Africa,Mpumalanga,2020-07-15,1162,431,81,174,6,15
-Africa,South Africa,North West,2020-05-25,109,103,15,15,1,4
-Africa,South Africa,North West,2020-05-26,115,102,16,16,1,4
-Africa,South Africa,North West,2020-05-27,124,104,16,18,1,4
-Africa,South Africa,North West,2020-05-28,136,110,17,20,1,4
-Africa,South Africa,North West,2020-05-29,153,119,19,22,1,4
-Africa,South Africa,North West,2020-05-30,174,132,21,25,1,5
-Africa,South Africa,North West,2020-05-31,200,149,24,29,1,6
-Africa,South Africa,North West,2020-06-01,232,170,28,34,1,6
-Africa,South Africa,North West,2020-06-02,269,195,32,39,1,7
-Africa,South Africa,North West,2020-06-03,311,224,37,46,1,8
-Africa,South Africa,North West,2020-06-04,357,254,42,53,1,9
-Africa,South Africa,North West,2020-06-05,406,285,47,60,1,11
-Africa,South Africa,North West,2020-06-06,457,317,52,68,1,12
-Africa,South Africa,North West,2020-06-07,510,348,58,76,1,13
-Africa,South Africa,North West,2020-06-08,563,377,63,84,1,14
-Africa,South Africa,North West,2020-06-09,616,405,68,92,1,15
-Africa,South Africa,North West,2020-06-10,669,431,73,99,1,16
-Africa,South Africa,North West,2020-06-11,721,454,77,107,1,17
-Africa,South Africa,North West,2020-06-12,771,474,81,115,2,17
-Africa,South Africa,North West,2020-06-13,819,490,84,122,2,18
-Africa,South Africa,North West,2020-06-14,865,504,87,129,2,18
-Africa,South Africa,North West,2020-06-15,909,515,90,135,2,19
-Africa,South Africa,North West,2020-06-16,951,523,92,142,2,19
-Africa,South Africa,North West,2020-06-17,991,529,93,148,2,19
-Africa,South Africa,North West,2020-06-18,1028,531,95,153,2,19
-Africa,South Africa,North West,2020-06-19,1062,531,96,158,2,19
-Africa,South Africa,North West,2020-06-20,1095,529,96,163,2,19
-Africa,South Africa,North West,2020-06-21,1125,525,96,168,2,19
-Africa,South Africa,North West,2020-06-22,1153,520,96,172,2,19
-Africa,South Africa,North West,2020-06-23,1179,512,95,176,2,18
-Africa,South Africa,North West,2020-06-24,1203,503,95,180,2,18
-Africa,South Africa,North West,2020-06-25,1225,493,94,183,2,18
-Africa,South Africa,North West,2020-06-26,1245,482,92,186,3,17
-Africa,South Africa,North West,2020-06-27,1264,470,91,189,3,17
-Africa,South Africa,North West,2020-06-28,1281,457,89,191,3,16
-Africa,South Africa,North West,2020-06-29,1297,444,88,194,3,16
-Africa,South Africa,North West,2020-06-30,1311,430,86,196,3,15
-Africa,South Africa,North West,2020-07-01,1324,416,84,198,3,15
-Africa,South Africa,North West,2020-07-02,1336,402,82,200,3,14
-Africa,South Africa,North West,2020-07-03,1347,387,80,201,3,14
-Africa,South Africa,North West,2020-07-04,1357,373,78,203,3,13
-Africa,South Africa,North West,2020-07-05,1366,358,75,204,3,12
-Africa,South Africa,North West,2020-07-06,1374,344,73,205,3,12
-Africa,South Africa,North West,2020-07-07,1381,330,71,206,3,11
-Africa,South Africa,North West,2020-07-08,1388,316,69,207,4,11
-Africa,South Africa,North West,2020-07-09,1394,302,66,208,4,10
-Africa,South Africa,North West,2020-07-10,1399,289,64,209,4,10
-Africa,South Africa,North West,2020-07-11,1404,275,62,210,4,9
-Africa,South Africa,North West,2020-07-12,1408,263,60,210,4,9
-Africa,South Africa,North West,2020-07-13,1412,250,58,211,4,8
-Africa,South Africa,North West,2020-07-14,1416,239,56,211,4,8
-Africa,South Africa,North West,2020-07-15,1419,227,54,212,4,8
-Africa,South Africa,Western Cape,2020-03-24,100,100,15,15,0,4
-Africa,South Africa,Western Cape,2020-03-25,103,98,15,15,0,4
-Africa,South Africa,Western Cape,2020-03-26,108,97,15,16,0,4
-Africa,South Africa,Western Cape,2020-03-27,113,98,15,17,1,4
-Africa,South Africa,Western Cape,2020-03-28,119,99,16,18,1,4
-Africa,South Africa,Western Cape,2020-03-29,126,101,16,19,1,4
-Africa,South Africa,Western Cape,2020-03-30,134,104,17,20,1,4
-Africa,South Africa,Western Cape,2020-03-31,144,108,17,22,1,4
-Africa,South Africa,Western Cape,2020-04-01,154,113,18,23,2,4
-Africa,South Africa,Western Cape,2020-04-02,166,119,19,25,2,4
-Africa,South Africa,Western Cape,2020-04-03,179,126,21,27,2,5
-Africa,South Africa,Western Cape,2020-04-04,194,135,22,29,2,5
-Africa,South Africa,Western Cape,2020-04-05,211,145,24,32,3,5
-Africa,South Africa,Western Cape,2020-04-06,230,157,26,34,3,6
-Africa,South Africa,Western Cape,2020-04-07,251,170,28,38,4,6
-Africa,South Africa,Western Cape,2020-04-08,274,185,31,41,4,7
-Africa,South Africa,Western Cape,2020-04-09,301,202,33,45,4,7
-Africa,South Africa,Western Cape,2020-04-10,330,221,37,49,5,8
-Africa,South Africa,Western Cape,2020-04-11,363,243,40,54,5,9
-Africa,South Africa,Western Cape,2020-04-12,399,267,44,60,6,10
-Africa,South Africa,Western Cape,2020-04-13,439,294,48,66,7,11
-Africa,South Africa,Western Cape,2020-04-14,484,324,53,73,7,12
-Africa,South Africa,Western Cape,2020-04-15,533,357,59,80,8,13
-Africa,South Africa,Western Cape,2020-04-16,587,393,65,88,9,14
-Africa,South Africa,Western Cape,2020-04-17,647,433,71,97,10,16
-Africa,South Africa,Western Cape,2020-04-18,713,478,78,107,11,18
-Africa,South Africa,Western Cape,2020-04-19,785,526,86,118,12,19
-Africa,South Africa,Western Cape,2020-04-20,864,579,95,130,14,21
-Africa,South Africa,Western Cape,2020-04-21,951,637,105,143,15,23
-Africa,South Africa,Western Cape,2020-04-22,1046,700,115,157,17,26
-Africa,South Africa,Western Cape,2020-04-23,1150,769,126,172,18,28
-Africa,South Africa,Western Cape,2020-04-24,1263,844,139,189,20,31
-Africa,South Africa,Western Cape,2020-04-25,1387,925,152,208,22,34
-Africa,South Africa,Western Cape,2020-04-26,1520,1013,166,228,25,37
-Africa,South Africa,Western Cape,2020-04-27,1665,1108,182,250,27,41
-Africa,South Africa,Western Cape,2020-04-28,1824,1211,199,274,30,45
-Africa,South Africa,Western Cape,2020-04-29,1995,1322,217,299,33,49
-Africa,South Africa,Western Cape,2020-04-30,2181,1442,237,327,36,53
-Africa,South Africa,Western Cape,2020-05-01,2380,1570,258,357,40,58
-Africa,South Africa,Western Cape,2020-05-02,2595,1707,281,389,44,63
-Africa,South Africa,Western Cape,2020-05-03,2827,1855,305,424,48,68
-Africa,South Africa,Western Cape,2020-05-04,3077,2013,332,462,53,74
-Africa,South Africa,Western Cape,2020-05-05,3347,2184,360,502,58,80
-Africa,South Africa,Western Cape,2020-05-06,3635,2365,390,545,63,87
-Africa,South Africa,Western Cape,2020-05-07,3944,2557,422,592,69,94
-Africa,South Africa,Western Cape,2020-05-08,4273,2761,456,641,76,102
-Africa,South Africa,Western Cape,2020-05-09,4626,2978,492,694,83,110
-Africa,South Africa,Western Cape,2020-05-10,5004,3211,531,751,90,118
-Africa,South Africa,Western Cape,2020-05-11,5407,3458,572,811,98,127
-Africa,South Africa,Western Cape,2020-05-12,5837,3719,616,876,107,137
-Africa,South Africa,Western Cape,2020-05-13,6292,3993,662,944,117,147
-Africa,South Africa,Western Cape,2020-05-14,6775,4282,710,1016,127,158
-Africa,South Africa,Western Cape,2020-05-15,7287,4587,761,1093,138,169
-Africa,South Africa,Western Cape,2020-05-16,7833,4911,815,1175,150,181
-Africa,South Africa,Western Cape,2020-05-17,8411,5253,873,1262,162,193
-Africa,South Africa,Western Cape,2020-05-18,9022,5611,933,1353,176,206
-Africa,South Africa,Western Cape,2020-05-19,9666,5985,996,1450,190,220
-Africa,South Africa,Western Cape,2020-05-20,10343,6375,1062,1551,206,234
-Africa,South Africa,Western Cape,2020-05-21,11057,6783,1130,1659,223,249
-Africa,South Africa,Western Cape,2020-05-22,11811,7213,1203,1772,240,265
-Africa,South Africa,Western Cape,2020-05-23,12606,7664,1279,1891,259,282
-Africa,South Africa,Western Cape,2020-05-24,13440,8133,1358,2016,279,299
-Africa,South Africa,Western Cape,2020-05-25,14312,8619,1441,2147,301,317
-Africa,South Africa,Western Cape,2020-05-26,15224,9123,1526,2284,323,335
-Africa,South Africa,Western Cape,2020-05-27,16178,9645,1615,2427,348,354
-Africa,South Africa,Western Cape,2020-05-28,17178,10190,1707,2577,373,374
-Africa,South Africa,Western Cape,2020-05-29,18225,10758,1804,2734,401,395
-Africa,South Africa,Western Cape,2020-05-30,19318,11346,1904,2898,429,417
-Africa,South Africa,Western Cape,2020-05-31,20454,11950,2007,3068,460,439
-Africa,South Africa,Western Cape,2020-06-01,21633,12571,2112,3245,492,461
-Africa,South Africa,Western Cape,2020-06-02,22858,13209,2222,3429,526,485
-Africa,South Africa,Western Cape,2020-06-03,24133,13868,2334,3620,562,509
-Africa,South Africa,Western Cape,2020-06-04,25460,14552,2451,3819,600,534
-Africa,South Africa,Western Cape,2020-06-05,26837,15256,2572,4026,640,560
-Africa,South Africa,Western Cape,2020-06-06,28260,15975,2695,4239,682,586
-Africa,South Africa,Western Cape,2020-06-07,29728,16706,2821,4459,726,613
-Africa,South Africa,Western Cape,2020-06-08,31242,17452,2949,4686,772,640
-Africa,South Africa,Western Cape,2020-06-09,32805,18214,3081,4921,820,668
-Africa,South Africa,Western Cape,2020-06-10,34423,18999,3216,5163,871,696
-Africa,South Africa,Western Cape,2020-06-11,36093,19803,3355,5414,924,726
-Africa,South Africa,Western Cape,2020-06-12,37810,20620,3496,5671,980,755
-Africa,South Africa,Western Cape,2020-06-13,39571,21446,3639,5936,1038,786
-Africa,South Africa,Western Cape,2020-06-14,41374,22279,3784,6206,1099,816
-Africa,South Africa,Western Cape,2020-06-15,43223,23122,3930,6483,1163,847
-Africa,South Africa,Western Cape,2020-06-16,45122,23980,4080,6768,1229,878
-Africa,South Africa,Western Cape,2020-06-17,47073,24856,4232,7061,1298,910
-Africa,South Africa,Western Cape,2020-06-18,49070,25742,4386,7361,1369,942
-Africa,South Africa,Western Cape,2020-06-19,51107,26631,4542,7666,1444,975
-Africa,South Africa,Western Cape,2020-06-20,53181,27521,4698,7977,1522,1007
-Africa,South Africa,Western Cape,2020-06-21,55292,28411,4854,8294,1602,1039
-Africa,South Africa,Western Cape,2020-06-22,57444,29307,5011,8617,1686,1072
-Africa,South Africa,Western Cape,2020-06-23,59642,30214,5171,8946,1772,1105
-Africa,South Africa,Western Cape,2020-06-24,61883,31128,5332,9282,1862,1138
-Africa,South Africa,Western Cape,2020-06-25,64158,32041,5493,9624,1955,1171
-Africa,South Africa,Western Cape,2020-06-26,66463,32947,5653,9969,2051,1204
-Africa,South Africa,Western Cape,2020-06-27,68794,33845,5812,10319,2150,1237
-Africa,South Africa,Western Cape,2020-06-28,71153,34736,5970,10673,2252,1269
-Africa,South Africa,Western Cape,2020-06-29,73544,35627,6129,11032,2358,1301
-Africa,South Africa,Western Cape,2020-06-30,75972,36521,6288,11396,2467,1334
-Africa,South Africa,Western Cape,2020-07-01,78429,37411,6446,11764,2579,1366
-Africa,South Africa,Western Cape,2020-07-02,80905,38289,6603,12136,2695,1398
-Africa,South Africa,Western Cape,2020-07-03,83396,39150,6757,12509,2814,1429
-Africa,South Africa,Western Cape,2020-07-04,85901,39993,6909,12885,2936,1460
-Africa,South Africa,Western Cape,2020-07-05,88423,40823,7059,13263,3062,1490
-Africa,South Africa,Western Cape,2020-07-06,90965,41645,7207,13645,3191,1519
-Africa,South Africa,Western Cape,2020-07-07,93530,42463,7355,14029,3323,1549
-Africa,South Africa,Western Cape,2020-07-08,96106,43266,7500,14416,3459,1578
-Africa,South Africa,Western Cape,2020-07-09,98687,44046,7642,14803,3598,1606
-Africa,South Africa,Western Cape,2020-07-10,101268,44802,7779,15190,3740,1633
-Africa,South Africa,Western Cape,2020-07-11,103848,45532,7913,15577,3886,1660
-Africa,South Africa,Western Cape,2020-07-12,106431,46242,8043,15965,4035,1685
-Africa,South Africa,Western Cape,2020-07-13,109022,46940,8172,16353,4187,1710
-Africa,South Africa,Western Cape,2020-07-14,111616,47620,8297,16742,4342,1735
-Africa,South Africa,Western Cape,2020-07-15,114204,48276,8418,17131,4501,1758
