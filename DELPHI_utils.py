@@ -771,7 +771,7 @@ def read_policy_data_us_only(filepath_data_sandbox: str):
         'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
         'West Virginia', 'Wisconsin', 'Wyoming'
     ]
-    df = pd.read_csv(filepath_data_sandbox + "12062020_raw_policy_data_US_only.csv")
+    df = pd.read_csv(filepath_data_sandbox + "12062020_raw_policy_data_us_only.csv")
     df = df[df.location_name.isin(list_US_states)][[
         "location_name", "travel_limit_start_date", "travel_limit_end_date",
         "stay_home_start_date", "stay_home_end_date", "educational_fac_start_date",
@@ -813,7 +813,7 @@ def read_measures_oxford_data(yesterday: str):
 
     #measures = measures.loc[:, measures.isnull().mean() < 0.1]
     msr = set(measures.columns).intersection(set(msr))
-    
+
     #measures = measures.fillna(0)
     measures = measures.dropna()
     for col in msr:
@@ -825,10 +825,10 @@ def read_measures_oxford_data(yesterday: str):
         "United States": "US", "South Korea": "Korea, South", "Democratic Republic of Congo": "Congo (Kinshasa)",
         "Czech Republic": "Czechia", "Slovak Republic": "Slovakia",
     })
-    
+
     measures = measures.fillna(0)
     msr = future_policies
-    
+
     measures['Restrict_Mass_Gatherings'] = [
         int(a or b or c) for a, b, c in zip(
             measures['C3_Cancel public events'],
@@ -843,14 +843,14 @@ def read_measures_oxford_data(yesterday: str):
             measures['C8_International travel controls']
         )
     ]
-    
+
     del measures['C2_Workplace closing']
     del measures['C3_Cancel public events']
     del measures['C4_Restrictions on gatherings']
     del measures['C5_Close public transport']
     del measures['C7_Restrictions on internal movement']
     del measures['C8_International travel controls']
-    
+
     output = deepcopy(measures)
     output[msr[0]] = (measures.iloc[:, 2:].sum(axis=1) == 0).apply(lambda x: int(x))
     output[msr[1]] = [
