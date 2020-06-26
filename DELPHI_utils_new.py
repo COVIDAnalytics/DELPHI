@@ -46,14 +46,14 @@ class DELPHIDataSaver:
         if save_since_100_cases:
             # Save predictions since 100 cases
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}.csv", index=False
+                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_New_since100_{today_date_str}.csv", index=False
             )
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{today_date_str}.csv", index=False
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_New_since100_{today_date_str}.csv", index=False
             )
             if website:
                 self.df_global_predictions_since_100_cases.to_csv(
-                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{today_date_str}.csv",
+                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_New_since100_{today_date_str}.csv",
                     index=False
                 )
 
@@ -148,7 +148,7 @@ class DELPHIDataCreator:
             testing_data_included: bool = False,
     ):
         if testing_data_included:
-            assert len(best_params) == 12, f"Expected 9 best parameters, got {len(best_params)}"
+            assert len(best_params) == 12,  f"Expected 9 best parameters, got {len(best_params)}"
         else:
             assert len(best_params) == 10, f"Expected 7 best parameters, got {len(best_params)}"
         self.x_sol_final = x_sol_final
@@ -169,7 +169,7 @@ class DELPHIDataCreator:
             "Median Day of Action": [self.best_params[1]], "Rate of Action": [self.best_params[2]],
             "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],"Rate of Mortality Rate Decay": [self.best_params[5]],
             "Internal Parameter 1": [self.best_params[6]], "Internal Parameter 2": [self.best_params[7]],
-            "Second Wave Jump": [self.best_params[8]], "Jump Time": [self.best_params[9]],            
+            "Second Wave Jump": [self.best_params[8]], "Jump Time": [self.best_params[9]]     
         })
         return df_parameters
 

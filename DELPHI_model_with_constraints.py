@@ -81,9 +81,9 @@ for continent, country, province in zip(
                 ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
                 parameter_list.insert(5,0.2)
                 parameter_list.insert(8,0.1)   
-                parameter_list.insert(9,(len(validcases)-1)/2)
+                parameter_list.insert(9,(len(validcases)-1) - 10)
                 bounds_params.insert(5,(0, 0.5))
-                bounds_params.insert(8,(0, 2))
+                bounds_params.insert(8,(0, 1))
                 bounds_params.insert(9,(0, len(validcases)-1))
                 bounds_params = tuple(bounds_params)
             else:
@@ -134,7 +134,7 @@ for continent, country, province in zip(
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
             validcases_death = validcases["death_cnt"].tolist()
-            balance = validcases_nondeath[-1] / max(validcases_death[-1], 10)
+            balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
             fitcasesnd = validcases_nondeath
             fitcasesd = validcases_death
             GLOBAL_PARAMS_FIXED = (
@@ -160,7 +160,9 @@ for continent, country, province in zip(
                 r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                 r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * (np.arctan(t - t_jump) + np.pi / 2)
+                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * 2 / np.pi * (np.arctan(t - t_jump) + np.pi / 2)
+                # gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * (np.arctan(t - t_jump) + np.pi / 2) * min(1, 2 / np.pi * np.arctan( - (t - t_jump)/ 20 * r_decay) + 1)
+                
                 # if t < t_jump:
                 #     gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                 # else:
@@ -239,7 +241,7 @@ for continent, country, province in zip(
             output = minimize(
                 residuals_totalcases,
                 parameter_list,
-                method='TNC',  # Can't use Nelder-Mead if I want to put bounds on the params
+                method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
                 bounds=bounds_params,
                 options={'maxiter': max_iter, 'verbose': 0}
             )
@@ -314,5 +316,5 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
 )
-delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
+delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
 print("Exported all 3 datasets to website & danger_map repositories")
