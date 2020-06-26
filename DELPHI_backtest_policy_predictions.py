@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import json
 import yaml
 import os
+from sklearn.metrics import mean_squared_error
 from pandas.core.common import SettingWithCopyWarning
 from DELPHI_params import future_policies, future_times
 from DELPHI_utils import (
@@ -27,9 +28,9 @@ CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
-prediction_date = "2020-05-23"
+prediction_date = "2020-06-01"
 prediction_date_file = "".join(prediction_date.split("-"))
-testing_date = "2020-06-08"
+testing_date = "2020-06-15"
 testing_date_file = "".join(testing_date.split("-"))
 n_days_testing_data = (pd.to_datetime(testing_date) - pd.to_datetime(prediction_date)).days
 print(f"Prediction date: {prediction_date} and Testing Date: {testing_date} so " +
@@ -109,8 +110,8 @@ for continent in dict_scenarios_world.keys():
 print("Finished parsing the International Policy Predictions JSON file into a dataframe")
 df_pred_international_policies = pd.concat(list_df_concat).reset_index(drop=True)
 df_pred_international_policies = df_pred_international_policies[
-    (df_pred_international_policies.date >= "2020-05-23") &
-    (df_pred_international_policies.date <= "2020-06-08")
+    (df_pred_international_policies.date >= prediction_date) &
+    (df_pred_international_policies.date <= testing_date)
 ].reset_index(drop=True)
 
 ###########################################################################
@@ -146,7 +147,7 @@ df_pred_international_policies["tuple"] = list(zip(
 ))
 
 ##### Adding MAPE #####
-df_mape = []
+df_metrics = []
 for tuple_value in df_pred_international_policies.tuple.unique():
     country, province = tuple_value
     for policy in future_policies:
@@ -165,8 +166,18 @@ for tuple_value in df_pred_international_policies.tuple.unique():
                 y_true=np.array(df_temp["death_cnt"]),
                 y_pred=np.array(df_temp["Total Detected Deaths"])
             )
+            rmse_cases = mean_squared_error(
+                y_true=np.array(df_temp["case_cnt"]),
+                y_pred=np.array(df_temp["Total Detected"]),
+                squared=False,
+            )
+            rmse_deaths = mean_squared_error(
+                y_true=np.array(df_temp["death_cnt"]),
+                y_pred=np.array(df_temp["Total Detected Deaths"]),
+                squared=False,
+            )
 
-            df_mape.append(pd.DataFrame({
+            df_metrics.append(pd.DataFrame({
                 "country": [country],
                 "province": [province],
                 "tuple": [(country, province)],
@@ -174,74 +185,85 @@ for tuple_value in df_pred_international_policies.tuple.unique():
                 "timing": [time],
                 "mape_cases": [mape_cases],
                 "mape_deaths": [mape_deaths],
+                "rmse_cases": [rmse_cases],
+                "rmse_deaths": [rmse_deaths],
             }))
 
-print("Finished Creating MAPE Columns")
-df_mape = pd.concat(df_mape).reset_index(drop=True)
-df_mape = df_mape[
-    df_mape.timing.isin(["Now", "One Week", "Two Weeks"])
+print("Finished Creating MAPE & rmse Columns")
+df_metrics = pd.concat(df_metrics).reset_index(drop=True)
+df_metrics = df_metrics[
+    df_metrics.timing.isin(["Now", "One Week", "Two Weeks"])
 ].reset_index(drop=True)
-df_mape_filtered = df_mape[
-    (df_mape.policy.isin(future_policies_filtered)) &
-    (df_mape.timing == "Now")
-]
-df_mape_filtered_full = df_mape_filtered.merge(
+df_metrics_filtered = df_metrics[
+    (df_metrics.policy.isin(future_policies_filtered)) &
+    (df_metrics.timing == "Now")
+    ]
+df_metrics_filtered_full = df_metrics_filtered.merge(
     df_current_policies.drop("date", axis=1),
     on=["country", "province"],
     how="left"
 )
 # Obtaining the minimal MAPE on Cases
-df_min_mape_cases = []
-for tuple_cp in df_mape_filtered_full.tuple.unique():
-    df_temp = df_mape_filtered_full[
-        df_mape_filtered_full.tuple == tuple_cp
-    ]
+df_min_metrics_cases = []
+for tuple_cp in df_metrics_filtered_full.tuple.unique():
+    df_temp = df_metrics_filtered_full[
+        df_metrics_filtered_full.tuple == tuple_cp
+        ]
     df_temp = df_temp[df_temp.mape_cases == df_temp.mape_cases.min()]
     df_temp["best_cases_policy_same_as_current_policy"] = (
         df_temp.policy == df_temp[f"current_policy_{testing_date_file[4:]}"]
     )
-    df_min_mape_cases.append(df_temp)
+    df_min_metrics_cases.append(df_temp)
 
-df_min_mape_cases = pd.concat(df_min_mape_cases).reset_index(drop=True).rename(columns={
+df_min_metrics_cases = pd.concat(df_min_metrics_cases).reset_index(drop=True).rename(columns={
     "policy": "best_policy_cases",
     "mape_cases": "best_mape_cases_c",
-    "mape_deaths": "best_mape_deaths_c"
+    "mape_deaths": "best_mape_deaths_c",
+    "rmse_cases": "best_rmse_cases_c",
+    "rmse_deaths": "best_rmse_deaths_c",
 })[[
     "country", "province", "best_policy_cases", "best_mape_cases_c", "best_mape_deaths_c",
-    f"current_policy_{testing_date_file[4:]}", "best_cases_policy_same_as_current_policy"
+    "best_rmse_cases_c", "best_rmse_deaths_c", f"current_policy_{testing_date_file[4:]}",
+    "best_cases_policy_same_as_current_policy"
 ]]
-df_min_mape_cases.drop_duplicates(subset=["country", "province"], inplace=True)
+df_min_metrics_cases.drop_duplicates(subset=["country", "province"], inplace=True)
 
 # Obtaining the minimal MAPE on Cases
-df_min_mape_deaths = []
-for tuple_cp in df_mape_filtered_full.tuple.unique():
-    df_temp = df_mape_filtered_full[
-        df_mape_filtered_full.tuple == tuple_cp
-    ]
+df_min_metrics_deaths = []
+for tuple_cp in df_metrics_filtered_full.tuple.unique():
+    df_temp = df_metrics_filtered_full[
+        df_metrics_filtered_full.tuple == tuple_cp
+        ]
     df_temp = df_temp[df_temp.mape_deaths == df_temp.mape_deaths.min()]
     df_temp["best_deaths_policy_same_as_current_policy"] = (
         df_temp.policy == df_temp[f"current_policy_{testing_date_file[4:]}"]
     )
-    df_min_mape_deaths.append(df_temp)
+    df_min_metrics_deaths.append(df_temp)
 
-df_min_mape_deaths = pd.concat(df_min_mape_deaths).reset_index(drop=True).rename(columns={
+df_min_metrics_deaths = pd.concat(df_min_metrics_deaths).reset_index(drop=True).rename(columns={
     "policy": "best_policy_deaths",
     "mape_cases": "best_mape_cases_d",
-    "mape_deaths": "best_mape_deaths_d"
+    "mape_deaths": "best_mape_deaths_d",
+    "rmse_cases": "best_rmse_cases_d",
+    "rmse_deaths": "best_rmse_deaths_d",
 })[[
     "country", "province", "best_policy_deaths", "best_mape_cases_d", "best_mape_deaths_d",
-    "best_deaths_policy_same_as_current_policy"
+    "best_rmse_cases_d", "best_rmse_deaths_d", "best_deaths_policy_same_as_current_policy"
 ]]
-df_min_mape_deaths.drop_duplicates(subset=["country", "province"], inplace=True)
+df_min_metrics_deaths.drop_duplicates(subset=["country", "province"], inplace=True)
 
 # Merging the df of min for cases & for deaths into one (columns are distinguishable)
-df_min_all = df_min_mape_cases.merge(df_min_mape_deaths, on=["country", "province"])
+df_min_all = df_min_metrics_cases.merge(df_min_metrics_deaths, on=["country", "province"])
 df_min_all = df_min_all[[
     "country", "province", f"current_policy_{testing_date_file[4:]}", "best_policy_cases", "best_policy_deaths",
     "best_cases_policy_same_as_current_policy", "best_deaths_policy_same_as_current_policy",
     "best_mape_cases_c", "best_mape_deaths_c", "best_mape_cases_d", "best_mape_deaths_d",
+    "best_rmse_cases_c", "best_rmse_deaths_c", "best_rmse_cases_d", "best_rmse_deaths_d",
 ]]
-for col in ["best_mape_cases_c", "best_mape_deaths_c", "best_mape_cases_d", "best_mape_deaths_d",]:
+for col in [
+    "best_mape_cases_c", "best_mape_deaths_c", "best_mape_cases_d", "best_mape_deaths_d",
+    "best_rmse_cases_c", "best_rmse_deaths_c", "best_rmse_cases_d", "best_rmse_deaths_d",
+]:
     df_min_all[col] = df_min_all[col].round(3)
 
 df_min_all.to_csv(

@@ -20,7 +20,6 @@ with open("config.yml", "r") as ymlfile:
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "michael"
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
-# TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 popcountries = pd.read_csv(
@@ -273,7 +272,6 @@ df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_t
 df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
     df_global_predictions_since_today
 )
-# TODO: Discuss with website team how to save this file to visualize it and compare with historical data
 df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
 df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
     df_global_predictions_since_100_cases
@@ -284,6 +282,7 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_parameters=df_global_parameters,
     df_global_predictions_since_today=df_global_predictions_since_today,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
+    today_date_str=today_date_str,
 )
-delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
+delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=True)
 print("Exported all 3 datasets to website & danger_map repositories")

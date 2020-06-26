@@ -13,9 +13,8 @@ import yaml
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
-CONFIG_FILEPATHS = CONFIG["FILEPATHS"]
+CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-# TODO: Find a way to make these paths automatic, whoever the user is...
 two_weeks_ago = "".join(str(datetime.now().date() - timedelta(days=15)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"]["michael"]
@@ -244,8 +243,8 @@ df_backtest_performance = pd.concat(list_df_backtest_performance).reset_index(dr
 df_backtest_performance_final = add_aggregations_backtest(df_backtest_performance)
 df_backtest_performance_final.to_csv(
     #f"./backtesting/{today_date_str}_backtest_performance_python.csv",
-    # "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
-    # f"4. COVID19_Global/{today_date_str}_backtest_performance_python.csv",
+    "/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/" +
+    f"4. COVID19_Global/DELPHI/backtesting/{today_date_str}_backtest_performance_python.csv",
     index=False
 )
 print("Exported backtest results to danger_map repository")
