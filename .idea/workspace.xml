@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200622_final.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200623_final.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200624_final.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200625_final.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200626_final.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted_CR_all/predictions_DELPHI_3_continuous_retraining_20200627_final.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_cr_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_cr_with_policies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_sandbox/policy_change_tracking_world_updated_final.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/policy_change_tracking_world_updated_final.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -299,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592875203013</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="debugged version of the code for michael">
+      <created>1592917754334</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1592917754335</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,7 +329,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commenting experimental parameters" />
     <MESSAGE value="v5 of the code ready to be optimized" />
     <MESSAGE value="changed names of variables in case of conflicts" />
     <MESSAGE value="scaling external datasets (mobility and density)" />
@@ -341,6 +353,7 @@
     <MESSAGE value="changed file naming &amp; update CR+3.0 06/15" />
     <MESSAGE value="new 2.0+policy backtest &amp; update CR+3.0 06/16" />
     <MESSAGE value="update CR+3.0 06/17 -&gt; 06/21 + new backtests with RMSE as well" />
-    <option name="LAST_COMMIT_MESSAGE" value="update CR+3.0 06/17 -&gt; 06/21 + new backtests with RMSE as well" />
+    <MESSAGE value="debugged version of the code for michael" />
+    <option name="LAST_COMMIT_MESSAGE" value="debugged version of the code for michael" />
   </component>
 </project>
