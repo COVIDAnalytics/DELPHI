@@ -286,6 +286,7 @@ def solve_and_predict_area(
         return None
 
 if __name__ == "__main__":
+    time_beginning = time.time()
     yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
     PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
@@ -360,4 +361,5 @@ if __name__ == "__main__":
     )
     df_global_predictions_since_100_cases.to_csv("df_test_since_100_parallelized.csv", index=False)
     # delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
-    print("Exported all 3 datasets to website & danger_map repositories")
+    print(f"Exported all 3 datasets to website & danger_map repositories, "+
+          f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes")

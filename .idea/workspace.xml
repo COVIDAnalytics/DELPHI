@@ -306,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592917754335</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="multiprocessing version of DELPHI_model_V2.py">
+      <created>1593750119597</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1593750119597</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -323,7 +330,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="v5 of the code ready to be optimized" />
     <MESSAGE value="changed names of variables in case of conflicts" />
     <MESSAGE value="scaling external datasets (mobility and density)" />
     <MESSAGE value="bug wih district of columbia in pop density" />
@@ -348,6 +354,7 @@
     <MESSAGE value="new 2.0+policy backtest &amp; update CR+3.0 06/16" />
     <MESSAGE value="update CR+3.0 06/17 -&gt; 06/21 + new backtests with RMSE as well" />
     <MESSAGE value="debugged version of the code for michael" />
-    <option name="LAST_COMMIT_MESSAGE" value="debugged version of the code for michael" />
+    <MESSAGE value="multiprocessing version of DELPHI_model_V2.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="multiprocessing version of DELPHI_model_V2.py" />
   </component>
 </project>
