@@ -9,7 +9,7 @@ default_bounds_params = (
                 ) # Bounds for the solver
 validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
-max_iter = 1000  # Maximum number of iterations for the algorithm
+max_iter = 500  # Maximum number of iterations for the algorithm
 
 # Initial condition of exposed state and infected state
 IncubeD = 5

@@ -49,7 +49,7 @@ for continent, country, province in zip(
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv") and country == "US":
+    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
         totalcases = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
@@ -237,7 +237,7 @@ for continent, country, province in zip(
             output = minimize(
                 residuals_totalcases,
                 parameter_list,
-                method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
+                method='tnc',  # Can't use Nelder-Mead if I want to put bounds on the params
                 bounds=bounds_params,
                 options={'maxiter': max_iter, 'verbose': 0}
             )
