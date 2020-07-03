@@ -5,10 +5,10 @@ import dateutil.parser as dtparser
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize, NonlinearConstraint
 from datetime import datetime, timedelta
-from DELPHI_utils_new import (
+from DELPHI_utils_V2 import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
-from DELPHI_params_new import (date_MATHEMATICA, default_parameter_list, default_bounds_params,
+from DELPHI_params_V2 import (date_MATHEMATICA, default_parameter_list, default_bounds_params,
                            validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
                            VentilatedD, default_maxT, p_v, p_d, p_h, max_iter)
 import os
@@ -80,11 +80,7 @@ for continent, country, province in zip(
                     (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
                 ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
                 parameter_list.insert(5,0.2)
-                parameter_list.insert(8,0.1)   
-                parameter_list.insert(9,(len(validcases)-1) - 10)
                 bounds_params.insert(5,(0, 0.5))
-                bounds_params.insert(8,(0, 1))
-                bounds_params.insert(9,(0, len(validcases)-1))
                 bounds_params = tuple(bounds_params)
             else:
                 # Otherwise use established lower/upper bounds
@@ -142,7 +138,7 @@ for continent, country, province in zip(
             )
 
             def model_covid(
-                    t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump
+                    t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2
             ):
                 """
                 SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -160,7 +156,7 @@ for continent, country, province in zip(
                 r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                 r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * (np.arctan(t - t_jump) + np.pi / 2)
+                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                 # gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * (np.arctan(t - t_jump) + np.pi / 2) * min(1, 2 / np.pi * np.arctan( - (t - t_jump)/ 20 * r_decay) + 1)
                 
                 # if t < t_jump:
@@ -199,9 +195,9 @@ for continent, country, province in zip(
                 params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump = params
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2 = params
                 params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(min(r_dthdecay, 1), 0),\
-                max(k1, 0), max(k2, 0),  max(jump, 0), min(max(t_jump, 0), t_cases[-1])
+                max(k1, 0), max(k2, 0)
                 x_0_cases = get_initial_conditions(
                     params_fitted=params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
