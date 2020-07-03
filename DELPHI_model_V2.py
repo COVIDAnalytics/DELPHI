@@ -25,6 +25,18 @@ with open("config.yml", "r") as ymlfile:
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
 
+time_beginning = time.time()
+yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
+PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
+if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
+    param_MATHEMATICA = True
+else:
+    param_MATHEMATICA = False
+popcountries = pd.read_csv(
+    PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
+)
+popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
 
 def solve_and_predict_area(
         tuple_area_: tuple, yesterday_: str, allowed_deviation_: float, pastparameters_: pd.DataFrame,
@@ -268,8 +280,6 @@ def solve_and_predict_area(
             df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
                 data_creator.create_datasets_predictions()
             )
-            list_df_global_predictions_since_today.append(df_predictions_since_today_cont_country_prov)
-            list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
             print(
                 f"Finished predicting for Continent={continent}, Country={country} and Province={province} in " +
                 f"{round(time.time() - time_entering, 2)} seconds"

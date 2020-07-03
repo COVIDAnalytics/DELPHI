@@ -8,10 +8,10 @@ import multiprocessing as mp
 import time
 from functools import partial
 from tqdm import tqdm_notebook as tqdm
-from DELPHI_utils_V3 import (
+from DELPHI_utils_V4 import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
-from DELPHI_params_V3 import (
+from DELPHI_params_V4 import (
     date_MATHEMATICA, default_parameter_list, default_bounds_params,
     validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
     VentilatedD, default_maxT, p_v, p_d, p_h, max_iter
@@ -78,12 +78,14 @@ def solve_and_predict_area(
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
                 parameter_list.insert(5, 0.2)
                 bounds_params.insert(5, (0, 0.5))
-                parameter_list.insert(8, 0.1)
-                bounds_params.insert(8, (0, 5))
+                parameter_list.insert(8, 0.5)
+                bounds_params.insert(8, (0, 1))
                 parameter_list.insert(9,(len(validcases)-1) - 10)
                 bounds_params.insert(9,(0, len(validcases)-1))
-                parameter_list.insert(10, 1)
-                bounds_params.insert(10, (0.1, 5))
+                parameter_list.insert(10,(len(validcases)-1) - 10)
+                bounds_params.insert(10,(0, len(validcases)-1))
+                parameter_list.insert(11, 2)
+                bounds_params.insert(11, (1, 3))
                 bounds_params = tuple(bounds_params)
             else:
                 # Otherwise use established lower/upper bounds
@@ -141,7 +143,7 @@ def solve_and_predict_area(
             )
 
             def model_covid(
-                    t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
+                    t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2,  jump, t_jump, days2, r_s2
             ):
                 """
                 SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -159,9 +161,12 @@ def solve_and_predict_area(
                 r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                 r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 +  jump * np.exp(-(t - t_jump)**2 /(2 * std_normal ** 2))
+#                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 +  jump * np.exp(-(t - t_jump)**2 /(2 * std_normal ** 2))
                 # gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * (np.arctan(t - t_jump) + np.pi / 2) * min(1, 2 / np.pi * np.arctan( - (t - t_jump)/ 20 * r_decay) + 1)
-
+                if t < t_jump:
+                    gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
+                else:
+                    gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * ((2 / np.pi) * np.arctan(-(t - days2) / 20 * r_s2) + 1)
                 # if t < t_jump:
                 #     gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                 # else:
@@ -198,10 +203,10 @@ def solve_and_predict_area(
                 params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = params
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2,  jump, t_jump, days2, r_s2 = params
                 params = (
                     max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(min(r_dthdecay, 1), 0),
-                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
+                         max(k1, 0), max(k2, 0), max(jump, 0),  max(t_jump, 0),days2 ,max(r_s2, 0)
                 )
                 x_0_cases = get_initial_conditions(
                     params_fitted=params,
@@ -372,7 +377,7 @@ if __name__ == "__main__":
         df_global_predictions_since_today=df_global_predictions_since_today,
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
     )
-    df_global_predictions_since_100_cases.to_csv("df_test_since_100_parallelized_V2_trust.csv", index=False)
+    df_global_predictions_since_100_cases.to_csv("df_test_since_100_parallelized_V3.csv", index=False)
     # delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
     print(f"Exported all 3 datasets to website & danger_map repositories, "+
           f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes")
