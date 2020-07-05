@@ -234,7 +234,7 @@ def solve_and_predict_area(
             output = minimize(
                 residuals_totalcases,
                 parameter_list,
-                method='tnc',  # Can't use Nelder-Mead if I want to put bounds on the params
+                method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
                 bounds=bounds_params,
                 options={'maxiter': max_iter}
             )
