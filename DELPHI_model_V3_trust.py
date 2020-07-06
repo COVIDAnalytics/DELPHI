@@ -8,10 +8,10 @@ import multiprocessing as mp
 import time
 from functools import partial
 from tqdm import tqdm_notebook as tqdm
-from DELPHI_utils_V2 import (
+from DELPHI_utils_V3_trust import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
-from DELPHI_params_V2 import (
+from DELPHI_params_V3 import (
     date_MATHEMATICA, default_parameter_list, default_bounds_params,
     validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
     VentilatedD, default_maxT, p_v, p_d, p_h, max_iter
@@ -23,16 +23,12 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "hamza"
+USER_RUNNING = "michael"
 
 time_beginning = time.time()
-yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
+yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
-if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
-    param_MATHEMATICA = True
-else:
-    param_MATHEMATICA = False
 popcountries = pd.read_csv(
     PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
 )
@@ -61,14 +57,10 @@ def solve_and_predict_area(
                 ].reset_index(drop=True)
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
-                if param_MATHEMATICA:
-                    parameter_list = parameter_list_line[4:]
-                    parameter_list[3] = np.log(2) / parameter_list[3]
-                else:
-                    parameter_list = parameter_list_line[5:]
+                parameter_list = parameter_list_line[5:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                param_list_lower = [x - 0.2 * abs(x) for x in parameter_list]
-                param_list_upper = [x + 0.2 * abs(x) for x in parameter_list]
+                param_list_lower = [x - 0.1 * abs(x) for x in parameter_list]
+                param_list_upper = [x + 0.1 * abs(x) for x in parameter_list]
                 bounds_params = [(lower, upper)
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
@@ -76,8 +68,14 @@ def solve_and_predict_area(
                     (totalcases.day_since100 >= 0) &
                     (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
-                parameter_list.insert(5, 0.2)
-                bounds_params.insert(5, (0, 0.5))
+#                parameter_list.insert(5, 0.2)
+#                bounds_params.insert(5, (0, 0.5))
+#                parameter_list.insert(8, 0.1)
+#                bounds_params.insert(8, (0, 5))
+#                parameter_list.insert(9,(len(validcases)-1) - 10)
+#                bounds_params.insert(9,(0, len(validcases)-1))
+#                parameter_list.insert(10, 1)
+#                bounds_params.insert(10, (0.1, 5))
                 bounds_params = tuple(bounds_params)
             else:
                 # Otherwise use established lower/upper bounds
@@ -97,7 +95,6 @@ def solve_and_predict_area(
                 (totalcases.day_since100 >= 0) &
                 (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                 ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
-
         # Now we start the modeling part:
         if len(validcases) > validcases_threshold:
             PopulationT = popcountries[
@@ -135,7 +132,7 @@ def solve_and_predict_area(
             )
 
             def model_covid(
-                    t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2
+                    t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
             ):
                 """
                 SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -153,7 +150,7 @@ def solve_and_predict_area(
                 r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                 r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
+                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 +  jump * np.exp(-(t - t_jump)**2 /(2 * std_normal ** 2))
                 # gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * (np.arctan(t - t_jump) + np.pi / 2) * min(1, 2 / np.pi * np.arctan( - (t - t_jump)/ 20 * r_decay) + 1)
 
                 # if t < t_jump:
@@ -192,10 +189,10 @@ def solve_and_predict_area(
                 params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2 = params
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = params
                 params = (
                     max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(min(r_dthdecay, 1), 0),
-                         max(k1, 0), max(k2, 0)
+                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
                 )
                 x_0_cases = get_initial_conditions(
                     params_fitted=params,
@@ -237,7 +234,7 @@ def solve_and_predict_area(
             output = minimize(
                 residuals_totalcases,
                 parameter_list,
-                method='tnc',  # Can't use Nelder-Mead if I want to put bounds on the params
+                method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
                 bounds=bounds_params,
                 options={'maxiter': max_iter}
             )
@@ -296,23 +293,15 @@ def solve_and_predict_area(
         return None
 
 if __name__ == "__main__":
-    time_beginning = time.time()
-    yesterday = "".join(str(datetime.now().date() - timedelta(days=2)).split("-"))
-    PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
-    PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
     popcountries = pd.read_csv(
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
     try:
         pastparameters = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv"
+            PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V2_{yesterday}.csv"
         )
     except:
         pastparameters = None
-    if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
-        param_MATHEMATICA = True
-    else:
-        param_MATHEMATICA = False
     # Initalizing lists of the different dataframes that will be concatenated in the end
     list_df_global_predictions_since_today = []
     list_df_global_predictions_since_100_cases = []
@@ -323,9 +312,10 @@ if __name__ == "__main__":
         solve_and_predict_area, yesterday_=yesterday, pastparameters_=pastparameters,
         allowed_deviation_=allowed_deviation
     )
-    n_cpu = mp.cpu_count()
+    n_cpu = 6
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
+    list_tuples = [x for x in list_tuples if x[1] in ["Benin","Bulgaria","Congo (Brazzaville)","Croatia","Ethiopia","Israel","Luxembourg","Montenegro","Serbia","Slovenia"]]
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(
@@ -369,7 +359,6 @@ if __name__ == "__main__":
         df_global_predictions_since_today=df_global_predictions_since_today,
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
     )
-    df_global_predictions_since_100_cases.to_csv("df_test_since_100_parallelized.csv", index=False)
-    # delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
+    delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
     print(f"Exported all 3 datasets to website & danger_map repositories, "+
           f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes")
