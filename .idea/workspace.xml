@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_V2.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -313,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593750119597</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Adding total runtime in the prints">
+      <created>1593750264471</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1593750264471</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -330,7 +336,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed names of variables in case of conflicts" />
     <MESSAGE value="scaling external datasets (mobility and density)" />
     <MESSAGE value="bug wih district of columbia in pop density" />
     <MESSAGE value="Running version for alpha varying by state" />
@@ -355,6 +360,7 @@
     <MESSAGE value="update CR+3.0 06/17 -&gt; 06/21 + new backtests with RMSE as well" />
     <MESSAGE value="debugged version of the code for michael" />
     <MESSAGE value="multiprocessing version of DELPHI_model_V2.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="multiprocessing version of DELPHI_model_V2.py" />
+    <MESSAGE value="Adding total runtime in the prints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding total runtime in the prints" />
   </component>
 </project>
