@@ -6,7 +6,7 @@ from typing import Union
 from copy import deepcopy
 from itertools import compress
 import json
-from DELPHI_params import (TIME_DICT, MAPPING_STATE_CODE_TO_STATE_NAME, default_policy,
+from DELPHI_params_CDC import (TIME_DICT, MAPPING_STATE_CODE_TO_STATE_NAME, default_policy,
                            default_policy_enaction_time, future_policies)
 
 
