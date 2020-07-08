@@ -92,9 +92,10 @@ for continent, country, province in zip(
         print(f"The old shift day is {old_shift_day}")
         # Now we start the modeling part:
         if len(validcases) > 7:  # Cuz otherwise less train than testing data...
-            for shift_day in [-21,-14,-7,0,7,14,21,210]:
+            for shift_day in [210]:
                 parameter_list_temp = copy.copy(parameter_list)
-                parameter_list_temp[1] = parameter_list_temp[1] + shift_day
+                if shift_day < 210:
+                    parameter_list_temp[1] = parameter_list_temp[1] + shift_day
                 new_shift_day = parameter_list_temp[1] 
                 print(f"The new shift day is {new_shift_day}")
                 IncubeD = 5
@@ -157,7 +158,10 @@ for continent, country, province in zip(
                     r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                     r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                     r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-                    gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
+                    if shift_day < 210:
+                        gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
+                    else:
+                        gamma_t = (2 / np.pi) * np.arctan(days / 20 * r_s) + 1
                     assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                     S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                     # Equations on main variables
