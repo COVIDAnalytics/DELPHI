@@ -10,7 +10,7 @@ from DELPHI_utils_V3 import (
     read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries,
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
 )
-from DELPHI_params_new_policies import (
+from DELPHI_params import (
     date_MATHEMATICA, validcases_threshold_policy,
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
     default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
@@ -123,10 +123,10 @@ for continent, country, province in zip(
                     parameter_list = parameter_list_line[5:]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                validcases = totalcases[[
-                    dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
-                    for x in totalcases.date
-                ]][["date", "day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                validcases = totalcases[
+                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+                    ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
                 print(f"Must have past parameters for {country} and {province}")
                 continue
@@ -159,8 +159,6 @@ for continent, country, province in zip(
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
             maxT = (default_maxT_policies - date_day_since100).days + 1
             """ Fit on Total Cases """
-            validcases = validcases[validcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date())]
-            print(validcases.date.max(), yesterday)
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
             validcases_death = validcases["death_cnt"].tolist()
@@ -358,6 +356,6 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
 # df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True, local_delphi=False)
+delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False, local_delphi=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
 
