@@ -3,12 +3,12 @@ import pandas as pd
 import numpy as np
 import dateutil.parser as dtparser
 from scipy.integrate import solve_ivp
-from scipy.optimize import minimize, NonlinearConstraint
+from scipy.optimize import minimize
 from datetime import datetime, timedelta
-from DELPHI_utils_new import (
+from DELPHI_utils import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
-from DELPHI_params_new import (date_MATHEMATICA, default_parameter_list, default_bounds_params,
+from DELPHI_params import (date_MATHEMATICA, default_parameter_list, default_bounds_params,
                            validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
                            VentilatedD, default_maxT, p_v, p_d, p_h, max_iter)
 import os
@@ -20,7 +20,6 @@ with open("config.yml", "r") as ymlfile:
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "michael"
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
-# TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 popcountries = pd.read_csv(
@@ -41,7 +40,6 @@ list_df_global_predictions_since_today = []
 list_df_global_predictions_since_100_cases = []
 list_df_global_parameters = []
 obj_value = 0
-allowed_deviation = 0.02
 for continent, country, province in zip(
         popcountries.Continent.tolist(),
         popcountries.Country.tolist(),
@@ -49,7 +47,7 @@ for continent, country, province in zip(
 ):
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv") and country == "US":
+    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
         totalcases = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
@@ -70,22 +68,17 @@ for continent, country, province in zip(
                 else:
                     parameter_list = parameter_list_line[5:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                param_list_lower = [x - 0.2 * abs(x) for x in parameter_list]
-                param_list_upper = [x + 0.2 * abs(x) for x in parameter_list]
-                bounds_params = [(lower, upper)
+                param_list_lower = [x - 0.1 * abs(x) for x in parameter_list]
+                param_list_upper = [x + 0.1 * abs(x) for x in parameter_list]
+                bounds_params = tuple(
+                    [(lower, upper)
                      for lower, upper in zip(param_list_lower, param_list_upper)]
+                )
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 validcases = totalcases[
                     (totalcases.day_since100 >= 0) &
                     (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
                 ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
-                parameter_list.insert(5,0.2)
-                parameter_list.insert(8,0.1)   
-                parameter_list.insert(9,(len(validcases)-1) - 10)
-                bounds_params.insert(5,(0, 0.5))
-                bounds_params.insert(8,(0, 1))
-                bounds_params.insert(9,(0, len(validcases)-1))
-                bounds_params = tuple(bounds_params)
             else:
                 # Otherwise use established lower/upper bounds
                 parameter_list = default_parameter_list
@@ -142,7 +135,7 @@ for continent, country, province in zip(
             )
 
             def model_covid(
-                    t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump
+                    t, x, alpha, days, r_s, r_dth, p_dth, k1, k2
             ):
                 """
                 SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -160,32 +153,25 @@ for continent, country, province in zip(
                 r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                 r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * (np.arctan(t - t_jump) + np.pi / 2)
-                # gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * (np.arctan(t - t_jump) + np.pi / 2) * min(1, 2 / np.pi * np.arctan( - (t - t_jump)/ 20 * r_decay) + 1)
-                
-                # if t < t_jump:
-                #     gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
-                # else:
-                #     gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump
-                p_dth_mod = (2 / np.pi) * (p_dth - 0.01)  * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
+                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                 assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 # Equations on main variables
                 dSdt = -alpha * gamma_t * S * I / N
                 dEdt = alpha * gamma_t * S * I / N - r_i * E
                 dIdt = r_i * E - r_d * I
-                dARdt = r_d * (1 - p_dth_mod) * (1 - p_d) * I - r_ri * AR
-                dDHRdt = r_d * (1 - p_dth_mod) * p_d * p_h * I - r_rh * DHR
-                dDQRdt = r_d * (1 - p_dth_mod) * p_d * (1 - p_h) * I - r_ri * DQR
-                dADdt = r_d * p_dth_mod * (1 - p_d) * I - r_dth * AD
-                dDHDdt = r_d * p_dth_mod * p_d * p_h * I - r_dth * DHD
-                dDQDdt = r_d * p_dth_mod * p_d * (1 - p_h) * I - r_dth * DQD
+                dARdt = r_d * (1 - p_dth) * (1 - p_d) * I - r_ri * AR
+                dDHRdt = r_d * (1 - p_dth) * p_d * p_h * I - r_rh * DHR
+                dDQRdt = r_d * (1 - p_dth) * p_d * (1 - p_h) * I - r_ri * DQR
+                dADdt = r_d * p_dth * (1 - p_d) * I - r_dth * AD
+                dDHDdt = r_d * p_dth * p_d * p_h * I - r_dth * DHD
+                dDQDdt = r_d * p_dth * p_d * (1 - p_h) * I - r_dth * DQD
                 dRdt = r_ri * (AR + DQR) + r_rh * DHR
                 dDdt = r_dth * (AD + DQD + DHD)
                 # Helper states (usually important for some kind of output)
                 dTHdt = r_d * p_d * p_h * I
-                dDVRdt = r_d * (1 - p_dth_mod) * p_d * p_h * p_v * I - r_rv * DVR
-                dDVDdt = r_d * p_dth_mod * p_d * p_h * p_v * I - r_dth * DVD
+                dDVRdt = r_d * (1 - p_dth) * p_d * p_h * p_v * I - r_rv * DVR
+                dDVDdt = r_d * p_dth * p_d * p_h * p_v * I - r_dth * DVD
                 dDDdt = r_dth * (DHD + DQD)
                 dDTdt = r_d * p_d * I
                 return [
@@ -199,9 +185,8 @@ for continent, country, province in zip(
                 params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump = params
-                params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(min(r_dthdecay, 1), 0),\
-                max(k1, 0), max(k2, 0),  max(jump, 0), min(max(t_jump, 0), t_cases[-1])
+                alpha, days, r_s, r_dth, p_dth, k1, k2 = params
+                params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
                 x_0_cases = get_initial_conditions(
                     params_fitted=params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
@@ -211,33 +196,16 @@ for continent, country, province in zip(
                     y0=x_0_cases,
                     t_span=[t_cases[0], t_cases[-1]],
                     t_eval=t_cases,
-                    args=tuple(params)
+                    args=tuple(params),
                 ).y
                 weights = list(range(1, len(fitcasesnd) + 1))
-                # weights[-15:] =[x + 50 for x in weights[-15:]]
+                # focus on last 5 days
+                weights[-5:] =[x + 50 for x in weights[-5:]]
                 residuals_value = sum(
                     np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
                     + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
                 )
                 return residuals_value
-            # def last_point(params):
-            #     alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-            #     params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
-            #     x_0_cases = get_initial_conditions(
-            #         params_fitted=params,
-            #         global_params_fixed=GLOBAL_PARAMS_FIXED
-            #     )
-            #     x_sol = solve_ivp(
-            #         fun=model_covid,
-            #         y0=x_0_cases,
-            #         t_span=[t_cases[0], t_cases[-1]],
-            #         t_eval=t_cases,
-            #         args=tuple(params),
-            #     ).y
-            #     return x_sol[14:16,-1]                
-            # nlcons = NonlinearConstraint(last_point,
-            #                              [fitcasesd[-1] * (1 - allowed_deviation), fitcasesnd[-1] * (1 - allowed_deviation) ],
-            #                              [fitcasesd[-1] * (1 + allowed_deviation), fitcasesnd[-1] * (1 + allowed_deviation) ])
             output = minimize(
                 residuals_totalcases,
                 parameter_list,
@@ -270,17 +238,17 @@ for continent, country, province in zip(
                 continent=continent, country=country, province=province, testing_data_included=False
             )
             # Creating the parameters dataset for this (Continent, Country, Province)
-            mape_data = (
-                                mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
-                                mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
-                        ) / 2
+            # mape_data = (
+            #                     mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
+            #                     mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
+            #             ) / 2
             if len(fitcasesnd)> 15:
                 mape_data_2 = (
                         mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
                         mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
                 ) / 2
                 print(mape_data_2)
-            df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
+            df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data_2)
             list_df_global_parameters.append(df_parameters_cont_country_prov)
             # Creating the datasets for predictions of this (Continent, Country, Province)
             df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
@@ -304,7 +272,6 @@ df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_t
 df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
     df_global_predictions_since_today
 )
-# TODO: Discuss with website team how to save this file to visualize it and compare with historical data
 df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
 df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
     df_global_predictions_since_100_cases
@@ -315,6 +282,7 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_parameters=df_global_parameters,
     df_global_predictions_since_today=df_global_predictions_since_today,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
+    today_date_str=today_date_str,
 )
-delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
+delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=True)
 print("Exported all 3 datasets to website & danger_map repositories")
