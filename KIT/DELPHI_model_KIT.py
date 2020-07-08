@@ -20,7 +20,7 @@ import os
 import yaml
 
 
-with open("config.yml", "r") as ymlfile:
+with open("../config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "michael"
