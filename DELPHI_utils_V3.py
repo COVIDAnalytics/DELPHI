@@ -35,10 +35,6 @@ class DELPHIDataSaver:
             self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_V2_{today_date_str}.csv", index=False
         )
         if website:
-            self.df_global_parameters.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_V2_{today_date_str}.csv",
-                index=False
-            )
             self.df_global_predictions_since_today.to_csv(
                 self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_V2_{today_date_str}.csv",
                 index=False
