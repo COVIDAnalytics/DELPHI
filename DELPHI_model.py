@@ -19,11 +19,10 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "hamza"
+USER_RUNNING = "michael"
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
-# TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
-PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"]["michael"]
+PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 popcountries = pd.read_csv(
     PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
 )
@@ -77,26 +76,28 @@ for continent, country, province in zip(
                      for lower, upper in zip(param_list_lower, param_list_upper)]
                 )
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
-                validcases = totalcases[[
-                    dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
-                    for x in totalcases.date
-                ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                validcases = totalcases[
+                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+                ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
                 # Otherwise use established lower/upper bounds
                 parameter_list = default_parameter_list
                 bounds_params = default_bounds_params
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
-                validcases = totalcases[totalcases.day_since100 >= 0][
-                    ["day_since100", "case_cnt", "death_cnt"]
-                ].reset_index(drop=True)
+                validcases = totalcases[
+                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+                ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         else:
             # Otherwise use established lower/upper bounds
             parameter_list = default_parameter_list
             bounds_params = default_bounds_params
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
-            validcases = totalcases[totalcases.day_since100 >= 0][
-                ["day_since100", "case_cnt", "death_cnt"]
-            ].reset_index(drop=True)
+            validcases = totalcases[
+                (totalcases.day_since100 >= 0) &
+                (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+            ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
 
         # Now we start the modeling part:
         if len(validcases) > validcases_threshold:
@@ -199,6 +200,8 @@ for continent, country, province in zip(
                     args=tuple(params),
                 ).y
                 weights = list(range(1, len(fitcasesnd) + 1))
+                # focus on last 5 days
+                weights[-5:] =[x + 50 for x in weights[-5:]]
                 residuals_value = sum(
                     np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
                     + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
@@ -213,7 +216,6 @@ for continent, country, province in zip(
             )
             best_params = output.x
             obj_value = obj_value + output.fun
-            print(obj_value)
             t_predictions = [i for i in range(maxT)]
 
             def solve_best_params_and_predict(optimal_params):
@@ -237,18 +239,17 @@ for continent, country, province in zip(
                 continent=continent, country=country, province=province, testing_data_included=False
             )
             # Creating the parameters dataset for this (Continent, Country, Province)
-            mape_data = (
-                                mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
-                                mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
-                        ) / 2
-            # mape_data_2 = (
-            #         mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
-            #         mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
-            # ) / 2
-            # print(fitcasesd[-15:])
-            print(x_sol_final[14, len(fitcasesnd)-15:len(fitcasesnd)])
-            # print(mape_data_2)
-            df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
+            # mape_data = (
+            #                     mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
+            #                     mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
+            #             ) / 2
+            if len(fitcasesnd)> 15:
+                mape_data_2 = (
+                        mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd)-15:len(fitcasesnd)]) +
+                        mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd)-15:len(fitcasesd)])
+                ) / 2
+                print(mape_data_2)
+            df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data_2)
             list_df_global_parameters.append(df_parameters_cont_country_prov)
             # Creating the datasets for predictions of this (Continent, Country, Province)
             df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
@@ -272,7 +273,6 @@ df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_t
 df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
     df_global_predictions_since_today
 )
-# TODO: Discuss with website team how to save this file to visualize it and compare with historical data
 df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
 df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
     df_global_predictions_since_100_cases
@@ -283,6 +283,7 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_parameters=df_global_parameters,
     df_global_predictions_since_today=df_global_predictions_since_today,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
+    today_date_str=today_date_str,
 )
-delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
+delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=True)
 print("Exported all 3 datasets to website & danger_map repositories")

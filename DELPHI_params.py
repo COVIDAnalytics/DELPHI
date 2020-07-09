@@ -17,7 +17,8 @@ RecoverID = 10
 RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
-default_maxT = datetime(2020, 7, 15)  # Maximum timespan of prediction
+default_maxT = datetime(2021, 4, 1)  # Maximum timespan of prediction
+n_params_without_policy_params = 7  # alpha, r_dth, p_dth, a, b, k1, k2
 p_v = 0.25  # Percentage of ventilated
 p_d = 0.2  # Percentage of infection cases detected.
 p_h = 0.15  # Percentage of detected cases hospitalized
@@ -28,17 +29,38 @@ future_policies = [
     'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
     'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'
 ]
-
+default_maxT_policies = datetime(2021, 4, 1)  # Maximum timespan of prediction under different policy scenarios
 future_policies_JJ = [
     'No_Measure', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
     'Restrict_Mass_Gatherings_and_Schools', 'Lockdown'
 ]
-default_maxT_policies = datetime(2020, 9, 15)  # Maximum timespan of prediction under different policy scenarios
+
 future_times = [0, 7, 14, 28, 42]
 future_times_JJ = [0]
 
 # Additional utils inputs
 TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
+DAYS_IN_WEEK = 7
+
+# Function to find year, week, days
+def translate_days(number_of_days):
+
+    # Assume that years is
+    # of 365 days
+    year = int(number_of_days / 365)
+    week = int((number_of_days % 365) /
+                DAYS_IN_WEEK)
+    days = (number_of_days % 365) % DAYS_IN_WEEK
+
+    if year + week + days > 0:
+        return((str(year) + ' Year' + ('s' if year != 1 else '') + (' and ' if week !=0 or days != 0 else '') if year != 0 else '') + (str(week) + ' Week' + ('s' if week != 1 else '') + (' and ' if days != 0 else '') if week != 0 else '') + (str(days) + ' Day' + ('s' if days != 1 else '') if days != 0 else ''))
+    else:
+        return('Now')
+
+# TIME_DICT = {i: translate_days(i) for i in range(400)}
+
+TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
+
 MAPPING_STATE_CODE_TO_STATE_NAME ={
     'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
     'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'DC': 'District of Columbia',

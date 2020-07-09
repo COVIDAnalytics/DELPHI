@@ -23,12 +23,12 @@ RUNNING_FOR_JJ = True
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "ali"
-yesterday = "".join(str(datetime.now().date() - timedelta(days=5)).split("-"))
+USER_RUNNING = "hamza"
+yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
-PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
-policy_data_countries = read_measures_oxford_data()
+PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+policy_data_countries = read_measures_oxford_data(yesterday)
 policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
 pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_{yesterday}.csv")
@@ -73,7 +73,8 @@ for continent, country, province in zip(
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
     else:
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
-
+    #if country not in ["France", "Spain", "Greece", "Italy"]:
+    #    continue
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if (
@@ -104,7 +105,7 @@ for continent, country, province in zip(
                 validcases = totalcases[[
                     dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
                     for x in totalcases.date
-                ]][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                ]][["date", "day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
                 print(f"Must have past parameters for {country} and {province}")
                 continue
@@ -137,6 +138,8 @@ for continent, country, province in zip(
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
             maxT = (default_maxT_policies - date_day_since100).days + 1
             """ Fit on Total Cases """
+            validcases = validcases[validcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date())]
+            print(validcases.date.max(), yesterday)
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
             validcases_death = validcases["death_cnt"].tolist()
@@ -237,11 +240,15 @@ for continent, country, province in zip(
                                         mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
                                         mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
                                 ) / 2
-                    mape_data_2 = (
-                                          mape(fitcasesnd[-15:],
-                                               x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
-                                          mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
-                                  ) / 2
+                    try:
+                        mape_data_2 = (
+                                              mape(fitcasesnd[-15:],
+                                                   x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
+                                              mape(fitcasesd[-15:],
+                                                   x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
+                                      ) / 2
+                    except IndexError:
+                        mape_data_2 = mape_data
                     print(
                         "Policy: ", future_policy, "\t Enacting Time: ", future_time, "\t Total MAPE=", mape_data,
                         "\t MAPE on last 15 days=", mape_data_2
@@ -249,10 +256,15 @@ for continent, country, province in zip(
                     # print(best_params)
                     # print(country + ", " + province)
                     # if future_policy in [
-                    #     'No_Measure', 'Restrict_Mass_Gatherings', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others', 'Lockdown'
+                    #     'No_Measure', 'Restrict_Mass_Gatherings_and_Schools_and_Others',
+                    #     'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others', 'Lockdown'
                     # ]:
-                    #     plt.plot(x_sol_final[15, :], label=f"Future Policy: {future_policy} in {future_time} days")
-                    # Creating the datasets for predictions of this (Continent, Country, Province)
+                    #     future_policy_lab = " ".join(future_policy.split("_"))
+                    #     n_points_to_leave = (pd.to_datetime(yesterday) - date_day_since100).days
+                    #     plt.plot(t_predictions[n_points_to_leave:],
+                    #              x_sol_final[15, n_points_to_leave:],
+                    #              label=f"Future Policy: {future_policy_lab} in {future_time} days")
+                    #Creating the datasets for predictions of this (Continent, Country, Province)
                     df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
                         data_creator.create_datasets_predictions_scenario(
                             policy=future_policy,
@@ -266,9 +278,15 @@ for continent, country, province in zip(
                         df_predictions_since_100_cont_country_prov)
             print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
             # plt.plot(fitcasesnd, label="Historical Data")
-            # plt.legend()
+            # dates_values = [
+            #     str((pd.to_datetime(yesterday)+timedelta(days=i)).date())[5:] if i % 10 == 0 else " "
+            #     for i in range(len(x_sol_final[15, n_points_to_leave:]))
+            # ]
+            # plt.xticks(t_predictions[n_points_to_leave:], dates_values, rotation=90, fontsize=18)
+            # plt.yticks(fontsize=18)
+            # plt.legend(fontsize=18)
             # plt.title(f"{country}, {province} Predictions & Historical for # Cases")
-            # plt.savefig(country + "_" + province + "_prediction_cases.png")
+            # plt.savefig(country + "_" + province + "_prediction_cases.png", bpi=300)
             print("--------------------------------------------------------------------------")
         else:  # len(validcases) <= 7
             print(f"Not enough historical data (less than a week)" +

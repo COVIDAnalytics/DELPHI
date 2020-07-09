@@ -1,11 +1,12 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
+import json
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 from typing import Union
 from copy import deepcopy
 from itertools import compress
-import json
+from sklearn.metrics import mean_squared_error
 from DELPHI_params import (TIME_DICT, MAPPING_STATE_CODE_TO_STATE_NAME, default_policy,
                            default_policy_enaction_time, future_policies, provinces_Brazil,
                            provinces_Peru, provinces_South_Africa, provinces_Mexico)
@@ -18,76 +19,97 @@ class DELPHIDataSaver:
             df_global_parameters: Union[pd.DataFrame, None],
             df_global_predictions_since_today: pd.DataFrame,
             df_global_predictions_since_100_cases: pd.DataFrame,
+            today_date_str:str,
     ):
         self.PATH_TO_FOLDER_DANGER_MAP = path_to_folder_danger_map
         self.PATH_TO_WEBSITE_PREDICTED = path_to_website_predicted
         self.df_global_parameters = df_global_parameters
         self.df_global_predictions_since_today = df_global_predictions_since_today
         self.df_global_predictions_since_100_cases = df_global_predictions_since_100_cases
+        self.today_date_str = today_date_str
 
     def save_all_datasets(self, save_since_100_cases=False, website=False):
-        today_date_str = "".join(str(datetime.now().date()).split("-"))
         # Save parameters
         self.df_global_parameters.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
-        )
-        self.df_global_parameters.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_{today_date_str}.csv", index=False
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{self.today_date_str}.csv", index=False
         )
         # Save predictions since today
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_{today_date_str}.csv", index=False
-        )
-        self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_{today_date_str}.csv", index=False
-        )
-        self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global.csv", index=False
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_{self.today_date_str}.csv", index=False
         )
         if website:
             self.df_global_parameters.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Parameters_Global_Python_{today_date_str}.csv",
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_{self.today_date_str}.csv",
                 index=False
             )
             self.df_global_predictions_since_today.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Python_{today_date_str}_Scenarios.csv",
-                index=False
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_{self.today_date_str}.csv", index=False
             )
             self.df_global_predictions_since_today.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_Python_Scenarios.csv", index=False
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global.csv", index=False
             )
         if save_since_100_cases:
             # Save predictions since 100 cases
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{today_date_str}.csv", index=False
-            )
-            self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_{today_date_str}.csv", index=False
+                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{self.today_date_str}.csv", index=False
             )
             if website:
                 self.df_global_predictions_since_100_cases.to_csv(
-                    self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_{today_date_str}_Scenarios.csv",
+                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{self.today_date_str}.csv",
                     index=False
                 )
+
+    def save_all_datasets_continuous_retraining(self, save_since_100_cases=False, website=False):
+        # Save parameters
+        self.df_global_parameters.to_csv(
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{self.today_date_str}_CR.csv", index=False
+        )
+        # Save predictions since today in Danger Map
+        self.df_global_predictions_since_today.to_csv(
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_{self.today_date_str}_CR.csv", index=False
+        )
+        if website:
+            self.df_global_parameters.to_csv(
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_Global_{self.today_date_str}_CR.csv",
+                index=False
+            )
+            self.df_global_predictions_since_today.to_csv(
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_{self.today_date_str}_CR.csv", index=False
+            )
+            self.df_global_predictions_since_today.to_csv(
+                self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_CR.csv", index=False
+            )
+        if save_since_100_cases:
+            # Save predictions since 100 cases
+            self.df_global_predictions_since_100_cases.to_csv(
+                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Global_since100_{self.today_date_str}_CR.csv", index=False
+            )
+            if website:
                 self.df_global_predictions_since_100_cases.to_csv(
-                    self.PATH_TO_WEBSITE_PREDICTED + f"/predicted/Global_since100_Scenarios.csv", index=False
+                    self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global_since100_{self.today_date_str}_CR.csv",
+                    index=False
                 )
 
     @staticmethod
     def create_nested_dict_from_final_dataframe(df_predictions: pd.DataFrame) -> dict:
-        dict_all_results = {}
+        dict_all_results = {
+            continent: {} for continent in df_predictions.Continent.unique()
+        }
+        for continent in dict_all_results.keys():
+            countries_in_continent = list(df_predictions[df_predictions.Continent == continent].Country.unique())
+            dict_all_results[continent] = {country: {} for country in countries_in_continent}
+
         keys_country_province = list(set([
-            (country, province) for country, province in
-            zip(df_predictions.Country.tolist(), df_predictions.Province.tolist())
+            (continent, country, province) for continent, country, province in
+            zip(df_predictions.Continent.tolist(), df_predictions.Country.tolist(), df_predictions.Province.tolist())
         ]))
-        for country, province in keys_country_province:
-            key_dict = country + "___" + province
+        for continent, country, province in keys_country_province:
             df_predictions_province = df_predictions[
                 (df_predictions.Country == country) & (df_predictions.Province == province)
             ].reset_index(drop=True)
             # The first part contains only ground truth value, so it doesn't matter which
             # policy/enaction time we choose to report these values
-            dict_all_results[key_dict] = {
+            dict_all_results[continent][country][province] = {
                 "Day": sorted(list(df_predictions_province.Day.unique())),
                 "Total Detected True": df_predictions_province[
                     (df_predictions_province.Policy == default_policy)
@@ -98,7 +120,7 @@ class DELPHIDataSaver:
                     & (df_predictions_province.Time == default_policy_enaction_time)
                     ].sort_values("Day")["Total Detected Deaths True"].tolist(),
             }
-            dict_all_results[key_dict].update({
+            dict_all_results[continent][country][province].update({
                 policy: {
                     policy_enaction_time: {
                         "Total Detected": df_predictions_province[
@@ -117,7 +139,7 @@ class DELPHIDataSaver:
 
         return dict_all_results
 
-    def save_policy_predictions_to_dict_pickle(self, website=False):
+    def save_policy_predictions_to_dict_pickle(self, website=False, local_delphi=False):
         today_date_str = "".join(str(datetime.now().date()).split("-"))
         dict_predictions_policies_world_since_100_cases = DELPHIDataSaver.create_nested_dict_from_final_dataframe(
             self.df_global_predictions_since_100_cases
@@ -133,17 +155,23 @@ class DELPHIDataSaver:
         ) as handle:
             json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
-        if website:
+        if local_delphi:
             with open(
-                self.PATH_TO_WEBSITE_PREDICTED +
-                f'/predicted/world_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
+                    f'./world_Python_{today_date_str}_Scenarios_since_100_cases.json', 'w'
             ) as handle:
                 json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
+        if website:
             with open(
-                    self.PATH_TO_WEBSITE_PREDICTED + f'/predicted/world_Python_Scenarios_since_100_cases.json', 'w'
+                self.PATH_TO_WEBSITE_PREDICTED +
+                f'assets/policies/World_Scenarios.json', 'w'
             ) as handle:
                 json.dump(dict_predictions_policies_world_since_100_cases, handle)
+
+            # with open(
+            #         self.PATH_TO_WEBSITE_PREDICTED + f'/data/predicted/world_Python_Scenarios_since_100_cases.json', 'w'
+            # ) as handle:
+            #     json.dump(dict_predictions_policies_world_since_100_cases, handle)
 
 
 class DELPHIDataCreator:
@@ -188,20 +216,37 @@ class DELPHIDataCreator:
     ):
         # Cases Train
         mae_train_nondeath, mape_train_nondeath = mae_and_mape(fitcasesnd, self.x_sol_final[15, :len(fitcasesnd)])
-        mse_train_nondeath = mse(fitcasesnd, self.x_sol_final[15, :len(fitcasesnd)])
         sign_mape_train_nondeath = sign_mape(fitcasesnd, self.x_sol_final[15, :len(fitcasesnd)])
+        rmse_train_nondeath = mean_squared_error(
+            y_true=fitcasesnd,
+            y_pred=self.x_sol_final[15, :len(fitcasesnd)],
+            squared=False,
+        )
         # Deaths Train
         mae_train_death, mape_train_death = mae_and_mape(fitcasesd, self.x_sol_final[14, :len(fitcasesd)])
-        mse_train_death = mse(fitcasesd, self.x_sol_final[14, :len(fitcasesd)])
         sign_mape_train_death = sign_mape(fitcasesd, self.x_sol_final[14, :len(fitcasesd)])
+        rmse_train_death = mean_squared_error(
+            y_true=fitcasesd,
+            y_pred=self.x_sol_final[14, :len(fitcasesd)],
+            squared=False,
+        )
+
         # Cases Test
         mae_test_nondeath, mape_test_nondeath = mae_and_mape(testcasesnd, self.x_sol_final[15, -len(testcasesnd):])
-        mse_test_nondeath = mse(testcasesnd, self.x_sol_final[15, -len(testcasesnd):])
         sign_mape_test_nondeath = sign_mape(testcasesnd, self.x_sol_final[15, -len(testcasesnd):])
+        rmse_test_nondeath = mean_squared_error(
+            y_true=fitcasesnd,
+            y_pred=self.x_sol_final[15, -len(fitcasesnd):],
+            squared=False,
+        )
         # Deaths Test
         mae_test_death, mape_test_death = mae_and_mape(testcasesd, self.x_sol_final[14, -len(testcasesd):])
-        mse_test_death = mse(testcasesd, self.x_sol_final[14, -len(testcasesd):])
         sign_mape_test_death = sign_mape(testcasesd, self.x_sol_final[14, -len(testcasesd):])
+        rmse_test_death = mean_squared_error(
+            y_true=fitcasesd,
+            y_pred=self.x_sol_final[14, -len(fitcasesd):],
+            squared=False,
+        )
         # MAPE on Daily Delta since last day of training for Cases
         true_last_train_cases = fitcasesnd[-1]
         pred_last_train_cases = self.x_sol_final[15, len(fitcasesnd)-1]
@@ -233,8 +278,8 @@ class DELPHIDataCreator:
             "train_sign_mpe_deaths": [sign_mape_train_death],
             "train_mae_cases": [mae_train_nondeath],
             "train_mae_deaths": [mae_train_death],
-            "train_mse_cases": [mse_train_nondeath],
-            "train_mse_deaths": [mse_train_death],
+            "train_rmse_cases": [rmse_train_nondeath],
+            "train_rmse_deaths": [rmse_train_death],
             "test_start_date": [self.date_day_since100 + timedelta(days=n_days_fitting)],
             "test_end_date": [self.date_day_since100 + timedelta(days=n_days_fitting + n_days_test - 1)],
             "test_mape_cases": [mape_test_nondeath],
@@ -243,8 +288,8 @@ class DELPHIDataCreator:
             "test_sign_mpe_deaths": [sign_mape_test_death],
             "test_mae_cases": [mae_test_nondeath],
             "test_mae_deaths": [mae_test_death],
-            "test_mse_cases": [mse_test_nondeath],
-            "test_mse_deaths": [mse_test_death],
+            "test_rmse_cases": [rmse_test_nondeath],
+            "test_rmse_deaths": [rmse_test_death],
             "mape_daily_delta_cases": [mape_daily_delta_cases],
             "mape_daily_delta_deaths": [mape_daily_delta_deaths],
         })
@@ -434,54 +479,6 @@ class DELPHIAggregations:
 
     @staticmethod
     def append_all_aggregations(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(df)
-        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(df)
-        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world(df)
-        df = pd.concat([
-            df, df_agg_since_today_per_country,
-            df_agg_since_today_per_continent, df_agg_since_today_world
-        ])
-        df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
-        return df
-
-
-class DELPHIAggregations:
-    @staticmethod
-    def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
-        df = df[df["Province"] != "None"]
-        df_agg_country = df.groupby(["Continent", "Country", "Day"]).sum().reset_index()
-        df_agg_country["Province"] = "None"
-        df_agg_country = df_agg_country[[
-            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
-        ]]
-        return df_agg_country
-
-    @staticmethod
-    def get_aggregation_per_continent(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_continent = df.groupby(["Continent", "Day"]).sum().reset_index()
-        df_agg_continent["Country"] = "None"
-        df_agg_continent["Province"] = "None"
-        df_agg_continent = df_agg_continent[[
-            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
-        ]]
-        return df_agg_continent
-
-    @staticmethod
-    def get_aggregation_world(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_world = df.groupby("Day").sum().reset_index()
-        df_agg_world["Continent"] = "None"
-        df_agg_world["Country"] = "None"
-        df_agg_world["Province"] = "None"
-        df_agg_world = df_agg_world[[
-            'Continent', 'Country', 'Province', 'Day', 'Total Detected', 'Active',
-            'Active Hospitalized', 'Cumulative Hospitalized', 'Total Detected Deaths', 'Active Ventilated'
-        ]]
-        return df_agg_world
-
-    @staticmethod
-    def append_all_aggregations(df: pd.DataFrame) -> pd.DataFrame:
         """
         :return: the predictions df with aggregations (sums) at the country level (if many provinces),
         at the continent level (if many countries & province in continent) and at the world level
@@ -546,7 +543,7 @@ class DELPHIAggregationsPolicies:
 
 
 def get_initial_conditions(params_fitted, global_params_fixed):
-    alpha, days, r_s, r_dth, p_dth, k1, k2 = params_fitted
+    alpha, days, r_s, r_dth, p_dth, k1, k2 = params_fitted[:7]
     N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
     S_0 = (
             (N - PopulationCI / p_d) -
@@ -779,7 +776,7 @@ def read_policy_data_us_only(filepath_data_sandbox: str):
         'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
         'West Virginia', 'Wisconsin', 'Wyoming'
     ]
-    df = pd.read_csv(filepath_data_sandbox + "10052020_raw_policy_data_US_only.csv")
+    df = pd.read_csv(filepath_data_sandbox + "12062020_raw_policy_data_us_only.csv")
     df = df[df.location_name.isin(list_US_states)][[
         "location_name", "travel_limit_start_date", "travel_limit_end_date",
         "stay_home_start_date", "stay_home_end_date", "educational_fac_start_date",
@@ -804,7 +801,7 @@ def read_policy_data_us_only(filepath_data_sandbox: str):
     return df_policies_US_final
 
 
-def read_measures_oxford_data():
+def read_measures_oxford_data(yesterday: str):
     measures = pd.read_csv('https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv')
     filtr = ['CountryName', 'CountryCode', 'Date']
     target = ['ConfirmedCases', 'ConfirmedDeaths']
@@ -821,7 +818,7 @@ def read_measures_oxford_data():
 
     #measures = measures.loc[:, measures.isnull().mean() < 0.1]
     msr = set(measures.columns).intersection(set(msr))
-    
+
     #measures = measures.fillna(0)
     measures = measures.dropna()
     for col in msr:
@@ -833,10 +830,10 @@ def read_measures_oxford_data():
         "United States": "US", "South Korea": "Korea, South", "Democratic Republic of Congo": "Congo (Kinshasa)",
         "Czech Republic": "Czechia", "Slovak Republic": "Slovakia",
     })
-    
+
     measures = measures.fillna(0)
     msr = future_policies
-    
+
     measures['Restrict_Mass_Gatherings'] = [
         int(a or b or c) for a, b, c in zip(
             measures['C3_Cancel public events'],
@@ -851,14 +848,14 @@ def read_measures_oxford_data():
             measures['C8_International travel controls']
         )
     ]
-    
+
     del measures['C2_Workplace closing']
     del measures['C3_Cancel public events']
     del measures['C4_Restrictions on gatherings']
     del measures['C5_Close public transport']
     del measures['C7_Restrictions on internal movement']
     del measures['C8_International travel controls']
-    
+
     output = deepcopy(measures)
     output[msr[0]] = (measures.iloc[:, 2:].sum(axis=1) == 0).apply(lambda x: int(x))
     output[msr[1]] = [
@@ -902,6 +899,7 @@ def read_measures_oxford_data():
     output.rename(columns={'CountryName': 'country', 'Date': 'date'}, inplace=True)
     output['province'] = "None"
     output = output.loc[:, ['country', 'province', 'date'] + msr]
+    output = output[output.date <= yesterday].reset_index(drop=True)
     return output
 
 
@@ -977,8 +975,8 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
     params_countries = pastparameters_copy['Country']
     params_countries = set(params_countries)
     policy_data_countries_bis = policy_data_countries.query("country_cl in @params_countries")
-    countries_upper_set = set(policy_data_countries['country'])
-    
+    countries_upper_set = set(policy_data_countries[policy_data_countries.country != "US"]['country'])
+    # countries_in_oxford_and_params = params_countries.intersection(countries_upper_set)
     for country in countries_upper_set:
         dict_current_policy[(country, "None")] = list(compress(
             policy_list,
@@ -987,6 +985,18 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
                  == policy_data_countries.query('country == @country').date.max()
              ][policy_list] == 1).values.flatten().tolist()
         ))[0]
+    countries_common = sorted([x.lower() for x in countries_upper_set])
+    pastparam_tuples_in_oxford = pastparameters_copy[
+        (pastparameters_copy.Country.isin(countries_common)) &
+        (pastparameters_copy.Province != "None")
+    ].reset_index(drop=True)
+    pastparam_tuples_in_oxford["tuple_name"] = list(zip(pastparam_tuples_in_oxford.Country,
+                                                        pastparam_tuples_in_oxford.Province))
+    for tuple in pastparam_tuples_in_oxford.tuple_name.unique():
+        country, province = tuple
+        country = country[0].upper() + country[1:]
+        dict_current_policy[(country, province)] = dict_current_policy[(country, "None")]
+
     countries_set = set(policy_data_countries['country_cl'])
 
     params_dic = {}
@@ -1018,16 +1028,16 @@ def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataF
     df_temp = df_backtest_performance.copy()
     df_temp_continent = df_temp.groupby("continent")[[
         "train_mape_cases", "train_mape_deaths", "train_mae_cases",
-        "train_mae_deaths", "train_mse_cases", "train_mse_deaths",
+        "train_mae_deaths", "train_rmse_cases", "train_rmse_deaths",
         "test_mape_cases", "test_mape_deaths", "test_mae_cases",
-        "test_mae_deaths", "test_mse_cases", "test_mse_deaths",
+        "test_mae_deaths", "test_rmse_cases", "test_rmse_deaths",
         "mape_daily_delta_cases", "mape_daily_delta_deaths",
     ]].mean().reset_index()
     df_temp_country = df_temp.groupby(["continent", "country"])[[
         "train_mape_cases", "train_mape_deaths", "train_mae_cases",
-        "train_mae_deaths", "train_mse_cases", "train_mse_deaths",
+        "train_mae_deaths", "train_rmse_cases", "train_rmse_deaths",
         "test_mape_cases", "test_mape_deaths", "test_mae_cases",
-        "test_mae_deaths", "test_mse_cases", "test_mse_deaths",
+        "test_mae_deaths", "test_rmse_cases", "test_rmse_deaths",
         "mape_daily_delta_cases", "mape_daily_delta_deaths",
     ]].mean().reset_index()
     columns_none = [
@@ -1047,9 +1057,9 @@ def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataF
     all_columns = [
         "continent", "country", "province", "train_start_date", "train_end_date", "train_mape_cases",
         "train_mape_deaths", "train_sign_mpe_cases", "train_sign_mpe_deaths", "train_mae_cases", "train_mae_deaths",
-        "train_mse_cases", "train_mse_deaths", "test_start_date", "test_end_date", "test_mape_cases",
+        "train_rmse_cases", "train_rmse_deaths", "test_start_date", "test_end_date", "test_mape_cases",
         "test_mape_deaths", "test_sign_mpe_cases", "test_sign_mpe_deaths", "test_mae_cases", "test_mae_deaths",
-        "test_mse_cases", "test_mse_deaths", "mape_daily_delta_cases", "mape_daily_delta_deaths",
+        "test_rmse_cases", "test_rmse_deaths", "mape_daily_delta_cases", "mape_daily_delta_deaths",
     ]
     df_temp_continent = df_temp_continent[all_columns]
     df_temp_country = df_temp_country[all_columns]
@@ -1058,8 +1068,8 @@ def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataF
     ).reset_index(drop=True)
     for col in [
         "train_mape_cases", "train_mape_deaths", "train_mae_cases", "train_mae_deaths",
-        "train_mse_cases", "train_mse_deaths", "test_mape_cases", "test_mape_deaths",
-        "test_mae_cases", "test_mae_deaths", "test_mse_cases", "test_mse_deaths",
+        "train_rmse_cases", "train_rmse_deaths", "test_mape_cases", "test_mape_deaths",
+        "test_mae_cases", "test_mae_deaths", "test_rmse_cases", "test_rmse_deaths",
         "mape_daily_delta_cases", "mape_daily_delta_deaths",
 
     ]:
@@ -1098,6 +1108,3 @@ def get_testing_data_us() -> pd.DataFrame:
     df_test_final = pd.concat(list_df_concat).reset_index(drop=True)
     df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
     return df_test_final
-
-def create_df_policy_change_tracking():
-    return ""
