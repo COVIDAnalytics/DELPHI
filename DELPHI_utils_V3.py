@@ -792,6 +792,7 @@ def read_measures_oxford_data(yesterday: str):
     measures['C5_Close public transport'] = ((measures['C5_Close public transport'] >0)  & measures['C5_Flag']).astype(int)
     measures['C6_Stay at home requirements'] = ((measures['C6_Stay at home requirements'] >0)  & measures['C6_Flag']).astype(int)
     measures['C7_Restrictions on internal movement'] = ((measures['C7_Restrictions on internal movement'] >0)  & measures['C7_Flag']).astype(int)
+    measures['C8_International travel controls'] = (measures['C8_International travel controls'] >0).astype(int)
     measures['H1_Public information campaigns'] = ((measures['H1_Public information campaigns'] >0)  & measures['H1_Flag']).astype(int)
 
     del measures['C1_Flag']
