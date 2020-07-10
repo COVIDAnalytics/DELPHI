@@ -334,6 +334,6 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
 # df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False, local_delphi=False)
+delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True, local_delphi=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
 
