@@ -759,7 +759,7 @@ def read_measures_oxford_data(yesterday: str):
         'C8_International travel controls','H1_Public information campaigns'
     ]
     
-    msr_flags = ['C1_Flag', 'C2_Flag','C3_Flag','C4_Flag','C5_Flag','C6_Flag','C7_Flag','C8_Flag','H1_Flag']
+    msr_flags = ['C1_Flag', 'C2_Flag','C3_Flag','C4_Flag','C5_Flag','C6_Flag','C7_Flag','H1_Flag']
     measures = measures.loc[:, filtr + msr + msr_flags + target]
     measures['Date'] = measures['Date'].apply(lambda x: datetime.strptime(str(x), '%Y%m%d'))
 
@@ -778,7 +778,6 @@ def read_measures_oxford_data(yesterday: str):
     measures['C5_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C5_Close public transport'],measures['C5_Flag'])]
     measures['C6_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C6_Stay at home requirements'],measures['C6_Flag'])]
     measures['C7_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C7_Restrictions on internal movement'],measures['C7_Flag'])]
-    measures['C8_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C8_International travel controls'],measures['C8_Flag'])]
     measures['H1_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['H1_Public information campaigns'],measures['H1_Flag'])]
 
     #measures = measures.fillna(0)
@@ -793,7 +792,6 @@ def read_measures_oxford_data(yesterday: str):
     measures['C5_Close public transport'] = ((measures['C5_Close public transport'] >0)  & measures['C5_Flag']).astype(int)
     measures['C6_Stay at home requirements'] = ((measures['C6_Stay at home requirements'] >0)  & measures['C6_Flag']).astype(int)
     measures['C7_Restrictions on internal movement'] = ((measures['C7_Restrictions on internal movement'] >0)  & measures['C7_Flag']).astype(int)
-    measures['C8_International travel controls'] = ((measures['C8_International travel controls'] >0)  & measures['C8_Flag']).astype(int)
     measures['H1_Public information campaigns'] = ((measures['H1_Public information campaigns'] >0)  & measures['H1_Flag']).astype(int)
 
     del measures['C1_Flag']
@@ -803,7 +801,6 @@ def read_measures_oxford_data(yesterday: str):
     del measures['C5_Flag']
     del measures['C6_Flag']
     del measures['C7_Flag']
-    del measures['C8_Flag']
     del measures['H1_Flag']
 #    for col in msr:
 #        measures[col] = measures[col].apply(lambda x: int(x > 0))
