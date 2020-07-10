@@ -755,24 +755,60 @@ def read_measures_oxford_data(yesterday: str):
     target = ['ConfirmedCases', 'ConfirmedDeaths']
     msr = [
         'C1_School closing', 'C2_Workplace closing', 'C3_Cancel public events', 'C4_Restrictions on gatherings',
-        'C5_Close public transport', 'C6_Stay at home requirements', 'C7_Restrictions on internal movement',
-        'C8_International travel controls', 'H1_Public information campaigns'
+        'C5_Close public transport', 'C6_Stay at home requirements','C7_Restrictions on internal movement',
+        'C8_International travel controls','H1_Public information campaigns'
     ]
-    measures = measures.loc[:, filtr + msr + target]
+    
+    msr_flags = ['C1_Flag', 'C2_Flag','C3_Flag','C4_Flag','C5_Flag','C6_Flag','C7_Flag','C8_Flag','H1_Flag']
+    measures = measures.loc[:, filtr + msr + msr_flags + target]
     measures['Date'] = measures['Date'].apply(lambda x: datetime.strptime(str(x), '%Y%m%d'))
+
+    
     for col in target:
         #measures[col] = measures[col].fillna(0)
         measures[col] = measures.groupby('CountryName')[col].ffill()
 
     #measures = measures.loc[:, measures.isnull().mean() < 0.1]
-    msr = set(measures.columns).intersection(set(msr))
+    msr = list(set(measures.columns).intersection(set(msr)))
+
+    measures['C1_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C1_School closing'],measures['C1_Flag'])]
+    measures['C2_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C2_Workplace closing'],measures['C2_Flag'])]
+    measures['C3_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C3_Cancel public events'],measures['C3_Flag'])]
+    measures['C4_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C4_Restrictions on gatherings'],measures['C4_Flag'])]
+    measures['C5_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C5_Close public transport'],measures['C5_Flag'])]
+    measures['C6_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C6_Stay at home requirements'],measures['C6_Flag'])]
+    measures['C7_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C7_Restrictions on internal movement'],measures['C7_Flag'])]
+    measures['C8_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C8_International travel controls'],measures['C8_Flag'])]
+    measures['H1_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['H1_Public information campaigns'],measures['H1_Flag'])]
 
     #measures = measures.fillna(0)
-    measures = measures.dropna()
-    for col in msr:
-        measures[col] = measures[col].apply(lambda x: int(x > 0))
+    measures = measures.dropna(subset = filtr + msr + target)
+    
+    
+    # we only consider general measures
+    measures['C1_School closing'] = ((measures['C1_School closing'] >0)  & measures['C1_Flag']).astype(int)
+    measures['C2_Workplace closing'] = ((measures['C2_Workplace closing'] >0)  & measures['C2_Flag']).astype(int)
+    measures['C3_Cancel public events'] = ((measures['C3_Cancel public events'] >0)  & measures['C3_Flag']).astype(int)
+    measures['C4_Restrictions on gatherings'] = ((measures['C4_Restrictions on gatherings'] >0)  & measures['C4_Flag']).astype(int)
+    measures['C5_Close public transport'] = ((measures['C5_Close public transport'] >0)  & measures['C5_Flag']).astype(int)
+    measures['C6_Stay at home requirements'] = ((measures['C6_Stay at home requirements'] >0)  & measures['C6_Flag']).astype(int)
+    measures['C7_Restrictions on internal movement'] = ((measures['C7_Restrictions on internal movement'] >0)  & measures['C7_Flag']).astype(int)
+    measures['C8_International travel controls'] = ((measures['C8_International travel controls'] >0)  & measures['C8_Flag']).astype(int)
+    measures['H1_Public information campaigns'] = ((measures['H1_Public information campaigns'] >0)  & measures['H1_Flag']).astype(int)
+
+    del measures['C1_Flag']
+    del measures['C2_Flag']
+    del measures['C3_Flag']
+    del measures['C4_Flag']
+    del measures['C5_Flag']
+    del measures['C6_Flag']
+    del measures['C7_Flag']
+    del measures['C8_Flag']
+    del measures['H1_Flag']
+#    for col in msr:
+#        measures[col] = measures[col].apply(lambda x: int(x > 0))
     measures = measures[
-        ['CountryName', 'Date'] + list(sorted(msr))
+        ['CountryName', 'Date'] + sorted(msr)
     ]
     measures["CountryName"] = measures.CountryName.replace({
         "United States": "US", "South Korea": "Korea, South", "Democratic Republic of Congo": "Congo (Kinshasa)",
