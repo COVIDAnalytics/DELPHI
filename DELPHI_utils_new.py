@@ -1,4 +1,4 @@
-# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
+ # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
@@ -169,7 +169,7 @@ class DELPHIDataCreator:
             "Median Day of Action": [self.best_params[1]], "Rate of Action": [self.best_params[2]],
             "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],"Rate of Mortality Rate Decay": [self.best_params[5]],
             "Internal Parameter 1": [self.best_params[6]], "Internal Parameter 2": [self.best_params[7]],
-            "Second Wave Jump": [self.best_params[8]], "Jump Time": [self.best_params[9]]     
+            "Second Wave Jump": [self.best_params[8]], "Jump Time": [self.best_params[9]]
         })
         return df_parameters
 
@@ -591,7 +591,7 @@ def mae_and_mape(y_true, y_pred):
 
 def mape(y_true, y_pred):
     y_true, y_pred = np.array(y_true), np.array(y_pred)
-    mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
+    mape = np.nanmean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
     return mape
 
 

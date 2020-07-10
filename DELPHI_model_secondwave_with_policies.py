@@ -10,7 +10,7 @@ from DELPHI_utils_V3 import (
     read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries,
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
 )
-from DELPHI_params_new_policies import (
+from DELPHI_params import (
     date_MATHEMATICA, validcases_threshold_policy,
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
     default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
@@ -27,8 +27,6 @@ CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "michael"
 
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
-
-# TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 policy_data_countries = read_measures_oxford_data(yesterday)
@@ -94,8 +92,7 @@ for continent, country, province in zip(
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
     else:
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
-    #if country not in ["France", "Spain", "Greece", "Italy"]:
-    #    continue
+
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if (
@@ -123,10 +120,10 @@ for continent, country, province in zip(
                     parameter_list = parameter_list_line[5:]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                validcases = totalcases[[
-                    dtparser.parse(x) >= dtparser.parse(parameter_list_line[3])
-                    for x in totalcases.date
-                ]][["date", "day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                validcases = totalcases[
+                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+                    ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
                 print(f"Must have past parameters for {country} and {province}")
                 continue
@@ -159,8 +156,6 @@ for continent, country, province in zip(
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
             maxT = (default_maxT_policies - date_day_since100).days + 1
             """ Fit on Total Cases """
-            validcases = validcases[validcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date())]
-            print(validcases.date.max(), yesterday)
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
             validcases_death = validcases["death_cnt"].tolist()
@@ -194,31 +189,15 @@ for continent, country, province in zip(
                         r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                         r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                         r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-
-
-                        # gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
-                        # gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * (np.arctan(t - t_jump) + np.pi / 2)
-
-
-                        # gamma_t_future = (2 / np.pi) * np.arctan(-(t_cases[-1] + future_time - days) / 20 * r_s) + 1 + jump * (np.arctan(t_cases[-1] + future_time - t_jump) + np.pi / 2)
-
-                        # if t < t_jump:
-                        #     gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
-
-                        # else:
-                        #     gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump
-
-                        # if t_cases[-1] + future_time < t_jump:
-                        #     gamma_t_future = (2 / np.pi) * np.arctan(-(t_cases[-1] + future_time - days) / 20 * r_s) + 1
-                        # else:
-                        #     gamma_t_future = (2 / np.pi) * np.arctan(-(t_cases[-1] + future_time - days) / 20 * r_s) + 1 + jump
-
-                        gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 +  jump * np.exp(-(t - t_jump)**2 /(2 * std_normal ** 2))
-                        gamma_t_future = (2 / np.pi) * np.arctan(-(t_cases[-1] + future_time - days) / 20 * r_s) + 1 +  jump * np.exp(-(t_cases[-1] + future_time - t_jump)**2 /(2 * std_normal ** 2))
-
-
-                        p_dth_mod = (2 / np.pi) * (p_dth - 0.01)  * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
-                        # gamma_0 = (2 / np.pi) * np.arctan(days / 20 * r_s) + 1
+                        gamma_t = (
+                              (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 +
+                              jump * np.exp(-(t - t_jump)**2 /(2 * std_normal ** 2))
+                        )
+                        gamma_t_future = (
+                              (2 / np.pi) * np.arctan(-(t_cases[-1] + future_time - days) / 20 * r_s) + 1 +
+                              jump * np.exp(-(t_cases[-1] + future_time - t_jump)**2 / (2 * std_normal ** 2))
+                        )
+                        p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
                         if t > t_cases[-1] + future_time:
                             normalized_gamma_future_policy = dict_normalized_policy_gamma_countries[future_policy]
                             normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
@@ -234,8 +213,6 @@ for continent, country, province in zip(
                         assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                         S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                         # Equations on main variables
-                        #print(gamma_t)
-
                         dSdt = -alpha * gamma_t * S * I / N
                         dEdt = alpha * gamma_t * S * I / N - r_i * E
                         dIdt = r_i * E - r_d * I
@@ -340,7 +317,6 @@ for continent, country, province in zip(
     else:  # file for that tuple (country, province) doesn't exist in processed files
         continue
 
-#%%
 # Appending parameters, aggregations per country, per continent, and for the world
 # for predictions today & since 100
 today_date_str = "".join(str(datetime.now().date()).split("-"))
@@ -357,9 +333,7 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
-df_global_predictions_since_today_scenarios.to_csv('df_global_predictions_scenarios_world.csv', index=False)
-
-df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-# delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True, local_delphi=False)
+# df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
+delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False, local_delphi=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
 
