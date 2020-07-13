@@ -23,20 +23,21 @@ import matplotlib.pyplot as plt
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "ali"
+USER_RUNNING = "hamza"
 training_end_date = datetime(2020, 6, 22)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
 day_after_yesterday = "".join(str(pd.to_datetime(yesterday).date() + timedelta(days=1)).split("-"))
+print(yesterday, day_after_yesterday)
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
-#PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
 policy_data_countries = read_measures_oxford_data_jj_version()
 policy_data_us_only = read_policy_data_us_only_jj_version(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv")
 
-PATH_TO_PARAM_GLOBAL = '/Users/ali/di/covidanalytics/covid19orc/danger_map/predicted/'
+PATH_TO_PARAM_GLOBAL = PATH_TO_FOLDER_DANGER_MAP + 'predicted/'
 def createParameters_JJ_Global(PATH_TO_PARAM_GLOBAL, PATH_TO_DATA_SANDBOX, yesterday ):
     Parameters_Global = pd.read_csv(PATH_TO_PARAM_GLOBAL+f'Parameters_Global_{yesterday}.csv')
     Parameters_J = pd.read_csv(PATH_TO_DATA_SANDBOX + f'predicted/parameters/Parameters_J&J_{yesterday}.csv')
