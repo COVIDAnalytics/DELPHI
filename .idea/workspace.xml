@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_model_additional_states.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_additional_states.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/processed/Brazil_J&amp;J/Cases_Brazil_Mato_Grosso.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/processed/Brazil_J&amp;J/Cases_Brazil_MatoGrosso.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/processed/Brazil_J&amp;J/Cases_Brazil_Mato_Grosso_do_Sul.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/processed/Brazil_J&amp;J/Cases_Brazil_MatoGrosso_do_Sul.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -332,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594237074618</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="New version of the code parallelized + Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_j_and_j_v2&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;DELPHI_params.py&#10;#&#9;DELPHI_policy_predictions_international.py&#10;#&#9;DELPHI_utils.py&#10;#&#9;config.yml">
+      <created>1594671576591</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1594671576591</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -350,7 +355,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Running version for alpha varying by state" />
     <MESSAGE value="new version NY only" />
     <MESSAGE value="v7 with all free parameters (per state) and mobility data" />
     <MESSAGE value="v7 with all free parameters (per state) and policy data + renamed files for clarity" />
@@ -375,7 +379,8 @@
     <MESSAGE value="Adding total runtime in the prints" />
     <MESSAGE value="reorganizing repository" />
     <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_j_and_j_v2&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;DELPHI_params.py&#10;#&#9;DELPHI_policy_predictions_international.py&#10;#&#9;DELPHI_utils.py&#10;#&#9;config.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_j_and_j_v2&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;DELPHI_params.py&#10;#&#9;DELPHI_policy_predictions_international.py&#10;#&#9;DELPHI_utils.py&#10;#&#9;config.yml" />
+    <MESSAGE value="New version of the code parallelized + Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_j_and_j_v2&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;DELPHI_params.py&#10;#&#9;DELPHI_policy_predictions_international.py&#10;#&#9;DELPHI_utils.py&#10;#&#9;config.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="New version of the code parallelized + Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_j_and_j_v2&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;DELPHI_params.py&#10;#&#9;DELPHI_policy_predictions_international.py&#10;#&#9;DELPHI_utils.py&#10;#&#9;config.yml" />
   </component>
   <component name="WindowStateProjectService">
     <state x="322" y="55" key="CommitChangelistDialog2" />

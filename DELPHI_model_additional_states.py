@@ -323,7 +323,7 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
         solve_and_predict_area_additional_states, yesterday_=yesterday, day_after_yesterday_=day_after_yesterday,
         pastparameters_=pastparameters, allowed_deviation_=allowed_deviation, current_parameters_=current_parameters,
     )
-    n_cpu = 6
+    n_cpu = 8
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
     with mp.Pool(n_cpu) as pool:
