@@ -22,7 +22,7 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "ali"
+USER_RUNNING = "server"
 training_start_date = datetime(2020, 6, 22)
 training_end_date = datetime(2020, 7, 8)
 training_last_date = training_end_date - timedelta(days=1)
@@ -323,7 +323,7 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
         solve_and_predict_area_additional_states, yesterday_=yesterday, day_after_yesterday_=day_after_yesterday,
         pastparameters_=pastparameters, allowed_deviation_=allowed_deviation, current_parameters_=current_parameters,
     )
-    n_cpu = 8
+    n_cpu = 16
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
     with mp.Pool(n_cpu) as pool:
