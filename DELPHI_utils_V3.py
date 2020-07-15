@@ -171,10 +171,13 @@ class DELPHIDataCreator:
             "Continent": [self.continent], "Country": [self.country], "Province": [self.province],
             "Data Start Date": [self.date_day_since100], "MAPE": [mape], "Infection Rate": [self.best_params[0]],
             "Median Day of Action": [self.best_params[1]], "Rate of Action": [self.best_params[2]],
-            "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],"Rate of Mortality Rate Decay": [self.best_params[5]],
-            "Internal Parameter 1": [self.best_params[6]], "Internal Parameter 2": [self.best_params[7]]  ,
-                        "Jump Magnitude": [self.best_params[8]], "Jump Time": [self.best_params[9]] ,
-                                    "Jump Decay": [self.best_params[10]]
+            "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],
+            "Rate of Mortality Rate Decay": [self.best_params[5]],
+            "Internal Parameter 1": [self.best_params[6]],
+            "Internal Parameter 2": [self.best_params[7]],
+            "Jump Magnitude": [self.best_params[8]],
+            "Jump Time": [self.best_params[9]],
+            "Jump Decay": [self.best_params[10]],
         })
         return df_parameters
 
