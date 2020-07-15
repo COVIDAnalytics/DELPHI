@@ -8,12 +8,14 @@ from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
 from tqdm import tqdm_notebook as tqdm
 from datetime import datetime, timedelta
-from DELPHI_utils import (
-    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
+from DELPHI_utils_V3 import (
+    DELPHIDataCreator, get_initial_conditions, mape
 )
-from DELPHI_params import (default_parameter_list, default_bounds_params,
-                           validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
-                           VentilatedD, default_maxT, p_v, p_d, p_h, max_iter)
+from DELPHI_params_V3 import (
+    get_default_parameter_list_and_bounds, n_cpu_default,
+    validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
+    VentilatedD, default_maxT, p_v, p_d, p_h, max_iter
+)
 import os
 from os import path
 import yaml
@@ -23,11 +25,11 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "server"
-training_start_date = datetime(2020, 6, 22)
-training_end_date = datetime(2020, 7, 8)
+training_start_date = datetime(2020, 7, 9)
+training_end_date = datetime(2020, 7, 15)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
-n_days_to_april_1 = (training_last_date - training_start_date).days
+n_days_to_train = (training_last_date - training_start_date).days
 
 
 def check_cumulative_cases(input_table):
@@ -54,8 +56,25 @@ def solve_and_predict_area_additional_states(
     #     continue
     # if province_sub == "Michoacan" and country_sub == "Peru":
     #     continue
-    if country_sub not in ["Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru"]:
+    if country_sub not in ["US", "Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru"]:
         return None
+    elif country_sub == "US":
+        if province_sub not in [
+             'Atlanta_Sandy_Springs_Alpharetta', 'Austin_Round_Rock_Georgetown', 'Baltimore_Columbia_Towson',
+             'Birmingham_Hoover', 'Boston_Cambridge_Newton', 'Chicago_Naperville_Elgin', 'Cincinnati',
+             'Cleveland_Elyria', 'Columbus', 'Dallas_Fort_Worth_Arlington', 'Detroit_Warren_Dearborn',
+             'Durham_Chapel_Hill', 'Houston_The_Woodlands_Sugar_Land', 'Knoxville', 'Las_Vegas_Henderson_Paradise',
+             'Los_Angeles_Long_Beach_Orange_County', 'Miami_Fort_Lauderdale_Pompano_Beach', 'Minneapolis',
+             'Mobile', 'Nashville_Davidson_Murfreesboro_Franklin', 'New_Haven_Milford', 'New_Orleans_Metairie',
+             'New_York_Newark_Jersey_City', 'Omaha_Council_Bluffs', 'Orlando_Kissimmee_Sanford',
+             'Philadelphia_Camden_Wilmington', 'Phoenix', 'Pittsburgh', 'Rochester',  'San_Diego_Chula_Vista_Carlsbad',
+             'San_Jose_Sunnyvale_Santa_Clara', 'Seattle_Tacoma_Bellevue', 'Sioux_Falls', 'St._Louis', 'Tucson',
+             'Washington_Arlington_Alexandria'
+        ]:
+            return None
+    elif country_sub in ["Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru"]:
+        if province_sub == "None":
+            return None
 
     if current_parameters_ is not None:
         current_parameter = current_parameters_[
@@ -64,7 +83,9 @@ def solve_and_predict_area_additional_states(
             ].reset_index(drop=True)
         if len(current_parameter) > 0:
             print(
-                f"Already exist parameter {day_after_yesterday_} Continent={continent}, Country={country} and Province={province}")
+                f"Parameters already exist on {day_after_yesterday_} " +
+                f"Continent={continent}, Country={country} and Province={province}"
+            )
             return None
 
     if os.path.exists(PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"):
@@ -74,7 +95,9 @@ def solve_and_predict_area_additional_states(
         )
         if check_cumulative_cases(totalcases) == False:
             print(
-                f"###################### [ERROR] Cumulative case is not increasing: {day_after_yesterday_} Continent={continent}, Country={country} and Province={province}")
+                f"###################### [ERROR] Cumulative case is not increasing: " +
+                f"{day_after_yesterday_} Continent={continent}, Country={country} and Province={province}"
+            )
             return None
         if totalcases.day_since100.max() < 8:
             print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
@@ -87,13 +110,14 @@ def solve_and_predict_area_additional_states(
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
+                assert len(parameter_list) == 11, f"Only have {len(parameter_list)} parameters, expected 11 since July8"
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
                 param_list_lower = [x - 0.1 * abs(x) for x in parameter_list]
                 param_list_upper = [x + 0.1 * abs(x) for x in parameter_list]
-                bounds_params = tuple(
-                    [(lower, upper)
-                     for lower, upper in zip(param_list_lower, param_list_upper)]
-                )
+                bounds_params = [
+                    (lower, upper)
+                     for lower, upper in zip(param_list_lower, param_list_upper)
+                ]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 validcases = totalcases[
                     (totalcases.day_since100 >= 0) &
@@ -101,23 +125,22 @@ def solve_and_predict_area_additional_states(
                     ][["date", "day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
                 # Otherwise use established lower/upper bounds
-                parameter_list = default_parameter_list
-                bounds_params = default_bounds_params
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
                 validcases = totalcases[
                     (totalcases.day_since100 >= 0) &
                     (totalcases.date <= str(pd.to_datetime(day_after_yesterday_).date()))
-                    ][["date", "day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                ][["date", "day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                parameter_list, bounds_params = get_default_parameter_list_and_bounds(validcases)
+                assert len(parameter_list) == 11, f"Only have {len(parameter_list)} parameters, expected 11 since July8"
         else:
             # Otherwise use established lower/upper bounds
-            parameter_list = default_parameter_list
-            bounds_params = default_bounds_params
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
             validcases = totalcases[
                 (totalcases.day_since100 >= 0) &
                 (totalcases.date <= str(pd.to_datetime(day_after_yesterday_).date()))
-                ][["date", "day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
-
+            ][["date", "day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+            parameter_list, bounds_params = get_default_parameter_list_and_bounds(validcases)
+            assert len(parameter_list) == 11, f"Only have {len(parameter_list)} parameters, expected 11 since July8"
         # Now we start the modeling part:
         if len(validcases) > validcases_threshold:
             PopulationT = popcountries[
@@ -155,7 +178,7 @@ def solve_and_predict_area_additional_states(
             )
 
             def model_covid(
-                    t, x, alpha, days, r_s, r_dth, p_dth, k1, k2
+                    t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
             ):
                 """
                 SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -165,7 +188,10 @@ def solve_and_predict_area_additional_states(
                 p_dth: Mortality rate
                 k1: Internal parameter 1
                 k2: Internal parameter 2
-                y = [0 S, 1 E,  2 I, 3 AR,   4 DHR,  5 DQR, 6 AD,
+                jump: size of the jump for the resurgence in cases/deaths modeled with normal distribution
+                t_jump: when the jump for the resurgence in cases/deaths reaches the peak
+                std_normal: standard deviation of the normal distribution
+                y = [0 S, 1 E,  2 I, 3 AR, 4 DHR,  5 DQR, 6 AD,
                 7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
                 """
                 r_i = np.log(2) / IncubeD  # Rate of infection leaving incubation phase
@@ -173,25 +199,28 @@ def solve_and_predict_area_additional_states(
                 r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                 r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
+                gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * np.exp(
+                    -(t - t_jump) ** 2 / (2 * std_normal ** 2)
+                )
+                p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
                 assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 # Equations on main variables
                 dSdt = -alpha * gamma_t * S * I / N
                 dEdt = alpha * gamma_t * S * I / N - r_i * E
                 dIdt = r_i * E - r_d * I
-                dARdt = r_d * (1 - p_dth) * (1 - p_d) * I - r_ri * AR
-                dDHRdt = r_d * (1 - p_dth) * p_d * p_h * I - r_rh * DHR
-                dDQRdt = r_d * (1 - p_dth) * p_d * (1 - p_h) * I - r_ri * DQR
-                dADdt = r_d * p_dth * (1 - p_d) * I - r_dth * AD
-                dDHDdt = r_d * p_dth * p_d * p_h * I - r_dth * DHD
-                dDQDdt = r_d * p_dth * p_d * (1 - p_h) * I - r_dth * DQD
+                dARdt = r_d * (1 - p_dth_mod) * (1 - p_d) * I - r_ri * AR
+                dDHRdt = r_d * (1 - p_dth_mod) * p_d * p_h * I - r_rh * DHR
+                dDQRdt = r_d * (1 - p_dth_mod) * p_d * (1 - p_h) * I - r_ri * DQR
+                dADdt = r_d * p_dth_mod * (1 - p_d) * I - r_dth * AD
+                dDHDdt = r_d * p_dth_mod * p_d * p_h * I - r_dth * DHD
+                dDQDdt = r_d * p_dth_mod * p_d * (1 - p_h) * I - r_dth * DQD
                 dRdt = r_ri * (AR + DQR) + r_rh * DHR
                 dDdt = r_dth * (AD + DQD + DHD)
                 # Helper states (usually important for some kind of output)
                 dTHdt = r_d * p_d * p_h * I
-                dDVRdt = r_d * (1 - p_dth) * p_d * p_h * p_v * I - r_rv * DVR
-                dDVDdt = r_d * p_dth * p_d * p_h * p_v * I - r_dth * DVD
+                dDVRdt = r_d * (1 - p_dth_mod) * p_d * p_h * p_v * I - r_rv * DVR
+                dDVDdt = r_d * p_dth_mod * p_d * p_h * p_v * I - r_dth * DVD
                 dDDdt = r_dth * (DHD + DQD)
                 dDTdt = r_d * p_d * I
                 return [
@@ -202,11 +231,15 @@ def solve_and_predict_area_additional_states(
             def residuals_totalcases(params):
                 """
                 Wanted to start with solve_ivp because figures will be faster to debug
-                params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
+                params: (alpha, days, r_s, r_dth, p_dth, k1, k2, jump, t_jump, std_normal),
+                fitted parameters of the model
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-                params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = params
+                params = (
+                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(min(r_dthdecay, 1), 0),
+                    max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0), max(std_normal, 0)
+                )
                 x_0_cases = get_initial_conditions(
                     params_fitted=params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
@@ -216,9 +249,10 @@ def solve_and_predict_area_additional_states(
                     y0=x_0_cases,
                     t_span=[t_cases[0], t_cases[-1]],
                     t_eval=t_cases,
-                    args=tuple(params),
+                    args=tuple(params)
                 ).y
                 weights = list(range(1, len(fitcasesnd) + 1))
+                # weights[-15:] =[x + 50 for x in weights[-15:]]
                 residuals_value = sum(
                     np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
                     + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
@@ -257,14 +291,14 @@ def solve_and_predict_area_additional_states(
             )
             # Creating the parameters dataset for this (Continent, Country, Province)
             mape_data = (
-                                mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
-                                mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
-                        ) / 2
+                    mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
+                    mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
+            ) / 2
             if len(fitcasesnd) > 15:
                 mape_data_2 = (
-                                      mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
-                                      mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
-                              ) / 2
+                        mape(fitcasesnd[-15:], x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
+                        mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
+                ) / 2
                 print(f"In-Sample MAPE Last 15 Days {country, province}: {round(mape_data_2, 3)} %")
             df_parameters_cont_country_prov = data_creator.create_dataset_parameters(mape_data)
             # Creating the datasets for predictions of this (Continent, Country, Province)
@@ -290,7 +324,7 @@ def solve_and_predict_area_additional_states(
         return None
 
 
-for n_days_before in range(n_days_to_april_1, 0, -1):
+for n_days_before in range(n_days_to_train, 0, -1):
     yesterday = "".join(str(training_last_date.date() - timedelta(days=n_days_before)).split("-"))
     day_after_yesterday = "".join(str(pd.to_datetime(yesterday).date() + timedelta(days=1)).split("-"))
     print(yesterday, day_after_yesterday)
@@ -323,10 +357,9 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
         solve_and_predict_area_additional_states, yesterday_=yesterday, day_after_yesterday_=day_after_yesterday,
         pastparameters_=pastparameters, allowed_deviation_=allowed_deviation, current_parameters_=current_parameters,
     )
-    n_cpu = 16
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-    with mp.Pool(n_cpu) as pool:
+    with mp.Pool(n_cpu_default) as pool:
         for result_area in tqdm(
                 pool.map_async(
                     solve_and_predict_area_partial, list_tuples,
@@ -387,4 +420,3 @@ for n_days_before in range(n_days_to_april_1, 0, -1):
         print(f"Nothing changed for {day_after_yesterday}")
         print("#########################################################################################################")
         print("#########################################################################################################")
-

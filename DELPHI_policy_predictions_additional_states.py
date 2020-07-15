@@ -3,15 +3,16 @@ import pandas as pd
 import numpy as np
 from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
-from DELPHI_utils import (
-    DELPHIDataCreator, DELPHIDataSaver,
-    get_initial_conditions, mape, get_normalized_policy_shifts_and_current_policy_us_only
+from DELPHI_utils_V3 import (
+    DELPHIDataCreator,
+    get_initial_conditions, mape,
+    get_normalized_policy_shifts_and_current_policy_us_only
 )
 from DELPHI_utils_additional_states import (
     read_measures_oxford_data_jj_version, get_normalized_policy_shifts_and_current_policy_all_countries_jj_version,
     read_policy_data_us_only_jj_version
 )
-from DELPHI_params import (
+from DELPHI_params_V3 import (
     validcases_threshold_policy,
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
     default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
@@ -24,7 +25,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "hamza"
-training_end_date = datetime(2020, 6, 22)
+training_end_date = datetime(2020, 7, 9)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
@@ -38,18 +39,22 @@ policy_data_us_only = read_policy_data_us_only_jj_version(filepath_data_sandbox=
 popcountries = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv")
 
 PATH_TO_PARAM_GLOBAL = PATH_TO_FOLDER_DANGER_MAP + 'predicted/'
+
+
 def createParameters_JJ_Global(PATH_TO_PARAM_GLOBAL, PATH_TO_DATA_SANDBOX, yesterday ):
-    Parameters_Global = pd.read_csv(PATH_TO_PARAM_GLOBAL+f'Parameters_Global_{yesterday}.csv')
+    Parameters_Global = pd.read_csv(PATH_TO_PARAM_GLOBAL+f'Parameters_Global_V2_{yesterday}.csv')
     Parameters_J = pd.read_csv(PATH_TO_DATA_SANDBOX + f'predicted/parameters/Parameters_J&J_{yesterday}.csv')
 
     parameter_Global_J = pd.concat([Parameters_J,Parameters_Global]).reset_index(drop=True)
     already_exist = os.path.exists(PATH_TO_DATA_SANDBOX +f'predicted/parameters/Parameters_J&J_Global_{yesterday}.csv')
     if already_exist:
-        os.remove(PATH_TO_DATA_SANDBOX +f'predicted/parameters/Parameters_J&J_Global_{yesterday}.csv')
+        os.remove(PATH_TO_DATA_SANDBOX + f'predicted/parameters/Parameters_J&J_Global_{yesterday}.csv')
 
     parameter_Global_J.to_csv(PATH_TO_DATA_SANDBOX + f'predicted/parameters/Parameters_J&J_Global_{yesterday}.csv',index = False)
     return os.path.exists(PATH_TO_DATA_SANDBOX +f'predicted/parameters/Parameters_J&J_Global_{yesterday}.csv')
-param_global_JJ_created = createParameters_JJ_Global(PATH_TO_PARAM_GLOBAL,PATH_TO_DATA_SANDBOX,yesterday)
+
+
+param_global_JJ_created = createParameters_JJ_Global(PATH_TO_PARAM_GLOBAL, PATH_TO_DATA_SANDBOX, yesterday)
 if not param_global_JJ_created:
     print( f"predicted/parameters/Parameters_J&J_Global_{yesterday}.csv is not created")
     sys.exit()
@@ -83,6 +88,20 @@ dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
 )
 dict_current_policy_international = dict_current_policy_countries.copy()
 dict_current_policy_international.update(dict_current_policy_us_only)
+dict_normalized_policy_gamma_us_only = {'No_Measure': 1.0,
+ 'Restrict_Mass_Gatherings': 0.873,
+ 'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
+ 'Restrict_Mass_Gatherings_and_Schools': 0.479,
+ 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
+ 'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
+ 'Lockdown': 0.239}
+dict_normalized_policy_gamma_countries = {'No_Measure': 1.0,
+ 'Restrict_Mass_Gatherings': 0.873,
+ 'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
+ 'Restrict_Mass_Gatherings_and_Schools': 0.479,
+ 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
+ 'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
+ 'Lockdown': 0.239}
 
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today_scenarios = []
@@ -103,8 +122,29 @@ for continent, country, province in zip(
     # if province_sub == "Apurimac" and country_sub == "Peru":
     #     continue
     # if country_sub not in ["Brazil", "Mexico", "Russia", "Chile", "Peru", "South Africa", "Colombia"]:
-    if country_sub not in ["Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru"]:
+    if country_sub not in ["US", "Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru"]:
         continue
+
+    if country_sub == "US":
+        if province_sub not in [
+            'Birmingham_Hoover', 'Detroit_Warren_Dearborn',
+            'New_Haven_Milford', 'Los_Angeles_Long_Beach_Orange_County',
+            'Nashville_Davidson_Murfreesboro_Franklin',
+            'Washington_Arlington_Alexandria', 'Columbus', 'Cincinnati',
+            'Las Vegas_Henderson_Paradise', 'Cleveland_Elyria',
+            'San_Jose_Sunnyvale_Santa Clara', 'Baltimore_Columbia_Towson',
+            'Knoxville', 'Philadelphia_Camden_Wilmington', 'Pittsburgh',
+            'San_Diego_Chula_Vista_Carlsbad', 'Sioux_Falls', 'Minneapolis',
+            'Chicago_Naperville_Elgin', 'New_Orleans_Metairie', 'St._Louis',
+            'Mobile', 'Seattle_Tacoma_Bellevue',
+            'Atlanta_Sandy_Springs_Alpharetta', 'New_York_Newark_Jersey City',
+            'Omaha_Council_Bluffs', 'Boston_Cambridge_Newton', 'Rochester',
+            'Durham_Chapel_Hill', 'Orlando_Kissimmee_Sanford', 'Phoenix',
+            'Dallas_Fort_Worth_Arlington', 'Houston_The_Woodlands_Sugar_Land',
+            'Miami_Fort_Lauderdale_Pompano_Beach', 'Tucson',
+            'Austin_Round_Rock_Georgetown'
+        ]:
+            continue
     # if country_sub == "US":
     #     if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
     #                             "Baltimore-Columbia-Towson_Metropolitan", "Washington-Arlington-Alexandria_Metropolitan",
@@ -191,7 +231,7 @@ for continent, country, province in zip(
                 for future_time in [0]:
                     # Only generate the policies with timing "Now", the possibilities are in DELPHI_params.py
                     def model_covid_predictions(
-                            t, x, alpha, days, r_s, r_dth, p_dth, k1, k2
+                            t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
                     ):
                         """
                         SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
@@ -209,37 +249,45 @@ for continent, country, province in zip(
                         r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
                         r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                         r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
-                        gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
-                        gamma_t_future = (2 / np.pi) * np.arctan(-(t_cases[-1] + future_time - days) / 20 * r_s) + 1
-                        # gamma_0 = (2 / np.pi) * np.arctan(days / 20 * r_s) + 1
+                        gamma_t = (
+                                (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 +
+                                jump * np.exp(-(t - t_jump) ** 2 / (2 * std_normal ** 2))
+                        )
+                        gamma_t_future = (
+                                (2 / np.pi) * np.arctan(-(t_cases[-1] + future_time - days) / 20 * r_s) + 1 +
+                                jump * np.exp(-(t_cases[-1] + future_time - t_jump) ** 2 / (2 * std_normal ** 2))
+                        )
+                        p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
                         if t > t_cases[-1] + future_time:
                             normalized_gamma_future_policy = dict_normalized_policy_gamma_countries[future_policy]
                             normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[
                                 dict_current_policy_international[(country, province)]
                             ]
+                            epsilon = 1e-4
                             gamma_t = gamma_t + min(
-                                (2 - gamma_t_future) / (1 - normalized_gamma_future_policy),
+                                (2 - gamma_t_future) / (1 - normalized_gamma_future_policy + epsilon),
                                 (gamma_t_future / normalized_gamma_current_policy) *
                                 (normalized_gamma_future_policy - normalized_gamma_current_policy)
                             )
+
                         assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                         S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                         # Equations on main variables
                         dSdt = -alpha * gamma_t * S * I / N
                         dEdt = alpha * gamma_t * S * I / N - r_i * E
                         dIdt = r_i * E - r_d * I
-                        dARdt = r_d * (1 - p_dth) * (1 - p_d) * I - r_ri * AR
-                        dDHRdt = r_d * (1 - p_dth) * p_d * p_h * I - r_rh * DHR
-                        dDQRdt = r_d * (1 - p_dth) * p_d * (1 - p_h) * I - r_ri * DQR
-                        dADdt = r_d * p_dth * (1 - p_d) * I - r_dth * AD
-                        dDHDdt = r_d * p_dth * p_d * p_h * I - r_dth * DHD
-                        dDQDdt = r_d * p_dth * p_d * (1 - p_h) * I - r_dth * DQD
+                        dARdt = r_d * (1 - p_dth_mod) * (1 - p_d) * I - r_ri * AR
+                        dDHRdt = r_d * (1 - p_dth_mod) * p_d * p_h * I - r_rh * DHR
+                        dDQRdt = r_d * (1 - p_dth_mod) * p_d * (1 - p_h) * I - r_ri * DQR
+                        dADdt = r_d * p_dth_mod * (1 - p_d) * I - r_dth * AD
+                        dDHDdt = r_d * p_dth_mod * p_d * p_h * I - r_dth * DHD
+                        dDQDdt = r_d * p_dth_mod * p_d * (1 - p_h) * I - r_dth * DQD
                         dRdt = r_ri * (AR + DQR) + r_rh * DHR
                         dDdt = r_dth * (AD + DQD + DHD)
                         # Helper states (usually important for some kind of output)
                         dTHdt = r_d * p_d * p_h * I
-                        dDVRdt = r_d * (1 - p_dth) * p_d * p_h * p_v * I - r_rv * DVR
-                        dDVDdt = r_d * p_dth * p_d * p_h * p_v * I - r_dth * DVD
+                        dDVRdt = r_d * (1 - p_dth_mod) * p_d * p_h * p_v * I - r_rv * DVR
+                        dDVDdt = r_d * p_dth_mod * p_d * p_h * p_v * I - r_dth * DVD
                         dDDdt = r_dth * (DHD + DQD)
                         dDTdt = r_d * p_d * I
                         return [
@@ -274,11 +322,15 @@ for continent, country, province in zip(
                                         mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
                                         mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
                                 ) / 2
-                    mape_data_2 = (
-                                          mape(fitcasesnd[-15:],
-                                               x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
-                                          mape(fitcasesd[-15:], x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
-                                  ) / 2
+                    try:
+                        mape_data_2 = (
+                                              mape(fitcasesnd[-15:],
+                                                   x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
+                                              mape(fitcasesd[-15:],
+                                                   x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
+                                      ) / 2
+                    except IndexError:
+                        mape_data_2 = mape_data
                     print(
                         "Policy: ", future_policy, "\t Enacting Time: ", future_time, "\t Total MAPE=", mape_data,
                         "\t MAPE on last 15 days=", mape_data_2
@@ -315,7 +367,6 @@ for continent, country, province in zip(
     else:  # file for that tuple (country, province) doesn't exist in processed files
         continue
 
-today_date_str = "".join(str(datetime.now().date()).split("-"))
 df_global_predictions_since_today_scenarios = pd.concat(
     list_df_global_predictions_since_today_scenarios
 ).reset_index(drop=True)

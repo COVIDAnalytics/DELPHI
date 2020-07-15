@@ -889,9 +889,13 @@ def get_normalized_policy_shifts_and_current_policy_us_only(
     )
     params_dic = {}
     for state in states_set:
-        params_dic[state] = pastparameters_copy.query('Province == @state')[
-            ['Data Start Date', 'Median Day of Action', 'Rate of Action']
-        ].iloc[0]
+        try:
+            params_dic[state] = pastparameters_copy.query('Province == @state')[
+                ['Data Start Date', 'Median Day of Action', 'Rate of Action']
+            ].iloc[0]
+        except IndexError:
+            print(f"No entry in pastparameters for province/state {state}: can't create current policy entry in dict")
+            continue
 
     policy_data_us_only['Gamma'] = [
         gamma_t(day, state, params_dic) for day, state in
