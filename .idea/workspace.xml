@@ -2,51 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_additional_states.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_additional_states.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_params_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_params_V3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_additional_states.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_additional_states.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200623.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200623.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200624.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200624.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200625.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200625.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200626.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200626.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200627.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200627.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200628.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200628.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200629.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200629.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200630.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200630.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200701.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200701.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200702.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200702.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200703.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200703.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200704.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200704.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200705.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200705.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200706.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200706.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200707.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200707.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200708.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_20200708.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_Global_20200708.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/parameters/Parameters_J&amp;J_Global_20200708.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/policy_scenario_predictions/df_scenarios_provinces_j&amp;j_20200709.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/policy_scenario_predictions/df_scenarios_provinces_j&amp;j_20200709.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200623.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200623.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200624.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200624.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200625.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200625.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200626.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200626.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200627.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200627.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200628.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200628.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200629.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200629.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200630.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200630.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200701.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200701.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200702.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200702.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200703.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200703.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200704.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200704.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200705.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200705.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200706.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200706.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200707.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200707.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200708.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/raw_predictions/Global_J&amp;J_20200708.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/processed/Brazil_J&amp;J/Cases_Brazil_MatoGrosso.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/processed/Brazil_J&amp;J/Cases_Brazil_MatoGrosso.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/processed/Brazil_J&amp;J/Cases_Brazil_MatoGrosso_do_Sul.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/processed/Brazil_J&amp;J/Cases_Brazil_MatoGrosso_do_Sul.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/processed/US_J&amp;J/Cases_US_Las_Vegas_Henderson_Paradise.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/processed/US_J&amp;J/Cases_US_Las_Vegas_Henderson_Paradise.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/processed/US_J&amp;J/Cases_US_New_York_Newark_Jersey_City.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/processed/US_J&amp;J/Cases_US_New_York_Newark_Jersey_City.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/processed/US_J&amp;J/Cases_US_San_Jose_Sunnyvale_Santa_Clara.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/processed/US_J&amp;J/Cases_US_San_Jose_Sunnyvale_Santa_Clara.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -393,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594775825553</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Updated code ready to run - July 8 update with model V3 (Normal distribution for resurgence in cases/deaths)">
+      <created>1594852467856</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1594852467856</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -411,7 +374,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="v7 with all free parameters (per state) and policy data + renamed files for clarity" />
     <MESSAGE value="bugfix" />
     <MESSAGE value="raw data file" />
     <MESSAGE value="raw data file added" />
@@ -436,7 +398,8 @@
     <MESSAGE value="New version of the code parallelized + Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_j_and_j_v2&#10;&#10;# Conflicts:&#10;#&#9;.DS_Store&#10;#&#9;DELPHI_params.py&#10;#&#9;DELPHI_policy_predictions_international.py&#10;#&#9;DELPHI_utils.py&#10;#&#9;config.yml" />
     <MESSAGE value="Modified number of CPUs" />
     <MESSAGE value="Updated files for July 8 J&amp;J" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated files for July 8 J&amp;J" />
+    <MESSAGE value="Updated code ready to run - July 8 update with model V3 (Normal distribution for resurgence in cases/deaths)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated code ready to run - July 8 update with model V3 (Normal distribution for resurgence in cases/deaths)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="322" y="55" key="CommitChangelistDialog2" />
