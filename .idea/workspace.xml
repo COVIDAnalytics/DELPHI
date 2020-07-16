@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -356,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594852467856</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Slight modifications on running dates &amp; user">
+      <created>1594852768887</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1594852768887</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,7 +383,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="bugfix" />
     <MESSAGE value="raw data file" />
     <MESSAGE value="raw data file added" />
     <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/DELPHI_utils_V6_NY_only.cpython-37.pyc&#10;#&#9;__pycache__/DELPHI_utils_v7_free_params_policies_US.cpython-37.pyc" />
@@ -399,7 +407,8 @@
     <MESSAGE value="Modified number of CPUs" />
     <MESSAGE value="Updated files for July 8 J&amp;J" />
     <MESSAGE value="Updated code ready to run - July 8 update with model V3 (Normal distribution for resurgence in cases/deaths)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated code ready to run - July 8 update with model V3 (Normal distribution for resurgence in cases/deaths)" />
+    <MESSAGE value="Slight modifications on running dates &amp; user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slight modifications on running dates &amp; user" />
   </component>
   <component name="WindowStateProjectService">
     <state x="322" y="55" key="CommitChangelistDialog2" />
