@@ -36,7 +36,7 @@ To fix this (and what we utilize in our submission to CDC), you could additively
 To run the V3 model successfully, you would require the following files for each region (in addition to configuring the path file correctly in the bottom section):
 1. Historical Case Files - This should be provided in the same format as the examples given in folder `data/processed`.
 2. Population File - This file should record the population at each location that needs to be predicted. An example of such is in `data/processed/Population_Global.csv`.
-3. Historical Parameter Files (optional) - This file record previously trained parameters and the optimization bounds would be within 10% of the original trained parameters. This should be provided in the format given in the example file `predicted/Parameters_Global_V3_20200718.csv`.
+3. Historical Parameter Files (optional) - This file record previously trained parameters and the optimization bounds would be within 10% of the original trained parameters. This should be provided in the format given in the example file `predicted/Parameters_Global_V2_20200718.csv`.
 
 ## V1 (Old "DELPHI V2.0") Instructions (Deprecated)
 
