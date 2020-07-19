@@ -18,14 +18,18 @@ Please Cite the following when you are utilizing our results:
 
 ML Li, H Tazi Bouardi, O Skali Lami, N Trichakis, T Trikalinos, D Bertsimas. Forecasting COVID-19 and Analyzing the Effect of Government Interventions. (2020) submitted for publication.
 
-## Archived Models
+## FAQ
 
-The  `archive` subfolder contains various other models that we attempted but did not find its performance satisfying. In total the archive includes:
-1. "Adaptive Policy Model" - This is a model that utilizes the current implemented policies to derive the resurgence continuously over time. Although the methodology is sound, the results were unfortunately not as appealing as the current model utilized on the website. 
-2. "V1 - No Jump" - This is the original model used for the website before 07/04. We provide two implementations: The Mathematica version `COVID-19_MIT_ORC_training_script_global_V2.nb` , and the python3 version `DELPHI_model.py`. The Mathematica notebook was written with Mathematica 12.1 but should work with any version greater than 10.0. The Python3 version is tested with Python 3.7. 
-3. "V2 - Discrete Jump" - This is the original model augmented with a resurgence modeled as a discrete step function.
-4. "V3 - Normal Jump + Trust Solver" - This is the same as the current model on the website, but uses a different solver that produces good results sometimes, but fails spectacularly on a lot of countries.
-5. "V4 - ArcTan Jump" - This is the original model augmented with a resurgence modeled as a second ArcTan function. The results were acceptable but not as good as the exponential correction. 
+#### 1. The results that I produced don't match the results shown on the COVIDAnalytics website.
+
+This is usually due to the difference in historical parameter files. If there are no historical parameter files, the model would run with default bounds which are unsuitable for a lot of countries. Sample parameters for a recent run of the model are included in the "predicted" subfolder and should be used in order to replicate the results on our website. 
+
+
+#### 2. The projections produced for a certain country are lower than the latest true values known. Why is this the case, and how can I fix it?
+
+This is due to the fact that **our model fits on cumulative cases/deaths rather than daily cases/deaths**. Although we use many tactics to ensure that it has a good fit on the recent data, it cannot not have a *perfect* fit on the latest true values. That means that if we know that on July 1st a country had 100 deaths, the projections might say it had 98 deaths. This is usually not a problem for most countries as the error is usually small (<<1%), but for some countries it could be appreciable.
+
+To fix this (and what we utilize in our submission to CDC), you could additively shift our projections so that the projections match exactly the historical data on the latest known date. So for example if our model outputs 98 deaths on the date with latest known figures, and the true value is 100, one could additively shift all our projections upward by 2 so that it would match the last day perfectly. This would NOT change our predictions for the number of daily deaths, and thus retains our core predictive power while resolving this issue. 
 
 ## V3 Instructions (Current Model)
 
@@ -49,3 +53,12 @@ To run the model successfully for python, please first add a new user in the `co
 - `data_sandbox`: This is the location for policy data used in DELPHI V3.0 (only necessary for DELPHI V3.0).
 - `danger_map`: This is the location for saving the final predictions and loading the case files. 
 - `website`: This is only utilized internally for publishing on the website, and could be ignored.
+
+## Archived Models
+
+The  `archive` subfolder contains various other models that we attempted but did not find its performance satisfying. In total the archive includes:
+1. "Adaptive Policy Model" - This is a model that utilizes the current implemented policies to derive the resurgence continuously over time. Although the methodology is sound, the results were unfortunately not as appealing as the current model utilized on the website. 
+2. "V1 - No Jump" - This is the original model used for the website before 07/04. We provide two implementations: The Mathematica version `COVID-19_MIT_ORC_training_script_global_V2.nb` , and the python3 version `DELPHI_model.py`. The Mathematica notebook was written with Mathematica 12.1 but should work with any version greater than 10.0. The Python3 version is tested with Python 3.7. 
+3. "V2 - Discrete Jump" - This is the original model augmented with a resurgence modeled as a discrete step function.
+4. "V3 - Normal Jump + Trust Solver" - This is the same as the current model on the website, but uses a different solver that produces good results sometimes, but fails spectacularly on a lot of countries.
+5. "V4 - ArcTan Jump" - This is the original model augmented with a resurgence modeled as a second ArcTan function. The results were acceptable but not as good as the exponential correction. 
