@@ -379,7 +379,8 @@ class DELPHIDataCreator:
         # Generation of the dataframe since today
         df_predictions_since_today_cont_country_prov = pd.DataFrame({
             "Policy": [policy for _ in range(n_days_since_today)],
-            "Time": [TIME_DICT[time] for _ in range(n_days_since_today)],
+            #"Time": [TIME_DICT[time] for _ in range(n_days_since_today)],
+            "Time": [time for _ in range(n_days_since_today)],
             "Continent": [self.continent for _ in range(n_days_since_today)],
             "Country": [self.country for _ in range(n_days_since_today)],
             "Province": [self.province for _ in range(n_days_since_today)],
@@ -399,7 +400,8 @@ class DELPHIDataCreator:
         ]
         df_predictions_since_100_cont_country_prov = pd.DataFrame({
             "Policy": [policy for _ in range(len(all_dates_since_100))],
-            "Time": [TIME_DICT[time] for _ in range(len(all_dates_since_100))],
+            #"Time": [TIME_DICT[time] for _ in range(len(all_dates_since_100))],
+            "Time": [time for _ in range(len(all_dates_since_100))],
             "Continent": [self.continent for _ in range(len(all_dates_since_100))],
             "Country": [self.country for _ in range(len(all_dates_since_100))],
             "Province": [self.province for _ in range(len(all_dates_since_100))],
@@ -771,7 +773,7 @@ def read_policy_data_us_only(filepath_data_sandbox: str):
         'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
         'West Virginia', 'Wisconsin', 'Wyoming'
     ]
-    df = pd.read_csv(filepath_data_sandbox + "12062020_raw_policy_data_us_only.csv")
+    df = pd.read_csv(filepath_data_sandbox + "12062020_raw_policy_data_US_only.csv")
     df = df[df.location_name.isin(list_US_states)][[
         "location_name", "travel_limit_start_date", "travel_limit_end_date",
         "stay_home_start_date", "stay_home_end_date", "educational_fac_start_date",

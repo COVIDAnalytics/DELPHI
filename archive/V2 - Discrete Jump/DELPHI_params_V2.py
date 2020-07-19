@@ -3,13 +3,13 @@ from datetime import datetime
 
 # Default parameters
 date_MATHEMATICA = "2020-05-07"  # Transition date from Mathematica to Python
-default_parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3] # Default parameters for the solver
+default_parameter_list = [1, 0, 2, 0.2, 0.05, 0.2, 3, 3] # Default parameters for the solver
 default_bounds_params = (
-                    (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0.1, 10), (0.1, 10)
+                    (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0, 0.5), (0.1, 10), (0.1, 10)
                 ) # Bounds for the solver
 validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
-max_iter = 1000  # Maximum number of iterations for the algorithm
+max_iter = 500  # Maximum number of iterations for the algorithm
 
 # Initial condition of exposed state and infected state
 IncubeD = 5
@@ -17,7 +17,7 @@ RecoverID = 10
 RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
-default_maxT = datetime(2021, 4, 1)  # Maximum timespan of prediction
+default_maxT = datetime(2020, 8, 15)  # Maximum timespan of prediction
 n_params_without_policy_params = 7  # alpha, r_dth, p_dth, a, b, k1, k2
 p_v = 0.25  # Percentage of ventilated
 p_d = 0.2  # Percentage of infection cases detected.
@@ -29,32 +29,11 @@ future_policies = [
     'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
     'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'
 ]
-default_maxT_policies = datetime(2021, 4, 1)  # Maximum timespan of prediction under different policy scenarios
+default_maxT_policies = datetime(2020, 9, 15)  # Maximum timespan of prediction under different policy scenarios
 future_times = [0, 7, 14, 28, 42]
 
 # Additional utils inputs
 TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
-DAYS_IN_WEEK = 7
-
-# Function to find year, week, days
-def translate_days(number_of_days):
-
-    # Assume that years is
-    # of 365 days
-    year = int(number_of_days / 365)
-    week = int((number_of_days % 365) /
-                DAYS_IN_WEEK)
-    days = (number_of_days % 365) % DAYS_IN_WEEK
-
-    if year + week + days > 0:
-        return((str(year) + ' Year' + ('s' if year != 1 else '') + (' and ' if week !=0 or days != 0 else '') if year != 0 else '') + (str(week) + ' Week' + ('s' if week != 1 else '') + (' and ' if days != 0 else '') if week != 0 else '') + (str(days) + ' Day' + ('s' if days != 1 else '') if days != 0 else ''))
-    else:
-        return('Now')
-
-# TIME_DICT = {i: translate_days(i) for i in range(400)}
-
-TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
-
 MAPPING_STATE_CODE_TO_STATE_NAME ={
     'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
     'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'DC': 'District of Columbia',
