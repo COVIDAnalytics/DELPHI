@@ -4,7 +4,7 @@ The repository contains code for a epidemiological model utilized in the researc
 
 http://www.covidanalytics.io/
 
-**Note: The model was significantly updated on 07/04 and on 07/18, we have updated both the code and the naming convention for our models on the master branch.**
+**Note: The model was significantly updated on July 4th on the website. On July 18th, we have updated both the code and the naming convention for our models on the master branch.**
 
 The root directory contains the main files for our newest model (Updated 0704). The latest model takes into account a resurgence in cases in different places using an exponential type correction. The model is named V3 and the main model file is in `DELPHI_model_V3.py`. The supporting files are `DELPHI_utils_V3.py` and  `DELPHI_params_V3.py`. The code is tested with Python 3.7. 
 
