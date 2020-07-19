@@ -14,9 +14,9 @@ The documentation for the newest model is at "documentation/DELPHI_Explainer_V3.
 
 Code created by Michael Lingzhi Li, Hamza Tazi Bouardi, and Omar Skali Lami.
 
-Please Cite the following when you are utilizing our results:
+Please cite our paper here if you utilize our results: https://www.medrxiv.org/content/10.1101/2020.06.23.20138693v1/.
 
-ML Li, H Tazi Bouardi, O Skali Lami, N Trichakis, T Trikalinos, D Bertsimas. Forecasting COVID-19 and Analyzing the Effect of Government Interventions. (2020) submitted for publication.
+APA Format: Li, M. L., Bouardi, H. T., Lami, O. S., Trikalinos, T. A., Trichakis, N. K., & Bertsimas, D. (2020). Forecasting COVID-19 and Analyzing the Effect of Government Interventions. medRxiv.
 
 ## FAQ
 
