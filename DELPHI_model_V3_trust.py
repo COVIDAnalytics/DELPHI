@@ -8,7 +8,7 @@ import multiprocessing as mp
 import time
 from functools import partial
 from tqdm import tqdm_notebook as tqdm
-from DELPHI_utils_V3 import (
+from DELPHI_utils_V3_trust import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
 from DELPHI_params_V3 import (
@@ -234,7 +234,7 @@ def solve_and_predict_area(
             output = minimize(
                 residuals_totalcases,
                 parameter_list,
-                method='tnc',  # Can't use Nelder-Mead if I want to put bounds on the params
+                method='trust-constr',  # Can't use Nelder-Mead if I want to put bounds on the params
                 bounds=bounds_params,
                 options={'maxiter': max_iter}
             )
@@ -358,6 +358,6 @@ if __name__ == "__main__":
         df_global_predictions_since_today=df_global_predictions_since_today,
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
     )
-    delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=True)
+    delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=False)
     print(f"Exported all 3 datasets to website & danger_map repositories, "+
           f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes")
