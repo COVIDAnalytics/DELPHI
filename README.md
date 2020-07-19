@@ -4,18 +4,11 @@ The repository contains code for a epidemiological model utilized in the researc
 
 http://www.covidanalytics.io/
 
-**Note: The model was significantly updated on 07/04 and on 07/18, we have updated both the code and the naming convention for our models on the master branch. **
+**Note: The model was significantly updated on 07/04 and on 07/18, we have updated both the code and the naming convention for our models on the master branch.**
 
 The root directory contains the main files for our newest model (Updated 0704). The latest model takes into account a resurgence in cases in different places using an exponential type correction. The model is named V3 and the main model file is in `DELPHI_model_V3.py`. The supporting files are `DELPHI_utils_V3.py` and  `DELPHI_params_V3.py`. The code is tested with Python 3.7. 
 
 The original model (originally codenamed "DELPHI V2.0") is now archived and renamed V1 under the folder `archive/V1 - No Jump`. Both the Mathematica version `COVID-19_MIT_ORC_training_script_global_V2.nb` and the python3 version  `DELPHI_model.py` are contained in this subfolder.
-
-The  `archive` subfolder also contains various other models that we attempted but did not find its performance satisfying. In total the archive includes:
-1. "Adaptive Policy Model" - This is a model that utilizes the current implemented policies to derive the resurgence continuously over time. Although the methodology is sound, the results were unfortunately not as appealing as the current model utilized on the website. 
-2. "V1 - No Jump" - This is the original model used for the website before 07/04. We provide two implementations: The Mathematica version `COVID-19_MIT_ORC_training_script_global_V2.nb` , and the python3 version `DELPHI_model.py`. The Mathematica notebook was written with Mathematica 12.1 but should work with any version greater than 10.0. The Python3 version is tested with Python 3.7. 
-3. "V2 - Discrete Jump" - This is the original model augmented with a resurgence modeled as a discrete step function.
-4. "V3 - Normal Jump + Trust Solver" - This is the same as the current model on the website, but uses a different solver that produces good results sometimes, but fails spectacularly on a lot of countries.
-5. "V4 - ArcTan Jump" - This is the original model augmented with a resurgence modeled as a second ArcTan function. The results were acceptable but not as good as the exponential correction. 
 
 The documentation for the newest model is at "documentation/DELPHI_Explainer_V3.pdf". The documentation for the original model on the website is at "documentation/DELPHI_Explainer.pdf".
 
@@ -24,6 +17,15 @@ Code created by Michael Lingzhi Li, Hamza Tazi Bouardi, and Omar Skali Lami.
 Please Cite the following when you are utilizing our results:
 
 ML Li, H Tazi Bouardi, O Skali Lami, N Trichakis, T Trikalinos, D Bertsimas. Forecasting COVID-19 and Analyzing the Effect of Government Interventions. (2020) submitted for publication.
+
+## Archived Models
+
+The  `archive` subfolder contains various other models that we attempted but did not find its performance satisfying. In total the archive includes:
+1. "Adaptive Policy Model" - This is a model that utilizes the current implemented policies to derive the resurgence continuously over time. Although the methodology is sound, the results were unfortunately not as appealing as the current model utilized on the website. 
+2. "V1 - No Jump" - This is the original model used for the website before 07/04. We provide two implementations: The Mathematica version `COVID-19_MIT_ORC_training_script_global_V2.nb` , and the python3 version `DELPHI_model.py`. The Mathematica notebook was written with Mathematica 12.1 but should work with any version greater than 10.0. The Python3 version is tested with Python 3.7. 
+3. "V2 - Discrete Jump" - This is the original model augmented with a resurgence modeled as a discrete step function.
+4. "V3 - Normal Jump + Trust Solver" - This is the same as the current model on the website, but uses a different solver that produces good results sometimes, but fails spectacularly on a lot of countries.
+5. "V4 - ArcTan Jump" - This is the original model augmented with a resurgence modeled as a second ArcTan function. The results were acceptable but not as good as the exponential correction. 
 
 ## V3 Instructions (Current Model)
 
