@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/policy_scenario_predictions/df_scenarios_provinces_j&amp;j_20200709.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/policy_scenario_predictions/df_scenarios_provinces_j&amp;j_20200709.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_sandbox/processed/Population_Global.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/processed/Population_Global.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -365,7 +366,42 @@
       <option name="project" value="LOCAL" />
       <updated>1594852768887</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_j_and_j_v2&#10;&#10;# Conflicts:&#10;#&#9;DELPHI_params_V3.py&#10;#&#9;__pycache__/DELPHI_params.cpython-37.pyc">
+      <created>1594924936461</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1594924936461</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Updating predictions with full file &amp; fixing bug with 3 US Cities">
+      <created>1595257381873</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1595257381873</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Updating predictions with smaller file">
+      <created>1595279805633</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1595279805633</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Updating predictions with smaller file">
+      <created>1595280196899</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1595280196899</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Pushing without the file (too heavy)">
+      <created>1595280256184</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1595280256184</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -383,10 +419,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="raw data file" />
-    <MESSAGE value="raw data file added" />
-    <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/DELPHI_utils_V6_NY_only.cpython-37.pyc&#10;#&#9;__pycache__/DELPHI_utils_v7_free_params_policies_US.cpython-37.pyc" />
-    <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements" />
     <MESSAGE value="New version with arctan working well and binary data for US" />
     <MESSAGE value="New version working perfectly fine !!!!!!" />
     <MESSAGE value="branch with the data updated 27/04/2020" />
@@ -408,7 +440,11 @@
     <MESSAGE value="Updated files for July 8 J&amp;J" />
     <MESSAGE value="Updated code ready to run - July 8 update with model V3 (Normal distribution for resurgence in cases/deaths)" />
     <MESSAGE value="Slight modifications on running dates &amp; user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Slight modifications on running dates &amp; user" />
+    <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_j_and_j_v2&#10;&#10;# Conflicts:&#10;#&#9;DELPHI_params_V3.py&#10;#&#9;__pycache__/DELPHI_params.cpython-37.pyc" />
+    <MESSAGE value="Updating predictions with full file &amp; fixing bug with 3 US Cities" />
+    <MESSAGE value="Updating predictions with smaller file" />
+    <MESSAGE value="Pushing without the file (too heavy)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pushing without the file (too heavy)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="322" y="55" key="CommitChangelistDialog2" />

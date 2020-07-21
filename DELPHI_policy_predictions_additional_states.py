@@ -25,7 +25,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "server"
-training_end_date = datetime(2020, 7, 16)
+training_end_date = datetime(2020, 7, 19)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
@@ -127,22 +127,16 @@ for continent, country, province in zip(
 
     if country_sub == "US":
         if province_sub not in [
-            'Birmingham_Hoover', 'Detroit_Warren_Dearborn',
-            'New_Haven_Milford', 'Los_Angeles_Long_Beach_Orange_County',
-            'Nashville_Davidson_Murfreesboro_Franklin',
-            'Washington_Arlington_Alexandria', 'Columbus', 'Cincinnati',
-            'Las Vegas_Henderson_Paradise', 'Cleveland_Elyria',
-            'San_Jose_Sunnyvale_Santa Clara', 'Baltimore_Columbia_Towson',
-            'Knoxville', 'Philadelphia_Camden_Wilmington', 'Pittsburgh',
-            'San_Diego_Chula_Vista_Carlsbad', 'Sioux_Falls', 'Minneapolis',
-            'Chicago_Naperville_Elgin', 'New_Orleans_Metairie', 'St._Louis',
-            'Mobile', 'Seattle_Tacoma_Bellevue',
-            'Atlanta_Sandy_Springs_Alpharetta', 'New_York_Newark_Jersey City',
-            'Omaha_Council_Bluffs', 'Boston_Cambridge_Newton', 'Rochester',
-            'Durham_Chapel_Hill', 'Orlando_Kissimmee_Sanford', 'Phoenix',
-            'Dallas_Fort_Worth_Arlington', 'Houston_The_Woodlands_Sugar_Land',
-            'Miami_Fort_Lauderdale_Pompano_Beach', 'Tucson',
-            'Austin_Round_Rock_Georgetown'
+             'Atlanta_Sandy_Springs_Alpharetta', 'Austin_Round_Rock_Georgetown', 'Baltimore_Columbia_Towson',
+             'Birmingham_Hoover', 'Boston_Cambridge_Newton', 'Chicago_Naperville_Elgin', 'Cincinnati',
+             'Cleveland_Elyria', 'Columbus', 'Dallas_Fort_Worth_Arlington', 'Detroit_Warren_Dearborn',
+             'Durham_Chapel_Hill', 'Houston_The_Woodlands_Sugar_Land', 'Knoxville', 'Las_Vegas_Henderson_Paradise',
+             'Los_Angeles_Long_Beach_Orange_County', 'Miami_Fort_Lauderdale_Pompano_Beach', 'Minneapolis',
+             'Mobile', 'Nashville_Davidson_Murfreesboro_Franklin', 'New_Haven_Milford', 'New_Orleans_Metairie',
+             'New_York_Newark_Jersey_City', 'Omaha_Council_Bluffs', 'Orlando_Kissimmee_Sanford',
+             'Philadelphia_Camden_Wilmington', 'Phoenix', 'Pittsburgh', 'Rochester',  'San_Diego_Chula_Vista_Carlsbad',
+             'San_Jose_Sunnyvale_Santa_Clara', 'Seattle_Tacoma_Bellevue', 'Sioux_Falls', 'St._Louis', 'Tucson',
+             'Washington_Arlington_Alexandria'
         ]:
             continue
     # if country_sub == "US":
@@ -228,7 +222,7 @@ for continent, country, province in zip(
                 'No_Measure', 'Restrict_Mass_Gatherings_and_Schools', 'Lockdown',
                 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others'
             ]:  # This is the list of policies generated, the possibilities are in DELPHI_params.py
-                for future_time in [0]:
+                for future_time in [0, 7, 14, 28, 42]:
                     # Only generate the policies with timing "Now", the possibilities are in DELPHI_params.py
                     def model_covid_predictions(
                             t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
