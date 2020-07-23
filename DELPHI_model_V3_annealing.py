@@ -60,8 +60,12 @@ def solve_and_predict_area(
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                param_list_lower = [x - max(0.2 * abs(x), 0.2) for x in parameter_list]
-                param_list_upper = [x + max(0.2 * abs(x), 0.2) for x in parameter_list]
+                param_list_lower = [x - max(0.5 * abs(x), 0.5) for x in parameter_list]
+                param_list_upper = [x + max(0.5 * abs(x), 0.5) for x in parameter_list]
+                param_list_lower[8] = 0
+                param_list_upper[8] = 5
+                param_list_lower[10] = 1
+                param_list_upper[10] = 20
                 bounds_params = [(lower, upper)
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
@@ -234,13 +238,14 @@ def solve_and_predict_area(
             # nlcons = NonlinearConstraint(last_point,
             #                              [fitcasesd[-1] * (1 - allowed_deviation_), fitcasesnd[-1] * (1 - allowed_deviation_) ],
             #                              [fitcasesd[-1] * (1 + allowed_deviation_), fitcasesnd[-1] * (1 + allowed_deviation_) ])
-            output = minimize(
-                residuals_totalcases,
-                parameter_list,
-                method="tnc",  # Can't use Nelder-Mead if I want to put bounds on the params
-                bounds=bounds_params,
-                options={'maxiter': max_iter}
-            )
+            output = dual_annealing(residuals_totalcases, x0 = parameter_list, bounds = bounds_params)
+#            output = minimize(
+#                residuals_totalcases,
+#                parameter_list,
+#                method=dual_annealing,  # Can't use Nelder-Mead if I want to put bounds on the params
+#                bounds=bounds_params,
+#                options={'maxiter': max_iter}
+#            )
             best_params = output.x
             t_predictions = [i for i in range(maxT)]
 
@@ -321,7 +326,7 @@ if __name__ == "__main__":
     n_cpu = 6
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-#    list_tuples = [x for x in list_tuples if x[1] == "US"][:10]
+    list_tuples = [x for x in list_tuples if x[1] == "Spain"]
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(
@@ -365,6 +370,6 @@ if __name__ == "__main__":
         df_global_predictions_since_today=df_global_predictions_since_today,
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
     )
-    delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=True)
+    delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
     print(f"Exported all 3 datasets to website & danger_map repositories, "+
           f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes")
