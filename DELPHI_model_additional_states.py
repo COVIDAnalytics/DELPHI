@@ -56,7 +56,8 @@ def solve_and_predict_area_additional_states(
     #     continue
     # if province_sub == "Michoacan" and country_sub == "Peru":
     #     continue
-    if country_sub not in ["US", "Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru"]:
+    #TODO russia is removed since there is no new data
+    if country_sub not in ["US", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
         return None
     elif country_sub == "US":
         if province_sub not in [
