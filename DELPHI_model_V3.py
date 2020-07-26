@@ -59,8 +59,8 @@ def solve_and_predict_area(
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                param_list_lower = [x - 0.1 * abs(x) for x in parameter_list]
-                param_list_upper = [x + 0.1 * abs(x) for x in parameter_list]
+                param_list_lower = [x -  max(0.2 * abs(x), 0.2) for x in parameter_list]
+                param_list_upper = [x +  max(0.2 * abs(x), 0.2) for x in parameter_list]
                 bounds_params = [(lower, upper)
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
