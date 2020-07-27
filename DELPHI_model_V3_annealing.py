@@ -60,23 +60,12 @@ def solve_and_predict_area(
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = parameter_list
-                parameter_list = (
-                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
-                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
-                )                
-                param_list_lower = [x - max(0.2 * abs(x), 0.2) for x in parameter_list]
-                alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
-                param_list_lower = [
-                    max(alpha_l, 0), days_l, max(r_s_l, 0), max(r_dth_l, 0), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
-                         max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 0)
-                ]
-                param_list_upper = [x +  max(0.2 * abs(x), 0.2) for x in parameter_list]
-                alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
-                param_list_upper = [
-                    max(alpha_u, 0), days_u, max(r_s_u, 0), max(r_dth_u, 0), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
-                         max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 0)
-                ]
+                param_list_lower = [x - max(0.5 * abs(x), 0.5) for x in parameter_list]
+                param_list_upper = [x + max(0.5 * abs(x), 0.5) for x in parameter_list]
+                param_list_lower[8] = 0
+                param_list_upper[8] = 5
+                param_list_lower[10] = 1
+                param_list_upper[10] = 20
                 bounds_params = [(lower, upper)
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
@@ -207,7 +196,7 @@ def solve_and_predict_area(
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = params
                 params = (
-                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(min(r_dthdecay, 1), 0),
                          max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
                 )
                 x_0_cases = get_initial_conditions(
@@ -229,9 +218,6 @@ def solve_and_predict_area(
                     np.multiply((x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2, weights[7:])
                     + balance * balance * np.multiply((x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2, weights[7:])
                     )
-#                residuals_value = sum(
-#                    np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
-#                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights))
                 return residuals_value
 
             # def last_point(params):
@@ -252,23 +238,19 @@ def solve_and_predict_area(
             # nlcons = NonlinearConstraint(last_point,
             #                              [fitcasesd[-1] * (1 - allowed_deviation_), fitcasesnd[-1] * (1 - allowed_deviation_) ],
             #                              [fitcasesd[-1] * (1 + allowed_deviation_), fitcasesnd[-1] * (1 + allowed_deviation_) ])
-            output = minimize(
-                residuals_totalcases,
-                parameter_list,
-                method="tnc",  # Can't use Nelder-Mead if I want to put bounds on the params
-                bounds=bounds_params,
-                options={'maxiter': max_iter}
-            )
+            output = dual_annealing(residuals_totalcases, x0 = parameter_list, bounds = bounds_params)
+#            output = minimize(
+#                residuals_totalcases,
+#                parameter_list,
+#                method=dual_annealing,  # Can't use Nelder-Mead if I want to put bounds on the params
+#                bounds=bounds_params,
+#                options={'maxiter': max_iter}
+#            )
             best_params = output.x
             t_predictions = [i for i in range(maxT)]
 
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = optimal_params
-                optimal_params = [
-                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
-                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
-                ]
                 x_0_cases = get_initial_conditions(
                     params_fitted=optimal_params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
@@ -344,7 +326,7 @@ if __name__ == "__main__":
     n_cpu = 6
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-#    list_tuples = [x for x in list_tuples if x[1] == "US"][:10]
+    list_tuples = [x for x in list_tuples if x[1] == "Spain"]
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(
@@ -388,6 +370,6 @@ if __name__ == "__main__":
         df_global_predictions_since_today=df_global_predictions_since_today,
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
     )
-    delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=True)
+    delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
     print(f"Exported all 3 datasets to website & danger_map repositories, "+
           f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes")
