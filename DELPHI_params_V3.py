@@ -43,7 +43,7 @@ default_maxT_policies = datetime(2020, 11, 15)  # Maximum timespan of prediction
 future_times = [0, 7, 14, 28, 42]
 
 # Additional utils inputs
-TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
+TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks", "(0, 28, 42)": "(0, 28, 42)"}
 MAPPING_STATE_CODE_TO_STATE_NAME ={
     'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
     'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'DC': 'District of Columbia',

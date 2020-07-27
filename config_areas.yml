@@ -1,0 +1,16 @@
+policies:
+  Brazil:
+    Acre:
+      policy_1: Mass_Gatherings_Authorized_But_Others_Restricted
+      time_1: 0
+      policy_2: No_Measure
+      time_2: 28
+      policy_3: Lockdown
+      time_3: 42
+    Alagoas:
+      policy_1:
+      time_1:
+      policy_2:
+      time_2:
+      policy_3:
+      time_3:

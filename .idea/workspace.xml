@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states_configurable.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config_areas.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/predicted/policy_scenario_predictions/df_scenarios_provinces_j&amp;j_20200709_configured.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/processed/Policy_Changes_J&amp;J.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_params_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_params_V3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_policy_predictions_additional_states.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/predicted/policy_scenario_predictions/df_scenarios_provinces_j&amp;j_20200709.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/predicted/policy_scenario_predictions/df_scenarios_provinces_j&amp;j_20200709.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sandbox/processed/Population_Global.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_sandbox/processed/Population_Global.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -401,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595280256184</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Pushing with update on file and bugfixes">
+      <created>1595303181004</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1595303181005</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -419,7 +430,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="New version with arctan working well and binary data for US" />
     <MESSAGE value="New version working perfectly fine !!!!!!" />
     <MESSAGE value="branch with the data updated 27/04/2020" />
     <MESSAGE value="consistent folder naming" />
@@ -444,7 +454,8 @@
     <MESSAGE value="Updating predictions with full file &amp; fixing bug with 3 US Cities" />
     <MESSAGE value="Updating predictions with smaller file" />
     <MESSAGE value="Pushing without the file (too heavy)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pushing without the file (too heavy)" />
+    <MESSAGE value="Pushing with update on file and bugfixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pushing with update on file and bugfixes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="322" y="55" key="CommitChangelistDialog2" />

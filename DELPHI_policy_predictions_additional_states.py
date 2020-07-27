@@ -25,7 +25,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "ali"
-training_end_date = datetime(2020, 7, 21)
+training_end_date = datetime(2020, 7, 9)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
@@ -88,20 +88,24 @@ dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
 )
 dict_current_policy_international = dict_current_policy_countries.copy()
 dict_current_policy_international.update(dict_current_policy_us_only)
-dict_normalized_policy_gamma_us_only = {'No_Measure': 1.0,
- 'Restrict_Mass_Gatherings': 0.873,
- 'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
- 'Restrict_Mass_Gatherings_and_Schools': 0.479,
- 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
- 'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
- 'Lockdown': 0.239}
-dict_normalized_policy_gamma_countries = {'No_Measure': 1.0,
- 'Restrict_Mass_Gatherings': 0.873,
- 'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
- 'Restrict_Mass_Gatherings_and_Schools': 0.479,
- 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
- 'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
- 'Lockdown': 0.239}
+dict_normalized_policy_gamma_us_only = {
+    'No_Measure': 1.0,
+    'Restrict_Mass_Gatherings': 0.873,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
+    'Restrict_Mass_Gatherings_and_Schools': 0.479,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
+    'Lockdown': 0.239,
+}
+dict_normalized_policy_gamma_countries = {
+    'No_Measure': 1.0,
+    'Restrict_Mass_Gatherings': 0.873,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
+    'Restrict_Mass_Gatherings_and_Schools': 0.479,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
+    'Lockdown': 0.239,
+}
 
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today_scenarios = []
