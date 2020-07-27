@@ -60,8 +60,23 @@ def solve_and_predict_area(
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = parameter_list
+                parameter_list = (
+                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
+                )                
                 param_list_lower = [x - max(0.2 * abs(x), 0.2) for x in parameter_list]
-                param_list_upper = [x + max(0.2 * abs(x), 0.2) for x in parameter_list]
+                alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
+                param_list_lower = [
+                    max(alpha_l, 0), days_l, max(r_s_l, 0), max(r_dth_l, 0), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
+                         max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 0)
+                ]
+                param_list_upper = [x +  max(0.2 * abs(x), 0.2) for x in parameter_list]
+                alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
+                param_list_upper = [
+                    max(alpha_u, 0), days_u, max(r_s_u, 0), max(r_dth_u, 0), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
+                         max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 0)
+                ]
                 bounds_params = [(lower, upper)
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
@@ -192,7 +207,7 @@ def solve_and_predict_area(
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = params
                 params = (
-                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(min(r_dthdecay, 1), 0),
+                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
                          max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
                 )
                 x_0_cases = get_initial_conditions(
@@ -214,6 +229,9 @@ def solve_and_predict_area(
                     np.multiply((x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2, weights[7:])
                     + balance * balance * np.multiply((x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2, weights[7:])
                     )
+#                residuals_value = sum(
+#                    np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
+#                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights))
                 return residuals_value
 
             # def last_point(params):
@@ -246,6 +264,11 @@ def solve_and_predict_area(
 
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = optimal_params
+                optimal_params = [
+                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
+                ]
                 x_0_cases = get_initial_conditions(
                     params_fitted=optimal_params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
