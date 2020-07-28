@@ -25,8 +25,8 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "server"
-training_start_date = datetime(2020, 7, 9)
-training_end_date = datetime(2020, 7, 21)
+training_start_date = datetime(2020, 7, 21)
+training_end_date = datetime(2020, 7, 26)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_train = (training_last_date - training_start_date).days
