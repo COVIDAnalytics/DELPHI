@@ -24,8 +24,8 @@ import matplotlib.pyplot as plt
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "hamza"
-training_end_date = datetime(2020, 7, 9)
+USER_RUNNING = "ali"
+training_end_date = datetime(2020, 7, 26)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
