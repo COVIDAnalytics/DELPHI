@@ -3,13 +3,23 @@ from datetime import datetime
 
 # Default parameters
 date_MATHEMATICA = "2020-05-07"  # Transition date from Mathematica to Python
-default_parameter_list = [1, 0, 2, 0.2, 0.05, 0.2, 3, 3, 0.1, 3, 1] # Default parameters for the solver
-default_bounds_params = (
-                    (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0, 0.5), (0.1, 10), (0.1, 10),(0,5), (0,7),(0.1,5)
-                ) # Bounds for the solver
+
+
+def get_default_parameter_list_and_bounds(validcases: list):
+    default_parameter_list = [
+        1, 0, 2, 0.2, 0.05, 0.2, 3, 3, 0.1, (len(validcases) - 1) - 10, 1
+    ]  # Default parameters for the solver
+    default_bounds_params = [
+        (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25),
+        (0, 0.5), (0.1, 10), (0.1, 10), (0, 5), (0, len(validcases) - 1), (0.1, 5)
+    ]  # Bounds for the solver
+    return default_parameter_list, default_bounds_params
+
+
 validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
 max_iter = 500  # Maximum number of iterations for the algorithm
+n_cpu_default = 16  # Default number of CPUs used
 
 # Initial condition of exposed state and infected state
 IncubeD = 5
@@ -17,7 +27,7 @@ RecoverID = 10
 RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
-default_maxT = datetime(2020, 9, 15)  # Maximum timespan of prediction
+default_maxT = datetime(2020, 11, 15)  # Maximum timespan of prediction
 n_params_without_policy_params = 7  # alpha, r_dth, p_dth, a, b, k1, k2
 p_v = 0.25  # Percentage of ventilated
 p_d = 0.2  # Percentage of infection cases detected.
@@ -29,11 +39,11 @@ future_policies = [
     'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
     'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'
 ]
-default_maxT_policies = datetime(2020, 9, 15)  # Maximum timespan of prediction under different policy scenarios
+default_maxT_policies = datetime(2020, 11, 15)  # Maximum timespan of prediction under different policy scenarios
 future_times = [0, 7, 14, 28, 42]
 
 # Additional utils inputs
-TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
+TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks", "(0, 28, 42)": "(0, 28, 42)"}
 MAPPING_STATE_CODE_TO_STATE_NAME ={
     'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California',
     'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'DC': 'District of Columbia',

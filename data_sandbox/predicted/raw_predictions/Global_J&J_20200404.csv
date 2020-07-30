@@ -1,0 +1,2746 @@
+Continent,Country,Province,Day,Total Detected,Active,Active Hospitalized,Cumulative Hospitalized,Total Detected Deaths,Active Ventilated
+Africa,South Africa,Gauteng,2020-03-20,109,109,16,16,0,4
+Africa,South Africa,Gauteng,2020-03-21,124,117,18,19,0,4
+Africa,South Africa,Gauteng,2020-03-22,154,139,21,23,0,5
+Africa,South Africa,Gauteng,2020-03-23,194,169,26,29,0,6
+Africa,South Africa,Gauteng,2020-03-24,240,202,32,36,0,8
+Africa,South Africa,Gauteng,2020-03-25,289,237,38,43,0,9
+Africa,South Africa,Gauteng,2020-03-26,339,270,43,51,0,10
+Africa,South Africa,Gauteng,2020-03-27,390,302,49,58,0,11
+Africa,South Africa,Gauteng,2020-03-28,440,331,54,66,1,12
+Africa,South Africa,Gauteng,2020-03-29,488,358,59,73,1,13
+Africa,South Africa,Gauteng,2020-03-30,535,381,63,80,1,14
+Africa,South Africa,Gauteng,2020-03-31,581,400,67,87,1,15
+Africa,South Africa,Gauteng,2020-04-01,624,417,70,94,1,15
+Africa,South Africa,Gauteng,2020-04-02,664,430,73,100,1,16
+Africa,South Africa,Gauteng,2020-04-03,703,440,75,105,1,16
+Africa,South Africa,Gauteng,2020-04-04,739,447,77,111,2,16
+Africa,South Africa,Gauteng,2020-04-05,772,451,78,116,2,16
+Africa,South Africa,Gauteng,2020-04-06,804,453,79,121,2,16
+Africa,South Africa,Gauteng,2020-04-07,833,453,80,125,2,16
+Africa,South Africa,Gauteng,2020-04-08,860,450,80,129,2,16
+Africa,South Africa,Gauteng,2020-04-09,885,446,81,133,3,16
+Africa,South Africa,Gauteng,2020-04-10,908,441,80,136,3,16
+Africa,South Africa,Gauteng,2020-04-11,929,433,80,139,3,16
+Africa,South Africa,Gauteng,2020-04-12,948,425,79,142,3,15
+Africa,South Africa,Gauteng,2020-04-13,966,415,78,145,3,15
+Africa,South Africa,Gauteng,2020-04-14,982,405,77,147,3,14
+Africa,South Africa,Gauteng,2020-04-15,997,394,76,150,4,14
+Africa,South Africa,Gauteng,2020-04-16,1011,383,74,152,4,14
+Africa,South Africa,Gauteng,2020-04-17,1023,371,73,153,4,13
+Africa,South Africa,Gauteng,2020-04-18,1034,358,71,155,4,13
+Africa,South Africa,Gauteng,2020-04-19,1044,346,69,157,4,12
+Africa,South Africa,Gauteng,2020-04-20,1053,333,67,158,5,12
+Africa,South Africa,Gauteng,2020-04-21,1062,320,66,159,5,11
+Africa,South Africa,Gauteng,2020-04-22,1069,308,64,160,5,11
+Africa,South Africa,Gauteng,2020-04-23,1076,295,62,161,5,10
+Africa,South Africa,Gauteng,2020-04-24,1082,283,60,162,5,10
+Africa,South Africa,Gauteng,2020-04-25,1088,271,58,163,5,9
+Africa,South Africa,Gauteng,2020-04-26,1093,259,56,164,5,9
+Africa,South Africa,Gauteng,2020-04-27,1097,247,54,165,6,9
+Africa,South Africa,Gauteng,2020-04-28,1101,236,53,165,6,8
+Africa,South Africa,Gauteng,2020-04-29,1105,225,51,166,6,8
+Africa,South Africa,Gauteng,2020-04-30,1108,214,49,166,6,7
+Africa,South Africa,Gauteng,2020-05-01,1111,204,47,167,6,7
+Africa,South Africa,Gauteng,2020-05-02,1114,194,45,167,6,7
+Africa,South Africa,Gauteng,2020-05-03,1116,184,44,167,6,6
+Africa,South Africa,Gauteng,2020-05-04,1118,175,42,168,6,6
+Africa,South Africa,Gauteng,2020-05-05,1120,166,40,168,7,6
+Africa,South Africa,Gauteng,2020-05-06,1122,157,39,168,7,5
+Africa,South Africa,Gauteng,2020-05-07,1123,149,37,168,7,5
+Africa,South Africa,Gauteng,2020-05-08,1125,141,36,169,7,5
+Africa,South Africa,Gauteng,2020-05-09,1126,134,34,169,7,4
+Africa,South Africa,Gauteng,2020-05-10,1127,127,33,169,7,4
+Africa,South Africa,Gauteng,2020-05-11,1128,120,32,169,7,4
+Africa,South Africa,Gauteng,2020-05-12,1129,114,30,169,7,4
+Africa,South Africa,Gauteng,2020-05-13,1130,107,29,169,7,3
+Africa,South Africa,Gauteng,2020-05-14,1130,102,28,170,7,3
+Africa,South Africa,Gauteng,2020-05-15,1131,96,27,170,7,3
+Africa,South Africa,Gauteng,2020-05-16,1131,91,26,170,7,3
+Africa,South Africa,Gauteng,2020-05-17,1132,86,24,170,8,3
+Africa,South Africa,Gauteng,2020-05-18,1132,81,23,170,8,3
+Africa,South Africa,Gauteng,2020-05-19,1133,77,22,170,8,2
+Africa,South Africa,Gauteng,2020-05-20,1133,72,21,170,8,2
+Africa,South Africa,Gauteng,2020-05-21,1133,68,21,170,8,2
+Africa,South Africa,Gauteng,2020-05-22,1134,64,20,170,8,2
+Africa,South Africa,Gauteng,2020-05-23,1134,61,19,170,8,2
+Africa,South Africa,Gauteng,2020-05-24,1134,57,18,170,8,2
+Africa,South Africa,Gauteng,2020-05-25,1134,54,17,170,8,2
+Africa,South Africa,Gauteng,2020-05-26,1134,51,16,170,8,2
+Africa,South Africa,Gauteng,2020-05-27,1135,48,16,170,8,1
+Africa,South Africa,Gauteng,2020-05-28,1135,45,15,170,8,1
+Africa,South Africa,Gauteng,2020-05-29,1135,43,14,170,8,1
+Africa,South Africa,Gauteng,2020-05-30,1135,40,14,170,8,1
+Africa,South Africa,Gauteng,2020-05-31,1135,38,13,170,8,1
+Africa,South Africa,Gauteng,2020-06-01,1135,36,13,170,8,1
+Africa,South Africa,Gauteng,2020-06-02,1135,34,12,170,8,1
+Africa,South Africa,Gauteng,2020-06-03,1135,32,11,170,8,1
+Africa,South Africa,Gauteng,2020-06-04,1135,30,11,170,8,1
+Africa,South Africa,Gauteng,2020-06-05,1135,28,10,170,8,1
+Africa,South Africa,Gauteng,2020-06-06,1135,27,10,170,8,1
+Africa,South Africa,Gauteng,2020-06-07,1136,25,10,170,8,1
+Africa,South Africa,Gauteng,2020-06-08,1136,24,9,170,9,1
+Africa,South Africa,Gauteng,2020-06-09,1136,23,9,170,9,1
+Africa,South Africa,Gauteng,2020-06-10,1136,21,8,170,9,1
+Africa,South Africa,Gauteng,2020-06-11,1136,20,8,170,9,1
+Africa,South Africa,Gauteng,2020-06-12,1136,19,8,170,9,0
+Africa,South Africa,Gauteng,2020-06-13,1136,18,7,170,9,0
+Africa,South Africa,Gauteng,2020-06-14,1136,17,7,170,9,0
+Africa,South Africa,Gauteng,2020-06-15,1136,16,7,170,9,0
+Africa,South Africa,KwaZulu Natal,2020-03-26,134,134,20,20,0,5
+Africa,South Africa,KwaZulu Natal,2020-03-27,139,131,20,21,0,5
+Africa,South Africa,KwaZulu Natal,2020-03-28,147,130,20,22,0,5
+Africa,South Africa,KwaZulu Natal,2020-03-29,157,131,21,23,0,5
+Africa,South Africa,KwaZulu Natal,2020-03-30,167,133,21,25,1,5
+Africa,South Africa,KwaZulu Natal,2020-03-31,179,136,22,27,1,5
+Africa,South Africa,KwaZulu Natal,2020-04-01,191,139,23,29,1,5
+Africa,South Africa,KwaZulu Natal,2020-04-02,204,143,24,31,1,5
+Africa,South Africa,KwaZulu Natal,2020-04-03,217,147,25,33,1,5
+Africa,South Africa,KwaZulu Natal,2020-04-04,231,150,25,35,1,6
+Africa,South Africa,KwaZulu Natal,2020-04-05,245,154,26,37,2,6
+Africa,South Africa,KwaZulu Natal,2020-04-06,258,157,27,39,2,6
+Africa,South Africa,KwaZulu Natal,2020-04-07,272,161,28,41,2,6
+Africa,South Africa,KwaZulu Natal,2020-04-08,285,163,29,43,2,6
+Africa,South Africa,KwaZulu Natal,2020-04-09,298,166,29,45,2,6
+Africa,South Africa,KwaZulu Natal,2020-04-10,311,167,30,47,3,6
+Africa,South Africa,KwaZulu Natal,2020-04-11,323,169,30,48,3,6
+Africa,South Africa,KwaZulu Natal,2020-04-12,335,170,30,50,3,6
+Africa,South Africa,KwaZulu Natal,2020-04-13,346,170,31,52,3,6
+Africa,South Africa,KwaZulu Natal,2020-04-14,357,170,31,54,3,6
+Africa,South Africa,KwaZulu Natal,2020-04-15,368,170,31,55,4,6
+Africa,South Africa,KwaZulu Natal,2020-04-16,378,168,31,57,4,6
+Africa,South Africa,KwaZulu Natal,2020-04-17,387,167,31,58,4,6
+Africa,South Africa,KwaZulu Natal,2020-04-18,396,165,31,59,4,6
+Africa,South Africa,KwaZulu Natal,2020-04-19,405,163,31,61,4,6
+Africa,South Africa,KwaZulu Natal,2020-04-20,413,161,31,62,5,6
+Africa,South Africa,KwaZulu Natal,2020-04-21,420,158,30,63,5,6
+Africa,South Africa,KwaZulu Natal,2020-04-22,427,155,30,64,5,5
+Africa,South Africa,KwaZulu Natal,2020-04-23,434,151,30,65,5,5
+Africa,South Africa,KwaZulu Natal,2020-04-24,440,148,29,66,5,5
+Africa,South Africa,KwaZulu Natal,2020-04-25,445,144,29,67,5,5
+Africa,South Africa,KwaZulu Natal,2020-04-26,451,140,28,68,6,5
+Africa,South Africa,KwaZulu Natal,2020-04-27,456,136,28,68,6,5
+Africa,South Africa,KwaZulu Natal,2020-04-28,460,132,27,69,6,5
+Africa,South Africa,KwaZulu Natal,2020-04-29,464,128,26,70,6,4
+Africa,South Africa,KwaZulu Natal,2020-04-30,468,124,26,70,6,4
+Africa,South Africa,KwaZulu Natal,2020-05-01,472,119,25,71,6,4
+Africa,South Africa,KwaZulu Natal,2020-05-02,475,115,24,71,7,4
+Africa,South Africa,KwaZulu Natal,2020-05-03,478,111,24,72,7,4
+Africa,South Africa,KwaZulu Natal,2020-05-04,481,107,23,72,7,4
+Africa,South Africa,KwaZulu Natal,2020-05-05,484,103,22,73,7,4
+Africa,South Africa,KwaZulu Natal,2020-05-06,486,99,22,73,7,3
+Africa,South Africa,KwaZulu Natal,2020-05-07,488,95,21,73,7,3
+Africa,South Africa,KwaZulu Natal,2020-05-08,490,91,20,74,7,3
+Africa,South Africa,KwaZulu Natal,2020-05-09,492,87,20,74,7,3
+Africa,South Africa,KwaZulu Natal,2020-05-10,494,83,19,74,8,3
+Africa,South Africa,KwaZulu Natal,2020-05-11,495,79,18,74,8,3
+Africa,South Africa,KwaZulu Natal,2020-05-12,496,76,18,74,8,3
+Africa,South Africa,KwaZulu Natal,2020-05-13,498,72,17,75,8,2
+Africa,South Africa,KwaZulu Natal,2020-05-14,499,69,17,75,8,2
+Africa,South Africa,KwaZulu Natal,2020-05-15,500,66,16,75,8,2
+Africa,South Africa,KwaZulu Natal,2020-05-16,501,63,15,75,8,2
+Africa,South Africa,KwaZulu Natal,2020-05-17,502,60,15,75,8,2
+Africa,South Africa,KwaZulu Natal,2020-05-18,503,57,14,75,8,2
+Africa,South Africa,KwaZulu Natal,2020-05-19,503,54,14,75,8,2
+Africa,South Africa,KwaZulu Natal,2020-05-20,504,51,13,76,8,2
+Africa,South Africa,KwaZulu Natal,2020-05-21,504,49,13,76,8,2
+Africa,South Africa,KwaZulu Natal,2020-05-22,505,46,12,76,8,1
+Africa,South Africa,KwaZulu Natal,2020-05-23,505,44,12,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-05-24,506,42,11,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-05-25,506,39,11,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-05-26,507,37,10,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-05-27,507,35,10,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-05-28,507,34,10,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-05-29,508,32,9,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-05-30,508,30,9,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-05-31,508,28,8,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-06-01,508,27,8,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-06-02,508,25,8,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-06-03,508,24,7,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-06-04,509,23,7,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-06-05,509,21,7,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-06-06,509,20,6,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-06-07,509,19,6,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-06-08,509,18,6,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-06-09,509,17,6,76,9,1
+Africa,South Africa,KwaZulu Natal,2020-06-10,509,16,5,76,9,0
+Africa,South Africa,KwaZulu Natal,2020-06-11,509,15,5,76,9,0
+Africa,South Africa,KwaZulu Natal,2020-06-12,509,14,5,76,9,0
+Africa,South Africa,KwaZulu Natal,2020-06-13,509,14,5,76,9,0
+Africa,South Africa,KwaZulu Natal,2020-06-14,509,13,5,76,9,0
+Africa,South Africa,KwaZulu Natal,2020-06-15,509,12,4,76,9,0
+Africa,South Africa,None,2020-03-20,109,109,16,16,0,4
+Africa,South Africa,None,2020-03-21,124,117,18,19,0,4
+Africa,South Africa,None,2020-03-22,154,139,21,23,0,5
+Africa,South Africa,None,2020-03-23,194,169,26,29,0,6
+Africa,South Africa,None,2020-03-24,353,315,49,53,0,12
+Africa,South Africa,None,2020-03-25,430,370,58,64,0,14
+Africa,South Africa,None,2020-03-26,644,558,87,97,0,21
+Africa,South Africa,None,2020-03-27,731,607,96,109,0,22
+Africa,South Africa,None,2020-03-28,819,653,104,123,1,24
+Africa,South Africa,None,2020-03-29,907,697,113,135,1,26
+Africa,South Africa,None,2020-03-30,992,737,120,149,2,27
+Africa,South Africa,None,2020-03-31,1078,771,127,162,3,29
+Africa,South Africa,None,2020-04-01,1159,802,134,175,3,29
+Africa,South Africa,None,2020-04-02,1237,827,139,186,3,30
+Africa,South Africa,None,2020-04-03,1312,848,144,197,3,31
+Africa,South Africa,None,2020-04-04,1384,863,147,208,4,32
+Africa,South Africa,None,2020-04-05,1451,874,150,218,5,32
+Africa,South Africa,None,2020-04-06,1516,881,153,228,5,32
+Africa,South Africa,None,2020-04-07,1576,885,155,237,6,32
+Africa,South Africa,None,2020-04-08,1633,883,157,245,6,32
+Africa,South Africa,None,2020-04-09,1686,880,158,254,7,32
+Africa,South Africa,None,2020-04-10,1737,873,158,261,8,32
+Africa,South Africa,None,2020-04-11,1783,863,157,267,8,31
+Africa,South Africa,None,2020-04-12,1826,851,156,273,8,30
+Africa,South Africa,None,2020-04-13,1866,836,156,280,8,30
+Africa,South Africa,None,2020-04-14,1903,820,154,286,9,29
+Africa,South Africa,None,2020-04-15,1938,803,152,291,11,29
+Africa,South Africa,None,2020-04-16,1971,783,149,296,11,28
+Africa,South Africa,None,2020-04-17,2000,763,148,299,11,27
+Africa,South Africa,None,2020-04-18,2027,741,145,303,11,27
+Africa,South Africa,None,2020-04-19,2052,719,142,308,11,25
+Africa,South Africa,None,2020-04-20,2075,697,139,311,13,25
+Africa,South Africa,None,2020-04-21,2096,674,136,314,14,24
+Africa,South Africa,None,2020-04-22,2115,651,133,317,14,23
+Africa,South Africa,None,2020-04-23,2134,627,129,320,14,21
+Africa,South Africa,None,2020-04-24,2150,604,125,322,14,21
+Africa,South Africa,None,2020-04-25,2164,581,122,325,14,20
+Africa,South Africa,None,2020-04-26,2178,558,118,327,15,20
+Africa,South Africa,None,2020-04-27,2190,535,115,329,16,19
+Africa,South Africa,None,2020-04-28,2201,513,112,330,16,18
+Africa,South Africa,None,2020-04-29,2211,492,108,332,17,17
+Africa,South Africa,None,2020-04-30,2221,470,105,333,17,16
+Africa,South Africa,None,2020-05-01,2230,449,101,335,17,15
+Africa,South Africa,None,2020-05-02,2237,429,97,335,18,15
+Africa,South Africa,None,2020-05-03,2244,409,95,336,18,14
+Africa,South Africa,None,2020-05-04,2250,390,91,338,18,14
+Africa,South Africa,None,2020-05-05,2257,372,87,339,19,13
+Africa,South Africa,None,2020-05-06,2262,354,85,339,19,11
+Africa,South Africa,None,2020-05-07,2266,337,81,339,19,11
+Africa,South Africa,None,2020-05-08,2271,320,78,341,19,11
+Africa,South Africa,None,2020-05-09,2275,304,75,341,19,10
+Africa,South Africa,None,2020-05-10,2278,289,72,342,21,10
+Africa,South Africa,None,2020-05-11,2281,274,69,342,21,9
+Africa,South Africa,None,2020-05-12,2284,261,67,342,21,9
+Africa,South Africa,None,2020-05-13,2287,246,64,343,21,7
+Africa,South Africa,None,2020-05-14,2289,235,62,344,21,7
+Africa,South Africa,None,2020-05-15,2291,222,59,344,21,7
+Africa,South Africa,None,2020-05-16,2292,211,57,344,21,7
+Africa,South Africa,None,2020-05-17,2295,200,54,344,22,7
+Africa,South Africa,None,2020-05-18,2296,189,51,344,22,7
+Africa,South Africa,None,2020-05-19,2297,179,50,344,22,6
+Africa,South Africa,None,2020-05-20,2299,168,47,345,22,5
+Africa,South Africa,None,2020-05-21,2299,160,47,345,22,5
+Africa,South Africa,None,2020-05-22,2301,151,44,345,22,4
+Africa,South Africa,None,2020-05-23,2301,143,43,345,23,4
+Africa,South Africa,None,2020-05-24,2302,135,40,345,23,4
+Africa,South Africa,None,2020-05-25,2302,127,39,345,23,4
+Africa,South Africa,None,2020-05-26,2304,120,36,345,23,4
+Africa,South Africa,None,2020-05-27,2305,113,36,345,23,3
+Africa,South Africa,None,2020-05-28,2305,108,34,345,23,3
+Africa,South Africa,None,2020-05-29,2306,102,32,345,24,3
+Africa,South Africa,None,2020-05-30,2306,96,32,345,24,3
+Africa,South Africa,None,2020-05-31,2306,90,29,345,24,3
+Africa,South Africa,None,2020-06-01,2306,86,29,345,24,3
+Africa,South Africa,None,2020-06-02,2306,80,27,345,24,3
+Africa,South Africa,None,2020-06-03,2306,76,25,345,24,3
+Africa,South Africa,None,2020-06-04,2307,72,25,345,24,3
+Africa,South Africa,None,2020-06-05,2307,67,23,345,24,3
+Africa,South Africa,None,2020-06-06,2307,64,22,345,24,2
+Africa,South Africa,None,2020-06-07,2308,60,22,346,24,2
+Africa,South Africa,None,2020-06-08,2308,57,21,346,25,2
+Africa,South Africa,None,2020-06-09,2308,54,20,346,25,2
+Africa,South Africa,None,2020-06-10,2308,50,18,346,25,1
+Africa,South Africa,None,2020-06-11,2308,48,18,346,25,1
+Africa,South Africa,None,2020-06-12,2308,45,18,346,25,0
+Africa,South Africa,None,2020-06-13,2308,43,17,346,25,0
+Africa,South Africa,None,2020-06-14,2308,41,16,346,25,0
+Africa,South Africa,None,2020-06-15,2309,38,15,346,25,0
+Africa,South Africa,Western Cape,2020-03-24,113,113,17,17,0,4
+Africa,South Africa,Western Cape,2020-03-25,141,133,20,21,0,5
+Africa,South Africa,Western Cape,2020-03-26,171,154,24,26,0,6
+Africa,South Africa,Western Cape,2020-03-27,202,174,27,30,0,6
+Africa,South Africa,Western Cape,2020-03-28,232,192,30,35,0,7
+Africa,South Africa,Western Cape,2020-03-29,262,208,33,39,0,8
+Africa,South Africa,Western Cape,2020-03-30,290,223,36,44,0,8
+Africa,South Africa,Western Cape,2020-03-31,318,235,38,48,1,9
+Africa,South Africa,Western Cape,2020-04-01,344,246,41,52,1,9
+Africa,South Africa,Western Cape,2020-04-02,369,254,42,55,1,9
+Africa,South Africa,Western Cape,2020-04-03,392,261,44,59,1,10
+Africa,South Africa,Western Cape,2020-04-04,414,266,45,62,1,10
+Africa,South Africa,Western Cape,2020-04-05,434,269,46,65,1,10
+Africa,South Africa,Western Cape,2020-04-06,454,271,47,68,1,10
+Africa,South Africa,Western Cape,2020-04-07,471,271,47,71,2,10
+Africa,South Africa,Western Cape,2020-04-08,488,270,48,73,2,10
+Africa,South Africa,Western Cape,2020-04-09,503,268,48,76,2,10
+Africa,South Africa,Western Cape,2020-04-10,518,265,48,78,2,10
+Africa,South Africa,Western Cape,2020-04-11,531,261,47,80,2,9
+Africa,South Africa,Western Cape,2020-04-12,543,256,47,81,2,9
+Africa,South Africa,Western Cape,2020-04-13,554,251,47,83,2,9
+Africa,South Africa,Western Cape,2020-04-14,564,245,46,85,3,9
+Africa,South Africa,Western Cape,2020-04-15,573,239,45,86,3,9
+Africa,South Africa,Western Cape,2020-04-16,582,232,44,87,3,8
+Africa,South Africa,Western Cape,2020-04-17,590,225,44,88,3,8
+Africa,South Africa,Western Cape,2020-04-18,597,218,43,89,3,8
+Africa,South Africa,Western Cape,2020-04-19,603,210,42,90,3,7
+Africa,South Africa,Western Cape,2020-04-20,609,203,41,91,3,7
+Africa,South Africa,Western Cape,2020-04-21,614,196,40,92,4,7
+Africa,South Africa,Western Cape,2020-04-22,619,188,39,93,4,7
+Africa,South Africa,Western Cape,2020-04-23,624,181,37,94,4,6
+Africa,South Africa,Western Cape,2020-04-24,628,173,36,94,4,6
+Africa,South Africa,Western Cape,2020-04-25,631,166,35,95,4,6
+Africa,South Africa,Western Cape,2020-04-26,634,159,34,95,4,6
+Africa,South Africa,Western Cape,2020-04-27,637,152,33,96,4,5
+Africa,South Africa,Western Cape,2020-04-28,640,145,32,96,4,5
+Africa,South Africa,Western Cape,2020-04-29,642,139,31,96,5,5
+Africa,South Africa,Western Cape,2020-04-30,645,132,30,97,5,5
+Africa,South Africa,Western Cape,2020-05-01,647,126,29,97,5,4
+Africa,South Africa,Western Cape,2020-05-02,648,120,28,97,5,4
+Africa,South Africa,Western Cape,2020-05-03,650,114,27,97,5,4
+Africa,South Africa,Western Cape,2020-05-04,651,108,26,98,5,4
+Africa,South Africa,Western Cape,2020-05-05,653,103,25,98,5,3
+Africa,South Africa,Western Cape,2020-05-06,654,98,24,98,5,3
+Africa,South Africa,Western Cape,2020-05-07,655,93,23,98,5,3
+Africa,South Africa,Western Cape,2020-05-08,656,88,22,98,5,3
+Africa,South Africa,Western Cape,2020-05-09,657,83,21,98,5,3
+Africa,South Africa,Western Cape,2020-05-10,657,79,20,99,6,3
+Africa,South Africa,Western Cape,2020-05-11,658,75,19,99,6,2
+Africa,South Africa,Western Cape,2020-05-12,659,71,19,99,6,2
+Africa,South Africa,Western Cape,2020-05-13,659,67,18,99,6,2
+Africa,South Africa,Western Cape,2020-05-14,660,64,17,99,6,2
+Africa,South Africa,Western Cape,2020-05-15,660,60,16,99,6,2
+Africa,South Africa,Western Cape,2020-05-16,660,57,16,99,6,2
+Africa,South Africa,Western Cape,2020-05-17,661,54,15,99,6,2
+Africa,South Africa,Western Cape,2020-05-18,661,51,14,99,6,2
+Africa,South Africa,Western Cape,2020-05-19,661,48,14,99,6,2
+Africa,South Africa,Western Cape,2020-05-20,662,45,13,99,6,1
+Africa,South Africa,Western Cape,2020-05-21,662,43,13,99,6,1
+Africa,South Africa,Western Cape,2020-05-22,662,41,12,99,6,1
+Africa,South Africa,Western Cape,2020-05-23,662,38,12,99,6,1
+Africa,South Africa,Western Cape,2020-05-24,662,36,11,99,6,1
+Africa,South Africa,Western Cape,2020-05-25,662,34,11,99,6,1
+Africa,South Africa,Western Cape,2020-05-26,663,32,10,99,6,1
+Africa,South Africa,Western Cape,2020-05-27,663,30,10,99,6,1
+Africa,South Africa,Western Cape,2020-05-28,663,29,9,99,6,1
+Africa,South Africa,Western Cape,2020-05-29,663,27,9,99,7,1
+Africa,South Africa,Western Cape,2020-05-30,663,26,9,99,7,1
+Africa,South Africa,Western Cape,2020-05-31,663,24,8,99,7,1
+Africa,South Africa,Western Cape,2020-06-01,663,23,8,99,7,1
+Africa,South Africa,Western Cape,2020-06-02,663,21,7,99,7,1
+Africa,South Africa,Western Cape,2020-06-03,663,20,7,99,7,1
+Africa,South Africa,Western Cape,2020-06-04,663,19,7,99,7,1
+Africa,South Africa,Western Cape,2020-06-05,663,18,6,99,7,1
+Africa,South Africa,Western Cape,2020-06-06,663,17,6,99,7,0
+Africa,South Africa,Western Cape,2020-06-07,663,16,6,100,7,0
+Africa,South Africa,Western Cape,2020-06-08,663,15,6,100,7,0
+Africa,South Africa,Western Cape,2020-06-09,663,14,5,100,7,0
+Africa,South Africa,Western Cape,2020-06-10,663,13,5,100,7,0
+Africa,South Africa,Western Cape,2020-06-11,663,13,5,100,7,0
+Africa,South Africa,Western Cape,2020-06-12,663,12,5,100,7,0
+Africa,South Africa,Western Cape,2020-06-13,663,11,5,100,7,0
+Africa,South Africa,Western Cape,2020-06-14,663,11,4,100,7,0
+Africa,South Africa,Western Cape,2020-06-15,664,10,4,100,7,0
+Asia,Russia,Moscow,2020-03-22,191,191,29,29,0,7
+Asia,Russia,Moscow,2020-03-23,253,239,36,38,0,9
+Asia,Russia,Moscow,2020-03-24,329,298,46,49,1,11
+Asia,Russia,Moscow,2020-03-25,422,369,58,63,2,14
+Asia,Russia,Moscow,2020-03-26,536,457,72,80,3,17
+Asia,Russia,Moscow,2020-03-27,676,563,89,101,4,21
+Asia,Russia,Moscow,2020-03-28,845,692,110,127,5,26
+Asia,Russia,Moscow,2020-03-29,1051,848,135,158,7,31
+Asia,Russia,Moscow,2020-03-30,1299,1035,165,195,9,38
+Asia,Russia,Moscow,2020-03-31,1595,1257,201,239,11,47
+Asia,Russia,Moscow,2020-04-01,1947,1519,244,292,14,56
+Asia,Russia,Moscow,2020-04-02,2364,1829,294,355,17,68
+Asia,Russia,Moscow,2020-04-03,2856,2191,353,428,22,81
+Asia,Russia,Moscow,2020-04-04,3429,2609,421,514,27,97
+Asia,Russia,Moscow,2020-04-05,4093,3089,499,614,33,114
+Asia,Russia,Moscow,2020-04-06,4860,3639,589,729,40,135
+Asia,Russia,Moscow,2020-04-07,5743,4267,692,862,49,158
+Asia,Russia,Moscow,2020-04-08,6748,4974,808,1012,59,184
+Asia,Russia,Moscow,2020-04-09,7883,5761,938,1182,70,213
+Asia,Russia,Moscow,2020-04-10,9158,6636,1083,1374,84,245
+Asia,Russia,Moscow,2020-04-11,10589,7607,1244,1588,99,281
+Asia,Russia,Moscow,2020-04-12,12181,8674,1421,1827,117,320
+Asia,Russia,Moscow,2020-04-13,13936,9832,1614,2090,137,363
+Asia,Russia,Moscow,2020-04-14,15860,11080,1823,2379,160,408
+Asia,Russia,Moscow,2020-04-15,17964,12424,2049,2695,185,458
+Asia,Russia,Moscow,2020-04-16,20255,13867,2293,3038,214,511
+Asia,Russia,Moscow,2020-04-17,22731,15399,2552,3410,246,567
+Asia,Russia,Moscow,2020-04-18,25387,17008,2826,3808,282,626
+Asia,Russia,Moscow,2020-04-19,28222,18691,3114,4233,321,687
+Asia,Russia,Moscow,2020-04-20,31242,20447,3416,4686,365,751
+Asia,Russia,Moscow,2020-04-21,34450,22277,3732,5167,412,818
+Asia,Russia,Moscow,2020-04-22,37833,24163,4060,5675,464,887
+Asia,Russia,Moscow,2020-04-23,41378,26087,4396,6207,520,957
+Asia,Russia,Moscow,2020-04-24,45077,28040,4740,6762,580,1028
+Asia,Russia,Moscow,2020-04-25,48928,30018,5090,7339,645,1100
+Asia,Russia,Moscow,2020-04-26,52930,32020,5447,7940,715,1172
+Asia,Russia,Moscow,2020-04-27,57070,34032,5808,8561,790,1245
+Asia,Russia,Moscow,2020-04-28,61327,36033,6170,9199,869,1318
+Asia,Russia,Moscow,2020-04-29,65686,38007,6530,9853,953,1389
+Asia,Russia,Moscow,2020-04-30,70136,39945,6887,10520,1042,1458
+Asia,Russia,Moscow,2020-05-01,74669,41843,7240,11200,1136,1527
+Asia,Russia,Moscow,2020-05-02,79282,43702,7589,11892,1234,1593
+Asia,Russia,Moscow,2020-05-03,83956,45506,7932,12593,1337,1658
+Asia,Russia,Moscow,2020-05-04,88671,47238,8265,13301,1444,1719
+Asia,Russia,Moscow,2020-05-05,93411,48887,8586,14012,1556,1778
+Asia,Russia,Moscow,2020-05-06,98164,50445,8895,14725,1671,1833
+Asia,Russia,Moscow,2020-05-07,102918,51908,9190,15438,1791,1885
+Asia,Russia,Moscow,2020-05-08,107668,53277,9471,16150,1915,1933
+Asia,Russia,Moscow,2020-05-09,112405,54550,9737,16861,2042,1977
+Asia,Russia,Moscow,2020-05-10,117111,55715,9987,17567,2172,2017
+Asia,Russia,Moscow,2020-05-11,121774,56766,10219,18266,2306,2054
+Asia,Russia,Moscow,2020-05-12,126385,57704,10433,18958,2443,2085
+Asia,Russia,Moscow,2020-05-13,130935,58525,10629,19640,2582,2113
+Asia,Russia,Moscow,2020-05-14,135415,59229,10805,20312,2724,2136
+Asia,Russia,Moscow,2020-05-15,139818,59816,10962,20973,2868,2155
+Asia,Russia,Moscow,2020-05-16,144136,60286,11100,21620,3014,2170
+Asia,Russia,Moscow,2020-05-17,148361,60637,11218,22254,3161,2180
+Asia,Russia,Moscow,2020-05-18,152487,60872,11316,22873,3310,2186
+Asia,Russia,Moscow,2020-05-19,156514,60997,11395,23477,3460,2188
+Asia,Russia,Moscow,2020-05-20,160438,61018,11455,24066,3611,2187
+Asia,Russia,Moscow,2020-05-21,164255,60935,11497,24638,3763,2181
+Asia,Russia,Moscow,2020-05-22,167959,60751,11521,25194,3915,2172
+Asia,Russia,Moscow,2020-05-23,171543,60461,11525,25731,4067,2159
+Asia,Russia,Moscow,2020-05-24,175005,60073,11512,26251,4219,2142
+Asia,Russia,Moscow,2020-05-25,178351,59597,11482,26753,4371,2123
+Asia,Russia,Moscow,2020-05-26,181583,59043,11437,27237,4522,2100
+Asia,Russia,Moscow,2020-05-27,184700,58415,11377,27705,4673,2075
+Asia,Russia,Moscow,2020-05-28,187700,57714,11303,28155,4822,2048
+Asia,Russia,Moscow,2020-05-29,190578,56939,11214,28587,4971,2017
+Asia,Russia,Moscow,2020-05-30,193329,56090,11111,28999,5118,1984
+Asia,Russia,Moscow,2020-05-31,195964,55181,10994,29395,5264,1949
+Asia,Russia,Moscow,2020-06-01,198490,54224,10868,29773,5408,1913
+Asia,Russia,Moscow,2020-06-02,200912,53230,10732,30137,5551,1875
+Asia,Russia,Moscow,2020-06-03,203233,52201,10587,30485,5691,1836
+Asia,Russia,Moscow,2020-06-04,205449,51137,10434,30817,5829,1796
+Asia,Russia,Moscow,2020-06-05,207555,50034,10271,31133,5966,1754
+Asia,Russia,Moscow,2020-06-06,209545,48885,10099,31432,6100,1711
+Asia,Russia,Moscow,2020-06-07,211430,47707,9919,31715,6232,1667
+Asia,Russia,Moscow,2020-06-08,213225,46513,9733,31984,6361,1623
+Asia,Russia,Moscow,2020-06-09,214935,45315,9544,32240,6488,1578
+Asia,Russia,Moscow,2020-06-10,216564,44115,9352,32485,6612,1534
+Asia,Russia,Moscow,2020-06-11,218112,42912,9156,32717,6734,1489
+Asia,Russia,Moscow,2020-06-12,219573,41701,8957,32936,6853,1445
+Asia,Russia,Moscow,2020-06-13,220942,40474,8753,33141,6969,1399
+Asia,Russia,Moscow,2020-06-14,222230,39244,8546,33334,7083,1354
+Asia,Russia,Moscow,2020-06-15,223448,38024,8339,33517,7194,1310
+Asia,Russia,Moscow,2020-06-16,224601,36817,8131,33690,7302,1266
+Asia,Russia,Moscow,2020-06-17,225691,35626,7923,33854,7407,1222
+Asia,Russia,Moscow,2020-06-18,226719,34449,7716,34008,7510,1179
+Asia,Russia,Moscow,2020-06-19,227682,33282,7509,34152,7610,1137
+Asia,Russia,Moscow,2020-06-20,228582,32126,7301,34287,7707,1095
+Asia,Russia,Moscow,2020-06-21,229427,30989,7095,34414,7802,1054
+Asia,Russia,Moscow,2020-06-22,230223,29873,6891,34533,7893,1014
+Asia,Russia,Moscow,2020-06-23,230971,28782,6689,34646,7982,975
+Asia,Russia,Moscow,2020-06-24,231673,27714,6490,34751,8069,936
+Asia,Russia,Moscow,2020-06-25,232330,26669,6293,34849,8152,899
+Asia,Russia,Moscow,2020-06-26,232942,25644,6099,34941,8234,862
+Asia,Russia,Moscow,2020-06-27,233513,24643,5907,35027,8312,827
+Asia,Russia,Moscow,2020-06-28,234048,23669,5718,35107,8388,792
+Asia,Russia,Moscow,2020-06-29,234548,22722,5533,35182,8462,758
+Asia,Russia,Moscow,2020-06-30,235017,21802,5352,35252,8533,726
+Asia,Russia,Moscow,2020-07-01,235454,20910,5174,35318,8602,694
+Asia,Russia,Moscow,2020-07-02,235861,20042,5000,35379,8668,664
+Asia,Russia,Moscow,2020-07-03,236239,19199,4829,35436,8733,634
+Asia,Russia,Moscow,2020-07-04,236589,18382,4663,35488,8795,605
+Asia,Russia,Moscow,2020-07-05,236916,17593,4500,35537,8854,578
+Asia,Russia,Moscow,2020-07-06,237221,16830,4341,35583,8912,551
+Asia,Russia,Moscow,2020-07-07,237505,16095,4187,35626,8968,525
+Asia,Russia,Moscow,2020-07-08,237770,15386,4036,35666,9021,501
+Asia,Russia,Moscow,2020-07-09,238016,14702,3890,35702,9073,477
+Asia,Russia,Moscow,2020-07-10,238242,14041,3747,35736,9123,454
+Asia,Russia,Moscow,2020-07-11,238451,13404,3609,35768,9171,432
+Asia,Russia,Moscow,2020-07-12,238646,12791,3474,35797,9217,411
+Asia,Russia,Moscow,2020-07-13,238827,12203,3344,35824,9261,391
+Asia,Russia,Moscow,2020-07-14,238994,11637,3217,35849,9304,371
+Asia,Russia,Moscow,2020-07-15,239149,11094,3095,35872,9345,353
+North America,Mexico,Ciudad de Mexico,2020-03-27,107,77,12,12,5,3
+North America,Mexico,Ciudad de Mexico,2020-03-28,144,108,16,17,6,4
+North America,Mexico,Ciudad de Mexico,2020-03-29,175,132,20,22,7,5
+North America,Mexico,Ciudad de Mexico,2020-03-30,207,155,24,27,8,6
+North America,Mexico,Ciudad de Mexico,2020-03-31,243,180,28,32,9,7
+North America,Mexico,Ciudad de Mexico,2020-04-01,285,209,33,38,11,8
+North America,Mexico,Ciudad de Mexico,2020-04-02,334,244,39,46,12,9
+North America,Mexico,Ciudad de Mexico,2020-04-03,393,287,46,54,14,11
+North America,Mexico,Ciudad de Mexico,2020-04-04,463,337,54,65,17,12
+North America,Mexico,Ciudad de Mexico,2020-04-05,546,397,64,77,20,15
+North America,Mexico,Ciudad de Mexico,2020-04-06,645,469,75,92,23,17
+North America,Mexico,Ciudad de Mexico,2020-04-07,761,553,89,110,27,20
+North America,Mexico,Ciudad de Mexico,2020-04-08,896,650,105,130,32,24
+North America,Mexico,Ciudad de Mexico,2020-04-09,1054,763,123,154,38,28
+North America,Mexico,Ciudad de Mexico,2020-04-10,1236,893,144,181,44,33
+North America,Mexico,Ciudad de Mexico,2020-04-11,1446,1042,168,212,52,39
+North America,Mexico,Ciudad de Mexico,2020-04-12,1684,1209,195,248,61,45
+North America,Mexico,Ciudad de Mexico,2020-04-13,1954,1398,226,289,71,52
+North America,Mexico,Ciudad de Mexico,2020-04-14,2260,1609,261,335,83,59
+North America,Mexico,Ciudad de Mexico,2020-04-15,2604,1844,299,386,97,68
+North America,Mexico,Ciudad de Mexico,2020-04-16,2988,2103,342,444,113,78
+North America,Mexico,Ciudad de Mexico,2020-04-17,3412,2386,388,507,131,88
+North America,Mexico,Ciudad de Mexico,2020-04-18,3879,2694,439,577,151,99
+North America,Mexico,Ciudad de Mexico,2020-04-19,4394,3028,494,655,174,112
+North America,Mexico,Ciudad de Mexico,2020-04-20,4956,3389,554,739,200,125
+North America,Mexico,Ciudad de Mexico,2020-04-21,5566,3773,618,830,229,139
+North America,Mexico,Ciudad de Mexico,2020-04-22,6223,4179,686,929,261,154
+North America,Mexico,Ciudad de Mexico,2020-04-23,6929,4608,758,1035,296,170
+North America,Mexico,Ciudad de Mexico,2020-04-24,7686,5062,835,1148,335,186
+North America,Mexico,Ciudad de Mexico,2020-04-25,8494,5536,915,1270,378,204
+North America,Mexico,Ciudad de Mexico,2020-04-26,9348,6027,999,1398,425,222
+North America,Mexico,Ciudad de Mexico,2020-04-27,10249,6533,1085,1533,476,240
+North America,Mexico,Ciudad de Mexico,2020-04-28,11195,7051,1174,1675,532,259
+North America,Mexico,Ciudad de Mexico,2020-04-29,12188,7584,1266,1824,591,279
+North America,Mexico,Ciudad de Mexico,2020-04-30,13225,8128,1360,1979,656,299
+North America,Mexico,Ciudad de Mexico,2020-05-01,14302,8677,1456,2141,725,319
+North America,Mexico,Ciudad de Mexico,2020-05-02,15414,9227,1552,2308,798,339
+North America,Mexico,Ciudad de Mexico,2020-05-03,16561,9776,1649,2480,877,359
+North America,Mexico,Ciudad de Mexico,2020-05-04,17739,10324,1747,2656,960,378
+North America,Mexico,Ciudad de Mexico,2020-05-05,18950,10869,1844,2838,1047,398
+North America,Mexico,Ciudad de Mexico,2020-05-06,20188,11409,1942,3024,1140,418
+North America,Mexico,Ciudad de Mexico,2020-05-07,21448,11936,2038,3213,1237,437
+North America,Mexico,Ciudad de Mexico,2020-05-08,22726,12449,2132,3404,1338,455
+North America,Mexico,Ciudad de Mexico,2020-05-09,24018,12945,2224,3598,1444,473
+North America,Mexico,Ciudad de Mexico,2020-05-10,25322,13422,2313,3794,1555,490
+North America,Mexico,Ciudad de Mexico,2020-05-11,26638,13882,2400,3991,1670,507
+North America,Mexico,Ciudad de Mexico,2020-05-12,27961,14322,2485,4190,1788,522
+North America,Mexico,Ciudad de Mexico,2020-05-13,29287,14738,2565,4389,1911,537
+North America,Mexico,Ciudad de Mexico,2020-05-14,30611,15127,2642,4587,2037,551
+North America,Mexico,Ciudad de Mexico,2020-05-15,31930,15488,2715,4785,2167,564
+North America,Mexico,Ciudad de Mexico,2020-05-16,33242,15820,2783,4982,2300,575
+North America,Mexico,Ciudad de Mexico,2020-05-17,34544,16123,2847,5177,2437,586
+North America,Mexico,Ciudad de Mexico,2020-05-18,35834,16397,2906,5371,2576,595
+North America,Mexico,Ciudad de Mexico,2020-05-19,37112,16641,2960,5562,2718,604
+North America,Mexico,Ciudad de Mexico,2020-05-20,38371,16854,3009,5751,2862,611
+North America,Mexico,Ciudad de Mexico,2020-05-21,39612,17036,3054,5937,3008,617
+North America,Mexico,Ciudad de Mexico,2020-05-22,40831,17187,3093,6120,3156,622
+North America,Mexico,Ciudad de Mexico,2020-05-23,42028,17308,3127,6300,3306,626
+North America,Mexico,Ciudad de Mexico,2020-05-24,43202,17399,3156,6476,3457,628
+North America,Mexico,Ciudad de Mexico,2020-05-25,44349,17460,3180,6648,3609,630
+North America,Mexico,Ciudad de Mexico,2020-05-26,45469,17491,3199,6816,3763,631
+North America,Mexico,Ciudad de Mexico,2020-05-27,46559,17492,3213,6979,3916,630
+North America,Mexico,Ciudad de Mexico,2020-05-28,47618,17462,3221,7138,4071,628
+North America,Mexico,Ciudad de Mexico,2020-05-29,48647,17405,3225,7293,4225,626
+North America,Mexico,Ciudad de Mexico,2020-05-30,49646,17324,3224,7442,4379,622
+North America,Mexico,Ciudad de Mexico,2020-05-31,50616,17220,3219,7588,4533,618
+North America,Mexico,Ciudad de Mexico,2020-06-01,51556,17093,3209,7729,4686,613
+North America,Mexico,Ciudad de Mexico,2020-06-02,52463,16943,3196,7865,4839,607
+North America,Mexico,Ciudad de Mexico,2020-06-03,53335,16769,3178,7996,4991,600
+North America,Mexico,Ciudad de Mexico,2020-06-04,54174,16573,3155,8122,5141,592
+North America,Mexico,Ciudad de Mexico,2020-06-05,54983,16360,3130,8243,5291,584
+North America,Mexico,Ciudad de Mexico,2020-06-06,55761,16131,3101,8360,5439,575
+North America,Mexico,Ciudad de Mexico,2020-06-07,56510,15888,3069,8472,5585,566
+North America,Mexico,Ciudad de Mexico,2020-06-08,57229,15631,3034,8580,5729,556
+North America,Mexico,Ciudad de Mexico,2020-06-09,57916,15359,2996,8683,5872,545
+North America,Mexico,Ciudad de Mexico,2020-06-10,58571,15072,2955,8781,6012,535
+North America,Mexico,Ciudad de Mexico,2020-06-11,59196,14774,2912,8875,6151,523
+North America,Mexico,Ciudad de Mexico,2020-06-12,59794,14468,2866,8965,6287,512
+North America,Mexico,Ciudad de Mexico,2020-06-13,60365,14156,2819,9050,6421,500
+North America,Mexico,Ciudad de Mexico,2020-06-14,60912,13839,2771,9132,6552,488
+North America,Mexico,Ciudad de Mexico,2020-06-15,61433,13516,2721,9210,6681,476
+North America,Mexico,Ciudad de Mexico,2020-06-16,61927,13187,2669,9284,6807,464
+North America,Mexico,Ciudad de Mexico,2020-06-17,62393,12851,2615,9354,6931,452
+North America,Mexico,Ciudad de Mexico,2020-06-18,62834,12512,2560,9421,7052,439
+North America,Mexico,Ciudad de Mexico,2020-06-19,63254,12171,2505,9484,7170,426
+North America,Mexico,Ciudad de Mexico,2020-06-20,63653,11833,2449,9544,7285,414
+North America,Mexico,Ciudad de Mexico,2020-06-21,64033,11495,2393,9600,7398,402
+North America,Mexico,Ciudad de Mexico,2020-06-22,64392,11160,2336,9654,7508,389
+North America,Mexico,Ciudad de Mexico,2020-06-23,64731,10824,2279,9705,7615,377
+North America,Mexico,Ciudad de Mexico,2020-06-24,65048,10487,2222,9753,7719,365
+North America,Mexico,Ciudad de Mexico,2020-06-25,65347,10154,2164,9798,7820,352
+North America,Mexico,Ciudad de Mexico,2020-06-26,65630,9825,2107,9840,7919,341
+North America,Mexico,Ciudad de Mexico,2020-06-27,65897,9500,2050,9880,8015,329
+North America,Mexico,Ciudad de Mexico,2020-06-28,66150,9182,1993,9918,8108,317
+North America,Mexico,Ciudad de Mexico,2020-06-29,66387,8868,1937,9954,8198,306
+North America,Mexico,Ciudad de Mexico,2020-06-30,66609,8559,1881,9987,8286,295
+North America,Mexico,Ciudad de Mexico,2020-07-01,66817,8253,1826,10018,8371,284
+North America,Mexico,Ciudad de Mexico,2020-07-02,67013,7954,1771,10047,8453,273
+North America,Mexico,Ciudad de Mexico,2020-07-03,67196,7662,1717,10075,8532,262
+North America,Mexico,Ciudad de Mexico,2020-07-04,67369,7377,1664,10101,8609,252
+North America,Mexico,Ciudad de Mexico,2020-07-05,67531,7099,1612,10125,8684,242
+North America,Mexico,Ciudad de Mexico,2020-07-06,67682,6828,1560,10148,8756,232
+North America,Mexico,Ciudad de Mexico,2020-07-07,67823,6562,1510,10169,8825,223
+North America,Mexico,Ciudad de Mexico,2020-07-08,67955,6304,1460,10189,8893,214
+North America,Mexico,Ciudad de Mexico,2020-07-09,68078,6052,1411,10207,8957,205
+North America,Mexico,Ciudad de Mexico,2020-07-10,68193,5808,1364,10225,9020,196
+North America,Mexico,Ciudad de Mexico,2020-07-11,68301,5572,1317,10241,9080,188
+North America,Mexico,Ciudad de Mexico,2020-07-12,68402,5343,1272,10256,9138,180
+North America,Mexico,Ciudad de Mexico,2020-07-13,68496,5121,1228,10270,9194,172
+North America,Mexico,Ciudad de Mexico,2020-07-14,68583,4906,1184,10283,9248,164
+North America,Mexico,Ciudad de Mexico,2020-07-15,68664,4697,1142,10295,9300,157
+North America,US,Chicago Metropolitan,2020-03-17,147,141,21,21,1,5
+North America,US,Chicago Metropolitan,2020-03-18,199,183,28,29,2,7
+North America,US,Chicago Metropolitan,2020-03-19,291,261,40,43,3,10
+North America,US,Chicago Metropolitan,2020-03-20,421,371,57,62,4,14
+North America,US,Chicago Metropolitan,2020-03-21,593,515,80,88,6,19
+North America,US,Chicago Metropolitan,2020-03-22,812,696,109,121,9,26
+North America,US,Chicago Metropolitan,2020-03-23,1085,919,144,162,13,34
+North America,US,Chicago Metropolitan,2020-03-24,1418,1185,186,212,18,44
+North America,US,Chicago Metropolitan,2020-03-25,1816,1499,236,272,25,56
+North America,US,Chicago Metropolitan,2020-03-26,2285,1862,294,342,33,69
+North America,US,Chicago Metropolitan,2020-03-27,2825,2272,360,423,43,84
+North America,US,Chicago Metropolitan,2020-03-28,3436,2725,434,514,55,101
+North America,US,Chicago Metropolitan,2020-03-29,4119,3221,515,617,70,119
+North America,US,Chicago Metropolitan,2020-03-30,4872,3754,602,730,87,139
+North America,US,Chicago Metropolitan,2020-03-31,5689,4317,695,853,107,160
+North America,US,Chicago Metropolitan,2020-04-01,6565,4902,792,984,130,181
+North America,US,Chicago Metropolitan,2020-04-02,7495,5504,893,1123,157,203
+North America,US,Chicago Metropolitan,2020-04-03,8473,6116,996,1270,186,226
+North America,US,Chicago Metropolitan,2020-04-04,9491,6730,1101,1423,219,248
+North America,US,Chicago Metropolitan,2020-04-05,10541,7337,1205,1580,254,271
+North America,US,Chicago Metropolitan,2020-04-06,11616,7932,1309,1742,294,292
+North America,US,Chicago Metropolitan,2020-04-07,12711,8510,1410,1906,336,313
+North America,US,Chicago Metropolitan,2020-04-08,13816,9062,1509,2072,382,333
+North America,US,Chicago Metropolitan,2020-04-09,14927,9587,1604,2238,430,352
+North America,US,Chicago Metropolitan,2020-04-10,16039,10081,1695,2405,482,370
+North America,US,Chicago Metropolitan,2020-04-11,17147,10542,1782,2571,536,386
+North America,US,Chicago Metropolitan,2020-04-12,18245,10966,1863,2736,593,402
+North America,US,Chicago Metropolitan,2020-04-13,19325,11348,1937,2898,652,415
+North America,US,Chicago Metropolitan,2020-04-14,20381,11682,2005,3056,714,427
+North America,US,Chicago Metropolitan,2020-04-15,21412,11972,2066,3211,778,437
+North America,US,Chicago Metropolitan,2020-04-16,22418,12221,2121,3362,844,446
+North America,US,Chicago Metropolitan,2020-04-17,23397,12429,2169,3509,911,453
+North America,US,Chicago Metropolitan,2020-04-18,24347,12598,2211,3651,980,458
+North America,US,Chicago Metropolitan,2020-04-19,25262,12724,2246,3788,1050,462
+North America,US,Chicago Metropolitan,2020-04-20,26139,12804,2274,3920,1121,465
+North America,US,Chicago Metropolitan,2020-04-21,26980,12845,2295,4046,1193,465
+North America,US,Chicago Metropolitan,2020-04-22,27786,12850,2310,4167,1266,465
+North America,US,Chicago Metropolitan,2020-04-23,28557,12822,2319,4283,1339,463
+North America,US,Chicago Metropolitan,2020-04-24,29294,12763,2323,4393,1412,461
+North America,US,Chicago Metropolitan,2020-04-25,29994,12673,2322,4498,1486,457
+North America,US,Chicago Metropolitan,2020-04-26,30655,12551,2314,4597,1559,452
+North America,US,Chicago Metropolitan,2020-04-27,31280,12401,2302,4691,1632,446
+North America,US,Chicago Metropolitan,2020-04-28,31871,12228,2285,4780,1705,439
+North America,US,Chicago Metropolitan,2020-04-29,32431,12037,2265,4864,1778,431
+North America,US,Chicago Metropolitan,2020-04-30,32959,11827,2241,4943,1849,423
+North America,US,Chicago Metropolitan,2020-05-01,33457,11600,2213,5018,1920,414
+North America,US,Chicago Metropolitan,2020-05-02,33921,11356,2182,5087,1990,405
+North America,US,Chicago Metropolitan,2020-05-03,34355,11096,2147,5152,2059,395
+North America,US,Chicago Metropolitan,2020-05-04,34762,10827,2111,5213,2127,385
+North America,US,Chicago Metropolitan,2020-05-05,35143,10549,2072,5271,2194,374
+North America,US,Chicago Metropolitan,2020-05-06,35500,10266,2031,5324,2260,363
+North America,US,Chicago Metropolitan,2020-05-07,35833,9977,1989,5374,2324,352
+North America,US,Chicago Metropolitan,2020-05-08,36143,9684,1945,5421,2388,341
+North America,US,Chicago Metropolitan,2020-05-09,36429,9385,1900,5464,2449,330
+North America,US,Chicago Metropolitan,2020-05-10,36695,9085,1853,5503,2510,319
+North America,US,Chicago Metropolitan,2020-05-11,36942,8785,1806,5540,2569,308
+North America,US,Chicago Metropolitan,2020-05-12,37172,8487,1759,5575,2626,297
+North America,US,Chicago Metropolitan,2020-05-13,37386,8191,1711,5607,2682,286
+North America,US,Chicago Metropolitan,2020-05-14,37584,7898,1664,5637,2737,275
+North America,US,Chicago Metropolitan,2020-05-15,37765,7608,1616,5664,2790,264
+North America,US,Chicago Metropolitan,2020-05-16,37933,7321,1568,5689,2842,254
+North America,US,Chicago Metropolitan,2020-05-17,38087,7038,1520,5712,2892,243
+North America,US,Chicago Metropolitan,2020-05-18,38229,6762,1472,5734,2941,233
+North America,US,Chicago Metropolitan,2020-05-19,38361,6492,1426,5753,2988,224
+North America,US,Chicago Metropolitan,2020-05-20,38483,6229,1380,5772,3034,214
+North America,US,Chicago Metropolitan,2020-05-21,38595,5972,1334,5788,3078,205
+North America,US,Chicago Metropolitan,2020-05-22,38697,5721,1289,5804,3121,196
+North America,US,Chicago Metropolitan,2020-05-23,38790,5477,1245,5818,3163,187
+North America,US,Chicago Metropolitan,2020-05-24,38876,5240,1202,5830,3203,178
+North America,US,Chicago Metropolitan,2020-05-25,38954,5010,1159,5842,3242,170
+North America,US,Chicago Metropolitan,2020-05-26,39027,4789,1118,5853,3279,162
+North America,US,Chicago Metropolitan,2020-05-27,39094,4575,1077,5863,3316,154
+North America,US,Chicago Metropolitan,2020-05-28,39154,4368,1038,5872,3351,147
+North America,US,Chicago Metropolitan,2020-05-29,39209,4168,999,5881,3384,140
+North America,US,Chicago Metropolitan,2020-05-30,39260,3975,962,5888,3417,133
+North America,US,Chicago Metropolitan,2020-05-31,39306,3790,926,5895,3448,126
+North America,US,Chicago Metropolitan,2020-06-01,39348,3612,890,5901,3479,120
+North America,US,Chicago Metropolitan,2020-06-02,39386,3441,856,5907,3508,114
+North America,US,Chicago Metropolitan,2020-06-03,39422,3277,823,5912,3536,108
+North America,US,Chicago Metropolitan,2020-06-04,39454,3120,790,5917,3563,103
+North America,US,Chicago Metropolitan,2020-06-05,39483,2969,759,5921,3589,98
+North America,US,Chicago Metropolitan,2020-06-06,39509,2825,729,5925,3614,92
+North America,US,Chicago Metropolitan,2020-06-07,39533,2686,700,5929,3638,88
+North America,US,Chicago Metropolitan,2020-06-08,39555,2554,672,5932,3661,83
+North America,US,Chicago Metropolitan,2020-06-09,39575,2428,644,5935,3683,79
+North America,US,Chicago Metropolitan,2020-06-10,39593,2308,618,5938,3705,75
+North America,US,Chicago Metropolitan,2020-06-11,39609,2193,593,5940,3725,71
+North America,US,Chicago Metropolitan,2020-06-12,39624,2083,568,5943,3745,67
+North America,US,Chicago Metropolitan,2020-06-13,39638,1978,545,5945,3764,63
+North America,US,Chicago Metropolitan,2020-06-14,39650,1878,522,5947,3782,60
+North America,US,Chicago Metropolitan,2020-06-15,39661,1783,500,5948,3800,57
+North America,US,Detroit Metropolitan,2020-03-19,279,261,39,39,3,10
+North America,US,Detroit Metropolitan,2020-03-20,379,342,52,54,6,13
+North America,US,Detroit Metropolitan,2020-03-21,555,493,75,81,10,18
+North America,US,Detroit Metropolitan,2020-03-22,796,697,107,117,16,26
+North America,US,Detroit Metropolitan,2020-03-23,1100,949,147,162,24,35
+North America,US,Detroit Metropolitan,2020-03-24,1468,1249,194,218,35,47
+North America,US,Detroit Metropolitan,2020-03-25,1906,1598,250,283,49,60
+North America,US,Detroit Metropolitan,2020-03-26,2420,2000,314,360,67,74
+North America,US,Detroit Metropolitan,2020-03-27,3016,2457,387,450,89,91
+North America,US,Detroit Metropolitan,2020-03-28,3704,2976,470,553,116,111
+North America,US,Detroit Metropolitan,2020-03-29,4484,3552,563,670,149,132
+North America,US,Detroit Metropolitan,2020-03-30,5359,4186,665,801,188,155
+North America,US,Detroit Metropolitan,2020-03-31,6337,4881,778,948,234,181
+North America,US,Detroit Metropolitan,2020-04-01,7427,5642,902,1111,287,209
+North America,US,Detroit Metropolitan,2020-04-02,8632,6470,1037,1292,349,240
+North America,US,Detroit Metropolitan,2020-04-03,9945,7353,1182,1489,419,272
+North America,US,Detroit Metropolitan,2020-04-04,11366,8286,1336,1702,499,307
+North America,US,Detroit Metropolitan,2020-04-05,12896,9269,1499,1932,589,343
+North America,US,Detroit Metropolitan,2020-04-06,14539,10302,1671,2178,689,381
+North America,US,Detroit Metropolitan,2020-04-07,16289,11377,1851,2441,801,420
+North America,US,Detroit Metropolitan,2020-04-08,18135,12481,2037,2718,924,461
+North America,US,Detroit Metropolitan,2020-04-09,20074,13608,2228,3008,1058,502
+North America,US,Detroit Metropolitan,2020-04-10,22102,14752,2423,3313,1205,544
+North America,US,Detroit Metropolitan,2020-04-11,24215,15911,2621,3630,1365,586
+North America,US,Detroit Metropolitan,2020-04-12,26403,17074,2822,3958,1536,629
+North America,US,Detroit Metropolitan,2020-04-13,28654,18228,3022,4295,1721,671
+North America,US,Detroit Metropolitan,2020-04-14,30961,19366,3222,4641,1917,712
+North America,US,Detroit Metropolitan,2020-04-15,33314,20480,3419,4994,2126,753
+North America,US,Detroit Metropolitan,2020-04-16,35709,21569,3613,5354,2348,792
+North America,US,Detroit Metropolitan,2020-04-17,38138,22626,3804,5718,2581,830
+North America,US,Detroit Metropolitan,2020-04-18,40589,23641,3988,6086,2826,867
+North America,US,Detroit Metropolitan,2020-04-19,43052,24607,4166,6455,3082,902
+North America,US,Detroit Metropolitan,2020-04-20,45518,25518,4337,6825,3348,934
+North America,US,Detroit Metropolitan,2020-04-21,47981,26372,4499,7194,3625,965
+North America,US,Detroit Metropolitan,2020-04-22,50432,27164,4652,7562,3912,993
+North America,US,Detroit Metropolitan,2020-04-23,52866,27892,4795,7927,4207,1019
+North America,US,Detroit Metropolitan,2020-04-24,55273,28550,4928,8288,4512,1042
+North America,US,Detroit Metropolitan,2020-04-25,57647,29138,5050,8644,4823,1063
+North America,US,Detroit Metropolitan,2020-04-26,59986,29657,5161,8995,5142,1081
+North America,US,Detroit Metropolitan,2020-04-27,62286,30109,5262,9340,5467,1096
+North America,US,Detroit Metropolitan,2020-04-28,64541,30492,5351,9679,5797,1109
+North America,US,Detroit Metropolitan,2020-04-29,66746,30803,5429,10009,6132,1119
+North America,US,Detroit Metropolitan,2020-04-30,68891,31039,5494,10331,6472,1127
+North America,US,Detroit Metropolitan,2020-05-01,70970,31197,5547,10643,6815,1132
+North America,US,Detroit Metropolitan,2020-05-02,72987,31285,5588,10945,7160,1134
+North America,US,Detroit Metropolitan,2020-05-03,74945,31312,5619,11239,7508,1134
+North America,US,Detroit Metropolitan,2020-05-04,76843,31281,5640,11524,7856,1131
+North America,US,Detroit Metropolitan,2020-05-05,78678,31193,5650,11799,8205,1127
+North America,US,Detroit Metropolitan,2020-05-06,80447,31047,5650,12064,8554,1120
+North America,US,Detroit Metropolitan,2020-05-07,82140,30836,5640,12318,8902,1112
+North America,US,Detroit Metropolitan,2020-05-08,83761,30568,5619,12561,9249,1101
+North America,US,Detroit Metropolitan,2020-05-09,85316,30253,5589,12795,9594,1088
+North America,US,Detroit Metropolitan,2020-05-10,86808,29897,5551,13019,9937,1074
+North America,US,Detroit Metropolitan,2020-05-11,88239,29504,5507,13233,10276,1059
+North America,US,Detroit Metropolitan,2020-05-12,89606,29075,5455,13438,10612,1042
+North America,US,Detroit Metropolitan,2020-05-13,90906,28608,5395,13633,10944,1024
+North America,US,Detroit Metropolitan,2020-05-14,92137,28101,5328,13818,11272,1005
+North America,US,Detroit Metropolitan,2020-05-15,93305,27564,5255,13993,11595,984
+North America,US,Detroit Metropolitan,2020-05-16,94415,27004,5177,14160,11914,963
+North America,US,Detroit Metropolitan,2020-05-17,95472,26426,5095,14318,12227,941
+North America,US,Detroit Metropolitan,2020-05-18,96475,25833,5008,14469,12534,919
+North America,US,Detroit Metropolitan,2020-05-19,97425,25224,4918,14611,12835,896
+North America,US,Detroit Metropolitan,2020-05-20,98318,24597,4824,14745,13131,872
+North America,US,Detroit Metropolitan,2020-05-21,99157,23955,4725,14871,13420,848
+North America,US,Detroit Metropolitan,2020-05-22,99948,23305,4625,14989,13703,824
+North America,US,Detroit Metropolitan,2020-05-23,100694,22652,4522,15101,13979,800
+North America,US,Detroit Metropolitan,2020-05-24,101399,21998,4418,15207,14249,776
+North America,US,Detroit Metropolitan,2020-05-25,102063,21345,4313,15307,14512,751
+North America,US,Detroit Metropolitan,2020-05-26,102687,20692,4207,15400,14768,727
+North America,US,Detroit Metropolitan,2020-05-27,103268,20036,4100,15487,15017,703
+North America,US,Detroit Metropolitan,2020-05-28,103811,19383,3991,15569,15259,679
+North America,US,Detroit Metropolitan,2020-05-29,104320,18737,3883,15645,15495,655
+North America,US,Detroit Metropolitan,2020-05-30,104798,18099,3775,15717,15724,632
+North America,US,Detroit Metropolitan,2020-05-31,105246,17471,3668,15784,15946,609
+North America,US,Detroit Metropolitan,2020-06-01,105665,16853,3561,15847,16161,586
+North America,US,Detroit Metropolitan,2020-06-02,106056,16244,3456,15906,16369,564
+North America,US,Detroit Metropolitan,2020-06-03,106418,15644,3350,15960,16571,542
+North America,US,Detroit Metropolitan,2020-06-04,106755,15054,3246,16011,16766,521
+North America,US,Detroit Metropolitan,2020-06-05,107069,14479,3143,16058,16955,500
+North America,US,Detroit Metropolitan,2020-06-06,107362,13917,3042,16102,17138,480
+North America,US,Detroit Metropolitan,2020-06-07,107636,13370,2943,16143,17314,460
+North America,US,Detroit Metropolitan,2020-06-08,107891,12838,2846,16181,17484,441
+North America,US,Detroit Metropolitan,2020-06-09,108127,12319,2750,16216,17648,422
+North America,US,Detroit Metropolitan,2020-06-10,108344,11813,2656,16249,17807,404
+North America,US,Detroit Metropolitan,2020-06-11,108546,11321,2564,16279,17959,386
+North America,US,Detroit Metropolitan,2020-06-12,108733,10845,2474,16307,18106,369
+North America,US,Detroit Metropolitan,2020-06-13,108907,10384,2386,16333,18248,353
+North America,US,Detroit Metropolitan,2020-06-14,109068,9939,2300,16358,18384,337
+North America,US,Detroit Metropolitan,2020-06-15,109217,9507,2217,16380,18515,322
+North America,US,NY-NJ Metropolitan,2020-03-15,587,545,82,82,7,20
+North America,US,NY-NJ Metropolitan,2020-03-16,1510,1407,213,220,13,53
+North America,US,NY-NJ Metropolitan,2020-03-17,2539,2319,355,375,25,87
+North America,US,NY-NJ Metropolitan,2020-03-18,3803,3403,524,564,43,127
+North America,US,NY-NJ Metropolitan,2020-03-19,5396,4742,734,803,70,177
+North America,US,NY-NJ Metropolitan,2020-03-20,7400,6398,995,1104,106,238
+North America,US,NY-NJ Metropolitan,2020-03-21,9875,8410,1313,1475,154,313
+North America,US,NY-NJ Metropolitan,2020-03-22,12869,10802,1693,1924,217,402
+North America,US,NY-NJ Metropolitan,2020-03-23,16417,13588,2138,2456,297,505
+North America,US,NY-NJ Metropolitan,2020-03-24,20520,16741,2643,3072,397,622
+North America,US,NY-NJ Metropolitan,2020-03-25,25177,20239,3207,3770,519,751
+North America,US,NY-NJ Metropolitan,2020-03-26,30374,24050,3824,4550,666,892
+North America,US,NY-NJ Metropolitan,2020-03-27,36065,28108,4487,5404,840,1042
+North America,US,NY-NJ Metropolitan,2020-03-28,42202,32351,5184,6324,1043,1199
+North America,US,NY-NJ Metropolitan,2020-03-29,48744,36730,5909,7305,1276,1360
+North America,US,NY-NJ Metropolitan,2020-03-30,55632,41180,6653,8339,1539,1523
+North America,US,NY-NJ Metropolitan,2020-03-31,62800,45632,7404,9414,1834,1687
+North America,US,NY-NJ Metropolitan,2020-04-01,70186,50026,8153,10522,2161,1847
+North America,US,NY-NJ Metropolitan,2020-04-02,77733,54311,8892,11654,2519,2004
+North America,US,NY-NJ Metropolitan,2020-04-03,85378,58432,9611,12800,2907,2154
+North America,US,NY-NJ Metropolitan,2020-04-04,93056,62331,10303,13952,3326,2295
+North America,US,NY-NJ Metropolitan,2020-04-05,100742,66004,10964,15105,3773,2428
+North America,US,NY-NJ Metropolitan,2020-04-06,108405,69441,11593,16254,4247,2552
+North America,US,NY-NJ Metropolitan,2020-04-07,116003,72615,12185,17394,4747,2666
+North America,US,NY-NJ Metropolitan,2020-04-08,123485,75490,12733,18516,5269,2769
+North America,US,NY-NJ Metropolitan,2020-04-09,130785,78017,13230,19611,5814,2858
+North America,US,NY-NJ Metropolitan,2020-04-10,137847,80154,13668,20671,6380,2933
+North America,US,NY-NJ Metropolitan,2020-04-11,144688,81947,14054,21697,6963,2995
+North America,US,NY-NJ Metropolitan,2020-04-12,151322,83436,14392,22692,7562,3046
+North America,US,NY-NJ Metropolitan,2020-04-13,157746,84641,14685,23656,8174,3086
+North America,US,NY-NJ Metropolitan,2020-04-14,163940,85559,14932,24585,8796,3116
+North America,US,NY-NJ Metropolitan,2020-04-15,169867,86168,15128,25474,9428,3134
+North America,US,NY-NJ Metropolitan,2020-04-16,175480,86434,15269,26316,10067,3140
+North America,US,NY-NJ Metropolitan,2020-04-17,180809,86407,15361,27115,10712,3134
+North America,US,NY-NJ Metropolitan,2020-04-18,185878,86136,15411,27875,11360,3120
+North America,US,NY-NJ Metropolitan,2020-04-19,190697,85643,15423,28598,12009,3098
+North America,US,NY-NJ Metropolitan,2020-04-20,195263,84942,15397,29283,12658,3068
+North America,US,NY-NJ Metropolitan,2020-04-21,199565,84032,15334,29929,13305,3031
+North America,US,NY-NJ Metropolitan,2020-04-22,203596,82913,15233,30533,13949,2986
+North America,US,NY-NJ Metropolitan,2020-04-23,207379,81625,15101,31101,14589,2935
+North America,US,NY-NJ Metropolitan,2020-04-24,210932,80195,14940,31634,15222,2879
+North America,US,NY-NJ Metropolitan,2020-04-25,214268,78646,14756,32134,15848,2819
+North America,US,NY-NJ Metropolitan,2020-04-26,217392,76989,14548,32602,16466,2755
+North America,US,NY-NJ Metropolitan,2020-04-27,220303,75229,14319,33039,17075,2687
+North America,US,NY-NJ Metropolitan,2020-04-28,223002,73371,14069,33444,17674,2616
+North America,US,NY-NJ Metropolitan,2020-04-29,225510,71440,13802,33820,18262,2543
+North America,US,NY-NJ Metropolitan,2020-04-30,227843,69460,13522,34170,18839,2468
+North America,US,NY-NJ Metropolitan,2020-05-01,230014,67445,13231,34496,19404,2392
+North America,US,NY-NJ Metropolitan,2020-05-02,232032,65407,12930,34799,19957,2315
+North America,US,NY-NJ Metropolitan,2020-05-03,233901,63348,12621,35079,20496,2238
+North America,US,NY-NJ Metropolitan,2020-05-04,235619,61270,12304,35337,21023,2160
+North America,US,NY-NJ Metropolitan,2020-05-05,237199,59182,11981,35574,21536,2082
+North America,US,NY-NJ Metropolitan,2020-05-06,238657,57104,11654,35792,22036,2005
+North America,US,NY-NJ Metropolitan,2020-05-07,240005,55044,11326,35994,22522,1929
+North America,US,NY-NJ Metropolitan,2020-05-08,241249,53012,10998,36181,22995,1854
+North America,US,NY-NJ Metropolitan,2020-05-09,242397,51009,10670,36353,23453,1780
+North America,US,NY-NJ Metropolitan,2020-05-10,243450,49035,10344,36511,23898,1707
+North America,US,NY-NJ Metropolitan,2020-05-11,244410,47090,10018,36655,24329,1636
+North America,US,NY-NJ Metropolitan,2020-05-12,245288,45182,9695,36787,24747,1566
+North America,US,NY-NJ Metropolitan,2020-05-13,246094,43320,9376,36908,25151,1498
+North America,US,NY-NJ Metropolitan,2020-05-14,246834,41506,9062,37019,25542,1431
+North America,US,NY-NJ Metropolitan,2020-05-15,247514,39744,8753,37121,25920,1367
+North America,US,NY-NJ Metropolitan,2020-05-16,248137,38032,8450,37214,26284,1305
+North America,US,NY-NJ Metropolitan,2020-05-17,248704,36369,8152,37299,26637,1245
+North America,US,NY-NJ Metropolitan,2020-05-18,249218,34754,7860,37376,26976,1187
+North America,US,NY-NJ Metropolitan,2020-05-19,249686,33191,7574,37447,27304,1130
+North America,US,NY-NJ Metropolitan,2020-05-20,250114,31682,7295,37511,27620,1076
+North America,US,NY-NJ Metropolitan,2020-05-21,250505,30228,7024,37569,27924,1024
+North America,US,NY-NJ Metropolitan,2020-05-22,250863,28828,6759,37623,28217,974
+North America,US,NY-NJ Metropolitan,2020-05-23,251188,27481,6502,37672,28499,926
+North America,US,NY-NJ Metropolitan,2020-05-24,251483,26184,6252,37716,28770,879
+North America,US,NY-NJ Metropolitan,2020-05-25,251750,24936,6010,37756,29031,835
+North America,US,NY-NJ Metropolitan,2020-05-26,251991,23738,5774,37792,29282,793
+North America,US,NY-NJ Metropolitan,2020-05-27,252211,22590,5546,37825,29523,752
+North America,US,NY-NJ Metropolitan,2020-05-28,252412,21491,5325,37855,29755,713
+North America,US,NY-NJ Metropolitan,2020-05-29,252594,20439,5112,37883,29977,676
+North America,US,NY-NJ Metropolitan,2020-05-30,252759,19433,4906,37908,30191,641
+North America,US,NY-NJ Metropolitan,2020-05-31,252909,18471,4706,37930,30396,607
+North America,US,NY-NJ Metropolitan,2020-06-01,253043,17550,4514,37950,30593,575
+North America,US,NY-NJ Metropolitan,2020-06-02,253164,16672,4328,37968,30781,545
+North America,US,NY-NJ Metropolitan,2020-06-03,253274,15833,4149,37985,30962,515
+North America,US,NY-NJ Metropolitan,2020-06-04,253374,15034,3977,38000,31136,488
+North America,US,NY-NJ Metropolitan,2020-06-05,253465,14273,3811,38013,31302,462
+North America,US,NY-NJ Metropolitan,2020-06-06,253547,13548,3651,38026,31462,437
+North America,US,NY-NJ Metropolitan,2020-06-07,253621,12857,3497,38037,31615,413
+North America,US,NY-NJ Metropolitan,2020-06-08,253687,12199,3349,38047,31761,390
+North America,US,NY-NJ Metropolitan,2020-06-09,253746,11573,3207,38056,31902,369
+North America,US,NY-NJ Metropolitan,2020-06-10,253800,10977,3070,38064,32036,349
+North America,US,NY-NJ Metropolitan,2020-06-11,253849,10411,2939,38071,32165,330
+North America,US,NY-NJ Metropolitan,2020-06-12,253893,9873,2813,38078,32288,311
+North America,US,NY-NJ Metropolitan,2020-06-13,253933,9363,2692,38084,32406,294
+North America,US,NY-NJ Metropolitan,2020-06-14,253968,8877,2576,38089,32519,278
+North America,US,NY-NJ Metropolitan,2020-06-15,254000,8416,2464,38094,32627,263
+North America,US,None,2020-03-15,587,545,82,82,7,20
+North America,US,None,2020-03-16,1510,1407,213,220,13,53
+North America,US,None,2020-03-17,2686,2460,376,396,26,92
+North America,US,None,2020-03-18,4002,3586,552,593,45,134
+North America,US,None,2020-03-19,5966,5264,813,885,76,197
+North America,US,None,2020-03-20,8200,7111,1104,1220,116,265
+North America,US,None,2020-03-21,11023,9418,1468,1644,170,350
+North America,US,None,2020-03-22,14477,12195,1909,2162,242,454
+North America,US,None,2020-03-23,18602,15456,2429,2780,334,574
+North America,US,None,2020-03-24,23406,19175,3023,3502,450,713
+North America,US,None,2020-03-25,28899,23336,3693,4325,593,867
+North America,US,None,2020-03-26,35079,27912,4432,5252,766,1035
+North America,US,None,2020-03-27,41906,32837,5234,6277,972,1217
+North America,US,None,2020-03-28,49342,38052,6088,7391,1214,1411
+North America,US,None,2020-03-29,57347,43503,6987,8592,1495,1611
+North America,US,None,2020-03-30,65863,49120,7920,9870,1814,1817
+North America,US,None,2020-03-31,74826,54830,8877,11215,2175,2028
+North America,US,None,2020-04-01,84178,60570,9847,12617,2578,2237
+North America,US,None,2020-04-02,93860,66285,10822,14069,3025,2447
+North America,US,None,2020-04-03,103796,71901,11789,15559,3512,2652
+North America,US,None,2020-04-04,113913,77347,12740,17077,4044,2850
+North America,US,None,2020-04-05,124179,82610,13668,18617,4616,3042
+North America,US,None,2020-04-06,134560,87675,14573,20174,5230,3225
+North America,US,None,2020-04-07,145003,92502,15446,21741,5884,3399
+North America,US,None,2020-04-08,155436,97033,16279,23306,6575,3563
+North America,US,None,2020-04-09,165786,101212,17062,24857,7302,3712
+North America,US,None,2020-04-10,175988,104987,17786,26389,8067,3847
+North America,US,None,2020-04-11,186050,108400,18457,27898,8864,3967
+North America,US,None,2020-04-12,195970,111476,19077,29386,9691,4077
+North America,US,None,2020-04-13,205725,114217,19644,30849,10547,4172
+North America,US,None,2020-04-14,215282,116607,20159,32282,11427,4255
+North America,US,None,2020-04-15,224593,118620,20613,33679,12332,4324
+North America,US,None,2020-04-16,233607,120224,21003,35032,13259,4378
+North America,US,None,2020-04-17,242344,121462,21334,36342,14204,4417
+North America,US,None,2020-04-18,250814,122375,21610,37612,15166,4445
+North America,US,None,2020-04-19,259011,122974,21835,38841,16141,4462
+North America,US,None,2020-04-20,266920,123264,22008,40028,17127,4467
+North America,US,None,2020-04-21,274526,123249,22128,41169,18123,4461
+North America,US,None,2020-04-22,281814,122927,22195,42262,19127,4444
+North America,US,None,2020-04-23,288802,122339,22215,43311,20135,4417
+North America,US,None,2020-04-24,295499,121508,22191,44315,21146,4382
+North America,US,None,2020-04-25,301909,120457,22128,45276,22157,4339
+North America,US,None,2020-04-26,308033,119197,22023,46194,23167,4288
+North America,US,None,2020-04-27,313869,117739,21883,47070,24174,4229
+North America,US,None,2020-04-28,319414,116091,21705,47903,25176,4164
+North America,US,None,2020-04-29,324687,114280,21496,48693,26172,4093
+North America,US,None,2020-04-30,329693,112326,21257,49444,27160,4018
+North America,US,None,2020-05-01,334441,110242,20991,50157,28139,3938
+North America,US,None,2020-05-02,338940,108048,20700,50831,29107,3854
+North America,US,None,2020-05-03,343201,105756,20387,51470,30063,3767
+North America,US,None,2020-05-04,347224,103378,20055,52074,31006,3676
+North America,US,None,2020-05-05,351020,100924,19703,52644,31935,3583
+North America,US,None,2020-05-06,354604,98417,19335,53180,32850,3488
+North America,US,None,2020-05-07,357978,95857,18955,53686,33748,3393
+North America,US,None,2020-05-08,361153,93264,18562,54163,34632,3296
+North America,US,None,2020-05-09,364142,90647,18159,54612,35496,3198
+North America,US,None,2020-05-10,366953,88017,17748,55033,36345,3100
+North America,US,None,2020-05-11,369591,85379,17331,55428,37174,3003
+North America,US,None,2020-05-12,372066,82744,16909,55800,37985,2905
+North America,US,None,2020-05-13,374386,80119,16482,56148,38777,2808
+North America,US,None,2020-05-14,376555,77505,16054,56474,39551,2711
+North America,US,None,2020-05-15,378584,74916,15624,56778,40305,2615
+North America,US,None,2020-05-16,380485,72357,15195,57063,41040,2522
+North America,US,None,2020-05-17,382263,69833,14767,57329,41756,2429
+North America,US,None,2020-05-18,383922,67349,14340,57579,42451,2339
+North America,US,None,2020-05-19,385472,64907,13918,57811,43127,2250
+North America,US,None,2020-05-20,386915,62508,13499,58028,43785,2162
+North America,US,None,2020-05-21,388257,60155,13083,58228,44422,2077
+North America,US,None,2020-05-22,389508,57854,12673,58416,45041,1994
+North America,US,None,2020-05-23,390672,55610,12269,58591,45641,1913
+North America,US,None,2020-05-24,391758,53422,11872,58753,46222,1833
+North America,US,None,2020-05-25,392767,51291,11482,58905,46785,1756
+North America,US,None,2020-05-26,393705,49219,11099,59045,47329,1682
+North America,US,None,2020-05-27,394573,47201,10723,59175,47856,1609
+North America,US,None,2020-05-28,395377,45242,10354,59296,48365,1539
+North America,US,None,2020-05-29,396123,43344,9994,59409,48856,1471
+North America,US,None,2020-05-30,396817,41507,9643,59513,49332,1406
+North America,US,None,2020-05-31,397461,39732,9300,59609,49790,1342
+North America,US,None,2020-06-01,398056,38015,8965,59698,50233,1281
+North America,US,None,2020-06-02,398606,36357,8640,59781,50658,1223
+North America,US,None,2020-06-03,399114,34754,8322,59857,51069,1165
+North America,US,None,2020-06-04,399583,33208,8013,59928,51465,1112
+North America,US,None,2020-06-05,400017,31721,7713,59992,51846,1060
+North America,US,None,2020-06-06,400418,30290,7422,60053,52214,1009
+North America,US,None,2020-06-07,400790,28913,7140,60109,52567,961
+North America,US,None,2020-06-08,401133,27591,6867,60160,52906,914
+North America,US,None,2020-06-09,401448,26320,6601,60207,53233,870
+North America,US,None,2020-06-10,401737,25098,6344,60251,53548,828
+North America,US,None,2020-06-11,402004,23925,6096,60290,53849,787
+North America,US,None,2020-06-12,402250,22801,5855,60328,54139,747
+North America,US,None,2020-06-13,402478,21725,5623,60362,54418,710
+North America,US,None,2020-06-14,402686,20694,5398,60394,54685,675
+North America,US,None,2020-06-15,402878,19706,5181,60422,54942,642
+South America,Brazil,Amazonas,2020-03-28,111,105,16,16,1,4
+South America,Brazil,Amazonas,2020-03-29,128,115,18,18,2,4
+South America,Brazil,Amazonas,2020-03-30,148,127,20,21,3,5
+South America,Brazil,Amazonas,2020-03-31,172,143,22,25,4,5
+South America,Brazil,Amazonas,2020-04-01,199,160,25,29,5,6
+South America,Brazil,Amazonas,2020-04-02,230,181,29,34,6,7
+South America,Brazil,Amazonas,2020-04-03,267,205,33,39,8,8
+South America,Brazil,Amazonas,2020-04-04,308,233,37,45,9,9
+South America,Brazil,Amazonas,2020-04-05,356,265,43,53,11,10
+South America,Brazil,Amazonas,2020-04-06,410,301,49,61,13,11
+South America,Brazil,Amazonas,2020-04-07,470,340,55,70,16,13
+South America,Brazil,Amazonas,2020-04-08,536,384,62,80,19,14
+South America,Brazil,Amazonas,2020-04-09,611,433,70,91,22,16
+South America,Brazil,Amazonas,2020-04-10,692,485,79,103,25,18
+South America,Brazil,Amazonas,2020-04-11,780,541,88,116,29,20
+South America,Brazil,Amazonas,2020-04-12,874,599,98,130,34,22
+South America,Brazil,Amazonas,2020-04-13,976,661,109,145,39,24
+South America,Brazil,Amazonas,2020-04-14,1083,725,119,162,44,27
+South America,Brazil,Amazonas,2020-04-15,1196,790,130,179,50,29
+South America,Brazil,Amazonas,2020-04-16,1314,856,142,196,57,32
+South America,Brazil,Amazonas,2020-04-17,1436,922,153,214,64,34
+South America,Brazil,Amazonas,2020-04-18,1562,988,165,233,71,36
+South America,Brazil,Amazonas,2020-04-19,1691,1052,176,253,79,39
+South America,Brazil,Amazonas,2020-04-20,1821,1115,187,272,88,41
+South America,Brazil,Amazonas,2020-04-21,1953,1175,198,292,97,43
+South America,Brazil,Amazonas,2020-04-22,2086,1232,208,312,107,45
+South America,Brazil,Amazonas,2020-04-23,2219,1285,218,332,117,47
+South America,Brazil,Amazonas,2020-04-24,2351,1335,228,352,127,49
+South America,Brazil,Amazonas,2020-04-25,2481,1380,236,371,138,50
+South America,Brazil,Amazonas,2020-04-26,2610,1421,244,391,150,52
+South America,Brazil,Amazonas,2020-04-27,2737,1458,252,410,161,53
+South America,Brazil,Amazonas,2020-04-28,2862,1490,259,428,174,54
+South America,Brazil,Amazonas,2020-04-29,2983,1517,265,447,186,55
+South America,Brazil,Amazonas,2020-04-30,3100,1538,270,464,198,56
+South America,Brazil,Amazonas,2020-05-01,3213,1555,274,481,211,56
+South America,Brazil,Amazonas,2020-05-02,3323,1566,277,498,224,57
+South America,Brazil,Amazonas,2020-05-03,3428,1574,280,513,237,57
+South America,Brazil,Amazonas,2020-05-04,3530,1577,282,529,250,57
+South America,Brazil,Amazonas,2020-05-05,3628,1577,284,543,264,57
+South America,Brazil,Amazonas,2020-05-06,3722,1572,285,557,277,57
+South America,Brazil,Amazonas,2020-05-07,3810,1562,285,571,290,56
+South America,Brazil,Amazonas,2020-05-08,3893,1548,284,583,303,56
+South America,Brazil,Amazonas,2020-05-09,3973,1532,282,595,317,55
+South America,Brazil,Amazonas,2020-05-10,4049,1513,281,606,330,54
+South America,Brazil,Amazonas,2020-05-11,4120,1491,278,617,343,53
+South America,Brazil,Amazonas,2020-05-12,4188,1467,276,627,356,53
+South America,Brazil,Amazonas,2020-05-13,4252,1440,272,637,368,52
+South America,Brazil,Amazonas,2020-05-14,4311,1411,269,646,381,50
+South America,Brazil,Amazonas,2020-05-15,4367,1380,264,654,393,49
+South America,Brazil,Amazonas,2020-05-16,4419,1348,260,662,405,48
+South America,Brazil,Amazonas,2020-05-17,4469,1314,255,669,417,47
+South America,Brazil,Amazonas,2020-05-18,4515,1280,251,676,429,45
+South America,Brazil,Amazonas,2020-05-19,4558,1245,245,683,440,44
+South America,Brazil,Amazonas,2020-05-20,4597,1209,240,689,451,43
+South America,Brazil,Amazonas,2020-05-21,4634,1172,234,694,462,41
+South America,Brazil,Amazonas,2020-05-22,4669,1135,229,699,472,40
+South America,Brazil,Amazonas,2020-05-23,4701,1099,223,704,483,39
+South America,Brazil,Amazonas,2020-05-24,4731,1062,217,709,493,37
+South America,Brazil,Amazonas,2020-05-25,4759,1025,211,713,502,36
+South America,Brazil,Amazonas,2020-05-26,4784,989,205,717,512,35
+South America,Brazil,Amazonas,2020-05-27,4807,952,200,720,521,33
+South America,Brazil,Amazonas,2020-05-28,4829,917,194,723,530,32
+South America,Brazil,Amazonas,2020-05-29,4849,882,188,726,538,31
+South America,Brazil,Amazonas,2020-05-30,4868,847,182,729,547,29
+South America,Brazil,Amazonas,2020-05-31,4885,813,176,732,555,28
+South America,Brazil,Amazonas,2020-06-01,4901,780,170,734,562,27
+South America,Brazil,Amazonas,2020-06-02,4915,748,165,736,570,26
+South America,Brazil,Amazonas,2020-06-03,4928,716,159,738,577,25
+South America,Brazil,Amazonas,2020-06-04,4940,686,154,740,584,23
+South America,Brazil,Amazonas,2020-06-05,4952,656,148,742,591,22
+South America,Brazil,Amazonas,2020-06-06,4962,627,143,743,597,21
+South America,Brazil,Amazonas,2020-06-07,4971,599,138,745,603,20
+South America,Brazil,Amazonas,2020-06-08,4980,572,133,746,609,19
+South America,Brazil,Amazonas,2020-06-09,4988,546,128,747,615,18
+South America,Brazil,Amazonas,2020-06-10,4995,521,123,748,621,18
+South America,Brazil,Amazonas,2020-06-11,5001,497,118,749,626,17
+South America,Brazil,Amazonas,2020-06-12,5007,473,114,750,631,16
+South America,Brazil,Amazonas,2020-06-13,5013,451,110,751,636,15
+South America,Brazil,Amazonas,2020-06-14,5018,429,105,752,640,14
+South America,Brazil,Amazonas,2020-06-15,5022,409,101,752,645,14
+South America,Brazil,Bahia,2020-03-26,104,104,16,16,0,4
+South America,Brazil,Bahia,2020-03-27,113,106,16,17,0,4
+South America,Brazil,Bahia,2020-03-28,131,117,18,20,1,4
+South America,Brazil,Bahia,2020-03-29,154,132,21,23,1,5
+South America,Brazil,Bahia,2020-03-30,180,149,24,27,2,6
+South America,Brazil,Bahia,2020-03-31,208,167,27,31,3,6
+South America,Brazil,Bahia,2020-04-01,238,184,30,36,3,7
+South America,Brazil,Bahia,2020-04-02,267,201,33,40,4,7
+South America,Brazil,Bahia,2020-04-03,296,217,35,44,5,8
+South America,Brazil,Bahia,2020-04-04,325,231,38,49,6,9
+South America,Brazil,Bahia,2020-04-05,354,244,40,53,7,9
+South America,Brazil,Bahia,2020-04-06,381,255,43,57,8,9
+South America,Brazil,Bahia,2020-04-07,408,265,45,61,9,10
+South America,Brazil,Bahia,2020-04-08,433,273,46,65,10,10
+South America,Brazil,Bahia,2020-04-09,457,279,48,69,11,10
+South America,Brazil,Bahia,2020-04-10,480,284,49,72,12,10
+South America,Brazil,Bahia,2020-04-11,502,287,50,75,13,10
+South America,Brazil,Bahia,2020-04-12,523,289,50,78,14,11
+South America,Brazil,Bahia,2020-04-13,542,290,51,81,15,11
+South America,Brazil,Bahia,2020-04-14,560,289,51,84,17,10
+South America,Brazil,Bahia,2020-04-15,577,287,51,87,18,10
+South America,Brazil,Bahia,2020-04-16,593,285,51,89,19,10
+South America,Brazil,Bahia,2020-04-17,608,281,51,91,20,10
+South America,Brazil,Bahia,2020-04-18,622,277,51,93,21,10
+South America,Brazil,Bahia,2020-04-19,635,272,50,95,22,10
+South America,Brazil,Bahia,2020-04-20,647,266,50,97,23,10
+South America,Brazil,Bahia,2020-04-21,658,260,49,99,25,9
+South America,Brazil,Bahia,2020-04-22,668,254,48,100,26,9
+South America,Brazil,Bahia,2020-04-23,677,247,48,102,27,9
+South America,Brazil,Bahia,2020-04-24,686,240,47,103,28,9
+South America,Brazil,Bahia,2020-04-25,693,233,46,104,29,8
+South America,Brazil,Bahia,2020-04-26,701,225,45,105,30,8
+South America,Brazil,Bahia,2020-04-27,707,218,44,106,30,8
+South America,Brazil,Bahia,2020-04-28,713,210,42,107,31,7
+South America,Brazil,Bahia,2020-04-29,719,202,41,108,32,7
+South America,Brazil,Bahia,2020-04-30,724,195,40,109,33,7
+South America,Brazil,Bahia,2020-05-01,729,187,39,109,34,7
+South America,Brazil,Bahia,2020-05-02,733,179,38,110,35,6
+South America,Brazil,Bahia,2020-05-03,737,172,37,111,35,6
+South America,Brazil,Bahia,2020-05-04,740,165,35,111,36,6
+South America,Brazil,Bahia,2020-05-05,743,158,34,112,37,5
+South America,Brazil,Bahia,2020-05-06,746,151,33,112,37,5
+South America,Brazil,Bahia,2020-05-07,749,144,32,112,38,5
+South America,Brazil,Bahia,2020-05-08,751,137,31,113,39,5
+South America,Brazil,Bahia,2020-05-09,753,131,30,113,39,4
+South America,Brazil,Bahia,2020-05-10,755,125,29,113,40,4
+South America,Brazil,Bahia,2020-05-11,757,119,28,114,40,4
+South America,Brazil,Bahia,2020-05-12,759,113,27,114,41,4
+South America,Brazil,Bahia,2020-05-13,760,107,26,114,41,4
+South America,Brazil,Bahia,2020-05-14,761,102,25,114,42,3
+South America,Brazil,Bahia,2020-05-15,763,97,24,114,42,3
+South America,Brazil,Bahia,2020-05-16,764,92,23,115,42,3
+South America,Brazil,Bahia,2020-05-17,765,87,22,115,43,3
+South America,Brazil,Bahia,2020-05-18,766,83,21,115,43,3
+South America,Brazil,Bahia,2020-05-19,766,78,20,115,44,3
+South America,Brazil,Bahia,2020-05-20,767,74,19,115,44,2
+South America,Brazil,Bahia,2020-05-21,768,70,19,115,44,2
+South America,Brazil,Bahia,2020-05-22,768,67,18,115,45,2
+South America,Brazil,Bahia,2020-05-23,769,63,17,115,45,2
+South America,Brazil,Bahia,2020-05-24,769,60,16,115,45,2
+South America,Brazil,Bahia,2020-05-25,770,56,16,115,45,2
+South America,Brazil,Bahia,2020-05-26,770,53,15,115,46,2
+South America,Brazil,Bahia,2020-05-27,770,51,14,116,46,2
+South America,Brazil,Bahia,2020-05-28,771,48,14,116,46,2
+South America,Brazil,Bahia,2020-05-29,771,45,13,116,46,1
+South America,Brazil,Bahia,2020-05-30,771,43,13,116,46,1
+South America,Brazil,Bahia,2020-05-31,771,40,12,116,47,1
+South America,Brazil,Bahia,2020-06-01,771,38,12,116,47,1
+South America,Brazil,Bahia,2020-06-02,772,36,11,116,47,1
+South America,Brazil,Bahia,2020-06-03,772,34,11,116,47,1
+South America,Brazil,Bahia,2020-06-04,772,32,10,116,47,1
+South America,Brazil,Bahia,2020-06-05,772,30,10,116,47,1
+South America,Brazil,Bahia,2020-06-06,772,29,9,116,47,1
+South America,Brazil,Bahia,2020-06-07,772,27,9,116,48,1
+South America,Brazil,Bahia,2020-06-08,772,25,8,116,48,1
+South America,Brazil,Bahia,2020-06-09,772,24,8,116,48,1
+South America,Brazil,Bahia,2020-06-10,772,23,8,116,48,1
+South America,Brazil,Bahia,2020-06-11,772,21,7,116,48,1
+South America,Brazil,Bahia,2020-06-12,773,20,7,116,48,1
+South America,Brazil,Bahia,2020-06-13,773,19,7,116,48,1
+South America,Brazil,Bahia,2020-06-14,773,18,6,116,48,1
+South America,Brazil,Bahia,2020-06-15,773,17,6,116,48,0
+South America,Brazil,Ceara,2020-03-22,112,112,17,17,0,4
+South America,Brazil,Ceara,2020-03-23,142,134,20,21,1,5
+South America,Brazil,Ceara,2020-03-24,168,151,23,25,2,6
+South America,Brazil,Ceara,2020-03-25,192,165,26,29,3,6
+South America,Brazil,Ceara,2020-03-26,219,181,29,33,4,7
+South America,Brazil,Ceara,2020-03-27,248,198,32,37,5,7
+South America,Brazil,Ceara,2020-03-28,282,219,35,42,6,8
+South America,Brazil,Ceara,2020-03-29,321,243,39,48,8,9
+South America,Brazil,Ceara,2020-03-30,367,273,44,55,9,10
+South America,Brazil,Ceara,2020-03-31,420,307,50,63,11,11
+South America,Brazil,Ceara,2020-04-01,480,347,56,72,13,13
+South America,Brazil,Ceara,2020-04-02,550,393,64,82,15,15
+South America,Brazil,Ceara,2020-04-03,630,446,73,94,18,16
+South America,Brazil,Ceara,2020-04-04,720,507,83,108,21,19
+South America,Brazil,Ceara,2020-04-05,823,576,94,123,25,21
+South America,Brazil,Ceara,2020-04-06,940,653,107,141,29,24
+South America,Brazil,Ceara,2020-04-07,1071,740,121,161,33,27
+South America,Brazil,Ceara,2020-04-08,1218,837,137,183,38,31
+South America,Brazil,Ceara,2020-04-09,1381,944,155,207,44,35
+South America,Brazil,Ceara,2020-04-10,1562,1061,174,234,50,39
+South America,Brazil,Ceara,2020-04-11,1761,1190,196,264,57,44
+South America,Brazil,Ceara,2020-04-12,1982,1330,219,297,66,49
+South America,Brazil,Ceara,2020-04-13,2223,1483,245,334,75,55
+South America,Brazil,Ceara,2020-04-14,2486,1646,272,373,85,61
+South America,Brazil,Ceara,2020-04-15,2770,1820,301,415,96,67
+South America,Brazil,Ceara,2020-04-16,3077,2006,333,461,108,74
+South America,Brazil,Ceara,2020-04-17,3408,2204,366,511,122,81
+South America,Brazil,Ceara,2020-04-18,3763,2413,401,564,137,89
+South America,Brazil,Ceara,2020-04-19,4141,2632,439,621,153,97
+South America,Brazil,Ceara,2020-04-20,4542,2859,477,681,171,105
+South America,Brazil,Ceara,2020-04-21,4967,3095,518,745,190,114
+South America,Brazil,Ceara,2020-04-22,5415,3340,560,812,211,123
+South America,Brazil,Ceara,2020-04-23,5887,3593,604,883,234,132
+South America,Brazil,Ceara,2020-04-24,6381,3851,649,957,258,141
+South America,Brazil,Ceara,2020-04-25,6894,4113,694,1034,285,151
+South America,Brazil,Ceara,2020-04-26,7427,4377,741,1114,313,160
+South America,Brazil,Ceara,2020-04-27,7980,4645,788,1197,342,170
+South America,Brazil,Ceara,2020-04-28,8553,4916,836,1283,374,180
+South America,Brazil,Ceara,2020-04-29,9142,5186,885,1371,407,190
+South America,Brazil,Ceara,2020-04-30,9746,5454,933,1462,442,199
+South America,Brazil,Ceara,2020-05-01,10363,5718,981,1554,480,209
+South America,Brazil,Ceara,2020-05-02,10992,5978,1028,1649,519,218
+South America,Brazil,Ceara,2020-05-03,11633,6233,1075,1745,559,228
+South America,Brazil,Ceara,2020-05-04,12284,6484,1122,1843,602,237
+South America,Brazil,Ceara,2020-05-05,12944,6727,1168,1942,646,245
+South America,Brazil,Ceara,2020-05-06,13609,6960,1212,2041,692,254
+South America,Brazil,Ceara,2020-05-07,14277,7183,1255,2142,740,262
+South America,Brazil,Ceara,2020-05-08,14948,7394,1296,2242,789,269
+South America,Brazil,Ceara,2020-05-09,15620,7594,1335,2343,840,276
+South America,Brazil,Ceara,2020-05-10,16294,7783,1373,2444,892,283
+South America,Brazil,Ceara,2020-05-11,16966,7960,1409,2545,946,289
+South America,Brazil,Ceara,2020-05-12,17636,8123,1443,2645,1001,295
+South America,Brazil,Ceara,2020-05-13,18300,8272,1475,2745,1057,300
+South America,Brazil,Ceara,2020-05-14,18959,8406,1504,2844,1115,304
+South America,Brazil,Ceara,2020-05-15,19609,8524,1531,2941,1173,309
+South America,Brazil,Ceara,2020-05-16,20252,8628,1556,3038,1232,312
+South America,Brazil,Ceara,2020-05-17,20886,8717,1578,3133,1293,315
+South America,Brazil,Ceara,2020-05-18,21510,8791,1598,3227,1353,317
+South America,Brazil,Ceara,2020-05-19,22123,8850,1615,3318,1415,319
+South America,Brazil,Ceara,2020-05-20,22724,8894,1629,3409,1477,320
+South America,Brazil,Ceara,2020-05-21,23312,8923,1641,3497,1540,321
+South America,Brazil,Ceara,2020-05-22,23888,8939,1651,3583,1603,322
+South America,Brazil,Ceara,2020-05-23,24450,8940,1658,3667,1666,321
+South America,Brazil,Ceara,2020-05-24,24998,8929,1663,3750,1730,321
+South America,Brazil,Ceara,2020-05-25,25531,8904,1666,3830,1793,319
+South America,Brazil,Ceara,2020-05-26,26049,8865,1666,3907,1857,318
+South America,Brazil,Ceara,2020-05-27,26549,8813,1663,3982,1920,315
+South America,Brazil,Ceara,2020-05-28,27034,8748,1659,4055,1983,313
+South America,Brazil,Ceara,2020-05-29,27503,8673,1652,4126,2046,310
+South America,Brazil,Ceara,2020-05-30,27958,8588,1643,4194,2109,306
+South America,Brazil,Ceara,2020-05-31,28397,8494,1633,4260,2171,303
+South America,Brazil,Ceara,2020-06-01,28821,8391,1621,4323,2233,299
+South America,Brazil,Ceara,2020-06-02,29228,8278,1607,4384,2294,294
+South America,Brazil,Ceara,2020-06-03,29618,8155,1591,4443,2354,290
+South America,Brazil,Ceara,2020-06-04,29992,8026,1573,4499,2414,285
+South America,Brazil,Ceara,2020-06-05,30352,7890,1554,4553,2473,280
+South America,Brazil,Ceara,2020-06-06,30698,7748,1534,4605,2531,274
+South America,Brazil,Ceara,2020-06-07,31029,7602,1513,4654,2589,269
+South America,Brazil,Ceara,2020-06-08,31346,7451,1491,4702,2645,263
+South America,Brazil,Ceara,2020-06-09,31648,7294,1467,4747,2701,257
+South America,Brazil,Ceara,2020-06-10,31935,7133,1442,4790,2756,251
+South America,Brazil,Ceara,2020-06-11,32209,6969,1417,4831,2809,245
+South America,Brazil,Ceara,2020-06-12,32471,6803,1391,4871,2862,239
+South America,Brazil,Ceara,2020-06-13,32720,6636,1364,4908,2913,233
+South America,Brazil,Ceara,2020-06-14,32957,6467,1337,4944,2964,226
+South America,Brazil,Ceara,2020-06-15,33182,6297,1309,4977,3013,220
+South America,Brazil,Distrito Federal,2020-03-22,117,117,18,18,0,4
+South America,Brazil,Distrito Federal,2020-03-23,136,128,20,20,0,5
+South America,Brazil,Distrito Federal,2020-03-24,157,140,22,23,0,5
+South America,Brazil,Distrito Federal,2020-03-25,179,153,24,27,1,6
+South America,Brazil,Distrito Federal,2020-03-26,203,166,26,30,1,6
+South America,Brazil,Distrito Federal,2020-03-27,228,180,29,34,1,7
+South America,Brazil,Distrito Federal,2020-03-28,253,193,31,38,2,7
+South America,Brazil,Distrito Federal,2020-03-29,280,206,34,42,2,8
+South America,Brazil,Distrito Federal,2020-03-30,306,219,36,46,3,8
+South America,Brazil,Distrito Federal,2020-03-31,333,231,38,50,3,9
+South America,Brazil,Distrito Federal,2020-04-01,360,243,41,54,4,9
+South America,Brazil,Distrito Federal,2020-04-02,386,253,43,58,4,9
+South America,Brazil,Distrito Federal,2020-04-03,412,262,44,62,5,10
+South America,Brazil,Distrito Federal,2020-04-04,438,270,46,66,5,10
+South America,Brazil,Distrito Federal,2020-04-05,463,278,48,69,6,10
+South America,Brazil,Distrito Federal,2020-04-06,487,284,49,73,6,10
+South America,Brazil,Distrito Federal,2020-04-07,510,288,50,77,7,10
+South America,Brazil,Distrito Federal,2020-04-08,533,292,51,80,8,11
+South America,Brazil,Distrito Federal,2020-04-09,554,294,52,83,8,11
+South America,Brazil,Distrito Federal,2020-04-10,574,295,53,86,9,11
+South America,Brazil,Distrito Federal,2020-04-11,594,296,53,89,9,11
+South America,Brazil,Distrito Federal,2020-04-12,612,295,53,92,10,11
+South America,Brazil,Distrito Federal,2020-04-13,629,293,54,94,11,11
+South America,Brazil,Distrito Federal,2020-04-14,646,291,54,97,11,10
+South America,Brazil,Distrito Federal,2020-04-15,661,287,53,99,12,10
+South America,Brazil,Distrito Federal,2020-04-16,676,283,53,101,12,10
+South America,Brazil,Distrito Federal,2020-04-17,689,279,53,103,13,10
+South America,Brazil,Distrito Federal,2020-04-18,702,274,52,105,14,10
+South America,Brazil,Distrito Federal,2020-04-19,714,268,51,107,14,10
+South America,Brazil,Distrito Federal,2020-04-20,724,262,51,109,15,9
+South America,Brazil,Distrito Federal,2020-04-21,735,255,50,110,15,9
+South America,Brazil,Distrito Federal,2020-04-22,744,248,49,112,16,9
+South America,Brazil,Distrito Federal,2020-04-23,753,241,48,113,17,9
+South America,Brazil,Distrito Federal,2020-04-24,761,234,47,114,17,8
+South America,Brazil,Distrito Federal,2020-04-25,768,227,46,115,18,8
+South America,Brazil,Distrito Federal,2020-04-26,775,219,45,116,18,8
+South America,Brazil,Distrito Federal,2020-04-27,781,212,44,117,19,7
+South America,Brazil,Distrito Federal,2020-04-28,787,204,43,118,19,7
+South America,Brazil,Distrito Federal,2020-04-29,793,197,41,119,19,7
+South America,Brazil,Distrito Federal,2020-04-30,798,189,40,120,20,7
+South America,Brazil,Distrito Federal,2020-05-01,802,182,39,120,20,6
+South America,Brazil,Distrito Federal,2020-05-02,806,175,38,121,21,6
+South America,Brazil,Distrito Federal,2020-05-03,810,168,37,121,21,6
+South America,Brazil,Distrito Federal,2020-05-04,813,161,36,122,22,6
+South America,Brazil,Distrito Federal,2020-05-05,816,154,34,122,22,5
+South America,Brazil,Distrito Federal,2020-05-06,819,147,33,123,22,5
+South America,Brazil,Distrito Federal,2020-05-07,822,140,32,123,23,5
+South America,Brazil,Distrito Federal,2020-05-08,824,134,31,124,23,5
+South America,Brazil,Distrito Federal,2020-05-09,826,128,30,124,23,4
+South America,Brazil,Distrito Federal,2020-05-10,828,122,29,124,24,4
+South America,Brazil,Distrito Federal,2020-05-11,830,116,28,125,24,4
+South America,Brazil,Distrito Federal,2020-05-12,832,111,27,125,24,4
+South America,Brazil,Distrito Federal,2020-05-13,833,105,26,125,24,4
+South America,Brazil,Distrito Federal,2020-05-14,835,100,25,125,25,3
+South America,Brazil,Distrito Federal,2020-05-15,836,95,24,125,25,3
+South America,Brazil,Distrito Federal,2020-05-16,837,90,23,126,25,3
+South America,Brazil,Distrito Federal,2020-05-17,838,86,22,126,25,3
+South America,Brazil,Distrito Federal,2020-05-18,839,81,21,126,25,3
+South America,Brazil,Distrito Federal,2020-05-19,840,77,20,126,26,3
+South America,Brazil,Distrito Federal,2020-05-20,840,73,20,126,26,2
+South America,Brazil,Distrito Federal,2020-05-21,841,69,19,126,26,2
+South America,Brazil,Distrito Federal,2020-05-22,842,66,18,126,26,2
+South America,Brazil,Distrito Federal,2020-05-23,842,62,17,126,26,2
+South America,Brazil,Distrito Federal,2020-05-24,843,59,17,126,27,2
+South America,Brazil,Distrito Federal,2020-05-25,843,56,16,126,27,2
+South America,Brazil,Distrito Federal,2020-05-26,843,53,15,127,27,2
+South America,Brazil,Distrito Federal,2020-05-27,844,50,15,127,27,2
+South America,Brazil,Distrito Federal,2020-05-28,844,47,14,127,27,1
+South America,Brazil,Distrito Federal,2020-05-29,844,45,13,127,27,1
+South America,Brazil,Distrito Federal,2020-05-30,845,42,13,127,27,1
+South America,Brazil,Distrito Federal,2020-05-31,845,40,12,127,27,1
+South America,Brazil,Distrito Federal,2020-06-01,845,38,12,127,28,1
+South America,Brazil,Distrito Federal,2020-06-02,845,36,11,127,28,1
+South America,Brazil,Distrito Federal,2020-06-03,845,34,11,127,28,1
+South America,Brazil,Distrito Federal,2020-06-04,845,32,10,127,28,1
+South America,Brazil,Distrito Federal,2020-06-05,846,30,10,127,28,1
+South America,Brazil,Distrito Federal,2020-06-06,846,28,9,127,28,1
+South America,Brazil,Distrito Federal,2020-06-07,846,27,9,127,28,1
+South America,Brazil,Distrito Federal,2020-06-08,846,25,9,127,28,1
+South America,Brazil,Distrito Federal,2020-06-09,846,24,8,127,28,1
+South America,Brazil,Distrito Federal,2020-06-10,846,23,8,127,28,1
+South America,Brazil,Distrito Federal,2020-06-11,846,21,7,127,28,1
+South America,Brazil,Distrito Federal,2020-06-12,846,20,7,127,28,1
+South America,Brazil,Distrito Federal,2020-06-13,846,19,7,127,28,1
+South America,Brazil,Distrito Federal,2020-06-14,846,18,7,127,28,1
+South America,Brazil,Distrito Federal,2020-06-15,846,17,6,127,29,0
+South America,Brazil,Minas Gerais,2020-03-23,128,128,19,19,0,5
+South America,Brazil,Minas Gerais,2020-03-24,135,127,19,20,0,5
+South America,Brazil,Minas Gerais,2020-03-25,147,130,20,22,1,5
+South America,Brazil,Minas Gerais,2020-03-26,163,138,22,24,1,5
+South America,Brazil,Minas Gerais,2020-03-27,182,148,24,27,1,5
+South America,Brazil,Minas Gerais,2020-03-28,205,160,26,31,2,6
+South America,Brazil,Minas Gerais,2020-03-29,229,174,28,34,2,6
+South America,Brazil,Minas Gerais,2020-03-30,257,189,31,39,2,7
+South America,Brazil,Minas Gerais,2020-03-31,287,207,34,43,3,8
+South America,Brazil,Minas Gerais,2020-04-01,320,226,37,48,3,8
+South America,Brazil,Minas Gerais,2020-04-02,356,246,41,53,4,9
+South America,Brazil,Minas Gerais,2020-04-03,395,268,45,59,5,10
+South America,Brazil,Minas Gerais,2020-04-04,436,292,49,65,5,11
+South America,Brazil,Minas Gerais,2020-04-05,480,316,53,72,6,12
+South America,Brazil,Minas Gerais,2020-04-06,527,342,57,79,7,13
+South America,Brazil,Minas Gerais,2020-04-07,577,368,62,87,8,14
+South America,Brazil,Minas Gerais,2020-04-08,629,395,67,94,9,14
+South America,Brazil,Minas Gerais,2020-04-09,683,423,72,102,10,15
+South America,Brazil,Minas Gerais,2020-04-10,739,450,77,111,11,16
+South America,Brazil,Minas Gerais,2020-04-11,797,478,82,120,12,18
+South America,Brazil,Minas Gerais,2020-04-12,857,506,87,129,13,19
+South America,Brazil,Minas Gerais,2020-04-13,918,534,92,138,14,19
+South America,Brazil,Minas Gerais,2020-04-14,980,560,97,147,16,20
+South America,Brazil,Minas Gerais,2020-04-15,1043,586,102,156,17,21
+South America,Brazil,Minas Gerais,2020-04-16,1107,611,106,166,18,22
+South America,Brazil,Minas Gerais,2020-04-17,1171,635,111,176,20,23
+South America,Brazil,Minas Gerais,2020-04-18,1236,657,115,185,21,24
+South America,Brazil,Minas Gerais,2020-04-19,1300,678,119,195,23,25
+South America,Brazil,Minas Gerais,2020-04-20,1363,697,123,205,25,25
+South America,Brazil,Minas Gerais,2020-04-21,1427,715,127,214,27,26
+South America,Brazil,Minas Gerais,2020-04-22,1489,730,130,223,28,26
+South America,Brazil,Minas Gerais,2020-04-23,1550,744,133,233,30,27
+South America,Brazil,Minas Gerais,2020-04-24,1610,756,136,242,32,27
+South America,Brazil,Minas Gerais,2020-04-25,1669,765,139,250,34,28
+South America,Brazil,Minas Gerais,2020-04-26,1727,773,141,259,36,28
+South America,Brazil,Minas Gerais,2020-04-27,1783,779,143,267,38,28
+South America,Brazil,Minas Gerais,2020-04-28,1838,783,144,276,40,28
+South America,Brazil,Minas Gerais,2020-04-29,1890,785,145,284,42,28
+South America,Brazil,Minas Gerais,2020-04-30,1941,785,146,291,44,28
+South America,Brazil,Minas Gerais,2020-05-01,1990,783,147,299,46,28
+South America,Brazil,Minas Gerais,2020-05-02,2037,780,147,306,48,28
+South America,Brazil,Minas Gerais,2020-05-03,2083,775,147,312,50,28
+South America,Brazil,Minas Gerais,2020-05-04,2126,769,147,319,52,27
+South America,Brazil,Minas Gerais,2020-05-05,2168,762,146,325,54,27
+South America,Brazil,Minas Gerais,2020-05-06,2207,752,145,331,56,27
+South America,Brazil,Minas Gerais,2020-05-07,2245,742,144,337,57,26
+South America,Brazil,Minas Gerais,2020-05-08,2281,730,143,342,59,26
+South America,Brazil,Minas Gerais,2020-05-09,2315,718,141,347,61,25
+South America,Brazil,Minas Gerais,2020-05-10,2347,704,140,352,63,25
+South America,Brazil,Minas Gerais,2020-05-11,2378,690,138,357,65,24
+South America,Brazil,Minas Gerais,2020-05-12,2407,675,136,361,67,24
+South America,Brazil,Minas Gerais,2020-05-13,2434,660,133,365,68,23
+South America,Brazil,Minas Gerais,2020-05-14,2459,643,131,369,70,23
+South America,Brazil,Minas Gerais,2020-05-15,2484,627,129,373,72,22
+South America,Brazil,Minas Gerais,2020-05-16,2506,610,126,376,73,21
+South America,Brazil,Minas Gerais,2020-05-17,2528,593,124,379,75,21
+South America,Brazil,Minas Gerais,2020-05-18,2548,575,121,382,77,20
+South America,Brazil,Minas Gerais,2020-05-19,2566,558,118,385,78,19
+South America,Brazil,Minas Gerais,2020-05-20,2584,540,115,388,80,19
+South America,Brazil,Minas Gerais,2020-05-21,2600,523,112,390,81,18
+South America,Brazil,Minas Gerais,2020-05-22,2615,505,110,392,82,17
+South America,Brazil,Minas Gerais,2020-05-23,2630,488,107,394,84,17
+South America,Brazil,Minas Gerais,2020-05-24,2643,470,104,396,85,16
+South America,Brazil,Minas Gerais,2020-05-25,2655,453,101,398,86,16
+South America,Brazil,Minas Gerais,2020-05-26,2667,436,98,400,87,15
+South America,Brazil,Minas Gerais,2020-05-27,2677,420,95,402,89,14
+South America,Brazil,Minas Gerais,2020-05-28,2687,403,92,403,90,14
+South America,Brazil,Minas Gerais,2020-05-29,2696,388,89,404,91,13
+South America,Brazil,Minas Gerais,2020-05-30,2705,372,87,406,92,13
+South America,Brazil,Minas Gerais,2020-05-31,2713,357,84,407,93,12
+South America,Brazil,Minas Gerais,2020-06-01,2720,342,81,408,94,12
+South America,Brazil,Minas Gerais,2020-06-02,2727,327,78,409,95,11
+South America,Brazil,Minas Gerais,2020-06-03,2733,313,76,410,96,10
+South America,Brazil,Minas Gerais,2020-06-04,2739,300,73,411,97,10
+South America,Brazil,Minas Gerais,2020-06-05,2744,286,71,412,97,10
+South America,Brazil,Minas Gerais,2020-06-06,2749,274,68,412,98,9
+South America,Brazil,Minas Gerais,2020-06-07,2753,261,66,413,99,9
+South America,Brazil,Minas Gerais,2020-06-08,2757,249,63,414,100,8
+South America,Brazil,Minas Gerais,2020-06-09,2761,238,61,414,100,8
+South America,Brazil,Minas Gerais,2020-06-10,2764,227,59,415,101,7
+South America,Brazil,Minas Gerais,2020-06-11,2768,216,56,415,102,7
+South America,Brazil,Minas Gerais,2020-06-12,2771,206,54,416,102,7
+South America,Brazil,Minas Gerais,2020-06-13,2773,196,52,416,103,6
+South America,Brazil,Minas Gerais,2020-06-14,2776,186,50,416,104,6
+South America,Brazil,Minas Gerais,2020-06-15,2778,177,48,417,104,6
+South America,Brazil,None,2020-03-15,136,136,20,20,0,5
+South America,Brazil,None,2020-03-16,173,163,25,26,2,6
+South America,Brazil,None,2020-03-17,207,185,29,31,5,7
+South America,Brazil,None,2020-03-18,242,207,32,36,7,8
+South America,Brazil,None,2020-03-19,282,233,37,42,10,9
+South America,Brazil,None,2020-03-20,440,362,57,65,16,14
+South America,Brazil,None,2020-03-21,554,451,71,82,21,16
+South America,Brazil,None,2020-03-22,901,767,120,135,26,28
+South America,Brazil,None,2020-03-23,1211,1022,159,179,35,39
+South America,Brazil,None,2020-03-24,1525,1265,197,225,44,48
+South America,Brazil,None,2020-03-25,1898,1544,243,282,58,57
+South America,Brazil,None,2020-03-26,2428,1969,310,361,71,73
+South America,Brazil,None,2020-03-27,2816,2219,352,420,87,83
+South America,Brazil,None,2020-03-28,3376,2618,416,503,109,96
+South America,Brazil,None,2020-03-29,3909,2970,476,581,133,109
+South America,Brazil,None,2020-03-30,4526,3380,544,674,159,126
+South America,Brazil,None,2020-03-31,5232,3851,621,782,193,143
+South America,Brazil,None,2020-04-01,6037,4389,710,901,228,161
+South America,Brazil,None,2020-04-02,6953,4999,812,1039,272,185
+South America,Brazil,None,2020-04-03,7997,5694,924,1194,324,212
+South America,Brazil,None,2020-04-04,9176,6481,1054,1373,380,241
+South America,Brazil,None,2020-04-05,10506,7361,1198,1571,450,272
+South America,Brazil,None,2020-04-06,11993,8337,1359,1796,526,306
+South America,Brazil,None,2020-04-07,13657,9419,1538,2047,614,348
+South America,Brazil,None,2020-04-08,15505,10616,1735,2322,717,393
+South America,Brazil,None,2020-04-09,17546,11925,1953,2629,830,440
+South America,Brazil,None,2020-04-10,19783,13337,2186,2962,957,492
+South America,Brazil,None,2020-04-11,22226,14861,2441,3330,1102,548
+South America,Brazil,None,2020-04-12,24883,16496,2713,3729,1266,609
+South America,Brazil,None,2020-04-13,27759,18243,3006,4160,1447,673
+South America,Brazil,None,2020-04-14,30850,20085,3314,4624,1647,740
+South America,Brazil,None,2020-04-15,34153,22014,3639,5119,1869,810
+South America,Brazil,None,2020-04-16,37673,24032,3982,5646,2112,883
+South America,Brazil,None,2020-04-17,41410,26135,4339,6207,2380,962
+South America,Brazil,None,2020-04-18,45364,28315,4710,6799,2670,1042
+South America,Brazil,None,2020-04-19,49520,30552,5094,7424,2986,1125
+South America,Brazil,None,2020-04-20,53867,32836,5488,8076,3328,1206
+South America,Brazil,None,2020-04-21,58407,35158,5891,8757,3696,1291
+South America,Brazil,None,2020-04-22,63133,37520,6301,9465,4091,1378
+South America,Brazil,None,2020-04-23,68044,39910,6720,10205,4516,1464
+South America,Brazil,None,2020-04-24,73119,42312,7143,10965,4966,1551
+South America,Brazil,None,2020-04-25,78340,44703,7566,11747,5447,1639
+South America,Brazil,None,2020-04-26,83703,47077,7990,12551,5955,1724
+South America,Brazil,None,2020-04-27,89193,49430,8413,13374,6490,1809
+South America,Brazil,None,2020-04-28,94813,51758,8832,14219,7057,1892
+South America,Brazil,None,2020-04-29,100546,54053,9251,15079,7650,1976
+South America,Brazil,None,2020-04-30,106370,56290,9661,15952,8270,2058
+South America,Brazil,None,2020-05-01,112264,58456,10063,16834,8919,2134
+South America,Brazil,None,2020-05-02,118219,60546,10454,17731,9597,2209
+South America,Brazil,None,2020-05-03,124227,62554,10834,18629,10295,2282
+South America,Brazil,None,2020-05-04,130278,64482,11203,19539,11024,2350
+South America,Brazil,None,2020-05-05,136369,66327,11561,20452,11773,2415
+South America,Brazil,None,2020-05-06,142472,68067,11901,21366,12544,2479
+South America,Brazil,None,2020-05-07,148571,69696,12226,22281,13339,2535
+South America,Brazil,None,2020-05-08,154649,71203,12532,23194,14155,2590
+South America,Brazil,None,2020-05-09,160700,72591,12818,24102,14990,2635
+South America,Brazil,None,2020-05-10,166715,73855,13088,25003,15844,2680
+South America,Brazil,None,2020-05-11,172688,75004,13337,25900,16714,2720
+South America,Brazil,None,2020-05-12,178618,76035,13569,26789,17599,2757
+South America,Brazil,None,2020-05-13,184477,76940,13777,27668,18493,2788
+South America,Brazil,None,2020-05-14,190261,77713,13968,28536,19405,2811
+South America,Brazil,None,2020-05-15,195956,78354,14133,29388,20325,2832
+South America,Brazil,None,2020-05-16,201553,78863,14278,30230,21253,2849
+South America,Brazil,None,2020-05-17,207051,79243,14401,31054,22191,2861
+South America,Brazil,None,2020-05-18,212442,79494,14505,31863,23133,2867
+South America,Brazil,None,2020-05-19,217721,79628,14584,32654,24080,2869
+South America,Brazil,None,2020-05-20,222884,79639,14644,33431,25030,2868
+South America,Brazil,None,2020-05-21,227922,79529,14683,34184,25980,2861
+South America,Brazil,None,2020-05-22,232836,79307,14703,34920,26930,2850
+South America,Brazil,None,2020-05-23,237624,78979,14701,35638,27878,2836
+South America,Brazil,None,2020-05-24,242282,78547,14682,36337,28827,2818
+South America,Brazil,None,2020-05-25,246810,78019,14646,37017,29765,2796
+South America,Brazil,None,2020-05-26,251204,77398,14590,37677,30701,2772
+South America,Brazil,None,2020-05-27,255457,76684,14518,38315,31629,2741
+South America,Brazil,None,2020-05-28,259570,75877,14429,38932,32549,2711
+South America,Brazil,None,2020-05-29,263532,74975,14321,39527,33460,2676
+South America,Brazil,None,2020-05-30,267354,73990,14198,40101,34362,2637
+South America,Brazil,None,2020-05-31,271039,72937,14061,40655,35253,2597
+South America,Brazil,None,2020-06-01,274593,71828,13912,41186,36131,2556
+South America,Brazil,None,2020-06-02,278017,70663,13750,41698,36996,2510
+South America,Brazil,None,2020-06-03,281306,69444,13579,42193,37848,2466
+South America,Brazil,None,2020-06-04,284461,68172,13393,42667,38683,2418
+South America,Brazil,None,2020-06-05,287480,66844,13198,43120,39506,2367
+South America,Brazil,None,2020-06-06,290373,65480,12993,43553,40310,2315
+South America,Brazil,None,2020-06-07,293142,64085,12782,43967,41104,2264
+South America,Brazil,None,2020-06-08,295794,62663,12562,44366,41877,2211
+South America,Brazil,None,2020-06-09,298329,61220,12335,44745,42634,2157
+South America,Brazil,None,2020-06-10,300744,59752,12103,45109,43374,2103
+South America,Brazil,None,2020-06-11,303045,58263,11863,45453,44095,2049
+South America,Brazil,None,2020-06-12,305237,56764,11621,45784,44798,1993
+South America,Brazil,None,2020-06-13,307326,55262,11376,46095,45484,1936
+South America,Brazil,None,2020-06-14,309311,53751,11125,46393,46152,1880
+South America,Brazil,None,2020-06-15,311196,52242,10873,46677,46803,1824
+South America,Brazil,Parana,2020-03-26,102,102,15,15,0,4
+South America,Brazil,Parana,2020-03-27,114,107,16,17,1,4
+South America,Brazil,Parana,2020-03-28,127,111,17,19,2,4
+South America,Brazil,Parana,2020-03-29,141,118,19,21,2,4
+South America,Brazil,Parana,2020-03-30,160,128,20,24,2,5
+South America,Brazil,Parana,2020-03-31,184,143,23,28,3,5
+South America,Brazil,Parana,2020-04-01,217,165,27,32,3,6
+South America,Brazil,Parana,2020-04-02,259,196,32,39,4,7
+South America,Brazil,Parana,2020-04-03,315,236,38,47,5,9
+South America,Brazil,Parana,2020-04-04,385,289,47,58,6,11
+South America,Brazil,Parana,2020-04-05,473,355,57,71,7,13
+South America,Brazil,Parana,2020-04-06,581,435,70,87,8,16
+South America,Brazil,Parana,2020-04-07,711,531,86,107,10,20
+South America,Brazil,Parana,2020-04-08,862,643,104,129,13,24
+South America,Brazil,Parana,2020-04-09,1037,769,125,156,15,28
+South America,Brazil,Parana,2020-04-10,1234,908,147,185,18,34
+South America,Brazil,Parana,2020-04-11,1453,1059,172,218,22,39
+South America,Brazil,Parana,2020-04-12,1692,1220,199,254,26,45
+South America,Brazil,Parana,2020-04-13,1949,1388,227,292,30,51
+South America,Brazil,Parana,2020-04-14,2222,1561,256,333,35,58
+South America,Brazil,Parana,2020-04-15,2510,1736,286,376,40,64
+South America,Brazil,Parana,2020-04-16,2809,1911,317,421,45,70
+South America,Brazil,Parana,2020-04-17,3117,2083,347,468,51,77
+South America,Brazil,Parana,2020-04-18,3433,2252,376,515,57,83
+South America,Brazil,Parana,2020-04-19,3753,2413,406,563,63,89
+South America,Brazil,Parana,2020-04-20,4075,2567,434,611,69,94
+South America,Brazil,Parana,2020-04-21,4398,2712,461,660,75,99
+South America,Brazil,Parana,2020-04-22,4719,2846,486,708,81,104
+South America,Brazil,Parana,2020-04-23,5037,2968,510,756,87,108
+South America,Brazil,Parana,2020-04-24,5350,3079,532,803,93,112
+South America,Brazil,Parana,2020-04-25,5658,3176,552,849,99,116
+South America,Brazil,Parana,2020-04-26,5958,3261,570,894,105,119
+South America,Brazil,Parana,2020-04-27,6250,3332,587,937,111,121
+South America,Brazil,Parana,2020-04-28,6533,3391,601,980,117,123
+South America,Brazil,Parana,2020-04-29,6806,3437,613,1021,123,125
+South America,Brazil,Parana,2020-04-30,7070,3470,623,1060,128,126
+South America,Brazil,Parana,2020-05-01,7322,3491,631,1098,133,126
+South America,Brazil,Parana,2020-05-02,7564,3501,638,1135,138,126
+South America,Brazil,Parana,2020-05-03,7795,3500,642,1169,143,126
+South America,Brazil,Parana,2020-05-04,8015,3488,645,1202,148,125
+South America,Brazil,Parana,2020-05-05,8224,3467,646,1234,152,124
+South America,Brazil,Parana,2020-05-06,8422,3437,645,1263,156,123
+South America,Brazil,Parana,2020-05-07,8609,3399,643,1291,160,122
+South America,Brazil,Parana,2020-05-08,8786,3353,639,1318,164,120
+South America,Brazil,Parana,2020-05-09,8953,3300,634,1343,167,118
+South America,Brazil,Parana,2020-05-10,9109,3242,628,1366,171,115
+South America,Brazil,Parana,2020-05-11,9256,3178,621,1388,174,113
+South America,Brazil,Parana,2020-05-12,9394,3109,613,1409,177,110
+South America,Brazil,Parana,2020-05-13,9523,3037,603,1428,180,107
+South America,Brazil,Parana,2020-05-14,9644,2961,593,1447,182,104
+South America,Brazil,Parana,2020-05-15,9756,2882,583,1463,185,101
+South America,Brazil,Parana,2020-05-16,9861,2801,571,1479,187,98
+South America,Brazil,Parana,2020-05-17,9958,2719,560,1494,189,95
+South America,Brazil,Parana,2020-05-18,10049,2635,547,1507,191,92
+South America,Brazil,Parana,2020-05-19,10133,2550,535,1520,193,89
+South America,Brazil,Parana,2020-05-20,10210,2464,522,1532,195,86
+South America,Brazil,Parana,2020-05-21,10282,2379,509,1542,196,83
+South America,Brazil,Parana,2020-05-22,10349,2294,495,1552,198,79
+South America,Brazil,Parana,2020-05-23,10411,2210,482,1562,199,76
+South America,Brazil,Parana,2020-05-24,10467,2126,468,1570,201,73
+South America,Brazil,Parana,2020-05-25,10520,2043,454,1578,202,70
+South America,Brazil,Parana,2020-05-26,10568,1962,441,1585,203,67
+South America,Brazil,Parana,2020-05-27,10612,1883,427,1592,204,64
+South America,Brazil,Parana,2020-05-28,10653,1805,414,1598,205,61
+South America,Brazil,Parana,2020-05-29,10691,1728,401,1604,206,59
+South America,Brazil,Parana,2020-05-30,10725,1654,387,1609,206,56
+South America,Brazil,Parana,2020-05-31,10757,1581,374,1614,207,53
+South America,Brazil,Parana,2020-06-01,10786,1511,362,1618,208,51
+South America,Brazil,Parana,2020-06-02,10812,1443,349,1622,208,48
+South America,Brazil,Parana,2020-06-03,10836,1377,337,1625,209,46
+South America,Brazil,Parana,2020-06-04,10858,1313,325,1629,209,44
+South America,Brazil,Parana,2020-06-05,10879,1251,313,1632,210,41
+South America,Brazil,Parana,2020-06-06,10897,1192,302,1635,210,39
+South America,Brazil,Parana,2020-06-07,10914,1135,290,1637,211,37
+South America,Brazil,Parana,2020-06-08,10929,1079,279,1639,211,35
+South America,Brazil,Parana,2020-06-09,10943,1027,269,1641,211,33
+South America,Brazil,Parana,2020-06-10,10956,976,259,1643,212,32
+South America,Brazil,Parana,2020-06-11,10968,927,248,1645,212,30
+South America,Brazil,Parana,2020-06-12,10978,880,239,1647,212,28
+South America,Brazil,Parana,2020-06-13,10988,836,229,1648,212,27
+South America,Brazil,Parana,2020-06-14,10997,793,220,1649,212,25
+South America,Brazil,Parana,2020-06-15,11004,752,211,1651,213,24
+South America,Brazil,Rio Grande do Norte,2020-03-25,123,117,18,18,1,4
+South America,Brazil,Rio Grande do Norte,2020-03-26,153,139,21,22,1,5
+South America,Brazil,Rio Grande do Norte,2020-03-27,178,154,24,26,2,6
+South America,Brazil,Rio Grande do Norte,2020-03-28,201,167,26,29,2,6
+South America,Brazil,Rio Grande do Norte,2020-03-29,224,179,28,33,2,7
+South America,Brazil,Rio Grande do Norte,2020-03-30,249,192,31,36,3,7
+South America,Brazil,Rio Grande do Norte,2020-03-31,277,207,33,41,3,8
+South America,Brazil,Rio Grande do Norte,2020-04-01,307,224,36,45,4,8
+South America,Brazil,Rio Grande do Norte,2020-04-02,341,242,40,50,5,9
+South America,Brazil,Rio Grande do Norte,2020-04-03,378,263,43,56,5,10
+South America,Brazil,Rio Grande do Norte,2020-04-04,418,286,47,62,6,11
+South America,Brazil,Rio Grande do Norte,2020-04-05,463,312,52,69,7,11
+South America,Brazil,Rio Grande do Norte,2020-04-06,511,339,57,76,8,12
+South America,Brazil,Rio Grande do Norte,2020-04-07,563,369,62,84,9,14
+South America,Brazil,Rio Grande do Norte,2020-04-08,619,400,67,92,10,15
+South America,Brazil,Rio Grande do Norte,2020-04-09,679,434,73,101,11,16
+South America,Brazil,Rio Grande do Norte,2020-04-10,743,469,79,111,12,17
+South America,Brazil,Rio Grande do Norte,2020-04-11,811,505,85,121,13,19
+South America,Brazil,Rio Grande do Norte,2020-04-12,881,542,92,131,15,20
+South America,Brazil,Rio Grande do Norte,2020-04-13,955,580,99,142,16,21
+South America,Brazil,Rio Grande do Norte,2020-04-14,1032,619,105,154,18,23
+South America,Brazil,Rio Grande do Norte,2020-04-15,1111,658,112,166,19,24
+South America,Brazil,Rio Grande do Norte,2020-04-16,1193,697,119,178,21,25
+South America,Brazil,Rio Grande do Norte,2020-04-17,1277,735,126,191,23,27
+South America,Brazil,Rio Grande do Norte,2020-04-18,1363,773,133,204,25,28
+South America,Brazil,Rio Grande do Norte,2020-04-19,1450,809,140,217,28,30
+South America,Brazil,Rio Grande do Norte,2020-04-20,1538,845,147,230,30,31
+South America,Brazil,Rio Grande do Norte,2020-04-21,1627,879,153,243,32,32
+South America,Brazil,Rio Grande do Norte,2020-04-22,1717,912,159,257,35,33
+South America,Brazil,Rio Grande do Norte,2020-04-23,1806,942,165,270,37,34
+South America,Brazil,Rio Grande do Norte,2020-04-24,1895,971,171,283,40,35
+South America,Brazil,Rio Grande do Norte,2020-04-25,1984,997,176,297,43,36
+South America,Brazil,Rio Grande do Norte,2020-04-26,2072,1021,181,310,46,37
+South America,Brazil,Rio Grande do Norte,2020-04-27,2159,1043,186,323,49,38
+South America,Brazil,Rio Grande do Norte,2020-04-28,2245,1062,190,336,52,38
+South America,Brazil,Rio Grande do Norte,2020-04-29,2329,1078,194,348,55,39
+South America,Brazil,Rio Grande do Norte,2020-04-30,2412,1092,197,361,58,39
+South America,Brazil,Rio Grande do Norte,2020-05-01,2493,1104,200,373,62,40
+South America,Brazil,Rio Grande do Norte,2020-05-02,2572,1113,203,385,65,40
+South America,Brazil,Rio Grande do Norte,2020-05-03,2649,1119,205,396,68,40
+South America,Brazil,Rio Grande do Norte,2020-05-04,2723,1123,207,408,72,40
+South America,Brazil,Rio Grande do Norte,2020-05-05,2795,1124,208,418,75,40
+South America,Brazil,Rio Grande do Norte,2020-05-06,2865,1122,209,429,78,40
+South America,Brazil,Rio Grande do Norte,2020-05-07,2932,1119,210,439,82,40
+South America,Brazil,Rio Grande do Norte,2020-05-08,2998,1114,210,449,85,40
+South America,Brazil,Rio Grande do Norte,2020-05-09,3060,1107,210,458,89,40
+South America,Brazil,Rio Grande do Norte,2020-05-10,3121,1098,209,467,92,39
+South America,Brazil,Rio Grande do Norte,2020-05-11,3178,1086,208,476,96,39
+South America,Brazil,Rio Grande do Norte,2020-05-12,3233,1073,207,484,99,38
+South America,Brazil,Rio Grande do Norte,2020-05-13,3285,1058,205,492,103,38
+South America,Brazil,Rio Grande do Norte,2020-05-14,3335,1042,203,499,106,37
+South America,Brazil,Rio Grande do Norte,2020-05-15,3383,1025,201,506,110,36
+South America,Brazil,Rio Grande do Norte,2020-05-16,3428,1007,199,513,113,36
+South America,Brazil,Rio Grande do Norte,2020-05-17,3471,988,196,520,116,35
+South America,Brazil,Rio Grande do Norte,2020-05-18,3512,967,193,526,120,34
+South America,Brazil,Rio Grande do Norte,2020-05-19,3550,946,190,532,123,33
+South America,Brazil,Rio Grande do Norte,2020-05-20,3587,924,187,537,126,32
+South America,Brazil,Rio Grande do Norte,2020-05-21,3621,901,184,542,129,32
+South America,Brazil,Rio Grande do Norte,2020-05-22,3654,878,180,547,132,31
+South America,Brazil,Rio Grande do Norte,2020-05-23,3684,855,177,552,135,30
+South America,Brazil,Rio Grande do Norte,2020-05-24,3713,831,173,556,138,29
+South America,Brazil,Rio Grande do Norte,2020-05-25,3740,807,169,560,141,28
+South America,Brazil,Rio Grande do Norte,2020-05-26,3765,783,165,564,144,27
+South America,Brazil,Rio Grande do Norte,2020-05-27,3789,759,161,567,147,26
+South America,Brazil,Rio Grande do Norte,2020-05-28,3812,735,158,571,150,25
+South America,Brazil,Rio Grande do Norte,2020-05-29,3833,711,154,574,152,25
+South America,Brazil,Rio Grande do Norte,2020-05-30,3852,687,150,577,155,24
+South America,Brazil,Rio Grande do Norte,2020-05-31,3870,664,145,580,158,23
+South America,Brazil,Rio Grande do Norte,2020-06-01,3887,640,141,582,160,22
+South America,Brazil,Rio Grande do Norte,2020-06-02,3903,617,137,585,163,21
+South America,Brazil,Rio Grande do Norte,2020-06-03,3918,595,133,587,165,20
+South America,Brazil,Rio Grande do Norte,2020-06-04,3932,573,130,589,167,20
+South America,Brazil,Rio Grande do Norte,2020-06-05,3945,551,126,591,170,19
+South America,Brazil,Rio Grande do Norte,2020-06-06,3957,530,122,593,172,18
+South America,Brazil,Rio Grande do Norte,2020-06-07,3968,509,118,594,174,17
+South America,Brazil,Rio Grande do Norte,2020-06-08,3978,489,114,596,176,17
+South America,Brazil,Rio Grande do Norte,2020-06-09,3988,469,110,597,178,16
+South America,Brazil,Rio Grande do Norte,2020-06-10,3996,450,107,599,180,15
+South America,Brazil,Rio Grande do Norte,2020-06-11,4005,431,103,600,182,14
+South America,Brazil,Rio Grande do Norte,2020-06-12,4012,413,100,601,184,14
+South America,Brazil,Rio Grande do Norte,2020-06-13,4019,395,96,602,186,13
+South America,Brazil,Rio Grande do Norte,2020-06-14,4026,378,93,603,187,13
+South America,Brazil,Rio Grande do Norte,2020-06-15,4032,362,90,604,189,12
+South America,Brazil,Rio Grande do Norte,2020-06-16,4037,346,86,605,191,11
+South America,Brazil,Rio Grande do Norte,2020-06-17,4042,330,83,605,192,11
+South America,Brazil,Rio Grande do Norte,2020-06-18,4047,315,80,606,194,10
+South America,Brazil,Rio Grande do Norte,2020-06-19,4051,301,77,607,195,10
+South America,Brazil,Rio Grande do Norte,2020-06-20,4055,287,74,607,197,9
+South America,Brazil,Rio Grande do Norte,2020-06-21,4059,274,72,608,198,9
+South America,Brazil,Rio Grande do Norte,2020-06-22,4062,261,69,608,199,8
+South America,Brazil,Rio Grande do Norte,2020-06-23,4065,249,66,609,201,8
+South America,Brazil,Rio Grande do Norte,2020-06-24,4068,237,64,609,202,8
+South America,Brazil,Rio Grande do Norte,2020-06-25,4071,226,61,610,203,7
+South America,Brazil,Rio Grande do Norte,2020-06-26,4073,215,59,610,204,7
+South America,Brazil,Rio Grande do Norte,2020-06-27,4075,205,57,610,205,7
+South America,Brazil,Rio Grande do Norte,2020-06-28,4077,195,54,611,206,6
+South America,Brazil,Rio Grande do Norte,2020-06-29,4079,186,52,611,208,6
+South America,Brazil,Rio Grande do Norte,2020-06-30,4081,177,50,611,209,6
+South America,Brazil,Rio Grande do Norte,2020-07-01,4083,168,48,611,209,5
+South America,Brazil,Rio Grande do Norte,2020-07-02,4084,160,46,612,210,5
+South America,Brazil,Rio Grande do Norte,2020-07-03,4085,152,44,612,211,5
+South America,Brazil,Rio Grande do Norte,2020-07-04,4086,144,42,612,212,4
+South America,Brazil,Rio Grande do Norte,2020-07-05,4087,137,41,612,213,4
+South America,Brazil,Rio Grande do Norte,2020-07-06,4088,130,39,612,214,4
+South America,Brazil,Rio Grande do Norte,2020-07-07,4089,124,37,613,215,4
+South America,Brazil,Rio Grande do Norte,2020-07-08,4090,117,36,613,215,4
+South America,Brazil,Rio Grande do Norte,2020-07-09,4091,111,34,613,216,3
+South America,Brazil,Rio Grande do Norte,2020-07-10,4092,106,33,613,217,3
+South America,Brazil,Rio Grande do Norte,2020-07-11,4092,100,32,613,217,3
+South America,Brazil,Rio Grande do Norte,2020-07-12,4093,95,30,613,218,3
+South America,Brazil,Rio Grande do Norte,2020-07-13,4093,91,29,613,219,3
+South America,Brazil,Rio Grande do Norte,2020-07-14,4094,86,28,613,219,3
+South America,Brazil,Rio Grande do Norte,2020-07-15,4094,82,27,613,220,2
+South America,Brazil,Rio Grande do Sul,2020-03-25,123,117,18,18,1,4
+South America,Brazil,Rio Grande do Sul,2020-03-26,153,139,21,22,1,5
+South America,Brazil,Rio Grande do Sul,2020-03-27,178,154,24,26,2,6
+South America,Brazil,Rio Grande do Sul,2020-03-28,201,166,26,29,2,6
+South America,Brazil,Rio Grande do Sul,2020-03-29,224,178,28,33,3,7
+South America,Brazil,Rio Grande do Sul,2020-03-30,249,191,31,36,3,7
+South America,Brazil,Rio Grande do Sul,2020-03-31,277,206,33,41,4,8
+South America,Brazil,Rio Grande do Sul,2020-04-01,307,222,36,45,4,8
+South America,Brazil,Rio Grande do Sul,2020-04-02,341,241,40,50,5,9
+South America,Brazil,Rio Grande do Sul,2020-04-03,378,261,43,56,5,10
+South America,Brazil,Rio Grande do Sul,2020-04-04,418,284,47,62,6,10
+South America,Brazil,Rio Grande do Sul,2020-04-05,463,309,51,68,7,11
+South America,Brazil,Rio Grande do Sul,2020-04-06,511,337,56,76,8,12
+South America,Brazil,Rio Grande do Sul,2020-04-07,563,366,61,84,9,13
+South America,Brazil,Rio Grande do Sul,2020-04-08,619,397,67,92,10,15
+South America,Brazil,Rio Grande do Sul,2020-04-09,679,430,72,101,11,16
+South America,Brazil,Rio Grande do Sul,2020-04-10,743,465,78,110,12,17
+South America,Brazil,Rio Grande do Sul,2020-04-11,810,500,85,121,13,18
+South America,Brazil,Rio Grande do Sul,2020-04-12,880,537,91,131,14,20
+South America,Brazil,Rio Grande do Sul,2020-04-13,954,575,98,142,16,21
+South America,Brazil,Rio Grande do Sul,2020-04-14,1031,613,105,154,17,22
+South America,Brazil,Rio Grande do Sul,2020-04-15,1110,651,111,166,19,24
+South America,Brazil,Rio Grande do Sul,2020-04-16,1192,689,118,178,21,25
+South America,Brazil,Rio Grande do Sul,2020-04-17,1276,727,125,190,23,27
+South America,Brazil,Rio Grande do Sul,2020-04-18,1361,764,132,203,25,28
+South America,Brazil,Rio Grande do Sul,2020-04-19,1448,800,139,216,27,29
+South America,Brazil,Rio Grande do Sul,2020-04-20,1536,835,145,229,29,30
+South America,Brazil,Rio Grande do Sul,2020-04-21,1625,868,152,243,31,32
+South America,Brazil,Rio Grande do Sul,2020-04-22,1714,900,158,256,33,33
+South America,Brazil,Rio Grande do Sul,2020-04-23,1803,930,164,270,36,34
+South America,Brazil,Rio Grande do Sul,2020-04-24,1892,958,169,283,38,35
+South America,Brazil,Rio Grande do Sul,2020-04-25,1981,983,175,296,41,36
+South America,Brazil,Rio Grande do Sul,2020-04-26,2069,1007,180,309,43,36
+South America,Brazil,Rio Grande do Sul,2020-04-27,2156,1028,184,322,46,37
+South America,Brazil,Rio Grande do Sul,2020-04-28,2241,1046,188,335,49,38
+South America,Brazil,Rio Grande do Sul,2020-04-29,2325,1062,192,348,52,38
+South America,Brazil,Rio Grande do Sul,2020-04-30,2408,1075,195,360,54,39
+South America,Brazil,Rio Grande do Sul,2020-05-01,2489,1086,198,372,57,39
+South America,Brazil,Rio Grande do Sul,2020-05-02,2568,1095,201,384,60,39
+South America,Brazil,Rio Grande do Sul,2020-05-03,2645,1100,203,396,63,40
+South America,Brazil,Rio Grande do Sul,2020-05-04,2719,1104,205,407,66,40
+South America,Brazil,Rio Grande do Sul,2020-05-05,2791,1104,206,418,69,40
+South America,Brazil,Rio Grande do Sul,2020-05-06,2861,1102,207,428,72,40
+South America,Brazil,Rio Grande do Sul,2020-05-07,2929,1099,207,438,75,39
+South America,Brazil,Rio Grande do Sul,2020-05-08,2994,1093,207,448,78,39
+South America,Brazil,Rio Grande do Sul,2020-05-09,3057,1086,207,458,81,39
+South America,Brazil,Rio Grande do Sul,2020-05-10,3117,1076,206,467,84,38
+South America,Brazil,Rio Grande do Sul,2020-05-11,3174,1065,205,475,87,38
+South America,Brazil,Rio Grande do Sul,2020-05-12,3229,1051,204,483,90,37
+South America,Brazil,Rio Grande do Sul,2020-05-13,3281,1036,202,491,92,37
+South America,Brazil,Rio Grande do Sul,2020-05-14,3332,1020,201,499,95,36
+South America,Brazil,Rio Grande do Sul,2020-05-15,3380,1003,198,506,98,35
+South America,Brazil,Rio Grande do Sul,2020-05-16,3425,984,196,513,101,35
+South America,Brazil,Rio Grande do Sul,2020-05-17,3468,965,193,519,103,34
+South America,Brazil,Rio Grande do Sul,2020-05-18,3509,944,191,525,106,33
+South America,Brazil,Rio Grande do Sul,2020-05-19,3548,923,188,531,109,32
+South America,Brazil,Rio Grande do Sul,2020-05-20,3584,901,184,537,111,32
+South America,Brazil,Rio Grande do Sul,2020-05-21,3619,878,181,542,114,31
+South America,Brazil,Rio Grande do Sul,2020-05-22,3652,855,178,547,116,30
+South America,Brazil,Rio Grande do Sul,2020-05-23,3682,832,174,551,118,29
+South America,Brazil,Rio Grande do Sul,2020-05-24,3711,808,170,556,121,28
+South America,Brazil,Rio Grande do Sul,2020-05-25,3738,784,167,560,123,27
+South America,Brazil,Rio Grande do Sul,2020-05-26,3764,760,163,564,125,26
+South America,Brazil,Rio Grande do Sul,2020-05-27,3788,736,159,567,127,25
+South America,Brazil,Rio Grande do Sul,2020-05-28,3810,713,155,571,129,25
+South America,Brazil,Rio Grande do Sul,2020-05-29,3831,689,151,574,131,24
+South America,Brazil,Rio Grande do Sul,2020-05-30,3851,665,147,577,133,23
+South America,Brazil,Rio Grande do Sul,2020-05-31,3869,642,143,580,135,22
+South America,Brazil,Rio Grande do Sul,2020-06-01,3887,619,139,582,136,21
+South America,Brazil,Rio Grande do Sul,2020-06-02,3903,596,135,584,138,20
+South America,Brazil,Rio Grande do Sul,2020-06-03,3917,574,131,587,140,20
+South America,Brazil,Rio Grande do Sul,2020-06-04,3931,552,127,589,141,19
+South America,Brazil,Rio Grande do Sul,2020-06-05,3944,530,123,591,143,18
+South America,Brazil,Rio Grande do Sul,2020-06-06,3956,509,119,593,144,17
+South America,Brazil,Rio Grande do Sul,2020-06-07,3968,489,116,594,146,16
+South America,Brazil,Rio Grande do Sul,2020-06-08,3978,469,112,596,147,16
+South America,Brazil,Rio Grande do Sul,2020-06-09,3988,449,108,597,149,15
+South America,Brazil,Rio Grande do Sul,2020-06-10,3996,430,104,599,150,14
+South America,Brazil,Rio Grande do Sul,2020-06-11,4005,412,101,600,151,14
+South America,Brazil,Rio Grande do Sul,2020-06-12,4012,394,97,601,152,13
+South America,Brazil,Rio Grande do Sul,2020-06-13,4020,377,94,602,153,12
+South America,Brazil,Rio Grande do Sul,2020-06-14,4026,360,91,603,154,12
+South America,Brazil,Rio Grande do Sul,2020-06-15,4032,344,88,604,155,11
+South America,Brazil,Rio de Janeiro,2020-03-20,109,97,15,15,2,4
+South America,Brazil,Rio de Janeiro,2020-03-21,164,145,22,23,3,5
+South America,Brazil,Rio de Janeiro,2020-03-22,209,180,28,30,4,7
+South America,Brazil,Rio de Janeiro,2020-03-23,252,210,33,36,6,8
+South America,Brazil,Rio de Janeiro,2020-03-24,295,239,37,42,8,9
+South America,Brazil,Rio de Janeiro,2020-03-25,341,269,42,49,10,10
+South America,Brazil,Rio de Janeiro,2020-03-26,392,303,48,57,12,11
+South America,Brazil,Rio de Janeiro,2020-03-27,450,340,54,66,14,13
+South America,Brazil,Rio de Janeiro,2020-03-28,514,382,61,75,17,14
+South America,Brazil,Rio de Janeiro,2020-03-29,587,429,69,86,21,16
+South America,Brazil,Rio de Janeiro,2020-03-30,668,482,78,98,24,18
+South America,Brazil,Rio de Janeiro,2020-03-31,758,540,88,112,29,20
+South America,Brazil,Rio de Janeiro,2020-04-01,859,606,98,127,33,22
+South America,Brazil,Rio de Janeiro,2020-04-02,971,677,110,144,39,25
+South America,Brazil,Rio de Janeiro,2020-04-03,1094,756,123,162,45,28
+South America,Brazil,Rio de Janeiro,2020-04-04,1231,843,138,183,51,31
+South America,Brazil,Rio de Janeiro,2020-04-05,1380,937,154,205,59,35
+South America,Brazil,Rio de Janeiro,2020-04-06,1542,1038,170,230,67,38
+South America,Brazil,Rio de Janeiro,2020-04-07,1719,1147,189,256,76,42
+South America,Brazil,Rio de Janeiro,2020-04-08,1911,1263,208,285,86,47
+South America,Brazil,Rio de Janeiro,2020-04-09,2118,1389,229,316,97,51
+South America,Brazil,Rio de Janeiro,2020-04-10,2341,1521,251,349,109,56
+South America,Brazil,Rio de Janeiro,2020-04-11,2579,1660,275,385,123,61
+South America,Brazil,Rio de Janeiro,2020-04-12,2832,1805,300,423,137,66
+South America,Brazil,Rio de Janeiro,2020-04-13,3101,1957,325,463,153,72
+South America,Brazil,Rio de Janeiro,2020-04-14,3386,2116,352,506,170,78
+South America,Brazil,Rio de Janeiro,2020-04-15,3687,2281,381,551,189,84
+South America,Brazil,Rio de Janeiro,2020-04-16,4003,2450,410,599,209,90
+South America,Brazil,Rio de Janeiro,2020-04-17,4333,2622,439,648,230,96
+South America,Brazil,Rio de Janeiro,2020-04-18,4676,2797,470,700,253,103
+South America,Brazil,Rio de Janeiro,2020-04-19,5034,2975,501,753,278,109
+South America,Brazil,Rio de Janeiro,2020-04-20,5405,3156,533,809,304,116
+South America,Brazil,Rio de Janeiro,2020-04-21,5788,3338,565,866,332,122
+South America,Brazil,Rio de Janeiro,2020-04-22,6181,3519,597,925,361,129
+South America,Brazil,Rio de Janeiro,2020-04-23,6584,3698,629,986,392,135
+South America,Brazil,Rio de Janeiro,2020-04-24,6996,3875,661,1048,425,142
+South America,Brazil,Rio de Janeiro,2020-04-25,7416,4050,692,1111,459,148
+South America,Brazil,Rio de Janeiro,2020-04-26,7845,4222,724,1175,495,154
+South America,Brazil,Rio de Janeiro,2020-04-27,8279,4390,755,1240,532,160
+South America,Brazil,Rio de Janeiro,2020-04-28,8717,4552,785,1306,571,166
+South America,Brazil,Rio de Janeiro,2020-04-29,9159,4707,814,1372,612,172
+South America,Brazil,Rio de Janeiro,2020-04-30,9603,4855,842,1439,654,177
+South America,Brazil,Rio de Janeiro,2020-05-01,10049,4996,869,1505,697,182
+South America,Brazil,Rio de Janeiro,2020-05-02,10496,5130,895,1573,742,187
+South America,Brazil,Rio de Janeiro,2020-05-03,10942,5256,920,1639,787,191
+South America,Brazil,Rio de Janeiro,2020-05-04,11386,5372,944,1706,835,195
+South America,Brazil,Rio de Janeiro,2020-05-05,11828,5479,966,1772,883,199
+South America,Brazil,Rio de Janeiro,2020-05-06,12266,5575,986,1838,932,202
+South America,Brazil,Rio de Janeiro,2020-05-07,12699,5661,1005,1903,982,205
+South America,Brazil,Rio de Janeiro,2020-05-08,13127,5738,1022,1967,1034,208
+South America,Brazil,Rio de Janeiro,2020-05-09,13549,5804,1038,2031,1086,210
+South America,Brazil,Rio de Janeiro,2020-05-10,13964,5860,1051,2093,1138,212
+South America,Brazil,Rio de Janeiro,2020-05-11,14371,5905,1064,2154,1192,214
+South America,Brazil,Rio de Janeiro,2020-05-12,14771,5940,1074,2214,1246,215
+South America,Brazil,Rio de Janeiro,2020-05-13,15163,5965,1083,2273,1300,215
+South America,Brazil,Rio de Janeiro,2020-05-14,15546,5981,1090,2330,1355,216
+South America,Brazil,Rio de Janeiro,2020-05-15,15921,5988,1095,2386,1410,216
+South America,Brazil,Rio de Janeiro,2020-05-16,16285,5985,1099,2441,1465,216
+South America,Brazil,Rio de Janeiro,2020-05-17,16639,5973,1101,2494,1521,215
+South America,Brazil,Rio de Janeiro,2020-05-18,16982,5949,1102,2546,1576,214
+South America,Brazil,Rio de Janeiro,2020-05-19,17313,5917,1100,2595,1631,212
+South America,Brazil,Rio de Janeiro,2020-05-20,17634,5876,1097,2643,1687,211
+South America,Brazil,Rio de Janeiro,2020-05-21,17945,5828,1093,2690,1742,209
+South America,Brazil,Rio de Janeiro,2020-05-22,18246,5774,1088,2735,1797,207
+South America,Brazil,Rio de Janeiro,2020-05-23,18536,5713,1081,2779,1851,204
+South America,Brazil,Rio de Janeiro,2020-05-24,18815,5644,1073,2820,1906,202
+South America,Brazil,Rio de Janeiro,2020-05-25,19082,5569,1064,2861,1959,199
+South America,Brazil,Rio de Janeiro,2020-05-26,19339,5488,1053,2899,2012,196
+South America,Brazil,Rio de Janeiro,2020-05-27,19585,5402,1041,2936,2065,192
+South America,Brazil,Rio de Janeiro,2020-05-28,19822,5312,1029,2971,2117,189
+South America,Brazil,Rio de Janeiro,2020-05-29,20048,5217,1015,3005,2168,185
+South America,Brazil,Rio de Janeiro,2020-05-30,20265,5119,1001,3038,2219,182
+South America,Brazil,Rio de Janeiro,2020-05-31,20471,5016,986,3069,2269,178
+South America,Brazil,Rio de Janeiro,2020-06-01,20667,4910,970,3098,2318,174
+South America,Brazil,Rio de Janeiro,2020-06-02,20854,4802,953,3126,2366,170
+South America,Brazil,Rio de Janeiro,2020-06-03,21032,4692,936,3153,2414,166
+South America,Brazil,Rio de Janeiro,2020-06-04,21203,4581,919,3179,2460,162
+South America,Brazil,Rio de Janeiro,2020-06-05,21364,4468,901,3203,2506,157
+South America,Brazil,Rio de Janeiro,2020-06-06,21518,4354,883,3226,2550,153
+South America,Brazil,Rio de Janeiro,2020-06-07,21662,4238,864,3247,2594,149
+South America,Brazil,Rio de Janeiro,2020-06-08,21798,4121,845,3268,2637,145
+South America,Brazil,Rio de Janeiro,2020-06-09,21928,4005,825,3287,2679,140
+South America,Brazil,Rio de Janeiro,2020-06-10,22051,3889,806,3306,2719,136
+South America,Brazil,Rio de Janeiro,2020-06-11,22167,3774,787,3323,2759,132
+South America,Brazil,Rio de Janeiro,2020-06-12,22277,3660,767,3340,2798,128
+South America,Brazil,Rio de Janeiro,2020-06-13,22381,3547,748,3355,2836,123
+South America,Brazil,Rio de Janeiro,2020-06-14,22478,3433,728,3370,2873,119
+South America,Brazil,Rio de Janeiro,2020-06-15,22569,3321,708,3384,2908,115
+South America,Brazil,Santa Catarina,2020-03-24,107,107,16,16,0,4
+South America,Brazil,Santa Catarina,2020-03-25,120,112,17,18,0,4
+South America,Brazil,Santa Catarina,2020-03-26,135,120,19,20,1,4
+South America,Brazil,Santa Catarina,2020-03-27,152,128,20,23,1,5
+South America,Brazil,Santa Catarina,2020-03-28,170,138,22,26,1,5
+South America,Brazil,Santa Catarina,2020-03-29,189,147,24,28,2,5
+South America,Brazil,Santa Catarina,2020-03-30,209,157,25,31,2,6
+South America,Brazil,Santa Catarina,2020-03-31,229,165,27,34,2,6
+South America,Brazil,Santa Catarina,2020-04-01,248,174,29,37,3,6
+South America,Brazil,Santa Catarina,2020-04-02,268,181,30,40,3,7
+South America,Brazil,Santa Catarina,2020-04-03,287,188,32,43,3,7
+South America,Brazil,Santa Catarina,2020-04-04,306,194,33,46,3,7
+South America,Brazil,Santa Catarina,2020-04-05,324,200,34,49,4,7
+South America,Brazil,Santa Catarina,2020-04-06,342,204,35,51,4,7
+South America,Brazil,Santa Catarina,2020-04-07,360,208,36,54,4,8
+South America,Brazil,Santa Catarina,2020-04-08,377,211,37,56,5,8
+South America,Brazil,Santa Catarina,2020-04-09,393,213,38,59,5,8
+South America,Brazil,Santa Catarina,2020-04-10,408,214,38,61,5,8
+South America,Brazil,Santa Catarina,2020-04-11,423,215,39,63,5,8
+South America,Brazil,Santa Catarina,2020-04-12,437,215,39,66,6,8
+South America,Brazil,Santa Catarina,2020-04-13,450,214,39,68,6,8
+South America,Brazil,Santa Catarina,2020-04-14,463,213,39,69,6,8
+South America,Brazil,Santa Catarina,2020-04-15,475,211,39,71,6,8
+South America,Brazil,Santa Catarina,2020-04-16,487,209,39,73,6,7
+South America,Brazil,Santa Catarina,2020-04-17,497,206,39,75,7,7
+South America,Brazil,Santa Catarina,2020-04-18,507,202,38,76,7,7
+South America,Brazil,Santa Catarina,2020-04-19,517,199,38,78,7,7
+South America,Brazil,Santa Catarina,2020-04-20,526,195,38,79,7,7
+South America,Brazil,Santa Catarina,2020-04-21,534,190,37,80,7,7
+South America,Brazil,Santa Catarina,2020-04-22,542,186,37,81,7,7
+South America,Brazil,Santa Catarina,2020-04-23,549,181,36,82,8,6
+South America,Brazil,Santa Catarina,2020-04-24,556,176,35,83,8,6
+South America,Brazil,Santa Catarina,2020-04-25,562,171,35,84,8,6
+South America,Brazil,Santa Catarina,2020-04-26,568,166,34,85,8,6
+South America,Brazil,Santa Catarina,2020-04-27,573,161,33,86,8,6
+South America,Brazil,Santa Catarina,2020-04-28,578,155,32,87,8,5
+South America,Brazil,Santa Catarina,2020-04-29,583,150,32,87,8,5
+South America,Brazil,Santa Catarina,2020-04-30,587,145,31,88,8,5
+South America,Brazil,Santa Catarina,2020-05-01,591,139,30,89,8,5
+South America,Brazil,Santa Catarina,2020-05-02,594,134,29,89,9,5
+South America,Brazil,Santa Catarina,2020-05-03,598,129,28,90,9,4
+South America,Brazil,Santa Catarina,2020-05-04,601,124,27,90,9,4
+South America,Brazil,Santa Catarina,2020-05-05,604,119,27,91,9,4
+South America,Brazil,Santa Catarina,2020-05-06,606,114,26,91,9,4
+South America,Brazil,Santa Catarina,2020-05-07,609,109,25,91,9,4
+South America,Brazil,Santa Catarina,2020-05-08,611,104,24,92,9,4
+South America,Brazil,Santa Catarina,2020-05-09,613,100,23,92,9,3
+South America,Brazil,Santa Catarina,2020-05-10,615,95,23,92,9,3
+South America,Brazil,Santa Catarina,2020-05-11,616,91,22,92,9,3
+South America,Brazil,Santa Catarina,2020-05-12,618,87,21,93,9,3
+South America,Brazil,Santa Catarina,2020-05-13,619,83,20,93,9,3
+South America,Brazil,Santa Catarina,2020-05-14,621,79,20,93,9,3
+South America,Brazil,Santa Catarina,2020-05-15,622,75,19,93,9,2
+South America,Brazil,Santa Catarina,2020-05-16,623,72,18,93,9,2
+South America,Brazil,Santa Catarina,2020-05-17,624,68,17,94,9,2
+South America,Brazil,Santa Catarina,2020-05-18,625,65,17,94,9,2
+South America,Brazil,Santa Catarina,2020-05-19,625,62,16,94,9,2
+South America,Brazil,Santa Catarina,2020-05-20,626,58,16,94,9,2
+South America,Brazil,Santa Catarina,2020-05-21,627,56,15,94,9,2
+South America,Brazil,Santa Catarina,2020-05-22,627,53,14,94,9,2
+South America,Brazil,Santa Catarina,2020-05-23,628,50,14,94,9,2
+South America,Brazil,Santa Catarina,2020-05-24,628,47,13,94,9,2
+South America,Brazil,Santa Catarina,2020-05-25,629,45,13,94,9,1
+South America,Brazil,Santa Catarina,2020-05-26,629,43,12,94,9,1
+South America,Brazil,Santa Catarina,2020-05-27,630,40,12,94,9,1
+South America,Brazil,Santa Catarina,2020-05-28,630,38,11,94,9,1
+South America,Brazil,Santa Catarina,2020-05-29,630,36,11,95,9,1
+South America,Brazil,Santa Catarina,2020-05-30,630,34,10,95,9,1
+South America,Brazil,Santa Catarina,2020-05-31,631,32,10,95,9,1
+South America,Brazil,Santa Catarina,2020-06-01,631,31,9,95,9,1
+South America,Brazil,Santa Catarina,2020-06-02,631,29,9,95,9,1
+South America,Brazil,Santa Catarina,2020-06-03,631,27,9,95,9,1
+South America,Brazil,Santa Catarina,2020-06-04,632,26,8,95,9,1
+South America,Brazil,Santa Catarina,2020-06-05,632,25,8,95,9,1
+South America,Brazil,Santa Catarina,2020-06-06,632,23,8,95,9,1
+South America,Brazil,Santa Catarina,2020-06-07,632,22,7,95,9,1
+South America,Brazil,Santa Catarina,2020-06-08,632,21,7,95,9,1
+South America,Brazil,Santa Catarina,2020-06-09,632,20,7,95,9,1
+South America,Brazil,Santa Catarina,2020-06-10,632,18,6,95,9,1
+South America,Brazil,Santa Catarina,2020-06-11,632,17,6,95,9,1
+South America,Brazil,Santa Catarina,2020-06-12,632,16,6,95,9,0
+South America,Brazil,Santa Catarina,2020-06-13,632,16,6,95,9,0
+South America,Brazil,Santa Catarina,2020-06-14,632,15,5,95,9,0
+South America,Brazil,Santa Catarina,2020-06-15,633,14,5,95,9,0
+South America,Brazil,Sao Paulo,2020-03-15,136,136,20,20,0,5
+South America,Brazil,Sao Paulo,2020-03-16,173,163,25,26,2,6
+South America,Brazil,Sao Paulo,2020-03-17,207,185,29,31,5,7
+South America,Brazil,Sao Paulo,2020-03-18,242,207,32,36,7,8
+South America,Brazil,Sao Paulo,2020-03-19,282,233,37,42,10,9
+South America,Brazil,Sao Paulo,2020-03-20,331,265,42,50,14,10
+South America,Brazil,Sao Paulo,2020-03-21,390,306,49,59,18,11
+South America,Brazil,Sao Paulo,2020-03-22,463,358,57,70,22,13
+South America,Brazil,Sao Paulo,2020-03-23,553,422,67,83,28,16
+South America,Brazil,Sao Paulo,2020-03-24,663,501,80,99,34,19
+South America,Brazil,Sao Paulo,2020-03-25,796,598,96,119,42,22
+South America,Brazil,Sao Paulo,2020-03-26,957,716,114,144,51,27
+South America,Brazil,Sao Paulo,2020-03-27,1151,858,137,173,62,32
+South America,Brazil,Sao Paulo,2020-03-28,1382,1027,164,207,75,38
+South America,Brazil,Sao Paulo,2020-03-29,1656,1228,196,248,90,45
+South America,Brazil,Sao Paulo,2020-03-30,1982,1465,235,297,109,54
+South America,Brazil,Sao Paulo,2020-03-31,2364,1742,279,355,131,65
+South America,Brazil,Sao Paulo,2020-04-01,2809,2062,331,421,157,76
+South America,Brazil,Sao Paulo,2020-04-02,3325,2430,390,499,188,90
+South America,Brazil,Sao Paulo,2020-04-03,3923,2855,458,588,225,106
+South America,Brazil,Sao Paulo,2020-04-04,4609,3338,536,691,268,124
+South America,Brazil,Sao Paulo,2020-04-05,5390,3881,624,808,318,144
+South America,Brazil,Sao Paulo,2020-04-06,6272,4488,723,941,376,166
+South America,Brazil,Sao Paulo,2020-04-07,7268,5166,833,1090,442,191
+South America,Brazil,Sao Paulo,2020-04-08,8387,5921,956,1258,519,219
+South America,Brazil,Sao Paulo,2020-04-09,9633,6751,1092,1445,607,250
+South America,Brazil,Sao Paulo,2020-04-10,11010,7654,1240,1651,706,283
+South America,Brazil,Sao Paulo,2020-04-11,12527,8635,1401,1879,819,319
+South America,Brazil,Sao Paulo,2020-04-12,14194,9700,1577,2129,946,358
+South America,Brazil,Sao Paulo,2020-04-13,16017,10848,1766,2403,1088,401
+South America,Brazil,Sao Paulo,2020-04-14,17993,12071,1969,2699,1246,446
+South America,Brazil,Sao Paulo,2020-04-15,20124,13365,2185,3019,1422,493
+South America,Brazil,Sao Paulo,2020-04-16,22415,14732,2413,3362,1617,543
+South America,Brazil,Sao Paulo,2020-04-17,24875,16176,2655,3731,1830,597
+South America,Brazil,Sao Paulo,2020-04-18,27502,17691,2910,4125,2064,652
+South America,Brazil,Sao Paulo,2020-04-19,30287,19263,3175,4543,2320,710
+South America,Brazil,Sao Paulo,2020-04-20,33228,20884,3450,4984,2597,769
+South America,Brazil,Sao Paulo,2020-04-21,36322,22550,3734,5448,2897,830
+South America,Brazil,Sao Paulo,2020-04-22,39575,24265,4028,5936,3221,893
+South America,Brazil,Sao Paulo,2020-04-23,42985,26023,4330,6448,3568,957
+South America,Brazil,Sao Paulo,2020-04-24,46536,27808,4639,6980,3940,1022
+South America,Brazil,Sao Paulo,2020-04-25,50218,29605,4951,7533,4336,1088
+South America,Brazil,Sao Paulo,2020-04-26,54023,31406,5266,8103,4757,1153
+South America,Brazil,Sao Paulo,2020-04-27,57947,33207,5583,8692,5203,1219
+South America,Brazil,Sao Paulo,2020-04-28,61991,35011,5902,9299,5674,1284
+South America,Brazil,Sao Paulo,2020-04-29,66146,36810,6223,9922,6169,1349
+South America,Brazil,Sao Paulo,2020-04-30,70393,38584,6541,10559,6689,1414
+South America,Brazil,Sao Paulo,2020-05-01,74716,40319,6855,11207,7233,1476
+South America,Brazil,Sao Paulo,2020-05-02,79106,42008,7163,11866,7801,1537
+South America,Brazil,Sao Paulo,2020-05-03,83556,43647,7465,12533,8391,1596
+South America,Brazil,Sao Paulo,2020-05-04,88064,45238,7760,13210,9004,1653
+South America,Brazil,Sao Paulo,2020-05-05,92623,46780,8050,13893,9637,1709
+South America,Brazil,Sao Paulo,2020-05-06,97214,48257,8329,14582,10291,1762
+South America,Brazil,Sao Paulo,2020-05-07,101822,49657,8598,15273,10965,1811
+South America,Brazil,Sao Paulo,2020-05-08,106434,50972,8855,15965,11657,1858
+South America,Brazil,Sao Paulo,2020-05-09,111041,52198,9098,16656,12367,1901
+South America,Brazil,Sao Paulo,2020-05-10,115637,53335,9328,17346,13093,1942
+South America,Brazil,Sao Paulo,2020-05-11,120220,54389,9544,18033,13834,1978
+South America,Brazil,Sao Paulo,2020-05-12,124784,55359,9748,18718,14588,2012
+South America,Brazil,Sao Paulo,2020-05-13,129312,56235,9937,19397,15354,2043
+South America,Brazil,Sao Paulo,2020-05-14,133793,57010,10110,20069,16131,2069
+South America,Brazil,Sao Paulo,2020-05-15,138218,57683,10266,20733,16918,2092
+South America,Brazil,Sao Paulo,2020-05-16,142581,58253,10406,21387,17714,2111
+South America,Brazil,Sao Paulo,2020-05-17,146876,58721,10529,22031,18516,2126
+South America,Brazil,Sao Paulo,2020-05-18,151099,59091,10636,22665,19324,2138
+South America,Brazil,Sao Paulo,2020-05-19,155249,59368,10727,23287,20135,2146
+South America,Brazil,Sao Paulo,2020-05-20,159318,59550,10802,23898,20950,2151
+South America,Brazil,Sao Paulo,2020-05-21,163294,59631,10860,24494,21766,2152
+South America,Brazil,Sao Paulo,2020-05-22,167180,59619,10902,25077,22582,2149
+South America,Brazil,Sao Paulo,2020-05-23,170975,59522,10928,25646,23397,2144
+South America,Brazil,Sao Paulo,2020-05-24,174677,59342,10941,26201,24210,2135
+South America,Brazil,Sao Paulo,2020-05-25,178283,59084,10938,26742,25019,2124
+South America,Brazil,Sao Paulo,2020-05-26,181791,58749,10922,27269,25823,2110
+South America,Brazil,Sao Paulo,2020-05-27,185195,58337,10892,27779,26621,2093
+South America,Brazil,Sao Paulo,2020-05-28,188490,57846,10847,28274,27413,2073
+South America,Brazil,Sao Paulo,2020-05-29,191669,57272,10788,28750,28198,2051
+South America,Brazil,Sao Paulo,2020-05-30,194736,56626,10715,29210,28974,2025
+South America,Brazil,Sao Paulo,2020-05-31,197700,55922,10631,29655,29740,1998
+South America,Brazil,Sao Paulo,2020-06-01,200564,55168,10536,30085,30496,1969
+South America,Brazil,Sao Paulo,2020-06-02,203330,54368,10432,30499,31241,1938
+South America,Brazil,Sao Paulo,2020-06-03,205994,53522,10318,30899,31974,1906
+South America,Brazil,Sao Paulo,2020-06-04,208549,52624,10194,31282,32694,1872
+South America,Brazil,Sao Paulo,2020-06-05,210995,51678,10060,31649,33402,1836
+South America,Brazil,Sao Paulo,2020-06-06,213343,50696,9918,32001,34096,1799
+South America,Brazil,Sao Paulo,2020-06-07,215595,49685,9770,32339,34777,1761
+South America,Brazil,Sao Paulo,2020-06-08,217756,48651,9615,32663,35443,1722
+South America,Brazil,Sao Paulo,2020-06-09,219823,47593,9454,32974,36094,1683
+South America,Brazil,Sao Paulo,2020-06-10,221797,46512,9288,33270,36730,1642
+South America,Brazil,Sao Paulo,2020-06-11,223677,45409,9116,33552,37351,1601
+South America,Brazil,Sao Paulo,2020-06-12,225470,44292,8939,33821,37956,1560
+South America,Brazil,Sao Paulo,2020-06-13,227180,43165,8759,34077,38546,1518
+South America,Brazil,Sao Paulo,2020-06-14,228808,42032,8576,34321,39120,1476
+South America,Brazil,Sao Paulo,2020-06-15,230357,40894,8391,34554,39679,1434
+South America,Chile,Araucania,2020-03-26,111,111,17,17,0,4
+South America,Chile,Araucania,2020-03-27,138,130,20,21,1,5
+South America,Chile,Araucania,2020-03-28,172,155,24,26,1,6
+South America,Chile,Araucania,2020-03-29,211,183,29,32,2,7
+South America,Chile,Araucania,2020-03-30,254,213,33,38,3,8
+South America,Chile,Araucania,2020-03-31,298,242,38,45,4,9
+South America,Chile,Araucania,2020-04-01,343,270,43,51,5,10
+South America,Chile,Araucania,2020-04-02,388,297,48,58,6,11
+South America,Chile,Araucania,2020-04-03,433,322,52,65,8,12
+South America,Chile,Araucania,2020-04-04,477,344,56,71,9,13
+South America,Chile,Araucania,2020-04-05,519,364,60,78,11,13
+South America,Chile,Araucania,2020-04-06,561,381,63,84,13,14
+South America,Chile,Araucania,2020-04-07,600,396,66,90,14,15
+South America,Chile,Araucania,2020-04-08,638,408,69,96,16,15
+South America,Chile,Araucania,2020-04-09,674,417,71,101,18,15
+South America,Chile,Araucania,2020-04-10,708,424,73,106,20,15
+South America,Chile,Araucania,2020-04-11,740,428,74,111,22,16
+South America,Chile,Araucania,2020-04-12,770,431,75,116,24,16
+South America,Chile,Araucania,2020-04-13,798,431,76,120,26,16
+South America,Chile,Araucania,2020-04-14,825,430,76,124,28,16
+South America,Chile,Araucania,2020-04-15,849,426,76,127,30,15
+South America,Chile,Araucania,2020-04-16,872,422,76,131,32,15
+South America,Chile,Araucania,2020-04-17,893,416,75,134,34,15
+South America,Chile,Araucania,2020-04-18,912,409,75,137,36,15
+South America,Chile,Araucania,2020-04-19,930,401,74,139,38,14
+South America,Chile,Araucania,2020-04-20,946,392,73,142,40,14
+South America,Chile,Araucania,2020-04-21,961,382,72,144,42,14
+South America,Chile,Araucania,2020-04-22,975,371,71,146,44,13
+South America,Chile,Araucania,2020-04-23,988,361,69,148,46,13
+South America,Chile,Araucania,2020-04-24,1000,350,68,150,47,12
+South America,Chile,Araucania,2020-04-25,1010,338,66,152,49,12
+South America,Chile,Araucania,2020-04-26,1020,327,65,153,51,12
+South America,Chile,Araucania,2020-04-27,1029,315,63,154,52,11
+South America,Chile,Araucania,2020-04-28,1036,303,61,155,54,11
+South America,Chile,Araucania,2020-04-29,1044,291,59,157,55,10
+South America,Chile,Araucania,2020-04-30,1050,280,58,158,57,10
+South America,Chile,Araucania,2020-05-01,1056,268,56,158,58,9
+South America,Chile,Araucania,2020-05-02,1062,257,54,159,59,9
+South America,Chile,Araucania,2020-05-03,1067,246,52,160,61,9
+South America,Chile,Araucania,2020-05-04,1071,235,51,161,62,8
+South America,Chile,Araucania,2020-05-05,1075,224,49,161,63,8
+South America,Chile,Araucania,2020-05-06,1078,214,47,162,64,7
+South America,Chile,Araucania,2020-05-07,1082,204,46,162,65,7
+South America,Chile,Araucania,2020-05-08,1085,194,44,163,66,7
+South America,Chile,Araucania,2020-05-09,1087,185,42,163,67,6
+South America,Chile,Araucania,2020-05-10,1090,176,41,163,68,6
+South America,Chile,Araucania,2020-05-11,1092,167,39,164,69,6
+South America,Chile,Araucania,2020-05-12,1094,159,38,164,70,5
+South America,Chile,Araucania,2020-05-13,1095,151,36,164,71,5
+South America,Chile,Araucania,2020-05-14,1097,143,35,165,72,5
+South America,Chile,Araucania,2020-05-15,1098,136,33,165,73,5
+South America,Chile,Araucania,2020-05-16,1100,129,32,165,73,4
+South America,Chile,Araucania,2020-05-17,1101,122,31,165,74,4
+South America,Chile,Araucania,2020-05-18,1102,116,29,165,75,4
+South America,Chile,Araucania,2020-05-19,1103,110,28,165,75,4
+South America,Chile,Araucania,2020-05-20,1103,104,27,166,76,3
+South America,Chile,Araucania,2020-05-21,1104,98,26,166,76,3
+South America,Chile,Araucania,2020-05-22,1105,93,25,166,77,3
+South America,Chile,Araucania,2020-05-23,1105,88,24,166,77,3
+South America,Chile,Araucania,2020-05-24,1106,83,23,166,78,3
+South America,Chile,Araucania,2020-05-25,1106,78,22,166,78,2
+South America,Chile,Araucania,2020-05-26,1107,74,21,166,79,2
+South America,Chile,Araucania,2020-05-27,1107,70,20,166,79,2
+South America,Chile,Araucania,2020-05-28,1107,66,19,166,80,2
+South America,Chile,Araucania,2020-05-29,1108,62,18,166,80,2
+South America,Chile,Araucania,2020-05-30,1108,59,17,166,80,2
+South America,Chile,Araucania,2020-05-31,1108,56,17,166,81,2
+South America,Chile,Araucania,2020-06-01,1108,53,16,166,81,2
+South America,Chile,Araucania,2020-06-02,1108,50,15,166,81,2
+South America,Chile,Araucania,2020-06-03,1109,47,15,166,82,1
+South America,Chile,Araucania,2020-06-04,1109,44,14,166,82,1
+South America,Chile,Araucania,2020-06-05,1109,42,13,166,82,1
+South America,Chile,Araucania,2020-06-06,1109,39,13,166,82,1
+South America,Chile,Araucania,2020-06-07,1109,37,12,166,83,1
+South America,Chile,Araucania,2020-06-08,1109,35,12,166,83,1
+South America,Chile,Araucania,2020-06-09,1109,33,11,166,83,1
+South America,Chile,Araucania,2020-06-10,1109,31,11,166,83,1
+South America,Chile,Araucania,2020-06-11,1109,29,10,166,83,1
+South America,Chile,Araucania,2020-06-12,1109,28,10,166,84,1
+South America,Chile,Araucania,2020-06-13,1110,26,9,166,84,1
+South America,Chile,Araucania,2020-06-14,1110,25,9,166,84,1
+South America,Chile,Araucania,2020-06-15,1110,23,8,166,84,1
+South America,Chile,Araucania,2020-06-16,1110,22,8,166,84,1
+South America,Chile,Araucania,2020-06-17,1110,21,8,166,84,1
+South America,Chile,Araucania,2020-06-18,1110,20,7,166,84,1
+South America,Chile,Araucania,2020-06-19,1110,18,7,166,84,1
+South America,Chile,Araucania,2020-06-20,1110,17,7,166,85,0
+South America,Chile,Araucania,2020-06-21,1110,16,6,166,85,0
+South America,Chile,Araucania,2020-06-22,1110,15,6,166,85,0
+South America,Chile,Araucania,2020-06-23,1110,15,6,166,85,0
+South America,Chile,Araucania,2020-06-24,1110,14,6,166,85,0
+South America,Chile,Araucania,2020-06-25,1110,13,5,166,85,0
+South America,Chile,Araucania,2020-06-26,1110,12,5,166,85,0
+South America,Chile,Araucania,2020-06-27,1110,12,5,166,85,0
+South America,Chile,Araucania,2020-06-28,1110,11,5,166,85,0
+South America,Chile,Araucania,2020-06-29,1110,10,4,166,85,0
+South America,Chile,Araucania,2020-06-30,1110,10,4,166,85,0
+South America,Chile,Araucania,2020-07-01,1110,9,4,166,85,0
+South America,Chile,Araucania,2020-07-02,1110,9,4,166,86,0
+South America,Chile,Araucania,2020-07-03,1110,8,4,166,86,0
+South America,Chile,Araucania,2020-07-04,1110,8,4,166,86,0
+South America,Chile,Araucania,2020-07-05,1110,7,3,166,86,0
+South America,Chile,Araucania,2020-07-06,1110,7,3,166,86,0
+South America,Chile,Araucania,2020-07-07,1110,7,3,166,86,0
+South America,Chile,Araucania,2020-07-08,1110,6,3,166,86,0
+South America,Chile,Araucania,2020-07-09,1110,6,3,166,86,0
+South America,Chile,Araucania,2020-07-10,1110,6,3,166,86,0
+South America,Chile,Araucania,2020-07-11,1110,5,3,166,86,0
+South America,Chile,Araucania,2020-07-12,1110,5,2,166,86,0
+South America,Chile,Araucania,2020-07-13,1110,5,2,166,86,0
+South America,Chile,Araucania,2020-07-14,1110,4,2,166,86,0
+South America,Chile,Araucania,2020-07-15,1110,4,2,166,86,0
+South America,Chile,Biobio,2020-03-26,109,97,15,15,2,4
+South America,Chile,Biobio,2020-03-27,134,115,18,18,2,4
+South America,Chile,Biobio,2020-03-28,155,128,20,21,2,5
+South America,Chile,Biobio,2020-03-29,175,139,22,24,2,5
+South America,Chile,Biobio,2020-03-30,196,151,24,28,2,6
+South America,Chile,Biobio,2020-03-31,219,163,26,31,2,6
+South America,Chile,Biobio,2020-04-01,244,178,29,35,2,7
+South America,Chile,Biobio,2020-04-02,273,195,32,39,2,7
+South America,Chile,Biobio,2020-04-03,306,214,35,44,2,8
+South America,Chile,Biobio,2020-04-04,344,237,39,50,3,9
+South America,Chile,Biobio,2020-04-05,387,264,44,56,3,10
+South America,Chile,Biobio,2020-04-06,435,294,49,63,3,11
+South America,Chile,Biobio,2020-04-07,490,328,55,72,3,12
+South America,Chile,Biobio,2020-04-08,551,367,61,81,3,13
+South America,Chile,Biobio,2020-04-09,619,410,68,91,3,15
+South America,Chile,Biobio,2020-04-10,696,458,76,103,3,17
+South America,Chile,Biobio,2020-04-11,780,511,85,115,3,19
+South America,Chile,Biobio,2020-04-12,874,569,95,129,4,21
+South America,Chile,Biobio,2020-04-13,976,633,106,145,4,23
+South America,Chile,Biobio,2020-04-14,1088,701,118,161,4,26
+South America,Chile,Biobio,2020-04-15,1211,776,130,180,4,28
+South America,Chile,Biobio,2020-04-16,1345,856,144,200,5,31
+South America,Chile,Biobio,2020-04-17,1489,942,159,222,5,35
+South America,Chile,Biobio,2020-04-18,1644,1033,174,245,5,38
+South America,Chile,Biobio,2020-04-19,1810,1128,191,270,6,41
+South America,Chile,Biobio,2020-04-20,1988,1229,208,296,6,45
+South America,Chile,Biobio,2020-04-21,2177,1335,227,325,7,49
+South America,Chile,Biobio,2020-04-22,2378,1445,246,355,7,53
+South America,Chile,Biobio,2020-04-23,2589,1559,266,387,8,57
+South America,Chile,Biobio,2020-04-24,2811,1676,286,420,9,61
+South America,Chile,Biobio,2020-04-25,3044,1795,307,455,9,66
+South America,Chile,Biobio,2020-04-26,3288,1918,329,491,10,70
+South America,Chile,Biobio,2020-04-27,3541,2043,352,529,11,75
+South America,Chile,Biobio,2020-04-28,3804,2168,374,569,12,79
+South America,Chile,Biobio,2020-04-29,4075,2294,397,609,12,84
+South America,Chile,Biobio,2020-04-30,4353,2419,420,651,13,88
+South America,Chile,Biobio,2020-05-01,4640,2544,443,694,14,93
+South America,Chile,Biobio,2020-05-02,4933,2668,466,738,15,97
+South America,Chile,Biobio,2020-05-03,5233,2791,489,783,17,102
+South America,Chile,Biobio,2020-05-04,5538,2910,512,829,18,106
+South America,Chile,Biobio,2020-05-05,5846,3026,534,875,19,110
+South America,Chile,Biobio,2020-05-06,6158,3137,555,922,20,114
+South America,Chile,Biobio,2020-05-07,6473,3244,576,969,21,118
+South America,Chile,Biobio,2020-05-08,6790,3348,597,1017,23,121
+South America,Chile,Biobio,2020-05-09,7109,3446,617,1064,24,125
+South America,Chile,Biobio,2020-05-10,7427,3538,636,1112,26,128
+South America,Chile,Biobio,2020-05-11,7746,3624,654,1160,27,131
+South America,Chile,Biobio,2020-05-12,8062,3703,671,1208,29,134
+South America,Chile,Biobio,2020-05-13,8377,3775,686,1255,30,136
+South America,Chile,Biobio,2020-05-14,8689,3840,701,1302,32,138
+South America,Chile,Biobio,2020-05-15,8999,3899,715,1348,34,140
+South America,Chile,Biobio,2020-05-16,9305,3951,728,1394,35,142
+South America,Chile,Biobio,2020-05-17,9607,3995,739,1439,37,144
+South America,Chile,Biobio,2020-05-18,9903,4032,749,1484,39,145
+South America,Chile,Biobio,2020-05-19,10195,4061,758,1527,40,146
+South America,Chile,Biobio,2020-05-20,10481,4083,766,1570,42,146
+South America,Chile,Biobio,2020-05-21,10760,4098,772,1612,44,147
+South America,Chile,Biobio,2020-05-22,11034,4106,777,1653,46,147
+South America,Chile,Biobio,2020-05-23,11300,4107,781,1693,48,147
+South America,Chile,Biobio,2020-05-24,11559,4101,784,1732,50,146
+South America,Chile,Biobio,2020-05-25,11811,4088,786,1770,51,146
+South America,Chile,Biobio,2020-05-26,12056,4069,786,1807,53,145
+South America,Chile,Biobio,2020-05-27,12293,4045,785,1842,55,144
+South America,Chile,Biobio,2020-05-28,12523,4015,784,1877,57,143
+South America,Chile,Biobio,2020-05-29,12745,3979,781,1910,59,141
+South America,Chile,Biobio,2020-05-30,12959,3938,777,1942,61,139
+South America,Chile,Biobio,2020-05-31,13165,3891,772,1973,63,138
+South America,Chile,Biobio,2020-06-01,13363,3841,766,2003,65,136
+South America,Chile,Biobio,2020-06-02,13554,3786,760,2031,66,134
+South America,Chile,Biobio,2020-06-03,13738,3728,752,2059,68,131
+South America,Chile,Biobio,2020-06-04,13914,3666,744,2085,70,129
+South America,Chile,Biobio,2020-06-05,14083,3601,735,2111,72,126
+South America,Chile,Biobio,2020-06-06,14243,3532,726,2135,74,124
+South America,Chile,Biobio,2020-06-07,14396,3461,716,2158,75,121
+South America,Chile,Biobio,2020-06-08,14543,3387,705,2180,77,118
+South America,Chile,Biobio,2020-06-09,14683,3312,693,2201,79,116
+South America,Chile,Biobio,2020-06-10,14817,3236,682,2221,80,113
+South America,Chile,Biobio,2020-06-11,14944,3159,670,2240,82,110
+South America,Chile,Biobio,2020-06-12,15065,3080,657,2258,84,107
+South America,Chile,Biobio,2020-06-13,15179,3000,644,2275,85,104
+South America,Chile,Biobio,2020-06-14,15287,2918,631,2291,87,101
+South America,Chile,Biobio,2020-06-15,15390,2837,618,2307,89,98
+South America,Chile,Biobio,2020-06-16,15487,2755,604,2321,90,95
+South America,Chile,Biobio,2020-06-17,15580,2675,590,2335,92,92
+South America,Chile,Biobio,2020-06-18,15668,2594,577,2348,93,89
+South America,Chile,Biobio,2020-06-19,15751,2514,563,2361,94,86
+South America,Chile,Biobio,2020-06-20,15828,2434,549,2372,96,83
+South America,Chile,Biobio,2020-06-21,15901,2354,535,2383,97,80
+South America,Chile,Biobio,2020-06-22,15970,2275,521,2394,99,77
+South America,Chile,Biobio,2020-06-23,16035,2198,507,2403,100,75
+South America,Chile,Biobio,2020-06-24,16096,2122,493,2413,101,72
+South America,Chile,Biobio,2020-06-25,16154,2047,479,2421,102,69
+South America,Chile,Biobio,2020-06-26,16208,1974,465,2429,104,67
+South America,Chile,Biobio,2020-06-27,16258,1901,452,2437,105,64
+South America,Chile,Biobio,2020-06-28,16305,1830,438,2444,106,61
+South America,Chile,Biobio,2020-06-29,16350,1761,425,2451,107,59
+South America,Chile,Biobio,2020-06-30,16391,1693,412,2457,108,57
+South America,Chile,Biobio,2020-07-01,16431,1627,399,2463,109,54
+South America,Chile,Biobio,2020-07-02,16467,1563,387,2468,110,52
+South America,Chile,Biobio,2020-07-03,16501,1500,374,2473,111,50
+South America,Chile,Biobio,2020-07-04,16533,1439,362,2478,112,48
+South America,Chile,Biobio,2020-07-05,16563,1380,350,2483,113,45
+South America,Chile,Biobio,2020-07-06,16590,1323,338,2487,114,43
+South America,Chile,Biobio,2020-07-07,16616,1267,327,2491,115,41
+South America,Chile,Biobio,2020-07-08,16641,1213,316,2494,116,40
+South America,Chile,Biobio,2020-07-09,16663,1161,305,2498,117,38
+South America,Chile,Biobio,2020-07-10,16684,1111,294,2501,117,36
+South America,Chile,Biobio,2020-07-11,16703,1062,283,2504,118,34
+South America,Chile,Biobio,2020-07-12,16721,1015,273,2506,119,33
+South America,Chile,Biobio,2020-07-13,16738,970,263,2509,120,31
+South America,Chile,Biobio,2020-07-14,16754,926,254,2511,120,30
+South America,Chile,Biobio,2020-07-15,16768,884,245,2513,121,28
+South America,Chile,Nuble,2020-03-24,105,105,16,16,0,4
+South America,Chile,Nuble,2020-03-25,118,111,17,18,0,4
+South America,Chile,Nuble,2020-03-26,133,118,18,20,0,4
+South America,Chile,Nuble,2020-03-27,150,128,20,23,0,5
+South America,Chile,Nuble,2020-03-28,170,139,22,26,0,5
+South America,Chile,Nuble,2020-03-29,193,152,24,29,0,6
+South America,Chile,Nuble,2020-03-30,219,167,27,33,0,6
+South America,Chile,Nuble,2020-03-31,248,186,30,37,0,7
+South America,Chile,Nuble,2020-04-01,282,206,34,42,1,8
+South America,Chile,Nuble,2020-04-02,320,230,38,48,1,8
+South America,Chile,Nuble,2020-04-03,363,257,42,54,1,9
+South America,Chile,Nuble,2020-04-04,410,287,47,62,1,11
+South America,Chile,Nuble,2020-04-05,463,320,53,69,1,12
+South America,Chile,Nuble,2020-04-06,522,356,59,78,1,13
+South America,Chile,Nuble,2020-04-07,586,396,66,88,2,15
+South America,Chile,Nuble,2020-04-08,657,440,73,99,2,16
+South America,Chile,Nuble,2020-04-09,734,486,81,110,2,18
+South America,Chile,Nuble,2020-04-10,818,537,90,123,2,20
+South America,Chile,Nuble,2020-04-11,908,591,99,136,3,22
+South America,Chile,Nuble,2020-04-12,1005,647,109,151,3,24
+South America,Chile,Nuble,2020-04-13,1109,707,119,166,3,26
+South America,Chile,Nuble,2020-04-14,1219,769,130,183,4,28
+South America,Chile,Nuble,2020-04-15,1337,834,141,200,4,31
+South America,Chile,Nuble,2020-04-16,1460,901,153,219,5,33
+South America,Chile,Nuble,2020-04-17,1590,970,165,239,5,36
+South America,Chile,Nuble,2020-04-18,1726,1040,178,259,6,38
+South America,Chile,Nuble,2020-04-19,1867,1111,190,280,6,41
+South America,Chile,Nuble,2020-04-20,2013,1182,203,302,7,43
+South America,Chile,Nuble,2020-04-21,2164,1254,216,325,8,46
+South America,Chile,Nuble,2020-04-22,2320,1326,229,348,8,48
+South America,Chile,Nuble,2020-04-23,2479,1397,242,372,9,51
+South America,Chile,Nuble,2020-04-24,2642,1466,255,396,10,53
+South America,Chile,Nuble,2020-04-25,2807,1533,268,421,11,56
+South America,Chile,Nuble,2020-04-26,2974,1599,280,446,11,58
+South America,Chile,Nuble,2020-04-27,3144,1662,292,472,12,60
+South America,Chile,Nuble,2020-04-28,3314,1723,304,497,13,63
+South America,Chile,Nuble,2020-04-29,3485,1780,315,523,14,65
+South America,Chile,Nuble,2020-04-30,3657,1834,326,548,15,66
+South America,Chile,Nuble,2020-05-01,3827,1884,337,574,16,68
+South America,Chile,Nuble,2020-05-02,3997,1930,346,600,17,70
+South America,Chile,Nuble,2020-05-03,4166,1972,355,625,19,71
+South America,Chile,Nuble,2020-05-04,4333,2009,364,650,20,73
+South America,Chile,Nuble,2020-05-05,4498,2043,372,675,21,74
+South America,Chile,Nuble,2020-05-06,4661,2071,379,699,22,75
+South America,Chile,Nuble,2020-05-07,4821,2096,385,723,23,75
+South America,Chile,Nuble,2020-05-08,4977,2116,391,747,24,76
+South America,Chile,Nuble,2020-05-09,5131,2132,395,770,26,77
+South America,Chile,Nuble,2020-05-10,5281,2144,400,792,27,77
+South America,Chile,Nuble,2020-05-11,5427,2150,403,814,28,77
+South America,Chile,Nuble,2020-05-12,5568,2152,405,835,29,77
+South America,Chile,Nuble,2020-05-13,5705,2150,407,856,31,77
+South America,Chile,Nuble,2020-05-14,5838,2144,408,876,32,77
+South America,Chile,Nuble,2020-05-15,5968,2135,409,895,33,76
+South America,Chile,Nuble,2020-05-16,6092,2122,409,914,35,76
+South America,Chile,Nuble,2020-05-17,6212,2105,408,932,36,75
+South America,Chile,Nuble,2020-05-18,6327,2085,406,949,37,74
+South America,Chile,Nuble,2020-05-19,6438,2061,404,966,38,73
+South America,Chile,Nuble,2020-05-20,6544,2035,401,982,40,72
+South America,Chile,Nuble,2020-05-21,6646,2007,398,997,41,71
+South America,Chile,Nuble,2020-05-22,6743,1976,394,1012,42,70
+South America,Chile,Nuble,2020-05-23,6837,1943,390,1025,43,68
+South America,Chile,Nuble,2020-05-24,6925,1907,386,1039,44,67
+South America,Chile,Nuble,2020-05-25,7009,1870,380,1051,46,66
+South America,Chile,Nuble,2020-05-26,7089,1830,375,1063,47,64
+South America,Chile,Nuble,2020-05-27,7166,1790,369,1075,48,63
+South America,Chile,Nuble,2020-05-28,7238,1749,363,1086,49,61
+South America,Chile,Nuble,2020-05-29,7307,1707,357,1096,50,60
+South America,Chile,Nuble,2020-05-30,7372,1664,350,1106,51,58
+South America,Chile,Nuble,2020-05-31,7434,1620,343,1115,52,56
+South America,Chile,Nuble,2020-06-01,7491,1575,336,1124,53,55
+South America,Chile,Nuble,2020-06-02,7546,1530,329,1132,54,53
+South America,Chile,Nuble,2020-06-03,7598,1485,322,1140,55,51
+South America,Chile,Nuble,2020-06-04,7647,1440,315,1147,56,50
+South America,Chile,Nuble,2020-06-05,7693,1395,307,1154,57,48
+South America,Chile,Nuble,2020-06-06,7736,1351,300,1160,58,46
+South America,Chile,Nuble,2020-06-07,7776,1306,292,1166,59,45
+South America,Chile,Nuble,2020-06-08,7814,1262,284,1172,60,43
+South America,Chile,Nuble,2020-06-09,7849,1218,277,1177,61,42
+South America,Chile,Nuble,2020-06-10,7883,1175,269,1182,62,40
+South America,Chile,Nuble,2020-06-11,7914,1133,261,1187,62,38
+South America,Chile,Nuble,2020-06-12,7943,1091,254,1191,63,37
+South America,Chile,Nuble,2020-06-13,7970,1050,246,1196,64,35
+South America,Chile,Nuble,2020-06-14,7996,1010,239,1199,65,34
+South America,Chile,Nuble,2020-06-15,8019,971,232,1203,65,33
+South America,Chile,Nuble,2020-06-16,8041,932,224,1206,66,31
+South America,Chile,Nuble,2020-06-17,8062,895,217,1209,67,30
+South America,Chile,Nuble,2020-06-18,8081,859,210,1212,67,29
+South America,Chile,Nuble,2020-06-19,8099,823,203,1215,68,27
+South America,Chile,Nuble,2020-06-20,8116,789,197,1217,69,26
+South America,Chile,Nuble,2020-06-21,8131,755,190,1220,69,25
+South America,Chile,Nuble,2020-06-22,8145,723,184,1222,70,24
+South America,Chile,Nuble,2020-06-23,8159,691,177,1224,70,23
+South America,Chile,Nuble,2020-06-24,8171,661,171,1226,71,22
+South America,Chile,Nuble,2020-06-25,8182,632,165,1227,71,21
+South America,Chile,Nuble,2020-06-26,8193,603,159,1229,72,20
+South America,Chile,Nuble,2020-06-27,8203,576,153,1230,72,19
+South America,Chile,Nuble,2020-06-28,8212,550,148,1232,73,18
+South America,Chile,Nuble,2020-06-29,8220,524,142,1233,73,17
+South America,Chile,Nuble,2020-06-30,8228,500,137,1234,73,16
+South America,Chile,Nuble,2020-07-01,8235,476,132,1235,74,15
+South America,Chile,Nuble,2020-07-02,8242,454,127,1236,74,14
+South America,Chile,Nuble,2020-07-03,8248,432,122,1237,75,14
+South America,Chile,Nuble,2020-07-04,8253,412,117,1238,75,13
+South America,Chile,Nuble,2020-07-05,8258,392,113,1239,75,12
+South America,Chile,Nuble,2020-07-06,8263,373,108,1239,76,12
+South America,Chile,Nuble,2020-07-07,8268,354,104,1240,76,11
+South America,Chile,Nuble,2020-07-08,8272,337,100,1241,76,10
+South America,Chile,Nuble,2020-07-09,8275,320,96,1241,76,10
+South America,Chile,Nuble,2020-07-10,8279,304,92,1242,77,9
+South America,Chile,Nuble,2020-07-11,8282,289,88,1242,77,9
+South America,Chile,Nuble,2020-07-12,8285,274,85,1243,77,8
+South America,Chile,Nuble,2020-07-13,8287,260,81,1243,77,8
+South America,Chile,Nuble,2020-07-14,8290,247,78,1243,78,7
+South America,Chile,Nuble,2020-07-15,8292,235,75,1244,78,7
+South America,Chile,Santiago,2020-03-16,123,123,18,18,0,5
+South America,Chile,Santiago,2020-03-17,158,149,23,24,0,6
+South America,Chile,Santiago,2020-03-18,201,181,28,30,0,7
+South America,Chile,Santiago,2020-03-19,252,219,34,38,0,8
+South America,Chile,Santiago,2020-03-20,310,261,41,46,1,10
+South America,Chile,Santiago,2020-03-21,375,307,49,56,1,11
+South America,Chile,Santiago,2020-03-22,446,357,57,67,1,13
+South America,Chile,Santiago,2020-03-23,524,410,66,79,1,15
+South America,Chile,Santiago,2020-03-24,610,467,75,91,2,17
+South America,Chile,Santiago,2020-03-25,701,526,86,105,2,19
+South America,Chile,Santiago,2020-03-26,800,588,96,120,2,22
+South America,Chile,Santiago,2020-03-27,905,653,107,136,3,24
+South America,Chile,Santiago,2020-03-28,1017,720,119,153,3,27
+South America,Chile,Santiago,2020-03-29,1134,788,131,170,4,29
+South America,Chile,Santiago,2020-03-30,1257,857,143,189,4,32
+South America,Chile,Santiago,2020-03-31,1386,927,155,208,5,34
+South America,Chile,Santiago,2020-04-01,1519,998,168,228,6,37
+South America,Chile,Santiago,2020-04-02,1657,1069,180,249,6,39
+South America,Chile,Santiago,2020-04-03,1799,1138,193,270,7,42
+South America,Chile,Santiago,2020-04-04,1944,1207,205,292,8,44
+South America,Chile,Santiago,2020-04-05,2091,1273,218,314,9,47
+South America,Chile,Santiago,2020-04-06,2241,1338,230,336,10,49
+South America,Chile,Santiago,2020-04-07,2393,1400,242,359,11,51
+South America,Chile,Santiago,2020-04-08,2545,1459,253,382,12,53
+South America,Chile,Santiago,2020-04-09,2698,1515,264,405,13,55
+South America,Chile,Santiago,2020-04-10,2851,1568,274,428,14,57
+South America,Chile,Santiago,2020-04-11,3003,1616,284,450,15,59
+South America,Chile,Santiago,2020-04-12,3154,1660,294,473,16,60
+South America,Chile,Santiago,2020-04-13,3303,1700,302,495,18,62
+South America,Chile,Santiago,2020-04-14,3450,1735,310,518,19,63
+South America,Chile,Santiago,2020-04-15,3595,1766,317,539,20,64
+South America,Chile,Santiago,2020-04-16,3737,1793,324,561,21,65
+South America,Chile,Santiago,2020-04-17,3877,1815,330,582,23,66
+South America,Chile,Santiago,2020-04-18,4013,1833,335,602,24,66
+South America,Chile,Santiago,2020-04-19,4145,1846,339,622,25,66
+South America,Chile,Santiago,2020-04-20,4273,1853,342,641,27,67
+South America,Chile,Santiago,2020-04-21,4397,1857,345,660,28,67
+South America,Chile,Santiago,2020-04-22,4517,1856,347,678,30,67
+South America,Chile,Santiago,2020-04-23,4633,1852,348,695,31,66
+South America,Chile,Santiago,2020-04-24,4746,1845,349,712,32,66
+South America,Chile,Santiago,2020-04-25,4854,1834,349,728,34,66
+South America,Chile,Santiago,2020-04-26,4958,1819,348,744,35,65
+South America,Chile,Santiago,2020-04-27,5056,1800,347,758,37,64
+South America,Chile,Santiago,2020-04-28,5150,1778,345,772,38,63
+South America,Chile,Santiago,2020-04-29,5240,1754,343,786,39,62
+South America,Chile,Santiago,2020-04-30,5326,1728,340,799,41,61
+South America,Chile,Santiago,2020-05-01,5408,1699,336,811,42,60
+South America,Chile,Santiago,2020-05-02,5486,1669,333,823,43,59
+South America,Chile,Santiago,2020-05-03,5559,1635,328,834,44,58
+South America,Chile,Santiago,2020-05-04,5629,1601,324,844,46,56
+South America,Chile,Santiago,2020-05-05,5695,1564,319,854,47,55
+South America,Chile,Santiago,2020-05-06,5757,1527,313,864,48,54
+South America,Chile,Santiago,2020-05-07,5816,1489,308,872,49,52
+South America,Chile,Santiago,2020-05-08,5872,1450,302,881,50,51
+South America,Chile,Santiago,2020-05-09,5924,1410,296,889,52,49
+South America,Chile,Santiago,2020-05-10,5973,1370,290,896,53,48
+South America,Chile,Santiago,2020-05-11,6019,1329,283,903,54,46
+South America,Chile,Santiago,2020-05-12,6062,1288,277,909,55,45
+South America,Chile,Santiago,2020-05-13,6103,1248,270,915,56,43
+South America,Chile,Santiago,2020-05-14,6141,1207,264,921,57,42
+South America,Chile,Santiago,2020-05-15,6176,1166,257,926,58,40
+South America,Chile,Santiago,2020-05-16,6209,1126,250,931,59,39
+South America,Chile,Santiago,2020-05-17,6240,1086,243,936,60,37
+South America,Chile,Santiago,2020-05-18,6269,1047,237,940,60,36
+South America,Chile,Santiago,2020-05-19,6296,1008,230,944,61,34
+South America,Chile,Santiago,2020-05-20,6321,970,223,948,62,33
+South America,Chile,Santiago,2020-05-21,6345,933,217,952,63,32
+South America,Chile,Santiago,2020-05-22,6366,896,210,955,64,30
+South America,Chile,Santiago,2020-05-23,6386,860,203,958,64,29
+South America,Chile,Santiago,2020-05-24,6405,825,197,961,65,28
+South America,Chile,Santiago,2020-05-25,6422,791,190,963,66,26
+South America,Chile,Santiago,2020-05-26,6438,758,184,966,66,25
+South America,Chile,Santiago,2020-05-27,6453,726,178,968,67,24
+South America,Chile,Santiago,2020-05-28,6467,694,172,970,68,23
+South America,Chile,Santiago,2020-05-29,6479,664,166,972,68,22
+South America,Chile,Santiago,2020-05-30,6491,634,160,974,69,21
+South America,Chile,Santiago,2020-05-31,6502,606,155,975,69,20
+South America,Chile,Santiago,2020-06-01,6512,578,149,977,70,19
+South America,Chile,Santiago,2020-06-02,6521,552,144,978,70,18
+South America,Chile,Santiago,2020-06-03,6530,526,138,979,71,17
+South America,Chile,Santiago,2020-06-04,6537,502,133,981,71,16
+South America,Chile,Santiago,2020-06-05,6545,478,128,982,72,15
+South America,Chile,Santiago,2020-06-06,6551,455,124,983,72,15
+South America,Chile,Santiago,2020-06-07,6557,434,119,984,72,14
+South America,Chile,Santiago,2020-06-08,6563,413,114,984,73,13
+South America,Chile,Santiago,2020-06-09,6568,392,110,985,73,12
+South America,Chile,Santiago,2020-06-10,6573,373,106,986,74,12
+South America,Chile,Santiago,2020-06-11,6577,355,101,987,74,11
+South America,Chile,Santiago,2020-06-12,6581,337,97,987,74,11
+South America,Chile,Santiago,2020-06-13,6584,320,94,988,74,10
+South America,Chile,Santiago,2020-06-14,6588,304,90,988,75,9
+South America,Chile,Santiago,2020-06-15,6591,289,86,989,75,9
+South America,Chile,Santiago,2020-06-16,6594,274,83,989,75,8
+South America,Chile,Santiago,2020-06-17,6596,260,79,989,76,8
+South America,Chile,Santiago,2020-06-18,6598,246,76,990,76,8
+South America,Chile,Santiago,2020-06-19,6601,234,73,990,76,7
+South America,Chile,Santiago,2020-06-20,6603,222,70,990,76,7
+South America,Chile,Santiago,2020-06-21,6604,210,67,991,76,6
+South America,Chile,Santiago,2020-06-22,6606,199,64,991,77,6
+South America,Chile,Santiago,2020-06-23,6607,189,62,991,77,6
+South America,Chile,Santiago,2020-06-24,6609,179,59,991,77,5
+South America,Chile,Santiago,2020-06-25,6610,169,56,991,77,5
+South America,Chile,Santiago,2020-06-26,6611,160,54,992,77,5
+South America,Chile,Santiago,2020-06-27,6612,152,52,992,77,4
+South America,Chile,Santiago,2020-06-28,6613,143,50,992,78,4
+South America,Chile,Santiago,2020-06-29,6614,136,47,992,78,4
+South America,Chile,Santiago,2020-06-30,6615,128,45,992,78,4
+South America,Chile,Santiago,2020-07-01,6615,122,43,992,78,3
+South America,Chile,Santiago,2020-07-02,6616,115,42,992,78,3
+South America,Chile,Santiago,2020-07-03,6616,109,40,992,78,3
+South America,Chile,Santiago,2020-07-04,6617,103,38,993,78,3
+South America,Chile,Santiago,2020-07-05,6617,97,36,993,78,3
+South America,Chile,Santiago,2020-07-06,6618,92,35,993,78,3
+South America,Chile,Santiago,2020-07-07,6618,87,33,993,79,2
+South America,Chile,Santiago,2020-07-08,6619,82,32,993,79,2
+South America,Chile,Santiago,2020-07-09,6619,78,30,993,79,2
+South America,Chile,Santiago,2020-07-10,6619,74,29,993,79,2
+South America,Chile,Santiago,2020-07-11,6620,70,28,993,79,2
+South America,Chile,Santiago,2020-07-12,6620,66,27,993,79,2
+South America,Chile,Santiago,2020-07-13,6620,62,25,993,79,2
+South America,Chile,Santiago,2020-07-14,6620,59,24,993,79,2
+South America,Chile,Santiago,2020-07-15,6620,55,23,993,79,1
+South America,Colombia,Bogota,2020-03-23,117,117,18,18,0,4
+South America,Colombia,Bogota,2020-03-24,144,136,21,22,1,5
+South America,Colombia,Bogota,2020-03-25,167,150,23,25,2,6
+South America,Colombia,Bogota,2020-03-26,192,165,26,29,3,6
+South America,Colombia,Bogota,2020-03-27,220,182,29,33,5,7
+South America,Colombia,Bogota,2020-03-28,252,202,32,38,6,7
+South America,Colombia,Bogota,2020-03-29,291,227,36,44,8,8
+South America,Colombia,Bogota,2020-03-30,337,257,41,50,10,10
+South America,Colombia,Bogota,2020-03-31,390,293,47,58,12,11
+South America,Colombia,Bogota,2020-04-01,451,334,54,68,14,12
+South America,Colombia,Bogota,2020-04-02,519,380,62,78,17,14
+South America,Colombia,Bogota,2020-04-03,596,431,70,89,20,16
+South America,Colombia,Bogota,2020-04-04,679,485,79,102,24,18
+South America,Colombia,Bogota,2020-04-05,767,541,88,115,28,20
+South America,Colombia,Bogota,2020-04-06,861,599,98,129,32,22
+South America,Colombia,Bogota,2020-04-07,958,656,108,144,37,24
+South America,Colombia,Bogota,2020-04-08,1058,713,117,159,43,26
+South America,Colombia,Bogota,2020-04-09,1160,768,127,174,49,28
+South America,Colombia,Bogota,2020-04-10,1262,820,136,189,55,30
+South America,Colombia,Bogota,2020-04-11,1364,869,145,205,62,32
+South America,Colombia,Bogota,2020-04-12,1465,913,153,220,69,34
+South America,Colombia,Bogota,2020-04-13,1564,954,160,235,77,35
+South America,Colombia,Bogota,2020-04-14,1661,989,167,249,85,36
+South America,Colombia,Bogota,2020-04-15,1755,1020,174,263,93,37
+South America,Colombia,Bogota,2020-04-16,1846,1046,179,277,101,38
+South America,Colombia,Bogota,2020-04-17,1934,1067,184,290,110,39
+South America,Colombia,Bogota,2020-04-18,2017,1083,187,303,119,40
+South America,Colombia,Bogota,2020-04-19,2097,1095,190,315,128,40
+South America,Colombia,Bogota,2020-04-20,2173,1102,193,326,137,40
+South America,Colombia,Bogota,2020-04-21,2245,1104,195,337,146,40
+South America,Colombia,Bogota,2020-04-22,2313,1102,196,347,155,40
+South America,Colombia,Bogota,2020-04-23,2376,1097,196,356,165,40
+South America,Colombia,Bogota,2020-04-24,2436,1088,196,365,174,39
+South America,Colombia,Bogota,2020-04-25,2493,1077,195,374,183,39
+South America,Colombia,Bogota,2020-04-26,2545,1062,194,382,192,38
+South America,Colombia,Bogota,2020-04-27,2594,1045,192,389,202,38
+South America,Colombia,Bogota,2020-04-28,2639,1026,190,396,211,37
+South America,Colombia,Bogota,2020-04-29,2681,1004,187,402,219,36
+South America,Colombia,Bogota,2020-04-30,2720,981,184,408,228,35
+South America,Colombia,Bogota,2020-05-01,2756,957,181,413,237,34
+South America,Colombia,Bogota,2020-05-02,2790,932,178,418,245,33
+South America,Colombia,Bogota,2020-05-03,2820,905,174,423,253,32
+South America,Colombia,Bogota,2020-05-04,2848,878,170,427,261,31
+South America,Colombia,Bogota,2020-05-05,2874,850,166,431,269,30
+South America,Colombia,Bogota,2020-05-06,2898,822,162,435,277,29
+South America,Colombia,Bogota,2020-05-07,2920,794,158,438,284,28
+South America,Colombia,Bogota,2020-05-08,2940,765,154,441,291,27
+South America,Colombia,Bogota,2020-05-09,2958,737,149,444,298,26
+South America,Colombia,Bogota,2020-05-10,2975,709,145,446,305,25
+South America,Colombia,Bogota,2020-05-11,2990,681,141,449,311,24
+South America,Colombia,Bogota,2020-05-12,3004,654,136,451,318,23
+South America,Colombia,Bogota,2020-05-13,3017,627,132,453,324,22
+South America,Colombia,Bogota,2020-05-14,3028,601,128,454,329,21
+South America,Colombia,Bogota,2020-05-15,3039,575,123,456,335,20
+South America,Colombia,Bogota,2020-05-16,3048,550,119,457,341,19
+South America,Colombia,Bogota,2020-05-17,3057,526,115,459,346,18
+South America,Colombia,Bogota,2020-05-18,3065,502,111,460,351,17
+South America,Colombia,Bogota,2020-05-19,3072,479,107,461,356,16
+South America,Colombia,Bogota,2020-05-20,3078,457,103,462,360,16
+South America,Colombia,Bogota,2020-05-21,3084,435,99,463,365,15
+South America,Colombia,Bogota,2020-05-22,3090,415,95,463,369,14
+South America,Colombia,Bogota,2020-05-23,3094,395,91,464,373,13
+South America,Colombia,Bogota,2020-05-24,3099,375,88,465,377,13
+South America,Colombia,Bogota,2020-05-25,3102,357,84,465,381,12
+South America,Colombia,Bogota,2020-05-26,3106,339,81,466,384,11
+South America,Colombia,Bogota,2020-05-27,3109,322,78,466,388,11
+South America,Colombia,Bogota,2020-05-28,3112,306,75,467,391,10
+South America,Colombia,Bogota,2020-05-29,3114,291,72,467,394,10
+South America,Colombia,Bogota,2020-05-30,3117,276,69,468,397,9
+South America,Colombia,Bogota,2020-05-31,3119,262,66,468,400,9
+South America,Colombia,Bogota,2020-06-01,3121,248,63,468,403,8
+South America,Colombia,Bogota,2020-06-02,3122,235,61,468,406,8
+South America,Colombia,Bogota,2020-06-03,3124,223,58,469,408,7
+South America,Colombia,Bogota,2020-06-04,3125,211,56,469,411,7
+South America,Colombia,Bogota,2020-06-05,3126,200,53,469,413,6
+South America,Colombia,Bogota,2020-06-06,3128,190,51,469,415,6
+South America,Colombia,Bogota,2020-06-07,3128,180,49,469,417,6
+South America,Colombia,Bogota,2020-06-08,3129,170,47,469,419,5
+South America,Colombia,Bogota,2020-06-09,3130,161,45,470,421,5
+South America,Colombia,Bogota,2020-06-10,3131,152,43,470,423,5
+South America,Colombia,Bogota,2020-06-11,3131,144,41,470,425,5
+South America,Colombia,Bogota,2020-06-12,3132,136,39,470,426,4
+South America,Colombia,Bogota,2020-06-13,3133,129,37,470,428,4
+South America,Colombia,Bogota,2020-06-14,3133,122,36,470,429,4
+South America,Colombia,Bogota,2020-06-15,3133,115,34,470,431,4
+South America,Colombia,Bogota,2020-06-16,3134,109,33,470,432,3
+South America,Colombia,Bogota,2020-06-17,3134,103,31,470,433,3
+South America,Colombia,Bogota,2020-06-18,3134,98,30,470,434,3
+South America,Colombia,Bogota,2020-06-19,3135,92,28,470,436,3
+South America,Colombia,Bogota,2020-06-20,3135,87,27,470,437,3
+South America,Colombia,Bogota,2020-06-21,3135,83,26,470,438,2
+South America,Colombia,Bogota,2020-06-22,3135,78,25,470,439,2
+South America,Colombia,Bogota,2020-06-23,3135,74,24,470,440,2
+South America,Colombia,Bogota,2020-06-24,3136,70,23,470,441,2
+South America,Colombia,Bogota,2020-06-25,3136,66,22,470,442,2
+South America,Colombia,Bogota,2020-06-26,3136,62,21,470,442,2
+South America,Colombia,Bogota,2020-06-27,3136,59,20,470,443,2
+South America,Colombia,Bogota,2020-06-28,3136,56,19,470,444,2
+South America,Colombia,Bogota,2020-06-29,3136,53,18,470,445,2
+South America,Colombia,Bogota,2020-06-30,3136,50,17,470,445,1
+South America,Colombia,Bogota,2020-07-01,3136,47,16,470,446,1
+South America,Colombia,Bogota,2020-07-02,3136,45,16,470,447,1
+South America,Colombia,Bogota,2020-07-03,3136,42,15,470,447,1
+South America,Colombia,Bogota,2020-07-04,3136,40,14,470,448,1
+South America,Colombia,Bogota,2020-07-05,3136,38,14,470,448,1
+South America,Colombia,Bogota,2020-07-06,3136,36,13,470,449,1
+South America,Colombia,Bogota,2020-07-07,3136,34,12,470,449,1
+South America,Colombia,Bogota,2020-07-08,3136,32,12,470,450,1
+South America,Colombia,Bogota,2020-07-09,3137,30,11,470,450,1
+South America,Colombia,Bogota,2020-07-10,3137,28,11,470,450,1
+South America,Colombia,Bogota,2020-07-11,3137,27,10,470,451,1
+South America,Colombia,Bogota,2020-07-12,3137,25,10,470,451,1
+South America,Colombia,Bogota,2020-07-13,3137,24,9,470,452,1
+South America,Colombia,Bogota,2020-07-14,3137,23,9,470,452,1
+South America,Colombia,Bogota,2020-07-15,3137,22,9,470,452,1
+South America,Peru,Lima,2020-03-18,111,111,17,17,0,4
+South America,Peru,Lima,2020-03-19,151,143,22,23,1,5
+South America,Peru,Lima,2020-03-20,184,166,26,28,2,6
+South America,Peru,Lima,2020-03-21,216,187,29,32,3,7
+South America,Peru,Lima,2020-03-22,249,208,33,37,4,8
+South America,Peru,Lima,2020-03-23,287,231,37,43,5,9
+South America,Peru,Lima,2020-03-24,329,258,41,49,6,10
+South America,Peru,Lima,2020-03-25,376,288,46,56,8,11
+South America,Peru,Lima,2020-03-26,430,323,52,65,10,12
+South America,Peru,Lima,2020-03-27,492,363,59,74,12,13
+South America,Peru,Lima,2020-03-28,561,408,66,84,14,15
+South America,Peru,Lima,2020-03-29,638,458,75,96,17,17
+South America,Peru,Lima,2020-03-30,725,515,84,109,20,19
+South America,Peru,Lima,2020-03-31,821,576,94,123,23,21
+South America,Peru,Lima,2020-04-01,926,643,106,139,27,24
+South America,Peru,Lima,2020-04-02,1041,716,118,156,31,26
+South America,Peru,Lima,2020-04-03,1167,794,131,175,36,29
+South America,Peru,Lima,2020-04-04,1303,877,145,195,41,32
+South America,Peru,Lima,2020-04-05,1448,965,160,217,46,36
+South America,Peru,Lima,2020-04-06,1603,1057,175,240,53,39
+South America,Peru,Lima,2020-04-07,1768,1152,191,265,59,42
+South America,Peru,Lima,2020-04-08,1942,1252,208,291,67,46
+South America,Peru,Lima,2020-04-09,2126,1354,226,319,75,50
+South America,Peru,Lima,2020-04-10,2317,1457,244,348,84,54
+South America,Peru,Lima,2020-04-11,2515,1561,262,377,93,57
+South America,Peru,Lima,2020-04-12,2721,1665,280,408,103,61
+South America,Peru,Lima,2020-04-13,2933,1770,299,440,114,65
+South America,Peru,Lima,2020-04-14,3151,1874,317,473,125,69
+South America,Peru,Lima,2020-04-15,3373,1976,335,506,137,72
+South America,Peru,Lima,2020-04-16,3599,2075,353,540,150,76
+South America,Peru,Lima,2020-04-17,3828,2171,371,574,164,79
+South America,Peru,Lima,2020-04-18,4059,2263,388,609,178,83
+South America,Peru,Lima,2020-04-19,4291,2352,405,644,193,86
+South America,Peru,Lima,2020-04-20,4524,2436,421,679,208,89
+South America,Peru,Lima,2020-04-21,4757,2514,436,714,224,92
+South America,Peru,Lima,2020-04-22,4990,2587,450,748,240,94
+South America,Peru,Lima,2020-04-23,5220,2655,464,783,257,97
+South America,Peru,Lima,2020-04-24,5448,2715,476,817,275,99
+South America,Peru,Lima,2020-04-25,5674,2770,488,851,293,101
+South America,Peru,Lima,2020-04-26,5896,2818,499,884,311,102
+South America,Peru,Lima,2020-04-27,6114,2859,508,917,330,104
+South America,Peru,Lima,2020-04-28,6327,2894,517,949,349,105
+South America,Peru,Lima,2020-04-29,6537,2923,524,980,369,106
+South America,Peru,Lima,2020-04-30,6741,2945,530,1011,388,107
+South America,Peru,Lima,2020-05-01,6939,2960,535,1041,408,107
+South America,Peru,Lima,2020-05-02,7132,2969,540,1070,428,107
+South America,Peru,Lima,2020-05-03,7319,2971,543,1098,448,107
+South America,Peru,Lima,2020-05-04,7499,2968,545,1125,469,107
+South America,Peru,Lima,2020-05-05,7674,2959,546,1151,489,106
+South America,Peru,Lima,2020-05-06,7843,2945,546,1176,509,106
+South America,Peru,Lima,2020-05-07,8005,2926,545,1201,530,105
+South America,Peru,Lima,2020-05-08,8160,2901,543,1224,550,104
+South America,Peru,Lima,2020-05-09,8309,2871,541,1246,570,103
+South America,Peru,Lima,2020-05-10,8452,2838,537,1268,591,101
+South America,Peru,Lima,2020-05-11,8588,2801,533,1288,611,100
+South America,Peru,Lima,2020-05-12,8719,2760,528,1308,631,98
+South America,Peru,Lima,2020-05-13,8844,2717,523,1327,650,97
+South America,Peru,Lima,2020-05-14,8963,2670,517,1344,670,95
+South America,Peru,Lima,2020-05-15,9075,2619,510,1361,689,93
+South America,Peru,Lima,2020-05-16,9181,2566,502,1377,708,91
+South America,Peru,Lima,2020-05-17,9282,2511,495,1392,727,89
+South America,Peru,Lima,2020-05-18,9378,2454,486,1407,745,87
+South America,Peru,Lima,2020-05-19,9469,2397,478,1420,763,85
+South America,Peru,Lima,2020-05-20,9556,2338,469,1433,781,82
+South America,Peru,Lima,2020-05-21,9637,2278,460,1446,798,80
+South America,Peru,Lima,2020-05-22,9713,2217,450,1457,816,78
+South America,Peru,Lima,2020-05-23,9784,2155,440,1468,832,76
+South America,Peru,Lima,2020-05-24,9852,2092,430,1478,849,73
+South America,Peru,Lima,2020-05-25,9915,2030,420,1487,865,71
+South America,Peru,Lima,2020-05-26,9975,1968,410,1496,880,69
+South America,Peru,Lima,2020-05-27,10031,1906,400,1505,896,66
+South America,Peru,Lima,2020-05-28,10083,1845,390,1512,911,64
+South America,Peru,Lima,2020-05-29,10132,1783,379,1520,925,62
+South America,Peru,Lima,2020-05-30,10178,1722,369,1527,939,60
+South America,Peru,Lima,2020-05-31,10221,1663,358,1533,953,58
+South America,Peru,Lima,2020-06-01,10261,1604,348,1539,966,55
+South America,Peru,Lima,2020-06-02,10298,1546,338,1545,979,53
+South America,Peru,Lima,2020-06-03,10333,1489,328,1550,992,51
+South America,Peru,Lima,2020-06-04,10365,1433,318,1555,1004,49
+South America,Peru,Lima,2020-06-05,10395,1378,308,1559,1016,47
+South America,Peru,Lima,2020-06-06,10423,1325,298,1563,1027,45
+South America,Peru,Lima,2020-06-07,10449,1273,289,1567,1038,43
+South America,Peru,Lima,2020-06-08,10474,1222,279,1571,1049,42
+South America,Peru,Lima,2020-06-09,10496,1173,270,1574,1060,40
+South America,Peru,Lima,2020-06-10,10517,1125,261,1578,1070,38
+South America,Peru,Lima,2020-06-11,10536,1078,252,1580,1079,36
+South America,Peru,Lima,2020-06-12,10554,1033,243,1583,1089,35
+South America,Peru,Lima,2020-06-13,10571,989,235,1586,1098,33
+South America,Peru,Lima,2020-06-14,10586,947,226,1588,1107,32
+South America,Peru,Lima,2020-06-15,10600,906,218,1590,1115,30
+South America,Peru,None,2020-03-18,111,111,17,17,0,4
+South America,Peru,None,2020-03-19,151,143,22,23,1,5
+South America,Peru,None,2020-03-20,184,166,26,28,2,6
+South America,Peru,None,2020-03-21,216,187,29,32,3,7
+South America,Peru,None,2020-03-22,249,208,33,37,4,8
+South America,Peru,None,2020-03-23,287,231,37,43,5,9
+South America,Peru,None,2020-03-24,329,258,41,49,6,10
+South America,Peru,None,2020-03-25,376,288,46,56,8,11
+South America,Peru,None,2020-03-26,430,323,52,65,10,12
+South America,Peru,None,2020-03-27,492,363,59,74,12,13
+South America,Peru,None,2020-03-28,561,408,66,84,14,15
+South America,Peru,None,2020-03-29,638,458,75,96,17,17
+South America,Peru,None,2020-03-30,725,515,84,109,20,19
+South America,Peru,None,2020-03-31,821,576,94,123,23,21
+South America,Peru,None,2020-04-01,926,643,106,139,27,24
+South America,Peru,None,2020-04-02,1041,716,118,156,31,26
+South America,Peru,None,2020-04-03,1167,794,131,175,36,29
+South America,Peru,None,2020-04-04,1303,877,145,195,41,32
+South America,Peru,None,2020-04-05,1448,965,160,217,46,36
+South America,Peru,None,2020-04-06,1603,1057,175,240,53,39
+South America,Peru,None,2020-04-07,1768,1152,191,265,59,42
+South America,Peru,None,2020-04-08,1942,1252,208,291,67,46
+South America,Peru,None,2020-04-09,2126,1354,226,319,75,50
+South America,Peru,None,2020-04-10,2317,1457,244,348,84,54
+South America,Peru,None,2020-04-11,2515,1561,262,377,93,57
+South America,Peru,None,2020-04-12,2721,1665,280,408,103,61
+South America,Peru,None,2020-04-13,2933,1770,299,440,114,65
+South America,Peru,None,2020-04-14,3151,1874,317,473,125,69
+South America,Peru,None,2020-04-15,3373,1976,335,506,137,72
+South America,Peru,None,2020-04-16,3599,2075,353,540,150,76
+South America,Peru,None,2020-04-17,3828,2171,371,574,164,79
+South America,Peru,None,2020-04-18,4059,2263,388,609,178,83
+South America,Peru,None,2020-04-19,4291,2352,405,644,193,86
+South America,Peru,None,2020-04-20,4524,2436,421,679,208,89
+South America,Peru,None,2020-04-21,4757,2514,436,714,224,92
+South America,Peru,None,2020-04-22,4990,2587,450,748,240,94
+South America,Peru,None,2020-04-23,5220,2655,464,783,257,97
+South America,Peru,None,2020-04-24,5448,2715,476,817,275,99
+South America,Peru,None,2020-04-25,5674,2770,488,851,293,101
+South America,Peru,None,2020-04-26,5896,2818,499,884,311,102
+South America,Peru,None,2020-04-27,6114,2859,508,917,330,104
+South America,Peru,None,2020-04-28,6327,2894,517,949,349,105
+South America,Peru,None,2020-04-29,6537,2923,524,980,369,106
+South America,Peru,None,2020-04-30,6741,2945,530,1011,388,107
+South America,Peru,None,2020-05-01,6939,2960,535,1041,408,107
+South America,Peru,None,2020-05-02,7132,2969,540,1070,428,107
+South America,Peru,None,2020-05-03,7319,2971,543,1098,448,107
+South America,Peru,None,2020-05-04,7499,2968,545,1125,469,107
+South America,Peru,None,2020-05-05,7674,2959,546,1151,489,106
+South America,Peru,None,2020-05-06,7843,2945,546,1176,509,106
+South America,Peru,None,2020-05-07,8005,2926,545,1201,530,105
+South America,Peru,None,2020-05-08,8160,2901,543,1224,550,104
+South America,Peru,None,2020-05-09,8309,2871,541,1246,570,103
+South America,Peru,None,2020-05-10,8452,2838,537,1268,591,101
+South America,Peru,None,2020-05-11,8588,2801,533,1288,611,100
+South America,Peru,None,2020-05-12,8719,2760,528,1308,631,98
+South America,Peru,None,2020-05-13,8844,2717,523,1327,650,97
+South America,Peru,None,2020-05-14,8963,2670,517,1344,670,95
+South America,Peru,None,2020-05-15,9075,2619,510,1361,689,93
+South America,Peru,None,2020-05-16,9181,2566,502,1377,708,91
+South America,Peru,None,2020-05-17,9282,2511,495,1392,727,89
+South America,Peru,None,2020-05-18,9378,2454,486,1407,745,87
+South America,Peru,None,2020-05-19,9469,2397,478,1420,763,85
+South America,Peru,None,2020-05-20,9556,2338,469,1433,781,82
+South America,Peru,None,2020-05-21,9637,2278,460,1446,798,80
+South America,Peru,None,2020-05-22,9713,2217,450,1457,816,78
+South America,Peru,None,2020-05-23,9784,2155,440,1468,832,76
+South America,Peru,None,2020-05-24,9852,2092,430,1478,849,73
+South America,Peru,None,2020-05-25,9915,2030,420,1487,865,71
+South America,Peru,None,2020-05-26,9975,1968,410,1496,880,69
+South America,Peru,None,2020-05-27,10031,1906,400,1505,896,66
+South America,Peru,None,2020-05-28,10083,1845,390,1512,911,64
+South America,Peru,None,2020-05-29,10132,1783,379,1520,925,62
+South America,Peru,None,2020-05-30,10178,1722,369,1527,939,60
+South America,Peru,None,2020-05-31,10221,1663,358,1533,953,58
+South America,Peru,None,2020-06-01,10261,1604,348,1539,966,55
+South America,Peru,None,2020-06-02,10298,1546,338,1545,979,53
+South America,Peru,None,2020-06-03,10333,1489,328,1550,992,51
+South America,Peru,None,2020-06-04,10365,1433,318,1555,1004,49
+South America,Peru,None,2020-06-05,10395,1378,308,1559,1016,47
+South America,Peru,None,2020-06-06,10423,1325,298,1563,1027,45
+South America,Peru,None,2020-06-07,10449,1273,289,1567,1038,43
+South America,Peru,None,2020-06-08,10474,1222,279,1571,1049,42
+South America,Peru,None,2020-06-09,10496,1173,270,1574,1060,40
+South America,Peru,None,2020-06-10,10517,1125,261,1578,1070,38
+South America,Peru,None,2020-06-11,10536,1078,252,1580,1079,36
+South America,Peru,None,2020-06-12,10554,1033,243,1583,1089,35
+South America,Peru,None,2020-06-13,10571,989,235,1586,1098,33
+South America,Peru,None,2020-06-14,10586,947,226,1588,1107,32
+South America,Peru,None,2020-06-15,10600,906,218,1590,1115,30

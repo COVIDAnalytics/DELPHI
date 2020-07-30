@@ -1,0 +1,3105 @@
+Country,Province_State,Date,Cum_Cases,new_cases,Cum_Deaths,new_deaths,Population
+Mexico,Aguascalientes,2/26/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,2/27/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,2/28/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,2/29/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/1/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/2/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/3/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/4/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/5/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/6/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/7/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/8/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/9/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/10/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/11/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/12/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/13/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/14/2020,0,0,0,0,1434635
+Mexico,Aguascalientes,3/15/2020,1,1,0,0,1434635
+Mexico,Aguascalientes,3/16/2020,1,0,0,0,1434635
+Mexico,Aguascalientes,3/17/2020,1,0,0,0,1434635
+Mexico,Aguascalientes,3/18/2020,1,0,0,0,1434635
+Mexico,Aguascalientes,3/19/2020,4,3,0,0,1434635
+Mexico,Aguascalientes,3/20/2020,4,0,0,0,1434635
+Mexico,Aguascalientes,3/21/2020,4,0,0,0,1434635
+Mexico,Aguascalientes,3/22/2020,4,0,0,0,1434635
+Mexico,Aguascalientes,3/23/2020,6,2,0,0,1434635
+Mexico,Aguascalientes,3/24/2020,6,0,0,0,1434635
+Mexico,Aguascalientes,3/25/2020,12,6,0,0,1434635
+Mexico,Aguascalientes,3/26/2020,13,1,0,0,1434635
+Mexico,Aguascalientes,3/27/2020,19,6,0,0,1434635
+Mexico,Aguascalientes,3/28/2020,19,0,0,0,1434635
+Mexico,Aguascalientes,3/29/2020,24,5,0,0,1434635
+Mexico,Aguascalientes,3/30/2020,24,0,0,0,1434635
+Mexico,Aguascalientes,3/31/2020,36,12,0,0,1434635
+Mexico,Aguascalientes,4/1/2020,36,0,0,0,1434635
+Mexico,Aguascalientes,4/2/2020,47,11,0,0,1434635
+Mexico,Aguascalientes,4/3/2020,48,1,0,0,1434635
+Mexico,Aguascalientes,4/4/2020,49,1,0,0,1434635
+Mexico,Aguascalientes,4/5/2020,49,0,0,0,1434635
+Mexico,Aguascalientes,4/6/2020,49,0,0,0,1434635
+Mexico,Aguascalientes,4/7/2020,53,4,0,0,1434635
+Mexico,Aguascalientes,4/8/2020,53,0,0,0,1434635
+Mexico,Aguascalientes,4/9/2020,53,0,0,0,1434635
+Mexico,Aguascalientes,4/10/2020,53,0,0,0,1434635
+Mexico,Aguascalientes,4/11/2020,55,2,1,1,1434635
+Mexico,Aguascalientes,4/12/2020,55,0,1,0,1434635
+Mexico,Aguascalientes,4/13/2020,55,0,1,0,1434635
+Mexico,Aguascalientes,4/14/2020,65,10,1,0,1434635
+Mexico,Aguascalientes,4/15/2020,65,0,1,0,1434635
+Mexico,Aguascalientes,4/16/2020,71,6,2,1,1434635
+Mexico,Aguascalientes,4/17/2020,77,6,2,0,1434635
+Mexico,Aguascalientes,4/18/2020,77,0,2,0,1434635
+Mexico,Aguascalientes,4/19/2020,80,3,2,0,1434635
+Mexico,Aguascalientes,4/20/2020,80,0,2,0,1434635
+Mexico,Aguascalientes,4/21/2020,80,0,2,0,1434635
+Mexico,Aguascalientes,4/22/2020,99,19,2,0,1434635
+Mexico,Aguascalientes,4/23/2020,105,6,2,0,1434635
+Mexico,Aguascalientes,4/24/2020,145,40,2,0,1434635
+Mexico,Aguascalientes,4/25/2020,146,1,2,0,1434635
+Mexico,Aguascalientes,4/26/2020,148,2,2,0,1434635
+Mexico,Aguascalientes,4/27/2020,161,13,2,0,1434635
+Mexico,Aguascalientes,4/28/2020,167,6,2,0,1434635
+Mexico,Aguascalientes,4/29/2020,187,20,2,0,1434635
+Mexico,Aguascalientes,4/30/2020,206,19,6,4,1434635
+Mexico,Aguascalientes,5/1/2020,226,20,7,1,1434635
+Mexico,Aguascalientes,5/2/2020,255,29,7,0,1434635
+Mexico,Aguascalientes,5/3/2020,267,12,7,0,1434635
+Mexico,Aguascalientes,5/4/2020,290,23,9,2,1434635
+Mexico,Aguascalientes,5/5/2020,293,3,10,1,1434635
+Mexico,Aguascalientes,5/6/2020,296,3,10,0,1434635
+Mexico,Aguascalientes,5/7/2020,296,0,11,1,1434635
+Mexico,Aguascalientes,5/8/2020,304,8,12,1,1434635
+Mexico,Aguascalientes,5/9/2020,307,3,14,2,1434635
+Mexico,Aguascalientes,5/10/2020,334,27,14,0,1434635
+Mexico,Aguascalientes,5/11/2020,357,23,14,0,1434635
+Mexico,Aguascalientes,5/12/2020,387,30,14,0,1434635
+Mexico,Aguascalientes,5/13/2020,404,17,15,1,1434635
+Mexico,Aguascalientes,5/14/2020,413,9,16,1,1434635
+Mexico,Aguascalientes,5/15/2020,448,35,18,2,1434635
+Mexico,Aguascalientes,5/16/2020,447,-1,20,2,1434635
+Mexico,Aguascalientes,5/17/2020,477,30,20,0,1434635
+Mexico,Aguascalientes,5/18/2020,482,5,20,0,1434635
+Mexico,Aguascalientes,5/19/2020,522,40,20,0,1434635
+Mexico,Aguascalientes,5/20/2020,568,46,21,1,1434635
+Mexico,Aguascalientes,5/21/2020,595,27,21,0,1434635
+Mexico,Aguascalientes,5/22/2020,618,23,25,4,1434635
+Mexico,Aguascalientes,5/23/2020,623,5,26,1,1434635
+Mexico,Aguascalientes,5/24/2020,625,2,26,0,1434635
+Mexico,Aguascalientes,5/25/2020,659,34,26,0,1434635
+Mexico,Aguascalientes,5/26/2020,686,27,30,4,1434635
+Mexico,Aguascalientes,5/27/2020,726,40,32,2,1434635
+Mexico,Aguascalientes,5/28/2020,779,53,33,1,1434635
+Mexico,Aguascalientes,5/29/2020,807,28,33,0,1434635
+Mexico,Aguascalientes,5/30/2020,826,19,35,2,1434635
+Mexico,Aguascalientes,5/31/2020,826,0,35,0,1434635
+Mexico,Aguascalientes,6/1/2020,851,25,35,0,1434635
+Mexico,Baja California,2/26/2020,0,0,0,0,3634868
+Mexico,Baja California,2/27/2020,0,0,0,0,3634868
+Mexico,Baja California,2/28/2020,0,0,0,0,3634868
+Mexico,Baja California,2/29/2020,0,0,0,0,3634868
+Mexico,Baja California,3/1/2020,0,0,0,0,3634868
+Mexico,Baja California,3/2/2020,0,0,0,0,3634868
+Mexico,Baja California,3/3/2020,0,0,0,0,3634868
+Mexico,Baja California,3/4/2020,0,0,0,0,3634868
+Mexico,Baja California,3/5/2020,0,0,0,0,3634868
+Mexico,Baja California,3/6/2020,0,0,0,0,3634868
+Mexico,Baja California,3/7/2020,0,0,0,0,3634868
+Mexico,Baja California,3/8/2020,0,0,0,0,3634868
+Mexico,Baja California,3/9/2020,0,0,0,0,3634868
+Mexico,Baja California,3/10/2020,0,0,0,0,3634868
+Mexico,Baja California,3/11/2020,0,0,0,0,3634868
+Mexico,Baja California,3/12/2020,0,0,0,0,3634868
+Mexico,Baja California,3/13/2020,0,0,0,0,3634868
+Mexico,Baja California,3/14/2020,0,0,0,0,3634868
+Mexico,Baja California,3/15/2020,0,0,0,0,3634868
+Mexico,Baja California,3/16/2020,0,0,0,0,3634868
+Mexico,Baja California,3/17/2020,0,0,0,0,3634868
+Mexico,Baja California,3/18/2020,2,2,0,0,3634868
+Mexico,Baja California,3/19/2020,2,0,0,0,3634868
+Mexico,Baja California,3/20/2020,4,2,0,0,3634868
+Mexico,Baja California,3/21/2020,8,4,0,0,3634868
+Mexico,Baja California,3/22/2020,11,3,0,0,3634868
+Mexico,Baja California,3/23/2020,13,2,0,0,3634868
+Mexico,Baja California,3/24/2020,13,0,0,0,3634868
+Mexico,Baja California,3/25/2020,14,1,0,0,3634868
+Mexico,Baja California,3/26/2020,19,5,0,0,3634868
+Mexico,Baja California,3/27/2020,20,1,0,0,3634868
+Mexico,Baja California,3/28/2020,20,0,0,0,3634868
+Mexico,Baja California,3/29/2020,23,3,0,0,3634868
+Mexico,Baja California,3/30/2020,27,4,0,0,3634868
+Mexico,Baja California,3/31/2020,35,8,0,0,3634868
+Mexico,Baja California,4/1/2020,37,2,0,0,3634868
+Mexico,Baja California,4/2/2020,40,3,3,3,3634868
+Mexico,Baja California,4/3/2020,52,12,5,2,3634868
+Mexico,Baja California,4/4/2020,54,2,5,0,3634868
+Mexico,Baja California,4/5/2020,69,15,6,1,3634868
+Mexico,Baja California,4/6/2020,111,42,7,1,3634868
+Mexico,Baja California,4/7/2020,136,25,7,0,3634868
+Mexico,Baja California,4/8/2020,225,89,15,8,3634868
+Mexico,Baja California,4/9/2020,239,14,16,1,3634868
+Mexico,Baja California,4/10/2020,258,19,17,1,3634868
+Mexico,Baja California,4/11/2020,278,20,20,3,3634868
+Mexico,Baja California,4/12/2020,335,57,22,2,3634868
+Mexico,Baja California,4/13/2020,368,33,25,3,3634868
+Mexico,Baja California,4/14/2020,412,44,28,3,3634868
+Mexico,Baja California,4/15/2020,464,52,28,0,3634868
+Mexico,Baja California,4/16/2020,505,41,31,3,3634868
+Mexico,Baja California,4/17/2020,536,31,33,2,3634868
+Mexico,Baja California,4/18/2020,610,74,68,35,3634868
+Mexico,Baja California,4/19/2020,680,70,75,7,3634868
+Mexico,Baja California,4/20/2020,741,61,75,0,3634868
+Mexico,Baja California,4/21/2020,915,174,100,25,3634868
+Mexico,Baja California,4/22/2020,992,77,118,18,3634868
+Mexico,Baja California,4/23/2020,1083,91,126,8,3634868
+Mexico,Baja California,4/24/2020,1164,81,146,20,3634868
+Mexico,Baja California,4/25/2020,1206,42,162,16,3634868
+Mexico,Baja California,4/26/2020,1286,80,162,0,3634868
+Mexico,Baja California,4/27/2020,1316,30,167,5,3634868
+Mexico,Baja California,4/28/2020,1410,94,186,19,3634868
+Mexico,Baja California,4/29/2020,1516,106,215,29,3634868
+Mexico,Baja California,4/30/2020,1577,61,222,7,3634868
+Mexico,Baja California,5/1/2020,1586,9,232,10,3634868
+Mexico,Baja California,5/2/2020,1598,12,235,3,3634868
+Mexico,Baja California,5/3/2020,1676,78,238,3,3634868
+Mexico,Baja California,5/4/2020,1826,150,251,13,3634868
+Mexico,Baja California,5/5/2020,2016,190,289,38,3634868
+Mexico,Baja California,5/6/2020,2126,110,326,37,3634868
+Mexico,Baja California,5/7/2020,2204,78,344,18,3634868
+Mexico,Baja California,5/8/2020,2304,100,365,21,3634868
+Mexico,Baja California,5/9/2020,2392,88,402,37,3634868
+Mexico,Baja California,5/10/2020,2454,62,416,14,3634868
+Mexico,Baja California,5/11/2020,2471,17,419,3,3634868
+Mexico,Baja California,5/12/2020,2600,129,443,24,3634868
+Mexico,Baja California,5/13/2020,2793,193,464,21,3634868
+Mexico,Baja California,5/14/2020,2885,92,495,31,3634868
+Mexico,Baja California,5/15/2020,3076,191,518,23,3634868
+Mexico,Baja California,5/16/2020,3205,129,543,25,3634868
+Mexico,Baja California,5/17/2020,3294,89,554,11,3634868
+Mexico,Baja California,5/18/2020,3376,82,566,12,3634868
+Mexico,Baja California,5/19/2020,3531,155,582,16,3634868
+Mexico,Baja California,5/20/2020,3649,118,606,24,3634868
+Mexico,Baja California,5/21/2020,3829,180,637,31,3634868
+Mexico,Baja California,5/22/2020,4005,176,648,11,3634868
+Mexico,Baja California,5/23/2020,4162,157,653,5,3634868
+Mexico,Baja California,5/24/2020,4282,120,696,43,3634868
+Mexico,Baja California,5/25/2020,4312,30,705,9,3634868
+Mexico,Baja California,5/26/2020,4484,172,740,35,3634868
+Mexico,Baja California,5/27/2020,4659,175,773,33,3634868
+Mexico,Baja California,5/28/2020,4845,186,808,35,3634868
+Mexico,Baja California,5/29/2020,4953,108,821,13,3634868
+Mexico,Baja California,5/30/2020,5106,153,864,43,3634868
+Mexico,Baja California,5/31/2020,5154,48,865,1,3634868
+Mexico,Baja California,6/1/2020,5207,53,871,6,3634868
+Mexico,Baja California Sur,2/26/2020,0,0,0,0,804708
+Mexico,Baja California Sur,2/27/2020,0,0,0,0,804708
+Mexico,Baja California Sur,2/28/2020,0,0,0,0,804708
+Mexico,Baja California Sur,2/29/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/1/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/2/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/3/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/4/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/5/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/6/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/7/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/8/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/9/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/10/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/11/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/12/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/13/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/14/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/15/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/16/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/17/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/18/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/19/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/20/2020,0,0,0,0,804708
+Mexico,Baja California Sur,3/21/2020,1,1,0,0,804708
+Mexico,Baja California Sur,3/22/2020,1,0,0,0,804708
+Mexico,Baja California Sur,3/23/2020,2,1,0,0,804708
+Mexico,Baja California Sur,3/24/2020,2,0,0,0,804708
+Mexico,Baja California Sur,3/25/2020,5,3,0,0,804708
+Mexico,Baja California Sur,3/26/2020,7,2,0,0,804708
+Mexico,Baja California Sur,3/27/2020,9,2,0,0,804708
+Mexico,Baja California Sur,3/28/2020,9,0,0,0,804708
+Mexico,Baja California Sur,3/29/2020,11,2,0,0,804708
+Mexico,Baja California Sur,3/30/2020,13,2,0,0,804708
+Mexico,Baja California Sur,3/31/2020,17,4,0,0,804708
+Mexico,Baja California Sur,4/1/2020,18,1,2,2,804708
+Mexico,Baja California Sur,4/2/2020,19,1,2,0,804708
+Mexico,Baja California Sur,4/3/2020,21,2,2,0,804708
+Mexico,Baja California Sur,4/4/2020,27,6,2,0,804708
+Mexico,Baja California Sur,4/5/2020,28,1,2,0,804708
+Mexico,Baja California Sur,4/6/2020,54,26,2,0,804708
+Mexico,Baja California Sur,4/7/2020,56,2,2,0,804708
+Mexico,Baja California Sur,4/8/2020,68,12,2,0,804708
+Mexico,Baja California Sur,4/9/2020,68,0,2,0,804708
+Mexico,Baja California Sur,4/10/2020,85,17,2,0,804708
+Mexico,Baja California Sur,4/11/2020,102,17,2,0,804708
+Mexico,Baja California Sur,4/12/2020,120,18,2,0,804708
+Mexico,Baja California Sur,4/13/2020,153,33,3,1,804708
+Mexico,Baja California Sur,4/14/2020,164,11,5,2,804708
+Mexico,Baja California Sur,4/15/2020,165,1,6,1,804708
+Mexico,Baja California Sur,4/16/2020,166,1,6,0,804708
+Mexico,Baja California Sur,4/17/2020,169,3,6,0,804708
+Mexico,Baja California Sur,4/18/2020,173,4,6,0,804708
+Mexico,Baja California Sur,4/19/2020,193,20,7,1,804708
+Mexico,Baja California Sur,4/20/2020,205,12,7,0,804708
+Mexico,Baja California Sur,4/21/2020,228,23,9,2,804708
+Mexico,Baja California Sur,4/22/2020,240,12,10,1,804708
+Mexico,Baja California Sur,4/23/2020,241,1,11,1,804708
+Mexico,Baja California Sur,4/24/2020,247,6,11,0,804708
+Mexico,Baja California Sur,4/25/2020,266,19,12,1,804708
+Mexico,Baja California Sur,4/26/2020,285,19,12,0,804708
+Mexico,Baja California Sur,4/27/2020,286,1,13,1,804708
+Mexico,Baja California Sur,4/28/2020,293,7,14,1,804708
+Mexico,Baja California Sur,4/29/2020,302,9,16,2,804708
+Mexico,Baja California Sur,4/30/2020,309,7,16,0,804708
+Mexico,Baja California Sur,5/1/2020,323,14,18,2,804708
+Mexico,Baja California Sur,5/2/2020,331,8,18,0,804708
+Mexico,Baja California Sur,5/3/2020,339,8,18,0,804708
+Mexico,Baja California Sur,5/4/2020,344,5,18,0,804708
+Mexico,Baja California Sur,5/5/2020,351,7,18,0,804708
+Mexico,Baja California Sur,5/6/2020,358,7,18,0,804708
+Mexico,Baja California Sur,5/7/2020,367,9,20,2,804708
+Mexico,Baja California Sur,5/8/2020,372,5,22,2,804708
+Mexico,Baja California Sur,5/9/2020,377,5,22,0,804708
+Mexico,Baja California Sur,5/10/2020,385,8,22,0,804708
+Mexico,Baja California Sur,5/11/2020,396,11,22,0,804708
+Mexico,Baja California Sur,5/12/2020,399,3,24,2,804708
+Mexico,Baja California Sur,5/13/2020,407,8,24,0,804708
+Mexico,Baja California Sur,5/14/2020,417,10,25,1,804708
+Mexico,Baja California Sur,5/15/2020,436,19,26,1,804708
+Mexico,Baja California Sur,5/16/2020,441,5,26,0,804708
+Mexico,Baja California Sur,5/17/2020,455,14,26,0,804708
+Mexico,Baja California Sur,5/18/2020,458,3,26,0,804708
+Mexico,Baja California Sur,5/19/2020,465,7,27,1,804708
+Mexico,Baja California Sur,5/20/2020,471,6,28,1,804708
+Mexico,Baja California Sur,5/21/2020,488,17,29,1,804708
+Mexico,Baja California Sur,5/22/2020,490,2,31,2,804708
+Mexico,Baja California Sur,5/23/2020,506,16,31,0,804708
+Mexico,Baja California Sur,5/24/2020,517,11,31,0,804708
+Mexico,Baja California Sur,5/25/2020,526,9,32,1,804708
+Mexico,Baja California Sur,5/26/2020,534,8,32,0,804708
+Mexico,Baja California Sur,5/27/2020,542,8,32,0,804708
+Mexico,Baja California Sur,5/28/2020,552,10,33,1,804708
+Mexico,Baja California Sur,5/29/2020,578,26,34,1,804708
+Mexico,Baja California Sur,5/30/2020,590,12,35,1,804708
+Mexico,Baja California Sur,5/31/2020,614,24,35,0,804708
+Mexico,Baja California Sur,6/1/2020,626,12,35,0,804708
+Mexico,Campeche,2/26/2020,0,0,0,0,1000617
+Mexico,Campeche,2/27/2020,0,0,0,0,1000617
+Mexico,Campeche,2/28/2020,0,0,0,0,1000617
+Mexico,Campeche,2/29/2020,0,0,0,0,1000617
+Mexico,Campeche,3/1/2020,0,0,0,0,1000617
+Mexico,Campeche,3/2/2020,0,0,0,0,1000617
+Mexico,Campeche,3/3/2020,0,0,0,0,1000617
+Mexico,Campeche,3/4/2020,0,0,0,0,1000617
+Mexico,Campeche,3/5/2020,0,0,0,0,1000617
+Mexico,Campeche,3/6/2020,0,0,0,0,1000617
+Mexico,Campeche,3/7/2020,0,0,0,0,1000617
+Mexico,Campeche,3/8/2020,0,0,0,0,1000617
+Mexico,Campeche,3/9/2020,0,0,0,0,1000617
+Mexico,Campeche,3/10/2020,0,0,0,0,1000617
+Mexico,Campeche,3/11/2020,0,0,0,0,1000617
+Mexico,Campeche,3/12/2020,0,0,0,0,1000617
+Mexico,Campeche,3/13/2020,0,0,0,0,1000617
+Mexico,Campeche,3/14/2020,0,0,0,0,1000617
+Mexico,Campeche,3/15/2020,0,0,0,0,1000617
+Mexico,Campeche,3/16/2020,0,0,0,0,1000617
+Mexico,Campeche,3/17/2020,0,0,0,0,1000617
+Mexico,Campeche,3/18/2020,0,0,0,0,1000617
+Mexico,Campeche,3/19/2020,0,0,0,0,1000617
+Mexico,Campeche,3/20/2020,0,0,0,0,1000617
+Mexico,Campeche,3/21/2020,0,0,0,0,1000617
+Mexico,Campeche,3/22/2020,1,1,0,0,1000617
+Mexico,Campeche,3/23/2020,2,1,0,0,1000617
+Mexico,Campeche,3/24/2020,2,0,0,0,1000617
+Mexico,Campeche,3/25/2020,2,0,0,0,1000617
+Mexico,Campeche,3/26/2020,2,0,0,0,1000617
+Mexico,Campeche,3/27/2020,2,0,0,0,1000617
+Mexico,Campeche,3/28/2020,3,1,0,0,1000617
+Mexico,Campeche,3/29/2020,3,0,0,0,1000617
+Mexico,Campeche,3/30/2020,3,0,0,0,1000617
+Mexico,Campeche,3/31/2020,5,2,0,0,1000617
+Mexico,Campeche,4/1/2020,5,0,0,0,1000617
+Mexico,Campeche,4/2/2020,5,0,0,0,1000617
+Mexico,Campeche,4/3/2020,6,1,0,0,1000617
+Mexico,Campeche,4/4/2020,8,2,0,0,1000617
+Mexico,Campeche,4/5/2020,8,0,0,0,1000617
+Mexico,Campeche,4/6/2020,9,1,0,0,1000617
+Mexico,Campeche,4/7/2020,14,5,1,1,1000617
+Mexico,Campeche,4/8/2020,14,0,1,0,1000617
+Mexico,Campeche,4/9/2020,14,0,1,0,1000617
+Mexico,Campeche,4/10/2020,15,1,1,0,1000617
+Mexico,Campeche,4/11/2020,18,3,1,0,1000617
+Mexico,Campeche,4/12/2020,19,1,1,0,1000617
+Mexico,Campeche,4/13/2020,29,10,2,1,1000617
+Mexico,Campeche,4/14/2020,33,4,2,0,1000617
+Mexico,Campeche,4/15/2020,43,10,2,0,1000617
+Mexico,Campeche,4/16/2020,45,2,3,1,1000617
+Mexico,Campeche,4/17/2020,47,2,3,0,1000617
+Mexico,Campeche,4/18/2020,56,9,3,0,1000617
+Mexico,Campeche,4/19/2020,57,1,4,1,1000617
+Mexico,Campeche,4/20/2020,63,6,4,0,1000617
+Mexico,Campeche,4/21/2020,67,4,4,0,1000617
+Mexico,Campeche,4/22/2020,70,3,5,1,1000617
+Mexico,Campeche,4/23/2020,70,0,6,1,1000617
+Mexico,Campeche,4/24/2020,83,13,10,4,1000617
+Mexico,Campeche,4/25/2020,87,4,11,1,1000617
+Mexico,Campeche,4/26/2020,94,7,14,3,1000617
+Mexico,Campeche,4/27/2020,103,9,15,1,1000617
+Mexico,Campeche,4/28/2020,114,11,18,3,1000617
+Mexico,Campeche,4/29/2020,121,7,19,1,1000617
+Mexico,Campeche,4/30/2020,129,8,19,0,1000617
+Mexico,Campeche,5/1/2020,140,11,19,0,1000617
+Mexico,Campeche,5/2/2020,150,10,22,3,1000617
+Mexico,Campeche,5/3/2020,161,11,22,0,1000617
+Mexico,Campeche,5/4/2020,169,8,23,1,1000617
+Mexico,Campeche,5/5/2020,172,3,24,1,1000617
+Mexico,Campeche,5/6/2020,202,30,25,1,1000617
+Mexico,Campeche,5/7/2020,219,17,26,1,1000617
+Mexico,Campeche,5/8/2020,230,11,27,1,1000617
+Mexico,Campeche,5/9/2020,250,20,27,0,1000617
+Mexico,Campeche,5/10/2020,262,12,29,2,1000617
+Mexico,Campeche,5/11/2020,281,19,31,2,1000617
+Mexico,Campeche,5/12/2020,281,0,31,0,1000617
+Mexico,Campeche,5/13/2020,301,20,32,1,1000617
+Mexico,Campeche,5/14/2020,331,30,33,1,1000617
+Mexico,Campeche,5/15/2020,366,35,35,2,1000617
+Mexico,Campeche,5/16/2020,374,8,36,1,1000617
+Mexico,Campeche,5/17/2020,385,11,38,2,1000617
+Mexico,Campeche,5/18/2020,393,8,39,1,1000617
+Mexico,Campeche,5/19/2020,407,14,45,6,1000617
+Mexico,Campeche,5/20/2020,417,10,48,3,1000617
+Mexico,Campeche,5/21/2020,443,26,50,2,1000617
+Mexico,Campeche,5/22/2020,469,26,50,0,1000617
+Mexico,Campeche,5/23/2020,500,31,54,4,1000617
+Mexico,Campeche,5/24/2020,526,26,54,0,1000617
+Mexico,Campeche,5/25/2020,540,14,57,3,1000617
+Mexico,Campeche,5/26/2020,549,9,66,9,1000617
+Mexico,Campeche,5/27/2020,583,34,70,4,1000617
+Mexico,Campeche,5/28/2020,621,38,76,6,1000617
+Mexico,Campeche,5/29/2020,635,14,81,5,1000617
+Mexico,Campeche,5/30/2020,664,29,83,2,1000617
+Mexico,Campeche,5/31/2020,684,20,90,7,1000617
+Mexico,Campeche,6/1/2020,709,25,91,1,1000617
+Mexico,Chiapas,2/26/2020,0,0,0,0,5730367
+Mexico,Chiapas,2/27/2020,0,0,0,0,5730367
+Mexico,Chiapas,2/28/2020,0,0,0,0,5730367
+Mexico,Chiapas,2/29/2020,0,0,0,0,5730367
+Mexico,Chiapas,3/1/2020,1,1,0,0,5730367
+Mexico,Chiapas,3/2/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/3/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/4/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/5/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/6/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/7/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/8/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/9/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/10/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/11/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/12/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/13/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/14/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/15/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/16/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/17/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/18/2020,1,0,0,0,5730367
+Mexico,Chiapas,3/19/2020,2,1,0,0,5730367
+Mexico,Chiapas,3/20/2020,2,0,0,0,5730367
+Mexico,Chiapas,3/21/2020,2,0,0,0,5730367
+Mexico,Chiapas,3/22/2020,2,0,0,0,5730367
+Mexico,Chiapas,3/23/2020,2,0,0,0,5730367
+Mexico,Chiapas,3/24/2020,2,0,0,0,5730367
+Mexico,Chiapas,3/25/2020,4,2,0,0,5730367
+Mexico,Chiapas,3/26/2020,4,0,0,0,5730367
+Mexico,Chiapas,3/27/2020,7,3,0,0,5730367
+Mexico,Chiapas,3/28/2020,6,-1,0,0,5730367
+Mexico,Chiapas,3/29/2020,10,4,0,0,5730367
+Mexico,Chiapas,3/30/2020,11,1,0,0,5730367
+Mexico,Chiapas,3/31/2020,13,2,0,0,5730367
+Mexico,Chiapas,4/1/2020,14,1,0,0,5730367
+Mexico,Chiapas,4/2/2020,15,1,0,0,5730367
+Mexico,Chiapas,4/3/2020,18,3,0,0,5730367
+Mexico,Chiapas,4/4/2020,19,1,0,0,5730367
+Mexico,Chiapas,4/5/2020,25,6,0,0,5730367
+Mexico,Chiapas,4/6/2020,26,1,0,0,5730367
+Mexico,Chiapas,4/7/2020,28,2,0,0,5730367
+Mexico,Chiapas,4/8/2020,32,4,0,0,5730367
+Mexico,Chiapas,4/9/2020,34,2,0,0,5730367
+Mexico,Chiapas,4/10/2020,38,4,1,1,5730367
+Mexico,Chiapas,4/11/2020,39,1,1,0,5730367
+Mexico,Chiapas,4/12/2020,43,4,3,2,5730367
+Mexico,Chiapas,4/13/2020,43,0,3,0,5730367
+Mexico,Chiapas,4/14/2020,45,2,3,0,5730367
+Mexico,Chiapas,4/15/2020,48,3,3,0,5730367
+Mexico,Chiapas,4/16/2020,54,6,3,0,5730367
+Mexico,Chiapas,4/17/2020,58,4,3,0,5730367
+Mexico,Chiapas,4/18/2020,62,4,3,0,5730367
+Mexico,Chiapas,4/19/2020,67,5,3,0,5730367
+Mexico,Chiapas,4/20/2020,68,1,3,0,5730367
+Mexico,Chiapas,4/21/2020,75,7,4,1,5730367
+Mexico,Chiapas,4/22/2020,83,8,4,0,5730367
+Mexico,Chiapas,4/23/2020,95,12,5,1,5730367
+Mexico,Chiapas,4/24/2020,100,5,6,1,5730367
+Mexico,Chiapas,4/25/2020,114,14,6,0,5730367
+Mexico,Chiapas,4/26/2020,118,4,6,0,5730367
+Mexico,Chiapas,4/27/2020,128,10,6,0,5730367
+Mexico,Chiapas,4/28/2020,137,9,6,0,5730367
+Mexico,Chiapas,4/29/2020,161,24,7,1,5730367
+Mexico,Chiapas,4/30/2020,173,12,7,0,5730367
+Mexico,Chiapas,5/1/2020,187,14,7,0,5730367
+Mexico,Chiapas,5/2/2020,210,23,9,2,5730367
+Mexico,Chiapas,5/3/2020,222,12,9,0,5730367
+Mexico,Chiapas,5/4/2020,227,5,11,2,5730367
+Mexico,Chiapas,5/5/2020,237,10,12,1,5730367
+Mexico,Chiapas,5/6/2020,259,22,12,0,5730367
+Mexico,Chiapas,5/7/2020,284,25,12,0,5730367
+Mexico,Chiapas,5/8/2020,320,36,17,5,5730367
+Mexico,Chiapas,5/9/2020,355,35,19,2,5730367
+Mexico,Chiapas,5/10/2020,382,27,19,0,5730367
+Mexico,Chiapas,5/11/2020,406,24,20,1,5730367
+Mexico,Chiapas,5/12/2020,419,13,25,5,5730367
+Mexico,Chiapas,5/13/2020,436,17,31,6,5730367
+Mexico,Chiapas,5/14/2020,488,52,35,4,5730367
+Mexico,Chiapas,5/15/2020,520,32,39,4,5730367
+Mexico,Chiapas,5/16/2020,589,69,44,5,5730367
+Mexico,Chiapas,5/17/2020,637,48,44,0,5730367
+Mexico,Chiapas,5/18/2020,669,32,44,0,5730367
+Mexico,Chiapas,5/19/2020,714,45,45,1,5730367
+Mexico,Chiapas,5/20/2020,784,70,53,8,5730367
+Mexico,Chiapas,5/21/2020,865,81,64,11,5730367
+Mexico,Chiapas,5/22/2020,942,77,67,3,5730367
+Mexico,Chiapas,5/23/2020,1021,79,68,1,5730367
+Mexico,Chiapas,5/24/2020,1133,112,69,1,5730367
+Mexico,Chiapas,5/25/2020,1192,59,72,3,5730367
+Mexico,Chiapas,5/26/2020,1254,62,84,12,5730367
+Mexico,Chiapas,5/27/2020,1362,108,101,17,5730367
+Mexico,Chiapas,5/28/2020,1427,65,114,13,5730367
+Mexico,Chiapas,5/29/2020,1523,96,125,11,5730367
+Mexico,Chiapas,5/30/2020,1666,143,131,6,5730367
+Mexico,Chiapas,5/31/2020,1821,155,135,4,5730367
+Mexico,Chiapas,6/1/2020,1879,58,136,1,5730367
+Mexico,Chihuahua,2/26/2020,0,0,0,0,3801487
+Mexico,Chihuahua,2/27/2020,0,0,0,0,3801487
+Mexico,Chihuahua,2/28/2020,0,0,0,0,3801487
+Mexico,Chihuahua,2/29/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/1/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/2/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/3/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/4/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/5/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/6/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/7/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/8/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/9/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/10/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/11/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/12/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/13/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/14/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/15/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/16/2020,0,0,0,0,3801487
+Mexico,Chihuahua,3/17/2020,1,1,0,0,3801487
+Mexico,Chihuahua,3/18/2020,1,0,0,0,3801487
+Mexico,Chihuahua,3/19/2020,1,0,0,0,3801487
+Mexico,Chihuahua,3/20/2020,2,1,0,0,3801487
+Mexico,Chihuahua,3/21/2020,2,0,0,0,3801487
+Mexico,Chihuahua,3/22/2020,5,3,0,0,3801487
+Mexico,Chihuahua,3/23/2020,5,0,0,0,3801487
+Mexico,Chihuahua,3/24/2020,6,1,0,0,3801487
+Mexico,Chihuahua,3/25/2020,6,0,0,0,3801487
+Mexico,Chihuahua,3/26/2020,6,0,0,0,3801487
+Mexico,Chihuahua,3/27/2020,6,0,0,0,3801487
+Mexico,Chihuahua,3/28/2020,6,0,0,0,3801487
+Mexico,Chihuahua,3/29/2020,6,0,0,0,3801487
+Mexico,Chihuahua,3/30/2020,6,0,0,0,3801487
+Mexico,Chihuahua,3/31/2020,7,1,0,0,3801487
+Mexico,Chihuahua,4/1/2020,11,4,0,0,3801487
+Mexico,Chihuahua,4/2/2020,11,0,0,0,3801487
+Mexico,Chihuahua,4/3/2020,12,1,0,0,3801487
+Mexico,Chihuahua,4/4/2020,13,1,0,0,3801487
+Mexico,Chihuahua,4/5/2020,15,2,0,0,3801487
+Mexico,Chihuahua,4/6/2020,22,7,0,0,3801487
+Mexico,Chihuahua,4/7/2020,22,0,0,0,3801487
+Mexico,Chihuahua,4/8/2020,29,7,0,0,3801487
+Mexico,Chihuahua,4/9/2020,42,13,1,1,3801487
+Mexico,Chihuahua,4/10/2020,54,12,12,11,3801487
+Mexico,Chihuahua,4/11/2020,54,0,12,0,3801487
+Mexico,Chihuahua,4/12/2020,61,7,12,0,3801487
+Mexico,Chihuahua,4/13/2020,67,6,13,1,3801487
+Mexico,Chihuahua,4/14/2020,69,2,16,3,3801487
+Mexico,Chihuahua,4/15/2020,83,14,20,4,3801487
+Mexico,Chihuahua,4/16/2020,108,25,23,3,3801487
+Mexico,Chihuahua,4/17/2020,115,7,26,3,3801487
+Mexico,Chihuahua,4/18/2020,131,16,31,5,3801487
+Mexico,Chihuahua,4/19/2020,148,17,32,1,3801487
+Mexico,Chihuahua,4/20/2020,152,4,32,0,3801487
+Mexico,Chihuahua,4/21/2020,155,3,36,4,3801487
+Mexico,Chihuahua,4/22/2020,176,21,39,3,3801487
+Mexico,Chihuahua,4/23/2020,194,18,42,3,3801487
+Mexico,Chihuahua,4/24/2020,213,19,46,4,3801487
+Mexico,Chihuahua,4/25/2020,241,28,57,11,3801487
+Mexico,Chihuahua,4/26/2020,259,18,58,1,3801487
+Mexico,Chihuahua,4/27/2020,272,13,59,1,3801487
+Mexico,Chihuahua,4/28/2020,315,43,68,9,3801487
+Mexico,Chihuahua,4/29/2020,326,11,70,2,3801487
+Mexico,Chihuahua,4/30/2020,352,26,76,6,3801487
+Mexico,Chihuahua,5/1/2020,401,49,83,7,3801487
+Mexico,Chihuahua,5/2/2020,453,52,89,6,3801487
+Mexico,Chihuahua,5/3/2020,513,60,92,3,3801487
+Mexico,Chihuahua,5/4/2020,533,20,93,1,3801487
+Mexico,Chihuahua,5/5/2020,581,48,111,18,3801487
+Mexico,Chihuahua,5/6/2020,600,19,117,6,3801487
+Mexico,Chihuahua,5/7/2020,617,17,117,0,3801487
+Mexico,Chihuahua,5/8/2020,632,15,126,9,3801487
+Mexico,Chihuahua,5/9/2020,657,25,135,9,3801487
+Mexico,Chihuahua,5/10/2020,673,16,135,0,3801487
+Mexico,Chihuahua,5/11/2020,692,19,141,6,3801487
+Mexico,Chihuahua,5/12/2020,730,38,146,5,3801487
+Mexico,Chihuahua,5/13/2020,767,37,151,5,3801487
+Mexico,Chihuahua,5/14/2020,798,31,161,10,3801487
+Mexico,Chihuahua,5/15/2020,873,75,183,22,3801487
+Mexico,Chihuahua,5/16/2020,898,25,192,9,3801487
+Mexico,Chihuahua,5/17/2020,917,19,192,0,3801487
+Mexico,Chihuahua,5/18/2020,918,1,193,1,3801487
+Mexico,Chihuahua,5/19/2020,959,41,202,9,3801487
+Mexico,Chihuahua,5/20/2020,1013,54,208,6,3801487
+Mexico,Chihuahua,5/21/2020,1095,82,224,16,3801487
+Mexico,Chihuahua,5/22/2020,1123,28,245,21,3801487
+Mexico,Chihuahua,5/23/2020,1172,49,246,1,3801487
+Mexico,Chihuahua,5/24/2020,1188,16,249,3,3801487
+Mexico,Chihuahua,5/25/2020,1194,6,255,6,3801487
+Mexico,Chihuahua,5/26/2020,1280,86,272,17,3801487
+Mexico,Chihuahua,5/27/2020,1358,78,286,14,3801487
+Mexico,Chihuahua,5/28/2020,1402,44,293,7,3801487
+Mexico,Chihuahua,5/29/2020,1505,103,305,12,3801487
+Mexico,Chihuahua,5/30/2020,1568,63,314,9,3801487
+Mexico,Chihuahua,5/31/2020,1616,48,318,4,3801487
+Mexico,Chihuahua,6/1/2020,1627,11,328,10,3801487
+Mexico,Ciudad de Mexico,2/26/2020,0,0,0,0,9018645
+Mexico,Ciudad de Mexico,2/27/2020,0,0,0,0,9018645
+Mexico,Ciudad de Mexico,2/28/2020,2,2,0,0,9018645
+Mexico,Ciudad de Mexico,2/29/2020,2,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/1/2020,2,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/2/2020,2,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/3/2020,2,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/4/2020,2,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/5/2020,2,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/6/2020,2,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/7/2020,3,1,0,0,9018645
+Mexico,Ciudad de Mexico,3/8/2020,3,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/9/2020,3,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/10/2020,3,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/11/2020,5,2,0,0,9018645
+Mexico,Ciudad de Mexico,3/12/2020,5,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/13/2020,11,6,0,0,9018645
+Mexico,Ciudad de Mexico,3/14/2020,17,6,0,0,9018645
+Mexico,Ciudad de Mexico,3/15/2020,18,1,0,0,9018645
+Mexico,Ciudad de Mexico,3/16/2020,21,3,0,0,9018645
+Mexico,Ciudad de Mexico,3/17/2020,21,0,0,0,9018645
+Mexico,Ciudad de Mexico,3/18/2020,24,3,0,0,9018645
+Mexico,Ciudad de Mexico,3/19/2020,31,7,1,1,9018645
+Mexico,Ciudad de Mexico,3/20/2020,31,0,1,0,9018645
+Mexico,Ciudad de Mexico,3/21/2020,45,14,1,0,9018645
+Mexico,Ciudad de Mexico,3/22/2020,56,11,1,0,9018645
+Mexico,Ciudad de Mexico,3/23/2020,60,4,2,1,9018645
+Mexico,Ciudad de Mexico,3/24/2020,66,6,3,1,9018645
+Mexico,Ciudad de Mexico,3/25/2020,82,16,3,0,9018645
+Mexico,Ciudad de Mexico,3/26/2020,83,1,3,0,9018645
+Mexico,Ciudad de Mexico,3/27/2020,107,24,5,2,9018645
+Mexico,Ciudad de Mexico,3/28/2020,177,70,7,2,9018645
+Mexico,Ciudad de Mexico,3/29/2020,196,19,7,0,9018645
+Mexico,Ciudad de Mexico,3/30/2020,205,9,8,1,9018645
+Mexico,Ciudad de Mexico,3/31/2020,234,29,8,0,9018645
+Mexico,Ciudad de Mexico,4/1/2020,296,62,8,0,9018645
+Mexico,Ciudad de Mexico,4/2/2020,327,31,13,5,9018645
+Mexico,Ciudad de Mexico,4/3/2020,384,57,15,2,9018645
+Mexico,Ciudad de Mexico,4/4/2020,469,85,17,2,9018645
+Mexico,Ciudad de Mexico,4/5/2020,560,91,19,2,9018645
+Mexico,Ciudad de Mexico,4/6/2020,609,49,29,10,9018645
+Mexico,Ciudad de Mexico,4/7/2020,723,114,32,3,9018645
+Mexico,Ciudad de Mexico,4/8/2020,855,132,39,7,9018645
+Mexico,Ciudad de Mexico,4/9/2020,909,54,43,4,9018645
+Mexico,Ciudad de Mexico,4/10/2020,1040,131,46,3,9018645
+Mexico,Ciudad de Mexico,4/11/2020,1117,77,49,3,9018645
+Mexico,Ciudad de Mexico,4/12/2020,1328,211,56,7,9018645
+Mexico,Ciudad de Mexico,4/13/2020,1437,109,64,8,9018645
+Mexico,Ciudad de Mexico,4/14/2020,1556,119,92,28,9018645
+Mexico,Ciudad de Mexico,4/15/2020,1686,130,99,7,9018645
+Mexico,Ciudad de Mexico,4/16/2020,1828,142,110,11,9018645
+Mexico,Ciudad de Mexico,4/17/2020,2080,252,136,26,9018645
+Mexico,Ciudad de Mexico,4/18/2020,2299,219,178,42,9018645
+Mexico,Ciudad de Mexico,4/19/2020,2591,292,183,5,9018645
+Mexico,Ciudad de Mexico,4/20/2020,2710,119,188,5,9018645
+Mexico,Ciudad de Mexico,4/21/2020,2857,147,224,36,9018645
+Mexico,Ciudad de Mexico,4/22/2020,3287,430,251,27,9018645
+Mexico,Ciudad de Mexico,4/23/2020,3685,398,268,17,9018645
+Mexico,Ciudad de Mexico,4/24/2020,4118,433,297,29,9018645
+Mexico,Ciudad de Mexico,4/25/2020,4431,313,307,10,9018645
+Mexico,Ciudad de Mexico,4/26/2020,4660,229,309,2,9018645
+Mexico,Ciudad de Mexico,4/27/2020,4887,227,328,19,9018645
+Mexico,Ciudad de Mexico,4/28/2020,5261,374,348,20,9018645
+Mexico,Ciudad de Mexico,4/29/2020,5626,365,389,41,9018645
+Mexico,Ciudad de Mexico,4/30/2020,6113,487,409,20,9018645
+Mexico,Ciudad de Mexico,5/1/2020,6491,378,418,9,9018645
+Mexico,Ciudad de Mexico,5/2/2020,7035,544,451,33,9018645
+Mexico,Ciudad de Mexico,5/3/2020,7486,451,472,21,9018645
+Mexico,Ciudad de Mexico,5/4/2020,7916,430,499,27,9018645
+Mexico,Ciudad de Mexico,5/5/2020,8158,242,543,44,9018645
+Mexico,Ciudad de Mexico,5/6/2020,8814,656,604,61,9018645
+Mexico,Ciudad de Mexico,5/7/2020,9533,719,696,92,9018645
+Mexico,Ciudad de Mexico,5/8/2020,10276,743,729,33,9018645
+Mexico,Ciudad de Mexico,5/9/2020,10911,635,774,45,9018645
+Mexico,Ciudad de Mexico,5/10/2020,11599,688,796,22,9018645
+Mexico,Ciudad de Mexico,5/11/2020,11905,306,819,23,9018645
+Mexico,Ciudad de Mexico,5/12/2020,12572,667,937,118,9018645
+Mexico,Ciudad de Mexico,5/13/2020,13095,523,1057,120,9018645
+Mexico,Ciudad de Mexico,5/14/2020,13938,843,1123,66,9018645
+Mexico,Ciudad de Mexico,5/15/2020,14878,940,1197,74,9018645
+Mexico,Ciudad de Mexico,5/16/2020,15609,731,1286,89,9018645
+Mexico,Ciudad de Mexico,5/17/2020,16298,689,1332,46,9018645
+Mexico,Ciudad de Mexico,5/18/2020,17385,1087,1381,49,9018645
+Mexico,Ciudad de Mexico,5/19/2020,18279,894,1452,71,9018645
+Mexico,Ciudad de Mexico,5/20/2020,18993,714,1618,166,9018645
+Mexico,Ciudad de Mexico,5/21/2020,20076,1083,1754,136,9018645
+Mexico,Ciudad de Mexico,5/22/2020,21182,1106,1854,100,9018645
+Mexico,Ciudad de Mexico,5/23/2020,22675,1493,1899,45,9018645
+Mexico,Ciudad de Mexico,5/24/2020,23618,943,1963,64,9018645
+Mexico,Ciudad de Mexico,5/25/2020,24286,668,2024,61,9018645
+Mexico,Ciudad de Mexico,5/26/2020,25171,885,2166,142,9018645
+Mexico,Ciudad de Mexico,5/27/2020,26137,966,2313,147,9018645
+Mexico,Ciudad de Mexico,5/28/2020,27319,1182,2427,114,9018645
+Mexico,Ciudad de Mexico,5/29/2020,28397,1078,2536,109,9018645
+Mexico,Ciudad de Mexico,5/30/2020,29205,808,2621,85,9018645
+Mexico,Ciudad de Mexico,5/31/2020,30103,898,2658,37,9018645
+Mexico,Ciudad de Mexico,6/1/2020,30987,884,2713,55,9018645
+Mexico,Coahuila,2/26/2020,0,0,0,0,3218720
+Mexico,Coahuila,2/27/2020,0,0,0,0,3218720
+Mexico,Coahuila,2/28/2020,0,0,0,0,3218720
+Mexico,Coahuila,2/29/2020,1,1,0,0,3218720
+Mexico,Coahuila,3/1/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/2/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/3/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/4/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/5/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/6/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/7/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/8/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/9/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/10/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/11/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/12/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/13/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/14/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/15/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/16/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/17/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/18/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/19/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/20/2020,1,0,0,0,3218720
+Mexico,Coahuila,3/21/2020,3,2,0,0,3218720
+Mexico,Coahuila,3/22/2020,10,7,0,0,3218720
+Mexico,Coahuila,3/23/2020,12,2,0,0,3218720
+Mexico,Coahuila,3/24/2020,12,0,0,0,3218720
+Mexico,Coahuila,3/25/2020,12,0,0,0,3218720
+Mexico,Coahuila,3/26/2020,13,1,0,0,3218720
+Mexico,Coahuila,3/27/2020,14,1,0,0,3218720
+Mexico,Coahuila,3/28/2020,15,1,0,0,3218720
+Mexico,Coahuila,3/29/2020,32,17,1,1,3218720
+Mexico,Coahuila,3/30/2020,39,7,1,0,3218720
+Mexico,Coahuila,3/31/2020,44,5,1,0,3218720
+Mexico,Coahuila,4/1/2020,57,13,2,1,3218720
+Mexico,Coahuila,4/2/2020,62,5,2,0,3218720
+Mexico,Coahuila,4/3/2020,70,8,3,1,3218720
+Mexico,Coahuila,4/4/2020,72,2,4,1,3218720
+Mexico,Coahuila,4/5/2020,82,10,4,0,3218720
+Mexico,Coahuila,4/6/2020,102,20,5,1,3218720
+Mexico,Coahuila,4/7/2020,109,7,5,0,3218720
+Mexico,Coahuila,4/8/2020,122,13,7,2,3218720
+Mexico,Coahuila,4/9/2020,129,7,7,0,3218720
+Mexico,Coahuila,4/10/2020,143,14,7,0,3218720
+Mexico,Coahuila,4/11/2020,156,13,11,4,3218720
+Mexico,Coahuila,4/12/2020,157,1,11,0,3218720
+Mexico,Coahuila,4/13/2020,176,19,12,1,3218720
+Mexico,Coahuila,4/14/2020,194,18,12,0,3218720
+Mexico,Coahuila,4/15/2020,195,1,12,0,3218720
+Mexico,Coahuila,4/16/2020,214,19,15,3,3218720
+Mexico,Coahuila,4/17/2020,217,3,15,0,3218720
+Mexico,Coahuila,4/18/2020,232,15,18,3,3218720
+Mexico,Coahuila,4/19/2020,237,5,18,0,3218720
+Mexico,Coahuila,4/20/2020,254,17,18,0,3218720
+Mexico,Coahuila,4/21/2020,266,12,23,5,3218720
+Mexico,Coahuila,4/22/2020,279,13,27,4,3218720
+Mexico,Coahuila,4/23/2020,290,11,29,2,3218720
+Mexico,Coahuila,4/24/2020,312,22,32,3,3218720
+Mexico,Coahuila,4/25/2020,336,24,33,1,3218720
+Mexico,Coahuila,4/26/2020,344,8,33,0,3218720
+Mexico,Coahuila,4/27/2020,354,10,34,1,3218720
+Mexico,Coahuila,4/28/2020,364,10,38,4,3218720
+Mexico,Coahuila,4/29/2020,365,1,40,2,3218720
+Mexico,Coahuila,4/30/2020,403,38,41,1,3218720
+Mexico,Coahuila,5/1/2020,417,14,42,1,3218720
+Mexico,Coahuila,5/2/2020,437,20,41,-1,3218720
+Mexico,Coahuila,5/3/2020,450,13,42,1,3218720
+Mexico,Coahuila,5/4/2020,473,23,46,4,3218720
+Mexico,Coahuila,5/5/2020,486,13,48,2,3218720
+Mexico,Coahuila,5/6/2020,489,3,48,0,3218720
+Mexico,Coahuila,5/7/2020,501,12,50,2,3218720
+Mexico,Coahuila,5/8/2020,537,36,51,1,3218720
+Mexico,Coahuila,5/9/2020,553,16,52,1,3218720
+Mexico,Coahuila,5/10/2020,563,10,53,1,3218720
+Mexico,Coahuila,5/11/2020,574,11,53,0,3218720
+Mexico,Coahuila,5/12/2020,586,12,53,0,3218720
+Mexico,Coahuila,5/13/2020,618,32,53,0,3218720
+Mexico,Coahuila,5/14/2020,627,9,54,1,3218720
+Mexico,Coahuila,5/15/2020,645,18,54,0,3218720
+Mexico,Coahuila,5/16/2020,671,26,55,1,3218720
+Mexico,Coahuila,5/17/2020,683,12,57,2,3218720
+Mexico,Coahuila,5/18/2020,685,2,58,1,3218720
+Mexico,Coahuila,5/19/2020,710,25,59,1,3218720
+Mexico,Coahuila,5/20/2020,756,46,59,0,3218720
+Mexico,Coahuila,5/21/2020,779,23,62,3,3218720
+Mexico,Coahuila,5/22/2020,819,40,64,2,3218720
+Mexico,Coahuila,5/23/2020,821,2,64,0,3218720
+Mexico,Coahuila,5/24/2020,829,8,65,1,3218720
+Mexico,Coahuila,5/25/2020,881,52,68,3,3218720
+Mexico,Coahuila,5/26/2020,922,41,67,-1,3218720
+Mexico,Coahuila,5/27/2020,970,48,72,5,3218720
+Mexico,Coahuila,5/28/2020,984,14,73,1,3218720
+Mexico,Coahuila,5/29/2020,1021,37,75,2,3218720
+Mexico,Coahuila,5/30/2020,1090,69,77,2,3218720
+Mexico,Coahuila,5/31/2020,1090,0,81,4,3218720
+Mexico,Coahuila,6/1/2020,1093,3,81,0,3218720
+Mexico,Colima,2/26/2020,0,0,0,0,785153
+Mexico,Colima,2/27/2020,0,0,0,0,785153
+Mexico,Colima,2/28/2020,0,0,0,0,785153
+Mexico,Colima,2/29/2020,0,0,0,0,785153
+Mexico,Colima,3/1/2020,0,0,0,0,785153
+Mexico,Colima,3/2/2020,0,0,0,0,785153
+Mexico,Colima,3/3/2020,0,0,0,0,785153
+Mexico,Colima,3/4/2020,0,0,0,0,785153
+Mexico,Colima,3/5/2020,0,0,0,0,785153
+Mexico,Colima,3/6/2020,0,0,0,0,785153
+Mexico,Colima,3/7/2020,0,0,0,0,785153
+Mexico,Colima,3/8/2020,0,0,0,0,785153
+Mexico,Colima,3/9/2020,0,0,0,0,785153
+Mexico,Colima,3/10/2020,0,0,0,0,785153
+Mexico,Colima,3/11/2020,0,0,0,0,785153
+Mexico,Colima,3/12/2020,0,0,0,0,785153
+Mexico,Colima,3/13/2020,0,0,0,0,785153
+Mexico,Colima,3/14/2020,0,0,0,0,785153
+Mexico,Colima,3/15/2020,0,0,0,0,785153
+Mexico,Colima,3/16/2020,0,0,0,0,785153
+Mexico,Colima,3/17/2020,0,0,0,0,785153
+Mexico,Colima,3/18/2020,1,1,0,0,785153
+Mexico,Colima,3/19/2020,1,0,0,0,785153
+Mexico,Colima,3/20/2020,1,0,0,0,785153
+Mexico,Colima,3/21/2020,2,1,0,0,785153
+Mexico,Colima,3/22/2020,2,0,0,0,785153
+Mexico,Colima,3/23/2020,2,0,0,0,785153
+Mexico,Colima,3/24/2020,2,0,0,0,785153
+Mexico,Colima,3/25/2020,2,0,0,0,785153
+Mexico,Colima,3/26/2020,2,0,0,0,785153
+Mexico,Colima,3/27/2020,2,0,0,0,785153
+Mexico,Colima,3/28/2020,2,0,0,0,785153
+Mexico,Colima,3/29/2020,2,0,0,0,785153
+Mexico,Colima,3/30/2020,2,0,0,0,785153
+Mexico,Colima,3/31/2020,2,0,0,0,785153
+Mexico,Colima,4/1/2020,3,1,0,0,785153
+Mexico,Colima,4/2/2020,3,0,0,0,785153
+Mexico,Colima,4/3/2020,4,1,0,0,785153
+Mexico,Colima,4/4/2020,4,0,0,0,785153
+Mexico,Colima,4/5/2020,4,0,0,0,785153
+Mexico,Colima,4/6/2020,4,0,0,0,785153
+Mexico,Colima,4/7/2020,5,1,0,0,785153
+Mexico,Colima,4/8/2020,7,2,0,0,785153
+Mexico,Colima,4/9/2020,7,0,0,0,785153
+Mexico,Colima,4/10/2020,7,0,0,0,785153
+Mexico,Colima,4/11/2020,7,0,0,0,785153
+Mexico,Colima,4/12/2020,7,0,0,0,785153
+Mexico,Colima,4/13/2020,7,0,0,0,785153
+Mexico,Colima,4/14/2020,7,0,0,0,785153
+Mexico,Colima,4/15/2020,7,0,0,0,785153
+Mexico,Colima,4/16/2020,7,0,0,0,785153
+Mexico,Colima,4/17/2020,9,2,2,2,785153
+Mexico,Colima,4/18/2020,10,1,2,0,785153
+Mexico,Colima,4/19/2020,11,1,2,0,785153
+Mexico,Colima,4/20/2020,11,0,2,0,785153
+Mexico,Colima,4/21/2020,14,3,2,0,785153
+Mexico,Colima,4/22/2020,14,0,2,0,785153
+Mexico,Colima,4/23/2020,15,1,2,0,785153
+Mexico,Colima,4/24/2020,15,0,2,0,785153
+Mexico,Colima,4/25/2020,16,1,2,0,785153
+Mexico,Colima,4/26/2020,18,2,2,0,785153
+Mexico,Colima,4/27/2020,23,5,2,0,785153
+Mexico,Colima,4/28/2020,25,2,2,0,785153
+Mexico,Colima,4/29/2020,25,0,3,1,785153
+Mexico,Colima,4/30/2020,26,1,3,0,785153
+Mexico,Colima,5/1/2020,27,1,3,0,785153
+Mexico,Colima,5/2/2020,28,1,3,0,785153
+Mexico,Colima,5/3/2020,28,0,4,1,785153
+Mexico,Colima,5/4/2020,28,0,4,0,785153
+Mexico,Colima,5/5/2020,29,1,5,1,785153
+Mexico,Colima,5/6/2020,29,0,6,1,785153
+Mexico,Colima,5/7/2020,33,4,6,0,785153
+Mexico,Colima,5/8/2020,36,3,6,0,785153
+Mexico,Colima,5/9/2020,36,0,6,0,785153
+Mexico,Colima,5/10/2020,39,3,6,0,785153
+Mexico,Colima,5/11/2020,40,1,6,0,785153
+Mexico,Colima,5/12/2020,41,1,7,1,785153
+Mexico,Colima,5/13/2020,41,0,7,0,785153
+Mexico,Colima,5/14/2020,50,9,7,0,785153
+Mexico,Colima,5/15/2020,54,4,7,0,785153
+Mexico,Colima,5/16/2020,59,5,8,1,785153
+Mexico,Colima,5/17/2020,67,8,8,0,785153
+Mexico,Colima,5/18/2020,72,5,9,1,785153
+Mexico,Colima,5/19/2020,74,2,10,1,785153
+Mexico,Colima,5/20/2020,78,4,10,0,785153
+Mexico,Colima,5/21/2020,86,8,12,2,785153
+Mexico,Colima,5/22/2020,92,6,14,2,785153
+Mexico,Colima,5/23/2020,95,3,14,0,785153
+Mexico,Colima,5/24/2020,108,13,14,0,785153
+Mexico,Colima,5/25/2020,111,3,18,4,785153
+Mexico,Colima,5/26/2020,114,3,19,1,785153
+Mexico,Colima,5/27/2020,125,11,21,2,785153
+Mexico,Colima,5/28/2020,132,7,21,0,785153
+Mexico,Colima,5/29/2020,133,1,21,0,785153
+Mexico,Colima,5/30/2020,137,4,21,0,785153
+Mexico,Colima,5/31/2020,146,9,21,0,785153
+Mexico,Colima,6/1/2020,149,3,21,0,785153
+Mexico,Durango,2/26/2020,0,0,0,0,1868996
+Mexico,Durango,2/27/2020,0,0,0,0,1868996
+Mexico,Durango,2/28/2020,0,0,0,0,1868996
+Mexico,Durango,2/29/2020,0,0,0,0,1868996
+Mexico,Durango,3/1/2020,0,0,0,0,1868996
+Mexico,Durango,3/2/2020,0,0,0,0,1868996
+Mexico,Durango,3/3/2020,0,0,0,0,1868996
+Mexico,Durango,3/4/2020,0,0,0,0,1868996
+Mexico,Durango,3/5/2020,0,0,0,0,1868996
+Mexico,Durango,3/6/2020,0,0,0,0,1868996
+Mexico,Durango,3/7/2020,0,0,0,0,1868996
+Mexico,Durango,3/8/2020,0,0,0,0,1868996
+Mexico,Durango,3/9/2020,0,0,0,0,1868996
+Mexico,Durango,3/10/2020,0,0,0,0,1868996
+Mexico,Durango,3/11/2020,0,0,0,0,1868996
+Mexico,Durango,3/12/2020,1,1,0,0,1868996
+Mexico,Durango,3/13/2020,1,0,0,0,1868996
+Mexico,Durango,3/14/2020,1,0,0,0,1868996
+Mexico,Durango,3/15/2020,1,0,0,0,1868996
+Mexico,Durango,3/16/2020,3,2,0,0,1868996
+Mexico,Durango,3/17/2020,3,0,0,0,1868996
+Mexico,Durango,3/18/2020,3,0,0,0,1868996
+Mexico,Durango,3/19/2020,3,0,0,0,1868996
+Mexico,Durango,3/20/2020,4,1,1,1,1868996
+Mexico,Durango,3/21/2020,5,1,1,0,1868996
+Mexico,Durango,3/22/2020,5,0,1,0,1868996
+Mexico,Durango,3/23/2020,5,0,1,0,1868996
+Mexico,Durango,3/24/2020,5,0,1,0,1868996
+Mexico,Durango,3/25/2020,5,0,1,0,1868996
+Mexico,Durango,3/26/2020,5,0,1,0,1868996
+Mexico,Durango,3/27/2020,7,2,1,0,1868996
+Mexico,Durango,3/28/2020,7,0,1,0,1868996
+Mexico,Durango,3/29/2020,7,0,1,0,1868996
+Mexico,Durango,3/30/2020,7,0,1,0,1868996
+Mexico,Durango,3/31/2020,7,0,1,0,1868996
+Mexico,Durango,4/1/2020,7,0,1,0,1868996
+Mexico,Durango,4/2/2020,8,1,1,0,1868996
+Mexico,Durango,4/3/2020,8,0,1,0,1868996
+Mexico,Durango,4/4/2020,10,2,2,1,1868996
+Mexico,Durango,4/5/2020,12,2,3,1,1868996
+Mexico,Durango,4/6/2020,12,0,4,1,1868996
+Mexico,Durango,4/7/2020,15,3,4,0,1868996
+Mexico,Durango,4/8/2020,15,0,4,0,1868996
+Mexico,Durango,4/9/2020,16,1,4,0,1868996
+Mexico,Durango,4/10/2020,16,0,4,0,1868996
+Mexico,Durango,4/11/2020,16,0,4,0,1868996
+Mexico,Durango,4/12/2020,16,0,4,0,1868996
+Mexico,Durango,4/13/2020,16,0,4,0,1868996
+Mexico,Durango,4/14/2020,15,-1,3,-1,1868996
+Mexico,Durango,4/15/2020,16,1,4,1,1868996
+Mexico,Durango,4/16/2020,17,1,4,0,1868996
+Mexico,Durango,4/17/2020,19,2,4,0,1868996
+Mexico,Durango,4/18/2020,19,0,4,0,1868996
+Mexico,Durango,4/19/2020,21,2,4,0,1868996
+Mexico,Durango,4/20/2020,22,1,4,0,1868996
+Mexico,Durango,4/21/2020,30,8,4,0,1868996
+Mexico,Durango,4/22/2020,33,3,5,1,1868996
+Mexico,Durango,4/23/2020,39,6,5,0,1868996
+Mexico,Durango,4/24/2020,41,2,5,0,1868996
+Mexico,Durango,4/25/2020,43,2,6,1,1868996
+Mexico,Durango,4/26/2020,45,2,6,0,1868996
+Mexico,Durango,4/27/2020,46,1,6,0,1868996
+Mexico,Durango,4/28/2020,57,11,6,0,1868996
+Mexico,Durango,4/29/2020,59,2,6,0,1868996
+Mexico,Durango,4/30/2020,67,8,7,1,1868996
+Mexico,Durango,5/1/2020,69,2,7,0,1868996
+Mexico,Durango,5/2/2020,71,2,7,0,1868996
+Mexico,Durango,5/3/2020,74,3,7,0,1868996
+Mexico,Durango,5/4/2020,79,5,7,0,1868996
+Mexico,Durango,5/5/2020,79,0,8,1,1868996
+Mexico,Durango,5/6/2020,90,11,8,0,1868996
+Mexico,Durango,5/7/2020,95,5,11,3,1868996
+Mexico,Durango,5/8/2020,105,10,11,0,1868996
+Mexico,Durango,5/9/2020,107,2,11,0,1868996
+Mexico,Durango,5/10/2020,113,6,12,1,1868996
+Mexico,Durango,5/11/2020,114,1,12,0,1868996
+Mexico,Durango,5/12/2020,122,8,13,1,1868996
+Mexico,Durango,5/13/2020,127,5,14,1,1868996
+Mexico,Durango,5/14/2020,144,17,14,0,1868996
+Mexico,Durango,5/15/2020,150,6,15,1,1868996
+Mexico,Durango,5/16/2020,155,5,16,1,1868996
+Mexico,Durango,5/17/2020,157,2,16,0,1868996
+Mexico,Durango,5/18/2020,169,12,17,1,1868996
+Mexico,Durango,5/19/2020,176,7,18,1,1868996
+Mexico,Durango,5/20/2020,185,9,20,2,1868996
+Mexico,Durango,5/21/2020,190,5,23,3,1868996
+Mexico,Durango,5/22/2020,208,18,26,3,1868996
+Mexico,Durango,5/23/2020,214,6,26,0,1868996
+Mexico,Durango,5/24/2020,230,16,26,0,1868996
+Mexico,Durango,5/25/2020,241,11,26,0,1868996
+Mexico,Durango,5/26/2020,243,2,27,1,1868996
+Mexico,Durango,5/27/2020,272,29,32,5,1868996
+Mexico,Durango,5/28/2020,297,25,33,1,1868996
+Mexico,Durango,5/29/2020,313,16,34,1,1868996
+Mexico,Durango,5/30/2020,354,41,37,3,1868996
+Mexico,Durango,5/31/2020,373,19,37,0,1868996
+Mexico,Durango,6/1/2020,390,17,37,0,1868996
+Mexico,Guanajuato,2/26/2020,0,0,0,0,6228175
+Mexico,Guanajuato,2/27/2020,0,0,0,0,6228175
+Mexico,Guanajuato,2/28/2020,0,0,0,0,6228175
+Mexico,Guanajuato,2/29/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/1/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/2/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/3/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/4/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/5/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/6/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/7/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/8/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/9/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/10/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/11/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/12/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/13/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/14/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/15/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/16/2020,0,0,0,0,6228175
+Mexico,Guanajuato,3/17/2020,1,1,0,0,6228175
+Mexico,Guanajuato,3/18/2020,4,3,0,0,6228175
+Mexico,Guanajuato,3/19/2020,4,0,0,0,6228175
+Mexico,Guanajuato,3/20/2020,4,0,0,0,6228175
+Mexico,Guanajuato,3/21/2020,4,0,0,0,6228175
+Mexico,Guanajuato,3/22/2020,4,0,0,0,6228175
+Mexico,Guanajuato,3/23/2020,7,3,0,0,6228175
+Mexico,Guanajuato,3/24/2020,12,5,0,0,6228175
+Mexico,Guanajuato,3/25/2020,19,7,0,0,6228175
+Mexico,Guanajuato,3/26/2020,23,4,0,0,6228175
+Mexico,Guanajuato,3/27/2020,31,8,0,0,6228175
+Mexico,Guanajuato,3/28/2020,37,6,0,0,6228175
+Mexico,Guanajuato,3/29/2020,37,0,0,0,6228175
+Mexico,Guanajuato,3/30/2020,43,6,0,0,6228175
+Mexico,Guanajuato,3/31/2020,46,3,0,0,6228175
+Mexico,Guanajuato,4/1/2020,49,3,0,0,6228175
+Mexico,Guanajuato,4/2/2020,50,1,0,0,6228175
+Mexico,Guanajuato,4/3/2020,52,2,0,0,6228175
+Mexico,Guanajuato,4/4/2020,53,1,0,0,6228175
+Mexico,Guanajuato,4/5/2020,53,0,0,0,6228175
+Mexico,Guanajuato,4/6/2020,58,5,0,0,6228175
+Mexico,Guanajuato,4/7/2020,61,3,1,1,6228175
+Mexico,Guanajuato,4/8/2020,67,6,1,0,6228175
+Mexico,Guanajuato,4/9/2020,71,4,1,0,6228175
+Mexico,Guanajuato,4/10/2020,78,7,1,0,6228175
+Mexico,Guanajuato,4/11/2020,81,3,5,4,6228175
+Mexico,Guanajuato,4/12/2020,82,1,5,0,6228175
+Mexico,Guanajuato,4/13/2020,88,6,5,0,6228175
+Mexico,Guanajuato,4/14/2020,90,2,5,0,6228175
+Mexico,Guanajuato,4/15/2020,91,1,5,0,6228175
+Mexico,Guanajuato,4/16/2020,96,5,6,1,6228175
+Mexico,Guanajuato,4/17/2020,113,17,7,1,6228175
+Mexico,Guanajuato,4/18/2020,116,3,9,2,6228175
+Mexico,Guanajuato,4/19/2020,133,17,9,0,6228175
+Mexico,Guanajuato,4/20/2020,150,17,9,0,6228175
+Mexico,Guanajuato,4/21/2020,158,8,9,0,6228175
+Mexico,Guanajuato,4/22/2020,173,15,9,0,6228175
+Mexico,Guanajuato,4/23/2020,182,9,14,5,6228175
+Mexico,Guanajuato,4/24/2020,192,10,17,3,6228175
+Mexico,Guanajuato,4/25/2020,198,6,19,2,6228175
+Mexico,Guanajuato,4/26/2020,206,8,20,1,6228175
+Mexico,Guanajuato,4/27/2020,215,9,21,1,6228175
+Mexico,Guanajuato,4/28/2020,219,4,21,0,6228175
+Mexico,Guanajuato,4/29/2020,238,19,22,1,6228175
+Mexico,Guanajuato,4/30/2020,262,24,24,2,6228175
+Mexico,Guanajuato,5/1/2020,283,21,26,2,6228175
+Mexico,Guanajuato,5/2/2020,290,7,27,1,6228175
+Mexico,Guanajuato,5/3/2020,308,18,31,4,6228175
+Mexico,Guanajuato,5/4/2020,314,6,33,2,6228175
+Mexico,Guanajuato,5/5/2020,328,14,38,5,6228175
+Mexico,Guanajuato,5/6/2020,342,14,40,2,6228175
+Mexico,Guanajuato,5/7/2020,390,48,42,2,6228175
+Mexico,Guanajuato,5/8/2020,415,25,46,4,6228175
+Mexico,Guanajuato,5/9/2020,445,30,46,0,6228175
+Mexico,Guanajuato,5/10/2020,473,28,46,0,6228175
+Mexico,Guanajuato,5/11/2020,504,31,46,0,6228175
+Mexico,Guanajuato,5/12/2020,547,43,55,9,6228175
+Mexico,Guanajuato,5/13/2020,586,39,57,2,6228175
+Mexico,Guanajuato,5/14/2020,625,39,61,4,6228175
+Mexico,Guanajuato,5/15/2020,665,40,63,2,6228175
+Mexico,Guanajuato,5/16/2020,692,27,69,6,6228175
+Mexico,Guanajuato,5/17/2020,739,47,69,0,6228175
+Mexico,Guanajuato,5/18/2020,765,26,73,4,6228175
+Mexico,Guanajuato,5/19/2020,804,39,78,5,6228175
+Mexico,Guanajuato,5/20/2020,830,26,80,2,6228175
+Mexico,Guanajuato,5/21/2020,906,76,84,4,6228175
+Mexico,Guanajuato,5/22/2020,956,50,85,1,6228175
+Mexico,Guanajuato,5/23/2020,1035,79,85,0,6228175
+Mexico,Guanajuato,5/24/2020,1064,29,88,3,6228175
+Mexico,Guanajuato,5/25/2020,1138,74,91,3,6228175
+Mexico,Guanajuato,5/26/2020,1196,58,96,5,6228175
+Mexico,Guanajuato,5/27/2020,1248,52,101,5,6228175
+Mexico,Guanajuato,5/28/2020,1330,82,101,0,6228175
+Mexico,Guanajuato,5/29/2020,1396,66,105,4,6228175
+Mexico,Guanajuato,5/30/2020,1479,83,107,2,6228175
+Mexico,Guanajuato,5/31/2020,1650,171,107,0,6228175
+Mexico,Guanajuato,6/1/2020,1697,47,112,5,6228175
+Mexico,Guerrero,2/26/2020,0,0,0,0,3657048
+Mexico,Guerrero,2/27/2020,0,0,0,0,3657048
+Mexico,Guerrero,2/28/2020,0,0,0,0,3657048
+Mexico,Guerrero,2/29/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/1/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/2/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/3/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/4/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/5/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/6/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/7/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/8/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/9/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/10/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/11/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/12/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/13/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/14/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/15/2020,0,0,0,0,3657048
+Mexico,Guerrero,3/16/2020,2,2,0,0,3657048
+Mexico,Guerrero,3/17/2020,2,0,0,0,3657048
+Mexico,Guerrero,3/18/2020,2,0,0,0,3657048
+Mexico,Guerrero,3/19/2020,4,2,0,0,3657048
+Mexico,Guerrero,3/20/2020,4,0,0,0,3657048
+Mexico,Guerrero,3/21/2020,4,0,0,0,3657048
+Mexico,Guerrero,3/22/2020,4,0,0,0,3657048
+Mexico,Guerrero,3/23/2020,5,1,0,0,3657048
+Mexico,Guerrero,3/24/2020,6,1,0,0,3657048
+Mexico,Guerrero,3/25/2020,7,1,0,0,3657048
+Mexico,Guerrero,3/26/2020,7,0,0,0,3657048
+Mexico,Guerrero,3/27/2020,7,0,0,0,3657048
+Mexico,Guerrero,3/28/2020,10,3,0,0,3657048
+Mexico,Guerrero,3/29/2020,13,3,0,0,3657048
+Mexico,Guerrero,3/30/2020,13,0,0,0,3657048
+Mexico,Guerrero,3/31/2020,15,2,0,0,3657048
+Mexico,Guerrero,4/1/2020,17,2,1,1,3657048
+Mexico,Guerrero,4/2/2020,22,5,1,0,3657048
+Mexico,Guerrero,4/3/2020,24,2,1,0,3657048
+Mexico,Guerrero,4/4/2020,25,1,1,0,3657048
+Mexico,Guerrero,4/5/2020,30,5,2,1,3657048
+Mexico,Guerrero,4/6/2020,32,2,3,1,3657048
+Mexico,Guerrero,4/7/2020,37,5,3,0,3657048
+Mexico,Guerrero,4/8/2020,47,10,4,1,3657048
+Mexico,Guerrero,4/9/2020,49,2,5,1,3657048
+Mexico,Guerrero,4/10/2020,54,5,6,1,3657048
+Mexico,Guerrero,4/11/2020,56,2,6,0,3657048
+Mexico,Guerrero,4/12/2020,70,14,6,0,3657048
+Mexico,Guerrero,4/13/2020,77,7,6,0,3657048
+Mexico,Guerrero,4/14/2020,88,11,6,0,3657048
+Mexico,Guerrero,4/15/2020,97,9,8,2,3657048
+Mexico,Guerrero,4/16/2020,100,3,9,1,3657048
+Mexico,Guerrero,4/17/2020,110,10,11,2,3657048
+Mexico,Guerrero,4/18/2020,110,0,11,0,3657048
+Mexico,Guerrero,4/19/2020,121,11,12,1,3657048
+Mexico,Guerrero,4/20/2020,126,5,14,2,3657048
+Mexico,Guerrero,4/21/2020,126,0,16,2,3657048
+Mexico,Guerrero,4/22/2020,137,11,17,1,3657048
+Mexico,Guerrero,4/23/2020,157,20,22,5,3657048
+Mexico,Guerrero,4/24/2020,165,8,28,6,3657048
+Mexico,Guerrero,4/25/2020,171,6,29,1,3657048
+Mexico,Guerrero,4/26/2020,193,22,29,0,3657048
+Mexico,Guerrero,4/27/2020,207,14,30,1,3657048
+Mexico,Guerrero,4/28/2020,232,25,36,6,3657048
+Mexico,Guerrero,4/29/2020,260,28,46,10,3657048
+Mexico,Guerrero,4/30/2020,273,13,47,1,3657048
+Mexico,Guerrero,5/1/2020,306,33,49,2,3657048
+Mexico,Guerrero,5/2/2020,307,1,49,0,3657048
+Mexico,Guerrero,5/3/2020,332,25,48,-1,3657048
+Mexico,Guerrero,5/4/2020,354,22,50,2,3657048
+Mexico,Guerrero,5/5/2020,374,20,54,4,3657048
+Mexico,Guerrero,5/6/2020,398,24,57,3,3657048
+Mexico,Guerrero,5/7/2020,423,25,59,2,3657048
+Mexico,Guerrero,5/8/2020,432,9,61,2,3657048
+Mexico,Guerrero,5/9/2020,453,21,64,3,3657048
+Mexico,Guerrero,5/10/2020,510,57,70,6,3657048
+Mexico,Guerrero,5/11/2020,561,51,71,1,3657048
+Mexico,Guerrero,5/12/2020,591,30,76,5,3657048
+Mexico,Guerrero,5/13/2020,643,52,81,5,3657048
+Mexico,Guerrero,5/14/2020,668,25,82,1,3657048
+Mexico,Guerrero,5/15/2020,716,48,101,19,3657048
+Mexico,Guerrero,5/16/2020,754,38,108,7,3657048
+Mexico,Guerrero,5/17/2020,766,12,108,0,3657048
+Mexico,Guerrero,5/18/2020,819,53,112,4,3657048
+Mexico,Guerrero,5/19/2020,861,42,128,16,3657048
+Mexico,Guerrero,5/20/2020,887,26,136,8,3657048
+Mexico,Guerrero,5/21/2020,940,53,147,11,3657048
+Mexico,Guerrero,5/22/2020,973,33,154,7,3657048
+Mexico,Guerrero,5/23/2020,1036,63,163,9,3657048
+Mexico,Guerrero,5/24/2020,1148,112,168,5,3657048
+Mexico,Guerrero,5/25/2020,1244,96,174,6,3657048
+Mexico,Guerrero,5/26/2020,1305,61,189,15,3657048
+Mexico,Guerrero,5/27/2020,1360,55,210,21,3657048
+Mexico,Guerrero,5/28/2020,1523,163,232,22,3657048
+Mexico,Guerrero,5/29/2020,1582,59,242,10,3657048
+Mexico,Guerrero,5/30/2020,1762,180,261,19,3657048
+Mexico,Guerrero,5/31/2020,1826,64,266,5,3657048
+Mexico,Guerrero,6/1/2020,1882,56,272,6,3657048
+Mexico,Hidalgo,2/26/2020,0,0,0,0,3086414
+Mexico,Hidalgo,2/27/2020,0,0,0,0,3086414
+Mexico,Hidalgo,2/28/2020,0,0,0,0,3086414
+Mexico,Hidalgo,2/29/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/1/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/2/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/3/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/4/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/5/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/6/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/7/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/8/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/9/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/10/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/11/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/12/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/13/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/14/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/15/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/16/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/17/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/18/2020,0,0,0,0,3086414
+Mexico,Hidalgo,3/19/2020,2,2,0,0,3086414
+Mexico,Hidalgo,3/20/2020,2,0,0,0,3086414
+Mexico,Hidalgo,3/21/2020,3,1,0,0,3086414
+Mexico,Hidalgo,3/22/2020,5,2,0,0,3086414
+Mexico,Hidalgo,3/23/2020,7,2,0,0,3086414
+Mexico,Hidalgo,3/24/2020,7,0,0,0,3086414
+Mexico,Hidalgo,3/25/2020,7,0,0,0,3086414
+Mexico,Hidalgo,3/26/2020,12,5,0,0,3086414
+Mexico,Hidalgo,3/27/2020,12,0,0,0,3086414
+Mexico,Hidalgo,3/28/2020,12,0,1,1,3086414
+Mexico,Hidalgo,3/29/2020,17,5,2,1,3086414
+Mexico,Hidalgo,3/30/2020,17,0,2,0,3086414
+Mexico,Hidalgo,3/31/2020,19,2,3,1,3086414
+Mexico,Hidalgo,4/1/2020,21,2,3,0,3086414
+Mexico,Hidalgo,4/2/2020,26,5,3,0,3086414
+Mexico,Hidalgo,4/3/2020,30,4,3,0,3086414
+Mexico,Hidalgo,4/4/2020,32,2,5,2,3086414
+Mexico,Hidalgo,4/5/2020,34,2,5,0,3086414
+Mexico,Hidalgo,4/6/2020,35,1,5,0,3086414
+Mexico,Hidalgo,4/7/2020,41,6,6,1,3086414
+Mexico,Hidalgo,4/8/2020,46,5,7,1,3086414
+Mexico,Hidalgo,4/9/2020,47,1,7,0,3086414
+Mexico,Hidalgo,4/10/2020,51,4,7,0,3086414
+Mexico,Hidalgo,4/11/2020,53,2,8,1,3086414
+Mexico,Hidalgo,4/12/2020,58,5,9,1,3086414
+Mexico,Hidalgo,4/13/2020,58,0,9,0,3086414
+Mexico,Hidalgo,4/14/2020,64,6,10,1,3086414
+Mexico,Hidalgo,4/15/2020,64,0,12,2,3086414
+Mexico,Hidalgo,4/16/2020,67,3,12,0,3086414
+Mexico,Hidalgo,4/17/2020,70,3,13,1,3086414
+Mexico,Hidalgo,4/18/2020,75,5,13,0,3086414
+Mexico,Hidalgo,4/19/2020,87,12,14,1,3086414
+Mexico,Hidalgo,4/20/2020,92,5,15,1,3086414
+Mexico,Hidalgo,4/21/2020,106,14,16,1,3086414
+Mexico,Hidalgo,4/22/2020,113,7,16,0,3086414
+Mexico,Hidalgo,4/23/2020,115,2,15,-1,3086414
+Mexico,Hidalgo,4/24/2020,144,29,17,2,3086414
+Mexico,Hidalgo,4/25/2020,155,11,17,0,3086414
+Mexico,Hidalgo,4/26/2020,174,19,18,1,3086414
+Mexico,Hidalgo,4/27/2020,182,8,21,3,3086414
+Mexico,Hidalgo,4/28/2020,218,36,27,6,3086414
+Mexico,Hidalgo,4/29/2020,235,17,29,2,3086414
+Mexico,Hidalgo,4/30/2020,254,19,30,1,3086414
+Mexico,Hidalgo,5/1/2020,277,23,34,4,3086414
+Mexico,Hidalgo,5/2/2020,301,24,36,2,3086414
+Mexico,Hidalgo,5/3/2020,307,6,42,6,3086414
+Mexico,Hidalgo,5/4/2020,327,20,48,6,3086414
+Mexico,Hidalgo,5/5/2020,367,40,52,4,3086414
+Mexico,Hidalgo,5/6/2020,393,26,58,6,3086414
+Mexico,Hidalgo,5/7/2020,425,32,66,8,3086414
+Mexico,Hidalgo,5/8/2020,470,45,72,6,3086414
+Mexico,Hidalgo,5/9/2020,489,19,75,3,3086414
+Mexico,Hidalgo,5/10/2020,533,44,83,8,3086414
+Mexico,Hidalgo,5/11/2020,567,34,90,7,3086414
+Mexico,Hidalgo,5/12/2020,595,28,102,12,3086414
+Mexico,Hidalgo,5/13/2020,628,33,112,10,3086414
+Mexico,Hidalgo,5/14/2020,669,41,125,13,3086414
+Mexico,Hidalgo,5/15/2020,736,67,141,16,3086414
+Mexico,Hidalgo,5/16/2020,802,66,151,10,3086414
+Mexico,Hidalgo,5/17/2020,833,31,156,5,3086414
+Mexico,Hidalgo,5/18/2020,912,79,163,7,3086414
+Mexico,Hidalgo,5/19/2020,960,48,167,4,3086414
+Mexico,Hidalgo,5/20/2020,1026,66,180,13,3086414
+Mexico,Hidalgo,5/21/2020,1086,60,193,13,3086414
+Mexico,Hidalgo,5/22/2020,1127,41,201,8,3086414
+Mexico,Hidalgo,5/23/2020,1186,59,212,11,3086414
+Mexico,Hidalgo,5/24/2020,1232,46,212,0,3086414
+Mexico,Hidalgo,5/25/2020,1305,73,215,3,3086414
+Mexico,Hidalgo,5/26/2020,1425,120,240,25,3086414
+Mexico,Hidalgo,5/27/2020,1459,34,247,7,3086414
+Mexico,Hidalgo,5/28/2020,1526,67,264,17,3086414
+Mexico,Hidalgo,5/29/2020,1582,56,287,23,3086414
+Mexico,Hidalgo,5/30/2020,1657,75,299,12,3086414
+Mexico,Hidalgo,5/31/2020,1688,31,304,5,3086414
+Mexico,Hidalgo,6/1/2020,1743,55,318,14,3086414
+Mexico,Jalisco,2/26/2020,0,0,0,0,8409693
+Mexico,Jalisco,2/27/2020,0,0,0,0,8409693
+Mexico,Jalisco,2/28/2020,0,0,0,0,8409693
+Mexico,Jalisco,2/29/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/1/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/2/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/3/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/4/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/5/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/6/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/7/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/8/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/9/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/10/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/11/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/12/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/13/2020,0,0,0,0,8409693
+Mexico,Jalisco,3/14/2020,2,2,0,0,8409693
+Mexico,Jalisco,3/15/2020,2,0,0,0,8409693
+Mexico,Jalisco,3/16/2020,2,0,0,0,8409693
+Mexico,Jalisco,3/17/2020,5,3,0,0,8409693
+Mexico,Jalisco,3/18/2020,6,1,0,0,8409693
+Mexico,Jalisco,3/19/2020,22,16,0,0,8409693
+Mexico,Jalisco,3/20/2020,28,6,0,0,8409693
+Mexico,Jalisco,3/21/2020,32,4,0,0,8409693
+Mexico,Jalisco,3/22/2020,41,9,0,0,8409693
+Mexico,Jalisco,3/23/2020,46,5,1,1,8409693
+Mexico,Jalisco,3/24/2020,46,0,1,0,8409693
+Mexico,Jalisco,3/25/2020,46,0,1,0,8409693
+Mexico,Jalisco,3/26/2020,64,18,2,1,8409693
+Mexico,Jalisco,3/27/2020,77,13,3,1,8409693
+Mexico,Jalisco,3/28/2020,82,5,3,0,8409693
+Mexico,Jalisco,3/29/2020,83,1,3,0,8409693
+Mexico,Jalisco,3/30/2020,90,7,3,0,8409693
+Mexico,Jalisco,3/31/2020,94,4,3,0,8409693
+Mexico,Jalisco,4/1/2020,99,5,3,0,8409693
+Mexico,Jalisco,4/2/2020,104,5,4,1,8409693
+Mexico,Jalisco,4/3/2020,116,12,6,2,8409693
+Mexico,Jalisco,4/4/2020,120,4,6,0,8409693
+Mexico,Jalisco,4/5/2020,123,3,6,0,8409693
+Mexico,Jalisco,4/6/2020,126,3,7,1,8409693
+Mexico,Jalisco,4/7/2020,135,9,7,0,8409693
+Mexico,Jalisco,4/8/2020,139,4,8,1,8409693
+Mexico,Jalisco,4/9/2020,139,0,8,0,8409693
+Mexico,Jalisco,4/10/2020,144,5,9,1,8409693
+Mexico,Jalisco,4/11/2020,150,6,11,2,8409693
+Mexico,Jalisco,4/12/2020,156,6,11,0,8409693
+Mexico,Jalisco,4/13/2020,159,3,11,0,8409693
+Mexico,Jalisco,4/14/2020,165,6,11,0,8409693
+Mexico,Jalisco,4/15/2020,176,11,11,0,8409693
+Mexico,Jalisco,4/16/2020,178,2,11,0,8409693
+Mexico,Jalisco,4/17/2020,190,12,13,2,8409693
+Mexico,Jalisco,4/18/2020,196,6,13,0,8409693
+Mexico,Jalisco,4/19/2020,198,2,13,0,8409693
+Mexico,Jalisco,4/20/2020,216,18,14,1,8409693
+Mexico,Jalisco,4/21/2020,226,10,15,1,8409693
+Mexico,Jalisco,4/22/2020,236,10,15,0,8409693
+Mexico,Jalisco,4/23/2020,256,20,19,4,8409693
+Mexico,Jalisco,4/24/2020,263,7,20,1,8409693
+Mexico,Jalisco,4/25/2020,271,8,23,3,8409693
+Mexico,Jalisco,4/26/2020,282,11,25,2,8409693
+Mexico,Jalisco,4/27/2020,303,21,25,0,8409693
+Mexico,Jalisco,4/28/2020,316,13,25,0,8409693
+Mexico,Jalisco,4/29/2020,325,9,25,0,8409693
+Mexico,Jalisco,4/30/2020,348,23,28,3,8409693
+Mexico,Jalisco,5/1/2020,377,29,30,2,8409693
+Mexico,Jalisco,5/2/2020,388,11,32,2,8409693
+Mexico,Jalisco,5/3/2020,419,31,33,1,8409693
+Mexico,Jalisco,5/4/2020,448,29,34,1,8409693
+Mexico,Jalisco,5/5/2020,472,24,35,1,8409693
+Mexico,Jalisco,5/6/2020,494,22,37,2,8409693
+Mexico,Jalisco,5/7/2020,510,16,41,4,8409693
+Mexico,Jalisco,5/8/2020,559,49,47,6,8409693
+Mexico,Jalisco,5/9/2020,595,36,48,1,8409693
+Mexico,Jalisco,5/10/2020,597,2,52,4,8409693
+Mexico,Jalisco,5/11/2020,640,43,55,3,8409693
+Mexico,Jalisco,5/12/2020,671,31,55,0,8409693
+Mexico,Jalisco,5/13/2020,703,32,59,4,8409693
+Mexico,Jalisco,5/14/2020,751,48,64,5,8409693
+Mexico,Jalisco,5/15/2020,771,20,69,5,8409693
+Mexico,Jalisco,5/16/2020,802,31,76,7,8409693
+Mexico,Jalisco,5/17/2020,852,50,81,5,8409693
+Mexico,Jalisco,5/18/2020,893,41,84,3,8409693
+Mexico,Jalisco,5/19/2020,927,34,90,6,8409693
+Mexico,Jalisco,5/20/2020,973,46,95,5,8409693
+Mexico,Jalisco,5/21/2020,1034,61,96,1,8409693
+Mexico,Jalisco,5/22/2020,1108,74,102,6,8409693
+Mexico,Jalisco,5/23/2020,1145,37,102,0,8409693
+Mexico,Jalisco,5/24/2020,1195,50,107,5,8409693
+Mexico,Jalisco,5/25/2020,1253,58,116,9,8409693
+Mexico,Jalisco,5/26/2020,1312,59,125,9,8409693
+Mexico,Jalisco,5/27/2020,1370,58,128,3,8409693
+Mexico,Jalisco,5/28/2020,1452,82,133,5,8409693
+Mexico,Jalisco,5/29/2020,1546,94,136,3,8409693
+Mexico,Jalisco,5/30/2020,1686,140,139,3,8409693
+Mexico,Jalisco,5/31/2020,1787,101,143,4,8409693
+Mexico,Jalisco,6/1/2020,1826,39,151,8,8409693
+Mexico,Mexico,2/26/2020,0,0,0,0,17427790
+Mexico,Mexico,2/27/2020,0,0,0,0,17427790
+Mexico,Mexico,2/28/2020,0,0,0,0,17427790
+Mexico,Mexico,2/29/2020,0,0,0,0,17427790
+Mexico,Mexico,3/1/2020,0,0,0,0,17427790
+Mexico,Mexico,3/2/2020,0,0,0,0,17427790
+Mexico,Mexico,3/3/2020,0,0,0,0,17427790
+Mexico,Mexico,3/4/2020,0,0,0,0,17427790
+Mexico,Mexico,3/5/2020,0,0,0,0,17427790
+Mexico,Mexico,3/6/2020,0,0,0,0,17427790
+Mexico,Mexico,3/7/2020,0,0,0,0,17427790
+Mexico,Mexico,3/8/2020,0,0,0,0,17427790
+Mexico,Mexico,3/9/2020,0,0,0,0,17427790
+Mexico,Mexico,3/10/2020,0,0,0,0,17427790
+Mexico,Mexico,3/11/2020,0,0,0,0,17427790
+Mexico,Mexico,3/12/2020,0,0,0,0,17427790
+Mexico,Mexico,3/13/2020,0,0,0,0,17427790
+Mexico,Mexico,3/14/2020,0,0,0,0,17427790
+Mexico,Mexico,3/15/2020,0,0,0,0,17427790
+Mexico,Mexico,3/16/2020,0,0,0,0,17427790
+Mexico,Mexico,3/17/2020,0,0,0,0,17427790
+Mexico,Mexico,3/18/2020,0,0,0,0,17427790
+Mexico,Mexico,3/19/2020,0,0,0,0,17427790
+Mexico,Mexico,3/20/2020,2,2,0,0,17427790
+Mexico,Mexico,3/21/2020,2,0,0,0,17427790
+Mexico,Mexico,3/22/2020,2,0,0,0,17427790
+Mexico,Mexico,3/23/2020,2,0,0,0,17427790
+Mexico,Mexico,3/24/2020,2,0,0,0,17427790
+Mexico,Mexico,3/25/2020,2,0,0,0,17427790
+Mexico,Mexico,3/26/2020,4,2,0,0,17427790
+Mexico,Mexico,3/27/2020,4,0,0,0,17427790
+Mexico,Mexico,3/28/2020,4,0,0,0,17427790
+Mexico,Mexico,3/29/2020,6,2,1,1,17427790
+Mexico,Mexico,3/30/2020,6,0,1,0,17427790
+Mexico,Mexico,3/31/2020,7,1,1,0,17427790
+Mexico,Mexico,4/1/2020,9,2,1,0,17427790
+Mexico,Mexico,4/2/2020,9,0,3,2,17427790
+Mexico,Mexico,4/3/2020,12,3,3,0,17427790
+Mexico,Mexico,4/4/2020,14,2,3,0,17427790
+Mexico,Mexico,4/5/2020,15,1,3,0,17427790
+Mexico,Mexico,4/6/2020,17,2,3,0,17427790
+Mexico,Mexico,4/7/2020,24,7,4,1,17427790
+Mexico,Mexico,4/8/2020,26,2,5,1,17427790
+Mexico,Mexico,4/9/2020,35,9,7,2,17427790
+Mexico,Mexico,4/10/2020,35,0,7,0,17427790
+Mexico,Mexico,4/11/2020,40,5,7,0,17427790
+Mexico,Mexico,4/12/2020,44,4,7,0,17427790
+Mexico,Mexico,4/13/2020,49,5,7,0,17427790
+Mexico,Mexico,4/14/2020,53,4,9,2,17427790
+Mexico,Mexico,4/15/2020,56,3,10,1,17427790
+Mexico,Mexico,4/16/2020,58,2,10,0,17427790
+Mexico,Mexico,4/17/2020,73,15,10,0,17427790
+Mexico,Mexico,4/18/2020,77,4,11,1,17427790
+Mexico,Mexico,4/19/2020,82,5,12,1,17427790
+Mexico,Mexico,4/20/2020,85,3,12,0,17427790
+Mexico,Mexico,4/21/2020,89,4,14,2,17427790
+Mexico,Mexico,4/22/2020,96,7,18,4,17427790
+Mexico,Mexico,4/23/2020,112,16,20,2,17427790
+Mexico,Mexico,4/24/2020,135,23,24,4,17427790
+Mexico,Mexico,4/25/2020,158,23,25,1,17427790
+Mexico,Mexico,4/26/2020,178,20,27,2,17427790
+Mexico,Mexico,4/27/2020,1753,1575,122,95,17427790
+Mexico,Mexico,4/28/2020,1966,213,128,6,17427790
+Mexico,Mexico,4/29/2020,2053,87,143,15,17427790
+Mexico,Mexico,4/30/2020,2258,205,169,26,17427790
+Mexico,Mexico,5/1/2020,2504,246,185,16,17427790
+Mexico,Mexico,5/2/2020,2615,111,191,6,17427790
+Mexico,Mexico,5/3/2020,2842,227,199,8,17427790
+Mexico,Mexico,5/4/2020,3086,244,207,8,17427790
+Mexico,Mexico,5/5/2020,3210,124,227,20,17427790
+Mexico,Mexico,5/6/2020,3374,164,244,17,17427790
+Mexico,Mexico,5/7/2020,3681,307,275,31,17427790
+Mexico,Mexico,5/8/2020,3863,182,300,25,17427790
+Mexico,Mexico,5/9/2020,4025,162,321,21,17427790
+Mexico,Mexico,5/10/2020,4146,121,340,19,17427790
+Mexico,Mexico,5/11/2020,4257,111,343,3,17427790
+Mexico,Mexico,5/12/2020,4521,264,378,35,17427790
+Mexico,Mexico,5/13/2020,4689,168,405,27,17427790
+Mexico,Mexico,5/14/2020,4998,309,433,28,17427790
+Mexico,Mexico,5/15/2020,5168,170,453,20,17427790
+Mexico,Mexico,5/16/2020,5369,201,470,17,17427790
+Mexico,Mexico,5/17/2020,5569,200,478,8,17427790
+Mexico,Mexico,5/18/2020,5758,189,484,6,17427790
+Mexico,Mexico,5/19/2020,6034,276,503,19,17427790
+Mexico,Mexico,5/20/2020,6221,187,563,60,17427790
+Mexico,Mexico,5/21/2020,6369,148,622,59,17427790
+Mexico,Mexico,5/22/2020,6697,328,809,187,17427790
+Mexico,Mexico,5/23/2020,6881,184,842,33,17427790
+Mexico,Mexico,5/24/2020,7163,282,846,4,17427790
+Mexico,Mexico,5/25/2020,7514,351,872,26,17427790
+Mexico,Mexico,5/26/2020,8245,731,943,71,17427790
+Mexico,Mexico,5/27/2020,8906,661,1002,59,17427790
+Mexico,Mexico,5/28/2020,9134,228,1046,44,17427790
+Mexico,Mexico,5/29/2020,9365,231,1087,41,17427790
+Mexico,Mexico,5/30/2020,9464,99,1148,61,17427790
+Mexico,Mexico,5/31/2020,9855,391,1159,11,17427790
+Mexico,Mexico,6/1/2020,10095,240,1168,9,17427790
+Mexico,Michoacan,2/26/2020,0,0,0,0,4825401
+Mexico,Michoacan,2/27/2020,0,0,0,0,4825401
+Mexico,Michoacan,2/28/2020,0,0,0,0,4825401
+Mexico,Michoacan,2/29/2020,0,0,0,0,4825401
+Mexico,Michoacan,3/1/2020,0,0,0,0,4825401
+Mexico,Michoacan,3/2/2020,0,0,0,0,4825401
+Mexico,Michoacan,3/3/2020,0,0,0,0,4825401
+Mexico,Michoacan,3/4/2020,0,0,0,0,4825401
+Mexico,Michoacan,3/5/2020,0,0,0,0,4825401
+Mexico,Michoacan,3/6/2020,1,1,0,0,4825401
+Mexico,Michoacan,3/7/2020,1,0,0,0,4825401
+Mexico,Michoacan,3/8/2020,1,0,0,0,4825401
+Mexico,Michoacan,3/9/2020,1,0,0,0,4825401
+Mexico,Michoacan,3/10/2020,1,0,0,0,4825401
+Mexico,Michoacan,3/11/2020,2,1,0,0,4825401
+Mexico,Michoacan,3/12/2020,3,1,0,0,4825401
+Mexico,Michoacan,3/13/2020,3,0,0,0,4825401
+Mexico,Michoacan,3/14/2020,3,0,0,0,4825401
+Mexico,Michoacan,3/15/2020,4,1,0,0,4825401
+Mexico,Michoacan,3/16/2020,9,5,0,0,4825401
+Mexico,Michoacan,3/17/2020,10,1,0,0,4825401
+Mexico,Michoacan,3/18/2020,10,0,0,0,4825401
+Mexico,Michoacan,3/19/2020,10,0,0,0,4825401
+Mexico,Michoacan,3/20/2020,14,4,0,0,4825401
+Mexico,Michoacan,3/21/2020,14,0,0,0,4825401
+Mexico,Michoacan,3/22/2020,22,8,0,0,4825401
+Mexico,Michoacan,3/23/2020,22,0,0,0,4825401
+Mexico,Michoacan,3/24/2020,22,0,0,0,4825401
+Mexico,Michoacan,3/25/2020,26,4,0,0,4825401
+Mexico,Michoacan,3/26/2020,46,20,0,0,4825401
+Mexico,Michoacan,3/27/2020,70,24,0,0,4825401
+Mexico,Michoacan,3/28/2020,85,15,0,0,4825401
+Mexico,Michoacan,3/29/2020,119,34,0,0,4825401
+Mexico,Michoacan,3/30/2020,136,17,1,1,4825401
+Mexico,Michoacan,3/31/2020,149,13,1,0,4825401
+Mexico,Michoacan,4/1/2020,157,8,1,0,4825401
+Mexico,Michoacan,4/2/2020,171,14,1,0,4825401
+Mexico,Michoacan,4/3/2020,177,6,1,0,4825401
+Mexico,Michoacan,4/4/2020,180,3,3,2,4825401
+Mexico,Michoacan,4/5/2020,204,24,3,0,4825401
+Mexico,Michoacan,4/6/2020,261,57,8,5,4825401
+Mexico,Michoacan,4/7/2020,320,59,9,1,4825401
+Mexico,Michoacan,4/8/2020,354,34,11,2,4825401
+Mexico,Michoacan,4/9/2020,399,45,11,0,4825401
+Mexico,Michoacan,4/10/2020,470,71,16,5,4825401
+Mexico,Michoacan,4/11/2020,498,28,19,3,4825401
+Mexico,Michoacan,4/12/2020,523,25,22,3,4825401
+Mexico,Michoacan,4/13/2020,558,35,27,5,4825401
+Mexico,Michoacan,4/14/2020,602,44,35,8,4825401
+Mexico,Michoacan,4/15/2020,659,57,43,8,4825401
+Mexico,Michoacan,4/16/2020,695,36,46,3,4825401
+Mexico,Michoacan,4/17/2020,754,59,49,3,4825401
+Mexico,Michoacan,4/18/2020,786,32,52,3,4825401
+Mexico,Michoacan,4/19/2020,877,91,55,3,4825401
+Mexico,Michoacan,4/20/2020,901,24,58,3,4825401
+Mexico,Michoacan,4/21/2020,1013,112,71,13,4825401
+Mexico,Michoacan,4/22/2020,1157,144,82,11,4825401
+Mexico,Michoacan,4/23/2020,1245,88,95,13,4825401
+Mexico,Michoacan,4/24/2020,1445,200,104,9,4825401
+Mexico,Michoacan,4/25/2020,1608,163,110,6,4825401
+Mexico,Michoacan,4/26/2020,1694,86,116,6,4825401
+Mexico,Michoacan,4/27/2020,219,-1475,34,-82,4825401
+Mexico,Michoacan,4/28/2020,258,39,37,3,4825401
+Mexico,Michoacan,4/29/2020,287,29,38,1,4825401
+Mexico,Michoacan,4/30/2020,323,36,42,4,4825401
+Mexico,Michoacan,5/1/2020,355,32,45,3,4825401
+Mexico,Michoacan,5/2/2020,378,23,48,3,4825401
+Mexico,Michoacan,5/3/2020,381,3,51,3,4825401
+Mexico,Michoacan,5/4/2020,388,7,54,3,4825401
+Mexico,Michoacan,5/5/2020,407,19,56,2,4825401
+Mexico,Michoacan,5/6/2020,436,29,57,1,4825401
+Mexico,Michoacan,5/7/2020,487,51,58,1,4825401
+Mexico,Michoacan,5/8/2020,519,32,59,1,4825401
+Mexico,Michoacan,5/9/2020,574,55,62,3,4825401
+Mexico,Michoacan,5/10/2020,588,14,67,5,4825401
+Mexico,Michoacan,5/11/2020,596,8,71,4,4825401
+Mexico,Michoacan,5/12/2020,632,36,73,2,4825401
+Mexico,Michoacan,5/13/2020,699,67,77,4,4825401
+Mexico,Michoacan,5/14/2020,741,42,79,2,4825401
+Mexico,Michoacan,5/15/2020,789,48,81,2,4825401
+Mexico,Michoacan,5/16/2020,883,94,87,6,4825401
+Mexico,Michoacan,5/17/2020,940,57,88,1,4825401
+Mexico,Michoacan,5/18/2020,956,16,91,3,4825401
+Mexico,Michoacan,5/19/2020,1063,107,94,3,4825401
+Mexico,Michoacan,5/20/2020,1115,52,97,3,4825401
+Mexico,Michoacan,5/21/2020,1184,69,107,10,4825401
+Mexico,Michoacan,5/22/2020,1272,88,110,3,4825401
+Mexico,Michoacan,5/23/2020,1354,82,115,5,4825401
+Mexico,Michoacan,5/24/2020,1395,41,116,1,4825401
+Mexico,Michoacan,5/25/2020,1430,35,119,3,4825401
+Mexico,Michoacan,5/26/2020,1522,92,132,13,4825401
+Mexico,Michoacan,5/27/2020,1641,119,143,11,4825401
+Mexico,Michoacan,5/28/2020,1743,102,150,7,4825401
+Mexico,Michoacan,5/29/2020,1846,103,153,3,4825401
+Mexico,Michoacan,5/30/2020,1907,61,163,10,4825401
+Mexico,Michoacan,5/31/2020,1951,44,165,2,4825401
+Mexico,Michoacan,6/1/2020,1987,36,169,4,4825401
+Mexico,Morelos,2/26/2020,0,0,0,0,2044058
+Mexico,Morelos,2/27/2020,0,0,0,0,2044058
+Mexico,Morelos,2/28/2020,0,0,0,0,2044058
+Mexico,Morelos,2/29/2020,0,0,0,0,2044058
+Mexico,Morelos,3/1/2020,0,0,0,0,2044058
+Mexico,Morelos,3/2/2020,0,0,0,0,2044058
+Mexico,Morelos,3/3/2020,0,0,0,0,2044058
+Mexico,Morelos,3/4/2020,0,0,0,0,2044058
+Mexico,Morelos,3/5/2020,0,0,0,0,2044058
+Mexico,Morelos,3/6/2020,0,0,0,0,2044058
+Mexico,Morelos,3/7/2020,0,0,0,0,2044058
+Mexico,Morelos,3/8/2020,0,0,0,0,2044058
+Mexico,Morelos,3/9/2020,0,0,0,0,2044058
+Mexico,Morelos,3/10/2020,0,0,0,0,2044058
+Mexico,Morelos,3/11/2020,0,0,0,0,2044058
+Mexico,Morelos,3/12/2020,0,0,0,0,2044058
+Mexico,Morelos,3/13/2020,0,0,0,0,2044058
+Mexico,Morelos,3/14/2020,0,0,0,0,2044058
+Mexico,Morelos,3/15/2020,0,0,0,0,2044058
+Mexico,Morelos,3/16/2020,0,0,0,0,2044058
+Mexico,Morelos,3/17/2020,0,0,0,0,2044058
+Mexico,Morelos,3/18/2020,0,0,0,0,2044058
+Mexico,Morelos,3/19/2020,0,0,0,0,2044058
+Mexico,Morelos,3/20/2020,0,0,0,0,2044058
+Mexico,Morelos,3/21/2020,0,0,0,0,2044058
+Mexico,Morelos,3/22/2020,3,3,0,0,2044058
+Mexico,Morelos,3/23/2020,7,4,0,0,2044058
+Mexico,Morelos,3/24/2020,8,1,0,0,2044058
+Mexico,Morelos,3/25/2020,10,2,0,0,2044058
+Mexico,Morelos,3/26/2020,11,1,0,0,2044058
+Mexico,Morelos,3/27/2020,16,5,1,1,2044058
+Mexico,Morelos,3/28/2020,17,1,1,0,2044058
+Mexico,Morelos,3/29/2020,17,0,1,0,2044058
+Mexico,Morelos,3/30/2020,17,0,1,0,2044058
+Mexico,Morelos,3/31/2020,21,4,1,0,2044058
+Mexico,Morelos,4/1/2020,24,3,1,0,2044058
+Mexico,Morelos,4/2/2020,24,0,1,0,2044058
+Mexico,Morelos,4/3/2020,24,0,1,0,2044058
+Mexico,Morelos,4/4/2020,29,5,1,0,2044058
+Mexico,Morelos,4/5/2020,30,1,3,2,2044058
+Mexico,Morelos,4/6/2020,33,3,3,0,2044058
+Mexico,Morelos,4/7/2020,34,1,4,1,2044058
+Mexico,Morelos,4/8/2020,36,2,5,1,2044058
+Mexico,Morelos,4/9/2020,46,10,5,0,2044058
+Mexico,Morelos,4/10/2020,46,0,7,2,2044058
+Mexico,Morelos,4/11/2020,50,4,8,1,2044058
+Mexico,Morelos,4/12/2020,61,11,9,1,2044058
+Mexico,Morelos,4/13/2020,62,1,9,0,2044058
+Mexico,Morelos,4/14/2020,67,5,11,2,2044058
+Mexico,Morelos,4/15/2020,70,3,12,1,2044058
+Mexico,Morelos,4/16/2020,84,14,13,1,2044058
+Mexico,Morelos,4/17/2020,99,15,14,1,2044058
+Mexico,Morelos,4/18/2020,107,8,16,2,2044058
+Mexico,Morelos,4/19/2020,115,8,17,1,2044058
+Mexico,Morelos,4/20/2020,127,12,17,0,2044058
+Mexico,Morelos,4/21/2020,139,12,19,2,2044058
+Mexico,Morelos,4/22/2020,146,7,21,2,2044058
+Mexico,Morelos,4/23/2020,168,22,24,3,2044058
+Mexico,Morelos,4/24/2020,179,11,26,2,2044058
+Mexico,Morelos,4/25/2020,195,16,28,2,2044058
+Mexico,Morelos,4/26/2020,210,15,31,3,2044058
+Mexico,Morelos,4/27/2020,181,-29,27,-4,2044058
+Mexico,Morelos,4/28/2020,229,48,28,1,2044058
+Mexico,Morelos,4/29/2020,261,32,30,2,2044058
+Mexico,Morelos,4/30/2020,307,46,36,6,2044058
+Mexico,Morelos,5/1/2020,349,42,43,7,2044058
+Mexico,Morelos,5/2/2020,400,51,46,3,2044058
+Mexico,Morelos,5/3/2020,413,13,49,3,2044058
+Mexico,Morelos,5/4/2020,487,74,57,8,2044058
+Mexico,Morelos,5/5/2020,539,52,69,12,2044058
+Mexico,Morelos,5/6/2020,597,58,74,5,2044058
+Mexico,Morelos,5/7/2020,642,45,84,10,2044058
+Mexico,Morelos,5/8/2020,697,55,93,9,2044058
+Mexico,Morelos,5/9/2020,760,63,99,6,2044058
+Mexico,Morelos,5/10/2020,786,26,99,0,2044058
+Mexico,Morelos,5/11/2020,801,15,99,0,2044058
+Mexico,Morelos,5/12/2020,856,55,125,26,2044058
+Mexico,Morelos,5/13/2020,895,39,134,9,2044058
+Mexico,Morelos,5/14/2020,960,65,139,5,2044058
+Mexico,Morelos,5/15/2020,999,39,142,3,2044058
+Mexico,Morelos,5/16/2020,1012,13,144,2,2044058
+Mexico,Morelos,5/17/2020,1070,58,150,6,2044058
+Mexico,Morelos,5/18/2020,1074,4,150,0,2044058
+Mexico,Morelos,5/19/2020,1073,-1,182,32,2044058
+Mexico,Morelos,5/20/2020,1087,14,205,23,2044058
+Mexico,Morelos,5/21/2020,1132,45,210,5,2044058
+Mexico,Morelos,5/22/2020,1102,-30,228,18,2044058
+Mexico,Morelos,5/23/2020,1134,32,238,10,2044058
+Mexico,Morelos,5/24/2020,1178,44,236,-2,2044058
+Mexico,Morelos,5/25/2020,1196,18,239,3,2044058
+Mexico,Morelos,5/26/2020,1181,-15,248,9,2044058
+Mexico,Morelos,5/27/2020,1218,37,250,2,2044058
+Mexico,Morelos,5/28/2020,1254,36,259,9,2044058
+Mexico,Morelos,5/29/2020,1280,26,262,3,2044058
+Mexico,Morelos,5/30/2020,1341,61,262,0,2044058
+Mexico,Morelos,5/31/2020,1341,0,265,3,2044058
+Mexico,Morelos,6/1/2020,1347,6,270,5,2044058
+Mexico,Nayarit,2/26/2020,0,0,0,0,1288571
+Mexico,Nayarit,2/27/2020,0,0,0,0,1288571
+Mexico,Nayarit,2/28/2020,0,0,0,0,1288571
+Mexico,Nayarit,2/29/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/1/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/2/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/3/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/4/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/5/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/6/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/7/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/8/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/9/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/10/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/11/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/12/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/13/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/14/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/15/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/16/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/17/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/18/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/19/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/20/2020,0,0,0,0,1288571
+Mexico,Nayarit,3/21/2020,1,1,0,0,1288571
+Mexico,Nayarit,3/22/2020,1,0,0,0,1288571
+Mexico,Nayarit,3/23/2020,1,0,0,0,1288571
+Mexico,Nayarit,3/24/2020,1,0,0,0,1288571
+Mexico,Nayarit,3/25/2020,4,3,0,0,1288571
+Mexico,Nayarit,3/26/2020,4,0,0,0,1288571
+Mexico,Nayarit,3/27/2020,5,1,0,0,1288571
+Mexico,Nayarit,3/28/2020,5,0,0,0,1288571
+Mexico,Nayarit,3/29/2020,5,0,0,0,1288571
+Mexico,Nayarit,3/30/2020,6,1,0,0,1288571
+Mexico,Nayarit,3/31/2020,6,0,0,0,1288571
+Mexico,Nayarit,4/1/2020,8,2,1,1,1288571
+Mexico,Nayarit,4/2/2020,8,0,1,0,1288571
+Mexico,Nayarit,4/3/2020,8,0,1,0,1288571
+Mexico,Nayarit,4/4/2020,9,1,1,0,1288571
+Mexico,Nayarit,4/5/2020,9,0,1,0,1288571
+Mexico,Nayarit,4/6/2020,10,1,1,0,1288571
+Mexico,Nayarit,4/7/2020,10,0,1,0,1288571
+Mexico,Nayarit,4/8/2020,12,2,1,0,1288571
+Mexico,Nayarit,4/9/2020,16,4,3,2,1288571
+Mexico,Nayarit,4/10/2020,19,3,3,0,1288571
+Mexico,Nayarit,4/11/2020,21,2,4,1,1288571
+Mexico,Nayarit,4/12/2020,22,1,4,0,1288571
+Mexico,Nayarit,4/13/2020,25,3,4,0,1288571
+Mexico,Nayarit,4/14/2020,25,0,4,0,1288571
+Mexico,Nayarit,4/15/2020,27,2,5,1,1288571
+Mexico,Nayarit,4/16/2020,29,2,5,0,1288571
+Mexico,Nayarit,4/17/2020,31,2,5,0,1288571
+Mexico,Nayarit,4/18/2020,33,2,5,0,1288571
+Mexico,Nayarit,4/19/2020,35,2,5,0,1288571
+Mexico,Nayarit,4/20/2020,37,2,5,0,1288571
+Mexico,Nayarit,4/21/2020,41,4,5,0,1288571
+Mexico,Nayarit,4/22/2020,43,2,6,1,1288571
+Mexico,Nayarit,4/23/2020,49,6,7,1,1288571
+Mexico,Nayarit,4/24/2020,51,2,7,0,1288571
+Mexico,Nayarit,4/25/2020,53,2,7,0,1288571
+Mexico,Nayarit,4/26/2020,57,4,7,0,1288571
+Mexico,Nayarit,4/27/2020,58,1,7,0,1288571
+Mexico,Nayarit,4/28/2020,61,3,11,4,1288571
+Mexico,Nayarit,4/29/2020,66,5,12,1,1288571
+Mexico,Nayarit,4/30/2020,86,20,12,0,1288571
+Mexico,Nayarit,5/1/2020,89,3,12,0,1288571
+Mexico,Nayarit,5/2/2020,99,10,12,0,1288571
+Mexico,Nayarit,5/3/2020,107,8,12,0,1288571
+Mexico,Nayarit,5/4/2020,116,9,13,1,1288571
+Mexico,Nayarit,5/5/2020,124,8,17,4,1288571
+Mexico,Nayarit,5/6/2020,142,18,20,3,1288571
+Mexico,Nayarit,5/7/2020,170,28,20,0,1288571
+Mexico,Nayarit,5/8/2020,193,23,21,1,1288571
+Mexico,Nayarit,5/9/2020,199,6,22,1,1288571
+Mexico,Nayarit,5/10/2020,208,9,23,1,1288571
+Mexico,Nayarit,5/11/2020,224,16,23,0,1288571
+Mexico,Nayarit,5/12/2020,233,9,25,2,1288571
+Mexico,Nayarit,5/13/2020,237,4,26,1,1288571
+Mexico,Nayarit,5/14/2020,260,23,26,0,1288571
+Mexico,Nayarit,5/15/2020,273,13,26,0,1288571
+Mexico,Nayarit,5/16/2020,291,18,29,3,1288571
+Mexico,Nayarit,5/17/2020,300,9,30,1,1288571
+Mexico,Nayarit,5/18/2020,308,8,31,1,1288571
+Mexico,Nayarit,5/19/2020,320,12,35,4,1288571
+Mexico,Nayarit,5/20/2020,335,15,37,2,1288571
+Mexico,Nayarit,5/21/2020,348,13,38,1,1288571
+Mexico,Nayarit,5/22/2020,364,16,40,2,1288571
+Mexico,Nayarit,5/23/2020,386,22,41,1,1288571
+Mexico,Nayarit,5/24/2020,401,15,42,1,1288571
+Mexico,Nayarit,5/25/2020,420,19,42,0,1288571
+Mexico,Nayarit,5/26/2020,437,17,45,3,1288571
+Mexico,Nayarit,5/27/2020,457,20,46,1,1288571
+Mexico,Nayarit,5/28/2020,479,22,49,3,1288571
+Mexico,Nayarit,5/29/2020,500,21,51,2,1288571
+Mexico,Nayarit,5/30/2020,526,26,52,1,1288571
+Mexico,Nayarit,5/31/2020,555,29,53,1,1288571
+Mexico,Nayarit,6/1/2020,597,42,59,6,1288571
+Mexico,Nuevo Leon,2/26/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,2/27/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,2/28/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,2/29/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/1/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/2/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/3/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/4/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/5/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/6/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/7/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/8/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/9/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/10/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/11/2020,0,0,0,0,5610153
+Mexico,Nuevo Leon,3/12/2020,1,1,0,0,5610153
+Mexico,Nuevo Leon,3/13/2020,1,0,0,0,5610153
+Mexico,Nuevo Leon,3/14/2020,3,2,0,0,5610153
+Mexico,Nuevo Leon,3/15/2020,5,2,0,0,5610153
+Mexico,Nuevo Leon,3/16/2020,13,8,0,0,5610153
+Mexico,Nuevo Leon,3/17/2020,14,1,0,0,5610153
+Mexico,Nuevo Leon,3/18/2020,19,5,0,0,5610153
+Mexico,Nuevo Leon,3/19/2020,19,0,0,0,5610153
+Mexico,Nuevo Leon,3/20/2020,29,10,0,0,5610153
+Mexico,Nuevo Leon,3/21/2020,32,3,0,0,5610153
+Mexico,Nuevo Leon,3/22/2020,35,3,0,0,5610153
+Mexico,Nuevo Leon,3/23/2020,40,5,0,0,5610153
+Mexico,Nuevo Leon,3/24/2020,52,12,0,0,5610153
+Mexico,Nuevo Leon,3/25/2020,52,0,0,0,5610153
+Mexico,Nuevo Leon,3/26/2020,57,5,0,0,5610153
+Mexico,Nuevo Leon,3/27/2020,64,7,0,0,5610153
+Mexico,Nuevo Leon,3/28/2020,64,0,0,0,5610153
+Mexico,Nuevo Leon,3/29/2020,67,3,0,0,5610153
+Mexico,Nuevo Leon,3/30/2020,75,8,0,0,5610153
+Mexico,Nuevo Leon,3/31/2020,76,1,0,0,5610153
+Mexico,Nuevo Leon,4/1/2020,78,2,0,0,5610153
+Mexico,Nuevo Leon,4/2/2020,84,6,0,0,5610153
+Mexico,Nuevo Leon,4/3/2020,85,1,0,0,5610153
+Mexico,Nuevo Leon,4/4/2020,88,3,1,1,5610153
+Mexico,Nuevo Leon,4/5/2020,91,3,2,1,5610153
+Mexico,Nuevo Leon,4/6/2020,93,2,3,1,5610153
+Mexico,Nuevo Leon,4/7/2020,93,0,4,1,5610153
+Mexico,Nuevo Leon,4/8/2020,98,5,4,0,5610153
+Mexico,Nuevo Leon,4/9/2020,107,9,5,1,5610153
+Mexico,Nuevo Leon,4/10/2020,110,3,5,0,5610153
+Mexico,Nuevo Leon,4/11/2020,119,9,5,0,5610153
+Mexico,Nuevo Leon,4/12/2020,124,5,5,0,5610153
+Mexico,Nuevo Leon,4/13/2020,132,8,5,0,5610153
+Mexico,Nuevo Leon,4/14/2020,136,4,5,0,5610153
+Mexico,Nuevo Leon,4/15/2020,150,14,5,0,5610153
+Mexico,Nuevo Leon,4/16/2020,159,9,5,0,5610153
+Mexico,Nuevo Leon,4/17/2020,159,0,5,0,5610153
+Mexico,Nuevo Leon,4/18/2020,172,13,6,1,5610153
+Mexico,Nuevo Leon,4/19/2020,184,12,6,0,5610153
+Mexico,Nuevo Leon,4/20/2020,202,18,6,0,5610153
+Mexico,Nuevo Leon,4/21/2020,203,1,6,0,5610153
+Mexico,Nuevo Leon,4/22/2020,221,18,6,0,5610153
+Mexico,Nuevo Leon,4/23/2020,259,38,7,1,5610153
+Mexico,Nuevo Leon,4/24/2020,270,11,9,2,5610153
+Mexico,Nuevo Leon,4/25/2020,282,12,9,0,5610153
+Mexico,Nuevo Leon,4/26/2020,287,5,9,0,5610153
+Mexico,Nuevo Leon,4/27/2020,295,8,10,1,5610153
+Mexico,Nuevo Leon,4/28/2020,310,15,12,2,5610153
+Mexico,Nuevo Leon,4/29/2020,324,14,13,1,5610153
+Mexico,Nuevo Leon,4/30/2020,346,22,16,3,5610153
+Mexico,Nuevo Leon,5/1/2020,376,30,17,1,5610153
+Mexico,Nuevo Leon,5/2/2020,415,39,19,2,5610153
+Mexico,Nuevo Leon,5/3/2020,428,13,20,1,5610153
+Mexico,Nuevo Leon,5/4/2020,451,23,23,3,5610153
+Mexico,Nuevo Leon,5/5/2020,478,27,25,2,5610153
+Mexico,Nuevo Leon,5/6/2020,520,42,28,3,5610153
+Mexico,Nuevo Leon,5/7/2020,574,54,32,4,5610153
+Mexico,Nuevo Leon,5/8/2020,609,35,33,1,5610153
+Mexico,Nuevo Leon,5/9/2020,616,7,33,0,5610153
+Mexico,Nuevo Leon,5/10/2020,650,34,33,0,5610153
+Mexico,Nuevo Leon,5/11/2020,672,22,33,0,5610153
+Mexico,Nuevo Leon,5/12/2020,694,22,36,3,5610153
+Mexico,Nuevo Leon,5/13/2020,724,30,39,3,5610153
+Mexico,Nuevo Leon,5/14/2020,762,38,42,3,5610153
+Mexico,Nuevo Leon,5/15/2020,784,22,49,7,5610153
+Mexico,Nuevo Leon,5/16/2020,800,16,49,0,5610153
+Mexico,Nuevo Leon,5/17/2020,868,68,49,0,5610153
+Mexico,Nuevo Leon,5/18/2020,884,16,49,0,5610153
+Mexico,Nuevo Leon,5/19/2020,963,79,54,5,5610153
+Mexico,Nuevo Leon,5/20/2020,1023,60,56,2,5610153
+Mexico,Nuevo Leon,5/21/2020,1043,20,58,2,5610153
+Mexico,Nuevo Leon,5/22/2020,1095,52,62,4,5610153
+Mexico,Nuevo Leon,5/23/2020,1125,30,62,0,5610153
+Mexico,Nuevo Leon,5/24/2020,1154,29,62,0,5610153
+Mexico,Nuevo Leon,5/25/2020,1174,20,67,5,5610153
+Mexico,Nuevo Leon,5/26/2020,1227,53,71,4,5610153
+Mexico,Nuevo Leon,5/27/2020,1293,66,76,5,5610153
+Mexico,Nuevo Leon,5/28/2020,1329,36,80,4,5610153
+Mexico,Nuevo Leon,5/29/2020,1366,37,85,5,5610153
+Mexico,Nuevo Leon,5/30/2020,1377,11,87,2,5610153
+Mexico,Nuevo Leon,5/31/2020,1423,46,88,1,5610153
+Mexico,Nuevo Leon,6/1/2020,1488,65,96,8,5610153
+Mexico,Oaxaca,2/26/2020,0,0,0,0,4143593
+Mexico,Oaxaca,2/27/2020,0,0,0,0,4143593
+Mexico,Oaxaca,2/28/2020,0,0,0,0,4143593
+Mexico,Oaxaca,2/29/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/1/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/2/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/3/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/4/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/5/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/6/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/7/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/8/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/9/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/10/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/11/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/12/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/13/2020,0,0,0,0,4143593
+Mexico,Oaxaca,3/14/2020,2,2,0,0,4143593
+Mexico,Oaxaca,3/15/2020,2,0,0,0,4143593
+Mexico,Oaxaca,3/16/2020,2,0,0,0,4143593
+Mexico,Oaxaca,3/17/2020,2,0,0,0,4143593
+Mexico,Oaxaca,3/18/2020,2,0,0,0,4143593
+Mexico,Oaxaca,3/19/2020,2,0,0,0,4143593
+Mexico,Oaxaca,3/20/2020,2,0,0,0,4143593
+Mexico,Oaxaca,3/21/2020,2,0,0,0,4143593
+Mexico,Oaxaca,3/22/2020,3,1,0,0,4143593
+Mexico,Oaxaca,3/23/2020,4,1,0,0,4143593
+Mexico,Oaxaca,3/24/2020,4,0,0,0,4143593
+Mexico,Oaxaca,3/25/2020,7,3,0,0,4143593
+Mexico,Oaxaca,3/26/2020,8,1,0,0,4143593
+Mexico,Oaxaca,3/27/2020,11,3,0,0,4143593
+Mexico,Oaxaca,3/28/2020,12,1,0,0,4143593
+Mexico,Oaxaca,3/29/2020,14,2,0,0,4143593
+Mexico,Oaxaca,3/30/2020,14,0,1,1,4143593
+Mexico,Oaxaca,3/31/2020,14,0,1,0,4143593
+Mexico,Oaxaca,4/1/2020,22,8,1,0,4143593
+Mexico,Oaxaca,4/2/2020,22,0,1,0,4143593
+Mexico,Oaxaca,4/3/2020,22,0,1,0,4143593
+Mexico,Oaxaca,4/4/2020,22,0,1,0,4143593
+Mexico,Oaxaca,4/5/2020,25,3,1,0,4143593
+Mexico,Oaxaca,4/6/2020,27,2,1,0,4143593
+Mexico,Oaxaca,4/7/2020,35,8,1,0,4143593
+Mexico,Oaxaca,4/8/2020,37,2,1,0,4143593
+Mexico,Oaxaca,4/9/2020,40,3,1,0,4143593
+Mexico,Oaxaca,4/10/2020,41,1,2,1,4143593
+Mexico,Oaxaca,4/11/2020,43,2,2,0,4143593
+Mexico,Oaxaca,4/12/2020,43,0,3,1,4143593
+Mexico,Oaxaca,4/13/2020,44,1,4,1,4143593
+Mexico,Oaxaca,4/14/2020,46,2,5,1,4143593
+Mexico,Oaxaca,4/15/2020,50,4,5,0,4143593
+Mexico,Oaxaca,4/16/2020,53,3,5,0,4143593
+Mexico,Oaxaca,4/17/2020,56,3,5,0,4143593
+Mexico,Oaxaca,4/18/2020,62,6,6,1,4143593
+Mexico,Oaxaca,4/19/2020,63,1,6,0,4143593
+Mexico,Oaxaca,4/20/2020,69,6,6,0,4143593
+Mexico,Oaxaca,4/21/2020,72,3,7,1,4143593
+Mexico,Oaxaca,4/22/2020,80,8,8,1,4143593
+Mexico,Oaxaca,4/23/2020,86,6,9,1,4143593
+Mexico,Oaxaca,4/24/2020,87,1,11,2,4143593
+Mexico,Oaxaca,4/25/2020,102,15,13,2,4143593
+Mexico,Oaxaca,4/26/2020,105,3,15,2,4143593
+Mexico,Oaxaca,4/27/2020,116,11,15,0,4143593
+Mexico,Oaxaca,4/28/2020,119,3,17,2,4143593
+Mexico,Oaxaca,4/29/2020,128,9,18,1,4143593
+Mexico,Oaxaca,4/30/2020,136,8,19,1,4143593
+Mexico,Oaxaca,5/1/2020,145,9,20,1,4143593
+Mexico,Oaxaca,5/2/2020,162,17,22,2,4143593
+Mexico,Oaxaca,5/3/2020,164,2,23,1,4143593
+Mexico,Oaxaca,5/4/2020,170,6,24,1,4143593
+Mexico,Oaxaca,5/5/2020,182,12,27,3,4143593
+Mexico,Oaxaca,5/6/2020,197,15,30,3,4143593
+Mexico,Oaxaca,5/7/2020,207,10,32,2,4143593
+Mexico,Oaxaca,5/8/2020,213,6,37,5,4143593
+Mexico,Oaxaca,5/9/2020,221,8,40,3,4143593
+Mexico,Oaxaca,5/10/2020,244,23,45,5,4143593
+Mexico,Oaxaca,5/11/2020,252,8,45,0,4143593
+Mexico,Oaxaca,5/12/2020,265,13,51,6,4143593
+Mexico,Oaxaca,5/13/2020,285,20,54,3,4143593
+Mexico,Oaxaca,5/14/2020,320,35,58,4,4143593
+Mexico,Oaxaca,5/15/2020,363,43,63,5,4143593
+Mexico,Oaxaca,5/16/2020,411,48,67,4,4143593
+Mexico,Oaxaca,5/17/2020,439,28,69,2,4143593
+Mexico,Oaxaca,5/18/2020,598,159,75,6,4143593
+Mexico,Oaxaca,5/19/2020,682,84,78,3,4143593
+Mexico,Oaxaca,5/20/2020,733,51,84,6,4143593
+Mexico,Oaxaca,5/21/2020,797,64,89,5,4143593
+Mexico,Oaxaca,5/22/2020,889,92,93,4,4143593
+Mexico,Oaxaca,5/23/2020,951,62,93,0,4143593
+Mexico,Oaxaca,5/24/2020,988,37,100,7,4143593
+Mexico,Oaxaca,5/25/2020,1054,66,106,6,4143593
+Mexico,Oaxaca,5/26/2020,1092,38,114,8,4143593
+Mexico,Oaxaca,5/27/2020,1127,35,121,7,4143593
+Mexico,Oaxaca,5/28/2020,1169,42,130,9,4143593
+Mexico,Oaxaca,5/29/2020,1233,64,141,11,4143593
+Mexico,Oaxaca,5/30/2020,1315,82,148,7,4143593
+Mexico,Oaxaca,5/31/2020,1397,82,152,4,4143593
+Mexico,Oaxaca,6/1/2020,1490,93,162,10,4143593
+Mexico,Puebla,2/26/2020,0,0,0,0,6604451
+Mexico,Puebla,2/27/2020,0,0,0,0,6604451
+Mexico,Puebla,2/28/2020,0,0,0,0,6604451
+Mexico,Puebla,2/29/2020,0,0,0,0,6604451
+Mexico,Puebla,3/1/2020,0,0,0,0,6604451
+Mexico,Puebla,3/2/2020,0,0,0,0,6604451
+Mexico,Puebla,3/3/2020,0,0,0,0,6604451
+Mexico,Puebla,3/4/2020,0,0,0,0,6604451
+Mexico,Puebla,3/5/2020,0,0,0,0,6604451
+Mexico,Puebla,3/6/2020,0,0,0,0,6604451
+Mexico,Puebla,3/7/2020,0,0,0,0,6604451
+Mexico,Puebla,3/8/2020,0,0,0,0,6604451
+Mexico,Puebla,3/9/2020,0,0,0,0,6604451
+Mexico,Puebla,3/10/2020,0,0,0,0,6604451
+Mexico,Puebla,3/11/2020,1,1,0,0,6604451
+Mexico,Puebla,3/12/2020,1,0,0,0,6604451
+Mexico,Puebla,3/13/2020,2,1,0,0,6604451
+Mexico,Puebla,3/14/2020,3,1,0,0,6604451
+Mexico,Puebla,3/15/2020,6,3,0,0,6604451
+Mexico,Puebla,3/16/2020,8,2,0,0,6604451
+Mexico,Puebla,3/17/2020,9,1,0,0,6604451
+Mexico,Puebla,3/18/2020,9,0,0,0,6604451
+Mexico,Puebla,3/19/2020,11,2,0,0,6604451
+Mexico,Puebla,3/20/2020,14,3,0,0,6604451
+Mexico,Puebla,3/21/2020,16,2,0,0,6604451
+Mexico,Puebla,3/22/2020,16,0,0,0,6604451
+Mexico,Puebla,3/23/2020,16,0,0,0,6604451
+Mexico,Puebla,3/24/2020,22,6,0,0,6604451
+Mexico,Puebla,3/25/2020,34,12,0,0,6604451
+Mexico,Puebla,3/26/2020,45,11,0,0,6604451
+Mexico,Puebla,3/27/2020,51,6,0,0,6604451
+Mexico,Puebla,3/28/2020,52,1,0,0,6604451
+Mexico,Puebla,3/29/2020,66,14,1,1,6604451
+Mexico,Puebla,3/30/2020,76,10,1,0,6604451
+Mexico,Puebla,3/31/2020,81,5,1,0,6604451
+Mexico,Puebla,4/1/2020,97,16,1,0,6604451
+Mexico,Puebla,4/2/2020,100,3,1,0,6604451
+Mexico,Puebla,4/3/2020,109,9,1,0,6604451
+Mexico,Puebla,4/4/2020,125,16,1,0,6604451
+Mexico,Puebla,4/5/2020,147,22,1,0,6604451
+Mexico,Puebla,4/6/2020,156,9,2,1,6604451
+Mexico,Puebla,4/7/2020,179,23,4,2,6604451
+Mexico,Puebla,4/8/2020,183,4,9,5,6604451
+Mexico,Puebla,4/9/2020,198,15,10,1,6604451
+Mexico,Puebla,4/10/2020,214,16,15,5,6604451
+Mexico,Puebla,4/11/2020,243,29,18,3,6604451
+Mexico,Puebla,4/12/2020,256,13,20,2,6604451
+Mexico,Puebla,4/13/2020,269,13,22,2,6604451
+Mexico,Puebla,4/14/2020,276,7,27,5,6604451
+Mexico,Puebla,4/15/2020,291,15,31,4,6604451
+Mexico,Puebla,4/16/2020,305,14,32,1,6604451
+Mexico,Puebla,4/17/2020,314,9,37,5,6604451
+Mexico,Puebla,4/18/2020,330,16,40,3,6604451
+Mexico,Puebla,4/19/2020,352,22,41,1,6604451
+Mexico,Puebla,4/20/2020,360,8,45,4,6604451
+Mexico,Puebla,4/21/2020,382,22,53,8,6604451
+Mexico,Puebla,4/22/2020,386,4,56,3,6604451
+Mexico,Puebla,4/23/2020,415,29,61,5,6604451
+Mexico,Puebla,4/24/2020,456,41,62,1,6604451
+Mexico,Puebla,4/25/2020,486,30,65,3,6604451
+Mexico,Puebla,4/26/2020,514,28,65,0,6604451
+Mexico,Puebla,4/27/2020,556,42,65,0,6604451
+Mexico,Puebla,4/28/2020,586,30,75,10,6604451
+Mexico,Puebla,4/29/2020,625,39,81,6,6604451
+Mexico,Puebla,4/30/2020,642,17,86,5,6604451
+Mexico,Puebla,5/1/2020,717,75,88,2,6604451
+Mexico,Puebla,5/2/2020,765,48,92,4,6604451
+Mexico,Puebla,5/3/2020,815,50,102,10,6604451
+Mexico,Puebla,5/4/2020,852,37,106,4,6604451
+Mexico,Puebla,5/5/2020,893,41,113,7,6604451
+Mexico,Puebla,5/6/2020,927,34,116,3,6604451
+Mexico,Puebla,5/7/2020,977,50,124,8,6604451
+Mexico,Puebla,5/8/2020,1030,53,129,5,6604451
+Mexico,Puebla,5/9/2020,1076,46,145,16,6604451
+Mexico,Puebla,5/10/2020,1083,7,145,0,6604451
+Mexico,Puebla,5/11/2020,1134,51,146,1,6604451
+Mexico,Puebla,5/12/2020,1186,52,160,14,6604451
+Mexico,Puebla,5/13/2020,1226,40,165,5,6604451
+Mexico,Puebla,5/14/2020,1288,62,167,2,6604451
+Mexico,Puebla,5/15/2020,1353,65,180,13,6604451
+Mexico,Puebla,5/16/2020,1419,66,184,4,6604451
+Mexico,Puebla,5/17/2020,1461,42,188,4,6604451
+Mexico,Puebla,5/18/2020,1511,50,191,3,6604451
+Mexico,Puebla,5/19/2020,1624,113,220,29,6604451
+Mexico,Puebla,5/20/2020,1721,97,231,11,6604451
+Mexico,Puebla,5/21/2020,1828,107,244,13,6604451
+Mexico,Puebla,5/22/2020,1881,53,244,0,6604451
+Mexico,Puebla,5/23/2020,2036,155,251,7,6604451
+Mexico,Puebla,5/24/2020,2103,67,257,6,6604451
+Mexico,Puebla,5/25/2020,2185,82,260,3,6604451
+Mexico,Puebla,5/26/2020,2343,158,268,8,6604451
+Mexico,Puebla,5/27/2020,2475,132,307,39,6604451
+Mexico,Puebla,5/28/2020,2678,203,335,28,6604451
+Mexico,Puebla,5/29/2020,2866,188,346,11,6604451
+Mexico,Puebla,5/30/2020,2940,74,349,3,6604451
+Mexico,Puebla,5/31/2020,3076,136,350,1,6604451
+Mexico,Puebla,6/1/2020,3148,72,359,9,6604451
+Mexico,Queretaro,2/26/2020,0,0,0,0,2279637
+Mexico,Queretaro,2/27/2020,0,0,0,0,2279637
+Mexico,Queretaro,2/28/2020,0,0,0,0,2279637
+Mexico,Queretaro,2/29/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/1/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/2/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/3/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/4/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/5/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/6/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/7/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/8/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/9/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/10/2020,0,0,0,0,2279637
+Mexico,Queretaro,3/11/2020,1,1,0,0,2279637
+Mexico,Queretaro,3/12/2020,1,0,0,0,2279637
+Mexico,Queretaro,3/13/2020,4,3,0,0,2279637
+Mexico,Queretaro,3/14/2020,4,0,0,0,2279637
+Mexico,Queretaro,3/15/2020,6,2,0,0,2279637
+Mexico,Queretaro,3/16/2020,7,1,0,0,2279637
+Mexico,Queretaro,3/17/2020,7,0,0,0,2279637
+Mexico,Queretaro,3/18/2020,7,0,0,0,2279637
+Mexico,Queretaro,3/19/2020,9,2,0,0,2279637
+Mexico,Queretaro,3/20/2020,11,2,0,0,2279637
+Mexico,Queretaro,3/21/2020,14,3,0,0,2279637
+Mexico,Queretaro,3/22/2020,14,0,0,0,2279637
+Mexico,Queretaro,3/23/2020,16,2,0,0,2279637
+Mexico,Queretaro,3/24/2020,16,0,0,0,2279637
+Mexico,Queretaro,3/25/2020,18,2,0,0,2279637
+Mexico,Queretaro,3/26/2020,21,3,0,0,2279637
+Mexico,Queretaro,3/27/2020,23,2,0,0,2279637
+Mexico,Queretaro,3/28/2020,25,2,0,0,2279637
+Mexico,Queretaro,3/29/2020,26,1,0,0,2279637
+Mexico,Queretaro,3/30/2020,27,1,1,1,2279637
+Mexico,Queretaro,3/31/2020,29,2,1,0,2279637
+Mexico,Queretaro,4/1/2020,29,0,1,0,2279637
+Mexico,Queretaro,4/2/2020,32,3,1,0,2279637
+Mexico,Queretaro,4/3/2020,35,3,2,1,2279637
+Mexico,Queretaro,4/4/2020,36,1,2,0,2279637
+Mexico,Queretaro,4/5/2020,38,2,2,0,2279637
+Mexico,Queretaro,4/6/2020,40,2,2,0,2279637
+Mexico,Queretaro,4/7/2020,45,5,2,0,2279637
+Mexico,Queretaro,4/8/2020,47,2,2,0,2279637
+Mexico,Queretaro,4/9/2020,50,3,2,0,2279637
+Mexico,Queretaro,4/10/2020,55,5,3,1,2279637
+Mexico,Queretaro,4/11/2020,57,2,3,0,2279637
+Mexico,Queretaro,4/12/2020,61,4,3,0,2279637
+Mexico,Queretaro,4/13/2020,61,0,3,0,2279637
+Mexico,Queretaro,4/14/2020,65,4,4,1,2279637
+Mexico,Queretaro,4/15/2020,69,4,5,1,2279637
+Mexico,Queretaro,4/16/2020,76,7,5,0,2279637
+Mexico,Queretaro,4/17/2020,78,2,6,1,2279637
+Mexico,Queretaro,4/18/2020,79,1,6,0,2279637
+Mexico,Queretaro,4/19/2020,81,2,6,0,2279637
+Mexico,Queretaro,4/20/2020,85,4,6,0,2279637
+Mexico,Queretaro,4/21/2020,88,3,6,0,2279637
+Mexico,Queretaro,4/22/2020,91,3,7,1,2279637
+Mexico,Queretaro,4/23/2020,94,3,7,0,2279637
+Mexico,Queretaro,4/24/2020,104,10,7,0,2279637
+Mexico,Queretaro,4/25/2020,110,6,7,0,2279637
+Mexico,Queretaro,4/26/2020,112,2,9,2,2279637
+Mexico,Queretaro,4/27/2020,123,11,10,1,2279637
+Mexico,Queretaro,4/28/2020,125,2,12,2,2279637
+Mexico,Queretaro,4/29/2020,130,5,12,0,2279637
+Mexico,Queretaro,4/30/2020,136,6,13,1,2279637
+Mexico,Queretaro,5/1/2020,150,14,13,0,2279637
+Mexico,Queretaro,5/2/2020,158,8,15,2,2279637
+Mexico,Queretaro,5/3/2020,165,7,16,1,2279637
+Mexico,Queretaro,5/4/2020,177,12,17,1,2279637
+Mexico,Queretaro,5/5/2020,177,0,19,2,2279637
+Mexico,Queretaro,5/6/2020,189,12,19,0,2279637
+Mexico,Queretaro,5/7/2020,205,16,20,1,2279637
+Mexico,Queretaro,5/8/2020,220,15,21,1,2279637
+Mexico,Queretaro,5/9/2020,230,10,21,0,2279637
+Mexico,Queretaro,5/10/2020,248,18,22,1,2279637
+Mexico,Queretaro,5/11/2020,270,22,25,3,2279637
+Mexico,Queretaro,5/12/2020,291,21,26,1,2279637
+Mexico,Queretaro,5/13/2020,332,41,27,1,2279637
+Mexico,Queretaro,5/14/2020,359,27,30,3,2279637
+Mexico,Queretaro,5/15/2020,379,20,31,1,2279637
+Mexico,Queretaro,5/16/2020,421,42,35,4,2279637
+Mexico,Queretaro,5/17/2020,442,21,43,8,2279637
+Mexico,Queretaro,5/18/2020,480,38,45,2,2279637
+Mexico,Queretaro,5/19/2020,537,57,52,7,2279637
+Mexico,Queretaro,5/20/2020,578,41,58,6,2279637
+Mexico,Queretaro,5/21/2020,632,54,61,3,2279637
+Mexico,Queretaro,5/22/2020,675,43,69,8,2279637
+Mexico,Queretaro,5/23/2020,712,37,69,0,2279637
+Mexico,Queretaro,5/24/2020,732,20,75,6,2279637
+Mexico,Queretaro,5/25/2020,755,23,78,3,2279637
+Mexico,Queretaro,5/26/2020,788,33,84,6,2279637
+Mexico,Queretaro,5/27/2020,835,47,89,5,2279637
+Mexico,Queretaro,5/28/2020,867,32,95,6,2279637
+Mexico,Queretaro,5/29/2020,889,22,100,5,2279637
+Mexico,Queretaro,5/30/2020,937,48,104,4,2279637
+Mexico,Queretaro,5/31/2020,982,45,105,1,2279637
+Mexico,Queretaro,6/1/2020,998,16,108,3,2279637
+Mexico,Quintana Roo,2/26/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,2/27/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,2/28/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,2/29/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/1/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/2/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/3/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/4/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/5/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/6/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/7/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/8/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/9/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/10/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/11/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/12/2020,0,0,0,0,1723259
+Mexico,Quintana Roo,3/13/2020,1,1,0,0,1723259
+Mexico,Quintana Roo,3/14/2020,1,0,0,0,1723259
+Mexico,Quintana Roo,3/15/2020,1,0,0,0,1723259
+Mexico,Quintana Roo,3/16/2020,4,3,0,0,1723259
+Mexico,Quintana Roo,3/17/2020,4,0,0,0,1723259
+Mexico,Quintana Roo,3/18/2020,6,2,0,0,1723259
+Mexico,Quintana Roo,3/19/2020,6,0,0,0,1723259
+Mexico,Quintana Roo,3/20/2020,11,5,0,0,1723259
+Mexico,Quintana Roo,3/21/2020,12,1,0,0,1723259
+Mexico,Quintana Roo,3/22/2020,12,0,0,0,1723259
+Mexico,Quintana Roo,3/23/2020,21,9,0,0,1723259
+Mexico,Quintana Roo,3/24/2020,22,1,0,0,1723259
+Mexico,Quintana Roo,3/25/2020,22,0,0,0,1723259
+Mexico,Quintana Roo,3/26/2020,29,7,0,0,1723259
+Mexico,Quintana Roo,3/27/2020,29,0,0,0,1723259
+Mexico,Quintana Roo,3/28/2020,33,4,1,1,1723259
+Mexico,Quintana Roo,3/29/2020,38,5,1,0,1723259
+Mexico,Quintana Roo,3/30/2020,43,5,1,0,1723259
+Mexico,Quintana Roo,3/31/2020,47,4,1,0,1723259
+Mexico,Quintana Roo,4/1/2020,51,4,1,0,1723259
+Mexico,Quintana Roo,4/2/2020,56,5,1,0,1723259
+Mexico,Quintana Roo,4/3/2020,65,9,1,0,1723259
+Mexico,Quintana Roo,4/4/2020,75,10,2,1,1723259
+Mexico,Quintana Roo,4/5/2020,86,11,4,2,1723259
+Mexico,Quintana Roo,4/6/2020,115,29,8,4,1723259
+Mexico,Quintana Roo,4/7/2020,135,20,9,1,1723259
+Mexico,Quintana Roo,4/8/2020,143,8,10,1,1723259
+Mexico,Quintana Roo,4/9/2020,159,16,12,2,1723259
+Mexico,Quintana Roo,4/10/2020,163,4,13,1,1723259
+Mexico,Quintana Roo,4/11/2020,216,53,18,5,1723259
+Mexico,Quintana Roo,4/12/2020,223,7,19,1,1723259
+Mexico,Quintana Roo,4/13/2020,239,16,22,3,1723259
+Mexico,Quintana Roo,4/14/2020,245,6,25,3,1723259
+Mexico,Quintana Roo,4/15/2020,269,24,27,2,1723259
+Mexico,Quintana Roo,4/16/2020,276,7,28,1,1723259
+Mexico,Quintana Roo,4/17/2020,280,4,31,3,1723259
+Mexico,Quintana Roo,4/18/2020,315,35,31,0,1723259
+Mexico,Quintana Roo,4/19/2020,322,7,31,0,1723259
+Mexico,Quintana Roo,4/20/2020,360,38,34,3,1723259
+Mexico,Quintana Roo,4/21/2020,393,33,47,13,1723259
+Mexico,Quintana Roo,4/22/2020,426,33,56,9,1723259
+Mexico,Quintana Roo,4/23/2020,461,35,61,5,1723259
+Mexico,Quintana Roo,4/24/2020,511,50,71,10,1723259
+Mexico,Quintana Roo,4/25/2020,540,29,76,5,1723259
+Mexico,Quintana Roo,4/26/2020,593,53,79,3,1723259
+Mexico,Quintana Roo,4/27/2020,643,50,85,6,1723259
+Mexico,Quintana Roo,4/28/2020,688,45,90,5,1723259
+Mexico,Quintana Roo,4/29/2020,701,13,108,18,1723259
+Mexico,Quintana Roo,4/30/2020,778,77,114,6,1723259
+Mexico,Quintana Roo,5/1/2020,820,42,116,2,1723259
+Mexico,Quintana Roo,5/2/2020,878,58,116,0,1723259
+Mexico,Quintana Roo,5/3/2020,900,22,118,2,1723259
+Mexico,Quintana Roo,5/4/2020,912,12,119,1,1723259
+Mexico,Quintana Roo,5/5/2020,944,32,142,23,1723259
+Mexico,Quintana Roo,5/6/2020,970,26,158,16,1723259
+Mexico,Quintana Roo,5/7/2020,989,19,168,10,1723259
+Mexico,Quintana Roo,5/8/2020,1022,33,175,7,1723259
+Mexico,Quintana Roo,5/9/2020,1062,40,182,7,1723259
+Mexico,Quintana Roo,5/10/2020,1072,10,183,1,1723259
+Mexico,Quintana Roo,5/11/2020,1109,37,192,9,1723259
+Mexico,Quintana Roo,5/12/2020,1135,26,211,19,1723259
+Mexico,Quintana Roo,5/13/2020,1168,33,222,11,1723259
+Mexico,Quintana Roo,5/14/2020,1217,49,229,7,1723259
+Mexico,Quintana Roo,5/15/2020,1247,30,234,5,1723259
+Mexico,Quintana Roo,5/16/2020,1278,31,242,8,1723259
+Mexico,Quintana Roo,5/17/2020,1305,27,246,4,1723259
+Mexico,Quintana Roo,5/18/2020,1336,31,253,7,1723259
+Mexico,Quintana Roo,5/19/2020,1355,19,262,9,1723259
+Mexico,Quintana Roo,5/20/2020,1382,27,271,9,1723259
+Mexico,Quintana Roo,5/21/2020,1440,58,280,9,1723259
+Mexico,Quintana Roo,5/22/2020,1520,80,283,3,1723259
+Mexico,Quintana Roo,5/23/2020,1568,48,288,5,1723259
+Mexico,Quintana Roo,5/24/2020,1597,29,291,3,1723259
+Mexico,Quintana Roo,5/25/2020,1629,32,294,3,1723259
+Mexico,Quintana Roo,5/26/2020,1671,42,304,10,1723259
+Mexico,Quintana Roo,5/27/2020,1717,46,323,19,1723259
+Mexico,Quintana Roo,5/28/2020,1765,48,337,14,1723259
+Mexico,Quintana Roo,5/29/2020,1804,39,341,4,1723259
+Mexico,Quintana Roo,5/30/2020,1839,35,347,6,1723259
+Mexico,Quintana Roo,5/31/2020,1871,32,352,5,1723259
+Mexico,Quintana Roo,6/1/2020,1915,44,355,3,1723259
+Mexico,San Luis Potosi,2/26/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,2/27/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,2/28/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,2/29/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/1/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/2/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/3/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/4/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/5/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/6/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/7/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/8/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/9/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/10/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/11/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/12/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/13/2020,0,0,0,0,2866142
+Mexico,San Luis Potosi,3/14/2020,1,1,0,0,2866142
+Mexico,San Luis Potosi,3/15/2020,2,1,0,0,2866142
+Mexico,San Luis Potosi,3/16/2020,2,0,0,0,2866142
+Mexico,San Luis Potosi,3/17/2020,2,0,0,0,2866142
+Mexico,San Luis Potosi,3/18/2020,3,1,0,0,2866142
+Mexico,San Luis Potosi,3/19/2020,7,4,0,0,2866142
+Mexico,San Luis Potosi,3/20/2020,7,0,0,0,2866142
+Mexico,San Luis Potosi,3/21/2020,9,2,0,0,2866142
+Mexico,San Luis Potosi,3/22/2020,12,3,0,0,2866142
+Mexico,San Luis Potosi,3/23/2020,16,4,0,0,2866142
+Mexico,San Luis Potosi,3/24/2020,16,0,0,0,2866142
+Mexico,San Luis Potosi,3/25/2020,17,1,1,1,2866142
+Mexico,San Luis Potosi,3/26/2020,18,1,2,1,2866142
+Mexico,San Luis Potosi,3/27/2020,19,1,2,0,2866142
+Mexico,San Luis Potosi,3/28/2020,20,1,2,0,2866142
+Mexico,San Luis Potosi,3/29/2020,24,4,2,0,2866142
+Mexico,San Luis Potosi,3/30/2020,25,1,2,0,2866142
+Mexico,San Luis Potosi,3/31/2020,25,0,2,0,2866142
+Mexico,San Luis Potosi,4/1/2020,31,6,2,0,2866142
+Mexico,San Luis Potosi,4/2/2020,33,2,2,0,2866142
+Mexico,San Luis Potosi,4/3/2020,35,2,2,0,2866142
+Mexico,San Luis Potosi,4/4/2020,35,0,2,0,2866142
+Mexico,San Luis Potosi,4/5/2020,37,2,2,0,2866142
+Mexico,San Luis Potosi,4/6/2020,37,0,3,1,2866142
+Mexico,San Luis Potosi,4/7/2020,41,4,3,0,2866142
+Mexico,San Luis Potosi,4/8/2020,43,2,4,1,2866142
+Mexico,San Luis Potosi,4/9/2020,47,4,4,0,2866142
+Mexico,San Luis Potosi,4/10/2020,48,1,4,0,2866142
+Mexico,San Luis Potosi,4/11/2020,51,3,4,0,2866142
+Mexico,San Luis Potosi,4/12/2020,53,2,4,0,2866142
+Mexico,San Luis Potosi,4/13/2020,55,2,4,0,2866142
+Mexico,San Luis Potosi,4/14/2020,55,0,4,0,2866142
+Mexico,San Luis Potosi,4/15/2020,56,1,4,0,2866142
+Mexico,San Luis Potosi,4/16/2020,56,0,4,0,2866142
+Mexico,San Luis Potosi,4/17/2020,58,2,4,0,2866142
+Mexico,San Luis Potosi,4/18/2020,59,1,4,0,2866142
+Mexico,San Luis Potosi,4/19/2020,63,4,4,0,2866142
+Mexico,San Luis Potosi,4/20/2020,66,3,4,0,2866142
+Mexico,San Luis Potosi,4/21/2020,67,1,5,1,2866142
+Mexico,San Luis Potosi,4/22/2020,68,1,5,0,2866142
+Mexico,San Luis Potosi,4/23/2020,73,5,6,1,2866142
+Mexico,San Luis Potosi,4/24/2020,73,0,6,0,2866142
+Mexico,San Luis Potosi,4/25/2020,76,3,6,0,2866142
+Mexico,San Luis Potosi,4/26/2020,79,3,6,0,2866142
+Mexico,San Luis Potosi,4/27/2020,84,5,6,0,2866142
+Mexico,San Luis Potosi,4/28/2020,85,1,7,1,2866142
+Mexico,San Luis Potosi,4/29/2020,98,13,7,0,2866142
+Mexico,San Luis Potosi,4/30/2020,108,10,7,0,2866142
+Mexico,San Luis Potosi,5/1/2020,120,12,8,1,2866142
+Mexico,San Luis Potosi,5/2/2020,129,9,8,0,2866142
+Mexico,San Luis Potosi,5/3/2020,145,16,8,0,2866142
+Mexico,San Luis Potosi,5/4/2020,155,10,8,0,2866142
+Mexico,San Luis Potosi,5/5/2020,165,10,8,0,2866142
+Mexico,San Luis Potosi,5/6/2020,185,20,9,1,2866142
+Mexico,San Luis Potosi,5/7/2020,203,18,10,1,2866142
+Mexico,San Luis Potosi,5/8/2020,227,24,11,1,2866142
+Mexico,San Luis Potosi,5/9/2020,237,10,12,1,2866142
+Mexico,San Luis Potosi,5/10/2020,265,28,12,0,2866142
+Mexico,San Luis Potosi,5/11/2020,279,14,12,0,2866142
+Mexico,San Luis Potosi,5/12/2020,313,34,14,2,2866142
+Mexico,San Luis Potosi,5/13/2020,343,30,17,3,2866142
+Mexico,San Luis Potosi,5/14/2020,368,25,19,2,2866142
+Mexico,San Luis Potosi,5/15/2020,405,37,19,0,2866142
+Mexico,San Luis Potosi,5/16/2020,430,25,20,1,2866142
+Mexico,San Luis Potosi,5/17/2020,458,28,22,2,2866142
+Mexico,San Luis Potosi,5/18/2020,484,26,23,1,2866142
+Mexico,San Luis Potosi,5/19/2020,498,14,23,0,2866142
+Mexico,San Luis Potosi,5/20/2020,530,32,24,1,2866142
+Mexico,San Luis Potosi,5/21/2020,563,33,25,1,2866142
+Mexico,San Luis Potosi,5/22/2020,602,39,26,1,2866142
+Mexico,San Luis Potosi,5/23/2020,646,44,26,0,2866142
+Mexico,San Luis Potosi,5/24/2020,698,52,36,10,2866142
+Mexico,San Luis Potosi,5/25/2020,699,1,40,4,2866142
+Mexico,San Luis Potosi,5/26/2020,742,43,41,1,2866142
+Mexico,San Luis Potosi,5/27/2020,794,52,46,5,2866142
+Mexico,San Luis Potosi,5/28/2020,823,29,49,3,2866142
+Mexico,San Luis Potosi,5/29/2020,856,33,49,0,2866142
+Mexico,San Luis Potosi,5/30/2020,888,32,50,1,2866142
+Mexico,San Luis Potosi,5/31/2020,937,49,51,1,2866142
+Mexico,San Luis Potosi,6/1/2020,963,26,54,3,2866142
+Mexico,Sinaloa,2/26/2020,0,0,0,0,3156674
+Mexico,Sinaloa,2/27/2020,0,0,0,0,3156674
+Mexico,Sinaloa,2/28/2020,1,1,0,0,3156674
+Mexico,Sinaloa,2/29/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/1/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/2/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/3/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/4/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/5/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/6/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/7/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/8/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/9/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/10/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/11/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/12/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/13/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/14/2020,1,0,0,0,3156674
+Mexico,Sinaloa,3/15/2020,2,1,0,0,3156674
+Mexico,Sinaloa,3/16/2020,2,0,0,0,3156674
+Mexico,Sinaloa,3/17/2020,2,0,0,0,3156674
+Mexico,Sinaloa,3/18/2020,2,0,0,0,3156674
+Mexico,Sinaloa,3/19/2020,3,1,0,0,3156674
+Mexico,Sinaloa,3/20/2020,3,0,0,0,3156674
+Mexico,Sinaloa,3/21/2020,3,0,0,0,3156674
+Mexico,Sinaloa,3/22/2020,4,1,0,0,3156674
+Mexico,Sinaloa,3/23/2020,4,0,0,0,3156674
+Mexico,Sinaloa,3/24/2020,4,0,0,0,3156674
+Mexico,Sinaloa,3/25/2020,4,0,0,0,3156674
+Mexico,Sinaloa,3/26/2020,8,4,0,0,3156674
+Mexico,Sinaloa,3/27/2020,9,1,0,0,3156674
+Mexico,Sinaloa,3/28/2020,14,5,0,0,3156674
+Mexico,Sinaloa,3/29/2020,19,5,0,0,3156674
+Mexico,Sinaloa,3/30/2020,24,5,3,3,3156674
+Mexico,Sinaloa,3/31/2020,27,3,3,0,3156674
+Mexico,Sinaloa,4/1/2020,32,5,4,1,3156674
+Mexico,Sinaloa,4/2/2020,42,10,4,0,3156674
+Mexico,Sinaloa,4/3/2020,51,9,5,1,3156674
+Mexico,Sinaloa,4/4/2020,74,23,10,5,3156674
+Mexico,Sinaloa,4/5/2020,90,16,12,2,3156674
+Mexico,Sinaloa,4/6/2020,97,7,12,0,3156674
+Mexico,Sinaloa,4/7/2020,111,14,13,1,3156674
+Mexico,Sinaloa,4/8/2020,125,14,13,0,3156674
+Mexico,Sinaloa,4/9/2020,138,13,15,2,3156674
+Mexico,Sinaloa,4/10/2020,171,33,18,3,3156674
+Mexico,Sinaloa,4/11/2020,214,43,24,6,3156674
+Mexico,Sinaloa,4/12/2020,229,15,24,0,3156674
+Mexico,Sinaloa,4/13/2020,245,16,28,4,3156674
+Mexico,Sinaloa,4/14/2020,261,16,34,6,3156674
+Mexico,Sinaloa,4/15/2020,292,31,38,4,3156674
+Mexico,Sinaloa,4/16/2020,327,35,40,2,3156674
+Mexico,Sinaloa,4/17/2020,374,47,43,3,3156674
+Mexico,Sinaloa,4/18/2020,413,39,45,2,3156674
+Mexico,Sinaloa,4/19/2020,459,46,45,0,3156674
+Mexico,Sinaloa,4/20/2020,486,27,45,0,3156674
+Mexico,Sinaloa,4/21/2020,510,24,52,7,3156674
+Mexico,Sinaloa,4/22/2020,570,60,59,7,3156674
+Mexico,Sinaloa,4/23/2020,616,46,62,3,3156674
+Mexico,Sinaloa,4/24/2020,692,76,92,30,3156674
+Mexico,Sinaloa,4/25/2020,711,19,98,6,3156674
+Mexico,Sinaloa,4/26/2020,750,39,105,7,3156674
+Mexico,Sinaloa,4/27/2020,798,48,122,17,3156674
+Mexico,Sinaloa,4/28/2020,806,8,130,8,3156674
+Mexico,Sinaloa,4/29/2020,824,18,133,3,3156674
+Mexico,Sinaloa,4/30/2020,869,45,139,6,3156674
+Mexico,Sinaloa,5/1/2020,1012,143,159,20,3156674
+Mexico,Sinaloa,5/2/2020,1081,69,163,4,3156674
+Mexico,Sinaloa,5/3/2020,1125,44,170,7,3156674
+Mexico,Sinaloa,5/4/2020,1168,43,173,3,3156674
+Mexico,Sinaloa,5/5/2020,1202,34,173,0,3156674
+Mexico,Sinaloa,5/6/2020,1257,55,180,7,3156674
+Mexico,Sinaloa,5/7/2020,1319,62,197,17,3156674
+Mexico,Sinaloa,5/8/2020,1380,61,204,7,3156674
+Mexico,Sinaloa,5/9/2020,1401,21,207,3,3156674
+Mexico,Sinaloa,5/10/2020,1479,78,213,6,3156674
+Mexico,Sinaloa,5/11/2020,1526,47,216,3,3156674
+Mexico,Sinaloa,5/12/2020,1588,62,230,14,3156674
+Mexico,Sinaloa,5/13/2020,1629,41,248,18,3156674
+Mexico,Sinaloa,5/14/2020,1725,96,253,5,3156674
+Mexico,Sinaloa,5/15/2020,1823,98,261,8,3156674
+Mexico,Sinaloa,5/16/2020,1871,48,282,21,3156674
+Mexico,Sinaloa,5/17/2020,1936,65,285,3,3156674
+Mexico,Sinaloa,5/18/2020,2028,92,299,14,3156674
+Mexico,Sinaloa,5/19/2020,2088,60,320,21,3156674
+Mexico,Sinaloa,5/20/2020,2170,82,326,6,3156674
+Mexico,Sinaloa,5/21/2020,2252,82,354,28,3156674
+Mexico,Sinaloa,5/22/2020,2338,86,366,12,3156674
+Mexico,Sinaloa,5/23/2020,2448,110,380,14,3156674
+Mexico,Sinaloa,5/24/2020,2598,150,390,10,3156674
+Mexico,Sinaloa,5/25/2020,2808,210,406,16,3156674
+Mexico,Sinaloa,5/26/2020,2827,19,427,21,3156674
+Mexico,Sinaloa,5/27/2020,2917,90,431,4,3156674
+Mexico,Sinaloa,5/28/2020,3030,113,448,17,3156674
+Mexico,Sinaloa,5/29/2020,3139,109,460,12,3156674
+Mexico,Sinaloa,5/30/2020,3275,136,488,28,3156674
+Mexico,Sinaloa,5/31/2020,3437,162,501,13,3156674
+Mexico,Sinaloa,6/1/2020,3595,158,522,21,3156674
+Mexico,Sonora,2/26/2020,0,0,0,0,3074745
+Mexico,Sonora,2/27/2020,0,0,0,0,3074745
+Mexico,Sonora,2/28/2020,0,0,0,0,3074745
+Mexico,Sonora,2/29/2020,0,0,0,0,3074745
+Mexico,Sonora,3/1/2020,0,0,0,0,3074745
+Mexico,Sonora,3/2/2020,0,0,0,0,3074745
+Mexico,Sonora,3/3/2020,0,0,0,0,3074745
+Mexico,Sonora,3/4/2020,0,0,0,0,3074745
+Mexico,Sonora,3/5/2020,0,0,0,0,3074745
+Mexico,Sonora,3/6/2020,0,0,0,0,3074745
+Mexico,Sonora,3/7/2020,0,0,0,0,3074745
+Mexico,Sonora,3/8/2020,0,0,0,0,3074745
+Mexico,Sonora,3/9/2020,0,0,0,0,3074745
+Mexico,Sonora,3/10/2020,0,0,0,0,3074745
+Mexico,Sonora,3/11/2020,0,0,0,0,3074745
+Mexico,Sonora,3/12/2020,0,0,0,0,3074745
+Mexico,Sonora,3/13/2020,0,0,0,0,3074745
+Mexico,Sonora,3/14/2020,0,0,0,0,3074745
+Mexico,Sonora,3/15/2020,0,0,0,0,3074745
+Mexico,Sonora,3/16/2020,0,0,0,0,3074745
+Mexico,Sonora,3/17/2020,1,1,0,0,3074745
+Mexico,Sonora,3/18/2020,1,0,0,0,3074745
+Mexico,Sonora,3/19/2020,2,1,0,0,3074745
+Mexico,Sonora,3/20/2020,2,0,0,0,3074745
+Mexico,Sonora,3/21/2020,2,0,0,0,3074745
+Mexico,Sonora,3/22/2020,4,2,0,0,3074745
+Mexico,Sonora,3/23/2020,4,0,0,0,3074745
+Mexico,Sonora,3/24/2020,4,0,0,0,3074745
+Mexico,Sonora,3/25/2020,4,0,0,0,3074745
+Mexico,Sonora,3/26/2020,7,3,0,0,3074745
+Mexico,Sonora,3/27/2020,8,1,0,0,3074745
+Mexico,Sonora,3/28/2020,10,2,0,0,3074745
+Mexico,Sonora,3/29/2020,14,4,0,0,3074745
+Mexico,Sonora,3/30/2020,17,3,0,0,3074745
+Mexico,Sonora,3/31/2020,17,0,0,0,3074745
+Mexico,Sonora,4/1/2020,18,1,0,0,3074745
+Mexico,Sonora,4/2/2020,21,3,0,0,3074745
+Mexico,Sonora,4/3/2020,22,1,0,0,3074745
+Mexico,Sonora,4/4/2020,27,5,1,1,3074745
+Mexico,Sonora,4/5/2020,28,1,1,0,3074745
+Mexico,Sonora,4/6/2020,30,2,1,0,3074745
+Mexico,Sonora,4/7/2020,35,5,1,0,3074745
+Mexico,Sonora,4/8/2020,46,11,2,1,3074745
+Mexico,Sonora,4/9/2020,48,2,4,2,3074745
+Mexico,Sonora,4/10/2020,55,7,5,1,3074745
+Mexico,Sonora,4/11/2020,65,10,5,0,3074745
+Mexico,Sonora,4/12/2020,69,4,5,0,3074745
+Mexico,Sonora,4/13/2020,72,3,9,4,3074745
+Mexico,Sonora,4/14/2020,73,1,9,0,3074745
+Mexico,Sonora,4/15/2020,78,5,9,0,3074745
+Mexico,Sonora,4/16/2020,89,11,10,1,3074745
+Mexico,Sonora,4/17/2020,97,8,10,0,3074745
+Mexico,Sonora,4/18/2020,108,11,10,0,3074745
+Mexico,Sonora,4/19/2020,117,9,12,2,3074745
+Mexico,Sonora,4/20/2020,117,0,12,0,3074745
+Mexico,Sonora,4/21/2020,114,-3,13,1,3074745
+Mexico,Sonora,4/22/2020,122,8,13,0,3074745
+Mexico,Sonora,4/23/2020,127,5,16,3,3074745
+Mexico,Sonora,4/24/2020,138,11,16,0,3074745
+Mexico,Sonora,4/25/2020,135,-3,18,2,3074745
+Mexico,Sonora,4/26/2020,144,9,18,0,3074745
+Mexico,Sonora,4/27/2020,159,15,18,0,3074745
+Mexico,Sonora,4/28/2020,163,4,19,1,3074745
+Mexico,Sonora,4/29/2020,173,10,20,1,3074745
+Mexico,Sonora,4/30/2020,186,13,20,0,3074745
+Mexico,Sonora,5/1/2020,214,28,23,3,3074745
+Mexico,Sonora,5/2/2020,223,9,23,0,3074745
+Mexico,Sonora,5/3/2020,239,16,23,0,3074745
+Mexico,Sonora,5/4/2020,252,13,23,0,3074745
+Mexico,Sonora,5/5/2020,271,19,23,0,3074745
+Mexico,Sonora,5/6/2020,304,33,24,1,3074745
+Mexico,Sonora,5/7/2020,350,46,25,1,3074745
+Mexico,Sonora,5/8/2020,378,28,25,0,3074745
+Mexico,Sonora,5/9/2020,440,62,26,1,3074745
+Mexico,Sonora,5/10/2020,466,26,27,1,3074745
+Mexico,Sonora,5/11/2020,505,39,28,1,3074745
+Mexico,Sonora,5/12/2020,530,25,29,1,3074745
+Mexico,Sonora,5/13/2020,599,69,30,1,3074745
+Mexico,Sonora,5/14/2020,645,46,31,1,3074745
+Mexico,Sonora,5/15/2020,709,64,34,3,3074745
+Mexico,Sonora,5/16/2020,751,42,35,1,3074745
+Mexico,Sonora,5/17/2020,831,80,37,2,3074745
+Mexico,Sonora,5/18/2020,852,21,38,1,3074745
+Mexico,Sonora,5/19/2020,927,75,45,7,3074745
+Mexico,Sonora,5/20/2020,958,31,49,4,3074745
+Mexico,Sonora,5/21/2020,1066,108,53,4,3074745
+Mexico,Sonora,5/22/2020,1122,56,56,3,3074745
+Mexico,Sonora,5/23/2020,1189,67,63,7,3074745
+Mexico,Sonora,5/24/2020,1364,175,69,6,3074745
+Mexico,Sonora,5/25/2020,1372,8,72,3,3074745
+Mexico,Sonora,5/26/2020,1496,124,84,12,3074745
+Mexico,Sonora,5/27/2020,1526,30,88,4,3074745
+Mexico,Sonora,5/28/2020,1562,36,91,3,3074745
+Mexico,Sonora,5/29/2020,1716,154,102,11,3074745
+Mexico,Sonora,5/30/2020,1765,49,109,7,3074745
+Mexico,Sonora,5/31/2020,1990,225,111,2,3074745
+Mexico,Sonora,6/1/2020,2040,50,116,5,3074745
+Mexico,Tabasco,2/26/2020,0,0,0,0,2572287
+Mexico,Tabasco,2/27/2020,0,0,0,0,2572287
+Mexico,Tabasco,2/28/2020,0,0,0,0,2572287
+Mexico,Tabasco,2/29/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/1/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/2/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/3/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/4/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/5/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/6/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/7/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/8/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/9/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/10/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/11/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/12/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/13/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/14/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/15/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/16/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/17/2020,0,0,0,0,2572287
+Mexico,Tabasco,3/18/2020,1,1,0,0,2572287
+Mexico,Tabasco,3/19/2020,1,0,0,0,2572287
+Mexico,Tabasco,3/20/2020,2,1,0,0,2572287
+Mexico,Tabasco,3/21/2020,4,2,0,0,2572287
+Mexico,Tabasco,3/22/2020,5,1,0,0,2572287
+Mexico,Tabasco,3/23/2020,6,1,0,0,2572287
+Mexico,Tabasco,3/24/2020,6,0,0,0,2572287
+Mexico,Tabasco,3/25/2020,6,0,0,0,2572287
+Mexico,Tabasco,3/26/2020,17,11,0,0,2572287
+Mexico,Tabasco,3/27/2020,21,4,0,0,2572287
+Mexico,Tabasco,3/28/2020,27,6,0,0,2572287
+Mexico,Tabasco,3/29/2020,33,6,0,0,2572287
+Mexico,Tabasco,3/30/2020,38,5,0,0,2572287
+Mexico,Tabasco,3/31/2020,48,10,0,0,2572287
+Mexico,Tabasco,4/1/2020,52,4,1,1,2572287
+Mexico,Tabasco,4/2/2020,62,10,3,2,2572287
+Mexico,Tabasco,4/3/2020,73,11,3,0,2572287
+Mexico,Tabasco,4/4/2020,83,10,3,0,2572287
+Mexico,Tabasco,4/5/2020,97,14,4,1,2572287
+Mexico,Tabasco,4/6/2020,107,10,8,4,2572287
+Mexico,Tabasco,4/7/2020,108,1,8,0,2572287
+Mexico,Tabasco,4/8/2020,112,4,8,0,2572287
+Mexico,Tabasco,4/9/2020,113,1,9,1,2572287
+Mexico,Tabasco,4/10/2020,134,21,9,0,2572287
+Mexico,Tabasco,4/11/2020,143,9,12,3,2572287
+Mexico,Tabasco,4/12/2020,153,10,12,0,2572287
+Mexico,Tabasco,4/13/2020,156,3,14,2,2572287
+Mexico,Tabasco,4/14/2020,195,39,19,5,2572287
+Mexico,Tabasco,4/15/2020,210,15,21,2,2572287
+Mexico,Tabasco,4/16/2020,233,23,25,4,2572287
+Mexico,Tabasco,4/17/2020,250,17,27,2,2572287
+Mexico,Tabasco,4/18/2020,278,28,28,1,2572287
+Mexico,Tabasco,4/19/2020,335,57,38,10,2572287
+Mexico,Tabasco,4/20/2020,397,62,42,4,2572287
+Mexico,Tabasco,4/21/2020,467,70,55,13,2572287
+Mexico,Tabasco,4/22/2020,504,37,60,5,2572287
+Mexico,Tabasco,4/23/2020,592,88,67,7,2572287
+Mexico,Tabasco,4/24/2020,644,52,79,12,2572287
+Mexico,Tabasco,4/25/2020,700,56,86,7,2572287
+Mexico,Tabasco,4/26/2020,721,21,95,9,2572287
+Mexico,Tabasco,4/27/2020,812,91,99,4,2572287
+Mexico,Tabasco,4/28/2020,885,73,106,7,2572287
+Mexico,Tabasco,4/29/2020,935,50,116,10,2572287
+Mexico,Tabasco,4/30/2020,977,42,124,8,2572287
+Mexico,Tabasco,5/1/2020,1060,83,131,7,2572287
+Mexico,Tabasco,5/2/2020,1070,10,137,6,2572287
+Mexico,Tabasco,5/3/2020,1185,115,145,8,2572287
+Mexico,Tabasco,5/4/2020,1235,50,156,11,2572287
+Mexico,Tabasco,5/5/2020,1264,29,176,20,2572287
+Mexico,Tabasco,5/6/2020,1305,41,179,3,2572287
+Mexico,Tabasco,5/7/2020,1391,86,188,9,2572287
+Mexico,Tabasco,5/8/2020,1516,125,201,13,2572287
+Mexico,Tabasco,5/9/2020,1584,68,211,10,2572287
+Mexico,Tabasco,5/10/2020,1638,54,220,9,2572287
+Mexico,Tabasco,5/11/2020,1741,103,232,12,2572287
+Mexico,Tabasco,5/12/2020,1861,120,242,10,2572287
+Mexico,Tabasco,5/13/2020,1960,99,253,11,2572287
+Mexico,Tabasco,5/14/2020,2049,89,263,10,2572287
+Mexico,Tabasco,5/15/2020,2154,105,275,12,2572287
+Mexico,Tabasco,5/16/2020,2238,84,290,15,2572287
+Mexico,Tabasco,5/17/2020,2360,122,303,13,2572287
+Mexico,Tabasco,5/18/2020,2468,108,310,7,2572287
+Mexico,Tabasco,5/19/2020,2543,75,329,19,2572287
+Mexico,Tabasco,5/20/2020,2699,156,346,17,2572287
+Mexico,Tabasco,5/21/2020,2811,112,361,15,2572287
+Mexico,Tabasco,5/22/2020,2917,106,371,10,2572287
+Mexico,Tabasco,5/23/2020,3030,113,387,16,2572287
+Mexico,Tabasco,5/24/2020,3135,105,393,6,2572287
+Mexico,Tabasco,5/25/2020,3225,90,416,23,2572287
+Mexico,Tabasco,5/26/2020,3355,130,424,8,2572287
+Mexico,Tabasco,5/27/2020,3484,129,436,12,2572287
+Mexico,Tabasco,5/28/2020,3674,190,470,34,2572287
+Mexico,Tabasco,5/29/2020,3876,202,485,15,2572287
+Mexico,Tabasco,5/30/2020,4015,139,508,23,2572287
+Mexico,Tabasco,5/31/2020,4149,134,520,12,2572287
+Mexico,Tabasco,6/1/2020,4334,185,533,13,2572287
+Mexico,Tamaulipas,2/26/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,2/27/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,2/28/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,2/29/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/1/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/2/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/3/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/4/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/5/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/6/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/7/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/8/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/9/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/10/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/11/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/12/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/13/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/14/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/15/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/16/2020,0,0,0,0,3650602
+Mexico,Tamaulipas,3/17/2020,1,1,0,0,3650602
+Mexico,Tamaulipas,3/18/2020,2,1,0,0,3650602
+Mexico,Tamaulipas,3/19/2020,2,0,0,0,3650602
+Mexico,Tamaulipas,3/20/2020,2,0,0,0,3650602
+Mexico,Tamaulipas,3/21/2020,3,1,0,0,3650602
+Mexico,Tamaulipas,3/22/2020,4,1,0,0,3650602
+Mexico,Tamaulipas,3/23/2020,5,1,0,0,3650602
+Mexico,Tamaulipas,3/24/2020,5,0,0,0,3650602
+Mexico,Tamaulipas,3/25/2020,6,1,0,0,3650602
+Mexico,Tamaulipas,3/26/2020,6,0,0,0,3650602
+Mexico,Tamaulipas,3/27/2020,6,0,0,0,3650602
+Mexico,Tamaulipas,3/28/2020,6,0,0,0,3650602
+Mexico,Tamaulipas,3/29/2020,7,1,0,0,3650602
+Mexico,Tamaulipas,3/30/2020,8,1,0,0,3650602
+Mexico,Tamaulipas,3/31/2020,8,0,0,0,3650602
+Mexico,Tamaulipas,4/1/2020,9,1,0,0,3650602
+Mexico,Tamaulipas,4/2/2020,13,4,0,0,3650602
+Mexico,Tamaulipas,4/3/2020,16,3,0,0,3650602
+Mexico,Tamaulipas,4/4/2020,20,4,1,1,3650602
+Mexico,Tamaulipas,4/5/2020,26,6,1,0,3650602
+Mexico,Tamaulipas,4/6/2020,31,5,1,0,3650602
+Mexico,Tamaulipas,4/7/2020,32,1,3,2,3650602
+Mexico,Tamaulipas,4/8/2020,43,11,3,0,3650602
+Mexico,Tamaulipas,4/9/2020,46,3,3,0,3650602
+Mexico,Tamaulipas,4/10/2020,48,2,3,0,3650602
+Mexico,Tamaulipas,4/11/2020,49,1,3,0,3650602
+Mexico,Tamaulipas,4/12/2020,53,4,3,0,3650602
+Mexico,Tamaulipas,4/13/2020,53,0,3,0,3650602
+Mexico,Tamaulipas,4/14/2020,55,2,3,0,3650602
+Mexico,Tamaulipas,4/15/2020,60,5,4,1,3650602
+Mexico,Tamaulipas,4/16/2020,78,18,4,0,3650602
+Mexico,Tamaulipas,4/17/2020,91,13,5,1,3650602
+Mexico,Tamaulipas,4/18/2020,117,26,5,0,3650602
+Mexico,Tamaulipas,4/19/2020,127,10,5,0,3650602
+Mexico,Tamaulipas,4/20/2020,134,7,5,0,3650602
+Mexico,Tamaulipas,4/21/2020,145,11,7,2,3650602
+Mexico,Tamaulipas,4/22/2020,166,21,8,1,3650602
+Mexico,Tamaulipas,4/23/2020,191,25,9,1,3650602
+Mexico,Tamaulipas,4/24/2020,205,14,10,1,3650602
+Mexico,Tamaulipas,4/25/2020,217,12,11,1,3650602
+Mexico,Tamaulipas,4/26/2020,262,45,11,0,3650602
+Mexico,Tamaulipas,4/27/2020,288,26,12,1,3650602
+Mexico,Tamaulipas,4/28/2020,296,8,15,3,3650602
+Mexico,Tamaulipas,4/29/2020,309,13,18,3,3650602
+Mexico,Tamaulipas,4/30/2020,316,7,18,0,3650602
+Mexico,Tamaulipas,5/1/2020,340,24,20,2,3650602
+Mexico,Tamaulipas,5/2/2020,364,24,21,1,3650602
+Mexico,Tamaulipas,5/3/2020,381,17,22,1,3650602
+Mexico,Tamaulipas,5/4/2020,389,8,23,1,3650602
+Mexico,Tamaulipas,5/5/2020,397,8,26,3,3650602
+Mexico,Tamaulipas,5/6/2020,416,19,27,1,3650602
+Mexico,Tamaulipas,5/7/2020,440,24,28,1,3650602
+Mexico,Tamaulipas,5/8/2020,441,1,31,3,3650602
+Mexico,Tamaulipas,5/9/2020,710,269,37,6,3650602
+Mexico,Tamaulipas,5/10/2020,738,28,38,1,3650602
+Mexico,Tamaulipas,5/11/2020,757,19,46,8,3650602
+Mexico,Tamaulipas,5/12/2020,789,32,48,2,3650602
+Mexico,Tamaulipas,5/13/2020,801,12,50,2,3650602
+Mexico,Tamaulipas,5/14/2020,865,64,52,2,3650602
+Mexico,Tamaulipas,5/15/2020,891,26,55,3,3650602
+Mexico,Tamaulipas,5/16/2020,920,29,59,4,3650602
+Mexico,Tamaulipas,5/17/2020,941,21,59,0,3650602
+Mexico,Tamaulipas,5/18/2020,994,53,59,0,3650602
+Mexico,Tamaulipas,5/19/2020,1064,70,69,10,3650602
+Mexico,Tamaulipas,5/20/2020,1084,20,74,5,3650602
+Mexico,Tamaulipas,5/21/2020,1114,30,76,2,3650602
+Mexico,Tamaulipas,5/22/2020,1135,21,80,4,3650602
+Mexico,Tamaulipas,5/23/2020,1195,60,82,2,3650602
+Mexico,Tamaulipas,5/24/2020,1224,29,83,1,3650602
+Mexico,Tamaulipas,5/25/2020,1302,78,86,3,3650602
+Mexico,Tamaulipas,5/26/2020,1313,11,89,3,3650602
+Mexico,Tamaulipas,5/27/2020,1373,60,95,6,3650602
+Mexico,Tamaulipas,5/28/2020,1454,81,97,2,3650602
+Mexico,Tamaulipas,5/29/2020,1517,63,102,5,3650602
+Mexico,Tamaulipas,5/30/2020,1567,50,107,5,3650602
+Mexico,Tamaulipas,5/31/2020,1569,2,108,1,3650602
+Mexico,Tamaulipas,6/1/2020,1660,91,109,1,3650602
+Mexico,Tlaxcala,2/26/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,2/27/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,2/28/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,2/29/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/1/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/2/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/3/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/4/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/5/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/6/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/7/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/8/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/9/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/10/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/11/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/12/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/13/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/14/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/15/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/16/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/17/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/18/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/19/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/20/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/21/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/22/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/23/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/24/2020,0,0,0,0,1380011
+Mexico,Tlaxcala,3/25/2020,1,1,0,0,1380011
+Mexico,Tlaxcala,3/26/2020,1,0,0,0,1380011
+Mexico,Tlaxcala,3/27/2020,4,3,0,0,1380011
+Mexico,Tlaxcala,3/28/2020,4,0,0,0,1380011
+Mexico,Tlaxcala,3/29/2020,4,0,0,0,1380011
+Mexico,Tlaxcala,3/30/2020,4,0,0,0,1380011
+Mexico,Tlaxcala,3/31/2020,4,0,0,0,1380011
+Mexico,Tlaxcala,4/1/2020,5,1,0,0,1380011
+Mexico,Tlaxcala,4/2/2020,5,0,0,0,1380011
+Mexico,Tlaxcala,4/3/2020,8,3,0,0,1380011
+Mexico,Tlaxcala,4/4/2020,9,1,0,0,1380011
+Mexico,Tlaxcala,4/5/2020,11,2,0,0,1380011
+Mexico,Tlaxcala,4/6/2020,14,3,0,0,1380011
+Mexico,Tlaxcala,4/7/2020,18,4,0,0,1380011
+Mexico,Tlaxcala,4/8/2020,23,5,0,0,1380011
+Mexico,Tlaxcala,4/9/2020,29,6,0,0,1380011
+Mexico,Tlaxcala,4/10/2020,34,5,1,1,1380011
+Mexico,Tlaxcala,4/11/2020,38,4,1,0,1380011
+Mexico,Tlaxcala,4/12/2020,40,2,2,1,1380011
+Mexico,Tlaxcala,4/13/2020,49,9,2,0,1380011
+Mexico,Tlaxcala,4/14/2020,51,2,4,2,1380011
+Mexico,Tlaxcala,4/15/2020,58,7,4,0,1380011
+Mexico,Tlaxcala,4/16/2020,62,4,4,0,1380011
+Mexico,Tlaxcala,4/17/2020,67,5,4,0,1380011
+Mexico,Tlaxcala,4/18/2020,72,5,4,0,1380011
+Mexico,Tlaxcala,4/19/2020,76,4,4,0,1380011
+Mexico,Tlaxcala,4/20/2020,78,2,4,0,1380011
+Mexico,Tlaxcala,4/21/2020,84,6,5,1,1380011
+Mexico,Tlaxcala,4/22/2020,99,15,9,4,1380011
+Mexico,Tlaxcala,4/23/2020,107,8,10,1,1380011
+Mexico,Tlaxcala,4/24/2020,118,11,13,3,1380011
+Mexico,Tlaxcala,4/25/2020,133,15,13,0,1380011
+Mexico,Tlaxcala,4/26/2020,140,7,13,0,1380011
+Mexico,Tlaxcala,4/27/2020,145,5,15,2,1380011
+Mexico,Tlaxcala,4/28/2020,168,23,17,2,1380011
+Mexico,Tlaxcala,4/29/2020,185,17,19,2,1380011
+Mexico,Tlaxcala,4/30/2020,199,14,23,4,1380011
+Mexico,Tlaxcala,5/1/2020,224,25,23,0,1380011
+Mexico,Tlaxcala,5/2/2020,235,11,23,0,1380011
+Mexico,Tlaxcala,5/3/2020,246,11,23,0,1380011
+Mexico,Tlaxcala,5/4/2020,257,11,26,3,1380011
+Mexico,Tlaxcala,5/5/2020,269,12,30,4,1380011
+Mexico,Tlaxcala,5/6/2020,287,18,36,6,1380011
+Mexico,Tlaxcala,5/7/2020,313,26,43,7,1380011
+Mexico,Tlaxcala,5/8/2020,331,18,50,7,1380011
+Mexico,Tlaxcala,5/9/2020,364,33,53,3,1380011
+Mexico,Tlaxcala,5/10/2020,368,4,55,2,1380011
+Mexico,Tlaxcala,5/11/2020,397,29,58,3,1380011
+Mexico,Tlaxcala,5/12/2020,411,14,68,10,1380011
+Mexico,Tlaxcala,5/13/2020,452,41,75,7,1380011
+Mexico,Tlaxcala,5/14/2020,491,39,82,7,1380011
+Mexico,Tlaxcala,5/15/2020,526,35,86,4,1380011
+Mexico,Tlaxcala,5/16/2020,546,20,89,3,1380011
+Mexico,Tlaxcala,5/17/2020,571,25,91,2,1380011
+Mexico,Tlaxcala,5/18/2020,587,16,101,10,1380011
+Mexico,Tlaxcala,5/19/2020,636,49,106,5,1380011
+Mexico,Tlaxcala,5/20/2020,664,28,109,3,1380011
+Mexico,Tlaxcala,5/21/2020,690,26,117,8,1380011
+Mexico,Tlaxcala,5/22/2020,702,12,119,2,1380011
+Mexico,Tlaxcala,5/23/2020,758,56,121,2,1380011
+Mexico,Tlaxcala,5/24/2020,791,33,122,1,1380011
+Mexico,Tlaxcala,5/25/2020,836,45,134,12,1380011
+Mexico,Tlaxcala,5/26/2020,863,27,134,0,1380011
+Mexico,Tlaxcala,5/27/2020,953,90,135,1,1380011
+Mexico,Tlaxcala,5/28/2020,955,2,137,2,1380011
+Mexico,Tlaxcala,5/29/2020,979,24,147,10,1380011
+Mexico,Tlaxcala,5/30/2020,1004,25,148,1,1380011
+Mexico,Tlaxcala,5/31/2020,1043,39,148,0,1380011
+Mexico,Tlaxcala,6/1/2020,1063,20,150,2,1380011
+Mexico,Veracruz,2/26/2020,0,0,0,0,8539862
+Mexico,Veracruz,2/27/2020,0,0,0,0,8539862
+Mexico,Veracruz,2/28/2020,0,0,0,0,8539862
+Mexico,Veracruz,2/29/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/1/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/2/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/3/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/4/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/5/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/6/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/7/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/8/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/9/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/10/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/11/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/12/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/13/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/14/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/15/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/16/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/17/2020,0,0,0,0,8539862
+Mexico,Veracruz,3/18/2020,2,2,0,0,8539862
+Mexico,Veracruz,3/19/2020,2,0,0,0,8539862
+Mexico,Veracruz,3/20/2020,4,2,0,0,8539862
+Mexico,Veracruz,3/21/2020,7,3,0,0,8539862
+Mexico,Veracruz,3/22/2020,7,0,0,0,8539862
+Mexico,Veracruz,3/23/2020,7,0,0,0,8539862
+Mexico,Veracruz,3/24/2020,7,0,0,0,8539862
+Mexico,Veracruz,3/25/2020,7,0,0,0,8539862
+Mexico,Veracruz,3/26/2020,7,0,0,0,8539862
+Mexico,Veracruz,3/27/2020,17,10,0,0,8539862
+Mexico,Veracruz,3/28/2020,23,6,0,0,8539862
+Mexico,Veracruz,3/29/2020,24,1,0,0,8539862
+Mexico,Veracruz,3/30/2020,26,2,1,1,8539862
+Mexico,Veracruz,3/31/2020,27,1,1,0,8539862
+Mexico,Veracruz,4/1/2020,28,1,1,0,8539862
+Mexico,Veracruz,4/2/2020,29,1,1,0,8539862
+Mexico,Veracruz,4/3/2020,35,6,2,1,8539862
+Mexico,Veracruz,4/4/2020,37,2,3,1,8539862
+Mexico,Veracruz,4/5/2020,40,3,3,0,8539862
+Mexico,Veracruz,4/6/2020,41,1,3,0,8539862
+Mexico,Veracruz,4/7/2020,46,5,3,0,8539862
+Mexico,Veracruz,4/8/2020,49,3,3,0,8539862
+Mexico,Veracruz,4/9/2020,54,5,3,0,8539862
+Mexico,Veracruz,4/10/2020,63,9,3,0,8539862
+Mexico,Veracruz,4/11/2020,73,10,3,0,8539862
+Mexico,Veracruz,4/12/2020,78,5,3,0,8539862
+Mexico,Veracruz,4/13/2020,82,4,3,0,8539862
+Mexico,Veracruz,4/14/2020,94,12,5,2,8539862
+Mexico,Veracruz,4/15/2020,106,12,6,1,8539862
+Mexico,Veracruz,4/16/2020,112,6,6,0,8539862
+Mexico,Veracruz,4/17/2020,121,9,7,1,8539862
+Mexico,Veracruz,4/18/2020,124,3,8,1,8539862
+Mexico,Veracruz,4/19/2020,146,22,9,1,8539862
+Mexico,Veracruz,4/20/2020,156,10,12,3,8539862
+Mexico,Veracruz,4/21/2020,165,9,13,1,8539862
+Mexico,Veracruz,4/22/2020,195,30,18,5,8539862
+Mexico,Veracruz,4/23/2020,230,35,21,3,8539862
+Mexico,Veracruz,4/24/2020,268,38,22,1,8539862
+Mexico,Veracruz,4/25/2020,299,31,23,1,8539862
+Mexico,Veracruz,4/26/2020,334,35,25,2,8539862
+Mexico,Veracruz,4/27/2020,402,68,31,6,8539862
+Mexico,Veracruz,4/28/2020,438,36,38,7,8539862
+Mexico,Veracruz,4/29/2020,486,48,42,4,8539862
+Mexico,Veracruz,4/30/2020,546,60,52,10,8539862
+Mexico,Veracruz,5/1/2020,586,40,56,4,8539862
+Mexico,Veracruz,5/2/2020,641,55,59,3,8539862
+Mexico,Veracruz,5/3/2020,673,32,64,5,8539862
+Mexico,Veracruz,5/4/2020,772,99,68,4,8539862
+Mexico,Veracruz,5/5/2020,806,34,79,11,8539862
+Mexico,Veracruz,5/6/2020,839,33,83,4,8539862
+Mexico,Veracruz,5/7/2020,926,87,99,16,8539862
+Mexico,Veracruz,5/8/2020,1013,87,112,13,8539862
+Mexico,Veracruz,5/9/2020,1114,101,121,9,8539862
+Mexico,Veracruz,5/10/2020,1158,44,123,2,8539862
+Mexico,Veracruz,5/11/2020,1306,148,135,12,8539862
+Mexico,Veracruz,5/12/2020,1448,142,155,20,8539862
+Mexico,Veracruz,5/13/2020,1520,72,166,11,8539862
+Mexico,Veracruz,5/14/2020,1612,92,195,29,8539862
+Mexico,Veracruz,5/15/2020,1644,32,222,27,8539862
+Mexico,Veracruz,5/16/2020,1747,103,234,12,8539862
+Mexico,Veracruz,5/17/2020,1868,121,238,4,8539862
+Mexico,Veracruz,5/18/2020,1978,110,243,5,8539862
+Mexico,Veracruz,5/19/2020,2154,176,261,18,8539862
+Mexico,Veracruz,5/20/2020,2222,68,274,13,8539862
+Mexico,Veracruz,5/21/2020,2363,141,292,18,8539862
+Mexico,Veracruz,5/22/2020,2529,166,331,39,8539862
+Mexico,Veracruz,5/23/2020,2615,86,341,10,8539862
+Mexico,Veracruz,5/24/2020,2692,77,365,24,8539862
+Mexico,Veracruz,5/25/2020,2868,176,372,7,8539862
+Mexico,Veracruz,5/26/2020,3173,305,416,44,8539862
+Mexico,Veracruz,5/27/2020,3281,108,430,14,8539862
+Mexico,Veracruz,5/28/2020,3370,89,460,30,8539862
+Mexico,Veracruz,5/29/2020,3458,88,495,35,8539862
+Mexico,Veracruz,5/30/2020,3515,57,506,11,8539862
+Mexico,Veracruz,5/31/2020,3604,89,518,12,8539862
+Mexico,Veracruz,6/1/2020,3894,290,537,19,8539862
+Mexico,Yucatan,2/26/2020,0,0,0,0,2259098
+Mexico,Yucatan,2/27/2020,0,0,0,0,2259098
+Mexico,Yucatan,2/28/2020,0,0,0,0,2259098
+Mexico,Yucatan,2/29/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/1/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/2/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/3/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/4/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/5/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/6/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/7/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/8/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/9/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/10/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/11/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/12/2020,0,0,0,0,2259098
+Mexico,Yucatan,3/13/2020,1,1,0,0,2259098
+Mexico,Yucatan,3/14/2020,1,0,0,0,2259098
+Mexico,Yucatan,3/15/2020,1,0,0,0,2259098
+Mexico,Yucatan,3/16/2020,4,3,0,0,2259098
+Mexico,Yucatan,3/17/2020,5,1,0,0,2259098
+Mexico,Yucatan,3/18/2020,8,3,0,0,2259098
+Mexico,Yucatan,3/19/2020,13,5,0,0,2259098
+Mexico,Yucatan,3/20/2020,13,0,0,0,2259098
+Mexico,Yucatan,3/21/2020,14,1,0,0,2259098
+Mexico,Yucatan,3/22/2020,19,5,0,0,2259098
+Mexico,Yucatan,3/23/2020,19,0,0,0,2259098
+Mexico,Yucatan,3/24/2020,24,5,0,0,2259098
+Mexico,Yucatan,3/25/2020,29,5,0,0,2259098
+Mexico,Yucatan,3/26/2020,32,3,0,0,2259098
+Mexico,Yucatan,3/27/2020,36,4,0,0,2259098
+Mexico,Yucatan,3/28/2020,38,2,0,0,2259098
+Mexico,Yucatan,3/29/2020,41,3,0,0,2259098
+Mexico,Yucatan,3/30/2020,46,5,0,0,2259098
+Mexico,Yucatan,3/31/2020,49,3,0,0,2259098
+Mexico,Yucatan,4/1/2020,52,3,0,0,2259098
+Mexico,Yucatan,4/2/2020,53,1,0,0,2259098
+Mexico,Yucatan,4/3/2020,59,6,0,0,2259098
+Mexico,Yucatan,4/4/2020,62,3,0,0,2259098
+Mexico,Yucatan,4/5/2020,67,5,2,2,2259098
+Mexico,Yucatan,4/6/2020,72,5,2,0,2259098
+Mexico,Yucatan,4/7/2020,74,2,2,0,2259098
+Mexico,Yucatan,4/8/2020,74,0,3,1,2259098
+Mexico,Yucatan,4/9/2020,88,14,3,0,2259098
+Mexico,Yucatan,4/10/2020,88,0,4,1,2259098
+Mexico,Yucatan,4/11/2020,103,15,4,0,2259098
+Mexico,Yucatan,4/12/2020,107,4,6,2,2259098
+Mexico,Yucatan,4/13/2020,114,7,6,0,2259098
+Mexico,Yucatan,4/14/2020,116,2,7,1,2259098
+Mexico,Yucatan,4/15/2020,128,12,7,0,2259098
+Mexico,Yucatan,4/16/2020,131,3,7,0,2259098
+Mexico,Yucatan,4/17/2020,140,9,8,1,2259098
+Mexico,Yucatan,4/18/2020,172,32,10,2,2259098
+Mexico,Yucatan,4/19/2020,176,4,10,0,2259098
+Mexico,Yucatan,4/20/2020,191,15,10,0,2259098
+Mexico,Yucatan,4/21/2020,194,3,12,2,2259098
+Mexico,Yucatan,4/22/2020,199,5,15,3,2259098
+Mexico,Yucatan,4/23/2020,234,35,18,3,2259098
+Mexico,Yucatan,4/24/2020,244,10,19,1,2259098
+Mexico,Yucatan,4/25/2020,299,55,20,1,2259098
+Mexico,Yucatan,4/26/2020,321,22,20,0,2259098
+Mexico,Yucatan,4/27/2020,350,29,23,3,2259098
+Mexico,Yucatan,4/28/2020,375,25,23,0,2259098
+Mexico,Yucatan,4/29/2020,401,26,26,3,2259098
+Mexico,Yucatan,4/30/2020,445,44,26,0,2259098
+Mexico,Yucatan,5/1/2020,485,40,30,4,2259098
+Mexico,Yucatan,5/2/2020,530,45,30,0,2259098
+Mexico,Yucatan,5/3/2020,584,54,31,1,2259098
+Mexico,Yucatan,5/4/2020,604,20,31,0,2259098
+Mexico,Yucatan,5/5/2020,645,41,33,2,2259098
+Mexico,Yucatan,5/6/2020,684,39,36,3,2259098
+Mexico,Yucatan,5/7/2020,721,37,39,3,2259098
+Mexico,Yucatan,5/8/2020,747,26,48,9,2259098
+Mexico,Yucatan,5/9/2020,784,37,48,0,2259098
+Mexico,Yucatan,5/10/2020,823,39,48,0,2259098
+Mexico,Yucatan,5/11/2020,842,19,51,3,2259098
+Mexico,Yucatan,5/12/2020,877,35,54,3,2259098
+Mexico,Yucatan,5/13/2020,918,41,54,0,2259098
+Mexico,Yucatan,5/14/2020,967,49,62,8,2259098
+Mexico,Yucatan,5/15/2020,1018,51,68,6,2259098
+Mexico,Yucatan,5/16/2020,1077,59,76,8,2259098
+Mexico,Yucatan,5/17/2020,1108,31,77,1,2259098
+Mexico,Yucatan,5/18/2020,1146,38,80,3,2259098
+Mexico,Yucatan,5/19/2020,1199,53,84,4,2259098
+Mexico,Yucatan,5/20/2020,1239,40,97,13,2259098
+Mexico,Yucatan,5/21/2020,1318,79,100,3,2259098
+Mexico,Yucatan,5/22/2020,1360,42,109,9,2259098
+Mexico,Yucatan,5/23/2020,1415,55,110,1,2259098
+Mexico,Yucatan,5/24/2020,1483,68,116,6,2259098
+Mexico,Yucatan,5/25/2020,1519,36,123,7,2259098
+Mexico,Yucatan,5/26/2020,1564,45,128,5,2259098
+Mexico,Yucatan,5/27/2020,1599,35,132,4,2259098
+Mexico,Yucatan,5/28/2020,1658,59,139,7,2259098
+Mexico,Yucatan,5/29/2020,1693,35,142,3,2259098
+Mexico,Yucatan,5/30/2020,1768,75,146,4,2259098
+Mexico,Yucatan,5/31/2020,1819,51,155,9,2259098
+Mexico,Yucatan,6/1/2020,1859,40,164,9,2259098
+Mexico,Zacatecas,2/26/2020,0,0,0,0,1666426
+Mexico,Zacatecas,2/27/2020,0,0,0,0,1666426
+Mexico,Zacatecas,2/28/2020,0,0,0,0,1666426
+Mexico,Zacatecas,2/29/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/1/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/2/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/3/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/4/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/5/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/6/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/7/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/8/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/9/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/10/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/11/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/12/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/13/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/14/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/15/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/16/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/17/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/18/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/19/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/20/2020,0,0,0,0,1666426
+Mexico,Zacatecas,3/21/2020,1,1,0,0,1666426
+Mexico,Zacatecas,3/22/2020,2,1,0,0,1666426
+Mexico,Zacatecas,3/23/2020,3,1,0,0,1666426
+Mexico,Zacatecas,3/24/2020,3,0,0,0,1666426
+Mexico,Zacatecas,3/25/2020,3,0,0,0,1666426
+Mexico,Zacatecas,3/26/2020,4,1,0,0,1666426
+Mexico,Zacatecas,3/27/2020,4,0,0,0,1666426
+Mexico,Zacatecas,3/28/2020,4,0,0,0,1666426
+Mexico,Zacatecas,3/29/2020,5,1,0,0,1666426
+Mexico,Zacatecas,3/30/2020,6,1,0,0,1666426
+Mexico,Zacatecas,3/31/2020,6,0,0,0,1666426
+Mexico,Zacatecas,4/1/2020,6,0,1,1,1666426
+Mexico,Zacatecas,4/2/2020,7,1,1,0,1666426
+Mexico,Zacatecas,4/3/2020,7,0,1,0,1666426
+Mexico,Zacatecas,4/4/2020,10,3,2,1,1666426
+Mexico,Zacatecas,4/5/2020,10,0,2,0,1666426
+Mexico,Zacatecas,4/6/2020,9,-1,2,0,1666426
+Mexico,Zacatecas,4/7/2020,10,1,2,0,1666426
+Mexico,Zacatecas,4/8/2020,11,1,2,0,1666426
+Mexico,Zacatecas,4/9/2020,11,0,2,0,1666426
+Mexico,Zacatecas,4/10/2020,14,3,2,0,1666426
+Mexico,Zacatecas,4/11/2020,14,0,2,0,1666426
+Mexico,Zacatecas,4/12/2020,15,1,2,0,1666426
+Mexico,Zacatecas,4/13/2020,16,1,2,0,1666426
+Mexico,Zacatecas,4/14/2020,17,1,2,0,1666426
+Mexico,Zacatecas,4/15/2020,18,1,2,0,1666426
+Mexico,Zacatecas,4/16/2020,18,0,2,0,1666426
+Mexico,Zacatecas,4/17/2020,23,5,2,0,1666426
+Mexico,Zacatecas,4/18/2020,27,4,2,0,1666426
+Mexico,Zacatecas,4/19/2020,27,0,2,0,1666426
+Mexico,Zacatecas,4/20/2020,31,4,2,0,1666426
+Mexico,Zacatecas,4/21/2020,32,1,3,1,1666426
+Mexico,Zacatecas,4/22/2020,43,11,3,0,1666426
+Mexico,Zacatecas,4/23/2020,47,4,3,0,1666426
+Mexico,Zacatecas,4/24/2020,50,3,4,1,1666426
+Mexico,Zacatecas,4/25/2020,57,7,4,0,1666426
+Mexico,Zacatecas,4/26/2020,64,7,4,0,1666426
+Mexico,Zacatecas,4/27/2020,64,0,4,0,1666426
+Mexico,Zacatecas,4/28/2020,66,2,7,3,1666426
+Mexico,Zacatecas,4/29/2020,67,1,7,0,1666426
+Mexico,Zacatecas,4/30/2020,74,7,8,1,1666426
+Mexico,Zacatecas,5/1/2020,83,9,8,0,1666426
+Mexico,Zacatecas,5/2/2020,91,8,10,2,1666426
+Mexico,Zacatecas,5/3/2020,96,5,13,3,1666426
+Mexico,Zacatecas,5/4/2020,106,10,16,3,1666426
+Mexico,Zacatecas,5/5/2020,109,3,17,1,1666426
+Mexico,Zacatecas,5/6/2020,115,6,18,1,1666426
+Mexico,Zacatecas,5/7/2020,124,9,18,0,1666426
+Mexico,Zacatecas,5/8/2020,131,7,18,0,1666426
+Mexico,Zacatecas,5/9/2020,136,5,18,0,1666426
+Mexico,Zacatecas,5/10/2020,145,9,19,1,1666426
+Mexico,Zacatecas,5/11/2020,151,6,19,0,1666426
+Mexico,Zacatecas,5/12/2020,153,2,20,1,1666426
+Mexico,Zacatecas,5/13/2020,160,7,21,1,1666426
+Mexico,Zacatecas,5/14/2020,164,4,22,1,1666426
+Mexico,Zacatecas,5/15/2020,173,9,22,0,1666426
+Mexico,Zacatecas,5/16/2020,182,9,23,1,1666426
+Mexico,Zacatecas,5/17/2020,192,10,23,0,1666426
+Mexico,Zacatecas,5/18/2020,195,3,25,2,1666426
+Mexico,Zacatecas,5/19/2020,197,2,26,1,1666426
+Mexico,Zacatecas,5/20/2020,203,6,27,1,1666426
+Mexico,Zacatecas,5/21/2020,205,2,27,0,1666426
+Mexico,Zacatecas,5/22/2020,215,10,27,0,1666426
+Mexico,Zacatecas,5/23/2020,222,7,27,0,1666426
+Mexico,Zacatecas,5/24/2020,229,7,27,0,1666426
+Mexico,Zacatecas,5/25/2020,237,8,28,1,1666426
+Mexico,Zacatecas,5/26/2020,246,9,29,1,1666426
+Mexico,Zacatecas,5/27/2020,256,10,29,0,1666426
+Mexico,Zacatecas,5/28/2020,267,11,31,2,1666426
+Mexico,Zacatecas,5/29/2020,273,6,32,1,1666426
+Mexico,Zacatecas,5/30/2020,279,6,33,1,1666426
+Mexico,Zacatecas,5/31/2020,287,8,34,1,1666426
+Mexico,Zacatecas,6/1/2020,296,9,35,1,1666426

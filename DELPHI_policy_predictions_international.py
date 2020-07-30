@@ -18,8 +18,12 @@ from DELPHI_params import (
 import yaml
 import os, sys
 import matplotlib.pyplot as plt
+<<<<<<< HEAD
 arg = sys.argv[1:len(sys.argv)]
 RUNNING_FOR_JJ = arg[0] if len(arg) > 0 else False
+=======
+RUNNING_FOR_JJ = True
+>>>>>>> aa51165c15d32f480108ff6be940d84fa66c3293
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
@@ -152,9 +156,15 @@ for continent, country, province in zip(
             )
             best_params = parameter_list
             t_predictions = [i for i in range(maxT)]
+<<<<<<< HEAD
             #plt.figure(figsize=(20, 10))
             future_policies_data = future_policies_JJ if RUNNING_FOR_JJ == 'True' else future_policies
             future_times_data = future_times_JJ if RUNNING_FOR_JJ == 'True' else future_times
+=======
+            # plt.figure(figsize=(16, 10))
+            future_policies_data = future_policies_JJ if RUNNING_FOR_JJ else future_policies
+            future_times_data = future_times_JJ if RUNNING_FOR_JJ else future_times
+>>>>>>> aa51165c15d32f480108ff6be940d84fa66c3293
             for future_policy in future_policies_data:
                 for future_time in future_times_data:
                     def model_covid_predictions(
@@ -312,9 +322,17 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
+<<<<<<< HEAD
 if RUNNING_FOR_JJ == 'True':
     print("JJ file is printed")
     df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
 else:
     delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True, local_delphi=False)
+=======
+if RUNNING_FOR_JJ:
+    df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
+else:
+    delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True)
+
+>>>>>>> aa51165c15d32f480108ff6be940d84fa66c3293
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")

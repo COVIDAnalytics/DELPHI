@@ -26,11 +26,7 @@ RUNNING_FOR_JJ = arg[0] if len(arg) > 0 else False
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-<<<<<<< Updated upstream
-USER_RUNNING = "server"
-=======
-USER_RUNNING = "hamza"
->>>>>>> Stashed changes
+USER_RUNNING = "omar"
 
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -105,8 +101,6 @@ for continent, country, province in zip(
     else:
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
 
-    if country not in ["Spain"]:
-        continue
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     if (
@@ -221,7 +215,7 @@ for continent, country, province in zip(
                             ]
                             epsilon = 1e-4
                             gamma_t = gamma_t + min(
-                                (2 - gamma_t_future) / (1.2 - normalized_gamma_future_policy + epsilon),
+                                (2 - gamma_t_future) / (1 - normalized_gamma_future_policy + epsilon),
                                 (gamma_t_future / normalized_gamma_current_policy) *
                                 (normalized_gamma_future_policy - normalized_gamma_current_policy)
                             )
@@ -349,15 +343,10 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
-<<<<<<< Updated upstream
 if RUNNING_FOR_JJ == 'True':
     print("JJ file is printed")
     df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
 else:
     delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True, local_delphi=False)
-=======
-df_global_predictions_since_100_cases_scenarios.to_csv('0726_df_global_predictions_since_100_cases_scenarios_Spain_only.csv', index=False)
-#delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True, local_delphi=False)
->>>>>>> Stashed changes
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
 

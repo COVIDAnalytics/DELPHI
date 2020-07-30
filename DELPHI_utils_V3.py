@@ -171,10 +171,13 @@ class DELPHIDataCreator:
             "Continent": [self.continent], "Country": [self.country], "Province": [self.province],
             "Data Start Date": [self.date_day_since100], "MAPE": [mape], "Infection Rate": [self.best_params[0]],
             "Median Day of Action": [self.best_params[1]], "Rate of Action": [self.best_params[2]],
-            "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],"Rate of Mortality Rate Decay": [self.best_params[5]],
-            "Internal Parameter 1": [self.best_params[6]], "Internal Parameter 2": [self.best_params[7]]  ,
-                        "Jump Magnitude": [self.best_params[8]], "Jump Time": [self.best_params[9]] ,
-                                    "Jump Decay": [self.best_params[10]]
+            "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],
+            "Rate of Mortality Rate Decay": [self.best_params[5]],
+            "Internal Parameter 1": [self.best_params[6]],
+            "Internal Parameter 2": [self.best_params[7]],
+            "Jump Magnitude": [self.best_params[8]],
+            "Jump Time": [self.best_params[9]],
+            "Jump Decay": [self.best_params[10]],
         })
         return df_parameters
 
@@ -307,6 +310,48 @@ class DELPHIDataCreator:
             "Total Detected Deaths": total_detected_deaths,
             "Active Ventilated": active_ventilated,
         })
+        return df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov
+
+    def create_datasets_raw(self) -> (pd.DataFrame, pd.DataFrame):
+        n_days_btw_today_since_100 = (datetime.now() - self.date_day_since100).days
+        n_days_since_today = self.x_sol_final.shape[1] - n_days_btw_today_since_100
+        all_dates_since_today = [
+            str((datetime.now() + timedelta(days=i)).date())
+            for i in range(n_days_since_today)
+        ]
+
+        df_predictions_since_today_cont_country_prov = pd.DataFrame({
+            "Continent": [self.continent for _ in range(n_days_since_today)],
+            "Country": [self.country for _ in range(n_days_since_today)],
+            "Province": [self.province for _ in range(n_days_since_today)],
+            "Day": all_dates_since_today
+        })
+
+        intr_since_today = pd.DataFrame(self.x_sol_final[:, n_days_btw_today_since_100:].transpose())
+
+        intr_since_today.columns = ['S', 'E',  'I', 'AR', 'DHR', 'DQR', 'AD',
+                'DHD', 'DQD', 'R', 'D', 'TH', 'DVR', 'DVD', 'DD', 'DT']
+
+        df_predictions_since_today_cont_country_prov = pd.concat([df_predictions_since_today_cont_country_prov, intr_since_today], axis=1)
+
+        # Generation of the dataframe from the day since 100th case
+        all_dates_since_100 = [
+            str((self.date_day_since100 + timedelta(days=i)).date())
+            for i in range(self.x_sol_final.shape[1])
+        ]
+        df_predictions_since_100_cont_country_prov = pd.DataFrame({
+            "Continent": [self.continent for _ in range(len(all_dates_since_100))],
+            "Country": [self.country for _ in range(len(all_dates_since_100))],
+            "Province": [self.province for _ in range(len(all_dates_since_100))],
+            "Day": all_dates_since_100})
+
+        intr_since_100 = pd.DataFrame(self.x_sol_final.transpose())
+
+        intr_since_100.columns = ['S', 'E',  'I', 'AR', 'DHR', 'DQR', 'AD',
+                'DHD', 'DQD', 'R', 'D', 'TH', 'DVR', 'DVD', 'DD', 'DT']
+
+        df_predictions_since_100_cont_country_prov = pd.concat([df_predictions_since_100_cont_country_prov, intr_since_100], axis=1)
+
         return df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov
 
     def create_datasets_predictions_scenario(
@@ -769,6 +814,35 @@ def read_measures_oxford_data(yesterday: str):
     for col in target:
         #measures[col] = measures[col].fillna(0)
         measures[col] = measures.groupby('CountryName')[col].ffill()
+        
+
+    measures['C1_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C1_School closing'],measures['C1_Flag'])]
+    measures['C2_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C2_Workplace closing'],measures['C2_Flag'])]
+    measures['C3_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C3_Cancel public events'],measures['C3_Flag'])]
+    measures['C4_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C4_Restrictions on gatherings'],measures['C4_Flag'])]
+    measures['C5_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C5_Close public transport'],measures['C5_Flag'])]
+    measures['C6_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C6_Stay at home requirements'],measures['C6_Flag'])]
+    measures['C7_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C7_Restrictions on internal movement'],measures['C7_Flag'])]
+    measures['H1_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['H1_Public information campaigns'],measures['H1_Flag'])]
+
+    measures['C1_School closing'] = [int(a and b) for a, b in zip(measures['C1_School closing'] >= 2, measures['C1_Flag'] == 1)]
+
+    measures['C2_Workplace closing'] = [int(a and b) for a, b in zip(measures['C2_Workplace closing'] >= 2, measures['C2_Flag'] == 1)]
+
+    measures['C3_Cancel public events'] = [int(a and b) for a, b in zip(measures['C3_Cancel public events'] >= 2, measures['C3_Flag'] == 1)]
+
+    measures['C4_Restrictions on gatherings'] = [int(a and b) for a, b in zip(measures['C4_Restrictions on gatherings'] >= 1, measures['C4_Flag'] == 1)]
+
+    measures['C5_Close public transport'] = [int(a and b) for a, b in zip(measures['C5_Close public transport'] >= 2, measures['C5_Flag'] == 1)]
+
+    measures['C6_Stay at home requirements'] = [int(a and b) for a, b in zip(measures['C6_Stay at home requirements'] >= 2, measures['C6_Flag'] == 1)]
+
+    measures['C7_Restrictions on internal movement'] = [int(a and b) for a, b in zip(measures['C7_Restrictions on internal movement'] >= 2, measures['C7_Flag'] == 1)]
+
+    measures['C8_International travel controls'] = [int(a) for a in (measures['C8_International travel controls'] >= 3)]
+
+    measures['H1_Public information campaigns'] = [int(a and b) for a, b in zip(measures['H1_Public information campaigns'] >= 1, measures['H1_Flag'] == 1)]
+
 
 
     measures['C1_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C1_School closing'],measures['C1_Flag'])]
@@ -917,9 +991,13 @@ def get_normalized_policy_shifts_and_current_policy_us_only(
     )
     params_dic = {}
     for state in states_set:
-        params_dic[state] = pastparameters_copy.query('Province == @state')[
-            ['Data Start Date', 'Median Day of Action', 'Rate of Action']
-        ].iloc[0]
+        try:
+            params_dic[state] = pastparameters_copy.query('Province == @state')[
+                ['Data Start Date', 'Median Day of Action', 'Rate of Action']
+            ].iloc[0]
+        except IndexError:
+            print(f"No entry in pastparameters for province/state {state}: can't create current policy entry in dict")
+            continue
 
     policy_data_us_only['Gamma'] = [
         gamma_t(day, state, params_dic) for day, state in
