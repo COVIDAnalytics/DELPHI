@@ -6,24 +6,15 @@ filepaths:
     hamza: /Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/4. COVID19_Global/DELPHI/
     ali: /Users/ali/di/covidanalytics/DELPHI/
     mohammad: /Users/mghane/Documents/Dynamic Ideas/Johnson and Johnson/Delphi/JJ Codes/DELPHI/
-<<<<<<< HEAD
     server: /home/dimitris/dynamic/covid/DELPHI/
-=======
-    server: /repos/DELPHI/
->>>>>>> aa51165c15d32f480108ff6be940d84fa66c3293
   data_sandbox:
     omar: C:/Users/omars/Desktop/covid19_dimitris/DELPHI/data_sandbox/
     michael: I:/DELPHI/data_sandbox/
     michael2: E:/Github/DELPHI/data_sandbox/
     hamza: /Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/4. COVID19_Global/DELPHI/data_sandbox/
     ali: /Users/ali/di/covidanalytics/DELPHI/data_sandbox/
-<<<<<<< HEAD
     mohammad: /Users/mghane/Documents/Dynamic Ideas/Johnson and Johnson/Delphi/JJ Codes/DELPHI/data_sandbox/
     server: /home/dimitris/dynamic/covid/DELPHI/data_sandbox/
-=======
-    server: /repos/DELPHI/data_sandbox/
-    mohammad: /Users/mghane/Documents/Dynamic Ideas/Johnson and Johnson/Delphi/JJ Codes/DELPHI/data_sandbox/
->>>>>>> aa51165c15d32f480108ff6be940d84fa66c3293
   danger_map:
     omar: C:/Users/omars/Desktop/covid19_dimitris/covid19orc/danger_map/
     michael: I:/covid19orc/danger_map/
@@ -31,20 +22,12 @@ filepaths:
     hamza: /Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/4. COVID19_Global/covid19orc/danger_map/
     ali: /Users/ali/di/covidanalytics/covid19orc/danger_map/
     mohammad: /Users/mghane/Documents/Dynamic Ideas/Johnson and Johnson/Delphi/covid19orc/danger_map/
-<<<<<<< HEAD
     server: /home/dimitris/dynamic/covid/covid19orc/danger_map/
-=======
-    server: /repos/covid19orc/danger_map/
->>>>>>> aa51165c15d32f480108ff6be940d84fa66c3293
   website:
     omar: C:/Users/omars/Desktop/covid19_dimitris/website/
     michael: I:/website/
     michael2:  E:/Github/website/
     hamza: /Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/4. COVID19_Global/website/
     ali: /Users/ali/di/covidanalytics/website/
-<<<<<<< HEAD
     mohammad: /Users/mghane/Documents/Dynamic Ideas/Johnson and Johnson/Delphi/website/
     server: /home/dimitris/dynamic/covid/website/
-=======
-    mohammad: /Users/mghane/Documents/Dynamic Ideas/Johnson and Johnson/Delphi/website/
->>>>>>> aa51165c15d32f480108ff6be940d84fa66c3293
