@@ -26,7 +26,7 @@ with open("config.yml", "r") as ymlfile:
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "server"
 training_start_date = datetime(2020, 7, 9)
-training_end_date = datetime(2020, 7, 26)
+training_end_date = datetime(2020, 7, 14)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_train = (training_last_date - training_start_date).days
@@ -57,7 +57,7 @@ def solve_and_predict_area_additional_states(
     # if province_sub == "Michoacan" and country_sub == "Peru":
     #     continue
     #TODO russia is removed since there is no new data
-    if country_sub not in ["US", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
+    if country_sub not in ["Mexico"]:
         return None
     elif country_sub == "US":
         if province_sub not in [
@@ -115,20 +115,20 @@ def solve_and_predict_area_additional_states(
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = parameter_list
                 parameter_list = (
-                    max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.01), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
-                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
-                )                
-                param_list_lower = [x - max(0.2 * abs(x), 0.2) for x in parameter_list]
+                    max(alpha, 0), days, max(min(r_s, 10), 0), max(min(r_dth, 1), 0.01), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                    max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
+                )
+                param_list_lower = [x - max(1 * abs(x), 1) for x in parameter_list]
                 alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
                 param_list_lower = [
-                    max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.01), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
-                         max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 0)
+                    max(alpha_l, 0), days_l, max(min(r_s_l, 10), 0), max(min(r_dth_l, 1), 0.01), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
+                    max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 0)
                 ]
-                param_list_upper = [x +  max(0.2 * abs(x), 0.2) for x in parameter_list]
+                param_list_upper = [x +  max(1 * abs(x), 1) for x in parameter_list]
                 alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
                 param_list_upper = [
-                    max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.01), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
-                         max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 0)
+                    max(alpha_u, 0), days_u, max(min(r_s_u,10), 0), max(min(r_dth_u, 1), 0.01), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
+                    max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 0)
                 ]
                 bounds_params = [
                     (lower, upper)

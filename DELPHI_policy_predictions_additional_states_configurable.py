@@ -109,6 +109,9 @@ dict_normalized_policy_gamma_countries = {
 
 # Reading the policy changes in the future for J&J
 df_policy_changes = pd.read_csv(PATH_TO_DATA_SANDBOX + "processed/Policy_Changes_J&J.csv")
+# df_policy_changes.policy_1 = "Lockdown"
+# df_policy_changes.policy_2 = "Restrict_Mass_Gatherings_and_Schools"
+# df_policy_changes.policy_3 = "Lockdown"
 
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today_scenarios = []
