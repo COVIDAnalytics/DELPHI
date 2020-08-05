@@ -25,7 +25,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "server"
-training_start_date = datetime(2020, 7, 9)
+training_start_date = datetime(2020, 7, 1)
 training_end_date = datetime(2020, 7, 14)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
@@ -57,7 +57,7 @@ def solve_and_predict_area_additional_states(
     # if province_sub == "Michoacan" and country_sub == "Peru":
     #     continue
     #TODO russia is removed since there is no new data
-    if country_sub not in ["Mexico"]:
+    if country_sub not in ["Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
         return None
     elif country_sub == "US":
         if province_sub not in [
@@ -73,7 +73,7 @@ def solve_and_predict_area_additional_states(
              'Washington_Arlington_Alexandria'
         ]:
             return None
-    elif country_sub in ["Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru"]:
+    elif country_sub in ["Argentina", "Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru"]:
         if province_sub == "None":
             return None
 
