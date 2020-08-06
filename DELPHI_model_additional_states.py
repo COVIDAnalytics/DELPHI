@@ -25,8 +25,8 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "server"
-training_start_date = datetime(2020, 7, 1)
-training_end_date = datetime(2020, 7, 14)
+training_start_date = datetime(2020, 7, 9)
+training_end_date = datetime(2020, 8, 4)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_train = (training_last_date - training_start_date).days
@@ -52,28 +52,21 @@ def solve_and_predict_area_additional_states(
     continent, country, province = tuple_area_
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
+    us_city_names = pd.read_csv(
+        PATH_TO_DATA_SANDBOX + f"processed/US_cities.csv"
+    )
+
     # if province_sub not in ["Michoacan"]:
     #     continue
     # if province_sub == "Michoacan" and country_sub == "Peru":
     #     continue
     #TODO russia is removed since there is no new data
-    if country_sub not in ["Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
+    if country_sub not in ["Argentina", "Brazil", "Chile", "Colombia", "US", "South_Africa", "Mexico", "Peru", "Italy", "Spain"]: #["Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
         return None
     elif country_sub == "US":
-        if province_sub not in [
-             'Atlanta_Sandy_Springs_Alpharetta', 'Austin_Round_Rock_Georgetown', 'Baltimore_Columbia_Towson',
-             'Birmingham_Hoover', 'Boston_Cambridge_Newton', 'Chicago_Naperville_Elgin', 'Cincinnati',
-             'Cleveland_Elyria', 'Columbus', 'Dallas_Fort_Worth_Arlington', 'Detroit_Warren_Dearborn',
-             'Durham_Chapel_Hill', 'Houston_The_Woodlands_Sugar_Land', 'Knoxville', 'Las_Vegas_Henderson_Paradise',
-             'Los_Angeles_Long_Beach_Orange_County', 'Miami_Fort_Lauderdale_Pompano_Beach', 'Minneapolis',
-             'Mobile', 'Nashville_Davidson_Murfreesboro_Franklin', 'New_Haven_Milford', 'New_Orleans_Metairie',
-             'New_York_Newark_Jersey_City', 'Omaha_Council_Bluffs', 'Orlando_Kissimmee_Sanford',
-             'Philadelphia_Camden_Wilmington', 'Phoenix', 'Pittsburgh', 'Rochester',  'San_Diego_Chula_Vista_Carlsbad',
-             'San_Jose_Sunnyvale_Santa_Clara', 'Seattle_Tacoma_Bellevue', 'Sioux_Falls', 'St._Louis', 'Tucson',
-             'Washington_Arlington_Alexandria'
-        ]:
+        if province_sub not in us_city_names.Province.values:
             return None
-    elif country_sub in ["Argentina", "Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru"]:
+    elif country_sub in ["Argentina", "Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru", "Italy", "Spain"]:
         if province_sub == "None":
             return None
 
