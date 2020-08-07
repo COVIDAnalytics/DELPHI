@@ -153,3 +153,23 @@ provinces_Colombia =[
                      'San Andres y Providencia', 'Santander', 'Sucre', 'Tolima',
                      'Valle del Cauca', 'Vaupes', 'Vichada'
 ]
+
+provinces_Spain = ['Andalucía', 'Aragón', 'Asturias', 'Cantabria', 'Ceuta',
+     'Castilla y León', 'Castilla-La Mancha', 'Islas Canarias',
+     'Cataluña', 'Extremadura', 'Galicia', 'Islas Baleares',
+     'Region de Murcia', 'Comunidad de Madrid', 'Melilla', 'Navarra',
+     'País Vasco', 'La Rioja', 'Comunidad Valenciana']
+
+provinces_Argentina =['Salta', 'Buenos Aires Province', 'City of Buenos Aires',
+    'San Luis', 'Entre Ríos', 'La Rioja', 'Santiago del Estero',
+    'Chaco', 'San Juan', 'Catamarca', 'La Pampa', 'Mendoza',
+    'Misiones', 'Formosa', 'Neuquén', 'Río Negro', 'Santa Fe',
+    'Tucumán', 'Chubut', 'Tierra del Fuego', 'Corrientes', 'Córdoba',
+    'Jujuy', 'Santa Cruz']
+
+provinces_Italy =[
+    'Piedmont', 'Aosta Valley', 'Lombardy', 'Veneto',
+    'Friuli Venezia Giulia', 'Liguria', 'Emilia-Romagna', 'Tuscany',
+    'Umbria', 'Marche', 'Lazio', 'Abruzzo', 'Molise', 'Campania',
+    'Apulia', 'Basilicata', 'Calabria', 'Sicily', 'Sardinia',
+    'South Tyrol', 'Trentino-Alto Adige']

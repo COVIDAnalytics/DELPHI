@@ -6,7 +6,7 @@ from copy import deepcopy
 from itertools import compress
 from DELPHI_params import (future_policies, provinces_Brazil,
                            provinces_Peru, provinces_South_Africa,provinces_Russia,provinces_Chile,
-                           provinces_Mexico,provinces_Colombia)
+                           provinces_Mexico,provinces_Colombia, provinces_Argentina, provinces_Italy, provinces_Spain)
 from DELPHI_utils import (check_us_policy_data_consistency, create_features_from_ihme_dates,
                           create_final_policy_features_us)
 
@@ -530,6 +530,30 @@ def read_measures_oxford_data_jj_version():
     output = output.loc[:, ['country', 'province', 'date'] + msr]
 
     # Adding provinces for South Africa, Brazil, Peru
+    # Italy
+    outputs_provinces_Italy = []
+    for province in provinces_Italy:
+        temp = output[output.country == "Italy"]
+        temp.loc[:, "province"] = province
+        outputs_provinces_Italy.append(temp)
+    outputs_provinces_Italy = pd.concat(outputs_provinces_Italy).reset_index(drop=True)
+
+    # Spain
+    outputs_provinces_Spain = []
+    for province in provinces_Spain:
+        temp = output[output.country == "Spain"]
+        temp.loc[:, "province"] = province
+        outputs_provinces_Spain.append(temp)
+    outputs_provinces_Spain = pd.concat(outputs_provinces_Spain).reset_index(drop=True)
+
+    # Argentina
+    outputs_provinces_Argentina = []
+    for province in provinces_Argentina:
+        temp = output[output.country == "Argentina"]
+        temp.loc[:, "province"] = province
+        outputs_provinces_Argentina.append(temp)
+    outputs_provinces_Argentina = pd.concat(outputs_provinces_Argentina).reset_index(drop=True)
+
     # Colombia
     outputs_provinces_Colombia = []
     for province in provinces_Colombia:
@@ -585,7 +609,8 @@ def read_measures_oxford_data_jj_version():
 
     output = pd.concat([
         output, outputs_provinces_Brazil, outputs_provinces_South_Africa, outputs_provinces_Peru,
-        outputs_provinces_Russia, outputs_provinces_Chile, outputs_provinces_Mexico, outputs_provinces_Colombia
+        outputs_provinces_Russia, outputs_provinces_Chile, outputs_provinces_Mexico, outputs_provinces_Colombia,
+        outputs_provinces_Argentina, outputs_provinces_Spain, outputs_provinces_Italy
     ]).sort_values(["country", "province", "date"]).reset_index(drop=True)
     return output
 
