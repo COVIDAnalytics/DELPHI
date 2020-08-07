@@ -9,7 +9,7 @@ import time
 from functools import partial
 from tqdm import tqdm_notebook as tqdm
 from scipy.optimize import dual_annealing
-from DELPHI_utils_V3 import (
+from DELPHI_utils_V3_annealing import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
 from DELPHI_params_V3 import (
@@ -65,7 +65,7 @@ def solve_and_predict_area(
                 param_list_lower[8] = 0
                 param_list_upper[8] = 5
                 param_list_lower[10] = 1
-                param_list_upper[10] = 20
+                param_list_upper[10] = 50
                 bounds_params = [(lower, upper)
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
@@ -326,7 +326,7 @@ if __name__ == "__main__":
     n_cpu = 6
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-    list_tuples = [x for x in list_tuples if x[1] == "Spain"]
+    list_tuples = [x for x in list_tuples]
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(

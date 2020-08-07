@@ -62,20 +62,20 @@ def solve_and_predict_area(
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = parameter_list
                 parameter_list = (
-                    max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.01), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
-                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
+                    max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
                 )                
                 param_list_lower = [x - max(0.2 * abs(x), 0.2) for x in parameter_list]
                 alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
                 param_list_lower = [
-                    max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.01), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
-                         max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 0)
+                    max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.02), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
+                         max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 1)
                 ]
                 param_list_upper = [x +  max(0.2 * abs(x), 0.2) for x in parameter_list]
                 alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
                 param_list_upper = [
-                    max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.01), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
-                         max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 0)
+                    max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.02), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
+                         max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 1)
                 ]
                 bounds_params = [(lower, upper)
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
@@ -207,8 +207,8 @@ def solve_and_predict_area(
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = params
                 params = (
-                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
-                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
+                    max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
                 )
                 x_0_cases = get_initial_conditions(
                     params_fitted=params,
@@ -266,8 +266,8 @@ def solve_and_predict_area(
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = optimal_params
                 optimal_params = [
-                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
-                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
+                    max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
                 ]
                 x_0_cases = get_initial_conditions(
                     params_fitted=optimal_params,
@@ -344,7 +344,7 @@ if __name__ == "__main__":
     n_cpu = 6
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-#    list_tuples = [x for x in list_tuples if x[1] == "US"]
+    list_tuples = [x for x in list_tuples if x[1] == "US"]
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(
