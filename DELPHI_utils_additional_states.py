@@ -6,7 +6,7 @@ from copy import deepcopy
 from itertools import compress
 from DELPHI_params import (future_policies, provinces_Brazil,
                            provinces_Peru, provinces_South_Africa,provinces_Russia,provinces_Chile,
-                           provinces_Mexico,provinces_Colombia, provinces_Argentina, provinces_Italy, provinces_Spain)
+                           provinces_Mexico,provinces_Colombia, provinces_Argentina, provinces_Italy, provinces_Spain, city_policies)
 from DELPHI_utils import (check_us_policy_data_consistency, create_features_from_ihme_dates,
                           create_final_policy_features_us)
 
@@ -60,7 +60,7 @@ def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFram
     df_policies_US_final_Chicago = df_policies_US_final[
         df_policies_US_final.province == "Illinois"
     ]
-    df_policies_US_final_Chicago.province.replace({"Illinois": "Chicago_Naperville_Elgin"}, inplace=True)
+    df_policies_US_final_Chicago.province.replace({"Illinois": "Chicago_Naperville_Elgin_IL_IN_WI"}, inplace=True)
     #df_policies_US_final_Detroit = df_policies_US_final[
     #    df_policies_US_final.province == "Michigan"
     #]
@@ -68,241 +68,257 @@ def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFram
     df_policies_US_final_NYC = df_policies_US_final[
         df_policies_US_final.province == "New York"
     ]
-    df_policies_US_final_NYC.province.replace({"New York": "New_York_Newark_Jersey_City"}, inplace=True)
+    df_policies_US_final_NYC.province.replace({"New York": "New_York_Newark_Jersey_City_New_Brunswick_Lakewood_NY_NJ"}, inplace=True)
     df_policies_US_final_Birmingham_Hoover = df_policies_US_final[
         df_policies_US_final.province == "Alabama"
     ]
-    df_policies_US_final_Birmingham_Hoover.province.replace({"Alabama": "Birmingham_Hoover"}, inplace=True)
+    df_policies_US_final_Birmingham_Hoover.province.replace({"Alabama": "Birmingham_Hoover_AL"}, inplace=True)
 
     df_policies_US_final_Detroit_Warren_Dearborn = df_policies_US_final[
         df_policies_US_final.province == "Michigan"
         ]
-    df_policies_US_final_Detroit_Warren_Dearborn.province.replace({"Michigan": "Detroit_Warren_Dearborn"}, inplace=True)
+    df_policies_US_final_Detroit_Warren_Dearborn.province.replace({"Michigan": "Detroit_Warren_Dearborn_Ann_Arbor_MI"}, inplace=True)
 
     df_policies_US_final_New_Haven_Milford = df_policies_US_final[
         df_policies_US_final.province == "Connecticut"
         ]
-    df_policies_US_final_New_Haven_Milford.province.replace({"Connecticut": "New_Haven_Milford"}, inplace=True)
+    df_policies_US_final_New_Haven_Milford.province.replace({"Connecticut": "New_Haven_Milford_CT"}, inplace=True)
 
     df_policies_US_final_Los_Angeles_Long_Beach_Orange_County = df_policies_US_final[
         df_policies_US_final.province == "California"
         ]
     df_policies_US_final_Los_Angeles_Long_Beach_Orange_County.province.replace(
-        {"California": "Los_Angeles_Long_Beach_Orange_County"}, inplace=True
+        {"California": "Los_Angeles_Long_Beach_Orange_County_CA"}, inplace=True
     )
 
     df_policies_US_final_Nashville_Davidson_Murfreesboro_Franklin = df_policies_US_final[
         df_policies_US_final.province == "Tennessee"
         ]
     df_policies_US_final_Nashville_Davidson_Murfreesboro_Franklin.province.replace(
-        {"Tennessee": "Nashville_Davidson_Murfreesboro_Franklin"}, inplace=True
+        {"Tennessee": "Nashville_Davidson_Murfreesboro_Franklin_TN"}, inplace=True
     )
 
     df_policies_US_final_Washington_Arlington_Alexandria = df_policies_US_final[
         df_policies_US_final.province == "Maryland"
     ]
     df_policies_US_final_Washington_Arlington_Alexandria.province.replace(
-        {"Maryland": "Washington_Arlington_Alexandria"}, inplace=True
+        {"Maryland": "Washington_Arlington_Alexandria_DC_VA_MD_WV"}, inplace=True
     )
 
     df_policies_US_final_Columbus = df_policies_US_final[
         df_policies_US_final.province == "Ohio"
     ]
     df_policies_US_final_Columbus.province.replace(
-        {"Ohio": "Columbus"}, inplace=True
+        {"Ohio": "Columbus_OH"}, inplace=True
     )
 
     df_policies_US_final_Cincinnati = df_policies_US_final[
         df_policies_US_final.province == "Ohio"
     ]
     df_policies_US_final_Cincinnati.province.replace(
-        {"Ohio": "Cincinnati"}, inplace=True
+        {"Ohio": "Cincinnati_OH_KY_IN"}, inplace=True
     )
 
-    df_policies_US_final_Las_Vegas_Henderson_Paradise = df_policies_US_final[
-        df_policies_US_final.province == "California"
-    ]
-    df_policies_US_final_Las_Vegas_Henderson_Paradise.province.replace(
-        {"California": "Las_Vegas_Henderson_Paradise"}, inplace=True
-    )
+    # df_policies_US_final_Las_Vegas_Henderson_Paradise = df_policies_US_final[
+    #     df_policies_US_final.province == "California"
+    # ]
+    # df_policies_US_final_Las_Vegas_Henderson_Paradise.province.replace(
+    #     {"California": "Las Vegas_Henderson_Paradise_NV"}, inplace=True
+    # )
 
     df_policies_US_final_Cleveland_Elyria = df_policies_US_final[
         df_policies_US_final.province == "Ohio"
         ]
     df_policies_US_final_Cleveland_Elyria.province.replace(
-        {"Ohio": "Cleveland_Elyria"}, inplace=True
+        {"Ohio": "Cleveland_Elyria_OH"}, inplace=True
     )
 
     df_policies_US_final_San_Jose_Sunnyvale_Santa_Clara = df_policies_US_final[
         df_policies_US_final.province == "California"
         ]
     df_policies_US_final_San_Jose_Sunnyvale_Santa_Clara.province.replace(
-        {"California": "San_Jose_Sunnyvale_Santa_Clara"}, inplace=True
+        {"California": "San_Jose_Sunnyvale_Santa_Clara_San_Francisco_Oakland_CA"}, inplace=True
     )
 
     df_policies_US_final_Baltimore_Columbia_Towson = df_policies_US_final[
         df_policies_US_final.province == "Maryland"
         ]
     df_policies_US_final_Baltimore_Columbia_Towson.province.replace(
-        {"Maryland": "Baltimore_Columbia_Towson"}, inplace=True
+        {"Maryland": "Baltimore_Columbia_Towson_MD"}, inplace=True
     )
 
-    df_policies_US_final_Knoxville = df_policies_US_final[
-        df_policies_US_final.province == "Tennessee"
+    df_policies_US_final_Tampa = df_policies_US_final[
+        df_policies_US_final.province == "Florida"
         ]
-    df_policies_US_final_Knoxville.province.replace(
-        {"Tennessee": "Knoxville"}, inplace=True
+    df_policies_US_final_Tampa.province.replace(
+        {"Florida": "Tampa_St_Petersburg_Clearwater_FL"}, inplace=True
     )
 
     df_policies_US_final_Philadelphia_Camden_Wilmington = df_policies_US_final[
         df_policies_US_final.province == "Delaware"
         ]
     df_policies_US_final_Philadelphia_Camden_Wilmington.province.replace(
-        {"Delaware": "Philadelphia_Camden_Wilmington"}, inplace=True
+        {"Delaware": "Philadelphia_Camden_Wilmington_PA_NJ_DE_MD"}, inplace=True
     )
 
     df_policies_US_final_Pittsburgh = df_policies_US_final[
         df_policies_US_final.province == "Pennsylvania"
         ]
     df_policies_US_final_Pittsburgh.province.replace(
-        {"Pennsylvania": "Pittsburgh"}, inplace=True
+        {"Pennsylvania": "Pittsburgh_PA"}, inplace=True
     )
 
     df_policies_US_final_San_Diego_Chula_Vista_Carlsbad = df_policies_US_final[
         df_policies_US_final.province == "California"
         ]
     df_policies_US_final_San_Diego_Chula_Vista_Carlsbad.province.replace(
-        {"California": "San_Diego_Chula_Vista_Carlsbad"}, inplace=True
+        {"California": "San_Diego_Chula_Vista_Carlsbad_CA"}, inplace=True
     )
 
     df_policies_US_final_Sioux_Falls = df_policies_US_final[
         df_policies_US_final.province == "South Dakota"
         ]
     df_policies_US_final_Sioux_Falls.province.replace(
-        {"South Dakota": "Sioux_Falls"}, inplace=True
+        {"South Dakota": "Sioux_Falls_SD"}, inplace=True
     )
 
     df_policies_US_final_Minneapolis = df_policies_US_final[
         df_policies_US_final.province == "Minnesota"
         ]
     df_policies_US_final_Minneapolis.province.replace(
-        {"Minnesota": "Minneapolis"}, inplace=True
+        {"Minnesota": "Minneapolis_MN_WI"}, inplace=True
     )
 
     df_policies_US_final_New_Orleans_Metairie = df_policies_US_final[
         df_policies_US_final.province == "Louisiana"
         ]
     df_policies_US_final_New_Orleans_Metairie.province.replace(
-        {"Louisiana": "New_Orleans_Metairie"}, inplace=True
+        {"Louisiana": "New_Orleans_Metairie_LA"}, inplace=True
     )
 
     df_policies_US_final_St_Louis = df_policies_US_final[
         df_policies_US_final.province == "Missouri"
         ]
     df_policies_US_final_St_Louis.province.replace(
-        {"Missouri": "St._Louis"}, inplace=True
+        {"Missouri": "St._Louis_MO_IL"}, inplace=True
     )
 
     df_policies_US_final_Mobile = df_policies_US_final[
         df_policies_US_final.province == "Alabama"
         ]
     df_policies_US_final_Mobile.province.replace(
-        {"Alabama": "Mobile"}, inplace=True
+        {"Alabama": "Mobile_AL"}, inplace=True
     )
 
     df_policies_US_final_Seattle_Tacoma_Bellevue = df_policies_US_final[
         df_policies_US_final.province == "Washington"
         ]
     df_policies_US_final_Seattle_Tacoma_Bellevue.province.replace(
-        {"Washington": "Seattle_Tacoma_Bellevue"}, inplace=True
+        {"Washington": "Seattle_Tacoma_Bellevue_WA"}, inplace=True
     )
 
     df_policies_US_final_Atlanta_Sandy_Springs_Alpharetta = df_policies_US_final[
         df_policies_US_final.province == "Georgia"
         ]
     df_policies_US_final_Atlanta_Sandy_Springs_Alpharetta.province.replace(
-        {"Georgia": "Atlanta_Sandy_Springs_Alpharetta"}, inplace=True
+        {"Georgia": "Atlanta_Sandy_Springs_Alpharetta_GA"}, inplace=True
     )
 
     df_policies_US_final_Omaha_Council_Bluffs = df_policies_US_final[
         df_policies_US_final.province == "Iowa"
         ]
     df_policies_US_final_Omaha_Council_Bluffs.province.replace(
-        {"Iowa": "Omaha_Council_Bluffs"}, inplace=True
+        {"Iowa": "Omaha_Council_Bluffs_NE_IA"}, inplace=True
     )
 
     df_policies_US_final_Boston_Cambridge_Newton = df_policies_US_final[
         df_policies_US_final.province == "Massachusetts"
         ]
     df_policies_US_final_Boston_Cambridge_Newton.province.replace(
-        {"Massachusetts": "Boston_Cambridge_Newton"}, inplace=True
+        {"Massachusetts": "Boston_Cambridge_Newton_MA_NH"}, inplace=True
     )
 
     df_policies_US_final_Rochester = df_policies_US_final[
         df_policies_US_final.province == "New York"
         ]
     df_policies_US_final_Rochester.province.replace(
-        {"New York": "Rochester"}, inplace=True
+        {"New York": "Rochester_NY"}, inplace=True
     )
 
     df_policies_US_final_Durham_Chapel_Hill = df_policies_US_final[
         df_policies_US_final.province == "North Carolina"
         ]
     df_policies_US_final_Durham_Chapel_Hill.province.replace(
-        {"North Carolina": "Durham_Chapel_Hill"}, inplace=True
+        {"North Carolina": "Durham_Chapel_Hill_Raleigh_Cary_NC"}, inplace=True
     )
 
     df_policies_US_final_Orlando_Kissimmee_Sanford = df_policies_US_final[
         df_policies_US_final.province == "Florida"
         ]
     df_policies_US_final_Orlando_Kissimmee_Sanford.province.replace(
-        {"Florida": "Orlando_Kissimmee_Sanford"}, inplace=True
+        {"Florida": "Orlando_Kissimmee_Sanford_FL"}, inplace=True
     )
 
     df_policies_US_final_Phoenix = df_policies_US_final[
         df_policies_US_final.province == "Arizona"
         ]
     df_policies_US_final_Phoenix.province.replace(
-        {"Arizona": "Phoenix"}, inplace=True
+        {"Arizona": "Phoenix_Mesa_AZ"}, inplace=True
     )
 
     df_policies_US_final_Dallas_Fort_Worth_Arlington = df_policies_US_final[
         df_policies_US_final.province == "Texas"
         ]
     df_policies_US_final_Dallas_Fort_Worth_Arlington.province.replace(
-        {"Texas": "Dallas_Fort_Worth_Arlington"}, inplace=True
+        {"Texas": "Dallas_Fort_Worth_Arlington_TX"}, inplace=True
     )
 
     df_policies_US_final_Houston_The_Woodlands_Sugar_Land = df_policies_US_final[
         df_policies_US_final.province == "Texas"
         ]
     df_policies_US_final_Houston_The_Woodlands_Sugar_Land.province.replace(
-        {"Texas": "Houston_The_Woodlands_Sugar_Land"}, inplace=True
+        {"Texas": "Houston_The_Woodlands_Sugar_Land_TX"}, inplace=True
     )
 
     df_policies_US_final_Miami_Fort_Lauderdale_Pompano_Beach = df_policies_US_final[
         df_policies_US_final.province == "Florida"
         ]
     df_policies_US_final_Miami_Fort_Lauderdale_Pompano_Beach.province.replace(
-        {"Florida": "Miami_Fort_Lauderdale_Pompano_Beach"}, inplace=True
+        {"Florida": "Miami_Fort_Lauderdale_Pompano_Beach_FL"}, inplace=True
     )
 
     df_policies_US_final_Tucson = df_policies_US_final[
         df_policies_US_final.province == "Arizona"
         ]
     df_policies_US_final_Tucson.province.replace(
-        {"Arizona": "Tucson"}, inplace=True
+        {"Arizona": "Tucson_AZ"}, inplace=True
     )
 
     df_policies_US_final_Austin_Round_Rock_Georgetown = df_policies_US_final[
         df_policies_US_final.province == "Texas"
         ]
     df_policies_US_final_Austin_Round_Rock_Georgetown.province.replace(
-        {"Texas": "Austin_Round_Rock_Georgetown"}, inplace=True
+        {"Texas": "Austin_Round_Rock_Georgetown_TX"}, inplace=True
     )
+    df_policies_US_final_concat_v2 = df_policies_US_final
+    count = 0
+    for k in city_policies.keys():
+        df_policies_US_final_Temp = df_policies_US_final[
+            df_policies_US_final.province == city_policies[k]
+            ]
+        df_policies_US_final_Temp.province.replace({ city_policies[k]: k}, inplace=True)
+        if count == 0:
+            df_policies_US_final_concat_v2 = pd.concat(
+                [df_policies_US_final] + [df_policies_US_final_Temp]
+            )
+        else:
+            df_policies_US_final_concat_v2 = pd.concat(
+                [df_policies_US_final_concat_v2] + [df_policies_US_final_Temp]
+            )
+        count += 1
 
     df_policies_US_final_concat = pd.concat(
-        [df_policies_US_final] + [
+        [df_policies_US_final_concat_v2] + [
             df_policies_US_final_Chicago, df_policies_US_final_NYC,
             df_policies_US_final_Austin_Round_Rock_Georgetown, df_policies_US_final_Tucson,
             df_policies_US_final_Miami_Fort_Lauderdale_Pompano_Beach, df_policies_US_final_Phoenix,
@@ -311,11 +327,11 @@ def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFram
             df_policies_US_final_Rochester, df_policies_US_final_Boston_Cambridge_Newton,
             df_policies_US_final_Omaha_Council_Bluffs, df_policies_US_final_Atlanta_Sandy_Springs_Alpharetta,
             df_policies_US_final_Seattle_Tacoma_Bellevue, df_policies_US_final_Mobile, df_policies_US_final_St_Louis,
-            df_policies_US_final_New_Orleans_Metairie, df_policies_US_final_Minneapolis, df_policies_US_final_Knoxville,
+            df_policies_US_final_New_Orleans_Metairie, df_policies_US_final_Minneapolis, df_policies_US_final_Tampa,
             df_policies_US_final_Sioux_Falls, df_policies_US_final_San_Diego_Chula_Vista_Carlsbad,
             df_policies_US_final_Pittsburgh, df_policies_US_final_Philadelphia_Camden_Wilmington,
             df_policies_US_final_Baltimore_Columbia_Towson, df_policies_US_final_San_Jose_Sunnyvale_Santa_Clara,
-            df_policies_US_final_Cleveland_Elyria, df_policies_US_final_Las_Vegas_Henderson_Paradise,
+            df_policies_US_final_Cleveland_Elyria,
             df_policies_US_final_Cincinnati, df_policies_US_final_Columbus, df_policies_US_final_New_Haven_Milford,
             df_policies_US_final_Washington_Arlington_Alexandria, df_policies_US_final_Detroit_Warren_Dearborn,
             df_policies_US_final_Nashville_Davidson_Murfreesboro_Franklin, df_policies_US_final_Birmingham_Hoover,

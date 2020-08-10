@@ -209,7 +209,7 @@ def solve_and_predict_area_additional_states(
                 r_rh = np.log(2) / RecoverHD  # Rate of recovery under hospitalization
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
                 gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump * np.exp(
-                    -(t - t_jump) ** 2 / (2 * std_normal ** 2)
+                    -(t - t_jump) ** 2 / (2 * std_normal ** 2 + 1e-5)
                 )
                 p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
                 assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
