@@ -223,15 +223,15 @@ def solve_and_predict_area(
                 ).y
                 weights = list(range(1, len(fitcasesnd) + 1))
                 # weights[-15:] =[x + 50 for x in weights[-15:]]
-                residuals_value = sum(
-                    np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
-                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)) + sum(
-                    np.multiply((x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2, weights[7:])
-                    + balance * balance * np.multiply((x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2, weights[7:])
-                    )
 #                residuals_value = sum(
 #                    np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
-#                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights))
+#                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)) + sum(
+#                    np.multiply((x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2, weights[7:])
+#                    + balance * balance * np.multiply((x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2, weights[7:])
+#                    )
+                residuals_value = sum(
+                    np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
+                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights))
                 return residuals_value
 
             # def last_point(params):
