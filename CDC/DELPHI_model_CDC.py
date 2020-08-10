@@ -59,8 +59,8 @@ def solve_and_predict_area(
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                param_list_lower = [x - 0.1 * abs(x) for x in parameter_list]
-                param_list_upper = [x + 0.1 * abs(x) for x in parameter_list]
+                param_list_lower = [x - 0.2 * abs(x) for x in parameter_list]
+                param_list_upper = [x + 0.2 * abs(x) for x in parameter_list]
                 bounds_params = [(lower, upper)
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
@@ -240,7 +240,7 @@ def solve_and_predict_area(
             )
             best_params = output.x
             t_predictions = [i for i in range(maxT)]
-
+            print(best_params)
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
                 x_0_cases = get_initial_conditions(
@@ -312,7 +312,7 @@ if __name__ == "__main__":
         solve_and_predict_area, yesterday_=yesterday, pastparameters_=pastparameters,
         allowed_deviation_=allowed_deviation
     )
-    n_cpu = 6
+    n_cpu = 4
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
     list_tuples = [x for x in list_tuples if x[1] in ["US"]]
