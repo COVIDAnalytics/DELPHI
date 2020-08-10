@@ -1,4 +1,5 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
+#New comment
 import pandas as pd
 import numpy as np
 import dateutil.parser as dtparser
@@ -18,8 +19,10 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "michael"
-yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+USER_RUNNING = "server"
+today_date = datetime.now()
+
+yesterday = "".join(str(today_date.date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 popcountries = pd.read_csv(
@@ -266,7 +269,7 @@ for continent, country, province in zip(
 
 # Appending parameters, aggregations per country, per continent, and for the world
 # for predictions today & since 100
-today_date_str = "".join(str(datetime.now().date()).split("-"))
+today_date_str = "".join(str(today_date.date()).split("-"))
 df_global_parameters = pd.concat(list_df_global_parameters)
 df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
 df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(

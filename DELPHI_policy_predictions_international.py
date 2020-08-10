@@ -13,21 +13,22 @@ from DELPHI_utils import (
 from DELPHI_params import (
     date_MATHEMATICA, validcases_threshold_policy,
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
-    default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
+    default_maxT_policies, p_v, p_d, p_h, future_policies, future_policies_JJ, future_times, future_times_JJ
 )
 import yaml
-import os
+import os, sys
 import matplotlib.pyplot as plt
-
+arg = sys.argv[1:len(sys.argv)]
+RUNNING_FOR_JJ = arg[0] if len(arg) > 0 else False
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "hamza"
+USER_RUNNING = "server"
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 # TODO: Find a way to make these paths automatic, whoever the user is...
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
-PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 policy_data_countries = read_measures_oxford_data(yesterday)
 policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
@@ -151,9 +152,11 @@ for continent, country, province in zip(
             )
             best_params = parameter_list
             t_predictions = [i for i in range(maxT)]
-            #plt.figure(figsize=(20, 10))
-            for future_policy in future_policies:
-                for future_time in future_times:
+            # plt.figure(figsize=(16, 10))
+            future_policies_data = future_policies_JJ if RUNNING_FOR_JJ else future_policies
+            future_times_data = future_times_JJ if RUNNING_FOR_JJ else future_times
+            for future_policy in future_policies_data:
+                for future_time in future_times_data:
                     def model_covid_predictions(
                             t, x, alpha, days, r_s, r_dth, p_dth, k1, k2
                     ):
@@ -309,6 +312,9 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
-# df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-delphi_data_saver.save_policy_predictions_to_dict_pickle(website=False, local_delphi=False)
+if RUNNING_FOR_JJ:
+    df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
+else:
+    delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True)
+
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")

@@ -13,18 +13,20 @@ from DELPHI_utils_V3 import (
 from DELPHI_params import (
     date_MATHEMATICA, validcases_threshold_policy,
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
-    default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
+    default_maxT_policies, p_v, p_d, p_h, future_policies, future_times, future_policies_JJ, future_times_JJ
 )
 import yaml
-import os
+import os, sys
 #import matplotlib.pyplot as plt
 
 #%%
+arg = sys.argv[1:len(sys.argv)]
+RUNNING_FOR_JJ = arg[0] if len(arg) > 0 else False
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "michael"
+USER_RUNNING = "omar"
 
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -61,22 +63,28 @@ dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
 dict_current_policy_international = dict_current_policy_countries.copy()
 dict_current_policy_international.update(dict_current_policy_us_only)
 
-dict_normalized_policy_gamma_us_only = {'No_Measure': 1.0,
- 'Restrict_Mass_Gatherings': 0.873,
- 'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
- 'Restrict_Mass_Gatherings_and_Schools': 0.479,
- 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
- 'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
- 'Lockdown': 0.239}
+dict_normalized_policy_gamma_us_only = {
+    'No_Measure': 1.0,
+    'Restrict_Mass_Gatherings': 0.873,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
+    'Restrict_Mass_Gatherings_and_Schools': 0.479,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
+    'Lockdown': 0.239,
+    'Resurgence': 1.2,
+}
 
 
-dict_normalized_policy_gamma_countries = {'No_Measure': 1.0,
- 'Restrict_Mass_Gatherings': 0.873,
- 'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
- 'Restrict_Mass_Gatherings_and_Schools': 0.479,
- 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
- 'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
- 'Lockdown': 0.239}
+dict_normalized_policy_gamma_countries = {
+    'No_Measure': 1.0,
+    'Restrict_Mass_Gatherings': 0.873,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
+    'Restrict_Mass_Gatherings_and_Schools': 0.479,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
+    'Lockdown': 0.239,
+    'Resurgence': 1.2,
+}
 
 #%%
 # Initalizing lists of the different dataframes that will be concatenated in the end
@@ -168,8 +176,10 @@ for continent, country, province in zip(
             best_params = parameter_list
             t_predictions = [i for i in range(maxT)]
             #plt.figure(figsize=(20, 10))
-            for future_policy in future_policies:
-                for future_time in future_times:
+            future_policies_data = future_policies_JJ if RUNNING_FOR_JJ == 'True' else future_policies
+            future_times_data = future_times_JJ if RUNNING_FOR_JJ == 'True' else future_times
+            for future_policy in future_policies_data:
+                for future_time in future_times_data:
                     def model_covid_predictions(
                             t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
                     ):
@@ -333,7 +343,10 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
-# df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True, local_delphi=False)
+if RUNNING_FOR_JJ == 'True':
+    print("JJ file is printed")
+    df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
+else:
+    delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True, local_delphi=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
 

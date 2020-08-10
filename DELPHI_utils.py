@@ -8,7 +8,8 @@ from copy import deepcopy
 from itertools import compress
 from sklearn.metrics import mean_squared_error
 from DELPHI_params import (TIME_DICT, MAPPING_STATE_CODE_TO_STATE_NAME, default_policy,
-                           default_policy_enaction_time, future_policies)
+                           default_policy_enaction_time, future_policies, provinces_Brazil,
+                           provinces_Peru, provinces_South_Africa, provinces_Mexico)
 
 
 class DELPHIDataSaver:
@@ -197,7 +198,7 @@ class DELPHIDataCreator:
                   " beta_0, beta_1: code will have to be modified")
         df_parameters = pd.DataFrame({
             "Continent": [self.continent], "Country": [self.country], "Province": [self.province],
-            "Data Start Date": [self.date_day_since100], "MAPE": [mape], "Infection Rate": [self.best_params[0]],
+            "Data Start Date": [str(self.date_day_since100.date())], "MAPE": [mape], "Infection Rate": [self.best_params[0]],
             "Median Day of Action": [self.best_params[1]], "Rate of Action": [self.best_params[2]],
             "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],
             "Internal Parameter 1": [self.best_params[5]], "Internal Parameter 2": [self.best_params[6]],
@@ -478,6 +479,10 @@ class DELPHIAggregations:
 
     @staticmethod
     def append_all_aggregations(df: pd.DataFrame) -> pd.DataFrame:
+        """
+        :return: the predictions df with aggregations (sums) at the country level (if many provinces),
+        at the continent level (if many countries & province in continent) and at the world level
+        """
         df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(df)
         df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(df)
         df_agg_since_today_world = DELPHIAggregations.get_aggregation_world(df)
@@ -929,9 +934,12 @@ def get_normalized_policy_shifts_and_current_policy_us_only(
     )
     params_dic = {}
     for state in states_set:
-        params_dic[state] = pastparameters_copy.query('Province == @state')[
+        df_state = pastparameters_copy.query('Province == @state')[
             ['Data Start Date', 'Median Day of Action', 'Rate of Action']
-        ].iloc[0]
+        ]
+        if df_state.shape[0] == 0:
+            print("State ", state, " does not exist in Parameters_J&J_Global_")
+        params_dic[state] = df_state.iloc[0]
 
     policy_data_us_only['Gamma'] = [
         gamma_t(day, state, params_dic) for day, state in
