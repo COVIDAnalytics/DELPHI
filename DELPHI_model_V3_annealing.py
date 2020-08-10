@@ -326,7 +326,7 @@ if __name__ == "__main__":
     n_cpu = 6
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-    list_tuples = [x for x in list_tuples]
+    list_tuples = [x for x in list_tuples if x[1] == "US"]
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(
