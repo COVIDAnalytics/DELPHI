@@ -29,14 +29,8 @@ future_policies = [
     'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
     'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'
 ]
-default_maxT_policies = datetime(2020, 11, 15)  # Maximum timespan of prediction under different policy scenarios
-future_policies_JJ = [
-    'No_Measure', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
-    'Restrict_Mass_Gatherings_and_Schools', 'Lockdown'
-]
-
+default_maxT_policies = datetime(2021, 4, 1)  # Maximum timespan of prediction under different policy scenarios
 future_times = [0, 7, 14, 28, 42]
-future_times_JJ = [0]
 
 # Additional utils inputs
 TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
@@ -78,98 +72,3 @@ MAPPING_STATE_CODE_TO_STATE_NAME ={
 }
 default_policy = "Lockdown"  # Eventually change to future_policies[-1]
 default_policy_enaction_time = 'Now'  # Eventually change to TIME_DICT[0]
-provinces_Brazil = [
-    'Acre', 'Alagoas', 'Amapa', 'Amazonas', 'Bahia', 'Ceara', 'Distrito Federal', 'Espirito Santo', 'Goias',
-    'Maranhao', 'MatoGrosso', 'MatoGrosso do Sul', 'Minas Gerais', 'Para', 'Paraiba', 'Parana', 'Pernambuco',
-    'Piaui', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondonia', 'Roraima', 'Santa Catarina',
-    'Sao Paulo', 'Sergipe', 'Tocantins', 'Espiritu Santo', 'Mato Grosso', 'Mato Grosso do Sul'
-]
-provinces_Peru = [
-    'Amazonas', 'Ancash', 'Apurimac', 'Arequipa', 'Ayacucho', 'Cajamarca', 'Cusco', 'Callao', 'Huancavelica',
-    'Huanuco', 'Ica', 'Junin', 'La Libertad', 'Lambayeque', 'Lima', 'Loreto', 'Madre de dios', 'Moquegua',
-    'Pasco', 'Piura', 'Puno', 'San Martin', 'Tacna', 'Tumbes', 'Ucayali'
-]
-provinces_South_Africa = [
-    'Eastern Cape', 'Free State', 'Gauteng', 'KwaZulu Natal', 'Limpopo',
-    'Mpumalanga', 'Northern Cape', 'North West', 'Western Cape'
-]
-
-provinces_Russia = ['Altai Republic',
-    'Altayskiy Kray', 'Amursk Oblast', 'Arkhangelsk Oblast',
-    'Astrahan Oblast', 'Belgorod Oblast', 'Briansk Oblast',
-    'Chechen Republic', 'Cheliabinsk Oblast',
-    'Chukotskiy Autonomous Oblast', 'Habarovskiy Kray',
-    'Hanty-Mansiyskiy AO', 'Ingushetia Republic', 'Irkutsk Oblast',
-    'Ivanovo Oblast', 'Jewish Autonomous Oblast', 'Kaliningrad Oblast',
-    'Kaluga Oblast', 'Kamchatskiy Kray', 'Kemerovo Oblast',
-    'Kirov Oblast', 'Komi Republic', 'Kostroma Oblast',
-    'Krasnodarskiy Kray', 'Krasnoyarskiy Kray', 'Kurgan Oblast',
-    'Kursk Oblast', 'Leningradskaya Oblast', 'Lipetsk Oblast',
-    'Magadan Oblast', 'Moscow', 'Moscow Oblast', 'Murmansk Oblast',
-    'Nenetskiy Autonomous Oblast', 'Nizhegorodskaya Oblast',
-    'Novgorod Oblast', 'Novosibirsk Oblast', 'Omsk Oblast',
-    'Orel Oblast', 'Orenburg Oblast', 'Pensa Oblast', 'Perm Oblast',
-    'Primorskiy Kray', 'Pskov Oblast', 'Republic of Adygeia',
-    'Republic of Bashkortostan', 'Republic of Buriatia',
-    'Republic of Chuvashia', 'Republic of Dagestan',
-    'Republic of Hakassia', 'Republic of Kabardino-Balkaria',
-    'Republic of Kalmykia', 'Republic of Karachaevo-Cherkessia',
-    'Republic of Karelia', 'Republic of Mariy El',
-    'Republic of Mordovia', 'Republic of North Osetia-Alania',
-    'Republic of Tatarstan', 'Republic of Tyva',
-    'Republic of Udmurtia', 'Rostov Oblast', 'Ryazan Oblast',
-    'Saha Republic', 'Saint Petersburg', 'Sakhalin Oblast',
-    'Samara Oblast', 'Saratov Oblast', 'Smolensk Oblast',
-    'Stavropolskiy Kray', 'Sverdlov Oblast', 'Tambov Oblast',
-    'Tomsk Oblast', 'Tula Oblast', 'Tumen Oblast', 'Tver Oblast',
-    'Ulianovsk Oblast', 'Vladimir Oblast', 'Volgograd Oblast',
-    'Vologda Oblast', 'Voronezh Oblast', 'Yamalo-Nenetskiy AO',
-    'Yaroslavl Oblast', 'Zabaykalskiy Kray'
-]
-
-provinces_Chile = [
-    'Antofagasta', 'Araucania', 'Arica y Parinacota', 'Atacama',
-     'Aysen', 'Biobio', 'Coquimbo', 'Los Lagos', 'Los Rios',
-     'Magallanes', 'Maule', 'Nuble', "O'Higgins", 'Santiago',
-     'Tarapaca', 'Valparaiso'
-]
-
-provinces_Mexico = [
-    'Aguascalientes', 'Baja California', 'Baja California Sur',
- 'Campeche', 'Chiapas', 'Chihuahua', 'Ciudad de Mexico', 'Coahuila',
- 'Colima', 'Durango', 'Guanajuato', 'Guerrero', 'Hidalgo',
- 'Jalisco', 'Mexico', 'Michoacan', 'Morelos', 'Nayarit',
- 'Nuevo Leon', 'Oaxaca', 'Puebla', 'Queretaro', 'Quintana Roo',
- 'San Luis Potosi', 'Sinaloa', 'Sonora', 'Tabasco', 'Tamaulipas',
- 'Tlaxcala', 'Veracruz', 'Yucatan', 'Zacatecas'
-]
-
-provinces_Colombia =[
-    'Amazonas', 'Antioquia', 'Arauca', 'Atlantico', 'Bogota',
-                     'Bolivar', 'Boyaca', 'Caldas', 'Caqueta', 'Casanare', 'Cauca',
-                     'Cesar', 'Choco', 'Cordoba', 'Cundinamarca', 'Guainia', 'Guaviare',
-                     'Huila', 'La Guajira', 'Magdalena', 'Meta', 'Narino',
-                     'Norte de Santander', 'Putumayo', 'Quindio', 'Risaralda',
-                     'San Andres y Providencia', 'Santander', 'Sucre', 'Tolima',
-                     'Valle del Cauca', 'Vaupes', 'Vichada'
-]
-
-provinces_Spain = ['Andalucía', 'Aragón', 'Asturias', 'Cantabria', 'Ceuta',
-     'Castilla y León', 'Castilla-La Mancha', 'Islas Canarias',
-     'Cataluña', 'Extremadura', 'Galicia', 'Islas Baleares',
-     'Region de Murcia', 'Comunidad de Madrid', 'Melilla', 'Navarra',
-     'País Vasco', 'La Rioja', 'Comunidad Valenciana']
-
-provinces_Argentina =['Salta', 'Buenos Aires Province', 'City of Buenos Aires',
-    'San Luis', 'Entre Ríos', 'La Rioja', 'Santiago del Estero',
-    'Chaco', 'San Juan', 'Catamarca', 'La Pampa', 'Mendoza',
-    'Misiones', 'Formosa', 'Neuquén', 'Río Negro', 'Santa Fe',
-    'Tucumán', 'Chubut', 'Tierra del Fuego', 'Corrientes', 'Córdoba',
-    'Jujuy', 'Santa Cruz']
-
-provinces_Italy =[
-    'Piedmont', 'Aosta Valley', 'Lombardy', 'Veneto',
-    'Friuli Venezia Giulia', 'Liguria', 'Emilia-Romagna', 'Tuscany',
-    'Umbria', 'Marche', 'Lazio', 'Abruzzo', 'Molise', 'Campania',
-    'Apulia', 'Basilicata', 'Calabria', 'Sicily', 'Sardinia',
-    'South Tyrol', 'Trentino-Alto Adige']

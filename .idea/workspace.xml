@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_ventilator_backtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtesting/DELPHI_backtest_utils_ventilator.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="delphi_improvements" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1apWdI8h0Y6cEiw6D43y002fBC0" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backtesting" />
+      <recent name="$PROJECT_DIR$/archive" />
+      <recent name="$PROJECT_DIR$/data_sandbox/predicted_CR_all" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.DELPHI_model_V6_NY_only">
+    <configuration name="DELPHI_Model_V5" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DELPHI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DELPHI_Model_V5.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DELPHI_model_V6_NY_only" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DELPHI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DELPHI_model_V6_NY_only.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.DELPHI_model_V6_NY_only" />
+        <item itemvalue="Python.DELPHI_Model_V5" />
+        <item itemvalue="Python.DELPHI_model_V6_NY_only" />
+        <item itemvalue="Python.DELPHI_Model_V5" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="" />
+      <created>1587433101130</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587433101130</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Querying gamma_t using dictionaries only">
+      <created>1587433652449</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587433652449</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Running code end to end, init at 0 for b_i (i=1:7)">
+      <created>1587505688172</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587505688173</updated>
+    </task>
+    <task id="LOCAL-00003" summary="commenting experimental parameters">
+      <created>1587523035704</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587523035704</updated>
+    </task>
+    <task id="LOCAL-00004" summary="v5 of the code ready to be optimized">
+      <created>1587615094336</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587615094336</updated>
+    </task>
+    <task id="LOCAL-00005" summary="changed names of variables in case of conflicts">
+      <created>1587617823071</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587617823071</updated>
+    </task>
+    <task id="LOCAL-00006" summary="scaling external datasets (mobility and density)">
+      <created>1587623727813</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587623727814</updated>
+    </task>
+    <task id="LOCAL-00007" summary="bug wih district of columbia in pop density">
+      <created>1587624873411</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587624873411</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Running version for alpha varying by state">
+      <created>1587688554279</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587688554280</updated>
+    </task>
+    <task id="LOCAL-00009" summary="new version NY only">
+      <created>1587703945613</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587703945613</updated>
+    </task>
+    <task id="LOCAL-00010" summary="v7 with all free parameters (per state) and mobility data">
+      <created>1587790563849</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587790563850</updated>
+    </task>
+    <task id="LOCAL-00011" summary="v7 with all free parameters (per state) and policy data + renamed files for clarity">
+      <created>1587881088261</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587881088261</updated>
+    </task>
+    <task id="LOCAL-00012" summary="bugfix">
+      <created>1587881162044</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587881162044</updated>
+    </task>
+    <task id="LOCAL-00013" summary="raw data file added">
+      <created>1587882497736</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1587882497737</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements">
+      <created>1587953322216</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587953322216</updated>
+    </task>
+    <task id="LOCAL-00015" summary="New version with arctan working well and binary data for US">
+      <created>1587959374485</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587959374485</updated>
+    </task>
+    <task id="LOCAL-00016" summary="New version working perfectly fine !!!!!!">
+      <created>1588038024482</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1588038024482</updated>
+    </task>
+    <task id="LOCAL-00017" summary="branch with the data updated 27/04/2020">
+      <created>1588124480366</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1588124480366</updated>
+    </task>
+    <task id="LOCAL-00018" summary="consistent folder naming">
+      <created>1588124930869</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1588124930869</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update 3.0+CR 06/11">
+      <created>1592018495397</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1592018495397</updated>
+    </task>
+    <task id="LOCAL-00020" summary="update 3.0+CR 06/12">
+      <created>1592198329816</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1592198329816</updated>
+    </task>
+    <task id="LOCAL-00021" summary="update 3.0+CR 06/13 with multiprocessing (new files for 06/13 + new code)">
+      <created>1592280392023</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1592280392023</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Making sure that postprocessing and saving is consistent between 2.0 and 3.0+CR">
+      <created>1592282399500</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1592282399500</updated>
+    </task>
+    <task id="LOCAL-00023" summary="changed file naming &amp; update CR+3.0 06/15">
+      <created>1592348532303</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1592348532303</updated>
+    </task>
+    <task id="LOCAL-00024" summary="new 2.0+policy backtest &amp; update CR+3.0 06/16">
+      <created>1592450708060</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1592450708060</updated>
+    </task>
+    <task id="LOCAL-00025" summary="update CR+3.0 06/17 -&gt; 06/21 + new backtests with RMSE as well">
+      <created>1592875203013</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1592875203013</updated>
+    </task>
+    <task id="LOCAL-00026" summary="debugged version of the code for michael">
+      <created>1592917754334</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1592917754335</updated>
+    </task>
+    <task id="LOCAL-00027" summary="multiprocessing version of DELPHI_model_V2.py">
+      <created>1593750119597</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1593750119597</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Adding total runtime in the prints">
+      <created>1593750264471</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1593750264471</updated>
+    </task>
+    <task id="LOCAL-00029" summary="reorganizing repository">
+      <created>1594237074617</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1594237074618</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="bug wih district of columbia in pop density" />
+    <MESSAGE value="Running version for alpha varying by state" />
+    <MESSAGE value="new version NY only" />
+    <MESSAGE value="v7 with all free parameters (per state) and mobility data" />
+    <MESSAGE value="v7 with all free parameters (per state) and policy data + renamed files for clarity" />
+    <MESSAGE value="bugfix" />
+    <MESSAGE value="raw data file" />
+    <MESSAGE value="raw data file added" />
+    <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/DELPHI_utils_V6_NY_only.cpython-37.pyc&#10;#&#9;__pycache__/DELPHI_utils_v7_free_params_policies_US.cpython-37.pyc" />
+    <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements" />
+    <MESSAGE value="New version with arctan working well and binary data for US" />
+    <MESSAGE value="New version working perfectly fine !!!!!!" />
+    <MESSAGE value="branch with the data updated 27/04/2020" />
+    <MESSAGE value="consistent folder naming" />
+    <MESSAGE value="update 3.0+CR 06/11" />
+    <MESSAGE value="update 3.0+CR 06/12" />
+    <MESSAGE value="update 3.0+CR 06/13 with multiprocessing (new files for 06/13 + new code)" />
+    <MESSAGE value="Making sure that postprocessing and saving is consistent between 2.0 and 3.0+CR" />
+    <MESSAGE value="changed file naming &amp; update CR+3.0 06/15" />
+    <MESSAGE value="new 2.0+policy backtest &amp; update CR+3.0 06/16" />
+    <MESSAGE value="update CR+3.0 06/17 -&gt; 06/21 + new backtests with RMSE as well" />
+    <MESSAGE value="debugged version of the code for michael" />
+    <MESSAGE value="multiprocessing version of DELPHI_model_V2.py" />
+    <MESSAGE value="Adding total runtime in the prints" />
+    <MESSAGE value="reorganizing repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="reorganizing repository" />
+  </component>
+</project>
