@@ -3,21 +3,6 @@ from datetime import datetime
 
 # Default parameters
 date_MATHEMATICA = "2020-05-07"  # Transition date from Mathematica to Python
-<<<<<<< HEAD
-
-
-def get_default_parameter_list_and_bounds(validcases: list):
-    default_parameter_list = [
-        1, 0, 2, 0.2, 0.05, 0.2, 3, 3, 0.1, (len(validcases) - 1) - 10, 1
-    ]  # Default parameters for the solver
-    default_bounds_params = [
-        (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25),
-        (0, 0.5), (0.1, 10), (0.1, 10), (0, 5), (0, len(validcases) - 1), (0.1, 5)
-    ]  # Bounds for the solver
-    return default_parameter_list, default_bounds_params
-
-=======
->>>>>>> parent of 8f0d699... Merge branch 'dynideas_v2' into delphi_improvements
 default_parameter_list = [1, 0, 2, 0.2, 0.05, 0.2, 3, 3, 0.1, 3, 1] # Default parameters for the solver
 default_bounds_params = (
                     (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0, 0.5), (0.1, 10), (0.1, 10),(0,5), (0,7),(0.1,5)
