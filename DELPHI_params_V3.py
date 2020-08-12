@@ -15,7 +15,10 @@ def get_default_parameter_list_and_bounds(validcases: list):
     ]  # Bounds for the solver
     return default_parameter_list, default_bounds_params
 
-
+default_parameter_list = [1, 0, 2, 0.2, 0.05, 0.2, 3, 3, 0.1, 3, 1] # Default parameters for the solver
+default_bounds_params = (
+                    (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0, 0.5), (0.1, 10), (0.1, 10),(0,5), (0,7),(0.1,5)
+                ) # Bounds for the solver
 validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
 max_iter = 500  # Maximum number of iterations for the algorithm
