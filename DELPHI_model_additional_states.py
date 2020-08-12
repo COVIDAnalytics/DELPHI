@@ -6,10 +6,11 @@ import time
 from functools import partial
 from scipy.integrate import solve_ivp
 from scipy.optimize import minimize
+from scipy.optimize import dual_annealing
 from tqdm import tqdm_notebook as tqdm
 from datetime import datetime, timedelta
-from DELPHI_utils_V3 import (
-    DELPHIDataCreator, get_initial_conditions, mape
+from DELPHI_utils_V3_annealing import (
+    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
 from DELPHI_params_V3 import (
     get_default_parameter_list_and_bounds, n_cpu_default,
@@ -24,8 +25,8 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "server"
-training_start_date = datetime(2020, 7, 9)
+USER_RUNNING = "ali"
+training_start_date = datetime(2020, 8, 8)
 training_end_date = datetime(2020, 8, 10)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
@@ -119,20 +120,20 @@ def solve_and_predict_area_additional_states(
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = parameter_list
                 parameter_list = (
-                    max(alpha, 0), days, max(min(r_s, 10), 0), max(min(r_dth, 1), 0.01), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
-                    max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
+                    max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                    max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
                 )
-                param_list_lower = [x - max(1 * abs(x), 1) for x in parameter_list]
+                param_list_lower = [x - max(0.5 * abs(x), 0.5) for x in parameter_list]
                 alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
                 param_list_lower = [
-                    max(alpha_l, 0), days_l, max(min(r_s_l, 10), 0), max(min(r_dth_l, 1), 0.01), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
-                    max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 0)
+                    max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.02), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
+                    max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 1)
                 ]
-                param_list_upper = [x +  max(1 * abs(x), 1) for x in parameter_list]
+                param_list_upper = [x +  max(0.5 * abs(x), 0.5) for x in parameter_list]
                 alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
                 param_list_upper = [
-                    max(alpha_u, 0), days_u, max(min(r_s_u,10), 0), max(min(r_dth_u, 1), 0.01), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
-                    max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 0)
+                    max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.02), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
+                    max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 1)
                 ]
                 bounds_params = [
                     (lower, upper)
@@ -275,17 +276,38 @@ def solve_and_predict_area_additional_states(
                 # weights[-15:] =[x + 50 for x in weights[-15:]]
                 residuals_value = sum(
                     np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
-                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
+                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)) + sum(
+                    np.multiply((x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2, weights[7:])
+                    + balance * balance * np.multiply((x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2, weights[7:])
                 )
                 return residuals_value
 
-            output = minimize(
-                residuals_totalcases,
-                parameter_list,
-                method='tnc',  # Can't use Nelder-Mead if I want to put bounds on the params
-                bounds=bounds_params,
-                options={'maxiter': max_iter}
-            )
+            # def last_point(params):
+            #     alpha, days, r_s, r_dth, p_dth, k1, k2 = params
+            #     params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
+            #     x_0_cases = get_initial_conditions(
+            #         params_fitted=params,
+            #         global_params_fixed=GLOBAL_PARAMS_FIXED
+            #     )
+            #     x_sol = solve_ivp(
+            #         fun=model_covid,
+            #         y0=x_0_cases,
+            #         t_span=[t_cases[0], t_cases[-1]],
+            #         t_eval=t_cases,
+            #         args=tuple(params),
+            #     ).y
+            #     return x_sol[14:16,-1]
+            # nlcons = NonlinearConstraint(last_point,
+            #                              [fitcasesd[-1] * (1 - allowed_deviation_), fitcasesnd[-1] * (1 - allowed_deviation_) ],
+            #                              [fitcasesd[-1] * (1 + allowed_deviation_), fitcasesnd[-1] * (1 + allowed_deviation_) ])
+            output = dual_annealing(residuals_totalcases, x0 = parameter_list, bounds = bounds_params)
+            #            output = minimize(
+            #                residuals_totalcases,
+            #                parameter_list,
+            #                method=dual_annealing,  # Can't use Nelder-Mead if I want to put bounds on the params
+            #                bounds=bounds_params,
+            #                options={'maxiter': max_iter}
+            #            )
             best_params = output.x
             t_predictions = [i for i in range(maxT)]
 

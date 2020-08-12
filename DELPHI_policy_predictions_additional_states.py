@@ -25,7 +25,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "ali"
-training_end_date = datetime(2020, 8, 4)
+training_end_date = datetime(2020, 8, 10)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
@@ -129,12 +129,24 @@ for continent, country, province in zip(
     # if province_sub == "Apurimac" and country_sub == "Peru":
     #     continue
     # if country_sub not in ["Brazil", "Mexico", "Russia", "Chile", "Peru", "South Africa", "Colombia"]:
-    if country_sub not in ["US","Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru", "Italy", "Spain"]:
+    if country_sub not in ["Brazil", "Colombia"]:
+        continue
+    elif province_sub not in [ 'Acre',	'Alagoas',	'Goias',
+                               'MatoGrosso',
+                               'MatoGrosso_do_Sul',
+                               'Roraima',
+                               'Santa_Catarina',
+                               'Antioquia',
+                               'Bolivar',
+                               'Cordoba',
+                               'Norte_de_Santander',
+                               'Sucre']:
         continue
 
-    if country_sub == "US":
-        if province_sub not in us_city_names.Province.values:
-            continue
+
+    # if country_sub == "US":
+    #     if province_sub not in us_city_names.Province.values:
+    #         continue
     # if country_sub == "US":
     #     if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
     #                             "Baltimore-Columbia-Towson_Metropolitan", "Washington-Arlington-Alexandria_Metropolitan",
