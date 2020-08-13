@@ -39,7 +39,7 @@ training_end_date = datetime(2020, 8, 10)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_train = (training_last_date - training_start_date).days
-annealing_opt = False
+annealing_opt = True
 replace_already_existing_par = True
 
 def check_cumulative_cases(input_table):
