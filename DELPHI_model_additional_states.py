@@ -9,8 +9,16 @@ from scipy.optimize import minimize
 from scipy.optimize import dual_annealing
 from tqdm import tqdm_notebook as tqdm
 from datetime import datetime, timedelta
+from DELPHI_utils_V3 import DELPHIDataCreator as DELPHIDataCreator_regular
+
+from DELPHI_utils_V3 import (
+    get_initial_conditions, mape
+)
+
+from DELPHI_utils_V3_annealing import DELPHIDataCreator as DELPHIDataCreator_annealing
+
 from DELPHI_utils_V3_annealing import (
-    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
+    DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
 from DELPHI_params_V3 import (
     get_default_parameter_list_and_bounds, n_cpu_default,
@@ -31,7 +39,8 @@ training_end_date = datetime(2020, 8, 10)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_train = (training_last_date - training_start_date).days
-
+annealing_opt = False
+replace_already_existing_par = True
 
 def check_cumulative_cases(input_table):
     correct = True
@@ -70,29 +79,20 @@ def solve_and_predict_area_additional_states(
     elif country_sub in ["Argentina", "Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru", "Italy", "Spain"]:
         if province_sub == "None":
             return None
-        elif province_sub not in [ 'Acre',	'Alagoas',	'Goias',
-                                   'MatoGrosso',
-                                   'MatoGrosso_do_Sul',
-                                   'Roraima',
-                                   'Santa_Catarina',
-                                   'Antioquia',
-                                   'Bolivar',
-                                   'Cordoba',
-                                   'Norte_de_Santander',
-                                   'Sucre']:
+        elif province_sub not in [ 'Goias']:
             return None
 
-    # if current_parameters_ is not None:
-    #     current_parameter = current_parameters_[
-    #         (current_parameters_.Country == country) &
-    #         (current_parameters_.Province == province)
-    #         ].reset_index(drop=True)
-    #     if len(current_parameter) > 0:
-    #         print(
-    #             f"Parameters already exist on {day_after_yesterday_} " +
-    #             f"Continent={continent}, Country={country} and Province={province}"
-    #         )
-    #         return None
+    if current_parameters_ is not None:
+        current_parameter = current_parameters_[
+            (current_parameters_.Country == country) &
+            (current_parameters_.Province == province)
+            ].reset_index(drop=True)
+        if len(current_parameter) > 0 and replace_already_existing_par == False:
+            print(
+                f"Parameters already exist on {day_after_yesterday_} " +
+                f"Continent={continent}, Country={country} and Province={province}"
+            )
+            return None
 
     if os.path.exists(PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"):
         print(country + ", " + province)
@@ -119,22 +119,40 @@ def solve_and_predict_area_additional_states(
                 assert len(parameter_list) == 11, f"Only have {len(parameter_list)} parameters, expected 11 since July8"
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = parameter_list
-                parameter_list = (
-                    max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
-                    max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
-                )
-                param_list_lower = [x - max(0.5 * abs(x), 0.5) for x in parameter_list]
-                alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
-                param_list_lower = [
-                    max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.02), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
-                    max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 1)
-                ]
-                param_list_upper = [x +  max(0.5 * abs(x), 0.5) for x in parameter_list]
-                alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
-                param_list_upper = [
-                    max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.02), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
-                    max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 1)
-                ]
+                if annealing_opt == True:
+                    parameter_list = (
+                        max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                        max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
+                    )
+                    param_list_lower = [x - max(0.5 * abs(x), 0.5) for x in parameter_list]
+                    alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
+                    param_list_lower = [
+                        max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.02), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
+                        max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 1)
+                    ]
+                    param_list_upper = [x +  max(0.5 * abs(x), 0.5) for x in parameter_list]
+                    alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
+                    param_list_upper = [
+                        max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.02), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
+                        max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 1)
+                    ]
+                else:
+                    parameter_list = (
+                        max(alpha, 0), days, max(min(r_s, 10), 0), max(min(r_dth, 1), 0.01), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                        max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
+                    )
+                    param_list_lower = [x - max(1 * abs(x), 1) for x in parameter_list]
+                    alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
+                    param_list_lower = [
+                        max(alpha_l, 0), days_l, max(min(r_s_l, 10), 0), max(min(r_dth_l, 1), 0.01), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
+                        max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 0)
+                    ]
+                    param_list_upper = [x +  max(1 * abs(x), 1) for x in parameter_list]
+                    alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
+                    param_list_upper = [
+                        max(alpha_u, 0), days_u, max(min(r_s_u,10), 0), max(min(r_dth_u, 1), 0.01), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
+                        max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 0)
+                    ]
                 bounds_params = [
                     (lower, upper)
                      for lower, upper in zip(param_list_lower, param_list_upper)
@@ -274,40 +292,31 @@ def solve_and_predict_area_additional_states(
                 ).y
                 weights = list(range(1, len(fitcasesnd) + 1))
                 # weights[-15:] =[x + 50 for x in weights[-15:]]
-                residuals_value = sum(
-                    np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
-                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)) + sum(
-                    np.multiply((x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2, weights[7:])
-                    + balance * balance * np.multiply((x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2, weights[7:])
-                )
+                if annealing_opt == True:
+                    residuals_value = sum(
+                        np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
+                        + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)) + sum(
+                        np.multiply((x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2, weights[7:])
+                        + balance * balance * np.multiply((x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2, weights[7:])
+                    )
+                else:
+                    residuals_value = sum(
+                        np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
+                        + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
+                    )
                 return residuals_value
 
-            # def last_point(params):
-            #     alpha, days, r_s, r_dth, p_dth, k1, k2 = params
-            #     params = max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(k1, 0), max(k2, 0)
-            #     x_0_cases = get_initial_conditions(
-            #         params_fitted=params,
-            #         global_params_fixed=GLOBAL_PARAMS_FIXED
-            #     )
-            #     x_sol = solve_ivp(
-            #         fun=model_covid,
-            #         y0=x_0_cases,
-            #         t_span=[t_cases[0], t_cases[-1]],
-            #         t_eval=t_cases,
-            #         args=tuple(params),
-            #     ).y
-            #     return x_sol[14:16,-1]
-            # nlcons = NonlinearConstraint(last_point,
-            #                              [fitcasesd[-1] * (1 - allowed_deviation_), fitcasesnd[-1] * (1 - allowed_deviation_) ],
-            #                              [fitcasesd[-1] * (1 + allowed_deviation_), fitcasesnd[-1] * (1 + allowed_deviation_) ])
-            output = dual_annealing(residuals_totalcases, x0 = parameter_list, bounds = bounds_params)
-            #            output = minimize(
-            #                residuals_totalcases,
-            #                parameter_list,
-            #                method=dual_annealing,  # Can't use Nelder-Mead if I want to put bounds on the params
-            #                bounds=bounds_params,
-            #                options={'maxiter': max_iter}
-            #            )
+            if annealing_opt == True:
+                output = dual_annealing(residuals_totalcases, x0 = parameter_list, bounds = bounds_params)
+            else:
+                output = minimize(
+                    residuals_totalcases,
+                    parameter_list,
+                    method='tnc',  # Can't use Nelder-Mead if I want to put bounds on the params
+                    bounds=bounds_params,
+                    options={'maxiter': max_iter}
+                )
+
             best_params = output.x
             t_predictions = [i for i in range(maxT)]
 
@@ -327,10 +336,16 @@ def solve_and_predict_area_additional_states(
                 return x_sol_best
 
             x_sol_final = solve_best_params_and_predict(best_params)
-            data_creator = DELPHIDataCreator(
-                x_sol_final=x_sol_final, date_day_since100=date_day_since100, best_params=best_params,
-                continent=continent, country=country, province=province, testing_data_included=False
-            )
+            if annealing_opt == True:
+                data_creator = DELPHIDataCreator_annealing(
+                    x_sol_final=x_sol_final, date_day_since100=date_day_since100, best_params=best_params,
+                    continent=continent, country=country, province=province, testing_data_included=False
+                )
+            else:
+                data_creator = DELPHIDataCreator_regular(
+                    x_sol_final=x_sol_final, date_day_since100=date_day_since100, best_params=best_params,
+                    continent=continent, country=country, province=province, testing_data_included=False
+                )
             # Creating the parameters dataset for this (Continent, Country, Province)
             mape_data = (
                     mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
@@ -425,15 +440,25 @@ for n_days_before in range(n_days_to_train, 0, -1):
 
     if len(list_df_global_parameters) > 0:
         pathToParam = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{day_after_yesterday}.csv"
-        # if path.exists(pathToParam):
-        #     future_params_Brazil_SA_Peru_already_saved = pd.read_csv(pathToParam)
-        #     df_global_parameters = pd.concat(
-        #         [future_params_Brazil_SA_Peru_already_saved] + list_df_global_parameters
-        #     ).reset_index(drop=True)
-        # else:
-        df_global_parameters = pd.concat(
-            list_df_global_parameters
-        ).reset_index(drop=True)
+        if path.exists(pathToParam):
+            future_params_already_saved = pd.read_csv(pathToParam)
+            if replace_already_existing_par == True:
+                df_global_parameters_dataframe = pd.concat(
+                    list_df_global_parameters
+                ).reset_index(drop=True)
+                for ind, row in df_global_parameters_dataframe.iterrows():
+                    future_params_already_saved = future_params_already_saved[ ((future_params_already_saved.Country == row.Country) &
+                                                                                (future_params_already_saved.Province == row.Province)) == False ]
+                    future_params_already_saved = future_params_already_saved.append(row)
+                df_global_parameters = future_params_already_saved.sort_values(["Continent", "Country", "Province"]).reset_index(drop=True)
+            else:
+                df_global_parameters = pd.concat(
+                    [future_params_already_saved] + list_df_global_parameters
+                ).reset_index(drop=True)
+        else:
+            df_global_parameters = pd.concat(
+                list_df_global_parameters
+            ).reset_index(drop=True)
         df_global_parameters.to_csv(pathToParam, index=False)
 
         df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
@@ -442,17 +467,28 @@ for n_days_before in range(n_days_to_train, 0, -1):
         #)
 
         pathToGlobal = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Global_J&J_{day_after_yesterday}.csv"
-        # if path.exists(pathToGlobal):
-        #     # Getting already saved Brazil, South_Africa & Peru predictions
-        #     df_global_predictions_since_100_cases_Brazil_SA_Peru_already_saved = pd.read_csv(pathToGlobal)
-        #     # Concatenating with these South Africa predictions
-        #     df_global_predictions_since_100_cases_all = pd.concat([
-        #         df_global_predictions_since_100_cases_Brazil_SA_Peru_already_saved, df_global_predictions_since_100_cases
-        #     ]).sort_values(["Continent", "Country", "Province", "Day"]).reset_index(drop=True)
-        # else:
-        df_global_predictions_since_100_cases_all = df_global_predictions_since_100_cases.sort_values(
-            ["Continent", "Country", "Province", "Day"]
-        ).reset_index(drop=True)
+        if path.exists(pathToGlobal):
+            # Getting already saved Brazil, South_Africa & Peru predictions
+            df_global_predictions_since_100_cases_already_saved = pd.read_csv(pathToGlobal)
+            # Concatenating with these South Africa predictions
+            if replace_already_existing_par == True:
+                for ind, row in df_global_predictions_since_100_cases.iterrows():
+                    df_global_predictions_since_100_cases_already_saved = \
+                        df_global_predictions_since_100_cases_already_saved[(
+                            (df_global_predictions_since_100_cases_already_saved.Country == row.Country) &
+                             (df_global_predictions_since_100_cases_already_saved.Province == row.Province) &
+                             (df_global_predictions_since_100_cases_already_saved.Day == row.Day)
+                                                                            )== False ]
+                    df_global_predictions_since_100_cases_already_saved = df_global_predictions_since_100_cases_already_saved.append(row)
+                df_global_predictions_since_100_cases_all = df_global_predictions_since_100_cases_already_saved.sort_values(["Continent", "Country", "Province", "Day"]).reset_index(drop=True)
+            else:
+                df_global_predictions_since_100_cases_all = pd.concat([
+                    df_global_predictions_since_100_cases_already_saved, df_global_predictions_since_100_cases
+                ]).sort_values(["Continent", "Country", "Province", "Day"]).reset_index(drop=True)
+        else:
+            df_global_predictions_since_100_cases_all = df_global_predictions_since_100_cases.sort_values(
+                ["Continent", "Country", "Province", "Day"]
+            ).reset_index(drop=True)
         # Saving concatenation
         df_global_predictions_since_100_cases_all.to_csv(pathToGlobal, index=False )
         print(f"Exported parameters and predictions for all states/provinces in J&J Study for {day_after_yesterday}")
