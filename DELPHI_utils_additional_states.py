@@ -6,7 +6,8 @@ from copy import deepcopy
 from itertools import compress
 from DELPHI_params import (future_policies, provinces_Brazil,
                            provinces_Peru, provinces_South_Africa,provinces_Russia,provinces_Chile,
-                           provinces_Mexico,provinces_Colombia, provinces_Argentina, provinces_Italy, provinces_Spain, city_policies)
+                           provinces_Mexico,provinces_Colombia, provinces_Argentina, provinces_Italy, provinces_Spain,
+                           city_policies, list_US_states,MAPPING_STATE_CODE_TO_STATE_NAME)
 from DELPHI_utils import (check_us_policy_data_consistency, create_features_from_ihme_dates,
                           create_final_policy_features_us)
 
@@ -15,19 +16,6 @@ def read_policy_data_us_only_jj_version(filepath_data_sandbox: str):
     policies = [
         "travel_limit", "stay_home", "educational_fac", "any_gathering_restrict",
         "any_business", "all_non-ess_business"
-    ]
-    list_US_states = [
-        'Alabama', 'Alaska', 'Arizona', 'Arkansas',
-        'California', 'Colorado', 'Connecticut', 'Delaware',
-        'District of Columbia', 'Florida', 'Georgia', 'Hawaii', 'Idaho',
-        'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-        'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-        'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada',
-        'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
-        'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon',
-        'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota',
-        'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
-        'West Virginia', 'Wisconsin', 'Wyoming'
     ]
     df = pd.read_csv(filepath_data_sandbox + "10052020_raw_policy_data_US_only.csv")
     df = df[df.location_name.isin(list_US_states)][[
@@ -52,11 +40,12 @@ def read_policy_data_us_only_jj_version(filepath_data_sandbox: str):
     )
     df_policies_US_final = create_final_policy_features_us(df_policies_US=df_policies_US)
     # Adding cities in there
-    df_policies_US_final = create_additional_cities_for_policies_data(df_policies_US_final=df_policies_US_final)
+    df_policies_US_final = create_additional_cities_for_policies_data(df_policies_US_final=df_policies_US_final,
+                                                                      filepath_data_sandbox= filepath_data_sandbox)
     return df_policies_US_final
 
 
-def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFrame) -> pd.DataFrame:
+def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFrame, filepath_data_sandbox: str) -> pd.DataFrame:
     df_policies_US_final_Chicago = df_policies_US_final[
         df_policies_US_final.province == "Illinois"
     ]
@@ -316,6 +305,19 @@ def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFram
                 [df_policies_US_final_concat_v2] + [df_policies_US_final_Temp]
             )
         count += 1
+    us_county_names = pd.read_csv(
+        filepath_data_sandbox + f"processed/US_counties.csv"
+    )
+    for ind, row in us_county_names.iterrows():
+        if row['Province'] not in ['IA_Montgomery_County', 'MN_Cook_County', 'MO_Montgomery_County','AR_Montgomery_County']:
+            state = MAPPING_STATE_CODE_TO_STATE_NAME[row['Province'].split('_')[0]]
+            df_policies_US_final_Temp = df_policies_US_final[
+                df_policies_US_final.province == state
+                ]
+            df_policies_US_final_Temp.province.replace({ state: row['Province']}, inplace=True)
+            df_policies_US_final_concat_v2 = pd.concat(
+                [df_policies_US_final_concat_v2] + [df_policies_US_final_Temp]
+            )
 
     df_policies_US_final_concat = pd.concat(
         [df_policies_US_final_concat_v2] + [
@@ -338,6 +340,10 @@ def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFram
             df_policies_US_final_Los_Angeles_Long_Beach_Orange_County,
         ]
     ).reset_index(drop=True)
+    df_policies_US_final_concat =  df_policies_US_final_concat[
+        (df_policies_US_final_concat['province'].isin(list_US_states)) |
+        (df_policies_US_final_concat['province'].isin(us_county_names.Province))
+    ]
     return df_policies_US_final_concat
 
 

@@ -74,7 +74,7 @@ def solve_and_predict_area_additional_states(
     # if province_sub == "Michoacan" and country_sub == "Peru":
     #     continue
     #TODO russia is removed since there is no new data
-    if country_sub not in ["US","Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]: #["Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
+    if country_sub not in ["US"]: #["Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
         return None
     elif country_sub == "US":
         if province_sub not in us_county_names.Province.values:
@@ -385,10 +385,12 @@ def solve_and_predict_area_additional_states(
 
 
 for n_days_before in range(n_days_to_train, 0, -1):
+    if n_days_before == 1:
+        annealing_opt = True
     yesterday = "".join(str(training_last_date.date() - timedelta(days=n_days_before)).split("-"))
     day_after_yesterday = "".join(str(pd.to_datetime(yesterday).date() + timedelta(days=1)).split("-"))
     print(yesterday, day_after_yesterday)
-    print(f"Predictions with historical data up to {day_after_yesterday}, parameters from {yesterday}")
+    print(f"Predictions with historical data up to {day_after_yesterday}, parameters from {yesterday}, annealing optimization {annealing_opt}")
     PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
     # PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"]["michael"]
     popcountries = pd.read_csv(
