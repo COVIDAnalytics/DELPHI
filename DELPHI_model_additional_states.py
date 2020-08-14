@@ -33,14 +33,14 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "ali"
-training_start_date = datetime(2020, 8, 8)
-training_end_date = datetime(2020, 8, 10)
+USER_RUNNING = "server"
+training_start_date = datetime(2020, 8, 3)
+training_end_date = datetime(2020, 8, 12)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_train = (training_last_date - training_start_date).days
-annealing_opt = True
-replace_already_existing_par = True
+annealing_opt = False
+replace_already_existing_par = False
 
 def check_cumulative_cases(input_table):
     correct = True
@@ -65,22 +65,25 @@ def solve_and_predict_area_additional_states(
     us_city_names = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"processed/US_cities.csv"
     )
+    us_county_names = pd.read_csv(
+        PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
+    )
 
     # if province_sub not in ["Michoacan"]:
     #     continue
     # if province_sub == "Michoacan" and country_sub == "Peru":
     #     continue
     #TODO russia is removed since there is no new data
-    if country_sub not in ["Brazil", "Colombia"]: #["Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
+    if country_sub not in ["US","Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]: #["Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
         return None
     elif country_sub == "US":
-        if province_sub not in us_city_names.Province.values:
+        if province_sub not in us_county_names.Province.values:
             return None
     elif country_sub in ["Argentina", "Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru", "Italy", "Spain"]:
         if province_sub == "None":
             return None
-        elif province_sub not in [ 'Goias']:
-            return None
+        # elif province_sub not in [ 'Goias']:
+        #     return None
 
     if current_parameters_ is not None:
         current_parameter = current_parameters_[

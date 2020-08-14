@@ -19,7 +19,7 @@ def get_default_parameter_list_and_bounds(validcases: list):
 validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
 max_iter = 500  # Maximum number of iterations for the algorithm
-n_cpu_default = 16  # Default number of CPUs used
+n_cpu_default = 64  # Default number of CPUs used
 
 # Initial condition of exposed state and infected state
 IncubeD = 5
