@@ -308,8 +308,14 @@ def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFram
     us_county_names = pd.read_csv(
         filepath_data_sandbox + f"processed/US_counties.csv"
     )
+    ## USE a more smart way to get the date of parameters
+    parameters_20200811 = pd.read_csv(
+        filepath_data_sandbox + f"predicted/parameters/Parameters_J&J_20200811.csv"
+    )
+
     for ind, row in us_county_names.iterrows():
-        if row['Province'] not in ['IA_Montgomery_County', 'MN_Cook_County', 'MO_Montgomery_County','AR_Montgomery_County']:
+        if row['Province'] in parameters_20200811.Province.values: # this is needed since if some cities/counties does not exist
+            # in parameters. it will gives out error. not sure why...
             state = MAPPING_STATE_CODE_TO_STATE_NAME[row['Province'].split('_')[0]]
             df_policies_US_final_Temp = df_policies_US_final[
                 df_policies_US_final.province == state

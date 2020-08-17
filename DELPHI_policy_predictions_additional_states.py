@@ -129,20 +129,20 @@ for continent, country, province in zip(
     us_county_names = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
     )
-    if country_sub not in ["Argentina", "Mexico"]:
+    if country_sub not in ["US"]:
         continue
     # if country_sub not in ["US","Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]: #["Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
     #     continue
-    if province_sub not in [ 'Entre_Ríos',
-                               'La_Rioja',
-                               'Mendoza',
-                               'Tucumán',
-                               'Chihuahua',
-                               'Mexico']:
-        continue
-    # if country_sub == "US":
-    #     if province_sub not in us_county_names.Province.values:
-    #         continue
+    # if province_sub not in [ 'Entre_Ríos',
+    #                            'La_Rioja',
+    #                            'Mendoza',
+    #                            'Tucumán',
+    #                            'Chihuahua',
+    #                            'Mexico']:
+    #     continue
+    if country_sub == "US":
+        if province_sub not in us_county_names.Province.values:
+            continue
     # if country_sub == "US":
     #     if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
     #                             "Baltimore-Columbia-Towson_Metropolitan", "Washington-Arlington-Alexandria_Metropolitan",
