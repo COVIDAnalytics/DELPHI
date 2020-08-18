@@ -25,7 +25,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "ali"
-training_end_date = datetime(2020, 8, 12)
+training_end_date = datetime(2020, 8, 16)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
@@ -129,8 +129,9 @@ for continent, country, province in zip(
     us_county_names = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
     )
-    if country_sub not in ["US"]:
-        continue
+
+    # if country_sub not in ["US"]:
+    #     continue
     # if country_sub not in ["US","Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]: #["Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
     #     continue
     # if province_sub not in [ 'Entre_Ríos',
@@ -140,19 +141,24 @@ for continent, country, province in zip(
     #                            'Chihuahua',
     #                            'Mexico']:
     #     continue
-    if country_sub == "US":
+    # if country_sub == "US":
+    #     if province_sub not in us_county_names.Province.values:
+    #         continue
+
+    ex_us_county_names = pd.read_csv(
+        PATH_TO_DATA_SANDBOX + f"processed/Ex_US_counties.csv"
+    )
+
+    if country_sub not in ["Colombia", "Mexico", "Argentina", "Chile", "Peru", "Brazil"]:
+        continue
+    elif country_sub == "US":
         if province_sub not in us_county_names.Province.values:
             continue
-    # if country_sub == "US":
-    #     if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
-    #                             "Baltimore-Columbia-Towson_Metropolitan", "Washington-Arlington-Alexandria_Metropolitan",
-    #                             "Tucson_Metropolitan","Minneapolis_Metropolitan", "Houston_Metropolitan",
-    #                             "DALLAS-FW-ARLINGTON_Metropolitan"]:
-    #         continue
-        # if province_sub not in ["New-Haven_Metropolitan", "Phoenix_Metropolitan","LA-LB-OC_Metropolitan",
-        #                         "Baltimore-Columbia-Towson_Metropolitan", "Washington-Arlington-Alexandria_Metropolitan",
-        #                         "Tucson_Metropolitan","Minneapolis_Metropolitan", "Houston_Metropolitan",
-        #                         "DALLAS-FW-ARLINGTON_Metropolitan"]:
+    elif country_sub in ["Argentina", "Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru", "Italy", "Spain"]:
+        if province_sub == "None":
+            continue
+        elif province_sub not in ex_us_county_names[ex_us_county_names.Country == country_sub].Province.values:
+            continue
 
     if os.path.exists(
             PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"):

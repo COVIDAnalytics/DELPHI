@@ -346,9 +346,10 @@ def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFram
             df_policies_US_final_Los_Angeles_Long_Beach_Orange_County,
         ]
     ).reset_index(drop=True)
+
     df_policies_US_final_concat =  df_policies_US_final_concat[
-        (df_policies_US_final_concat['province'].isin(list_US_states)) |
-        (df_policies_US_final_concat['province'].isin(us_county_names.Province))
+        (df_policies_US_final_concat['province'].isin(list_US_states))
+        # (df_policies_US_final_concat['province'].isin(us_county_names.Province))
     ]
     return df_policies_US_final_concat
 
@@ -557,6 +558,11 @@ def read_measures_oxford_data_jj_version():
     output['province'] = "None"
     output = output.loc[:, ['country', 'province', 'date'] + msr]
 
+    # counties:
+    ex_us_county_names = pd.read_csv(
+         "data_sandbox/processed/Ex_US_counties.csv"
+    )
+
     # Adding provinces for South Africa, Brazil, Peru
     # Italy
     outputs_provinces_Italy = []
@@ -576,7 +582,7 @@ def read_measures_oxford_data_jj_version():
 
     # Argentina
     outputs_provinces_Argentina = []
-    for province in provinces_Argentina:
+    for province in np.concatenate((provinces_Argentina,ex_us_county_names[ex_us_county_names.Country == 'Argentina'].Province.values)):
         temp = output[output.country == "Argentina"]
         temp.loc[:, "province"] = province
         outputs_provinces_Argentina.append(temp)
@@ -584,7 +590,7 @@ def read_measures_oxford_data_jj_version():
 
     # Colombia
     outputs_provinces_Colombia = []
-    for province in provinces_Colombia:
+    for province in np.concatenate((provinces_Colombia,ex_us_county_names[ex_us_county_names.Country == 'Colombia'].Province.values)):
         temp = output[output.country == "Colombia"]
         temp.loc[:, "province"] = province
         outputs_provinces_Colombia.append(temp)
@@ -592,7 +598,7 @@ def read_measures_oxford_data_jj_version():
 
     # Mexico
     outputs_provinces_Mexico = []
-    for province in provinces_Mexico:
+    for province in np.concatenate((provinces_Mexico,ex_us_county_names[ex_us_county_names.Country == 'Mexico'].Province.values)):
         output_Mexico_temp = output[output.country == "Mexico"]
         output_Mexico_temp.loc[:, "province"] = province
         outputs_provinces_Mexico.append(output_Mexico_temp)
@@ -600,7 +606,7 @@ def read_measures_oxford_data_jj_version():
 
     # Chile
     outputs_provinces_Chile = []
-    for province in provinces_Chile:
+    for province in np.concatenate((provinces_Chile,ex_us_county_names[ex_us_county_names.Country == 'Chile'].Province.values)):
         output_Chile_temp = output[output.country == "Chile"]
         output_Chile_temp.loc[:, "province"] = province
         outputs_provinces_Chile.append(output_Chile_temp)
@@ -615,7 +621,7 @@ def read_measures_oxford_data_jj_version():
     outputs_provinces_Russia = pd.concat(outputs_provinces_Russia).reset_index(drop=True)
     # Brazil
     outputs_provinces_Brazil = []
-    for province in provinces_Brazil:
+    for province in np.concatenate((provinces_Brazil,ex_us_county_names[ex_us_county_names.Country == 'Brazil'].Province.values)):
         output_Brazil_temp = output[output.country == "Brazil"]
         output_Brazil_temp.loc[:, "province"] = province
         outputs_provinces_Brazil.append(output_Brazil_temp)
@@ -629,7 +635,7 @@ def read_measures_oxford_data_jj_version():
     outputs_provinces_South_Africa = pd.concat(outputs_provinces_South_Africa).reset_index(drop=True)
     # Peru
     outputs_provinces_Peru = []
-    for province in provinces_Peru:
+    for province in np.concatenate((provinces_Peru,ex_us_county_names[ex_us_county_names.Country == 'Peru'].Province.values)):
         output_Peru_temp = output[output.country == "Peru"]
         output_Peru_temp.loc[:, "province"] = province
         outputs_provinces_Peru.append(output_Peru_temp)
