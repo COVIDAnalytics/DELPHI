@@ -34,9 +34,9 @@ popcountries = pd.read_csv(
     PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
 )
 popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-
+past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 def solve_and_predict_area(
-        tuple_area_: tuple, yesterday_: str, allowed_deviation_: float, pastparameters_: pd.DataFrame,
+        tuple_area_: tuple, yesterday_: str, allowed_deviation_: float, pastparameters_: pd.DataFrame, past_prediction_date = past_prediction_date
 ):
     time_entering = time.time()
     continent, country, province = tuple_area_
@@ -81,7 +81,7 @@ def solve_and_predict_area(
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 validcases = totalcases[
-                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date >= str(date_day_since100.date())) &
                     (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
 #                parameter_list.insert(5, 0.2)
@@ -99,7 +99,7 @@ def solve_and_predict_area(
                 bounds_params = default_bounds_params
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
                 validcases = totalcases[
-                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date >= str(date_day_since100.date())) &
                     (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         else:
@@ -108,7 +108,7 @@ def solve_and_predict_area(
             bounds_params = default_bounds_params
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
             validcases = totalcases[
-                (totalcases.day_since100 >= 0) &
+                (totalcases.day_since100 >= str(date_day_since100.date())) &
                 (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                 ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         # Now we start the modeling part:
@@ -304,7 +304,7 @@ def solve_and_predict_area(
                 data_creator.create_datasets_predictions()
             )
 #            df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
-#                data_creator.create_datasets_with_confidence_intervals(fitcasesnd, fitcasesd)
+#                data_creator.create_datasets_with_confidence_intervals(fitcasesnd, fitcasesd, past_prediction_file = PATH_TO_FOLDER_DANGER_MAP + + f"predicted/Global/Global_V2_{past_prediction_date}.csv", past_prediction_date = past_prediction_date)
 #            )
             print(
                 f"Finished predicting for Continent={continent}, Country={country} and Province={province} in " +
@@ -344,7 +344,7 @@ if __name__ == "__main__":
     n_cpu = 6
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-    list_tuples = [x for x in list_tuples if x[1] == "US"]
+#    list_tuples = [x for x in list_tuples if x[1] == "US"]
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(
@@ -381,6 +381,9 @@ if __name__ == "__main__":
     df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
         df_global_predictions_since_100_cases
     )
+#    df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
+#        df_global_predictions_since_100_cases, past_prediction_file = PATH_TO_FOLDER_DANGER_MAP + + f"predicted/Global/Global_V2_{past_prediction_date}.csv", past_prediction_date = past_prediction_date
+#    )
     delphi_data_saver = DELPHIDataSaver(
         path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
         path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
