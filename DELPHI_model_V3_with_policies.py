@@ -1,12 +1,11 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
-import dateutil.parser as dtparser
 from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
 from DELPHI_utils_V3 import (
     DELPHIDataCreator, DELPHIDataSaver,
-    get_initial_conditions, mape,
+    get_initial_conditions, compute_mape,
     read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries,
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
 )
@@ -259,14 +258,14 @@ for continent, country, province in zip(
                     )
                     # Creating the parameters dataset for this (Continent, Country, Province)
                     mape_data = (
-                                        mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
-                                        mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
+                                        compute_mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
+                                        compute_mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
                                 ) / 2
                     try:
                         mape_data_2 = (
-                                              mape(fitcasesnd[-15:],
+                                              compute_mape(fitcasesnd[-15:],
                                                    x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
-                                              mape(fitcasesd[-15:],
+                                              compute_mape(fitcasesd[-15:],
                                                    x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
                                       ) / 2
                     except IndexError:
@@ -334,6 +333,6 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
 # df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True, local_delphi=False)
+delphi_data_saver.save_policy_predictions_to_json(website=True, local_delphi=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
 

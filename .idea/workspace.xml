@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="reorganizing repository">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_ventilator_backtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtesting/DELPHI_backtest_utils_ventilator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_annealing.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/V3 - Normal Jump + Trust Solver/DELPHI_model_V3_annealing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_trust.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_params.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_params_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_params_V3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_params_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/V2 - Discrete Jump/DELPHI_params_new.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_policy_predictions_international.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_policy_predictions_international.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_secondwave.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_secondwave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_annealing.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/V3 - Normal Jump + Trust Solver/DELPHI_utils_V3_annealing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_trust.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_secondwave.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_secondwave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/Adaptive Policy Model/DELPHI_model_cr_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Adaptive Policy Model - Continuous Retraining/DELPHI_model_cr_with_policies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/Adaptive Policy Model/DELPHI_policy_predictions_international_with_cr.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Adaptive Policy Model - Continuous Retraining/DELPHI_policy_predictions_international_with_cr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/V1 - No Jump/DELPHI_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/V1 - No Jump/DELPHI_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtesting/DELPHI_backtest_policy_predictions.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtesting/DELPHI_backtest_policy_predictions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/regenerate_policy_change_tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Adaptive Policy Model - Continuous Retraining/regenerate_policy_change_tracking.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,21 +52,27 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dynideas_v2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1apWdI8h0Y6cEiw6D43y002fBC0" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/archive/V3 - Normal Jump + Trust Solver" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/DELPHI_utils_V3_annealing.py" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/archive/V3 - Normal Jump + Trust Solver" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/archive/Adaptive Policy Model - Continuous Retraining" />
+      <recent name="$PROJECT_DIR$/archive/V2 - Discrete Jump" />
+      <recent name="$PROJECT_DIR$/archive/V1 - No Jump" />
+      <recent name="$PROJECT_DIR$/archive/V3 - Normal Jump + Trust Solver" />
       <recent name="$PROJECT_DIR$/backtesting" />
-      <recent name="$PROJECT_DIR$/archive" />
-      <recent name="$PROJECT_DIR$/data_sandbox/predicted_CR_all" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -114,6 +136,7 @@
         <item itemvalue="Python.DELPHI_Model_V5" />
         <item itemvalue="Python.DELPHI_model_V6_NY_only" />
         <item itemvalue="Python.DELPHI_Model_V5" />
+        <item itemvalue="Python.DELPHI_model_V6_NY_only" />
       </list>
     </recent_temporary>
   </component>
@@ -122,7 +145,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="" />
+      <changelist id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="reorganizing repository" />
       <created>1587433101130</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

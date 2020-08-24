@@ -23,13 +23,12 @@ from DELPHI_policies_utils import (
     update_tracking_fitted_params
 )
 from DELPHI_params import (
-    date_MATHEMATICA, validcases_threshold, n_params_without_policy_params,
+    validcases_threshold, n_params_without_policy_params,
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
     default_maxT, p_v, p_d, p_h, future_policies, max_iter
 )
 import yaml
 import os
-import matplotlib.pyplot as plt
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
