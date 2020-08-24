@@ -79,6 +79,8 @@ popcountries["tuple_area"] = list(
 )
 
 # TODO: Docstrings for all functions
+popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
+past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 def solve_and_predict_area(
     tuple_area_: tuple,
     yesterday_: str,
@@ -95,13 +97,9 @@ def solve_and_predict_area(
     continent, country, province = tuple_area_
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    if os.path.exists(
-        PATH_TO_FOLDER_DANGER_MAP
-        + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
-    ):
+    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
         totalcases = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP
-            + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
+            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
         if totalcases.day_since100.max() < 0:
             logging.warning(
@@ -139,7 +137,7 @@ def solve_and_predict_area(
                         x - max(percentage_drift_lower_bound * abs(x), default_lower_bound) for x in parameter_list
                     ]
                     (
-                        alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower, r_dthdecay_lower, 
+                        alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower, r_dthdecay_lower,
                         k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower
                     ) = param_list_lower
                     param_list_lower = [
@@ -194,39 +192,26 @@ def solve_and_predict_area(
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 validcases = totalcases[
                     (totalcases.day_since100 >= 0)
-                    & (
-                        totalcases.date
-                        <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date())
-                    )
+                    & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                 ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
                 bounds_params = tuple(bounds_params)
             else:
                 # Otherwise use established lower/upper bounds
                 parameter_list = default_parameter_list
                 bounds_params = default_bounds_params
-                date_day_since100 = pd.to_datetime(
-                    totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1]
-                )
+                date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
                 validcases = totalcases[
-                    (totalcases.day_since100 >= 0)
-                    & (
-                        totalcases.date
-                        <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date())
-                    )
+                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                 ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         else:
             # Otherwise use established lower/upper bounds
             parameter_list = default_parameter_list
             bounds_params = default_bounds_params
-            date_day_since100 = pd.to_datetime(
-                totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1]
-            )
+            date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
             validcases = totalcases[
-                (totalcases.day_since100 >= 0)
-                & (
-                    totalcases.date
-                    <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date())
-                )
+                (totalcases.day_since100 >= 0) &
+                (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
             ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         # Now we start the modeling part:
         if len(validcases) > validcases_threshold:
@@ -254,9 +239,7 @@ def solve_and_predict_area(
             # Maximum timespan of prediction, defaulted to go to 15/06/2020
             maxT = (default_maxT - date_day_since100).days + 1
             """ Fit on Total Cases """
-            t_cases = (
-                validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
-            )
+            t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
             validcases_death = validcases["death_cnt"].tolist()
             balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
@@ -428,6 +411,7 @@ def solve_and_predict_area(
                     alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = (
                         optimal_params
                     )
+                    # TODO Change default values with dicts
                     optimal_params = [
                         max(alpha, 0),
                         days,
@@ -553,12 +537,8 @@ if __name__ == "__main__":
                 obj_value = obj_value + output.fun
                 # Then we add it to the list of df to be concatenated to update the tracking df
                 list_df_global_parameters.append(df_parameters_cont_country_prov)
-                list_df_global_predictions_since_today.append(
-                    df_predictions_since_today_cont_country_prov
-                )
-                list_df_global_predictions_since_100_cases.append(
-                    df_predictions_since_100_cont_country_prov
-                )
+                list_df_global_predictions_since_today.append(df_predictions_since_today_cont_country_prov)
+                list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
             else:
                 continue
         logging.info("Finished the Multiprocessing for all areas")
@@ -568,11 +548,9 @@ if __name__ == "__main__":
     # Appending parameters, aggregations per country, per continent, and for the world
     # for predictions today & since 100
     today_date_str = "".join(str(datetime.now().date()).split("-"))
-    df_global_parameters = (
-        pd.concat(list_df_global_parameters)
-        .sort_values(["Country", "Province"])
-        .reset_index(drop=True)
-    )
+    df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
+        ["Country", "Province"]
+    ).reset_index(drop=True)
     df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
     df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
         df_global_predictions_since_today
