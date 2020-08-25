@@ -3762,40 +3762,53 @@ North America,US,MN_Fillmore_County,21067
 North America,US,MS_Lowndes_County,58595
 North America,US,AK_Municipality_of_Anchorage,288000
 North America,US,LA_Morehouse_Parish,24874
-South America,Mexico,MX_CMX,8918653
-South America,Mexico,MX_JAL_14039,1460148
-South America,Mexico,MX_NLE_19039,4520329
-South America,Mexico,MX_YUC_31050,892363
-South America,Mexico,MX_OAX_20067,264251
 South America,Argentina,AR_C_002,157932
-South America,Argentina,AR_C_014,225970
-South America,Argentina,AR_C_006,176076
-South America,Chile,CL_RM,7112808
-South America,Peru,PE_LMA,8574974
-South America,Peru,PE_CAL_0101,451260
-South America,Peru,PE_CAL_0102,74851
-South America,Peru,PE_LOR,883510
 South America,Colombia,CO_11_11001,7743955
 South America,Colombia,CO_05_05001,2529403
-South America,Colombia,CO_76_76001,2471474
 South America,Colombia,CO_50_50001,527668
-South America,Colombia,CO_68_68276,267170
+South America,Colombia,CO_76_76001,2471474
 South America,Colombia,CO_08_08001,1274250
+South America,Colombia,CO_68_68276,267170
+South America,Colombia,CO_63_63001,301226
 South America,Colombia,CO_47_47001,515556
-South America,Brazil,BR_BA_292740,2921087
-South America,Brazil,BR_RJ_330350,797435
-South America,Brazil,BR_SP_350550,119243
-South America,Brazil,BR_SP_350950,1164098
-South America,Brazil,BR_RN_240810,877662
-South America,Brazil,BR_RJ_330455,6520266
-South America,Brazil,BR_MS_500270,874210
-South America,Brazil,BR_RS_431690,282123
-South America,Brazil,BR_SP_354340,666323
-South America,Brazil,BR_PB_250190,17594
-South America,Brazil,BR_PR_410690,1879355
-South America,Brazil,BR_SP_355030,12106920
-South America,Brazil,BR_SP_354980,442548
-South America,Brazil,BR_DF_530010,3015268
-South America,Brazil,BR_SP_354880,158024
+South America,Colombia,CO_08_08758,455796
+South America,Mexico,MX_JAL_14039,1460148
+South America,Mexico,MX_NLE_19039,4520329
+South America,Mexico,MX_YUC,2097175
+South America,Mexico,MX_OAX_20067,264251
+South America,Mexico,MX_BCN_02004,1559683
+South America,Peru,PE_CAL_0101,451260
+South America,Peru,PE_CAL_0102,74851
+South America,Peru,PE_LOR_0113,127005
 South America,Brazil,BR_MG_310620,2501576
+South America,Brazil,BR_MS_500270,874210
+South America,Brazil,BR_SP_354340,666323
+South America,Brazil,BR_MT_510340,585367
+South America,Brazil,BR_PR_410690,1879355
+South America,Brazil,BR_PA_150140,1393399
+South America,Brazil,BR_RJ_330350,797435
+South America,Brazil,BR_SP_355030,12106920
+South America,Brazil,BR_RJ_330455,6520266
+South America,Brazil,BR_SP_354980,442548
+South America,Brazil,BR_RN_240810,877662
+South America,Brazil,BR_SP_354880,158024
 South America,Brazil,BR_RS_431490,1484941
+South America,Brazil,BR_SP_350950,1164098
+South America,Brazil,BR_RS_431690,282123
+South America,Brazil,BR_SP_350550,119243
+South America,Brazil,BR_SC_420460,211369
+South America,Brazil,BR_BA_292740,2921087
+South America,South Africa,ZA_NW_DC37,1507505
+South America,South Africa,ZA_NW_DC40,695933
+South America,South Africa,ZA_WC_DC2,787490
+South America,South Africa,ZA_WC_CPT,3740026
+South America,South Africa,ZA_GP_TSH,2921488
+South America,South Africa,ZA_GP_EKU,3178470
+South America,South Africa,ZA_GP_JHB,4434827
+South America,South Africa,ZA_EC_NMA,1152115
+South America,South Africa,ZA_MP_DC31,1308129
+South America,South Africa,ZA_FS_MAN,747431
+South America,South Africa,ZA_LP_DC47,1076840
+South America,South Africa,ZA_KZN_ETH,3442361
+South America,South Africa,ZA_KZN_DC23,668848
+South America,South Africa,ZA_KZN_DC43,461419
