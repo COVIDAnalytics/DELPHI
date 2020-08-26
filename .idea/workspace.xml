@@ -3,25 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="reorganizing repository">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_model_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_annealing.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/V3 - Normal Jump + Trust Solver/DELPHI_model_V3_annealing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_trust.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_params.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_params_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_params_V3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_params_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/V2 - Discrete Jump/DELPHI_params_new.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_policy_predictions_international.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_policy_predictions_international.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_secondwave.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_secondwave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_with_testing_US_only.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Other Analyses/DELPHI_model_with_testing_US_only.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_policies_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Adaptive Policy Model - Continuous Retraining/DELPHI_policies_utils_cr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_policy_predictions_international.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/V1 - No Jump/DELPHI_policy_predictions_international_V1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_postmortem.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Other Analyses/DELPHI_postmortem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_secondwave.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Other Analyses/DELPHI_secondwave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_annealing.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/V3 - Normal Jump + Trust Solver/DELPHI_utils_V3_annealing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_trust.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_secondwave.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_secondwave.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/Adaptive Policy Model/DELPHI_model_cr_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Adaptive Policy Model - Continuous Retraining/DELPHI_model_cr_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/Adaptive Policy Model/DELPHI_policy_predictions_international_with_cr.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Adaptive Policy Model - Continuous Retraining/DELPHI_policy_predictions_international_with_cr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/V1 - No Jump/DELPHI_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/V1 - No Jump/DELPHI_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backtesting/DELPHI_backtest_policy_predictions.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtesting/DELPHI_backtest_policy_predictions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/regenerate_policy_change_tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Adaptive Policy Model - Continuous Retraining/regenerate_policy_change_tracking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Other Analyses/DELPHI_utils_new.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_secondwave.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/Other Analyses/DELPHI_utils_secondwave.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtesting/DELPHI_backtest_scenarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtesting/DELPHI_backtest_scenarios.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtesting/DELPHI_backtest_scenarios_reopening.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtesting/DELPHI_backtest_scenarios_reopening.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,10 +63,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/archive/Adaptive Policy Model - Continuous Retraining" />
-      <recent name="$PROJECT_DIR$/archive/V2 - Discrete Jump" />
       <recent name="$PROJECT_DIR$/archive/V1 - No Jump" />
+      <recent name="$PROJECT_DIR$/archive/Other Analyses" />
+      <recent name="$PROJECT_DIR$/archive/V2 - Discrete Jump" />
       <recent name="$PROJECT_DIR$/archive/V3 - Normal Jump + Trust Solver" />
-      <recent name="$PROJECT_DIR$/backtesting" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -354,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594237074618</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="First layer of refactoring on the DELPHI code">
+      <created>1598274910475</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1598274910475</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -371,7 +372,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bug wih district of columbia in pop density" />
     <MESSAGE value="Running version for alpha varying by state" />
     <MESSAGE value="new version NY only" />
     <MESSAGE value="v7 with all free parameters (per state) and mobility data" />
@@ -396,6 +396,7 @@
     <MESSAGE value="multiprocessing version of DELPHI_model_V2.py" />
     <MESSAGE value="Adding total runtime in the prints" />
     <MESSAGE value="reorganizing repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="reorganizing repository" />
+    <MESSAGE value="First layer of refactoring on the DELPHI code" />
+    <option name="LAST_COMMIT_MESSAGE" value="First layer of refactoring on the DELPHI code" />
   </component>
 </project>

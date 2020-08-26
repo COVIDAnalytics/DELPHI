@@ -9,16 +9,14 @@ from DELPHI_utils_V3 import (
     read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries,
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
 )
-from DELPHI_params import (
+from DELPHI_params_V3 import (
     date_MATHEMATICA, validcases_threshold_policy,
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
     default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
 )
 import yaml
 import os
-#import matplotlib.pyplot as plt
 
-#%%
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
