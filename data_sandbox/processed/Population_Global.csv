@@ -646,6 +646,25 @@ Europe,Italy,Aosta Valley,125666
 Europe,Italy,Abruzzo,1308451
 Europe,Italy,Lazio,5879082
 Europe,Italy,Marche,1522608
+North America,Canada,British Columbia,5110917
+North America,Canada,New Brunswick,779993
+North America,Canada,Yukon,41078
+North America,Canada,Quebec,8537674
+North America,Canada,Manitoba,1377517
+North America,Canada,Ontario,14711827
+North America,Canada,Alberta,4413146
+North America,Canada,Northwest Territories,44904
+North America,Canada,Newfoundland and Labrador,521365
+North America,Canada,Prince Edward Island,158158
+North America,Canada,Saskatchewan,1181666
+Europe,Australia,Tasmania,535500
+Europe,Australia,Australian Capital Territory,428100
+Europe,Australia,Western Australia,2630600
+Europe,Australia,New South Wales,8118000
+Europe,Australia,Victoria,6629900
+Europe,Australia,South Australia,1756500
+Europe,Australia,Northern Territory,245600
+Europe,Australia,Queensland,5115500
 North America,US,MI_Chippewa_County,37349
 North America,US,AR_Little_River_County,12259
 North America,US,ND_Bowman_County,3024
@@ -3772,43 +3791,50 @@ South America,Colombia,CO_68_68276,267170
 South America,Colombia,CO_63_63001,301226
 South America,Colombia,CO_47_47001,515556
 South America,Colombia,CO_08_08758,455796
-South America,Mexico,MX_JAL_14039,1460148
-South America,Mexico,MX_NLE_19039,4520329
-South America,Mexico,MX_YUC,2097175
-South America,Mexico,MX_OAX_20067,264251
-South America,Mexico,MX_BCN_02004,1559683
+South America,Mexico,MX_CMX_09012,1301353
+South America,Mexico,MX_JAL_14039,2990378
+South America,Mexico,MX_CMX_09015,1063662
+South America,Mexico,MX_NLE_19039,2271138
+South America,Mexico,MX_YUC,1961350
+South America,Mexico,MX_OAX_20067,526736
+South America,Mexico,MX_MOR_17007,730388
+South America,Mexico,MX_BCN_02004,3120719
 South America,Peru,PE_CAL_0101,451260
 South America,Peru,PE_CAL_0102,74851
 South America,Peru,PE_LOR_0113,127005
-South America,Brazil,BR_MG_310620,2501576
 South America,Brazil,BR_MS_500270,874210
-South America,Brazil,BR_SP_354340,666323
-South America,Brazil,BR_MT_510340,585367
-South America,Brazil,BR_PR_410690,1879355
-South America,Brazil,BR_PA_150140,1393399
-South America,Brazil,BR_RJ_330350,797435
-South America,Brazil,BR_SP_355030,12106920
-South America,Brazil,BR_RJ_330455,6520266
-South America,Brazil,BR_SP_354980,442548
-South America,Brazil,BR_RN_240810,877662
-South America,Brazil,BR_SP_354880,158024
-South America,Brazil,BR_RS_431490,1484941
-South America,Brazil,BR_SP_350950,1164098
-South America,Brazil,BR_RS_431690,282123
-South America,Brazil,BR_SP_350550,119243
-South America,Brazil,BR_SC_420460,211369
 South America,Brazil,BR_BA_292740,2921087
-South America,South Africa,ZA_NW_DC37,1507505
+South America,Brazil,BR_PR_410690,1879355
+South America,Brazil,BR_SP_350950,1164098
+South America,Brazil,BR_SP_354340,666323
+South America,Brazil,BR_SC_420460,211369
+South America,Brazil,BR_SP_354880,158024
+South America,Brazil,BR_SP_354980,442548
+South America,Brazil,BR_SP_355030,12106920
+South America,Brazil,BR_RS_431690,282123
+South America,Brazil,BR_MG_310620,2501576
+South America,Brazil,BR_RS_431490,1484941
+South America,Brazil,BR_MT_510340,585367
+South America,Brazil,BR_RN_240810,877662
+South America,Brazil,BR_RJ_330455,6520266
+South America,Brazil,BR_RJ_330350,797435
+South America,Brazil,BR_SP_350550,119243
+South America,Brazil,BR_PA_150140,1393399
 South America,South Africa,ZA_NW_DC40,695933
-South America,South Africa,ZA_WC_DC2,787490
+South America,South Africa,ZA_NW_DC37,1507505
 South America,South Africa,ZA_WC_CPT,3740026
-South America,South Africa,ZA_GP_TSH,2921488
+South America,South Africa,ZA_WC_DC2,787490
 South America,South Africa,ZA_GP_EKU,3178470
+South America,South Africa,ZA_GP_TSH,2921488
 South America,South Africa,ZA_GP_JHB,4434827
 South America,South Africa,ZA_EC_NMA,1152115
 South America,South Africa,ZA_MP_DC31,1308129
 South America,South Africa,ZA_FS_MAN,747431
 South America,South Africa,ZA_LP_DC47,1076840
-South America,South Africa,ZA_KZN_ETH,3442361
 South America,South Africa,ZA_KZN_DC23,668848
+South America,South Africa,ZA_KZN_ETH,3442361
 South America,South Africa,ZA_KZN_DC43,461419
+South America,Chile,CL_RM_13101,404495
+South America,Chile,CL_AR_09101,282415
+South America,Chile,CL_ML_07101,220357
+South America,Chile,CL_VS_05109,334248
