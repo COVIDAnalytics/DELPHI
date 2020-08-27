@@ -256,8 +256,8 @@ class DELPHIDataCreator:
 
     def create_df_backtest_performance_tuple(
         self,
-        fitcasesnd,
-        fitcasesd,
+        cases_data_fit,
+        deaths_data_fit,
         testcasesnd,
         testcasesd,
         n_days_fitting,
@@ -265,8 +265,8 @@ class DELPHIDataCreator:
     ):
         """
 
-        :param fitcasesnd:
-        :param fitcasesd:
+        :param cases_data_fit:
+        :param deaths_data_fit:
         :param testcasesnd:
         :param testcasesd:
         :param n_days_fitting:
@@ -275,21 +275,21 @@ class DELPHIDataCreator:
         """
         # Cases Train
         mae_train_nondeath, mape_train_nondeath = compute_mae_and_mape(
-            fitcasesnd, self.x_sol_final[15, : len(fitcasesnd)]
+            cases_data_fit, self.x_sol_final[15, : len(cases_data_fit)]
         )
         mse_train_nondeath = compute_mse(
-            fitcasesnd, self.x_sol_final[15, : len(fitcasesnd)]
+            cases_data_fit, self.x_sol_final[15, : len(cases_data_fit)]
         )
         sign_mape_train_nondeath = compute_sign_mape(
-            fitcasesnd, self.x_sol_final[15, : len(fitcasesnd)]
+            cases_data_fit, self.x_sol_final[15, : len(cases_data_fit)]
         )
         # Deaths Train
         mae_train_death, mape_train_death = compute_mae_and_mape(
-            fitcasesd, self.x_sol_final[14, : len(fitcasesd)]
+            deaths_data_fit, self.x_sol_final[14, : len(deaths_data_fit)]
         )
-        mse_train_death = compute_mse(fitcasesd, self.x_sol_final[14, : len(fitcasesd)])
+        mse_train_death = compute_mse(deaths_data_fit, self.x_sol_final[14, : len(deaths_data_fit)])
         sign_mape_train_death = compute_sign_mape(
-            fitcasesd, self.x_sol_final[14, : len(fitcasesd)]
+            deaths_data_fit, self.x_sol_final[14, : len(deaths_data_fit)]
         )
         # Cases Test
         mae_test_nondeath, mape_test_nondeath = compute_mae_and_mape(
@@ -312,8 +312,8 @@ class DELPHIDataCreator:
             testcasesd, self.x_sol_final[14, -len(testcasesd) :]
         )
         # MAPE on Daily Delta since last day of training for Cases
-        true_last_train_cases = fitcasesnd[-1]
-        pred_last_train_cases = self.x_sol_final[15, len(fitcasesnd) - 1]
+        true_last_train_cases = cases_data_fit[-1]
+        pred_last_train_cases = self.x_sol_final[15, len(cases_data_fit) - 1]
         mape_daily_delta_cases = compute_mape_daily_delta_since_last_train(
             true_last_train_cases,
             pred_last_train_cases,
@@ -321,8 +321,8 @@ class DELPHIDataCreator:
             self.x_sol_final[15, -len(testcasesnd) :],
         )
         # MAPE on Daily Delta since last day of training for Deaths
-        true_last_train_deaths = fitcasesd[-1]
-        pred_last_train_deaths = self.x_sol_final[14, len(fitcasesd) - 1]
+        true_last_train_deaths = deaths_data_fit[-1]
+        pred_last_train_deaths = self.x_sol_final[14, len(deaths_data_fit) - 1]
         mape_daily_delta_deaths = compute_mape_daily_delta_since_last_train(
             true_last_train_deaths,
             pred_last_train_deaths,
@@ -546,8 +546,8 @@ class DELPHIDataCreator:
 
     def create_datasets_with_confidence_intervals(
         self,
-        fitcasesnd,
-        fitcasesd,
+        cases_data_fit,
+        deaths_data_fit,
         past_prediction_file="I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
         past_prediction_date="2020-07-04",
         q=0.5,
@@ -592,39 +592,39 @@ class DELPHIDataCreator:
         if len(past_predictions) > 0:
             known_dates_since_100 = [
                 str((self.date_day_since100 + timedelta(days=i)).date())
-                for i in range(len(fitcasesnd))
+                for i in range(len(cases_data_fit))
             ]
-            fitcasesnd_past = [
+            cases_data_fit_past = [
                 y
-                for x, y in zip(known_dates_since_100, fitcasesnd)
+                for x, y in zip(known_dates_since_100, cases_data_fit)
                 if x > past_prediction_date
             ]
-            fitcasesd_past = [
+            deaths_data_fit_past = [
                 y
-                for x, y in zip(known_dates_since_100, fitcasesd)
+                for x, y in zip(known_dates_since_100, deaths_data_fit)
                 if x > past_prediction_date
             ]
             total_detected_past = past_predictions["Total Detected"].values[
-                : len(fitcasesnd_past)
+                : len(cases_data_fit_past)
             ]
             total_detected_deaths_past = past_predictions[
                 "Total Detected Deaths"
-            ].values[: len(fitcasesd_past)]
+            ].values[: len(deaths_data_fit_past)]
             residual_cases_lb = np.sqrt(
                 np.mean(
-                    [(x - y) ** 2 for x, y in zip(fitcasesnd_past, total_detected_past)]
+                    [(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)]
                 )
             ) * scipy.stats.norm.ppf(0.5 - q / 2)
             residual_cases_ub = np.sqrt(
                 np.mean(
-                    [(x - y) ** 2 for x, y in zip(fitcasesnd_past, total_detected_past)]
+                    [(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)]
                 )
             ) * scipy.stats.norm.ppf(0.5 + q / 2)
             residual_deaths_lb = np.sqrt(
                 np.mean(
                     [
                         (x - y) ** 2
-                        for x, y in zip(fitcasesd_past, total_detected_deaths_past)
+                        for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)
                     ]
                 )
             ) * scipy.stats.norm.ppf(0.5 - q / 2)
@@ -632,7 +632,7 @@ class DELPHIDataCreator:
                 np.mean(
                     [
                         (x - y) ** 2
-                        for x, y in zip(fitcasesd_past, total_detected_deaths_past)
+                        for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)
                     ]
                 )
             ) * scipy.stats.norm.ppf(0.5 + q / 2)
@@ -796,14 +796,14 @@ class DELPHIDataCreator:
                     "Cumulative Hospitalized": cumulative_hospitalized,
                     "Total Detected Deaths": total_detected_deaths,
                     "Active Ventilated": active_ventilated,
-                    "Total Detected True": fitcasesnd
+                    "Total Detected True": cases_data_fit
                     + [
                         np.nan
-                        for _ in range(len(all_dates_since_100) - len(fitcasesnd))
+                        for _ in range(len(all_dates_since_100) - len(cases_data_fit))
                     ],
-                    "Total Detected Deaths True": fitcasesd
+                    "Total Detected Deaths True": deaths_data_fit
                     + [
-                        np.nan for _ in range(len(all_dates_since_100) - len(fitcasesd))
+                        np.nan for _ in range(len(all_dates_since_100) - len(deaths_data_fit))
                     ],
                     "Total Detected LB": [
                         max(
@@ -1073,14 +1073,14 @@ class DELPHIDataCreator:
                     "Cumulative Hospitalized": cumulative_hospitalized,
                     "Total Detected Deaths": total_detected_deaths,
                     "Active Ventilated": active_ventilated,
-                    "Total Detected True": fitcasesnd
+                    "Total Detected True": cases_data_fit
                     + [
                         np.nan
-                        for _ in range(len(all_dates_since_100) - len(fitcasesnd))
+                        for _ in range(len(all_dates_since_100) - len(cases_data_fit))
                     ],
-                    "Total Detected Deaths True": fitcasesd
+                    "Total Detected Deaths True": deaths_data_fit
                     + [
-                        np.nan for _ in range(len(all_dates_since_100) - len(fitcasesd))
+                        np.nan for _ in range(len(all_dates_since_100) - len(deaths_data_fit))
                     ],
                     "Total Detected LB": [
                         np.nan for _ in range(len(all_dates_since_100))
@@ -1285,19 +1285,19 @@ class DELPHIAggregations:
             active_hospitalized = df_agg_country_temp['Active Hospitalized'] 
             cumulative_hospitalized = df_agg_country_temp['Cumulative Hospitalized'] 
             active_ventilated = df_agg_country_temp['Active Ventilated'] 
-            fitcasesnd = df_agg_country_temp['Total Detected True'] 
-            fitcasesd = df_agg_country_temp['Total Detected Deaths True'] 
+            cases_data_fit = df_agg_country_temp['Total Detected True'] 
+            deaths_data_fit = df_agg_country_temp['Total Detected Deaths True'] 
             since_100_dates = df_agg_country_temp['Day']   
             n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
             if len(past_predictions_temp) > 0:
-                fitcasesnd_past = [y for x, y in zip(since_100_dates,fitcasesnd) if x > past_prediction_date]
-                fitcasesd_past = [y for x, y in zip(since_100_dates,fitcasesd) if x > past_prediction_date]
-                total_detected_past = past_predictions_temp["Total Detected"].values[:len(fitcasesnd_past)]
-                total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(fitcasesd_past)]
-                residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-                residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
-                residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-                residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
+                cases_data_fit_past = [y for x, y in zip(since_100_dates,cases_data_fit) if x > past_prediction_date]
+                deaths_data_fit_past = [y for x, y in zip(since_100_dates,deaths_data_fit) if x > past_prediction_date]
+                total_detected_past = past_predictions_temp["Total Detected"].values[:len(cases_data_fit_past)]
+                total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(deaths_data_fit_past)]
+                residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_data_fit_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_data_fit_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
+                residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_data_fit_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_data_fit_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
                         
         
                 # Generation of the dataframe from the day since 100th case
@@ -1356,19 +1356,19 @@ class DELPHIAggregations:
             active_hospitalized = df_agg_continent_temp['Active Hospitalized'] 
             cumulative_hospitalized = df_agg_continent_temp['Cumulative Hospitalized'] 
             active_ventilated = df_agg_continent_temp['Active Ventilated'] 
-            fitcasesnd = df_agg_continent_temp['Total Detected True'] 
-            fitcasesd = df_agg_continent_temp['Total Detected Deaths True'] 
+            cases_data_fit = df_agg_continent_temp['Total Detected True'] 
+            deaths_data_fit = df_agg_continent_temp['Total Detected Deaths True'] 
             since_100_dates = df_agg_continent_temp['Day']   
             n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
             if len(past_predictions_temp) > 0:
-                fitcasesnd_past = [y for x, y in zip(since_100_dates,fitcasesnd) if x > past_prediction_date]
-                fitcasesd_past = [y for x, y in zip(since_100_dates,fitcasesd) if x > past_prediction_date]
-                total_detected_past = past_predictions_temp["Total Detected"].values[:len(fitcasesnd_past)]
-                total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(fitcasesd_past)]
-                residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-                residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
-                residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-                residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
+                cases_data_fit_past = [y for x, y in zip(since_100_dates,cases_data_fit) if x > past_prediction_date]
+                deaths_data_fit_past = [y for x, y in zip(since_100_dates,deaths_data_fit) if x > past_prediction_date]
+                total_detected_past = past_predictions_temp["Total Detected"].values[:len(cases_data_fit_past)]
+                total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(deaths_data_fit_past)]
+                residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_data_fit_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_data_fit_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
+                residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_data_fit_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_data_fit_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
                         
         
                 # Generation of the dataframe from the day since 100th case
@@ -1424,19 +1424,19 @@ class DELPHIAggregations:
         active_hospitalized = df_agg_world['Active Hospitalized'] 
         cumulative_hospitalized = df_agg_world['Cumulative Hospitalized'] 
         active_ventilated = df_agg_world['Active Ventilated'] 
-        fitcasesnd = df_agg_world['Total Detected True'] 
-        fitcasesd = df_agg_world['Total Detected Deaths True'] 
+        cases_data_fit = df_agg_world['Total Detected True'] 
+        deaths_data_fit = df_agg_world['Total Detected Deaths True'] 
         since_100_dates = df_agg_world['Day']   
         n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
         if len(past_predictions_temp) > 0:
-            fitcasesnd_past = [y for x, y in zip(since_100_dates,fitcasesnd) if x > past_prediction_date]
-            fitcasesd_past = [y for x, y in zip(since_100_dates,fitcasesd) if x > past_prediction_date]
-            total_detected_past = past_predictions_temp["Total Detected"].values[:len(fitcasesnd_past)]
-            total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(fitcasesd_past)]
-            residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-            residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
-            residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-            residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
+            cases_data_fit_past = [y for x, y in zip(since_100_dates,cases_data_fit) if x > past_prediction_date]
+            deaths_data_fit_past = [y for x, y in zip(since_100_dates,deaths_data_fit) if x > past_prediction_date]
+            total_detected_past = past_predictions_temp["Total Detected"].values[:len(cases_data_fit_past)]
+            total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(deaths_data_fit_past)]
+            residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_data_fit_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+            residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_data_fit_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
+            residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_data_fit_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+            residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_data_fit_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
                     
     
             # Generation of the dataframe from the day since 100th case
@@ -1618,10 +1618,10 @@ def get_initial_conditions(params_fitted, global_params_fixed):
     )
     E_0 = PopulationCI / p_d * k1
     I_0 = PopulationCI / p_d * k2
-    AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+    UR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
     DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
     DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
-    AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
+    UD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
     DHD_0 = PopulationCI * p_h * p_dth
     DQD_0 = PopulationCI * (1 - p_h) * p_dth
     R_0 = PopulationR / p_d
@@ -1632,7 +1632,7 @@ def get_initial_conditions(params_fitted, global_params_fixed):
     DD_0 = PopulationD
     DT_0 = PopulationI
     x_0_cases = [
-        S_0, E_0, I_0, AR_0, DHR_0, DQR_0, AD_0, DHD_0, DQD_0, R_0,
+        S_0, E_0, I_0, UR_0, DHR_0, DQR_0, UD_0, DHD_0, DQD_0, R_0,
         D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0,
     ]
     return x_0_cases
@@ -1651,10 +1651,10 @@ def get_initial_conditions_with_testing(params_fitted, global_params_fixed):
     )
     E_0 = PopulationCI / p_d * k1
     I_0 = PopulationCI / p_d * k2
-    AR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
+    UR_0 = (PopulationCI / p_d - PopulationCI) * (1 - p_dth)
     DHR_0 = (PopulationCI * p_h) * (1 - p_dth)
     DQR_0 = PopulationCI * (1 - p_h) * (1 - p_dth)
-    AD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
+    UD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
     DHD_0 = PopulationCI * p_h * p_dth
     DQD_0 = PopulationCI * (1 - p_h) * p_dth
     R_0 = PopulationR / p_d
@@ -1665,22 +1665,8 @@ def get_initial_conditions_with_testing(params_fitted, global_params_fixed):
     DD_0 = PopulationD
     DT_0 = PopulationI
     x_0_cases = [
-        S_0,
-        E_0,
-        I_0,
-        AR_0,
-        DHR_0,
-        DQR_0,
-        AD_0,
-        DHD_0,
-        DQD_0,
-        R_0,
-        D_0,
-        TH_0,
-        DVR_0,
-        DVD_0,
-        DD_0,
-        DT_0,
+        S_0, E_0, I_0, UR_0, DHR_0, DQR_0, UD_0, DHD_0,
+        DQD_0, R_0, D_0, TH_0, DVR_0, DVD_0, DD_0, DT_0,
     ]
     return x_0_cases
 
@@ -1695,44 +1681,45 @@ def create_fitting_data_from_validcases(validcases: pd.DataFrame) -> (float, lis
     validcases_nondeath = validcases["case_cnt"].tolist()
     validcases_death = validcases["death_cnt"].tolist()
     balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
-    fitcasesnd = validcases_nondeath
-    fitcasesd = validcases_death
-    return balance, fitcasesnd, fitcasesd
+    cases_data_fit = validcases_nondeath
+    deaths_data_fit = validcases_death
+    return balance, cases_data_fit, deaths_data_fit
 
 
 def get_residuals_value(
-        optimizer: str, balance: float, x_sol: list, fitcasesnd: list, fitcasesd: list, weights: list
+        optimizer: str, balance: float, x_sol: list, cases_data_fit: list, deaths_data_fit: list, weights: list
 ) -> float:
     """
-
-    :param optimizer:
-    :param balance:
-    :param x_sol:
-    :param fitcasend:
-    :param fitcasesd:
-    :param weights:
-    :return:
+    Obtain the value of the loss function depending on the optimizer (as it is different for global optimization using
+    simulated annealing)
+    :param optimizer: String, for now either tnc, trust-constr or annealing
+    :param balance: Regularization coefficient between cases and deaths 
+    :param x_sol: Solution previously fitted by the optimizer containing fitted values for all 16 states
+    :param fitcasend: cases data to be fitted on
+    :param deaths_data_fit: deaths data to be fitted on
+    :param weights: time-related weights to give more importance to recent data points in the fit (in the loss function)
+    :return: float, corresponding to the value of the loss function
     """
     if optimizer in ["tnc", "trust-constr"]:
         residuals_value = sum(
-            np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
+            np.multiply((x_sol[15, :] - cases_data_fit) ** 2, weights)
             + balance
             * balance
-            * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
+            * np.multiply((x_sol[14, :] - deaths_data_fit) ** 2, weights)
         )
     elif optimizer == "annealing":
         residuals_value = sum(
-            np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
+            np.multiply((x_sol[15, :] - cases_data_fit) ** 2, weights)
             + balance
             * balance
-            * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
+            * np.multiply((x_sol[14, :] - deaths_data_fit) ** 2, weights)
         ) + sum(
             np.multiply(
-                (x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2,
+                (x_sol[15, 7:] - x_sol[15, :-7] - cases_data_fit[7:] + cases_data_fit[:-7]) ** 2,
                 weights[7:],
             )
             + balance * balance * np.multiply(
-                (x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2,
+                (x_sol[14, 7:] - x_sol[14, :-7] - deaths_data_fit[7:] + deaths_data_fit[:-7]) ** 2,
                 weights[7:],
             )
         )
@@ -1740,6 +1727,130 @@ def get_residuals_value(
         raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
 
     return residuals_value
+
+
+def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, x_sol_final: np.array):
+    if len(cases_data_fit) > 15:  # In which case we can compute MAPE on last 15 days
+        mape_data = (
+                            compute_mape(
+                                cases_data_fit[-15:],
+                                x_sol_final[15, len(cases_data_fit) - 15: len(cases_data_fit)],
+                            ) + compute_mape(
+                        deaths_data_fit[-15:],
+                        x_sol_final[14, len(cases_data_fit) - 15: len(deaths_data_fit)],
+                    )
+                    ) / 2
+    else:  # We take MAPE on all available previous days (less than 15)
+        mape_data = (
+                            compute_mape(cases_data_fit, x_sol_final[15, : len(cases_data_fit)])
+                            + compute_mape(deaths_data_fit, x_sol_final[14, : len(deaths_data_fit)])
+                    ) / 2
+
+    return mape_data
+
+
+def get_bounds_params_from_pastparams(
+        optimizer: str, parameter_list: list, dict_default_reinit_parameters: dict, percentage_drift_lower_bound: float,
+        default_lower_bound: float, dict_default_reinit_lower_bounds: dict, percentage_drift_upper_bound: float,
+        default_upper_bound: float, dict_default_reinit_upper_bounds: dict,
+        percentage_drift_lower_bound_annealing: float, default_lower_bound_annealing: float,
+        percentage_drift_upper_bound_annealing: float, default_upper_bound_annealing: float,
+        default_lower_bound_jump: float, default_upper_bound_jump: float, default_lower_bound_std_normal: float,
+        default_upper_bound_std_normal: float,
+) -> list:
+    """
+
+    :param optimizer:
+    :param parameter_list:
+    :param dict_default_reinit_parameters:
+    :param percentage_drift_lower_bound:
+    :param default_lower_bound:
+    :param dict_default_reinit_lower_bounds:
+    :param percentage_drift_upper_bound:
+    :param default_upper_bound:
+    :param dict_default_reinit_upper_bounds:
+    :param percentage_drift_lower_bound_annealing:
+    :param default_lower_bound_annealing:
+    :param percentage_drift_upper_bound_annealing:
+    :param default_upper_bound_annealing:
+    :param default_lower_bound_jump:
+    :param default_upper_bound_jump:
+    :param default_lower_bound_std_normal:
+    :param default_upper_bound_std_normal:
+    :return:
+    """
+    if optimizer in ["tnc", "trust-constr"]:
+        # Allowing a drift for parameters
+        alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = parameter_list
+        parameter_list = [
+            max(alpha, dict_default_reinit_parameters["alpha"]),
+            days,
+            max(r_s, dict_default_reinit_parameters["r_s"]),
+            max(min(r_dth, 1), dict_default_reinit_parameters["r_dth"]),
+            max(min(p_dth, 1), dict_default_reinit_parameters["p_dth"]),
+            max(r_dthdecay, dict_default_reinit_parameters["r_dthdecay"]),
+            max(k1, dict_default_reinit_parameters["k1"]),
+            max(k2, dict_default_reinit_parameters["k2"]),
+            max(jump, dict_default_reinit_parameters["jump"]),
+            max(t_jump, dict_default_reinit_parameters["t_jump"]),
+            max(std_normal, dict_default_reinit_parameters["std_normal"]),
+        ]
+        param_list_lower = [x - max(percentage_drift_lower_bound * abs(x), default_lower_bound) for x in parameter_list]
+        (
+            alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower, r_dthdecay_lower,
+            k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower
+        ) = param_list_lower
+        param_list_lower = [
+            max(alpha_lower, dict_default_reinit_lower_bounds["alpha"]),
+            days_lower,
+            max(r_s_lower, dict_default_reinit_lower_bounds["r_s"]),
+            max(min(r_dth_lower, 1), dict_default_reinit_lower_bounds["r_dth"]),
+            max(min(p_dth_lower, 1), dict_default_reinit_lower_bounds["p_dth"]),
+            max(r_dthdecay_lower, dict_default_reinit_lower_bounds["r_dthdecay"]),
+            max(k1_lower, dict_default_reinit_lower_bounds["k1"]),
+            max(k2_lower, dict_default_reinit_lower_bounds["k2"]),
+            max(jump_lower, dict_default_reinit_lower_bounds["jump"]),
+            max(t_jump_lower, dict_default_reinit_lower_bounds["t_jump"]),
+            max(std_normal_lower, dict_default_reinit_lower_bounds["std_normal"]),
+        ]
+        param_list_upper = [
+            x + max(percentage_drift_upper_bound * abs(x), default_upper_bound) for x in parameter_list
+        ]
+        (
+            alpha_upper, days_upper, r_s_upper, r_dth_upper, p_dth_upper, r_dthdecay_upper,
+            k1_upper, k2_upper, jump_upper, t_jump_upper, std_normal_upper
+        ) = param_list_upper
+        param_list_upper = [
+            max(alpha_upper, dict_default_reinit_upper_bounds["alpha"]),
+            days_upper,
+            max(r_s_upper, dict_default_reinit_upper_bounds["r_s"]),
+            max(min(r_dth_upper, 1), dict_default_reinit_upper_bounds["r_dth"]),
+            max(min(p_dth_upper, 1), dict_default_reinit_upper_bounds["p_dth"]),
+            max(r_dthdecay_upper, dict_default_reinit_upper_bounds["r_dthdecay"]),
+            max(k1_upper, dict_default_reinit_upper_bounds["k1"]),
+            max(k2_upper, dict_default_reinit_upper_bounds["k2"]),
+            max(jump_upper, dict_default_reinit_upper_bounds["jump"]),
+            max(t_jump_upper, dict_default_reinit_upper_bounds["t_jump"]),
+            max(std_normal_upper, dict_default_reinit_upper_bounds["std_normal"]),
+        ]
+    elif optimizer == "annealing":  # Annealing procedure for global optimization
+        param_list_lower = [
+            x - max(percentage_drift_lower_bound_annealing * abs(x), default_lower_bound_annealing) for x in
+            parameter_list
+        ]
+        param_list_upper = [
+            x + max(percentage_drift_upper_bound_annealing * abs(x), default_upper_bound_annealing) for x in
+            parameter_list
+        ]
+        param_list_lower[8] = default_lower_bound_jump  # jump lower bound
+        param_list_upper[8] = default_upper_bound_jump  # jump upper bound
+        param_list_lower[10] = default_lower_bound_std_normal  # std_normal lower bound
+        param_list_upper[10] = default_upper_bound_std_normal  # std_normal upper bound
+    else:
+        raise ValueError(f"Optimizer {optimizer} not supported in this implementation so can't generate bounds")
+
+    bounds_params = [(lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)]
+    return bounds_params
 
 
 def compute_sign_mape(y_true: list, y_pred: list):

@@ -7,10 +7,9 @@ import pandas as pd
 import numpy as np
 import multiprocessing as mp
 from scipy.integrate import solve_ivp
-from scipy.optimize import minimize, OptimizeResult
+from scipy.optimize import minimize
 from datetime import datetime, timedelta
 from functools import partial
-from typing import Union
 from tqdm import tqdm_notebook as tqdm
 from scipy.optimize import dual_annealing
 from DELPHI_utils_V3 import (
@@ -18,9 +17,10 @@ from DELPHI_utils_V3 import (
     DELPHIAggregations,
     DELPHIDataSaver,
     get_initial_conditions,
-    compute_mape,
+    get_mape_data_fitting,
     create_fitting_data_from_validcases,
     get_residuals_value,
+    get_bounds_params_from_pastparams
 )
 from DELPHI_params_V3 import (
     default_parameter_list,
@@ -70,12 +70,12 @@ OPTIMIZER = input(
     "Which optimizer among 'tnc', 'trust-constr' or 'annealing' would you like to use ? "
     + "Note that 'tnc' and 'trust-constr' lead to local optima, while 'annealing' is a method for global optimization: "
 )
-assert OPTIMIZER in ["tnc", "trust-constr", "annealing"], "Wrong input value for optimizer"
+assert OPTIMIZER in ["tnc", "trust-constr", "annealing"], f"Wrong input value for optimizer, {OPTIMIZER} not supported"
 logging.basicConfig(
     filename=f"./logs/delphi_model_V3_{yesterday_logs_filename}_{OPTIMIZER}.log",
     level=logging.DEBUG,
-    format="%(asctime)s %(message)s",
-    datefmt="%m-%d-%Y %I:%M:%S %p |",
+    format="%(asctime)s | %(levelname)s | %(message)s",
+    datefmt="%m-%d-%Y %I:%M:%S %p",
 )
 logging.info(f"The chosen optimizer for this run was {OPTIMIZER}")
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -86,7 +86,6 @@ popcountries = pd.read_csv(
 popcountries["tuple_area"] = list(
     zip(popcountries.Continent, popcountries.Country, popcountries.Province)
 )
-
 popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 
@@ -129,80 +128,25 @@ def solve_and_predict_area(
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
-                if OPTIMIZER in ["tnc", "trust-constr"]:
-                    # Allowing a drift for parameters
-                    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = (
-                        parameter_list
-                    )
-                    parameter_list = (
-                        max(alpha, dict_default_reinit_parameters["alpha"]),
-                        days,
-                        max(r_s, dict_default_reinit_parameters["r_s"]),
-                        max(min(r_dth, 1), dict_default_reinit_parameters["r_dth"]),
-                        max(min(p_dth, 1), dict_default_reinit_parameters["p_dth"]),
-                        max(r_dthdecay, dict_default_reinit_parameters["r_dthdecay"]),
-                        max(k1, dict_default_reinit_parameters["k1"]),
-                        max(k2, dict_default_reinit_parameters["k2"]),
-                        max(jump, dict_default_reinit_parameters["jump"]),
-                        max(t_jump, dict_default_reinit_parameters["t_jump"]),
-                        max(std_normal, dict_default_reinit_parameters["std_normal"]),
-                    )
-                    param_list_lower = [
-                        x - max(percentage_drift_lower_bound * abs(x), default_lower_bound) for x in parameter_list
-                    ]
-                    (
-                        alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower, r_dthdecay_lower,
-                        k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower
-                    ) = param_list_lower
-                    param_list_lower = [
-                        max(alpha_lower, dict_default_reinit_lower_bounds["alpha"]),
-                        days_lower,
-                        max(r_s_lower, dict_default_reinit_lower_bounds["r_s"]),
-                        max(min(r_dth_lower, 1), dict_default_reinit_lower_bounds["r_dth"]),
-                        max(min(p_dth_lower, 1), dict_default_reinit_lower_bounds["p_dth"]),
-                        max(r_dthdecay_lower, dict_default_reinit_lower_bounds["r_dthdecay"]),
-                        max(k1_lower, dict_default_reinit_lower_bounds["k1"]),
-                        max(k2_lower, dict_default_reinit_lower_bounds["k2"]),
-                        max(jump_lower, dict_default_reinit_lower_bounds["jump"]),
-                        max(t_jump_lower, dict_default_reinit_lower_bounds["t_jump"]),
-                        max(std_normal_lower, dict_default_reinit_lower_bounds["std_normal"]),
-                    ]
-                    param_list_upper = [
-                        x + max(percentage_drift_upper_bound * abs(x), default_upper_bound) for x in parameter_list
-                    ]
-                    (
-                        alpha_upper, days_upper, r_s_upper, r_dth_upper, p_dth_upper, r_dthdecay_upper,
-                        k1_upper, k2_upper, jump_upper, t_jump_upper, std_normal_upper
-                    ) = param_list_upper
-                    param_list_upper = [
-                        max(alpha_upper, dict_default_reinit_upper_bounds["alpha"]),
-                        days_upper,
-                        max(r_s_upper, dict_default_reinit_upper_bounds["r_s"]),
-                        max(min(r_dth_upper, 1), dict_default_reinit_upper_bounds["r_dth"]),
-                        max(min(p_dth_upper, 1), dict_default_reinit_upper_bounds["p_dth"]),
-                        max(r_dthdecay_upper, dict_default_reinit_upper_bounds["r_dthdecay"]),
-                        max(k1_upper, dict_default_reinit_upper_bounds["k1"]),
-                        max(k2_upper, dict_default_reinit_upper_bounds["k2"]),
-                        max(jump_upper, dict_default_reinit_upper_bounds["jump"]),
-                        max(t_jump_upper, dict_default_reinit_upper_bounds["t_jump"]),
-                        max(std_normal_upper, dict_default_reinit_upper_bounds["std_normal"]),
-                    ]
-                else:  # Annealing procedure for global optimization
-                    param_list_lower = [
-                        x - max(percentage_drift_lower_bound_annealing * abs(x), default_lower_bound_annealing) for x in parameter_list
-                    ]
-                    param_list_upper = [
-                        x + max(percentage_drift_upper_bound_annealing * abs(x), default_upper_bound_annealing) for x in parameter_list
-                    ]
-                    param_list_lower[8] = default_lower_bound_jump  # jump lower bound
-                    param_list_upper[8] = default_upper_bound_jump  # jump upper bound
-                    param_list_lower[10] = default_lower_bound_std_normal  # std_normal lower bound
-                    param_list_upper[10] = default_upper_bound_std_normal  # std_normal upper bound
-
-                bounds_params = [
-                    (lower, upper)
-                    for lower, upper in zip(param_list_lower, param_list_upper)
-                ]
+                bounds_params = get_bounds_params_from_pastparams(
+                    optimizer=OPTIMIZER,
+                    parameter_list=parameter_list,
+                    dict_default_reinit_parameters=dict_default_reinit_parameters,
+                    percentage_drift_lower_bound=percentage_drift_lower_bound,
+                    default_lower_bound=default_lower_bound,
+                    dict_default_reinit_lower_bounds=dict_default_reinit_lower_bounds,
+                    percentage_drift_upper_bound=percentage_drift_upper_bound,
+                    default_upper_bound=default_upper_bound,
+                    dict_default_reinit_upper_bounds=dict_default_reinit_upper_bounds,
+                    percentage_drift_lower_bound_annealing=percentage_drift_lower_bound_annealing,
+                    default_lower_bound_annealing=default_lower_bound_annealing,
+                    percentage_drift_upper_bound_annealing=percentage_drift_upper_bound_annealing,
+                    default_upper_bound_annealing=default_upper_bound_annealing,
+                    default_lower_bound_jump=default_lower_bound_jump,
+                    default_upper_bound_jump=default_upper_bound_jump,
+                    default_lower_bound_std_normal=default_lower_bound_std_normal,
+                    default_upper_bound_std_normal=default_upper_bound_std_normal,
+                )
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 validcases = totalcases[
                     (totalcases.day_since100 >= 0)
@@ -228,7 +172,13 @@ def solve_and_predict_area(
                 (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
             ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         # Now we start the modeling part:
-        if len(validcases) > validcases_threshold:
+        if len(validcases) <= validcases_threshold:
+            logging.warning(
+                f"Not enough historical data (less than a week)"
+                + f"for Continent={continent}, Country={country} and Province={province}"
+            )
+            return None
+        else:
             PopulationT = popcountries[
                 (popcountries.Country == country) & (popcountries.Province == province)
             ].pop2016.iloc[-1]
@@ -249,7 +199,7 @@ def solve_and_predict_area(
             """
             maxT = (default_maxT - date_day_since100).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
-            balance, fitcasesnd, fitcasesd = create_fitting_data_from_validcases(validcases)
+            balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v)
 
             def model_covid(
@@ -312,10 +262,12 @@ def solve_and_predict_area(
                     dDQDdt, dRdt, dDdt, dTHdt, dDVRdt, dDVDdt, dDDdt, dDTdt,
                 ]
 
-            def residuals_totalcases(params):
+            def residuals_totalcases(params) -> float:
                 """
-                Wanted to start with solve_ivp because figures will be faster to debug
-                params: (alpha, days, r_s, r_dth, p_dth, k1, k2), fitted parameters of the model
+                Function that makes sure the parameters are in the right range during the fitting process and computes
+                the loss function depending on the optimizer that has been chosen for this run as a global variable
+                :param params: currently fitted values of the parameters during the fitting process
+                :return: the value of the loss function as a float that is optimized against (in our case, minimized)
                 """
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = params
@@ -343,13 +295,13 @@ def solve_and_predict_area(
                     t_eval=t_cases,
                     args=tuple(params),
                 ).y
-                weights = list(range(1, len(fitcasesnd) + 1))
+                weights = list(range(1, len(cases_data_fit) + 1))
                 residuals_value = get_residuals_value(
                     optimizer=OPTIMIZER,
                     balance=balance,
                     x_sol=x_sol,
-                    fitcasesnd=fitcasesnd,
-                    fitcasesd=fitcasesd,
+                    cases_data_fit=cases_data_fit,
+                    deaths_data_fit=deaths_data_fit,
                     weights=weights
                 )
                 return residuals_value
@@ -368,6 +320,7 @@ def solve_and_predict_area(
                 )
             else:
                 raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
+
             best_params = output.x
             t_predictions = [i for i in range(maxT)]
 
@@ -411,29 +364,14 @@ def solve_and_predict_area(
                 province=province,
                 testing_data_included=False,
             )
-            if len(fitcasesnd) > 15:  # In which case we can compute MAPE on last 15 days
-                mape_data = (
-                                    compute_mape(
-                                        fitcasesnd[-15:],
-                                        x_sol_final[15, len(fitcasesnd) - 15: len(fitcasesnd)],
-                                    ) + compute_mape(
-                                            fitcasesd[-15:],
-                                            x_sol_final[14, len(fitcasesnd) - 15: len(fitcasesd)],
-                                        )
-                ) / 2
-            else:  # We take MAPE on all available previous days (less than 15)
-                mape_data = (
-                                    compute_mape(fitcasesnd, x_sol_final[15, : len(fitcasesnd)])
-                                    + compute_mape(fitcasesd, x_sol_final[14, : len(fitcasesd)])
-                ) / 2
-
-            logging.info(f"In-Sample MAPE Last 15 Days {country, province}: {round(mape_data, 3)} %")
-            logging.debug(f"Parameters for {country, province}: {best_params}")
-            df_parameters_area = data_creator.create_dataset_parameters(mape_data)
-            # Creating the datasets for predictions of this (Continent, Country, Province)
-            df_predictions_since_today_area, df_predictions_since_100_area = (
-                data_creator.create_datasets_predictions()
+            mape_data = get_mape_data_fitting(
+                cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, x_sol_final=x_sol_final
             )
+            logging.info(f"In-Sample MAPE Last 15 Days {country, province}: {round(mape_data, 3)} %")
+            logging.debug(f"Best fitted parameters for {country, province}: {best_params}")
+            df_parameters_area = data_creator.create_dataset_parameters(mape_data)
+            # Creating the datasets for predictions of this area
+            df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions()
             logging.info(
                 f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
                 + f"{round(time.time() - time_entering, 2)} seconds"
@@ -445,13 +383,10 @@ def solve_and_predict_area(
                 df_predictions_since_100_area,
                 output,
             )
-        else:  # len(validcases) <= 7
-            logging.warning(
-                f"Not enough historical data (less than a week)"
-                + f"for Continent={continent}, Country={country} and Province={province}"
-            )
-            return None
     else:  # file for that tuple (continent, country, province) doesn't exist in processed files
+        logging.info(
+            f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available"
+        )
         return None
 
 
