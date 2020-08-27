@@ -1,13 +1,12 @@
 import pandas as pd
 import numpy as np
 import warnings
-import matplotlib.pyplot as plt
 import json
 import yaml
 import os
 from sklearn.metrics import mean_squared_error
 from pandas.core.common import SettingWithCopyWarning
-from DELPHI_params import future_policies, future_times
+from DELPHI_params import future_policies
 from DELPHI_utils import (
     read_measures_oxford_data, read_policy_data_us_only, mae_and_mape,
     get_normalized_policy_shifts_and_current_policy_us_only,
