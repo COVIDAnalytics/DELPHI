@@ -434,6 +434,9 @@ def solve_and_predict_area(
             df_predictions_since_today_area, df_predictions_since_100_area = (
                 data_creator.create_datasets_predictions()
             )
+#            df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
+#                data_creator.create_datasets_with_confidence_intervals(fitcasesnd, fitcasesd, past_prediction_file = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv", past_prediction_date = str(pd.to_datetime(past_prediction_date).date()))
+#            )
             logging.info(
                 f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
                 + f"{round(time.time() - time_entering, 2)} seconds"
@@ -483,6 +486,7 @@ if __name__ == "__main__":
         zip(popcountries.Continent, popcountries.Country, popcountries.Province)
     )
     list_tuples = popcountries.tuple_area.tolist()
+#    list_tuples = [x for x in list_tuples if x[0] == "Oceania"]
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
@@ -521,6 +525,9 @@ if __name__ == "__main__":
     df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
         df_global_predictions_since_100_cases
     )
+#    df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
+#        df_global_predictions_since_100_cases, past_prediction_file = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv", past_prediction_date = str(pd.to_datetime(past_prediction_date).date())
+#    )
     delphi_data_saver = DELPHIDataSaver(
         path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
         path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
