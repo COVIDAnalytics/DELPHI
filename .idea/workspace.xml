@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CDC/DELPHI_model_CDC.py" beforeDir="false" afterPath="$PROJECT_DIR$/CDC/DELPHI_model_CDC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CDC/DELPHI_utils_CDC.py" beforeDir="false" afterPath="$PROJECT_DIR$/CDC/DELPHI_utils_CDC.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_model_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KIT/DELPHI_model_KIT.py" beforeDir="false" afterPath="$PROJECT_DIR$/KIT/DELPHI_model_KIT.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -358,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598455573526</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Slight modifications">
+      <created>1598551952419</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1598551952419</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -375,7 +384,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="v7 with all free parameters (per state) and mobility data" />
     <MESSAGE value="v7 with all free parameters (per state) and policy data + renamed files for clarity" />
     <MESSAGE value="bugfix" />
     <MESSAGE value="raw data file" />
@@ -400,6 +408,7 @@
     <MESSAGE value="First layer of refactoring on the DELPHI code" />
     <MESSAGE value="Reorganizing repo + code refactoring part 2" />
     <MESSAGE value="Updated processed data for external users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated processed data for external users" />
+    <MESSAGE value="Slight modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slight modifications" />
   </component>
 </project>

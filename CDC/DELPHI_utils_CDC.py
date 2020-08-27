@@ -527,7 +527,6 @@ def get_initial_conditions_with_testing(params_fitted, global_params_fixed):
     ]
     return x_0_cases
 
-
 def create_fitting_data_from_validcases(validcases):
     validcases_nondeath = validcases["case_cnt"].tolist()
     validcases_death = validcases["death_cnt"].tolist()
