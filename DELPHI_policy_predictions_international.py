@@ -17,6 +17,8 @@ from DELPHI_params import (
 )
 import yaml
 import os
+import matplotlib.pyplot as plt
+
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
