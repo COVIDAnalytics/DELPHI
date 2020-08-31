@@ -25,7 +25,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "ali"
-training_end_date = datetime(2020, 8, 16)
+training_end_date = datetime(2020, 8, 26)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
@@ -149,15 +149,20 @@ for continent, country, province in zip(
         PATH_TO_DATA_SANDBOX + f"processed/Ex_US_counties.csv"
     )
 
-    if country_sub not in ["Colombia", "Mexico", "Argentina", "Chile", "Peru", "Brazil"]:
+    ex_us_regions = pd.read_csv(
+        PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv"
+    )
+
+    if country_sub not in ["Canada", "Australia","Argentina", "Brazil", "Chile", "Colombia",
+                           "South_Africa", "Mexico", "Peru", "Italy", "Spain"]:
         continue
     elif country_sub == "US":
         if province_sub not in us_county_names.Province.values:
             continue
-    elif country_sub in ["Argentina", "Brazil", "Chile", "Colombia", "Russia", "South_Africa", "Mexico", "Peru", "Italy", "Spain"]:
+    elif country_sub != "US":
         if province_sub == "None":
             continue
-        elif province_sub not in ex_us_county_names[ex_us_county_names.Country == country_sub].Province.values:
+        elif province_sub not in ex_us_regions[ex_us_regions.Country == country_sub].Province.values:
             continue
 
     if os.path.exists(
@@ -195,7 +200,7 @@ for continent, country, province in zip(
         if len(validcases) > validcases_threshold_policy:
             PopulationT = popcountries[
                 (popcountries.Country == country) & (popcountries.Province == province)
-                ].pop2016.item()
+                ].iloc[0].pop2016.item()
             # We do not scale
             N = PopulationT
             PopulationI = validcases.loc[0, "case_cnt"]

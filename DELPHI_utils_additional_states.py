@@ -563,6 +563,10 @@ def read_measures_oxford_data_jj_version():
          "data_sandbox/processed/Ex_US_counties.csv"
     )
 
+    ex_us_regions_names = pd.read_csv(
+        "data_sandbox/processed/Ex_US_regions.csv"
+    )
+
     # Adding provinces for South Africa, Brazil, Peru
     # Italy
     outputs_provinces_Italy = []
@@ -579,6 +583,22 @@ def read_measures_oxford_data_jj_version():
         temp.loc[:, "province"] = province
         outputs_provinces_Spain.append(temp)
     outputs_provinces_Spain = pd.concat(outputs_provinces_Spain).reset_index(drop=True)
+
+    # Canada
+    outputs_provinces_Canada = []
+    for province in ex_us_regions_names[ex_us_regions_names.Country == 'Canada'].Province.values:
+        temp = output[output.country == "Canada"]
+        temp.loc[:, "province"] = province
+        outputs_provinces_Canada.append(temp)
+    outputs_provinces_Canada = pd.concat(outputs_provinces_Canada).reset_index(drop=True)
+
+    # Canada
+    outputs_provinces_Australia = []
+    for province in ex_us_regions_names[ex_us_regions_names.Country == 'Australia'].Province.values:
+        temp = output[output.country == "Australia"]
+        temp.loc[:, "province"] = province
+        outputs_provinces_Australia.append(temp)
+    outputs_provinces_Australia = pd.concat(outputs_provinces_Australia).reset_index(drop=True)
 
     # Argentina
     outputs_provinces_Argentina = []
@@ -644,7 +664,8 @@ def read_measures_oxford_data_jj_version():
     output = pd.concat([
         output, outputs_provinces_Brazil, outputs_provinces_South_Africa, outputs_provinces_Peru,
         outputs_provinces_Russia, outputs_provinces_Chile, outputs_provinces_Mexico, outputs_provinces_Colombia,
-        outputs_provinces_Argentina, outputs_provinces_Spain, outputs_provinces_Italy
+        outputs_provinces_Argentina, outputs_provinces_Spain, outputs_provinces_Italy,outputs_provinces_Canada,
+        outputs_provinces_Australia
     ]).sort_values(["country", "province", "date"]).reset_index(drop=True)
     return output
 
