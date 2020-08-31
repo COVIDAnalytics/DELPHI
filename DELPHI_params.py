@@ -36,7 +36,7 @@ future_policies_JJ = [
 ]
 
 future_times = [0, 7, 14, 28, 42]
-future_times_JJ = [0]
+future_times_JJ = [0, 7, 14, 28, 42]
 
 # Additional utils inputs
 TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
