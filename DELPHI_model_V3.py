@@ -303,9 +303,9 @@ def solve_and_predict_area(
             df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
                 data_creator.create_datasets_predictions()
             )
-            df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
-                data_creator.create_datasets_with_confidence_intervals(fitcasesnd, fitcasesd, past_prediction_file = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv", past_prediction_date = str(pd.to_datetime(past_prediction_date).date()))
-            )
+#            df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
+#                data_creator.create_datasets_with_confidence_intervals(fitcasesnd, fitcasesd, past_prediction_file = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv", past_prediction_date = str(pd.to_datetime(past_prediction_date).date()))
+#            )
             print(
                 f"Finished predicting for Continent={continent}, Country={country} and Province={province} in " +
                 f"{round(time.time() - time_entering, 2)} seconds"
@@ -391,6 +391,6 @@ if __name__ == "__main__":
         df_global_predictions_since_today=df_global_predictions_since_today,
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
     )
-    delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
+    delphi_data_saver.save_all_datasets(save_since_100_cases=False, website=True)
     print(f"Exported all 3 datasets to website & danger_map repositories, "+
           f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes")
