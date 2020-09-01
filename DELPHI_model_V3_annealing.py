@@ -13,7 +13,7 @@ from DELPHI_utils_V3_annealing import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
 from DELPHI_params_V3 import (
-    date_MATHEMATICA, default_parameter_list, default_bounds_params,
+    get_default_parameter_list_and_bounds,
     validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
     VentilatedD, default_maxT, p_v, p_d, p_h, max_iter
 )
@@ -24,10 +24,11 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "michael"
+USER_RUNNING = "ali"
 
+current_time = datetime(2020,8,31)
 time_beginning = time.time()
-yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 popcountries = pd.read_csv(
@@ -85,7 +86,7 @@ def solve_and_predict_area(
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 validcases = totalcases[
-                    (totalcases.date >= str(date_day_since100.date())) &
+                    (totalcases.day_since100 >= 0) &
                     (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
 #                parameter_list.insert(5, 0.2)
@@ -99,22 +100,20 @@ def solve_and_predict_area(
                 bounds_params = tuple(bounds_params)
             else:
                 # Otherwise use established lower/upper bounds
-                parameter_list = default_parameter_list
-                bounds_params = default_bounds_params
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
                 validcases = totalcases[
-                    (totalcases.date >= str(date_day_since100.date())) &
+                    (totalcases.day_since100 >= 0) &
                     (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                parameter_list, bounds_params = get_default_parameter_list_and_bounds(validcases)
         else:
             # Otherwise use established lower/upper bounds
-            parameter_list = default_parameter_list
-            bounds_params = default_bounds_params
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
             validcases = totalcases[
-                (totalcases.date >= str(date_day_since100.date())) &
+                (totalcases.day_since100 >= 0) &
                 (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                 ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+            parameter_list, bounds_params = get_default_parameter_list_and_bounds(validcases)
         # Now we start the modeling part:
         if len(validcases) > validcases_threshold:
             PopulationT = popcountries[
@@ -341,7 +340,8 @@ if __name__ == "__main__":
     n_cpu = 6
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-    list_tuples = [x for x in list_tuples if x[1] == "US"]
+    list_tuples = [x for x in list_tuples if x[1] in ['Spain','Philippines', 'Netherlands'
+                                                      ,'Panama','India','Ukraine','Gambia']]
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(
@@ -366,7 +366,7 @@ if __name__ == "__main__":
 
     # Appending parameters, aggregations per country, per continent, and for the world
     # for predictions today & since 100
-    today_date_str = "".join(str(datetime.now().date()).split("-"))
+    today_date_str = "".join(str(current_time.date()).split("-"))
     df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
         ["Country", "Province"]
     ).reset_index(drop=True)
