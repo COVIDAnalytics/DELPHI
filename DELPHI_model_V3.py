@@ -81,7 +81,7 @@ def solve_and_predict_area(
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 validcases = totalcases[
-                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date >= str(date_day_since100.date())) &
                     (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
 #                parameter_list.insert(5, 0.2)
@@ -99,7 +99,7 @@ def solve_and_predict_area(
                 bounds_params = default_bounds_params
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
                 validcases = totalcases[
-                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date >= str(date_day_since100.date())) &
                     (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         else:
@@ -108,7 +108,7 @@ def solve_and_predict_area(
             bounds_params = default_bounds_params
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
             validcases = totalcases[
-                (totalcases.day_since100 >= 0) &
+                (totalcases.date >= str(date_day_since100.date())) &
                 (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                 ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         # Now we start the modeling part:
