@@ -1,222 +1,441 @@
 Continent,Country,Province,pop2016
-South America,Spain,Melilla,86487
-South America,Spain,Castilla-La Mancha,2106331
-South America,Spain,Islas Baleares,1149460
-South America,Spain,País Vasco,2167707
-South America,Spain,Islas Canarias,2127685
-South America,Spain,Galicia,2703290
-South America,Spain,Region de Murcia,1504607
-South America,Spain,Comunidad Valenciana,5003769
-South America,Spain,Castilla y León,2418694
-South America,Spain,Extremadura,1067710
-South America,Spain,Cataluña,7619494
-South America,Spain,Andalucía,8476718
-South America,Spain,Asturias,1028244
-South America,Spain,Cantabria,582357
-South America,Spain,Navarra,647554
-South America,Spain,Ceuta,84777
-South America,Spain,Aragón,1324397
 South America,Spain,Comunidad de Madrid,6747425
+South America,Spain,Cataluna,7619494
+South America,Spain,Comunidad Valenciana,5003769
+South America,Spain,Pais Vasco,2167707
+South America,Spain,Castilla y Leon,2418694
+South America,Spain,Andalucia,8476718
 South America,Spain,La Rioja,315675
+South America,Spain,Castilla-La Mancha,2106331
+South America,Spain,Navarra,647554
+South America,Spain,Islas Canarias,2127685
+South America,Spain,Galicia,2708339
+South America,Spain,Aragon,1324397
+South America,Spain,Extremadura,1067710
+South America,Spain,Islas Baleares,1149460
+South America,Spain,Region de Murcia,1504607
+South America,Spain,Asturias,1028244
+South America,Spain,Cantabria,580229
+South America,Spain,Melilla,86487
+South America,Spain,Ceuta,84777
+South America,Italy,Lombardy,10067494
+South America,Italy,Veneto,4926818
+South America,Italy,Emilia-Romagna,4459477
 South America,Italy,Piedmont,4341375
-South America,Italy,Apulia,4029053
-South America,Italy,Calabria,1947131
-South America,Italy,Sardinia,1639591
-South America,Italy,Molise,304285
-South America,Italy,Basilicata,562869
+South America,Italy,Marche,1522608
+South America,Italy,Tuscany,3745983
+South America,Italy,Campania,5869965
+South America,Italy,Liguria,1550640
+South America,Italy,Lazio,5879082
+South America,Italy,Friuli Venezia Giulia,1215220
 South America,Italy,South Tyrol,531178
-South America,Italy,Aosta Valley,125666
 South America,Italy,Sicily,4983478
-South America,Italy,Tuscany,3729641
-South America,Italy,Trentino-Alto Adige,541380
+South America,Italy,Apulia,4029053
+South America,Italy,Trentino-Alto Adige,541098
 South America,Italy,Umbria,882015
 South America,Italy,Abruzzo,1308451
-South America,Italy,Lazio,5879082
-South America,Italy,Campania,5786373
-South America,Italy,Emilia-Romagna,4459477
-South America,Italy,Veneto,4905854
-South America,Italy,Lombardy,10067494
-South America,Italy,Friuli Venezia Giulia,1215220
-South America,Italy,Liguria,1550640
-South America,Italy,Marche,1522608
-South America,Argentina,City of Buenos Aires,3063728
-South America,Argentina,San Luis,502000
-South America,Argentina,Tierra del Fuego,169183
-South America,Argentina,San Juan,772876
-South America,Argentina,Mendoza,2086000
-South America,Argentina,Córdoba,3722332
-South America,Argentina,Tucumán,1674622
-South America,Argentina,Misiones,1247362
-South America,Argentina,La Pampa,355422
-South America,Argentina,Formosa,600229
-South America,Argentina,Santa Cruz,356647
-South America,Argentina,Río Negro,738060
-South America,Argentina,Santa Fe,3509113
-South America,Argentina,Entre Ríos,1373270
-South America,Argentina,Chaco,1192616
-South America,Argentina,Catamarca,411824
-South America,Argentina,Santiago del Estero,968309
-South America,Argentina,Salta,1406584
-South America,Argentina,Neuquén,655501
-South America,Argentina,Jujuy,762440
-South America,Argentina,Chubut,618994
-South America,Argentina,Corrientes,1111052
-South America,Argentina,La Rioja,388386
-South America,Argentina,Buenos Aires Province,17963200
-South America,Australia,Victoria,6629900
-South America,Australia,New South Wales,8118000
-South America,Australia,Queensland,5115500
-South America,Australia,Northern Territory,245600
-South America,Australia,South Australia,1756500
-South America,Australia,Tasmania,535500
-South America,Australia,Western Australia,2630600
-South America,Australia,Australian Capital Territory,428100
-South America,Canada,Saskatchewan,1181666
-South America,Canada,Prince Edward Island,158158
-South America,Canada,Newfoundland and Labrador,521365
-South America,Canada,Northwest Territories,44904
-South America,Canada,Quebec,8537674
-South America,Canada,Yukon,41078
-South America,Canada,New Brunswick,779993
-South America,Canada,Manitoba,1377517
-South America,Canada,British Columbia,5110917
-South America,Canada,Nova Scotia,977457
-South America,Canada,Alberta,4413146
-South America,Canada,Ontario,14711827
-South America,Brazil,Bahia,14873064
-South America,Brazil,Distrito Federal,3015268
-South America,Brazil,Amapa,845731
-South America,Brazil,Goias,7018354
-South America,Brazil,Sergipe,2298696
-South America,Brazil,Santa Catarina,7164788
-South America,Brazil,Minas Gerais,21168791
-South America,Brazil,Paraiba,4018127
+South America,Italy,Aosta Valley,125666
+South America,Italy,Sardinia,1639591
+South America,Italy,Calabria,1947131
+South America,Italy,Basilicata,562869
+South America,Italy,Molise,304285
+South America,United Kingdom,England,53012456
+South America,United Kingdom,Greater London,8899375
+South America,United Kingdom,South East,9180135
+South America,United Kingdom,West Midlands,5602000
+South America,United Kingdom,East of England,5907300
+South America,United Kingdom,East Midlands,4533222
+South America,United Kingdom,Wales,3113000
+South America,United Kingdom,Scotland,5404700
+South America,United Kingdom,Northern Ireland,1852168
+South America,Japan,Hokkaido,5273681
+South America,Japan,Aichi,7549594
+South America,Japan,Osaka,8823453
+South America,Japan,Tokyo,13942856
+South America,Japan,Hyogo,5463609
+South America,Japan,Kanagawa,9200166
+South America,Japan,Chiba,6279026
+South America,Japan,Saitama,7337330
+South America,Japan,Fukuoka,5110113
+South America,Japan,Kyoto,2583140
+South America,Japan,Ishikawa,1137181
+South America,Japan,Gifu,1991390
+South America,Japan,Ibaraki,2868041
+South America,Japan,Gunma,1937626
+South America,Japan,Hiroshima,2811410
+South America,Japan,Fukui,767742
+South America,Japan,Okinawa,1457162
+South America,Japan,Toyama,1042998
+South America,Japan,Shiga,1413959
+South America,Japan,Kagoshima,1601711
+South America,Japan,Nara,1331330
+South America,Japan,Miyagi,2303160
+South America,Japan,Tochigi,1942312
+South America,Japan,Shizuoka,3639226
+South America,Japan,Wakayama,923721
+South America,Japan,Kumamoto,1746740
+South America,Japan,Nagano,2049653
+South America,Japan,Miyazaki,1071723
+South America,Japan,Niigata,2222004
+South America,Japan,Mie,1781948
+South America,Japan,Nagasaki,1325205
+South America,Japan,Yamanashi,812056
+South America,Japan,Saga,814211
+South America,Japan,Okayama,1891346
+South America,Japan,Ehime,1338811
+South America,Japan,Shimane,673891
+South America,Japan,Fukushima,1844173
+South America,Japan,Kochi,697674
+South America,Japan,Oita,1134431
+South America,Japan,Tokushima,728633
+South America,Japan,Yamaguchi,1355495
+South America,Germany,Bavaria,12930751
+South America,Germany,Baden-Wurttemberg,11069533
+South America,Germany,North Rhine-Westphalia,17932651
+South America,Germany,Berlin,3644826
+South America,Germany,Lower Saxony,7982448
+South America,Germany,Rhineland-Palatinate,4084844
+South America,Germany,Hesse,6265809
+South America,Germany,Hamburg,1841179
+South America,Germany,Saxony,4077937
+South America,Germany,Schleswig-Holstein,2896712
+South America,Germany,Brandenburg,2449193
+South America,Germany,Saarland,995597
+South America,Germany,Saxony-Anhalt,2245470
+South America,Germany,Bremen,661000
+South America,Germany,Mecklenburg-Vorpommern,1609675
+South America,Germany,Thuringia,2143145
+South America,Belgium,Liege,1105326
+South America,Belgium,Flemish Brabant,1138489
+South America,Belgium,Limburg,870880
+South America,Belgium,Antwerp,1847486
+South America,Belgium,Brussels,1175173
+South America,Belgium,East Flanders,1505053
+South America,Belgium,Hainaut,1341645
+South America,Belgium,West Flanders,1195796
+South America,Belgium,Walloon Brabant,401106
+South America,Belgium,Namur,487145
+South America,Belgium,Luxembourg,283227
+South America,Netherlands,North Brabant,2256848
+South America,Netherlands,Limburg,1120006
+South America,Netherlands,Utrecht,1253672
+South America,Netherlands,South Holland,3577032
+South America,Netherlands,North Holland,2813466
+South America,Netherlands,Gelderland,2019692
+South America,Netherlands,Overijssel,1142360
+South America,Netherlands,Groningen,582728
+South America,Netherlands,Zeeland,380726
+South America,Netherlands,Flevoland,399893
+South America,Netherlands,Drenthe,491792
+South America,Netherlands,Friesland,649944
+South America,France,Ile-de-France,12174880
+South America,France,Auvergne-Rhone-Alpes,7948287
+South America,France,Grand Est,5549586
+South America,France,Provence-Alpes-Cote d'Azur,5030890
+South America,France,Occitanie,5845102
+South America,France,Hauts-de-France,6003815
+South America,France,Centre-Val de Loire,2576252
+South America,France,Bourgogne-Franche-Comte,2811423
+South America,France,Nouvelle-Aquitaine,5956978
+South America,France,Normandy,3330478
+South America,France,Pays de la Loire,3757600
+South America,France,Brittany,3318904
+South America,France,Corsica,334938
+South America,Australia,New South Wales,7480228
+South America,Australia,Victoria,5926624
+South America,Australia,Queensland,4703193
+South America,Australia,Western Australia,2474410
+South America,Australia,South Australia,1676653
+South America,Australia,Tasmania,509965
+South America,Australia,Australian Capital Territory,396857
+South America,Brazil,Sao Paulo,45094866
+South America,Brazil,Rio de Janeiro,16718956
+South America,Brazil,Ceara,9020460
+South America,Brazil,Distrito Federal,3039444
+South America,Brazil,Minas Gerais,21119536
+South America,Brazil,Santa Catarina,7001161
+South America,Brazil,Rio Grande do Sul,11322895
+South America,Brazil,Parana,11320892
+South America,Brazil,Bahia,15344447
+South America,Brazil,Amazonas,4063614
+South America,Brazil,Pernambuco,9473266
+South America,Brazil,Rio Grande do Norte,3507003
+South America,Brazil,Espirito Santo,3885049
+South America,Brazil,Goias,6778772
+South America,Brazil,Para,8366628
+South America,Brazil,Maranhao,7000229
+South America,Brazil,Amapa,797722
+South America,Brazil,MatoGrosso,3344544
+South America,Brazil,Paraiba,4025558
+South America,Brazil,MatoGrosso do Sul,2713147
+South America,Brazil,Roraima,1805788
 South America,Brazil,Acre,881935
-South America,Brazil,Pernambuco,9557071
-South America,Brazil,Rio Grande do Sul,11377239
-South America,Brazil,Tocantins,1572866
-South America,Brazil,Rio de Janeiro,17264943
-South America,Brazil,MatoGrosso,3484466
-South America,Brazil,Sao Paulo,45919049
-South America,Brazil,Roraima,605761
-South America,Brazil,Espiritu Santo,4018650
-South America,Brazil,Alagoas,3337357
-South America,Brazil,Amazonas,4144597
-South America,Brazil,Ceara,9132078
-South America,Brazil,Para,8602865
-South America,Brazil,Parana,11433957
-South America,Brazil,MatoGrosso do Sul,2778986
-South America,Brazil,Maranhao,7075181
-South America,Brazil,Piaui,3273227
-South America,Brazil,Rio Grande do Norte,3506853
-South America,Brazil,Rondonia,1777225
-South America,Chile,Magallanes,166533
-South America,Chile,Santiago,7112808
+South America,Brazil,Piaui,3219257
+South America,Brazil,Alagoas,3375823
+South America,Brazil,Rondonia,1590011
+South America,Brazil,Sergipe,2288116
+South America,Brazil,Tocantins,1550194
+South America,Canada,Ontario,14279196
+South America,Canada,British Columbia,4841078
+South America,Canada,Quebec,8484965
+South America,Canada,Alberta,4067175
+South America,Canada,Newfoundland and Labrador,528430
+South America,Canada,Saskatchewan,1168057
+South America,Canada,Nova Scotia,957600
+South America,Canada,Manitoba,1343371
+South America,Canada,New Brunswick,760868
+South America,Chile,Santiago Metropolitan Region,7112808
 South America,Chile,Nuble,480609
-South America,Chile,Aysen,103158
+South America,Chile,Araucania,957224
+South America,Chile,Biobio,1556805
+South America,Chile,Los Lagos,828708
+South America,Chile,Valparaiso,1815902
+South America,Chile,Magallanes,166533
 South America,Chile,Maule,1044950
 South America,Chile,Los Rios,384837
-South America,Chile,Coquimbo,757586
-South America,Chile,Arica y Parinacota,226068
 South America,Chile,Antofagasta,607534
-South America,Chile,Valparaiso,1815902
-South America,Chile,Araucania,957224
-South America,Chile,Los Lagos,828708
-South America,Chile,Biobio,1556805
-South America,Chile,Atacama,288944
-South America,Chile,O'Higgins,914555
+South America,Chile,Arica y Parinacota,226068
 South America,Chile,Tarapaca,330558
-South America,Mexico,Mexico,17427790
-South America,Mexico,Campeche,1000617
-South America,Mexico,Coahuila,3218720
-South America,Mexico,Guerrero,3657048
-South America,Mexico,Yucatan,2259098
-South America,Mexico,Nuevo Leon,5610153
-South America,Mexico,Quintana Roo,1723259
-South America,Mexico,Zacatecas,1666426
-South America,Mexico,Puebla,6604451
-South America,Mexico,Veracruz,8539862
-South America,Mexico,Sinaloa,3156674
-South America,Mexico,Tlaxcala,1380011
-South America,Mexico,Guanajuato,6228175
-South America,Mexico,Chiapas,5730367
-South America,Mexico,Ciudad de Mexico,9018645
-South America,Mexico,Baja California Sur,804708
-South America,Mexico,Michoacan,4825401
-South America,Mexico,Colima,785153
-South America,Mexico,Tabasco,2572287
-South America,Mexico,Durango,1868996
-South America,Mexico,Chihuahua,3801487
-South America,Mexico,Hidalgo,3086414
-South America,Mexico,Morelos,2044058
-South America,Mexico,Aguascalientes,1434635
-South America,Mexico,Baja California,3634868
-South America,Mexico,Sonora,3074745
-South America,Mexico,Oaxaca,4143593
-South America,Mexico,Queretaro,2279637
-South America,Mexico,Nayarit,1288571
-South America,Mexico,Jalisco,8409693
-South America,Mexico,Tamaulipas,3650602
-South America,Mexico,San Luis Potosi,2866142
-South America,Colombia,La Guajira,880560
-South America,Colombia,Choco,534826
-South America,Colombia,Bolivar,2070110
-South America,Colombia,Narino,1630592
-South America,Colombia,Amazonas,76589
-South America,Colombia,Caqueta,401489
-South America,Colombia,San Andres y Providencia,61280
-South America,Colombia,Arauca,262174
-South America,Colombia,Quindio,539904
-South America,Colombia,Bogota,7412566
-South America,Colombia,Norte de Santander,1491689
-South America,Colombia,Meta,1039722
-South America,Colombia,Tolima,1330187
-South America,Colombia,Cundinamarca,2919060
-South America,Colombia,Cauca,1464488
-South America,Colombia,Vaupes,40797
-South America,Colombia,Boyaca,1217376
-South America,Colombia,Cesar,1200574
-South America,Colombia,Caldas,998255
-South America,Colombia,Casanare,420504
-South America,Colombia,Atlantico,2535517
-South America,Colombia,Putumayo,348182
-South America,Colombia,Valle del Cauca,4475886
-South America,Colombia,Risaralda,943401
-South America,Colombia,Antioquia,6407102
-South America,Colombia,Cordoba,1784783
-South America,Colombia,Sucre,904863
-South America,Colombia,Magdalena,1341746
-South America,Colombia,Huila,1100386
-South America,Peru,Loreto,1027600
-South America,Peru,Moquegua,192700
-South America,Peru,Callao,1129900
-South America,Peru,Ucayali,589100
-South America,Peru,Amazonas,426800
-South America,Peru,Ayacucho,668200
-South America,Peru,Cajamarca,1453700
-South America,Peru,Huancavelica,365300
-South America,Peru,Ica,975200
-South America,Peru,La Libertad,2016800
-South America,Peru,Lima,10628500
-South America,Peru,Tumbes,251500
-South America,Peru,Tacna,371000
-South America,Peru,Puno,1238000
-South America,Peru,Piura,2048000
-South America,Peru,San Martin,899600
-South America,Peru,Arequipa,1497400
-South America,Peru,Lambayeque,1310800
-South America,Peru,Junin,1361500
-South America,Peru,Ancash,1180600
-South America,Peru,Madre de dios,173800
-South America,Peru,Pasco,271900
-South America,Peru,Huanuco,760300
-South America,Peru,Cusco,1357100
-South America,South Africa,Eastern Cape,6712276
-South America,South Africa,Limpopo,5982584
-South America,South Africa,Gauteng,15176115
-South America,South Africa,Northern Cape,1263875
-South America,South Africa,Western Cape,6844272
-South America,South Africa,Free State,2887465
-South America,South Africa,Mpumalanga,4592187
-South America,South Africa,North_West,4027160
-South America,South Africa,KwaZulu_Natal,11289086
+South America,Chile,O'Higgins,914555
+South America,Chile,Coquimbo,757586
+South America,Chile,Atacama,286168
+South America,Chile,Aysen,103158
+South America,Mexico,Mexico City,8851639
+South America,Mexico,State of Mexico,15181290
+South America,Mexico,Jalisco,7378533
+South America,Mexico,Puebla,5787259
+South America,Mexico,Baja California,3167289
+South America,Mexico,Quintana Roo,1330846
+South America,Mexico,Colima,654775
+South America,Mexico,Sinaloa,2783193
+South America,Mexico,Tabasco,2240834
+South America,Mexico,Nuevo Leon,4666880
+South America,Mexico,Baja California Sur,646618
+South America,Mexico,Yucatan,1961350
+South America,Mexico,Chihuahua,3441447
+South America,Mexico,Veracruz,7689219
+South America,Mexico,Sonora,2684101
+South America,Mexico,Guanajuato,5504468
+South America,Mexico,Guerrero,3400317
+South America,Mexico,Tamaulipas,3287896
+South America,Mexico,Michoacan,4371696
+South America,Mexico,Morelos,1781720
+South America,Mexico,Hidalgo,2668544
+South America,Mexico,Aguascalientes,1191191
+South America,Mexico,Queretaro,1832201
+South America,Mexico,Tlaxcala,1172893
+South America,Mexico,Chiapas,4848676
+South America,Mexico,Oaxaca,3814000
+South America,Mexico,San Luis Potosi,2598831
+South America,Mexico,Nayarit,1093466
+South America,Mexico,Campeche,831433
+South America,Mexico,Zacatecas,1500451
+South America,Mexico,Durango,1648107
+South America,Peru,Metropolitan Municipality of Lima,8574974
+South America,Peru,Loreto,883510
+South America,Peru,Callao,994494
+South America,Peru,Lambayeque,1197260
+South America,Peru,Lima Region,910431
+South America,Peru,La Libertad,1778080
+South America,Peru,Piura,1856809
+South America,Peru,Ancash,1083519
+South America,Peru,Cusco,1205527
+South America,Peru,Tumbes,224863
+South America,Peru,Arequipa,1382730
+South America,Peru,Ica,850765
+South America,Peru,Junin,1246038
+South America,Peru,Huanuco,721047
+South America,Peru,Ucayali,496459
+South America,Peru,San Martin,813381
+South America,Peru,Cajamarca,1341012
+South America,Peru,Madre de Dios,141070
+South America,Peru,Puno,1172697
+South America,Peru,Pasco,254065
+South America,Peru,Moquegua,174863
+South America,Peru,Amazonas,379384
+South America,Peru,Tacna,329332
+South America,Peru,Apurimac,405759
+South America,Peru,Huancavelica,347639
+South America,Peru,Ayacucho,616176
+South America,Russia,Moscow,12500123
+South America,Russia,Moscow Oblast,7503385
+South America,Russia,Saint Petersburg,5351935
+South America,Russia,Komi Republic,840873
+South America,Russia,Krasnodar Krai,5514250
+South America,Russia,Leningrad Oblast,1813816
+South America,Russia,Nizhny Novgorod Oblast,3234752
+South America,Russia,Bryansk Oblast,1210982
+South America,Russia,Murmansk Oblast,753557
+South America,Russia,Bashkortostan,4063293
+South America,Russia,Krasnoyarsk Krai,2876497
+South America,Russia,Ryazan Oblast,1121474
+South America,Russia,Tatarstan,3894284
+South America,Russia,Chechnya,1436981
+South America,Russia,Stavropol Krai,2800674
+South America,Russia,Smolensk Oblast,949348
+South America,Russia,Perm Krai,2623122
+South America,Russia,Vladimir Oblast,1378337
+South America,Russia,Ivanovo Oblast,1014646
+South America,Russia,Tver Oblast,1283873
+South America,Russia,Sverdlovsk Oblast,4325256
+South America,Russia,Mari El,680380
+South America,Russia,Ulyanovsk Oblast,1246618
+South America,Russia,Dagestan,3063885
+South America,Russia,Tula Oblast,1491855
+South America,Russia,Rostov Oblast,4220452
+South America,Russia,Kaluga Oblast,1012156
+South America,Russia,Khanty-Mansi Avtonomnyy Okrug,1625501
+South America,Russia,Ingushetia,488043
+South America,Russia,Kursk Oblast,1115237
+South America,Russia,Tambov Oblast,1033552
+South America,Russia,Penza Oblast,1331655
+South America,Russia,Tyumen Oblast,3692400
+South America,Russia,Chuvashia,1231117
+South America,Russia,Yamalo-Nenets Avtonomnyy Okrug,538547
+South America,Russia,Buryatia,984511
+South America,Russia,Khabarovsk Krai,1328302
+South America,Russia,Lipetsk Oblast,1150201
+South America,Russia,Voronezh Oblast,2333768
+South America,Russia,Orenburg Oblast,1977720
+South America,Russia,Kaliningrad Oblast,994599
+South America,Russia,Mordovia,805056
+South America,Russia,Kabardino-Balkaria,865828
+South America,Russia,Yaroslavl Oblast,1265684
+South America,Russia,Kirov Oblast,1283238
+South America,Russia,Oryol Oblast,747247
+South America,Russia,North Ossetia-Alania,701765
+South America,Russia,Novosibirsk Oblast,2788849
+South America,Russia,Astrakhan Oblast,1017514
+South America,Russia,Arkhangelsk Oblast,1155028
+South America,Russia,Saratov Oblast,2462950
+South America,Russia,Belgorod Oblast,1549876
+South America,Russia,Yakutia,970105
+South America,Russia,Volgograd Oblast,2521276
+South America,Russia,Novgorod Oblast,606476
+South America,Russia,Karachay-Cherkessia,466305
+South America,Russia,Udmurtia,1513044
+South America,Russia,Altai Krai,2350080
+South America,Russia,Vologda Oblast,1176689
+South America,Russia,Adygea,453376
+South America,Russia,Samara Oblast,3193514
+South America,Russia,Primorsky Krai,1913037
+South America,Russia,Chelyabinsk Oblast,3500361
+South America,Russia,Kostroma Oblast,643324
+South America,Russia,Khakassia,537513
+South America,Russia,Kalmykia,275413
+South America,Russia,Pskov Oblast,636546
+South America,Russia,Kemerovo Oblast,2694877
+South America,Russia,Kamchatka Krai,315557
+South America,Russia,Jewish Avtonomnyy Okrug,158381
+South America,Russia,Zabaykalsky Krai,1072806
+South America,Russia,Irkutsk Oblast,2404195
+South America,Russia,Magadan Oblast,144091
+South America,Russia,Omsk Oblast,1960081
+South America,Russia,Tomsk Oblast,1078280
+South America,Russia,Republic of Crimea,1957801
+South America,Russia,Republic of Karelia,622484
+South America,Russia,Amur Oblast,798424
+South America,Russia,Sevastopol,428753
+South America,Russia,Tuva,321722
+South America,Russia,Kurgan Oblast,845537
+South America,Russia,Altai Republic,215263
+South America,Russia,Sakhalin Oblast,490181
+South America,Russia,Chukotka Avtonomnyy Okrug,49348
+South America,Russia,Nenets Avtonomnyy Okrug,43997
+South America,South Africa,Gauteng,15488137
+South America,South Africa,Western Cape,7005741
+South America,South Africa,KwaZulu_Natal,11531628
+South America,South Africa,Eastern Cape,6996976
+South America,South Africa,Free State,2928903
+South America,South Africa,Limpopo,5404868
+South America,South Africa,Mpumalanga,4039939
+South America,South Africa,North West,3509953
+South America,South Africa,Northern Cape,1292786
+South America,Argentina,City of Buenos Aires,3063728
+South America,Argentina,Buenos Aires Province,17370144
+South America,Argentina,Santa Fe,3509113
+South America,Argentina,Cordoba,3722332
+South America,Argentina,Chaco,1192616
+South America,Argentina,Tierra del Fuego,169183
+South America,Argentina,Rio Negro,738060
+South America,Argentina,Neuquen,655501
+South America,Argentina,Mendoza,1969982
+South America,Argentina,Corrientes,1111052
+South America,Argentina,Entre Rios,1373270
+South America,Argentina,Chubut,618994
+South America,Argentina,Jujuy,762440
+South America,Argentina,La Rioja,388386
+South America,Argentina,Salta,1406584
+South America,Argentina,Santa Cruz,356647
+South America,Argentina,Tucuman,1674622
+South America,Argentina,La Pampa,355422
+South America,Argentina,Santiago del Estero,968309
+South America,Argentina,San Juan,772876
+South America,Argentina,San Luis,502000
+South America,Colombia,Bogota D.C.,7743955
+South America,Colombia,Valle Del Cauca,4532152
+South America,Colombia,Antioquia,6677930
+South America,Colombia,Bolivar,2180976
+South America,Colombia,Cundinamarca,3242999
+South America,Colombia,Risaralda,961055
+South America,Colombia,Atlantico,2722128
+South America,Colombia,Magdalena,1427026
+South America,Colombia,Meta,1062454
+South America,Colombia,Narino,1627589
+South America,Colombia,Huila,1122622
+South America,Colombia,Amazonas,79020
+South America,Colombia,Tolima,1339998
+South America,Colombia,Norte de Santander,1620318
+South America,Colombia,Caldas,1018453
+South America,Colombia,Boyaca,1242731
+South America,Colombia,Choco,544764
+South America,Colombia,Cesar,1295387
+South America,Colombia,Quindio,555401
+South America,Colombia,Cordoba,1828947
+South America,Colombia,Cauca,1491937
+South America,Colombia,Santander,2280908
+South America,Colombia,La Guajira,965718
+South America,Colombia,Sucre,949252
+South America,Colombia,Arauca,294206
+South America,Colombia,Casanare,435195
+South America,Colombia,Caqueta,410521
+South America,Colombia,Putumayo,359127
+South America,Colombia,Guaviare,86657
+South America,Colombia,Vaupes,44712
+South America,Colombia,San Andres and Providencia,63692
+South America,Colombia,Guainia,50636
+South America,India,Maharashtra,112372972
+South America,India,Kerala,34523726
+South America,India,Delhi,26495000
+South America,India,Karnataka,61130704
+South America,India,Tamil Nadu,72147030
+South America,India,Uttar Pradesh,199581477
+South America,India,Andhra Pradesh,49386799
+South America,India,Rajasthan,68548437
+South America,India,Telangana,35193978
+South America,India,Madhya Pradesh,72597565
+South America,India,Gujarat,60383628
+South America,India,Jammu and Kashmir,12258433
+South America,India,Haryana,27761063
+South America,India,Punjab,27743338
+South America,India,West Bengal,91276115
+South America,India,Bihar,103804637
+South America,India,Odisha,41974218
+South America,India,Jharkhand,32988134
+South America,India,Chandigarh,1055450
+South America,India,Tripura,3673917
+South America,India,Assam,31205576
+South America,India,Uttarakhand,10086292
+South America,India,Himachal Pradesh,6864602
+South America,India,Chhattisgarh,25545198
+South America,India,Goa,1458545
+South America,India,Manipur,2855794
+South America,India,Nagaland,1978502
+South America,India,Puducherry,973829
+South America,India,Ladakh,274289
+South America,India,Mizoram,1097206
+South America,India,Arunachal Pradesh,1382611
+South America,India,Dadra and Nagar Haveli and Daman and Diu,342853
+South America,India,Sikkim,611000
+South America,India,Andaman and Nicobar Islands,356152
+South America,India,Meghalaya,3211000
