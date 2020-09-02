@@ -25,7 +25,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "ali"
-training_end_date = datetime(2020, 8, 26)
+training_end_date = datetime(2020, 8, 31)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
@@ -111,6 +111,24 @@ dict_normalized_policy_gamma_countries = {
 list_df_global_predictions_since_today_scenarios = []
 list_df_global_predictions_since_100_cases_scenarios = []
 obj_value = 0
+us_city_names = pd.read_csv(
+    PATH_TO_DATA_SANDBOX + f"processed/US_cities.csv"
+)
+us_county_names = pd.read_csv(
+    PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
+)
+ex_us_county_names = pd.read_csv(
+    PATH_TO_DATA_SANDBOX + f"processed/Ex_US_counties.csv"
+)
+
+ex_us_regions = pd.read_csv(
+    PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv"
+)
+
+ex_us_names_unique =  ex_us_regions.Country.unique()
+ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
+
+
 for continent, country, province in zip(
         popcountries.Continent.tolist(),
         popcountries.Country.tolist(),
@@ -123,46 +141,17 @@ for continent, country, province in zip(
 
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    us_city_names = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/US_cities.csv"
-    )
-    us_county_names = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
-    )
 
-    # if country_sub not in ["US"]:
-    #     continue
-    # if country_sub not in ["US","Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]: #["Argentina", "Brazil", "Chile", "Colombia", "South_Africa", "Mexico", "Peru"]:
-    #     continue
-    # if province_sub not in [ 'Entre_Ríos',
-    #                            'La_Rioja',
-    #                            'Mendoza',
-    #                            'Tucumán',
-    #                            'Chihuahua',
-    #                            'Mexico']:
-    #     continue
-    # if country_sub == "US":
-    #     if province_sub not in us_county_names.Province.values:
-    #         continue
 
-    ex_us_county_names = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/Ex_US_counties.csv"
-    )
-
-    ex_us_regions = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv"
-    )
-
-    if country_sub not in ["Canada", "Australia","Argentina", "Brazil", "Chile", "Colombia",
-                           "South_Africa", "Mexico", "Peru", "Italy", "Spain"]:
+    if country_sub not in ex_us_names:
         continue
     elif country_sub == "US":
         if province_sub not in us_county_names.Province.values:
             continue
     elif country_sub != "US":
-        if province_sub == "None":
-            continue
-        elif province_sub not in ex_us_regions[ex_us_regions.Country == country_sub].Province.values:
+        regions_name_values = ex_us_regions[ex_us_regions.Country == country_sub].Province.values
+        regions_name = [x.replace(" ", "_") for x in regions_name_values]
+        if province_sub == "None" or province_sub not in regions_name:
             continue
 
     if os.path.exists(

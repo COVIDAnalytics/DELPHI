@@ -75,8 +75,8 @@ def solve_and_predict_area_additional_states(
     ex_us_regions = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv"
     )
-
-    ex_us_names = [x.replace(" ", "_") for x in ex_us_regions.Country.unique()]
+    ex_us_names_unique =  ex_us_regions.Country.unique()
+    ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
 
     # if country_sub not in ["US","Argentina", "Brazil", "Chile", "Colombia",
     #                        "South_Africa", "Mexico", "Peru", "Italy", "Spain", "Canada", "Australia"]: #, "Colombia", "Mexico", "Argentina", "Chile", "Peru", "Brazil"]:
@@ -86,7 +86,8 @@ def solve_and_predict_area_additional_states(
         if province_sub not in us_county_names.Province.values:
             return None
     elif country_sub != "US" :
-        regions_name = [x.replace(" ", "_") for x in ex_us_regions[ex_us_regions.Country == country_sub].Province.values]
+        regions_name_values = ex_us_regions[ex_us_regions.Country == country_sub].Province.values
+        regions_name = [x.replace(" ", "_") for x in regions_name_values]
         if province_sub == "None" or province_sub not in regions_name:
             return None
         # if province_sub == "None" or province_sub not in ex_us_county_names[ex_us_county_names.Country == country_sub].Province.values and \

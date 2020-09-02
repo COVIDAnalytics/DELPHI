@@ -4,9 +4,7 @@ import numpy as np
 from datetime import datetime
 from copy import deepcopy
 from itertools import compress
-from DELPHI_params import (future_policies, provinces_Brazil,
-                           provinces_Peru, provinces_South_Africa,provinces_Russia,provinces_Chile,
-                           provinces_Mexico,provinces_Colombia, provinces_Argentina, provinces_Italy, provinces_Spain,
+from DELPHI_params import (future_policies,
                            city_policies, list_US_states,MAPPING_STATE_CODE_TO_STATE_NAME)
 from DELPHI_utils import (check_us_policy_data_consistency, create_features_from_ihme_dates,
                           create_final_policy_features_us)
@@ -567,106 +565,20 @@ def read_measures_oxford_data_jj_version():
         "data_sandbox/processed/Ex_US_regions.csv"
     )
 
-    # Adding provinces for South Africa, Brazil, Peru
-    # Italy
-    outputs_provinces_Italy = []
-    for province in provinces_Italy:
-        temp = output[output.country == "Italy"]
-        temp.loc[:, "province"] = province
-        outputs_provinces_Italy.append(temp)
-    outputs_provinces_Italy = pd.concat(outputs_provinces_Italy).reset_index(drop=True)
-
-    # Spain
-    outputs_provinces_Spain = []
-    for province in provinces_Spain:
-        temp = output[output.country == "Spain"]
-        temp.loc[:, "province"] = province
-        outputs_provinces_Spain.append(temp)
-    outputs_provinces_Spain = pd.concat(outputs_provinces_Spain).reset_index(drop=True)
-
-    # Canada
-    outputs_provinces_Canada = []
-    for province in ex_us_regions_names[ex_us_regions_names.Country == 'Canada'].Province.values:
-        temp = output[output.country == "Canada"]
-        temp.loc[:, "province"] = province
-        outputs_provinces_Canada.append(temp)
-    outputs_provinces_Canada = pd.concat(outputs_provinces_Canada).reset_index(drop=True)
-
-    # Canada
-    outputs_provinces_Australia = []
-    for province in ex_us_regions_names[ex_us_regions_names.Country == 'Australia'].Province.values:
-        temp = output[output.country == "Australia"]
-        temp.loc[:, "province"] = province
-        outputs_provinces_Australia.append(temp)
-    outputs_provinces_Australia = pd.concat(outputs_provinces_Australia).reset_index(drop=True)
-
-    # Argentina
-    outputs_provinces_Argentina = []
-    for province in np.concatenate((provinces_Argentina,ex_us_county_names[ex_us_county_names.Country == 'Argentina'].Province.values)):
-        temp = output[output.country == "Argentina"]
-        temp.loc[:, "province"] = province
-        outputs_provinces_Argentina.append(temp)
-    outputs_provinces_Argentina = pd.concat(outputs_provinces_Argentina).reset_index(drop=True)
-
-    # Colombia
-    outputs_provinces_Colombia = []
-    for province in np.concatenate((provinces_Colombia,ex_us_county_names[ex_us_county_names.Country == 'Colombia'].Province.values)):
-        temp = output[output.country == "Colombia"]
-        temp.loc[:, "province"] = province
-        outputs_provinces_Colombia.append(temp)
-    outputs_provinces_Colombia = pd.concat(outputs_provinces_Colombia).reset_index(drop=True)
-
-    # Mexico
-    outputs_provinces_Mexico = []
-    for province in np.concatenate((provinces_Mexico,ex_us_county_names[ex_us_county_names.Country == 'Mexico'].Province.values)):
-        output_Mexico_temp = output[output.country == "Mexico"]
-        output_Mexico_temp.loc[:, "province"] = province
-        outputs_provinces_Mexico.append(output_Mexico_temp)
-    outputs_provinces_Mexico = pd.concat(outputs_provinces_Mexico).reset_index(drop=True)
-
-    # Chile
-    outputs_provinces_Chile = []
-    for province in np.concatenate((provinces_Chile,ex_us_county_names[ex_us_county_names.Country == 'Chile'].Province.values)):
-        output_Chile_temp = output[output.country == "Chile"]
-        output_Chile_temp.loc[:, "province"] = province
-        outputs_provinces_Chile.append(output_Chile_temp)
-    outputs_provinces_Chile = pd.concat(outputs_provinces_Chile).reset_index(drop=True)
-
-    # Russia
-    outputs_provinces_Russia = []
-    for province in provinces_Russia:
-        output_Russia_temp = output[output.country == "Russia"]
-        output_Russia_temp.loc[:, "province"] = province
-        outputs_provinces_Russia.append(output_Russia_temp)
-    outputs_provinces_Russia = pd.concat(outputs_provinces_Russia).reset_index(drop=True)
-    # Brazil
-    outputs_provinces_Brazil = []
-    for province in np.concatenate((provinces_Brazil,ex_us_county_names[ex_us_county_names.Country == 'Brazil'].Province.values)):
-        output_Brazil_temp = output[output.country == "Brazil"]
-        output_Brazil_temp.loc[:, "province"] = province
-        outputs_provinces_Brazil.append(output_Brazil_temp)
-    outputs_provinces_Brazil = pd.concat(outputs_provinces_Brazil).reset_index(drop=True)
-    # South Africa
-    outputs_provinces_South_Africa = []
-    for province in provinces_South_Africa:
-        output_South_Africa_temp = output[output.country == "South Africa"]
-        output_South_Africa_temp.loc[:, "province"] = province
-        outputs_provinces_South_Africa.append(output_South_Africa_temp)
-    outputs_provinces_South_Africa = pd.concat(outputs_provinces_South_Africa).reset_index(drop=True)
-    # Peru
-    outputs_provinces_Peru = []
-    for province in np.concatenate((provinces_Peru,ex_us_county_names[ex_us_county_names.Country == 'Peru'].Province.values)):
-        output_Peru_temp = output[output.country == "Peru"]
-        output_Peru_temp.loc[:, "province"] = province
-        outputs_provinces_Peru.append(output_Peru_temp)
-    outputs_provinces_Peru = pd.concat(outputs_provinces_Peru).reset_index(drop=True)
-
-    output = pd.concat([
-        output, outputs_provinces_Brazil, outputs_provinces_South_Africa, outputs_provinces_Peru,
-        outputs_provinces_Russia, outputs_provinces_Chile, outputs_provinces_Mexico, outputs_provinces_Colombia,
-        outputs_provinces_Argentina, outputs_provinces_Spain, outputs_provinces_Italy,outputs_provinces_Canada,
-        outputs_provinces_Australia
-    ]).sort_values(["country", "province", "date"]).reset_index(drop=True)
+    countries = ex_us_regions_names.Country.unique()
+    for country in countries:
+        provinces = ex_us_regions_names[ex_us_regions_names.Country == country].Province.values
+        provinces_keyNames = ex_us_county_names[ex_us_county_names.Country == country].Province.values
+        outputs_provinces = []
+        for province in np.concatenate((provinces_keyNames,provinces)):
+            temp = output[output.country == country]
+            temp.loc[:, "province"] = province
+            outputs_provinces.append(temp)
+        outputs_provinces = pd.concat(outputs_provinces).reset_index(drop=True)
+        output = pd.concat([
+            output, outputs_provinces]
+        )
+    output = output.sort_values(["country", "province", "date"]).reset_index(drop=True)
     return output
 
 

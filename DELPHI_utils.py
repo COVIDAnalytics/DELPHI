@@ -8,8 +8,7 @@ from copy import deepcopy
 from itertools import compress
 from sklearn.metrics import mean_squared_error
 from DELPHI_params import (TIME_DICT, MAPPING_STATE_CODE_TO_STATE_NAME, default_policy,
-                           default_policy_enaction_time, future_policies, provinces_Brazil,
-                           provinces_Peru, provinces_South_Africa, provinces_Mexico)
+                           default_policy_enaction_time, future_policies)
 
 
 class DELPHIDataSaver:
