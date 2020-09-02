@@ -40,7 +40,7 @@ training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_train = (training_last_date - training_start_date).days
 annealing_opt = False
-replace_already_existing_par = True
+replace_already_existing_par = False
 
 def check_cumulative_cases(input_table):
     correct = True
@@ -76,7 +76,7 @@ def solve_and_predict_area_additional_states(
         PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv"
     )
 
-    ex_us_names = ex_us_regions.Country.unique()
+    ex_us_names = [x.replace(" ", "_") for x in ex_us_regions.Country.unique()]
 
     # if country_sub not in ["US","Argentina", "Brazil", "Chile", "Colombia",
     #                        "South_Africa", "Mexico", "Peru", "Italy", "Spain", "Canada", "Australia"]: #, "Colombia", "Mexico", "Argentina", "Chile", "Peru", "Brazil"]:
@@ -86,7 +86,8 @@ def solve_and_predict_area_additional_states(
         if province_sub not in us_county_names.Province.values:
             return None
     elif country_sub != "US" :
-        if province_sub == "None" or province_sub not in ex_us_regions[ex_us_regions.Country == country_sub].Province.values :
+        regions_name = [x.replace(" ", "_") for x in ex_us_regions[ex_us_regions.Country == country_sub].Province.values]
+        if province_sub == "None" or province_sub not in regions_name:
             return None
         # if province_sub == "None" or province_sub not in ex_us_county_names[ex_us_county_names.Country == country_sub].Province.values and \
         #         province_sub not in ex_us_regions[ex_us_regions.Country == country_sub].Province.values :
