@@ -17,6 +17,7 @@ from DELPHI_params import (
 )
 import yaml
 import os, sys
+import csv
 #import matplotlib.pyplot as plt
 
 #%%
@@ -26,9 +27,10 @@ RUNNING_FOR_JJ = arg[0] if len(arg) > 0 else False
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "omar"
+USER_RUNNING = "ali"
+current_time = datetime(2020,9,1)
 
-yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 policy_data_countries = read_measures_oxford_data(yesterday)
@@ -62,6 +64,10 @@ dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
 )
 dict_current_policy_international = dict_current_policy_countries.copy()
 dict_current_policy_international.update(dict_current_policy_us_only)
+
+with open('dict_current_policy_international.csv', 'w') as f:
+    for key in dict_current_policy_international.keys():
+        f.write("%s,%s\n"%(key,dict_current_policy_international[key]))
 
 dict_normalized_policy_gamma_us_only = {
     'No_Measure': 1.0,
@@ -329,7 +335,7 @@ for continent, country, province in zip(
 
 # Appending parameters, aggregations per country, per continent, and for the world
 # for predictions today & since 100
-today_date_str = "".join(str(datetime.now().date()).split("-"))
+today_date_str = "".join(str(current_time.date()).split("-"))
 df_global_predictions_since_today_scenarios = pd.concat(
     list_df_global_predictions_since_today_scenarios
 ).reset_index(drop=True)

@@ -86,7 +86,7 @@ def solve_and_predict_area_additional_states(
         if province_sub not in us_county_names.Province.values:
             return None
     elif country_sub != "US" :
-        regions_name_values = ex_us_regions[ex_us_regions.Country == country_sub].Province.values
+        regions_name_values = ex_us_regions[ex_us_regions.Country == country].Province.values
         regions_name = [x.replace(" ", "_") for x in regions_name_values]
         if province_sub == "None" or province_sub not in regions_name:
             return None

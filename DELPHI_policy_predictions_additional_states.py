@@ -17,6 +17,8 @@ from DELPHI_params_V3 import (
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
     default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
 )
+from DELPHI_params import ( future_times_JJ, future_policies_JJ)
+
 import os, sys, yaml
 import matplotlib.pyplot as plt
 
@@ -149,7 +151,7 @@ for continent, country, province in zip(
         if province_sub not in us_county_names.Province.values:
             continue
     elif country_sub != "US":
-        regions_name_values = ex_us_regions[ex_us_regions.Country == country_sub].Province.values
+        regions_name_values = ex_us_regions[ex_us_regions.Country == country].Province.values
         regions_name = [x.replace(" ", "_") for x in regions_name_values]
         if province_sub == "None" or province_sub not in regions_name:
             continue
@@ -222,11 +224,8 @@ for continent, country, province in zip(
             best_params = parameter_list
             t_predictions = [i for i in range(maxT)]
             # plt.figure(figsize=(16, 10))
-            for future_policy in [
-                'No_Measure', 'Restrict_Mass_Gatherings_and_Schools', 'Lockdown',
-                'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others'
-            ]:  # This is the list of policies generated, the possibilities are in DELPHI_params.py
-                for future_time in [0, 7, 14, 28, 42]:
+            for future_policy in future_policies_JJ:  # This is the list of policies generated, the possibilities are in DELPHI_params.py
+                for future_time in future_times_JJ:
                     # Only generate the policies with timing "Now", the possibilities are in DELPHI_params.py
                     def model_covid_predictions(
                             t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
