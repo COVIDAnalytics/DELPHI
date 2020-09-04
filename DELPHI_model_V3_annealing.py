@@ -341,6 +341,9 @@ if __name__ == "__main__":
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
     list_tuples = [x for x in list_tuples if x[2] == 'None' or x[1] == 'US']
+    priority_list = ['Brazil', 'Argentina', 'Peru', 'Chile', 'Mexico', 'South Africa', 'Colombia', 'Australia', 'Canada', 'Russia']
+    list_tuples = [x for x in list_tuples if x[2] == 'None' and x[1] in priority_list ]
+
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(
