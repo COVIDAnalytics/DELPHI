@@ -169,13 +169,10 @@ class DELPHIDataCreator:
             "Continent": [self.continent], "Country": [self.country], "Province": [self.province],
             "Data Start Date": [self.date_day_since100], "MAPE": [mape], "Infection Rate": [self.best_params[0]],
             "Median Day of Action": [self.best_params[1]], "Rate of Action": [self.best_params[2]],
-            "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],
-            "Rate of Mortality Rate Decay": [self.best_params[5]],
-            "Internal Parameter 1": [self.best_params[6]],
-            "Internal Parameter 2": [self.best_params[7]],
-            "Jump Magnitude": [self.best_params[8]],
-            "Jump Time": [self.best_params[9]],
-            "Jump Decay": [self.best_params[10]],
+            "Rate of Death": [self.best_params[3]], "Mortality Rate": [self.best_params[4]],"Rate of Mortality Rate Decay": [self.best_params[5]],
+            "Internal Parameter 1": [self.best_params[6]], "Internal Parameter 2": [self.best_params[7]]  ,
+                        "Jump Magnitude": [self.best_params[8]], "Jump Time": [self.best_params[9]] ,
+                                    "Jump Decay": [self.best_params[10]]
         })
         return df_parameters
 
@@ -405,18 +402,18 @@ class DELPHIDataCreator:
                 "Active Ventilated": active_ventilated[n_days_btw_today_since_100:],
                 "Total Detected True": [np.nan for _ in range(n_days_since_today)],
                 "Total Detected Deaths True": [np.nan for _ in range(n_days_since_today)],       
-                "Total Detected LB": [max(int(round(v + residual_cases_lb * np.sqrt(c),0)),0) for c, v in enumerate(total_detected[n_days_btw_today_since_100:])],
-                "Active LB": [max(int(round(v + residual_cases_lb * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
-                "Active Hospitalized LB": [max(int(round(v + residual_cases_lb * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
-                "Cumulative Hospitalized LB": [max(int(round(v + residual_cases_lb * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
-                "Total Detected Deaths LB": [max(int(round(v + residual_deaths_lb * np.sqrt(c),0)),0) for c, v in enumerate(total_detected_deaths[n_days_btw_today_since_100:])],
-                "Active Ventilated LB": [max(int(round(v + residual_cases_lb * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
+                "Total Detected LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(c),0)),0) for c, v in enumerate(total_detected[n_days_btw_today_since_100:])]),
+#                "Active LB": [max(int(round(v + residual_cases_lb * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
+#                "Active Hospitalized LB": [max(int(round(v + residual_cases_lb * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
+#                "Cumulative Hospitalized LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))]),
+                "Total Detected Deaths LB": make_increasing([max(int(round(v + residual_deaths_lb * np.sqrt(c),0)),0) for c, v in enumerate(total_detected_deaths[n_days_btw_today_since_100:])]),
+#                "Active Ventilated LB": [max(int(round(v + residual_cases_lb * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
                 "Total Detected UB": [max(int(round(v + residual_cases_ub * np.sqrt(c),0)),0) for c, v in enumerate(total_detected[n_days_btw_today_since_100:])],
-                "Active UB": [max(int(round(v + residual_cases_ub * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
-                "Active Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
-                "Cumulative Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
+#                "Active UB": [max(int(round(v + residual_cases_ub * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
+#                "Active Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
+#                "Cumulative Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
                 "Total Detected Deaths UB": [max(int(round(v + residual_deaths_ub * np.sqrt(c),0)),0) for c, v in enumerate(total_detected_deaths[n_days_btw_today_since_100:])],
-                "Active Ventilated UB": [max(int(round(v + residual_cases_ub * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
+#                "Active Ventilated UB": [max(int(round(v + residual_cases_ub * np.sqrt(c) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated[n_days_btw_today_since_100:], total_detected[n_days_btw_today_since_100:]))],
             })
                     
     
@@ -438,18 +435,18 @@ class DELPHIDataCreator:
                 "Active Ventilated": active_ventilated,
                 "Total Detected True": fitcasesnd + [np.nan for _ in range(len(all_dates_since_100) - len(fitcasesnd))],
                 "Total Detected Deaths True": fitcasesd + [np.nan for _ in range(len(all_dates_since_100) - len(fitcasesd))],
-                "Total Detected LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected)],
-                "Active LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases, total_detected))],
-                "Active Hospitalized LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized, total_detected))],
-                "Cumulative Hospitalized LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized, total_detected))],
-                "Total Detected Deaths LB": [max(int(round(v + residual_deaths_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected_deaths)],
-                "Active Ventilated LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
+                "Total Detected LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected)]),
+#                "Active LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases, total_detected))],
+#                "Active Hospitalized LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized, total_detected))],
+#                "Cumulative Hospitalized LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized, total_detected))]),
+                "Total Detected Deaths LB": make_increasing([max(int(round(v + residual_deaths_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected_deaths)]),
+#                "Active Ventilated LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
                 "Total Detected UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected)],
-                "Active UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases, total_detected))],
-                "Active Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized, total_detected))],
-                "Cumulative Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized, total_detected))],
+#                "Active UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases, total_detected))],
+#                "Active Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized, total_detected))],
+#                "Cumulative Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized, total_detected))],
                 "Total Detected Deaths UB": [max(int(round(v + residual_deaths_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected_deaths)],
-                "Active Ventilated UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
+#                "Active Ventilated UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
             })
         else:
             df_predictions_since_today_cont_country_prov = pd.DataFrame({
@@ -466,17 +463,17 @@ class DELPHIDataCreator:
                 "Total Detected True": [np.nan for _ in range(n_days_since_today)],
                 "Total Detected Deaths True": [np.nan for _ in range(n_days_since_today)],       
                 "Total Detected LB": [np.nan for _ in range(n_days_since_today)],  
-                "Active LB": [np.nan for _ in range(n_days_since_today)],  
-                "Active Hospitalized LB": [np.nan for _ in range(n_days_since_today)],  
-                "Cumulative Hospitalized LB": [np.nan for _ in range(n_days_since_today)],  
+#                "Active LB": [np.nan for _ in range(n_days_since_today)],
+#                "Active Hospitalized LB": [np.nan for _ in range(n_days_since_today)],
+#                "Cumulative Hospitalized LB": [np.nan for _ in range(n_days_since_today)],
                 "Total Detected Deaths LB": [np.nan for _ in range(n_days_since_today)],  
-                "Active Ventilated LB": [np.nan for _ in range(n_days_since_today)],  
+#                "Active Ventilated LB": [np.nan for _ in range(n_days_since_today)],
                 "Total Detected UB": [np.nan for _ in range(n_days_since_today)],  
-                "Active UB": [np.nan for _ in range(n_days_since_today)],  
-                "Active Hospitalized UB": [np.nan for _ in range(n_days_since_today)],  
-                "Cumulative Hospitalized UB": [np.nan for _ in range(n_days_since_today)],  
+#                "Active UB": [np.nan for _ in range(n_days_since_today)],
+#                "Active Hospitalized UB": [np.nan for _ in range(n_days_since_today)],
+#                "Cumulative Hospitalized UB": [np.nan for _ in range(n_days_since_today)],
                 "Total Detected Deaths UB": [np.nan for _ in range(n_days_since_today)],  
-                "Active Ventilated UB": [np.nan for _ in range(n_days_since_today)]
+#                "Active Ventilated UB": [np.nan for _ in range(n_days_since_today)]
             })    
             # Generation of the dataframe from the day since 100th case
             all_dates_since_100 = [
@@ -497,17 +494,17 @@ class DELPHIDataCreator:
                 "Total Detected True": fitcasesnd + [np.nan for _ in range(len(all_dates_since_100) - len(fitcasesnd))],
                 "Total Detected Deaths True": fitcasesd + [np.nan for _ in range(len(all_dates_since_100) - len(fitcasesd))],
                 "Total Detected LB": [np.nan for _ in range(len(all_dates_since_100))],  
-                "Active LB":  [np.nan for _ in range(len(all_dates_since_100))],  
-                "Active Hospitalized LB":  [np.nan for _ in range(len(all_dates_since_100))],  
-                "Cumulative Hospitalized LB":  [np.nan for _ in range(len(all_dates_since_100))],  
+#                "Active LB":  [np.nan for _ in range(len(all_dates_since_100))],
+#                "Active Hospitalized LB":  [np.nan for _ in range(len(all_dates_since_100))],
+#                "Cumulative Hospitalized LB":  [np.nan for _ in range(len(all_dates_since_100))],
                 "Total Detected Deaths LB":  [np.nan for _ in range(len(all_dates_since_100))],  
-                "Active Ventilated LB":  [np.nan for _ in range(len(all_dates_since_100))],  
+#                "Active Ventilated LB":  [np.nan for _ in range(len(all_dates_since_100))],
                 "Total Detected UB":  [np.nan for _ in range(len(all_dates_since_100))],  
-                "Active UB":  [np.nan for _ in range(len(all_dates_since_100))],  
-                "Active Hospitalized UB":  [np.nan for _ in range(len(all_dates_since_100))],  
-                "Cumulative Hospitalized UB":  [np.nan for _ in range(len(all_dates_since_100))],  
+#                "Active UB":  [np.nan for _ in range(len(all_dates_since_100))],
+#                "Active Hospitalized UB":  [np.nan for _ in range(len(all_dates_since_100))],
+#                "Cumulative Hospitalized UB":  [np.nan for _ in range(len(all_dates_since_100))],
                 "Total Detected Deaths UB":  [np.nan for _ in range(len(all_dates_since_100))],  
-                "Active Ventilated UB": [np.nan for _ in range(len(all_dates_since_100))]
+#                "Active Ventilated UB": [np.nan for _ in range(len(all_dates_since_100))]
             })            
         return df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov
 
@@ -627,6 +624,209 @@ class DELPHIAggregations:
         return df_agg_world
 
     @staticmethod
+    def get_aggregation_per_country_with_cf(df: pd.DataFrame, past_prediction_file = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv", past_prediction_date = "2020-07-04", q = 0.5) -> pd.DataFrame:
+        df = df[df["Province"] != "None"]
+        columns_without_bounds = [x for x in df.columns if ("LB" not in x) and ("UB" not in x)]
+        df_agg_country = df[columns_without_bounds].groupby(["Continent", "Country", "Day"]).sum(min_count = 1).reset_index()
+        df_agg_country["Province"] = "None"
+        df_agg_country = df_agg_country[columns_without_bounds]
+        aggregated_countries = set(zip(df_agg_country["Country"],df_agg_country["Province"]))
+        past_predictions = pd.read_csv(past_prediction_file)
+        list_df_aggregated_countries = []
+        for country, province in aggregated_countries:
+            past_predictions_temp = (past_predictions[(past_predictions['Day'] > past_prediction_date) & (past_predictions['Country'] == country) & (past_predictions['Province'] == province)]).sort_values("Day")
+            df_agg_country_temp = (df_agg_country[(df_agg_country['Country'] == country) & (df_agg_country['Province'] == province)]).sort_values("Day").reset_index(drop=True)
+            total_detected = df_agg_country_temp['Total Detected']
+            total_detected_deaths = df_agg_country_temp['Total Detected Deaths']
+            active_cases = df_agg_country_temp['Active']
+            active_hospitalized = df_agg_country_temp['Active Hospitalized']
+            cumulative_hospitalized = df_agg_country_temp['Cumulative Hospitalized']
+            active_ventilated = df_agg_country_temp['Active Ventilated']
+            fitcasesnd = df_agg_country_temp['Total Detected True']
+            fitcasesd = df_agg_country_temp['Total Detected Deaths True']
+            since_100_dates = df_agg_country_temp['Day']
+            n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
+            if len(past_predictions_temp) > 0:
+                fitcasesnd_past = [y for x, y in zip(since_100_dates,fitcasesnd) if ((x > past_prediction_date) and (not np.isnan(y)))]
+                fitcasesd_past = [y for x, y in zip(since_100_dates,fitcasesd) if ((x > past_prediction_date) and (not np.isnan(y)))]
+                total_detected_past = past_predictions_temp["Total Detected"].values[:len(fitcasesnd_past)]
+                total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(fitcasesd_past)]
+                residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
+                residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
+
+                # Generation of the dataframe from the day since 100th case
+                df_predictions_since_100_cont_country_prov = pd.DataFrame({
+                    "Total Detected LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected)]),
+#                    "Active LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases, total_detected))],
+#                    "Active Hospitalized LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized, total_detected))],
+#                    "Cumulative Hospitalized LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized, total_detected))]),
+                    "Total Detected Deaths LB": make_increasing([max(int(round(v + residual_deaths_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected_deaths)]),
+#                    "Active Ventilated LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
+                    "Total Detected UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected)],
+#                    "Active UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases, total_detected))],
+#                    "Active Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized, total_detected))],
+#                    "Cumulative Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized, total_detected))],
+                    "Total Detected Deaths UB": [max(int(round(v + residual_deaths_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected_deaths)],
+#                    "Active Ventilated UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
+                })
+                df_agg_country_temp = pd.concat([df_agg_country_temp, df_predictions_since_100_cont_country_prov], axis = 1)
+            else:
+                df_predictions_since_100_cont_country_prov = pd.DataFrame({
+                    "Total Detected LB": [np.nan for _ in range(len(df_agg_country_temp))],
+#                    "Active LB":  [np.nan for _ in range(len(df_agg_country_temp))],
+#                    "Active Hospitalized LB":  [np.nan for _ in range(len(df_agg_country_temp))],
+#                    "Cumulative Hospitalized LB":  [np.nan for _ in range(len(df_agg_country_temp))],
+                    "Total Detected Deaths LB":  [np.nan for _ in range(len(df_agg_country_temp))],
+#                    "Active Ventilated LB":  [np.nan for _ in range(len(df_agg_country_temp))],
+                    "Total Detected UB":  [np.nan for _ in range(len(df_agg_country_temp))],
+#                    "Active UB":  [np.nan for _ in range(len(df_agg_country_temp))],
+#                    "Active Hospitalized UB":  [np.nan for _ in range(len(df_agg_country_temp))],
+#                    "Cumulative Hospitalized UB":  [np.nan for _ in range(len(df_agg_country_temp))],
+                    "Total Detected Deaths UB":  [np.nan for _ in range(len(df_agg_country_temp))],
+#                    "Active Ventilated UB": [np.nan for _ in range(len(df_agg_country_temp))]
+                })
+                df_agg_country_temp = pd.concat([df_agg_country_temp, df_predictions_since_100_cont_country_prov], axis = 1)
+
+            list_df_aggregated_countries.append(df_agg_country_temp)
+        df_agg_country_final = pd.concat(list_df_aggregated_countries)
+        return df_agg_country_final
+
+    @staticmethod
+    def get_aggregation_per_continent_with_cf(df: pd.DataFrame, past_prediction_file = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv", past_prediction_date = "2020-07-04", q = 0.5) -> pd.DataFrame:
+        columns_without_bounds = [x for x in df.columns if ("LB" not in x) and ("UB" not in x)]
+        df_agg_continent = df[columns_without_bounds].groupby(["Continent", "Day"]).sum(min_count = 1).reset_index()
+        df_agg_continent["Country"] = "None"
+        df_agg_continent["Province"] = "None"
+        df_agg_continent = df_agg_continent[columns_without_bounds]
+        aggregated_continents = set(zip(df_agg_continent["Continent"], df_agg_continent["Country"],df_agg_continent["Province"]))
+        past_predictions = pd.read_csv(past_prediction_file)
+        list_df_aggregated_continents = []
+        for continent, country, province in aggregated_continents:
+            past_predictions_temp = (past_predictions[(past_predictions['Day'] > past_prediction_date) & (past_predictions['Continent'] == continent) & (past_predictions['Country'] == country) & (past_predictions['Country'] == province)]).sort_values("Day")
+            df_agg_continent_temp = (df_agg_continent[(df_agg_continent['Continent'] == continent)]).sort_values("Day").reset_index(drop=True)
+            total_detected = df_agg_continent_temp['Total Detected']
+            total_detected_deaths = df_agg_continent_temp['Total Detected Deaths']
+            active_cases = df_agg_continent_temp['Active']
+            active_hospitalized = df_agg_continent_temp['Active Hospitalized']
+            cumulative_hospitalized = df_agg_continent_temp['Cumulative Hospitalized']
+            active_ventilated = df_agg_continent_temp['Active Ventilated']
+            fitcasesnd = df_agg_continent_temp['Total Detected True']
+            fitcasesd = df_agg_continent_temp['Total Detected Deaths True']
+            since_100_dates = df_agg_continent_temp['Day']
+            n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
+            if len(past_predictions_temp) > 0:
+                fitcasesnd_past = [y for x, y in zip(since_100_dates,fitcasesnd) if ((x > past_prediction_date) and (not np.isnan(y)))]
+                fitcasesd_past = [y for x, y in zip(since_100_dates,fitcasesd) if ((x > past_prediction_date) and (not np.isnan(y)))]
+                total_detected_past = past_predictions_temp["Total Detected"].values[:len(fitcasesnd_past)]
+                total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(fitcasesd_past)]
+                residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
+                residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
+                # Generation of the dataframe from the day since 100th case
+                df_predictions_since_100_cont_country_prov = pd.DataFrame({
+                    "Total Detected LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected)]),
+#                    "Active LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases, total_detected))],
+#                    "Active Hospitalized LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized, total_detected))],
+#                    "Cumulative Hospitalized LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized, total_detected))]),
+                    "Total Detected Deaths LB": make_increasing([max(int(round(v + residual_deaths_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected_deaths)]),
+#                    "Active Ventilated LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
+                    "Total Detected UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected)],
+#                    "Active UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases, total_detected))],
+#                    "Active Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized, total_detected))],
+#                    "Cumulative Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized, total_detected))],
+                    "Total Detected Deaths UB": [max(int(round(v + residual_deaths_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected_deaths)],
+#                    "Active Ventilated UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
+                })
+                df_agg_continent_temp = pd.concat([df_agg_continent_temp, df_predictions_since_100_cont_country_prov], axis = 1)
+            else:
+                df_predictions_since_100_cont_country_prov = pd.DataFrame({
+                    "Total Detected LB": [np.nan for _ in range(len(df_agg_continent_temp))],
+#                    "Active LB":  [np.nan for _ in range(len(df_agg_continent_temp))],
+#                    "Active Hospitalized LB":  [np.nan for _ in range(len(df_agg_continent_temp))],
+#                    "Cumulative Hospitalized LB":  [np.nan for _ in range(len(df_agg_continent_temp))],
+                    "Total Detected Deaths LB":  [np.nan for _ in range(len(df_agg_continent_temp))],
+#                    "Active Ventilated LB":  [np.nan for _ in range(len(df_agg_continent_temp))],
+                    "Total Detected UB":  [np.nan for _ in range(len(df_agg_continent_temp))],
+#                    "Active UB":  [np.nan for _ in range(len(df_agg_continent_temp))],
+#                    "Active Hospitalized UB":  [np.nan for _ in range(len(df_agg_continent_temp))],
+#                    "Cumulative Hospitalized UB":  [np.nan for _ in range(len(df_agg_continent_temp))],
+                    "Total Detected Deaths UB":  [np.nan for _ in range(len(df_agg_continent_temp))],
+#                    "Active Ventilated UB": [np.nan for _ in range(len(df_agg_continent_temp))]
+                })
+                df_agg_continent_temp = pd.concat([df_agg_continent_temp, df_predictions_since_100_cont_country_prov], axis = 1)
+
+            list_df_aggregated_continents.append(df_agg_continent_temp)
+        df_agg_continent_final = pd.concat(list_df_aggregated_continents)
+        return df_agg_continent_final
+
+    @staticmethod
+    def get_aggregation_world_with_cf(df: pd.DataFrame, past_prediction_file = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv", past_prediction_date = "2020-07-04", q = 0.5) -> pd.DataFrame:
+        columns_without_bounds = [x for x in df.columns if ("LB" not in x) and ("UB" not in x)]
+        df_agg_world = df[columns_without_bounds].groupby(["Day"]).sum(min_count = 1).reset_index()
+        df_agg_world["Continent"] = "None"
+        df_agg_world["Country"] = "None"
+        df_agg_world["Province"] = "None"
+        df_agg_world = df_agg_world[columns_without_bounds]
+        past_predictions = pd.read_csv(past_prediction_file)
+        past_predictions_temp = (past_predictions[(past_predictions['Day'] > past_prediction_date) & (past_predictions['Continent'] == "None") & (past_predictions['Country'] == "None") & (past_predictions['Province'] == "None")]).sort_values("Day")
+        total_detected = df_agg_world['Total Detected']
+        total_detected_deaths = df_agg_world['Total Detected Deaths']
+        active_cases = df_agg_world['Active']
+        active_hospitalized = df_agg_world['Active Hospitalized']
+        cumulative_hospitalized = df_agg_world['Cumulative Hospitalized']
+        active_ventilated = df_agg_world['Active Ventilated']
+        fitcasesnd = df_agg_world['Total Detected True']
+        fitcasesd = df_agg_world['Total Detected Deaths True']
+        since_100_dates = df_agg_world['Day']
+        n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
+        if len(past_predictions_temp) > 0:
+            fitcasesnd_past = [y for x, y in zip(since_100_dates,fitcasesnd) if ((x > past_prediction_date) and (not np.isnan(y)))]
+            fitcasesd_past = [y for x, y in zip(since_100_dates,fitcasesd) if ((x > past_prediction_date) and (not np.isnan(y)))]
+            total_detected_past = past_predictions_temp["Total Detected"].values[:len(fitcasesnd_past)]
+            total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(fitcasesd_past)]
+            residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+            residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
+            residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+            residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
+
+            # Generation of the dataframe from the day since 100th case
+            df_predictions_since_100_cont_country_prov = pd.DataFrame({
+                "Total Detected LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected)]),
+#                "Active LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases, total_detected))],
+#                "Active Hospitalized LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized, total_detected))],
+#                "Cumulative Hospitalized LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized, total_detected))]),
+                "Total Detected Deaths LB": make_increasing([max(int(round(v + residual_deaths_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected_deaths)]),
+#                "Active Ventilated LB": [max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
+                "Total Detected UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected)],
+#                "Active UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_cases, total_detected))],
+#                "Active Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_hospitalized, total_detected))],
+#                "Cumulative Hospitalized UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(cumulative_hospitalized, total_detected))],
+                "Total Detected Deaths UB": [max(int(round(v + residual_deaths_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected_deaths)],
+#                "Active Ventilated UB": [max(int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u,0)),0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
+            })
+            df_agg_world_final = pd.concat([df_agg_world, df_predictions_since_100_cont_country_prov], axis = 1)
+        else:
+            df_predictions_since_100_cont_country_prov = pd.DataFrame({
+                "Total Detected LB": [np.nan for _ in range(len(df_agg_world))],
+#                "Active LB":  [np.nan for _ in range(len(df_agg_world))],
+#                "Active Hospitalized LB":  [np.nan for _ in range(len(df_agg_world))],
+#                "Cumulative Hospitalized LB":  [np.nan for _ in range(len(df_agg_world))],
+                "Total Detected Deaths LB":  [np.nan for _ in range(len(df_agg_world))],
+#                "Active Ventilated LB":  [np.nan for _ in range(len(df_agg_world))],
+                "Total Detected UB":  [np.nan for _ in range(len(df_agg_world))],
+#                "Active UB":  [np.nan for _ in range(len(df_agg_world))],
+#                "Active Hospitalized UB":  [np.nan for _ in range(len(df_agg_world))],
+#                "Cumulative Hospitalized UB":  [np.nan for _ in range(len(df_agg_world))],
+                "Total Detected Deaths UB":  [np.nan for _ in range(len(df_agg_world))],
+#                "Active Ventilated UB": [np.nan for _ in range(len(df_agg_world))]
+            })
+            df_agg_world_final = pd.concat([df_agg_world, df_predictions_since_100_cont_country_prov], axis = 1)
+        return df_agg_world_final
+
+    @staticmethod
     def append_all_aggregations(df: pd.DataFrame) -> pd.DataFrame:
         df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(df)
         df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(df)
@@ -638,6 +838,16 @@ class DELPHIAggregations:
         df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
         return df
 
+    def append_all_aggregations_cf(df: pd.DataFrame, past_prediction_file = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv", past_prediction_date = "2020-07-04", q = 0.5) -> pd.DataFrame:
+        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country_with_cf(df, past_prediction_file = past_prediction_file, past_prediction_date = past_prediction_date, q = q)
+        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent_with_cf(df, past_prediction_file = past_prediction_file, past_prediction_date = past_prediction_date, q = q)
+        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world_with_cf(df, past_prediction_file = past_prediction_file, past_prediction_date = past_prediction_date, q = q)
+        df = pd.concat([
+            df, df_agg_since_today_per_country,
+            df_agg_since_today_per_continent, df_agg_since_today_world
+        ])
+        df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
+        return df
 
 class DELPHIAggregationsPolicies:
     @staticmethod
@@ -992,35 +1202,6 @@ def read_measures_oxford_data(yesterday: str):
     measures['H1_Public information campaigns'] = [int(a and b) for a, b in zip(measures['H1_Public information campaigns'] >= 1, measures['H1_Flag'] == 1)]
 
 
-
-    measures['C1_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C1_School closing'],measures['C1_Flag'])]
-    measures['C2_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C2_Workplace closing'],measures['C2_Flag'])]
-    measures['C3_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C3_Cancel public events'],measures['C3_Flag'])]
-    measures['C4_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C4_Restrictions on gatherings'],measures['C4_Flag'])]
-    measures['C5_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C5_Close public transport'],measures['C5_Flag'])]
-    measures['C6_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C6_Stay at home requirements'],measures['C6_Flag'])]
-    measures['C7_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C7_Restrictions on internal movement'],measures['C7_Flag'])]
-    measures['H1_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['H1_Public information campaigns'],measures['H1_Flag'])]
-
-    measures['C1_School closing'] = [int(a and b) for a, b in zip(measures['C1_School closing'] >= 2, measures['C1_Flag'] == 1)]
-
-    measures['C2_Workplace closing'] = [int(a and b) for a, b in zip(measures['C2_Workplace closing'] >= 2, measures['C2_Flag'] == 1)]
-
-    measures['C3_Cancel public events'] = [int(a and b) for a, b in zip(measures['C3_Cancel public events'] >= 2, measures['C3_Flag'] == 1)]
-
-    measures['C4_Restrictions on gatherings'] = [int(a and b) for a, b in zip(measures['C4_Restrictions on gatherings'] >= 1, measures['C4_Flag'] == 1)]
-
-    measures['C5_Close public transport'] = [int(a and b) for a, b in zip(measures['C5_Close public transport'] >= 2, measures['C5_Flag'] == 1)]
-
-    measures['C6_Stay at home requirements'] = [int(a and b) for a, b in zip(measures['C6_Stay at home requirements'] >= 2, measures['C6_Flag'] == 1)]
-
-    measures['C7_Restrictions on internal movement'] = [int(a and b) for a, b in zip(measures['C7_Restrictions on internal movement'] >= 2, measures['C7_Flag'] == 1)]
-
-    measures['C8_International travel controls'] = [int(a) for a in (measures['C8_International travel controls'] >= 3)]
-
-    measures['H1_Public information campaigns'] = [int(a and b) for a, b in zip(measures['H1_Public information campaigns'] >= 1, measures['H1_Flag'] == 1)]
-
-
     #measures = measures.loc[:, measures.isnull().mean() < 0.1]
     msr = set(measures.columns).intersection(set(msr))
 
@@ -1115,6 +1296,11 @@ def gamma_t(day, state, params_dic):
     return gamma
 
 
+def make_increasing(sequence):
+    for i in range(len(sequence)):
+        sequence[i] = max(sequence[i],sequence[max(i-1,0)])
+    return sequence
+
 def get_normalized_policy_shifts_and_current_policy_us_only(
         policy_data_us_only: pd.DataFrame,
         pastparameters: pd.DataFrame,
@@ -1139,13 +1325,9 @@ def get_normalized_policy_shifts_and_current_policy_us_only(
     )
     params_dic = {}
     for state in states_set:
-        try:
-            params_dic[state] = pastparameters_copy.query('Province == @state')[
-                ['Data Start Date', 'Median Day of Action', 'Rate of Action']
-            ].iloc[0]
-        except IndexError:
-            print(f"No entry in pastparameters for province/state {state}: can't create current policy entry in dict")
-            continue
+        params_dic[state] = pastparameters_copy.query('Province == @state')[
+            ['Data Start Date', 'Median Day of Action', 'Rate of Action']
+        ].iloc[0]
 
     policy_data_us_only['Gamma'] = [
         gamma_t(day, state, params_dic) for day, state in

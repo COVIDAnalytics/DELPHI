@@ -36,7 +36,7 @@ PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 policy_data_countries = read_measures_oxford_data(yesterday)
 policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
-pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V2_{yesterday}.csv")
+pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V2_annealing_{yesterday}.csv")
 if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
     param_MATHEMATICA = True
 else:
@@ -69,28 +69,22 @@ with open('dict_current_policy_international.csv', 'w') as f:
     for key in dict_current_policy_international.keys():
         f.write("%s,%s\n"%(key,dict_current_policy_international[key]))
 
-dict_normalized_policy_gamma_us_only = {
-    'No_Measure': 1.0,
-    'Restrict_Mass_Gatherings': 0.873,
-    'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
-    'Restrict_Mass_Gatherings_and_Schools': 0.479,
-    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
-    'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
-    'Lockdown': 0.239,
-    'Resurgence': 1.2,
-}
+dict_normalized_policy_gamma_us_only = {'No_Measure': 1.0,
+                                        'Restrict_Mass_Gatherings': 0.873,
+                                        'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
+                                        'Restrict_Mass_Gatherings_and_Schools': 0.479,
+                                        'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
+                                        'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
+                                        'Lockdown': 0.239}
 
 
-dict_normalized_policy_gamma_countries = {
-    'No_Measure': 1.0,
-    'Restrict_Mass_Gatherings': 0.873,
-    'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
-    'Restrict_Mass_Gatherings_and_Schools': 0.479,
-    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
-    'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
-    'Lockdown': 0.239,
-    'Resurgence': 1.2,
-}
+dict_normalized_policy_gamma_countries = {'No_Measure': 1.0,
+ 'Restrict_Mass_Gatherings': 0.873,
+ 'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
+ 'Restrict_Mass_Gatherings_and_Schools': 0.479,
+ 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
+ 'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
+ 'Lockdown': 0.239}
 
 #%%
 # Initalizing lists of the different dataframes that will be concatenated in the end
