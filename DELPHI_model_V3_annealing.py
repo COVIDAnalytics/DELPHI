@@ -24,9 +24,9 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "ali"
+USER_RUNNING = "server"
 
-current_time = datetime(2020,8,31)
+current_time = datetime.now()
 time_beginning = time.time()
 yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -337,11 +337,13 @@ if __name__ == "__main__":
         solve_and_predict_area, yesterday_=yesterday, pastparameters_=pastparameters,
         allowed_deviation_=allowed_deviation
     )
-    n_cpu = 6
+    n_cpu = 90
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-    list_tuples = [x for x in list_tuples if x[1] in ['Spain','Philippines', 'Netherlands'
-                                                      ,'Panama','India','Ukraine','Gambia']]
+    list_tuples = [x for x in list_tuples if x[2] == 'None' or x[1] == 'US']
+    priority_list = ['Brazil', 'Argentina', 'Peru', 'Chile', 'Mexico', 'South Africa', 'Colombia', 'Australia', 'Canada', 'Russia']
+    list_tuples = [x for x in list_tuples if x[2] == 'None' and x[1] in priority_list ]
+
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(
