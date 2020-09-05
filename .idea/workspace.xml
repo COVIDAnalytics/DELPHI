@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_params_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_params_V3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -378,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599323133420</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="CLI for policy predictions asking for user in the command line + moved default dict of gamma shifts to params">
+      <created>1599323587922</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1599323587922</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -395,7 +401,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="raw data file" />
     <MESSAGE value="raw data file added" />
     <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/DELPHI_utils_V6_NY_only.cpython-37.pyc&#10;#&#9;__pycache__/DELPHI_utils_v7_free_params_policies_US.cpython-37.pyc" />
     <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements" />
@@ -420,6 +425,7 @@
     <MESSAGE value="Slight modifications" />
     <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements&#10;&#10;# Conflicts:&#10;#&#9;DELPHI_model_V3.py&#10;#&#9;DELPHI_utils_V3.py" />
     <MESSAGE value="Modification for logging path + parameter prompt in command line" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modification for logging path + parameter prompt in command line" />
+    <MESSAGE value="CLI for policy predictions asking for user in the command line + moved default dict of gamma shifts to params" />
+    <option name="LAST_COMMIT_MESSAGE" value="CLI for policy predictions asking for user in the command line + moved default dict of gamma shifts to params" />
   </component>
 </project>
