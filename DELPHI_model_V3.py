@@ -3,6 +3,7 @@ import os
 import yaml
 import logging
 import time
+import argparse
 import pandas as pd
 import numpy as np
 import multiprocessing as mp
@@ -52,42 +53,6 @@ from DELPHI_params_V3 import (
     p_h,
     max_iter,
 )
-
-
-with open("config.yml", "r") as ymlfile:
-    CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
-CONFIG_FILEPATHS = CONFIG["filepaths"]
-time_beginning = time.time()
-yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
-yesterday_logs_filename = "".join(
-    (str(datetime.now().date() - timedelta(days=1)) + f"_{datetime.now().hour}H{datetime.now().minute}M").split("-")
-)
-USER_RUNNING = input(
-    "Who is the user running? The user needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
-)
-assert USER_RUNNING in CONFIG_FILEPATHS["delphi_repo"].keys(), f"User {USER_RUNNING} not referenced in config.yml"
-OPTIMIZER = input(
-    "Which optimizer among 'tnc', 'trust-constr' or 'annealing' would you like to use ? "
-    + "Note that 'tnc' and 'trust-constr' lead to local optima, while 'annealing' is a method for global optimization: "
-)
-assert OPTIMIZER in ["tnc", "trust-constr", "annealing"], f"Wrong input value for optimizer, {OPTIMIZER} not supported"
-logging.basicConfig(
-    filename=f"./logs/delphi_model_V3_{yesterday_logs_filename}_{OPTIMIZER}.log",
-    level=logging.DEBUG,
-    format="%(asctime)s | %(levelname)s | %(message)s",
-    datefmt="%m-%d-%Y %I:%M:%S %p",
-)
-logging.info(f"The chosen optimizer for this run was {OPTIMIZER}")
-PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
-PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
-popcountries = pd.read_csv(
-    PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
-)
-popcountries["tuple_area"] = list(
-    zip(popcountries.Continent, popcountries.Country, popcountries.Province)
-)
-popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 
 
 def solve_and_predict_area(
@@ -371,14 +336,16 @@ def solve_and_predict_area(
             logging.debug(f"Best fitted parameters for {country, province}: {best_params}")
             df_parameters_area = data_creator.create_dataset_parameters(mape_data)
             # Creating the datasets for predictions of this area
-            df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions()
-            # Creating the datasets for predictions of this (Continent, Country, Province)
-            df_predictions_since_today_area, df_predictions_since_100_area = (
-                data_creator.create_datasets_predictions()
-            )
-#            df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
-#                data_creator.create_datasets_with_confidence_intervals(fitcasesnd, fitcasesd, past_prediction_file = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv", past_prediction_date = str(pd.to_datetime(past_prediction_date).date()))
-#            )
+            if GET_CONFIDENCE_INTERVALS:
+               df_predictions_since_today_area, df_predictions_since_100_area = (
+                   data_creator.create_datasets_with_confidence_intervals(
+                       cases_data_fit, deaths_data_fit,
+                       past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv",
+                       past_prediction_date=str(pd.to_datetime(past_prediction_date).date()))
+               )
+            else:
+                df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions()
+
             logging.info(
                 f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
                 + f"{round(time.time() - time_entering, 2)} seconds"
@@ -398,6 +365,57 @@ def solve_and_predict_area(
 
 
 if __name__ == "__main__":
+    with open("config.yml", "r") as ymlfile:
+        CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+    CONFIG_FILEPATHS = CONFIG["filepaths"]
+    time_beginning = time.time()
+    yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+    yesterday_logs_filename = "".join(
+        (str(datetime.now().date() - timedelta(days=1)) + f"_{datetime.now().hour}H{datetime.now().minute}M").split("-")
+    )
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '--user', '-u', type=str, required=True,
+        choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server"],
+        help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
+    )
+    parser.add_argument(
+        '--optimizer', '-o', type=str, required=True, choices=["tnc", "trust-constr", "annealing"],
+        help=(
+                "Which optimizer among 'tnc', 'trust-constr' or 'annealing' would you like to use ? " +
+                "Note that 'tnc' and 'trust-constr' lead to local optima, while 'annealing' is a " +
+                "method for global optimization: "
+        )
+    )
+    parser.add_argument(
+        '--confidence_intervals', '-ci', type=int, required=True, choices=[0, 1],
+        help="Generate Confidence Intervals? Reply True or False.",
+    )
+    arguments = parser.parse_args()
+    USER_RUNNING = arguments.user
+    OPTIMIZER = arguments.optimizer
+    GET_CONFIDENCE_INTERVALS = bool(arguments.confidence_intervals)
+    assert USER_RUNNING in CONFIG_FILEPATHS["delphi_repo"].keys(), f"User {USER_RUNNING} not referenced in config.yml"
+    logging.basicConfig(
+        filename=CONFIG_FILEPATHS["logs"][USER_RUNNING] + f"delphi_model_V3_{yesterday_logs_filename}_{OPTIMIZER}.log",
+        level=logging.DEBUG,
+        format="%(asctime)s | %(levelname)s | %(message)s",
+        datefmt="%m-%d-%Y %I:%M:%S %p",
+    )
+    logging.info(
+        f"The user is {USER_RUNNING}, the chosen optimizer for this run was {OPTIMIZER} and " +
+        f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
+    )
+    PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+    PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
+    popcountries = pd.read_csv(
+        PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
+    )
+    popcountries["tuple_area"] = list(
+        zip(popcountries.Continent, popcountries.Country, popcountries.Province)
+    )
+    popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
+    past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
     popcountries = pd.read_csv(
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
@@ -461,12 +479,17 @@ if __name__ == "__main__":
         df_global_predictions_since_today
     )
     df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-    df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_100_cases
-    )
-#    df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
-#        df_global_predictions_since_100_cases, past_prediction_file = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv", past_prediction_date = str(pd.to_datetime(past_prediction_date).date())
-#    )
+    if GET_CONFIDENCE_INTERVALS:
+        df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
+            df_global_predictions_since_100_cases,
+            past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv",
+            past_prediction_date=str(pd.to_datetime(past_prediction_date).date())
+        )
+    else:
+        df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
+            df_global_predictions_since_100_cases
+        )
+
     delphi_data_saver = DELPHIDataSaver(
         path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
         path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,

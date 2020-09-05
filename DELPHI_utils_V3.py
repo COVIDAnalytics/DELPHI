@@ -552,6 +552,16 @@ class DELPHIDataCreator:
         past_prediction_date="2020-07-04",
         q=0.5,
     ) -> (pd.DataFrame, pd.DataFrame):
+        """
+        Generates the prediction datasets from the date with 100 cases and from the day of running, including columns
+        containing Confidence Intervals used in the website for cases and deaths
+        :param cases_data_fit:
+        :param deaths_data_fit:
+        :param past_prediction_file:
+        :param past_prediction_date:
+        :param q: quantile used for the CIs
+        :return:
+        """
         n_days_btw_today_since_100 = (datetime.now() - self.date_day_since100).days
         n_days_since_today = self.x_sol_final.shape[1] - n_days_btw_today_since_100
         all_dates_since_today = [
