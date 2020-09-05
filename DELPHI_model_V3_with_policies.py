@@ -10,19 +10,26 @@ from DELPHI_utils_V3 import (
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
 )
 from DELPHI_params_V3 import (
-    date_MATHEMATICA, validcases_threshold_policy,
+    date_MATHEMATICA, validcases_threshold_policy, default_dict_normalized_policy_gamma,
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
     default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
 )
 import yaml
 import os
+import argparse
 
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "michael"
-
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    '--user', '-u', type=str, required=True,
+    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server"],
+    help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
+)
+arguments = parser.parse_args()
+USER_RUNNING = arguments.user
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
@@ -47,8 +54,7 @@ dict_normalized_policy_gamma_countries, dict_current_policy_countries = (
 )
 # Setting same value for these 2 policies because of the inherent structure of the tree
 dict_normalized_policy_gamma_countries[future_policies[3]] = dict_normalized_policy_gamma_countries[future_policies[5]]
-
-## US Only Policies
+# US Only Policies
 dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
     get_normalized_policy_shifts_and_current_policy_us_only(
         policy_data_us_only=policy_data_us_only,
@@ -58,24 +64,9 @@ dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
 dict_current_policy_international = dict_current_policy_countries.copy()
 dict_current_policy_international.update(dict_current_policy_us_only)
 
-dict_normalized_policy_gamma_us_only = {'No_Measure': 1.0,
- 'Restrict_Mass_Gatherings': 0.873,
- 'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
- 'Restrict_Mass_Gatherings_and_Schools': 0.479,
- 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
- 'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
- 'Lockdown': 0.239}
+dict_normalized_policy_gamma_us_only = default_dict_normalized_policy_gamma
+dict_normalized_policy_gamma_countries = default_dict_normalized_policy_gamma
 
-
-dict_normalized_policy_gamma_countries = {'No_Measure': 1.0,
- 'Restrict_Mass_Gatherings': 0.873,
- 'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
- 'Restrict_Mass_Gatherings_and_Schools': 0.479,
- 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
- 'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
- 'Lockdown': 0.239}
-
-#%%
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today_scenarios = []
 list_df_global_predictions_since_100_cases_scenarios = []
@@ -171,15 +162,25 @@ for continent, country, province in zip(
                             t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal
                     ):
                         """
-                        SEIR + Undetected, Deaths, Hospitalized, corrected with ArcTan response curve
-                        alpha: Infection rate
-                        days: Median day of action
-                        r_s: Median rate of action
-                        p_dth: Mortality rate
-                        k1: Internal parameter 1
-                        k2: Internal parameter 2
-                        y = [0 S, 1 E,  2 I, 3 AR,   4 DHR,  5 DQR, 6 AD,
-                        7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
+                        SEIR based model with 16 distinct states, taking into account undetected, deaths, hospitalized
+                        and recovered, and using an ArcTan government response curve, corrected with a Gaussian jump in
+                        case of a resurgence in cases
+                        :param t: time step
+                        :param x: set of all the states in the model (here, 16 of them)
+                        :param alpha: Infection rate
+                        :param days: Median day of action (used in the arctan governmental response)
+                        :param r_s: Median rate of action (used in the arctan governmental response)
+                        :param r_dth: Rate of death
+                        :param p_dth: Initial mortality percentage
+                        :param r_dthdecay: Rate of decay of mortality percentage
+                        :param k1: Internal parameter 1 (used for initial conditions)
+                        :param k2: Internal parameter 2 (used for initial conditions)
+                        :param jump: Amplitude of the Gaussian jump modeling the resurgence in cases
+                        :param t_jump: Time where the Gaussian jump will reach its maximum value
+                        :param std_normal: Standard Deviation of the Gaussian jump (~ time span of resurgence in cases)
+                        :return: predictions for all 16 states, which are the following
+                        [0 S, 1 E, 2 I, 3 UR, 4 DHR, 5 DQR, 6 UD, 7 DHD, 8 DQD, 9 R, 10 D, 11 TH,
+                        12 DVR,13 DVD, 14 DD, 15 DT]
                         """
                         r_i = np.log(2) / IncubeD  # Rate of infection leaving incubation phase
                         r_d = np.log(2) / DetectD  # Rate of detection

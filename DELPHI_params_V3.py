@@ -58,6 +58,18 @@ future_policies = [
 default_maxT_policies = datetime(2021, 3, 15) # Maximum timespan of prediction under different policy scenarios
 future_times = [0, 7, 14, 28, 42]
 
+# Default normalized gamma shifts from runs in May 2020
+default_dict_normalized_policy_gamma = {
+    'No_Measure': 1.0,
+    'Restrict_Mass_Gatherings': 0.873,
+    'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others': 0.794,
+    'Mass_Gatherings_Authorized_But_Others_Restricted': 0.668,
+    'Restrict_Mass_Gatherings_and_Schools': 0.479,
+    'Restrict_Mass_Gatherings_and_Schools_and_Others': 0.423,
+    'Lockdown': 0.239
+}
+
+
 # Additional utils inputs
 TIME_DICT = {0: "Now", 7: "One Week", 14: "Two Weeks", 28: "Four Weeks", 42: "Six Weeks"}
 MAPPING_STATE_CODE_TO_STATE_NAME ={
