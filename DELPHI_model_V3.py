@@ -411,9 +411,6 @@ if __name__ == "__main__":
     popcountries = pd.read_csv(
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
-    popcountries["tuple_area"] = list(
-        zip(popcountries.Continent, popcountries.Country, popcountries.Province)
-    )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
     popcountries = pd.read_csv(
