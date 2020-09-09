@@ -24,7 +24,7 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "server"
+USER_RUNNING = "ali"
 
 current_time = datetime.now()
 time_beginning = time.time()
