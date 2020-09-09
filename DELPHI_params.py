@@ -33,7 +33,7 @@ default_maxT_policies = datetime(2021, 1, 15)  # Maximum timespan of prediction 
 future_policies_JJ = [
     'No_Measure', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
     'Restrict_Mass_Gatherings_and_Schools', 'Lockdown', 'Mass_Gatherings_Authorized_But_Others_Restricted',
-    'Restrict_Mass_Gatherings_and_Schools_and_Others'
+    'Restrict_Mass_Gatherings_and_Schools_and_Others','Restrict_Mass_Gatherings'
 ]
 
 future_times = [0, 7, 14, 28, 42]
