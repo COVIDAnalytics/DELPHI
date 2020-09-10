@@ -24,7 +24,7 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "ali"
+USER_RUNNING = "server"
 
 current_time = datetime.now()
 time_beginning = time.time()
@@ -66,13 +66,13 @@ def solve_and_predict_area(
                     max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
                          max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
                 )                
-                param_list_lower = [x - max(0.5 * abs(x), 0.5) for x in parameter_list]
+                param_list_lower = [x - max(1 * abs(x), 1) for x in parameter_list]
                 alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
                 param_list_lower = [
                     max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.02), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
                          max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 1)
                 ]
-                param_list_upper = [x +  max(0.5 * abs(x), 0.5) for x in parameter_list]
+                param_list_upper = [x +  max(1 * abs(x), 1) for x in parameter_list]
                 alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
                 param_list_upper = [
                     max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.02), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
@@ -341,8 +341,6 @@ if __name__ == "__main__":
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
     list_tuples = [x for x in list_tuples if x[2] == 'None' or x[1] == 'US']
-    priority_list = ['Brazil', 'Argentina', 'Peru', 'Chile', 'Mexico', 'South Africa', 'Colombia', 'Australia', 'Canada', 'Russia']
-    list_tuples = [x for x in list_tuples if x[2] == 'None' and x[1] in priority_list ]
 
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
