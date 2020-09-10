@@ -36,7 +36,7 @@ PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 policy_data_countries = read_measures_oxford_data(yesterday)
 policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
-pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V2_annealing_{yesterday}.csv")
+pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V2_{yesterday}.csv")
 if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
     param_MATHEMATICA = True
 else:
@@ -99,6 +99,8 @@ for continent, country, province in zip(
     if country == "US":  # This line is necessary because the keys are the same in both cases
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
     else:
+        if province != 'None':
+            continue
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_countries.copy()
 
     country_sub = country.replace(" ", "_")
