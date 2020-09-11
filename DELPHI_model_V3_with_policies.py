@@ -25,7 +25,7 @@ CONFIG_FILEPATHS = CONFIG["filepaths"]
 parser = argparse.ArgumentParser()
 parser.add_argument(
     '--user', '-u', type=str, required=True,
-    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server"],
+    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham"],
     help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
 )
 arguments = parser.parse_args()

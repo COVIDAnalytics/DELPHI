@@ -54,11 +54,47 @@ from DELPHI_params_V3 import (
     max_iter,
 )
 
+## Initializing Global Variables ##########################################################################
+with open("config.yml", "r") as ymlfile:
+    CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+CONFIG_FILEPATHS = CONFIG["filepaths"]
+time_beginning = time.time()
+yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+yesterday_logs_filename = "".join(
+    (str(datetime.now().date() - timedelta(days=1)) + f"_{datetime.now().hour}H{datetime.now().minute}M").split("-")
+)
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    '--user', '-u', type=str, required=True,
+    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham"],
+    help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
+)
+parser.add_argument(
+    '--optimizer', '-o', type=str, required=True, choices=["tnc", "trust-constr", "annealing"],
+    help=(
+            "Which optimizer among 'tnc', 'trust-constr' or 'annealing' would you like to use ? " +
+            "Note that 'tnc' and 'trust-constr' lead to local optima, while 'annealing' is a " +
+            "method for global optimization: "
+    )
+)
+parser.add_argument(
+    '--confidence_intervals', '-ci', type=int, required=True, choices=[0, 1],
+    help="Generate Confidence Intervals? Reply True or False.",
+)
+arguments = parser.parse_args()
+USER_RUNNING = arguments.user
+OPTIMIZER = arguments.optimizer
+GET_CONFIDENCE_INTERVALS = bool(arguments.confidence_intervals)
+
+PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
+#############################################################################################################
 
 def solve_and_predict_area(
     tuple_area_: tuple,
     yesterday_: str,
     pastparameters_: pd.DataFrame,
+    popcountries: pd.DataFrame
 ):
     """
     Parallelizable version of the fitting & solving process for DELPHI V3, this function is called with multiprocessing
@@ -365,36 +401,6 @@ def solve_and_predict_area(
 
 
 if __name__ == "__main__":
-    with open("config.yml", "r") as ymlfile:
-        CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
-    CONFIG_FILEPATHS = CONFIG["filepaths"]
-    time_beginning = time.time()
-    yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
-    yesterday_logs_filename = "".join(
-        (str(datetime.now().date() - timedelta(days=1)) + f"_{datetime.now().hour}H{datetime.now().minute}M").split("-")
-    )
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        '--user', '-u', type=str, required=True,
-        choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server"],
-        help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
-    )
-    parser.add_argument(
-        '--optimizer', '-o', type=str, required=True, choices=["tnc", "trust-constr", "annealing"],
-        help=(
-                "Which optimizer among 'tnc', 'trust-constr' or 'annealing' would you like to use ? " +
-                "Note that 'tnc' and 'trust-constr' lead to local optima, while 'annealing' is a " +
-                "method for global optimization: "
-        )
-    )
-    parser.add_argument(
-        '--confidence_intervals', '-ci', type=int, required=True, choices=[0, 1],
-        help="Generate Confidence Intervals? Reply True or False.",
-    )
-    arguments = parser.parse_args()
-    USER_RUNNING = arguments.user
-    OPTIMIZER = arguments.optimizer
-    GET_CONFIDENCE_INTERVALS = bool(arguments.confidence_intervals)
     assert USER_RUNNING in CONFIG_FILEPATHS["delphi_repo"].keys(), f"User {USER_RUNNING} not referenced in config.yml"
     logging.basicConfig(
         filename=CONFIG_FILEPATHS["logs"][USER_RUNNING] + f"delphi_model_V3_{yesterday_logs_filename}_{OPTIMIZER}.log",
@@ -406,16 +412,12 @@ if __name__ == "__main__":
         f"The user is {USER_RUNNING}, the chosen optimizer for this run was {OPTIMIZER} and " +
         f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
     )
-    PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
-    PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
     popcountries = pd.read_csv(
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
-    popcountries = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
-    )
+
     try:
         pastparameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
@@ -433,12 +435,11 @@ if __name__ == "__main__":
         solve_and_predict_area,
         yesterday_=yesterday,
         pastparameters_=pastparameters,
+        popcountries=popcountries
     )
     n_cpu = mp.cpu_count()
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
-    popcountries["tuple_area"] = list(
-        zip(popcountries.Continent, popcountries.Country, popcountries.Province)
-    )
+
     list_tuples = popcountries.tuple_area.tolist()
 #    list_tuples = [x for x in list_tuples if x[0] == "Oceania"]
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
