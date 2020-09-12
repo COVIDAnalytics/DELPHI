@@ -402,6 +402,9 @@ def solve_and_predict_area(
 
 if __name__ == "__main__":
     assert USER_RUNNING in CONFIG_FILEPATHS["delphi_repo"].keys(), f"User {USER_RUNNING} not referenced in config.yml"
+    if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING]):
+        os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING])
+
     logging.basicConfig(
         filename=CONFIG_FILEPATHS["logs"][USER_RUNNING] + f"delphi_model_V3_{yesterday_logs_filename}_{OPTIMIZER}.log",
         level=logging.DEBUG,
