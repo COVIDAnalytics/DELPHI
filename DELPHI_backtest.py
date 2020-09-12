@@ -1,10 +1,11 @@
+# Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import os
 import yaml
 import argparse
 import logging
 import pandas as pd
 from datetime import datetime
-from DELPHI_utils_V3 import DELPHIBacktest
+from DELPHI_utils_V3_static import DELPHIBacktest
 
 ## Initializing Global Variables ##########################################################################
 with open("config.yml", "r") as ymlfile:

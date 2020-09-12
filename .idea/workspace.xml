@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="Merged PR + reorganizing archive + reorganizing data_sandbox">
-      <change afterPath="$PROJECT_DIR$/DELPHI_backtest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DELPHI_utils_V3_dynamic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DELPHI_utils_V3_static.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs/backtest_pd_2020-08-01_n_days_30.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/backtest/20200912_14H59M_delphi_backtest_prediction_date_2020-08-01_n_days_30.log" afterDir="false" />
+    <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_backtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_backtest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_model_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_dynamic.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3_dynamic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_static.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3_static.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -413,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599928629368</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Implemented Backtest Script and updated the README.md">
+      <created>1599937686055</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1599937686055</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -430,7 +435,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New version with arctan working well and binary data for US" />
     <MESSAGE value="New version working perfectly fine !!!!!!" />
     <MESSAGE value="branch with the data updated 27/04/2020" />
     <MESSAGE value="consistent folder naming" />
@@ -455,6 +459,7 @@
     <MESSAGE value="Updated the README.md file" />
     <MESSAGE value="Removed duplicated line of code" />
     <MESSAGE value="Merged PR + reorganizing archive + reorganizing data_sandbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged PR + reorganizing archive + reorganizing data_sandbox" />
+    <MESSAGE value="Implemented Backtest Script and updated the README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Backtest Script and updated the README.md" />
   </component>
 </project>
