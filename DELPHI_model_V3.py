@@ -79,7 +79,7 @@ parser.add_argument(
 )
 parser.add_argument(
     '--confidence_intervals', '-ci', type=int, required=True, choices=[0, 1],
-    help="Generate Confidence Intervals? Reply True or False.",
+    help="Generate Confidence Intervals? Reply 0 or 1 (for False or True).",
 )
 arguments = parser.parse_args()
 USER_RUNNING = arguments.user
@@ -402,11 +402,15 @@ def solve_and_predict_area(
 
 if __name__ == "__main__":
     assert USER_RUNNING in CONFIG_FILEPATHS["delphi_repo"].keys(), f"User {USER_RUNNING} not referenced in config.yml"
-    if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING]):
-        os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING])
+    if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/"):
+        os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
 
+    logger_filename = (
+            CONFIG_FILEPATHS["logs"][USER_RUNNING] +
+            f"model_fitting/delphi_model_V3_{yesterday_logs_filename}_{OPTIMIZER}.log"
+    )
     logging.basicConfig(
-        filename=CONFIG_FILEPATHS["logs"][USER_RUNNING] + f"delphi_model_V3_{yesterday_logs_filename}_{OPTIMIZER}.log",
+        filename=logger_filename,
         level=logging.DEBUG,
         format="%(asctime)s | %(levelname)s | %(message)s",
         datefmt="%m-%d-%Y %I:%M:%S %p",

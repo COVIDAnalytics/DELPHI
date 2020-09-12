@@ -59,3 +59,15 @@ or `annealing`), otherwise it will throw an error. Finally, the `confidence_inte
 0 (for False) or 1 (for True), depending on whether or not the user wants a final output containing confidence 
 intervals on the number of cases and deaths (like the ones generated for the website). 
 We advise users of this codebase to use 0 as default.
+
+## Backtest How To Run Instructions
+Very similarly, to perform a backtest of the model (computing certain metrics on number of cases and number of deaths) one should just use the Command Line Interface running the following command:
+`python3 DELPHI_backtest.py --user <USER_RUNNING> --prediction_date <YYYY-MM-DD> --n_days <INTEGER> --mse <0 or 1> --mae <0 or 1>`  or 
+equivalently `python3 DELPHI_backtest.py -u <USER_RUNNING> -pd <YYYY-MM-DD> -n_days <INTEGER> -mse <0 or 1> -mae <0 or 1>`
+
+The `USER` must have its file paths referenced in the `config.yml` file, otherwise the script will throw an error. 
+Similarly, the `prediction_date` must have the correct format, otherwise the script will throw an error. 
+The `n_days` needs to be an integer. The script will automatically check that the backtest is feasible given the available historical 
+and prediction data in the `danger_map` folder and the two latter inputs from the user running the script. 
+The flags `mse` and `mae` must be 0 or 1, depending on whether or not the user wants to compute MSE and MAE as well. The default 
+metric is MAPE and is always computed for both cases and deaths.

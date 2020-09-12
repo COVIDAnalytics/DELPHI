@@ -1,4 +1,5 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
+import os
 import pandas as pd
 import numpy as np
 import scipy.stats
@@ -7,6 +8,7 @@ from typing import Union
 from copy import deepcopy
 from itertools import compress
 import json
+from logging import Logger
 from DELPHI_params_V3 import (
     TIME_DICT,
     MAPPING_STATE_CODE_TO_STATE_NAME,
@@ -1498,6 +1500,7 @@ class DELPHIAggregations:
         df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
         return df
 
+    @staticmethod
     def append_all_aggregations_cf(df: pd.DataFrame, past_prediction_file = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv", past_prediction_date = "2020-07-04", q = 0.5) -> pd.DataFrame:
         df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country_with_cf(df, past_prediction_file = past_prediction_file, past_prediction_date = past_prediction_date, q = q)
         df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent_with_cf(df, past_prediction_file = past_prediction_file, past_prediction_date = past_prediction_date, q = q)
@@ -1608,6 +1611,160 @@ class DELPHIAggregationsPolicies:
             ["Policy", "Time", "Continent", "Country", "Province", "Day"], inplace=True
         )
         return df
+
+
+class DELPHIBacktest:
+    def __init__(
+            self, path_to_folder_danger_map: str, prediction_date: str, n_days_backtest: int,
+            get_mae: bool, get_mse: bool, logger: Logger,
+    ):
+        self.historical_data_path = path_to_folder_danger_map + "processed/Global/"
+        self.prediction_data_path = path_to_folder_danger_map + "predicted/"
+        self.prediction_date = prediction_date
+        self.n_days_backtest = n_days_backtest
+        self.get_mae = get_mae
+        self.get_mse = get_mse
+        self.logger = logger
+
+    def get_historical_data_df(self) -> pd.DataFrame:
+        """
+        Generates a concatenation of all historical data available in the danger_map folder, all areas
+        starting from the prediction date given by the user, and keeping only relevant columns
+        :return: a dataframe with all relevant historical data
+        """
+        list_historical_data_filepaths = [
+            self.historical_data_path + filename
+            for filename in os.listdir(self.historical_data_path)
+            if "Cases_" in filename
+        ]
+        df_historical = []
+        for filepath_historical in list_historical_data_filepaths:
+            df_historical.append(pd.read_csv(filepath_historical))
+
+        df_historical = pd.concat(df_historical).sort_values(
+            ["country", "province", "date"]
+        ).reset_index(drop=True)[
+            ["country", "province", "date", "day_since100", "case_cnt", "death_cnt"]
+        ]
+        df_historical["province"].fillna("None", inplace=True)
+        df_historical.rename(
+            columns={"country": "Country", "province": "Province", "date": "Day"}, inplace=True
+        )
+        df_historical["tuple"] = list(zip(df_historical.Country, df_historical.Province))
+        df_historical = df_historical[
+            (df_historical.Day >= self.prediction_date)
+        ].reset_index(drop=True)
+        df_historical = df_historical[df_historical.tuple != ("US", "None")].reset_index(drop=True)
+        return df_historical
+
+    def get_prediction_data(self) -> pd.DataFrame:
+        """
+        Retrieve the predicted data on the prediction_date given as an input by the user running
+        :param prediction_date: prediction date to be used to look for the file in the danger_map folder, format
+        has to be YYYY-MM-DD (it is asserted outside of this function)
+        :return: a dataframe that contains the relevant predictions on the relevant prediction date
+        """
+        prediction_date_filename = "".join(self.prediction_date.split("-"))
+        if os.path.exists(self.prediction_data_path + f"Global_V2_{prediction_date_filename}.csv"):
+            self.logger.info("Backtesting on DELPHI V3.0 predictions because filename contains _V2")
+            df_prediction = pd.read_csv(self.prediction_data_path + f"Global_V2_{prediction_date_filename}.csv")
+        elif os.path.exists(self.prediction_data_path + f"Global_V2_{prediction_date_filename}.csv"):
+            self.logger.info("Backtesting on DELPHI V1.0 or V2.0 predictions because filename doesn't contain _V2")
+            df_prediction = pd.read_csv(self.prediction_data_path + f"Global_V2_{prediction_date_filename}.csv")
+        else:
+            raise ValueError(f"The file on prediction date {self.prediction_date} has never been generated")
+
+        return df_prediction[["Continent", "Country", "Province", "Day", "Total Detected", "Total Detected Deaths"]]
+
+    def get_feasibility_flag(self, df_historical: pd.DataFrame, df_prediction: pd.DataFrame) -> bool:
+        """
+        Checks that there is enough historical and prediction data to perform the backtest based on the user input
+        :param df_historical: a dataframe with all relevant historical data
+        :param df_prediction: a dataframe that contains the relevant predictions on the relevant prediction date
+        :return: a True boolean, otherwise will raise a ValueError with more details as to why backtest is infeasible
+        """
+        max_date_historical = df_historical.Day.max()
+        max_date_prediction = df_prediction.Day.max()
+        max_date_backtest = str((pd.to_datetime(self.prediction_date) + timedelta(days=self.n_days_backtest)).date())
+        days_missing_historical = (pd.to_datetime(max_date_backtest) - pd.to_datetime(max_date_historical)).days
+        days_missing_prediction = (pd.to_datetime(max_date_backtest) - pd.to_datetime(max_date_prediction)).days
+        if (days_missing_historical > 0) or (days_missing_prediction > 0):
+            feasibility_flag = False
+        else:
+            feasibility_flag = True
+
+        if not feasibility_flag:
+            error_message = (
+                "Backtest date and number of days of backtest incompatible with available data: missing " +
+                f"{days_missing_historical} days of historical data and {days_missing_prediction} days of prediction data " +
+                "(if negative value for number of days: not missing)"
+            )
+            self.logger.warning(error_message)
+            raise ValueError(error_message)
+
+        self.logger.info(f"Backtest is feasible based on input prediction date and number of backtesting days")
+        return True
+
+    def generate_empty_metrics_dict(self) -> dict:
+        """
+        Generates the format of the dictionary that will compose the dataframe with all backtest metrics
+        based on the get_mae and get_mse flags given by the user
+        :return: a dictionary with either 5, 7 or 9 keys depending on the MAE and MSE flags
+        """
+        dict_df_backtest_metrics = {
+            "prediction_date": [],
+            "n_days_backtest": [],
+            "tuple_area": [],
+            "mape_cases": [],
+            "mape_deaths": [],
+        }
+        if self.get_mae:
+            dict_df_backtest_metrics["mae_cases"] = []
+            dict_df_backtest_metrics["mae_deaths"] = []
+
+        if self.get_mse:
+            dict_df_backtest_metrics["mse_cases"] = []
+            dict_df_backtest_metrics["mse_deaths"] = []
+
+        return dict_df_backtest_metrics
+
+    def get_backtest_metrics_area(
+            self, df_backtest: pd.DataFrame, tuple_area: tuple, dict_df_backtest_metrics: dict,
+    ) -> dict:
+        """
+
+        :param df_backtest:
+        :param tuple_area:
+        :param dict_df_backtest_metrics:
+        :return:
+        """
+        df_temp = df_backtest[df_backtest.tuple_complete == tuple_area]
+        max_date_backtest = str((pd.to_datetime(self.prediction_date) + timedelta(days=self.n_days_backtest)).date())
+        df_temp = df_temp[(df_temp.Day >= self.prediction_date) & (df_temp.Day <= max_date_backtest)].sort_values(
+            ["Continent", "Country", "Province", "Day"]
+        ).reset_index(drop=True)
+        mae_cases, mape_cases = compute_mae_and_mape(
+            y_true=df_temp.case_cnt.tolist(), y_pred=df_temp["Total Detected"].tolist()
+        )
+        mae_deaths, mape_deaths = compute_mae_and_mape(
+            y_true=df_temp.death_cnt.tolist(), y_pred=df_temp["Total Detected Deaths"].tolist()
+        )
+        mse_cases = compute_mse(y_true=df_temp.case_cnt.tolist(), y_pred=df_temp["Total Detected"].tolist())
+        mse_deaths = compute_mse(y_true=df_temp.death_cnt.tolist(), y_pred=df_temp["Total Detected Deaths"].tolist())
+        dict_df_backtest_metrics["prediction_date"].append(self.prediction_date)
+        dict_df_backtest_metrics["n_days_backtest"].append(self.n_days_backtest)
+        dict_df_backtest_metrics["tuple_area"].append(tuple_area)
+        dict_df_backtest_metrics["mape_cases"].append(mape_cases)
+        dict_df_backtest_metrics["mape_deaths"].append(mape_deaths)
+        if self.get_mae:
+            dict_df_backtest_metrics["mae_cases"].append(mae_cases)
+            dict_df_backtest_metrics["mae_deaths"].append(mae_deaths)
+
+        if self.get_mse:
+            dict_df_backtest_metrics["mse_cases"].append(mse_cases)
+            dict_df_backtest_metrics["mse_deaths"].append(mse_deaths)
+
+        return dict_df_backtest_metrics
 
 
 def get_initial_conditions(params_fitted, global_params_fixed):
