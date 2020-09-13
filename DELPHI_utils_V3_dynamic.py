@@ -111,47 +111,6 @@ def get_bounds_params_from_pastparams(
     return bounds_params
 
 
-def compute_sign_mape(y_true: list, y_pred: list):
-    # Mean Percentage Error, without the absolute value
-    y_true, y_pred = np.array(y_true), np.array(y_pred)
-    mpe = np.mean((y_true - y_pred)[y_true > 0] / y_true[y_true > 0]) * 100
-    sign = np.sign(mpe)
-    return sign
-
-
-def compute_mape_daily_delta_since_last_train(
-    true_last_train, pred_last_train, y_true, y_pred
-):
-    delta_true = np.array([y_true_i - true_last_train for y_true_i in y_true])
-    delta_pred = np.array([y_pred_i - pred_last_train for y_pred_i in y_pred])
-    mape_daily_delta = (
-        np.mean(
-            np.abs(delta_true - delta_pred)[delta_true > 0] / delta_true[delta_true > 0]
-        )
-        * 100
-    )
-    return mape_daily_delta
-
-
-def compute_mse(y_true, y_pred):
-    y_true, y_pred = np.array(y_true), np.array(y_pred)
-    mse = np.mean((y_true - y_pred) ** 2)
-    return mse
-
-
-def compute_mae_and_mape(y_true, y_pred):
-    y_true, y_pred = np.array(y_true), np.array(y_pred)
-    mae = np.mean(np.abs((y_true - y_pred)))
-    mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
-    return mae, mape
-
-
-def compute_mape(y_true, y_pred):
-    y_true, y_pred = np.array(y_true), np.array(y_pred)
-    mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
-    return mape
-
-
 def convert_dates_us_policies(x):
     if x == "Not implemented":
         return np.nan
@@ -287,12 +246,8 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
 
 def read_policy_data_us_only(filepath_data_sandbox: str):
     policies = [
-        "travel_limit",
-        "stay_home",
-        "educational_fac",
-        "any_gathering_restrict",
-        "any_business",
-        "all_non-ess_business",
+        "travel_limit", "stay_home", "educational_fac", "any_gathering_restrict",
+        "any_business", "all_non-ess_business",
     ]
     list_US_states = [
         "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
@@ -306,19 +261,10 @@ def read_policy_data_us_only(filepath_data_sandbox: str):
     df = pd.read_csv(filepath_data_sandbox + "12062020_raw_policy_data_us_only.csv")
     df = df[df.location_name.isin(list_US_states)][
         [
-            "location_name",
-            "travel_limit_start_date",
-            "travel_limit_end_date",
-            "stay_home_start_date",
-            "stay_home_end_date",
-            "educational_fac_start_date",
-            "educational_fac_end_date",
-            "any_gathering_restrict_start_date",
-            "any_gathering_restrict_end_date",
-            "any_business_start_date",
-            "any_business_end_date",
-            "all_non-ess_business_start_date",
-            "all_non-ess_business_end_date",
+            "location_name", "travel_limit_start_date", "travel_limit_end_date", "stay_home_start_date",
+            "stay_home_end_date", "educational_fac_start_date", "educational_fac_end_date",
+            "any_gathering_restrict_start_date", "any_gathering_restrict_end_date", "any_business_start_date",
+            "any_business_end_date", "all_non-ess_business_start_date", "all_non-ess_business_end_date",
         ]
     ]
     dict_state_to_policy_dates = {}
@@ -720,65 +666,6 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
         )
 
     return dict_normalized_policy_gamma, dict_current_policy
-
-
-def add_aggregations_backtest(df_backtest_performance: pd.DataFrame) -> pd.DataFrame:
-    columns_kept = [
-        "train_mape_cases", "train_mape_deaths", "train_mae_cases", "train_mae_deaths", "train_mse_cases",
-        "train_mse_deaths", "test_mape_cases", "test_mape_deaths", "test_mae_cases", "test_mae_deaths",
-        "test_mse_cases", "test_mse_deaths", "mape_daily_delta_cases", "mape_daily_delta_deaths",
-    ]
-    df_temp = df_backtest_performance.copy()
-    df_temp_continent = df_temp.groupby("continent")[columns_kept].mean().reset_index()
-    df_temp_country = df_temp.groupby(["continent", "country"])[columns_kept].mean().reset_index()
-    columns_none = [
-        "country",
-        "province",
-        "train_start_date",
-        "train_end_date",
-        "test_start_date",
-        "test_end_date",
-    ]
-    columns_nan = [
-        "train_sign_mpe_cases",
-        "train_sign_mpe_deaths",
-        "test_sign_mpe_cases",
-        "test_sign_mpe_deaths",
-    ]
-    for col in columns_none:
-        df_temp_continent[col] = "None"
-    for col in columns_none[1:]:
-        df_temp_country[col] = "None"
-    for col in columns_nan:
-        df_temp_continent[col] = np.nan
-        df_temp_country[col] = np.nan
-
-    all_columns = [
-        "continent", "country", "province", "train_start_date", "train_end_date", "train_mape_cases",
-        "train_mape_deaths", "train_sign_mpe_cases", "train_sign_mpe_deaths", "train_mae_cases",
-        "train_mae_deaths", "train_mse_cases", "train_mse_deaths", "test_start_date", "test_end_date",
-        "test_mape_cases", "test_mape_deaths", "test_sign_mpe_cases", "test_sign_mpe_deaths", "test_mae_cases",
-        "test_mae_deaths", "test_mse_cases", "test_mse_deaths", "mape_daily_delta_cases", "mape_daily_delta_deaths",
-    ]
-    df_temp_continent = df_temp_continent[all_columns]
-    df_temp_country = df_temp_country[all_columns]
-    df_backtest_perf_final = (
-        pd.concat([df_backtest_performance, df_temp_continent, df_temp_country])
-        .sort_values(["continent", "country", "province"])
-        .reset_index(drop=True)
-    )
-    for col in [
-        "train_mape_cases", "train_mape_deaths", "train_mae_cases", "train_mae_deaths",
-        "train_mse_cases", "train_mse_deaths", "test_mape_cases", "test_mape_deaths", "test_mae_cases",
-        "test_mae_deaths", "test_mse_cases", "test_mse_deaths", "mape_daily_delta_cases", "mape_daily_delta_deaths",
-    ]:
-        df_backtest_perf_final[col] = df_backtest_perf_final[col].round(3)
-
-    df_backtest_perf_final.drop_duplicates(
-        subset=["continent", "country", "province"], inplace=True
-    )
-    df_backtest_perf_final.reset_index(drop=True, inplace=True)
-    return df_backtest_perf_final
 
 
 def get_testing_data_us() -> pd.DataFrame:

@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
-from DELPHI_utils_V3_static import DELPHIDataCreator, DELPHIDataSaver, get_initial_conditions
+from DELPHI_utils_V3_static import DELPHIDataCreator, DELPHIDataSaver, get_initial_conditions, compute_mape
 from DELPHI_utils_V3_dynamic import (
-    compute_mape, read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries,
+    read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries,
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
 )
 from DELPHI_params_V3 import (

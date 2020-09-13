@@ -1923,3 +1923,44 @@ def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, x_sol_fin
                     ) / 2
 
     return mape_data
+
+
+def compute_sign_mape(y_true: list, y_pred: list):
+    # Mean Percentage Error, without the absolute value
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    mpe = np.mean((y_true - y_pred)[y_true > 0] / y_true[y_true > 0]) * 100
+    sign = np.sign(mpe)
+    return sign
+
+
+def compute_mape_daily_delta_since_last_train(
+    true_last_train, pred_last_train, y_true, y_pred
+):
+    delta_true = np.array([y_true_i - true_last_train for y_true_i in y_true])
+    delta_pred = np.array([y_pred_i - pred_last_train for y_pred_i in y_pred])
+    mape_daily_delta = (
+        np.mean(
+            np.abs(delta_true - delta_pred)[delta_true > 0] / delta_true[delta_true > 0]
+        )
+        * 100
+    )
+    return mape_daily_delta
+
+
+def compute_mse(y_true, y_pred):
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    mse = np.mean((y_true - y_pred) ** 2)
+    return mse
+
+
+def compute_mae_and_mape(y_true, y_pred):
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    mae = np.mean(np.abs((y_true - y_pred)))
+    mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
+    return mae, mape
+
+
+def compute_mape(y_true, y_pred):
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
+    return mape
