@@ -12,9 +12,7 @@ from DELPHI_params_V3 import (
     default_policy,
     default_policy_enaction_time,
 )
-from DELPHI_utils_V3_dynamic import (
-    make_increasing, compute_mae_and_mape, compute_mse
-)
+from DELPHI_utils_V3_dynamic import make_increasing
 
 
 class DELPHIDataSaver:
@@ -35,13 +33,16 @@ class DELPHIDataSaver:
         )
 
     def save_all_datasets(
-            self, optimizer: str, save_since_100_cases=False, website=False
+            self, optimizer: str, save_since_100_cases: bool = False, website: bool = False
     ):
         """
-
-        :param optimizer:
-        :param save_since_100_cases:
-        :param website:
+        Saves the parameters and predictions datasets (since 100 cases and since the day of running)
+        based on the different flags and the inputs to the DELPHIDataSaver initializer
+        :param optimizer: needs to be in (tnc, trust-constr, annealing) and will save files differently accordingly; the
+        default name corresponds to tnc where we don't specify the optimizer because that's the default one
+        :param save_since_100_cases: boolean, whether or not we also want to save the predictions since 100 cases
+        for all the areas (instead of since the day we actually ran the optimization)
+        :param website: boolean, whether or not we want to save the files in the website repository as well
         :return:
         """
         today_date_str = "".join(str(datetime.now().date()).split("-"))
@@ -89,8 +90,53 @@ class DELPHIDataSaver:
                     index=False,
                     )
 
+    def save_policy_predictions_to_json(self, website: bool = False, local_delphi: bool = False):
+        """
+        Saves the policy predictions as a JSON file based on the different flags
+        :param website: boolean, whether or not we want to save the JSON file in the website repository as well
+        :param local_delphi: boolean, whether or not we want to save the JSON file in the DELPHI repository as well
+        :return:
+        """
+        today_date_str = "".join(str(datetime.now().date()).split("-"))
+        dict_predictions_policies_world_since_100_cases = DELPHIDataSaver.create_nested_dict_from_final_dataframe(
+            self.df_global_predictions_since_100_cases
+        )
+        with open(
+                self.PATH_TO_FOLDER_DANGER_MAP
+                + f"/predicted/world_Python_{today_date_str}_Scenarios_since_100_cases.json",
+                "w",
+        ) as handle:
+            json.dump(dict_predictions_policies_world_since_100_cases, handle)
+
+        with open(
+                self.PATH_TO_FOLDER_DANGER_MAP
+                + f"/predicted/world_Python_Scenarios_since_100_cases.json",
+                "w",
+        ) as handle:
+            json.dump(dict_predictions_policies_world_since_100_cases, handle)
+
+        if local_delphi:
+            with open(
+                    f"./world_Python_{today_date_str}_Scenarios_since_100_cases.json", "w"
+            ) as handle:
+                json.dump(dict_predictions_policies_world_since_100_cases, handle)
+
+        if website:
+            with open(
+                    self.PATH_TO_WEBSITE_PREDICTED
+                    + f"assets/policies/World_Scenarios.json",
+                    "w",
+            ) as handle:
+                json.dump(dict_predictions_policies_world_since_100_cases, handle)
+
     @staticmethod
     def create_nested_dict_from_final_dataframe(df_predictions: pd.DataFrame) -> dict:
+        """
+        Generates the nested dictionary with all the policy predictions which will then be saved as a JSON file
+        to be used on the website
+        :param df_predictions: dataframe with all policy predictions
+        :return: dictionary with nested keys and policy predictions to be saved as a JSON file
+        """
         dict_all_results = {
             continent: {} for continent in df_predictions.Continent.unique()
         }
@@ -161,39 +207,6 @@ class DELPHIDataSaver:
 
         return dict_all_results
 
-    def save_policy_predictions_to_json(self, website=False, local_delphi=False):
-        today_date_str = "".join(str(datetime.now().date()).split("-"))
-        dict_predictions_policies_world_since_100_cases = DELPHIDataSaver.create_nested_dict_from_final_dataframe(
-            self.df_global_predictions_since_100_cases
-        )
-        with open(
-                self.PATH_TO_FOLDER_DANGER_MAP
-                + f"/predicted/world_Python_{today_date_str}_Scenarios_since_100_cases.json",
-                "w",
-        ) as handle:
-            json.dump(dict_predictions_policies_world_since_100_cases, handle)
-
-        with open(
-                self.PATH_TO_FOLDER_DANGER_MAP
-                + f"/predicted/world_Python_Scenarios_since_100_cases.json",
-                "w",
-        ) as handle:
-            json.dump(dict_predictions_policies_world_since_100_cases, handle)
-
-        if local_delphi:
-            with open(
-                    f"./world_Python_{today_date_str}_Scenarios_since_100_cases.json", "w"
-            ) as handle:
-                json.dump(dict_predictions_policies_world_since_100_cases, handle)
-
-        if website:
-            with open(
-                    self.PATH_TO_WEBSITE_PREDICTED
-                    + f"assets/policies/World_Scenarios.json",
-                    "w",
-            ) as handle:
-                json.dump(dict_predictions_policies_world_since_100_cases, handle)
-
 
 class DELPHIDataCreator:
     def __init__(
@@ -222,11 +235,11 @@ class DELPHIDataCreator:
         self.province = province
         self.testing_data_included = testing_data_included
 
-    def create_dataset_parameters(self, mape) -> pd.DataFrame:
+    def create_dataset_parameters(self, mape: float) -> pd.DataFrame:
         """
-
-        :param mape:
-        :return:
+        Creates the parameters dataset with the results from the optimization and the pre-computed MAPE
+        :param mape: MAPE on the last 15 days (or less if less historical days available) for that particular area
+        :return: dataframe with parameters and MAPE
         """
         if self.testing_data_included:
             print(
@@ -257,8 +270,9 @@ class DELPHIDataCreator:
 
     def create_datasets_predictions(self) -> (pd.DataFrame, pd.DataFrame):
         """
-
-        :return:
+        Creates two dataframes with the predictions of the DELPHI model, the first one since the day of the prediction,
+        the second since the day the area had 100 cases
+        :return: tuple of dataframes with predictions from DELPHI model
         """
         n_days_btw_today_since_100 = (datetime.now() - self.date_day_since100).days
         n_days_since_today = self.x_sol_final.shape[1] - n_days_btw_today_since_100
@@ -437,7 +451,8 @@ class DELPHIDataCreator:
         :param past_prediction_file:
         :param past_prediction_date:
         :param q: quantile used for the CIs
-        :return:
+        :return: tuple of dataframes (since day of optimization & since 100 cases in the area) with predictions and
+        confidence intervals
         """
         n_days_btw_today_since_100 = (datetime.now() - self.date_day_since100).days
         n_days_since_today = self.x_sol_final.shape[1] - n_days_btw_today_since_100
@@ -1781,11 +1796,16 @@ class DELPHIBacktest:
         return dict_df_backtest_metrics
 
 
-def get_initial_conditions(params_fitted, global_params_fixed):
+def get_initial_conditions(params_fitted: tuple, global_params_fixed: tuple) -> list:
+    """
+    Generates the initial conditions for the DELPHI model based on global fixed parameters (mostly populations and some
+    constant rates) and fitted parameters (the internal parameters k1 and k2)
+    :param params_fitted: tuple of parameters being fitted, mostly interested in k1 and k2 here (parameters 7 and 8)
+    :param global_params_fixed: tuple of fixed and constant parameters for the model defined a while ago
+    :return: a list of initial conditions for all 16 states of the DELPHI model
+    """
     alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2 = params_fitted[:8]
-    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = (
-        global_params_fixed
-    )
+    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
     S_0 = (
         (N - PopulationCI / p_d)
         - (PopulationCI / p_d * (k1 + k2))
@@ -1814,7 +1834,14 @@ def get_initial_conditions(params_fitted, global_params_fixed):
     return x_0_cases
 
 
-def get_initial_conditions_with_testing(params_fitted, global_params_fixed):
+def get_initial_conditions_with_testing(params_fitted: tuple, global_params_fixed: tuple) -> list:
+    """
+    Generates the initial conditions for the DELPHI model based on global fixed parameters (mostly populations and some
+    constant rates) and fitted parameters (the internal parameters k1 and k2) when including testing in the modeling
+    :param params_fitted: tuple of parameters being fitted, mostly interested in k1 and k2 here (parameters 7 and 8)
+    :param global_params_fixed: tuple of fixed and constant parameters for the model defined a while ago
+    :return: a list of initial conditions for all 16 states of the DELPHI model
+    """
     alpha, days, r_s, r_dth, p_dth, k1, k2, beta_0, beta_1 = params_fitted
     N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = (
         global_params_fixed
@@ -1905,27 +1932,42 @@ def get_residuals_value(
     return residuals_value
 
 
-def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, x_sol_final: np.array):
+def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, x_sol_final: np.array) -> float:
+    """
+    Computes MAPE on cases & deaths (averaged) either on last 15 days of historical data (if there are more than 15)
+    or exactly the number of days in the historical data (if less than 15)
+    :param cases_data_fit: list, contains data used to fit on number of cases
+    :param deaths_data_fit: list, contains data used to fit on number of deaths
+    :param x_sol_final: numpy array, contains the predicted solution by the DELPHI model for all 16 states
+    :return: a float corresponding to the average MAPE on cases and deaths on a given period of time (15 days is default
+    but otherwise the number of days available in the historical data)
+    """
     if len(cases_data_fit) > 15:  # In which case we can compute MAPE on last 15 days
         mape_data = (
-                            compute_mape(
-                                cases_data_fit[-15:],
-                                x_sol_final[15, len(cases_data_fit) - 15: len(cases_data_fit)],
-                            ) + compute_mape(
-                        deaths_data_fit[-15:],
-                        x_sol_final[14, len(cases_data_fit) - 15: len(deaths_data_fit)],
-                    )
-                    ) / 2
+                compute_mape(
+                    cases_data_fit[-15:],
+                    x_sol_final[15, len(cases_data_fit) - 15: len(cases_data_fit)],
+                ) + compute_mape(
+                    deaths_data_fit[-15:],
+                    x_sol_final[14, len(cases_data_fit) - 15: len(deaths_data_fit)],
+                )
+        ) / 2
     else:  # We take MAPE on all available previous days (less than 15)
         mape_data = (
-                            compute_mape(cases_data_fit, x_sol_final[15, : len(cases_data_fit)])
-                            + compute_mape(deaths_data_fit, x_sol_final[14, : len(deaths_data_fit)])
-                    ) / 2
+                compute_mape(cases_data_fit, x_sol_final[15, : len(cases_data_fit)])
+                + compute_mape(deaths_data_fit, x_sol_final[14, : len(deaths_data_fit)])
+        ) / 2
 
     return mape_data
 
 
-def compute_sign_mape(y_true: list, y_pred: list):
+def compute_sign_mape(y_true: list, y_pred: list) -> float:
+    """
+    Compute the sign of the Mean Percentage Error, mainly to know if we're constantly over or undershooting
+    :param y_true: list of true historical values
+    :param y_pred: list of predicted values
+    :return: a float, +1 or -1 for the sign of the MPE
+    """
     # Mean Percentage Error, without the absolute value
     y_true, y_pred = np.array(y_true), np.array(y_pred)
     mpe = np.mean((y_true - y_pred)[y_true > 0] / y_true[y_true > 0]) * 100
@@ -1934,8 +1976,18 @@ def compute_sign_mape(y_true: list, y_pred: list):
 
 
 def compute_mape_daily_delta_since_last_train(
-    true_last_train, pred_last_train, y_true, y_pred
-):
+    true_last_train: list, pred_last_train: list, y_true: list, y_pred: list
+) -> float:
+    """
+    Computed the Mean Absolute Percentage Error between the daily differences of prediction between a previous train
+    and a current train true/predicted values
+    :param true_last_train: list of true historical values for the previous train considered
+    :param pred_last_train: list of predicted values for the previous train considered
+    :param y_true: list of true historical values for the current train considered
+    :param y_pred: list of predicted values for the current train considered
+    :return: a float corresponding between the MAPE between the daily differences of prediction/truth between 2
+    different training processes
+    """
     delta_true = np.array([y_true_i - true_last_train for y_true_i in y_true])
     delta_pred = np.array([y_pred_i - pred_last_train for y_pred_i in y_pred])
     mape_daily_delta = (
@@ -1947,20 +1999,38 @@ def compute_mape_daily_delta_since_last_train(
     return mape_daily_delta
 
 
-def compute_mse(y_true, y_pred):
+def compute_mse(y_true: list, y_pred: list) -> float:
+    """
+    Compute the Mean Squared Error between two lists
+    :param y_true: list of true historical values
+    :param y_pred: list of predicted values
+    :return: a float, corresponding to the MSE
+    """
     y_true, y_pred = np.array(y_true), np.array(y_pred)
     mse = np.mean((y_true - y_pred) ** 2)
-    return mse
+    return float(mse)
 
 
-def compute_mae_and_mape(y_true, y_pred):
+def compute_mae_and_mape(y_true: list, y_pred: list) -> (float, float):
+    """
+    Compute the Mean Absolute Error (MAE) and Mean Absolute Percentage Error (MAPE) between two lists of values
+    :param y_true: list of true historical values
+    :param y_pred: list of predicted values
+    :return: a tuple of floats, corresponding to (MAE, MAPE)
+    """
     y_true, y_pred = np.array(y_true), np.array(y_pred)
     mae = np.mean(np.abs((y_true - y_pred)))
     mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
     return mae, mape
 
 
-def compute_mape(y_true, y_pred):
+def compute_mape(y_true: list, y_pred: list) -> float:
+    """
+    Compute the Mean Absolute Percentage Error (MAPE) between two lists of values
+    :param y_true: list of true historical values
+    :param y_pred: list of predicted values
+    :return: a float corresponding to the MAPE
+    """
     y_true, y_pred = np.array(y_true), np.array(y_pred)
     mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
     return mape

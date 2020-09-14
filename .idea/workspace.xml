@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_dynamic.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3_dynamic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_static.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3_static.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -421,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599940374407</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Slight modifications/deletions, need to document functions">
+      <created>1600027692972</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1600027692972</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -438,7 +444,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="branch with the data updated 27/04/2020" />
     <MESSAGE value="consistent folder naming" />
     <MESSAGE value="update 3.0+CR 06/11" />
     <MESSAGE value="update 3.0+CR 06/12" />
@@ -463,6 +468,7 @@
     <MESSAGE value="Merged PR + reorganizing archive + reorganizing data_sandbox" />
     <MESSAGE value="Implemented Backtest Script and updated the README.md" />
     <MESSAGE value="First layer separating DELPHI_utils.py into 2 files and cleaning up the code from unused functions &amp; methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="First layer separating DELPHI_utils.py into 2 files and cleaning up the code from unused functions &amp; methods" />
+    <MESSAGE value="Slight modifications/deletions, need to document functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slight modifications/deletions, need to document functions" />
   </component>
 </project>
