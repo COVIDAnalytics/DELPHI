@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="Finished documentation for dynamic utils+renamed variable in many files">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_dynamic.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3_dynamic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -444,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600128936397</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Finished documentation for dynamic utils+renamed variable in many files+added optimizer in DELPHI with policies for the choice of the parameters file.">
+      <created>1600132235256</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1600132235257</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -461,7 +462,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update 3.0+CR 06/13 with multiprocessing (new files for 06/13 + new code)" />
     <MESSAGE value="Making sure that postprocessing and saving is consistent between 2.0 and 3.0+CR" />
     <MESSAGE value="changed file naming &amp; update CR+3.0 06/15" />
     <MESSAGE value="new 2.0+policy backtest &amp; update CR+3.0 06/16" />
@@ -486,6 +486,7 @@
     <MESSAGE value="Re-writing and beginning of additional documentation for DELPHI_utils_V3_static.py" />
     <MESSAGE value="Finished documentation for static utils" />
     <MESSAGE value="Finished documentation for dynamic utils+renamed variable in many files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished documentation for dynamic utils+renamed variable in many files" />
+    <MESSAGE value="Finished documentation for dynamic utils+renamed variable in many files+added optimizer in DELPHI with policies for the choice of the parameters file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished documentation for dynamic utils+renamed variable in many files+added optimizer in DELPHI with policies for the choice of the parameters file." />
   </component>
 </project>
