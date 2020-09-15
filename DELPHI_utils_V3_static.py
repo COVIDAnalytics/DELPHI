@@ -437,19 +437,19 @@ class DELPHIDataCreator:
 
     def create_datasets_with_confidence_intervals(
             self,
-            cases_data_fit,
-            deaths_data_fit,
-            past_prediction_file="I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
-            past_prediction_date="2020-07-04",
-            q=0.5,
+            cases_data_fit: list,
+            deaths_data_fit: list,
+            past_prediction_file: str = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
+            past_prediction_date: str = "2020-07-04",
+            q: float = 0.5,
     ) -> (pd.DataFrame, pd.DataFrame):
         """
         Generates the prediction datasets from the date with 100 cases and from the day of running, including columns
         containing Confidence Intervals used in the website for cases and deaths
-        :param cases_data_fit:
-        :param deaths_data_fit:
-        :param past_prediction_file:
-        :param past_prediction_date:
+        :param cases_data_fit: list, contains data used to fit on number of cases
+        :param deaths_data_fit: list, contains data used to fit on number of deaths
+        :param past_prediction_file: past prediction file's path for CI generation
+        :param past_prediction_date: past prediction's date for CI generation
         :param q: quantile used for the CIs
         :return: tuple of dataframes (since day of optimization & since 100 cases in the area) with predictions and
         confidence intervals
@@ -1023,7 +1023,7 @@ class DELPHIDataCreator:
         )
 
     def create_datasets_predictions_scenario(
-            self, policy="Lockdown", time=0, totalcases=None
+            self, policy: str = "Lockdown", time: int = 0, totalcases=None
     ) -> (pd.DataFrame, pd.DataFrame):
         n_days_btw_today_since_100 = (datetime.now() - self.date_day_since100).days
         n_days_since_today = self.x_sol_final.shape[1] - n_days_btw_today_since_100
@@ -1143,48 +1143,105 @@ class DELPHIDataCreator:
 
 class DELPHIAggregations:
     @staticmethod
-    def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
-        df = df[df["Province"] != "None"]
-        df_agg_country = df.groupby(["Continent", "Country", "Day"]).sum().reset_index()
+    def get_aggregation_per_country(df_predictions: pd.DataFrame) -> pd.DataFrame:
+        """
+        Aggregates predictions at the country level from the predictions dataframe
+        :param df_predictions: DELPHI predictions dataframe
+        :return: DELPHI predictions dataframe aggregated at the country level
+        """
+        df_predictions = df_predictions[df_predictions["Province"] != "None"]
+        df_agg_country = df_predictions.groupby(["Continent", "Country", "Day"]).sum().reset_index()
         df_agg_country["Province"] = "None"
-        df_agg_country = df_agg_country[df.columns]
+        df_agg_country = df_agg_country[df_predictions.columns]
         return df_agg_country
 
     @staticmethod
-    def get_aggregation_per_continent(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_continent = df.groupby(["Continent", "Day"]).sum().reset_index()
+    def get_aggregation_per_continent(df_predictions: pd.DataFrame) -> pd.DataFrame:
+        """
+        Aggregates predictions at the continent level from the predictions dataframe
+        :param df_predictions: DELPHI predictions dataframe
+        :return: DELPHI predictions dataframe aggregated at the continent level
+        """
+        df_agg_continent = df_predictions.groupby(["Continent", "Day"]).sum().reset_index()
         df_agg_continent["Country"] = "None"
         df_agg_continent["Province"] = "None"
-        df_agg_continent = df_agg_continent[df.columns]
+        df_agg_continent = df_agg_continent[df_predictions.columns]
         return df_agg_continent
 
     @staticmethod
-    def get_aggregation_world(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_world = df.groupby("Day").sum().reset_index()
+    def get_aggregation_world(df_predictions: pd.DataFrame) -> pd.DataFrame:
+        """
+        Aggregates predictions at the world level from the predictions dataframe
+        :param df_predictions: DELPHI predictions dataframe
+        :return: DELPHI predictions dataframe aggregated at the world level (only one row in this dataframe)
+        """
+        df_agg_world = df_predictions.groupby("Day").sum().reset_index()
         df_agg_world["Continent"] = "None"
         df_agg_world["Country"] = "None"
         df_agg_world["Province"] = "None"
-        df_agg_world = df_agg_world[df.columns]
+        df_agg_world = df_agg_world[df_predictions.columns]
         return df_agg_world
 
     @staticmethod
-    def get_aggregation_per_country_with_cf(df: pd.DataFrame, past_prediction_file = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv", past_prediction_date = "2020-07-04", q = 0.5) -> pd.DataFrame:
-        df = df[df["Province"] != "None"]
-        columns_without_bounds = [x for x in df.columns if ("LB" not in x) and ("UB" not in x)]
-        df_agg_country = df[columns_without_bounds].groupby(["Continent", "Country", "Day"]).sum \
-            (min_count = 1).reset_index()
+    def append_all_aggregations(df_predictions: pd.DataFrame) -> pd.DataFrame:
+        """
+        Creates and appends all the predictions' aggregations at the country, continent and world levels
+        :param df_predictions: dataframe with the raw predictions from DELPHI
+        :return: dataframe with raw predictions from DELPHI and aggregated ones at the country, continent & world levels
+        """
+        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(
+            df_predictions
+        )
+        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(
+            df_predictions
+        )
+        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world(df_predictions)
+        df_predictions = pd.concat(
+            [
+                df_predictions,
+                df_agg_since_today_per_country,
+                df_agg_since_today_per_continent,
+                df_agg_since_today_world,
+            ]
+        )
+        df_predictions.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
+        return df_predictions
+
+    @staticmethod
+    def get_aggregation_per_country_with_cf(
+            df_predictions: pd.DataFrame,
+            past_prediction_file: str = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
+            past_prediction_date: str = "2020-07-04",
+            q: float = 0.5
+    ) -> pd.DataFrame:
+        """
+        Creates aggregations at the country level as well as associated confidence intervals
+        :param df_predictions: dataframe containing the raw predictions from the DELPHI model
+        :param past_prediction_file: past prediction file's path for CI generation
+        :param past_prediction_date: past prediction's date for CI generation
+        :param q: quantile used for the CIs
+        :return: dataframe with country level aggregated predictions & associated confidence intervals
+        """
+        df_predictions = df_predictions[df_predictions["Province"] != "None"]
+        columns_without_bounds = [x for x in df_predictions.columns if ("LB" not in x) and ("UB" not in x)]
+        df_agg_country = df_predictions[columns_without_bounds].groupby(["Continent", "Country", "Day"]).sum(
+            min_count=1
+        ).reset_index()
         df_agg_country["Province"] = "None"
         df_agg_country = df_agg_country[columns_without_bounds]
         aggregated_countries = set(zip(df_agg_country["Country"] ,df_agg_country["Province"]))
         past_predictions = pd.read_csv(past_prediction_file)
         list_df_aggregated_countries = []
         for country, province in aggregated_countries:
-            past_predictions_temp = (past_predictions
-                [(past_predictions['Day'] > past_prediction_date) & (past_predictions['Country'] == country) &
-                            (past_predictions['Province'] == province)]).sort_values("Day")
-            df_agg_country_temp = (df_agg_country[
-                (df_agg_country['Country'] == country) & (df_agg_country['Province'] == province)]).sort_values(
-                "Day").reset_index(drop=True)
+            past_predictions_temp = past_predictions[
+                (past_predictions['Day'] > past_prediction_date)
+                & (past_predictions['Country'] == country)
+                & (past_predictions['Province'] == province)
+            ].sort_values("Day")
+            df_agg_country_temp = df_agg_country[
+                (df_agg_country['Country'] == country)
+                & (df_agg_country['Province'] == province)
+            ].sort_values("Day").reset_index(drop=True)
             total_detected = df_agg_country_temp['Total Detected']
             total_detected_deaths = df_agg_country_temp['Total Detected Deaths']
             active_cases = df_agg_country_temp['Active']
@@ -1196,25 +1253,29 @@ class DELPHIAggregations:
             since_100_dates = df_agg_country_temp['Day']
             n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
             if len(past_predictions_temp) > 0:
-                cases_data_fit_past = [y for x, y in zip(since_100_dates, cases_data_fit) if
-                                       ((x > past_prediction_date) and (not np.isnan(y)))]
-                deaths_data_fit_past = [y for x, y in zip(since_100_dates, deaths_data_fit) if
-                                        ((x > past_prediction_date) and (not np.isnan(y)))]
+                cases_data_fit_past = [
+                    y for x, y in zip(since_100_dates, cases_data_fit)
+                    if ((x > past_prediction_date) and (not np.isnan(y)))
+                ]
+                deaths_data_fit_past = [
+                    y for x, y in zip(since_100_dates, deaths_data_fit)
+                    if ((x > past_prediction_date) and (not np.isnan(y)))
+                ]
                 total_detected_past = past_predictions_temp["Total Detected"].values[:len(cases_data_fit_past)]
                 total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[
                                              :len(deaths_data_fit_past)]
-                residual_cases_lb = np.sqrt(np.mean(
-                    [(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])) * scipy.stats.norm.ppf(
-                    0.5 - q / 2)
-                residual_cases_ub = np.sqrt(np.mean(
-                    [(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])) * scipy.stats.norm.ppf(
-                    0.5 + q / 2)
-                residual_deaths_lb = np.sqrt(np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past,
-                                                                                   total_detected_deaths_past)])) * scipy.stats.norm.ppf(
-                    0.5 - q / 2)
-                residual_deaths_ub = np.sqrt(np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past,
-                                                                                   total_detected_deaths_past)])) * scipy.stats.norm.ppf(
-                    0.5 + q / 2)
+                residual_cases_lb = np.sqrt(
+                    np.mean([(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])
+                ) * scipy.stats.norm.ppf(0.5 - q / 2)
+                residual_cases_ub = np.sqrt(
+                    np.mean([(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])
+                ) * scipy.stats.norm.ppf(0.5 + q / 2)
+                residual_deaths_lb = np.sqrt(
+                    np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)])
+                ) * scipy.stats.norm.ppf(0.5 - q / 2)
+                residual_deaths_ub = np.sqrt(
+                    np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)])
+                ) * scipy.stats.norm.ppf(0.5 + q / 2)
 
                 # Generation of the dataframe from the day since 100th case
                 df_predictions_since_100_cont_country_prov = pd.DataFrame({
@@ -1280,11 +1341,22 @@ class DELPHIAggregations:
         return df_agg_country_final
 
     @staticmethod
-    def get_aggregation_per_continent_with_cf(df: pd.DataFrame,
-                                              past_prediction_file="I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
-                                              past_prediction_date="2020-07-04", q=0.5) -> pd.DataFrame:
-        columns_without_bounds = [x for x in df.columns if ("LB" not in x) and ("UB" not in x)]
-        df_agg_continent = df[columns_without_bounds].groupby(["Continent", "Day"]).sum(min_count=1).reset_index()
+    def get_aggregation_per_continent_with_cf(
+            df_predictions: pd.DataFrame,
+            past_prediction_file: str = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
+            past_prediction_date: str = "2020-07-04",
+            q: float = 0.5
+    ) -> pd.DataFrame:
+        """
+        Creates aggregations at the continent level as well as associated confidence intervals
+        :param df_predictions: dataframe containing the raw predictions from the DELPHI model
+        :param past_prediction_file: past prediction file's path for CI generation
+        :param past_prediction_date: past prediction's date for CI generation
+        :param q: quantile used for the CIs
+        :return: dataframe with continent level aggregated predictions & associated confidence intervals
+        """
+        columns_without_bounds = [x for x in df_predictions.columns if ("LB" not in x) and ("UB" not in x)]
+        df_agg_continent = df_predictions[columns_without_bounds].groupby(["Continent", "Day"]).sum(min_count=1).reset_index()
         df_agg_continent["Country"] = "None"
         df_agg_continent["Province"] = "None"
         df_agg_continent = df_agg_continent[columns_without_bounds]
@@ -1293,12 +1365,15 @@ class DELPHIAggregations:
         past_predictions = pd.read_csv(past_prediction_file)
         list_df_aggregated_continents = []
         for continent, country, province in aggregated_continents:
-            past_predictions_temp = (past_predictions[
-                (past_predictions['Day'] > past_prediction_date) & (past_predictions['Continent'] == continent) & (
-                            past_predictions['Country'] == country) & (
-                            past_predictions['Country'] == province)]).sort_values("Day")
-            df_agg_continent_temp = (df_agg_continent[(df_agg_continent['Continent'] == continent)]).sort_values(
-                "Day").reset_index(drop=True)
+            past_predictions_temp = past_predictions[
+                (past_predictions['Day'] > past_prediction_date)
+                & (past_predictions['Continent'] == continent)
+                & (past_predictions['Country'] == country)
+                & (past_predictions['Country'] == province)
+            ].sort_values("Day")
+            df_agg_continent_temp = df_agg_continent[
+                (df_agg_continent['Continent'] == continent)
+            ].sort_values("Day").reset_index(drop=True)
             total_detected = df_agg_continent_temp['Total Detected']
             total_detected_deaths = df_agg_continent_temp['Total Detected Deaths']
             active_cases = df_agg_continent_temp['Active']
@@ -1317,18 +1392,18 @@ class DELPHIAggregations:
                 total_detected_past = past_predictions_temp["Total Detected"].values[:len(cases_data_fit_past)]
                 total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[
                                              :len(deaths_data_fit_past)]
-                residual_cases_lb = np.sqrt(np.mean(
-                    [(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])) * scipy.stats.norm.ppf(
-                    0.5 - q / 2)
-                residual_cases_ub = np.sqrt(np.mean(
-                    [(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])) * scipy.stats.norm.ppf(
-                    0.5 + q / 2)
-                residual_deaths_lb = np.sqrt(np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past,
-                                                                                   total_detected_deaths_past)])) * scipy.stats.norm.ppf(
-                    0.5 - q / 2)
-                residual_deaths_ub = np.sqrt(np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past,
-                                                                                   total_detected_deaths_past)])) * scipy.stats.norm.ppf(
-                    0.5 + q / 2)
+                residual_cases_lb = np.sqrt(
+                    np.mean([(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])
+                ) * scipy.stats.norm.ppf(0.5 - q / 2)
+                residual_cases_ub = np.sqrt(
+                    np.mean([(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])
+                ) * scipy.stats.norm.ppf(0.5 + q / 2)
+                residual_deaths_lb = np.sqrt(
+                    np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)])
+                ) * scipy.stats.norm.ppf(0.5 - q / 2)
+                residual_deaths_ub = np.sqrt(
+                    np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)])
+                ) * scipy.stats.norm.ppf(0.5 + q / 2)
                 # Generation of the dataframe from the day since 100th case
                 df_predictions_since_100_cont_country_prov = pd.DataFrame({
                     "Total Detected LB": make_increasing(
@@ -1368,8 +1443,9 @@ class DELPHIAggregations:
                         int(round(v + residual_cases_ub * np.sqrt(max(c - n_days_btw_today_since_100, 0)) * v / u, 0)),
                         0) for c, (v, u) in enumerate(zip(active_ventilated, total_detected))],
                 })
-                df_agg_continent_temp = pd.concat([df_agg_continent_temp, df_predictions_since_100_cont_country_prov],
-                                                  axis=1)
+                df_agg_continent_temp = pd.concat(
+                    [df_agg_continent_temp, df_predictions_since_100_cont_country_prov], axis=1
+                )
             else:
                 df_predictions_since_100_cont_country_prov = pd.DataFrame({
                     "Total Detected LB": [np.nan for _ in range(len(df_agg_continent_temp))],
@@ -1385,28 +1461,42 @@ class DELPHIAggregations:
                     "Total Detected Deaths UB": [np.nan for _ in range(len(df_agg_continent_temp))],
                     "Active Ventilated UB": [np.nan for _ in range(len(df_agg_continent_temp))]
                 })
-                df_agg_continent_temp = pd.concat([df_agg_continent_temp, df_predictions_since_100_cont_country_prov],
-                                                  axis=1)
+                df_agg_continent_temp = pd.concat(
+                    [df_agg_continent_temp, df_predictions_since_100_cont_country_prov],  axis=1
+                )
 
             list_df_aggregated_continents.append(df_agg_continent_temp)
         df_agg_continent_final = pd.concat(list_df_aggregated_continents)
         return df_agg_continent_final
 
     @staticmethod
-    def get_aggregation_world_with_cf(df: pd.DataFrame,
-                                      past_prediction_file="I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
-                                      past_prediction_date="2020-07-04", q=0.5) -> pd.DataFrame:
-        columns_without_bounds = [x for x in df.columns if ("LB" not in x) and ("UB" not in x)]
-        df_agg_world = df[columns_without_bounds].groupby(["Day"]).sum(min_count=1).reset_index()
+    def get_aggregation_world_with_cf(
+            df_predictions: pd.DataFrame,
+            past_prediction_file: str = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
+            past_prediction_date: str = "2020-07-04",
+            q: float = 0.5
+    ) -> pd.DataFrame:
+        """
+        Creates aggregations at the world level as well as associated confidence intervals
+        :param df_predictions: dataframe containing the raw predictions from the DELPHI model
+        :param past_prediction_file: past prediction file's path for CI generation
+        :param past_prediction_date: past prediction's date for CI generation
+        :param q: quantile used for the CIs
+        :return: dataframe with continent world aggregated predictions & associated confidence intervals
+        """
+        columns_without_bounds = [x for x in df_predictions.columns if ("LB" not in x) and ("UB" not in x)]
+        df_agg_world = df_predictions[columns_without_bounds].groupby(["Day"]).sum(min_count=1).reset_index()
         df_agg_world["Continent"] = "None"
         df_agg_world["Country"] = "None"
         df_agg_world["Province"] = "None"
         df_agg_world = df_agg_world[columns_without_bounds]
         past_predictions = pd.read_csv(past_prediction_file)
-        past_predictions_temp = (past_predictions[
-            (past_predictions['Day'] > past_prediction_date) & (past_predictions['Continent'] == "None") & (
-                        past_predictions['Country'] == "None") & (past_predictions['Province'] == "None")]).sort_values(
-            "Day")
+        past_predictions_temp = past_predictions[
+            (past_predictions['Day'] > past_prediction_date)
+            & (past_predictions['Continent'] == "None")
+            & (past_predictions['Country'] == "None")
+            & (past_predictions['Province'] == "None")
+        ].sort_values("Day")
         total_detected = df_agg_world['Total Detected']
         total_detected_deaths = df_agg_world['Total Detected Deaths']
         active_cases = df_agg_world['Active']
@@ -1418,25 +1508,29 @@ class DELPHIAggregations:
         since_100_dates = df_agg_world['Day']
         n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
         if len(past_predictions_temp) > 0:
-            cases_data_fit_past = [y for x, y in zip(since_100_dates, cases_data_fit) if
-                                   ((x > past_prediction_date) and (not np.isnan(y)))]
-            deaths_data_fit_past = [y for x, y in zip(since_100_dates, deaths_data_fit) if
-                                    ((x > past_prediction_date) and (not np.isnan(y)))]
+            cases_data_fit_past = [
+                y for x, y in zip(since_100_dates, cases_data_fit)
+                if  ((x > past_prediction_date) and (not np.isnan(y)))
+            ]
+            deaths_data_fit_past = [
+                y for x, y in zip(since_100_dates, deaths_data_fit)
+                if ((x > past_prediction_date) and (not np.isnan(y)))
+            ]
             total_detected_past = past_predictions_temp["Total Detected"].values[:len(cases_data_fit_past)]
             total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[
                                          :len(deaths_data_fit_past)]
-            residual_cases_lb = np.sqrt(np.mean(
-                [(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])) * scipy.stats.norm.ppf(
-                0.5 - q / 2)
-            residual_cases_ub = np.sqrt(np.mean(
-                [(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])) * scipy.stats.norm.ppf(
-                0.5 + q / 2)
-            residual_deaths_lb = np.sqrt(np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past,
-                                                                               total_detected_deaths_past)])) * scipy.stats.norm.ppf(
-                0.5 - q / 2)
-            residual_deaths_ub = np.sqrt(np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past,
-                                                                               total_detected_deaths_past)])) * scipy.stats.norm.ppf(
-                0.5 + q / 2)
+            residual_cases_lb = np.sqrt(
+                np.mean([(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])
+            ) * scipy.stats.norm.ppf(0.5 - q / 2)
+            residual_cases_ub = np.sqrt(
+                np.mean([(x - y) ** 2 for x, y in zip(cases_data_fit_past, total_detected_past)])
+            ) * scipy.stats.norm.ppf(0.5 + q / 2)
+            residual_deaths_lb = np.sqrt(
+                np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)])
+            ) * scipy.stats.norm.ppf(0.5 - q / 2)
+            residual_deaths_ub = np.sqrt(
+                np.mean([(x - y) ** 2 for x, y in zip(deaths_data_fit_past, total_detected_deaths_past)])
+            ) * scipy.stats.norm.ppf(0.5 + q / 2)
 
             # Generation of the dataframe from the day since 100th case
             df_predictions_since_100_cont_country_prov = pd.DataFrame({
@@ -1498,147 +1592,131 @@ class DELPHIAggregations:
         return df_agg_world_final
 
     @staticmethod
-    def append_all_aggregations(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(
-            df
+    def append_all_aggregations_cf(
+            df_predictions: pd.DataFrame,
+            past_prediction_file: str = "I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
+            past_prediction_date: str = "2020-07-04",
+            q: float = 0.5
+    ) -> pd.DataFrame:
+        """
+        Creates and appends all the predictions' aggregations & Confidnece Intervals at the country, continent and
+        world levels
+        :param df_predictions: dataframe with the raw predictions from DELPHI
+        :param past_prediction_file: past prediction file's path for CI generation
+        :param past_prediction_date: past prediction's date for CI generation
+        :param q: quantile used for the CIs
+        :return: dataframe with predictions raw from DELPHI and aggregated ones, as well as associated confidence
+        intervals at the country, continent & world levels
+        """
+        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country_with_cf(
+            df_predictions=df_predictions,
+            past_prediction_file=past_prediction_file,
+            past_prediction_date=past_prediction_date,
+            q=q
         )
-        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(
-            df
+        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent_with_cf(
+            df_predictions=df_predictions,
+            past_prediction_file=past_prediction_file,
+            past_prediction_date=past_prediction_date,
+            q=q
         )
-        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world(df)
-        df = pd.concat(
-            [
-                df,
-                df_agg_since_today_per_country,
-                df_agg_since_today_per_continent,
-                df_agg_since_today_world,
-            ]
+        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world_with_cf(
+            df_predictions=df_predictions,
+            past_prediction_file=past_prediction_file,
+            past_prediction_date=past_prediction_date,
+            q=q
         )
-        df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
-        return df
-
-    @staticmethod
-    def append_all_aggregations_cf(df: pd.DataFrame,
-                                   past_prediction_file="I://covid19orc//danger_map//predicted//Global_V2_20200720.csv",
-                                   past_prediction_date="2020-07-04", q=0.5) -> pd.DataFrame:
-        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country_with_cf(df,
-                                                                                                past_prediction_file=past_prediction_file,
-                                                                                                past_prediction_date=past_prediction_date,
-                                                                                                q=q)
-        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent_with_cf(df,
-                                                                                                    past_prediction_file=past_prediction_file,
-                                                                                                    past_prediction_date=past_prediction_date,
-                                                                                                    q=q)
-        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world_with_cf(df,
-                                                                                    past_prediction_file=past_prediction_file,
-                                                                                    past_prediction_date=past_prediction_date,
-                                                                                    q=q)
-        df = pd.concat([
-            df, df_agg_since_today_per_country,
+        df_predictions = pd.concat([
+            df_predictions, df_agg_since_today_per_country,
             df_agg_since_today_per_continent, df_agg_since_today_world
         ])
-        df.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
-        return df
+        df_predictions.sort_values(["Continent", "Country", "Province", "Day"], inplace=True)
+        return df_predictions
 
 
 class DELPHIAggregationsPolicies:
     @staticmethod
-    def get_aggregation_per_country(df: pd.DataFrame) -> pd.DataFrame:
-        df = df[df["Province"] != "None"]
-        df_agg_country = (
-            df.groupby(["Policy", "Time", "Continent", "Country", "Day"])
-                .sum()
-                .reset_index()
-        )
+    def get_aggregation_per_country(df_policy_predictions: pd.DataFrame) -> pd.DataFrame:
+        """
+        Aggregates policy predictions at the country level from the predictions dataframe
+        :param df_policy_predictions: DELPHI policy predictions dataframe
+        :return: DELPHI policy predictions dataframe aggregated at the country level
+        """
+        df_policy_predictions = df_policy_predictions[df_policy_predictions["Province"] != "None"]
+        df_agg_country = df_policy_predictions.groupby(
+            ["Policy", "Time", "Continent", "Country", "Day"]
+        ).sum().reset_index()
         df_agg_country["Province"] = "None"
         df_agg_country = df_agg_country[
             [
-                "Policy",
-                "Time",
-                "Continent",
-                "Country",
-                "Province",
-                "Day",
-                "Total Detected",
-                "Active",
-                "Active Hospitalized",
-                "Cumulative Hospitalized",
-                "Total Detected Deaths",
-                "Active Ventilated",
+                "Policy", "Time", "Continent", "Country", "Province", "Day", "Total Detected", "Active",
+                "Active Hospitalized", "Cumulative Hospitalized", "Total Detected Deaths", "Active Ventilated",
             ]
         ]
         return df_agg_country
 
     @staticmethod
-    def get_aggregation_per_continent(df: pd.DataFrame) -> pd.DataFrame:
+    def get_aggregation_per_continent(df_policy_predictions: pd.DataFrame) -> pd.DataFrame:
+        """
+        Aggregates policy predictions at the continent level from the predictions dataframe
+        :param df_policy_predictions: DELPHI policy predictions dataframe
+        :return: DELPHI policy predictions dataframe aggregated at the continent level
+        """
         df_agg_continent = (
-            df.groupby(["Policy", "Time", "Continent", "Day"]).sum().reset_index()
+            df_policy_predictions.groupby(["Policy", "Time", "Continent", "Day"]).sum().reset_index()
         )
         df_agg_continent["Country"] = "None"
         df_agg_continent["Province"] = "None"
         df_agg_continent = df_agg_continent[
             [
-                "Policy",
-                "Time",
-                "Continent",
-                "Country",
-                "Province",
-                "Day",
-                "Total Detected",
-                "Active",
-                "Active Hospitalized",
-                "Cumulative Hospitalized",
-                "Total Detected Deaths",
-                "Active Ventilated",
+                "Policy", "Time", "Continent", "Country", "Province", "Day", "Total Detected", "Active",
+                "Active Hospitalized", "Cumulative Hospitalized", "Total Detected Deaths", "Active Ventilated",
             ]
         ]
         return df_agg_continent
 
     @staticmethod
-    def get_aggregation_world(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_world = df.groupby(["Policy", "Time", "Day"]).sum().reset_index()
+    def get_aggregation_world(df_policy_predictions: pd.DataFrame) -> pd.DataFrame:
+        """
+        Aggregates policy predictions at the world level from the predictions dataframe
+        :param df_policy_predictions: DELPHI policy predictions dataframe
+        :return: DELPHI policy predictions dataframe aggregated at the world level
+        """
+        df_agg_world = df_policy_predictions.groupby(["Policy", "Time", "Day"]).sum().reset_index()
         df_agg_world["Continent"] = "None"
         df_agg_world["Country"] = "None"
         df_agg_world["Province"] = "None"
         df_agg_world = df_agg_world[
             [
-                "Policy",
-                "Time",
-                "Continent",
-                "Country",
-                "Province",
-                "Day",
-                "Total Detected",
-                "Active",
-                "Active Hospitalized",
-                "Cumulative Hospitalized",
-                "Total Detected Deaths",
-                "Active Ventilated",
+                "Policy", "Time", "Continent", "Country", "Province", "Day", "Total Detected", "Active",
+                "Active Hospitalized", "Cumulative Hospitalized", "Total Detected Deaths", "Active Ventilated",
             ]
         ]
         return df_agg_world
 
     @staticmethod
-    def append_all_aggregations(df: pd.DataFrame) -> pd.DataFrame:
-        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(
-            df
-        )
-        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(
-            df
-        )
-        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world(df)
-        df = pd.concat(
+    def append_all_aggregations(df_policy_predictions: pd.DataFrame) -> pd.DataFrame:
+        """
+        Creates and appends all the policy predictions' aggregations at the country, continent and world levels
+        :param df_predictions: dataframe with the raw policy predictions from DELPHI
+        :return: dataframe with raw policy predictions from DELPHI and aggregated ones at the country,
+        continent & world levels
+        """
+        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(df_policy_predictions)
+        df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(df_policy_predictions)
+        df_agg_since_today_world = DELPHIAggregations.get_aggregation_world(df_policy_predictions)
+        df_policy_predictions = pd.concat(
             [
-                df,
+                df_policy_predictions,
                 df_agg_since_today_per_country,
                 df_agg_since_today_per_continent,
                 df_agg_since_today_world,
             ]
         )
-        df.sort_values(
+        df_policy_predictions.sort_values(
             ["Policy", "Time", "Continent", "Country", "Province", "Day"], inplace=True
         )
-        return df
+        return df_policy_predictions
 
 
 class DELPHIBacktest:
