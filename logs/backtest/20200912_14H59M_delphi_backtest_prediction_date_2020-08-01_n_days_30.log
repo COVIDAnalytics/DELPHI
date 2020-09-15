@@ -1,4 +1,4 @@
-09-12-2020 02:59:37 PM | INFO | Starting backtest on 30 days on prediction date 2020-08-01
+09-12-2020 02:59:37 PM | INFO | Starting backtest on 30 days on prediction date 2020-08-01. MSE flag is 1 and MAE flag is 1
 09-12-2020 02:59:39 PM | INFO | Backtesting on DELPHI V3.0 predictions because filename contains _V2
 09-12-2020 02:59:39 PM | INFO | Backtest is feasible based on input prediction date and number of backtesting days
 09-12-2020 02:59:39 PM | INFO | Computing backtest metrics for ('Africa', 'Algeria', 'None')

@@ -71,7 +71,10 @@ if __name__ == "__main__":
     except ValueError:
         raise ValueError(f"Wrong prediction date format, should be 'YYYY-MM-DD', got {PREDICTION_DATE}")
 
-    logger.info(f"Starting backtest on {N_DAYS_BACKTEST} days on prediction date {PREDICTION_DATE}")
+    logger.info(
+        f"Starting backtest on {N_DAYS_BACKTEST} days on prediction date {PREDICTION_DATE}. MSE flag is " +
+        f"{GET_MSE} and MAE flag is {GET_MAE}"
+    )
     backtest_instance = DELPHIBacktest(
         path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
         prediction_date=PREDICTION_DATE,
