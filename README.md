@@ -51,12 +51,17 @@ To run the model successfully for python, please first add a new user in the `co
 ### Command Line Interface
 In order to run the model, run the following command on your terminal: 
 `python3 DELPHI_model_V3.py --user <USER> --optimizer <OPTIMIZER> --confidence_intervals <0 or 1>` or a shorter
-version of it: `python3 DELPHI_model_V3.py -u <USER> -o <OPTIMIZER> -ci <0 or 1>`
+version of it: `python3 DELPHI_model_V3.py -u <USER> -o <OPTIMIZER> -ci <0 or 1>`. 
+
+If one wants to run the policy model,
+the following command should be run on the terminal: `python3 DELPHI_model_V3_with_policies.py --user <USER> --optimizer <OPTIMIZER>` or a shorter
+version of it: `python3 DELPHI_model_V3_with_policies.py -u <USER> -o <OPTIMIZER>`.
 
 The `USER` must have its file paths referenced in the `config.yml` file, otherwise the script will throw an error. 
 Similarly, the `OPTIMIZER` must be one of the three currently supported in our implementation (`tnc`, `trust-constr` 
-or `annealing`), otherwise it will throw an error. Finally, the `confidence_intervals` parameter must be a 
-0 (for False) or 1 (for True), depending on whether or not the user wants a final output containing confidence 
+or `annealing`), otherwise it will throw an error. It is also important for the policy predictions in order to know
+from which optimizer the parameters that will be used will come from. Finally, the `confidence_intervals` parameter must 
+be a 0 (for False) or 1 (for True), depending on whether or not the user wants a final output containing confidence 
 intervals on the number of cases and deaths (like the ones generated for the website). 
 We advise users of this codebase to use 0 as default.
 

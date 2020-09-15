@@ -5,7 +5,7 @@ from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
 from DELPHI_utils_V3_static import DELPHIDataCreator, DELPHIDataSaver, get_initial_conditions, compute_mape
 from DELPHI_utils_V3_dynamic import (
-    read_measures_oxford_data, get_normalized_policy_shifts_and_current_policy_all_countries,
+    read_oxford_international_policy_data, get_normalized_policy_shifts_and_current_policy_all_countries,
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
 )
 from DELPHI_params_V3 import (
@@ -27,28 +27,48 @@ parser.add_argument(
     choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham"],
     help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
 )
+parser.add_argument(
+    '--optimizer', '-o', type=str, required=True, choices=["tnc", "trust-constr", "annealing"],
+    help=(
+            "Which optimizer among 'tnc', 'trust-constr' or 'annealing' would you like to use ? " +
+            "Note that 'tnc' and 'trust-constr' lead to local optima, while 'annealing' is a " +
+            "method for global optimization: "
+    )
+)
 arguments = parser.parse_args()
 USER_RUNNING = arguments.user
+OPTIMIZER = arguments.optimizer
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
-policy_data_countries = read_measures_oxford_data(yesterday)
+policy_data_countries = read_oxford_international_policy_data(yesterday=yesterday)
 policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
-pastparameters = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V2_{yesterday}.csv")
+subname_parameters_file = None
+if OPTIMIZER == "tnc":
+    subname_parameters_file = "Global_V2"
+elif OPTIMIZER == "annealing":
+    subname_parameters_file = "Global_V2_annealing"
+elif OPTIMIZER == "trust-constr":
+    subname_parameters_file = "Global_V2_trust"
+else:
+    raise ValueError("Optimizer not supported in this implementation")
+past_parameters = pd.read_csv(
+    PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_{subname_parameters_file}_{yesterday}.csv"
+)
 if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
     param_MATHEMATICA = True
 else:
     param_MATHEMATICA = False
 # True if we use the Mathematica run parameters, False if we use those from Python runs
-# This is because the pastparameters dataframe's columns are not in the same order in both cases
+# This is because the past_parameters dataframe's columns are not in the same order in both cases
 
 # Get the policies shifts from the CART tree to compute different values of gamma(t)
 # Depending on the policy in place in the future to affect predictions
 dict_normalized_policy_gamma_countries, dict_current_policy_countries = (
     get_normalized_policy_shifts_and_current_policy_all_countries(
         policy_data_countries=policy_data_countries,
-        pastparameters=pastparameters,
+        past_parameters=past_parameters,
     )
 )
 # Setting same value for these 2 policies because of the inherent structure of the tree
@@ -57,7 +77,7 @@ dict_normalized_policy_gamma_countries[future_policies[3]] = dict_normalized_pol
 dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
     get_normalized_policy_shifts_and_current_policy_us_only(
         policy_data_us_only=policy_data_us_only,
-        pastparameters=pastparameters,
+        past_parameters=past_parameters,
     )
 )
 dict_current_policy_international = dict_current_policy_countries.copy()
@@ -93,10 +113,10 @@ for continent, country, province in zip(
             print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
             continue
         print(country + " " + province)
-        if pastparameters is not None:
-            parameter_list_total = pastparameters[
-                (pastparameters.Country == country) &
-                (pastparameters.Province == province)
+        if past_parameters is not None:
+            parameter_list_total = past_parameters[
+                (past_parameters.Country == country) &
+                (past_parameters.Province == province)
                 ]
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()

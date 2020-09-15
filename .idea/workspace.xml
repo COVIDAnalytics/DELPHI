@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
+    <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="Finished documentation for dynamic utils+renamed variable in many files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_static.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3_static.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_dynamic.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3_dynamic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -434,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600113433228</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Finished documentation for static utils">
+      <created>1600128936397</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1600128936397</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -451,8 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update 3.0+CR 06/11" />
-    <MESSAGE value="update 3.0+CR 06/12" />
     <MESSAGE value="update 3.0+CR 06/13 with multiprocessing (new files for 06/13 + new code)" />
     <MESSAGE value="Making sure that postprocessing and saving is consistent between 2.0 and 3.0+CR" />
     <MESSAGE value="changed file naming &amp; update CR+3.0 06/15" />
@@ -476,6 +484,8 @@
     <MESSAGE value="First layer separating DELPHI_utils.py into 2 files and cleaning up the code from unused functions &amp; methods" />
     <MESSAGE value="Slight modifications/deletions, need to document functions" />
     <MESSAGE value="Re-writing and beginning of additional documentation for DELPHI_utils_V3_static.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Re-writing and beginning of additional documentation for DELPHI_utils_V3_static.py" />
+    <MESSAGE value="Finished documentation for static utils" />
+    <MESSAGE value="Finished documentation for dynamic utils+renamed variable in many files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished documentation for dynamic utils+renamed variable in many files" />
   </component>
 </project>

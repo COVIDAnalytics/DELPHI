@@ -80,7 +80,6 @@ arguments = parser.parse_args()
 USER_RUNNING = arguments.user
 OPTIMIZER = arguments.optimizer
 GET_CONFIDENCE_INTERVALS = bool(arguments.confidence_intervals)
-
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 #############################################################################################################
@@ -88,7 +87,7 @@ PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 def solve_and_predict_area(
     tuple_area_: tuple,
     yesterday_: str,
-    pastparameters_: pd.DataFrame,
+    past_parameters_: pd.DataFrame,
     popcountries: pd.DataFrame
 ):
     """
@@ -96,7 +95,7 @@ def solve_and_predict_area(
     :param tuple_area_: tuple corresponding to (continent, country, province)
     :param yesterday_: string corresponding to the date from which the model will read the previous parameters. The
     format has to be 'YYYYMMDD'
-    :param pastparameters_: Parameters from yesterday_ used as a starting point for the fitting process
+    :param past_parameters_: Parameters from yesterday_ used as a starting point for the fitting process
     :return: either None if can't optimize (either less than 100 cases or less than 7 days with 100 cases) or a tuple
     with 3 dataframes related to that tuple_area_ (parameters df, predictions since yesterday_+1, predictions since
     first day with 100 cases) and a scipy.optimize object (OptimizeResult) that contains the predictions for all
@@ -116,10 +115,10 @@ def solve_and_predict_area(
             )
             return None
 
-        if pastparameters_ is not None:
-            parameter_list_total = pastparameters_[
-                (pastparameters_.Country == country)
-                & (pastparameters_.Province == province)
+        if past_parameters_ is not None:
+            parameter_list_total = past_parameters_[
+                (past_parameters_.Country == country)
+                & (past_parameters_.Province == province)
             ].reset_index(drop=True)
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
@@ -421,12 +420,12 @@ if __name__ == "__main__":
     past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 
     try:
-        pastparameters = pd.read_csv(
+        past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
             + f"predicted/Parameters_Global_V2_{yesterday}.csv"
         )
     except:
-        pastparameters = None
+        past_parameters = None
 
     # Initalizing lists of the different dataframes that will be concatenated in the end
     list_df_global_predictions_since_today = []
@@ -436,7 +435,7 @@ if __name__ == "__main__":
     solve_and_predict_area_partial = partial(
         solve_and_predict_area,
         yesterday_=yesterday,
-        pastparameters_=pastparameters,
+        past_parameters_=past_parameters,
         popcountries=popcountries
     )
     n_cpu = mp.cpu_count()
