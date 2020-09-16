@@ -423,7 +423,7 @@ if __name__ == "__main__":
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
-    popcountries = popcountries.iloc[0:10]
+    popcountries = popcountries.iloc[0:2]
 
     try:
         past_parameters = pd.read_csv(
@@ -502,7 +502,7 @@ if __name__ == "__main__":
         df_global_predictions_since_today=df_global_predictions_since_today,
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
     )
-    delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=False, website=True)
+    delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=(not GET_CONFIDENCE_INTERVALS), website=True)
 
     logging.info(
         f"Exported all 3 datasets to website & danger_map repositories, "
@@ -511,18 +511,13 @@ if __name__ == "__main__":
 
     if COMPARE == 1:
         today_date_str = "".join(str(datetime.now().date()).split("-"))
-        # PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_since100_annealing_{today_date_str}.csv'
         global_annealing_predictions_since_100days = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_since100_annealing_{today_date_str}.csv'
-        )
-        states_annealing_predictions_since_100days = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_since100_annealing_{today_date_str}.csv'
+            PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_annealing_since100_{today_date_str}.csv'
         )
         total_tnc_predictions_since_100days = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_since100_{today_date_str}.csv'
         )
   
-        states_annealing_predictions_since_100days['Day'] = states_annealing_predictions_since_100days['Day'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d'))
         global_annealing_predictions_since_100days['Day'] = global_annealing_predictions_since_100days['Day'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d'))
         total_tnc_predictions_since_100days['Day'] = total_tnc_predictions_since_100days['Day'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d'))
 
@@ -530,25 +525,12 @@ if __name__ == "__main__":
             PATH_TO_FOLDER_DANGER_MAP,
             CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING],
             global_annealing_predictions_since_100days,
-            states_annealing_predictions_since_100days,
             total_tnc_predictions_since_100days 
         )
 
-        # country_list =  ['France',
-        #             'Italy',
-        #             'Germany',
-        #             'Greece',
-        #             'Spain',
-        #             'Netherlands',
-        #             'Finland',
-        #             'Portugal',
-        #             'Belgium',
-        #             'Switzerland']
-
         model_metrics = []
         for region in popcountries["tuple_area"]:
-        # for i in range(len(country_list)):
-            model_metrics.append(model_compare.compare_metric((region[0], region[1], region[2])))
+            model_metrics.append(model_compare.compare_metric((region[0], region[1], region[2]), plot=True))
 
         model_comparison_df = pd.DataFrame()
         model_comparison_df['region'] = popcountries["tuple_area"]
@@ -556,14 +538,14 @@ if __name__ == "__main__":
         model_comparison_df['annealing_metric'] = [m[1] for m in model_metrics]
         model_comparison_df['tnc_metric'] = [m[2] for m in model_metrics]
         model_comparison_df['annealing_mape'] = [m[3] for m in model_metrics]
-        annealing_count = np.sum(model_comparison_df['annealing_metric'])
+        annealing_count = np.sum(model_comparison_df['annealing_selected'])
 
         model_comparison_df.to_csv(
-            CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING] + f'model_comparison_{today_date_str}.csv',
+            CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING] + f'comparison/model_comparison_{today_date_str}.csv',
             index=False
         )
 
         logging.info(
-        f"Checked Annealing v/s TNC. Annealing performs better {annealing_count}/{model_comparison_df.shape[0]}"
+        f"Checked Annealing v/s TNC. Annealing performs better {annealing_count}/{model_comparison_df.shape[0]} \n"
         + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
         )

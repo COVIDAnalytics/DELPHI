@@ -766,30 +766,26 @@ def get_testing_data_us() -> pd.DataFrame:
     df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
     return df_test_final
 
+def KL(a, b):
+    a = np.asarray(a, dtype=np.float)
+    b = np.asarray(b, dtype=np.float)
+    return np.sum(np.where(a != 0, a * np.log(a / b), 0))
+
+def MAPE(a, b):
+    return max([abs(x-y)/x for x,y in zip(a,b) if y!= 0 and x > 100])
+
 class DELPHIModelComparison:
     def __init__(
         self,
         path_to_folder_danger_map: str,
         path_to_folder_data_sandbox: str,
         global_annealing_since_100days: pd.DataFrame,
-        states_annealing_since_100days: pd.DataFrame,
         total_tnc_since_100days: pd.DataFrame
     ):
         self.DANGER_MAP = path_to_folder_danger_map
         self.DATA_SANDBOX = path_to_folder_data_sandbox
         self.global_annealing_since_100days = global_annealing_since_100days
-        self.states_annealing_since_100days = states_annealing_since_100days
         self.total_tnc_since_100days = total_tnc_since_100days
-
-    @staticmethod
-    def KL(a, b):
-        a = np.asarray(a, dtype=np.float)
-        b = np.asarray(b, dtype=np.float)
-        return np.sum(np.where(a != 0, a * np.log(a / b), 0))
-
-    @staticmethod
-    def MAPE(a, b):
-        return max([abs(x-y)/x for x,y in zip(a,b) if y!= 0 and x > 100])
 
     def get_province(self, province, country=True, min_case_count=100):
         if country:
@@ -811,12 +807,8 @@ class DELPHIModelComparison:
 
         continent, country, state = province_tuple
 
-        if country=='US' and state != 'None':
-            true_df = self.get_province(state, country=False, min_case_count=min_case_count)
-            annealing_df = self.states_annealing_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @state').sort_values('Day').groupby('Day').min().reset_index()
-        elif state == 'None':
-            true_df = self.get_province(country, country=True, min_case_count=min_case_count)
-            annealing_df = self.global_annealing_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @state').sort_values('Day').groupby('Day').min().reset_index()
+        true_df = self.get_province(country, country=True, min_case_count=min_case_count)
+        annealing_df = self.global_annealing_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @state').sort_values('Day').groupby('Day').min().reset_index()
 
         tnc_df = self.total_tnc_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @state').sort_values('Day').groupby('Day').min().reset_index()
 
@@ -837,11 +829,11 @@ class DELPHIModelComparison:
             plt.plot(merged['date'], merged['TNC Prediction'], label='TNC')
             plt.title(str(province_tuple))
             plt.savefig(self.DATA_SANDBOX + f"plots/model_comparison_{country}_{state}_{today_date_str}.png")
-            # plt.show()
+            plt.clf()
 
         metric_annealing = metric(merged['True Value'], merged['Annealing Prediction'])
         metric_tnc = metric(merged['True Value'], merged['TNC Prediction'])
-        mape = DELPHIModelComparison.MAPE(merged['True Value'], merged['Annealing Prediction'])
+        mape = MAPE(merged['True Value'], merged['Annealing Prediction'])
 
         if verbose:
             print('Distance for Annealing: ' + str(metric_annealing))
