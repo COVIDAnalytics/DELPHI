@@ -2,7 +2,6 @@
 import os
 import yaml
 import logging
-from logging import Logger
 import time
 import argparse
 import pandas as pd
@@ -90,7 +89,6 @@ def solve_and_predict_area(
         yesterday_: str,
         past_parameters_: pd.DataFrame,
         popcountries: pd.DataFrame,
-        logger: Logger,
 ):
     """
     Parallelizable version of the fitting & solving process for DELPHI V3, this function is called with multiprocessing
@@ -185,7 +183,7 @@ def solve_and_predict_area(
             PopulationD = validcases.loc[0, "death_cnt"]
             PopulationCI = PopulationI - PopulationD - PopulationR
             if PopulationCI <= 0:
-                logger.error(f"PopulationCI value is negative ({PopulationCI}), need to check why")
+                logging.error(f"PopulationCI value is negative ({PopulationCI}), need to check why")
                 raise ValueError(f"PopulationCI value is negative ({PopulationCI}), need to check why")
             """
             Fixed Parameters based on meta-analysis:
@@ -441,7 +439,7 @@ if __name__ == "__main__":
         solve_and_predict_area,
         yesterday_=yesterday,
         past_parameters_=past_parameters,
-        popcountries=popcountries
+        popcountries=popcountries,
     )
     n_cpu = mp.cpu_count()
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
