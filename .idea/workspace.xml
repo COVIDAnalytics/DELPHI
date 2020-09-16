@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_secondwave_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_utils_ventilator_backtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtesting/DELPHI_backtest_utils_ventilator.py" afterDir="false" />
+    <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,21 +33,27 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dynideas_v2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1apWdI8h0Y6cEiw6D43y002fBC0" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/archive/V3 - Normal Jump + Trust Solver" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/DELPHI_utils_V3_annealing.py" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/archive/V3 - Normal Jump + Trust Solver" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backtesting" />
+      <recent name="$PROJECT_DIR$/data_sandbox" />
       <recent name="$PROJECT_DIR$/archive" />
-      <recent name="$PROJECT_DIR$/data_sandbox/predicted_CR_all" />
+      <recent name="$PROJECT_DIR$/archive/Adaptive Policy Model - Continuous Retraining" />
+      <recent name="$PROJECT_DIR$/archive/V1 - No Jump" />
+      <recent name="$PROJECT_DIR$/archive/Other Analyses" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -114,6 +117,7 @@
         <item itemvalue="Python.DELPHI_Model_V5" />
         <item itemvalue="Python.DELPHI_model_V6_NY_only" />
         <item itemvalue="Python.DELPHI_Model_V5" />
+        <item itemvalue="Python.DELPHI_model_V6_NY_only" />
       </list>
     </recent_temporary>
   </component>
@@ -122,7 +126,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9078ba3b-6167-4196-8f4c-de9988d2ec89" name="Default Changelist" comment="" />
+      <changelist id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="reorganizing repository" />
       <created>1587433101130</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -331,7 +335,147 @@
       <option name="project" value="LOCAL" />
       <updated>1594237074618</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="First layer of refactoring on the DELPHI code">
+      <created>1598274910475</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1598274910475</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Reorganizing repo + code refactoring part 2">
+      <created>1598455117741</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1598455117741</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Updated processed data for external users">
+      <created>1598455573526</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1598455573526</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Slight modifications">
+      <created>1598551952419</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1598551952419</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements&#10;&#10;# Conflicts:&#10;#&#9;DELPHI_model_V3.py&#10;#&#9;DELPHI_utils_V3.py">
+      <created>1598552767947</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1598552767947</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Modification for logging path + parameter prompt in command line">
+      <created>1599323133419</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1599323133420</updated>
+    </task>
+    <task id="LOCAL-00036" summary="CLI for policy predictions asking for user in the command line + moved default dict of gamma shifts to params">
+      <created>1599323587922</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1599323587922</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Updated the README.md file">
+      <created>1599325330157</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1599325330157</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Removed duplicated line of code">
+      <created>1599678078347</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1599678078348</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Merged PR + reorganizing archive + reorganizing data_sandbox">
+      <created>1599928629368</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1599928629368</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Implemented Backtest Script and updated the README.md">
+      <created>1599937686055</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1599937686055</updated>
+    </task>
+    <task id="LOCAL-00041" summary="First layer separating DELPHI_utils.py into 2 files and cleaning up the code from unused functions &amp; methods">
+      <created>1599940374407</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1599940374407</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Slight modifications/deletions, need to document functions">
+      <created>1600027692972</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1600027692972</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Re-writing and beginning of additional documentation for DELPHI_utils_V3_static.py">
+      <created>1600113433226</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1600113433228</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Finished documentation for static utils">
+      <created>1600128936397</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1600128936397</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Finished documentation for dynamic utils+renamed variable in many files+added optimizer in DELPHI with policies for the choice of the parameters file.">
+      <created>1600132235256</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1600132235257</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Merge branch 'master' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements&#10;&#10;# Conflicts:&#10;#&#9;README.md&#10;#&#9;data/processed/Cases_Barbados_None.csv&#10;#&#9;data/processed/Cases_Belize_None.csv&#10;#&#9;data/processed/Cases_Bhutan_None.csv&#10;#&#9;data/processed/Cases_Botswana_None.csv&#10;#&#9;data/processed/Cases_Chile_None.csv&#10;#&#9;data/processed/Cases_China_Xinjiang.csv&#10;#&#9;data/processed/Cases_Colombia_None.csv&#10;#&#9;data/processed/Cases_France_French_Polynesia.csv&#10;#&#9;data/processed/Cases_France_St_Martin.csv&#10;#&#9;data/processed/Cases_Gambia_None.csv&#10;#&#9;data/processed/Cases_Japan_None.csv&#10;#&#9;data/processed/Cases_Kosovo_None.csv&#10;#&#9;data/processed/Cases_Lesotho_None.csv&#10;#&#9;data/processed/Cases_Liechtenstein_None.csv&#10;#&#9;data/processed/Cases_Monaco_None.csv&#10;#&#9;data/processed/Cases_Namibia_None.csv&#10;#&#9;data/processed/Cases_Netherlands_Sint_Maarten.csv&#10;#&#9;data/processed/Cases_Papua_New_Guinea_None.csv&#10;#&#9;data/processed/Cases_Seychelles_None.csv&#10;#&#9;data/processed/Cases_Switzerland_None.csv&#10;#&#9;data/processed/Cases_US_California.csv&#10;#&#9;data/processed/Cases_US_New_Jersey.csv&#10;#&#9;data/processed/Cases_US_New_York.csv&#10;#&#9;data/processed/Cases_US_None.csv&#10;#&#9;data/processed/Cases_US_Texas.csv&#10;#&#9;data/processed/Cases_US_Virgin_Islands.csv&#10;#&#9;data/processed/Cases_United_Kingdom_None.csv&#10;#&#9;data/processed/Cases_United_Kingdom_Turks_and_Caicos_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_Afghanistan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Albania_None.csv&#10;#&#9;data_sandbox/processed/Cases_Algeria_None.csv&#10;#&#9;data_sandbox/processed/Cases_Andorra_None.csv&#10;#&#9;data_sandbox/processed/Cases_Angola_None.csv&#10;#&#9;data_sandbox/processed/Cases_Antigua_and_Barbuda_None.csv&#10;#&#9;data_sandbox/processed/Cases_Argentina_None.csv&#10;#&#9;data_sandbox/processed/Cases_Armenia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Australian_Capital_Territory.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_New_South_Wales.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Northern_Territory.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Queensland.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_South_Australia.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Tasmania.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Victoria.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Western_Australia.csv&#10;#&#9;data_sandbox/processed/Cases_Austria_None.csv&#10;#&#9;data_sandbox/processed/Cases_Azerbaijan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bahamas_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bahrain_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bangladesh_None.csv&#10;#&#9;data_sandbox/processed/Cases_Belarus_None.csv&#10;#&#9;data_sandbox/processed/Cases_Belgium_None.csv&#10;#&#9;data_sandbox/processed/Cases_Benin_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bolivia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bosnia_and_Herzegovina_None.csv&#10;#&#9;data_sandbox/processed/Cases_Brazil_None.csv&#10;#&#9;data_sandbox/processed/Cases_Brunei_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bulgaria_None.csv&#10;#&#9;data_sandbox/processed/Cases_Burkina_Faso_None.csv&#10;#&#9;data_sandbox/processed/Cases_Burma_None.csv&#10;#&#9;data_sandbox/processed/Cases_Burundi_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cabo_Verde_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cambodia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cameroon_None.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Alberta.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_British_Columbia.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Manitoba.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_New_Brunswick.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Newfoundland_and_Labrador.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Northwest_Territories.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Nova_Scotia.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Ontario.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Prince_Edward_Island.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Quebec.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Saskatchewan.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Yukon.csv&#10;#&#9;data_sandbox/processed/Cases_Central_African_Republic_None.csv&#10;#&#9;data_sandbox/processed/Cases_Chad_None.csv&#10;#&#9;data_sandbox/processed/Cases_China_Anhui.csv&#10;#&#9;data_sandbox/processed/Cases_China_Beijing.csv&#10;#&#9;data_sandbox/processed/Cases_China_Chongqing.csv&#10;#&#9;data_sandbox/processed/Cases_China_Fujian.csv&#10;#&#9;data_sandbox/processed/Cases_China_Gansu.csv&#10;#&#9;data_sandbox/processed/Cases_China_Guangdong.csv&#10;#&#9;data_sandbox/processed/Cases_China_Guangxi.csv&#10;#&#9;data_sandbox/processed/Cases_China_Guizhou.csv&#10;#&#9;data_sandbox/processed/Cases_China_Hainan.csv&#10;#&#9;data_sandbox/processed/Cases_China_Hebei.csv&#10;#&#9;data_sandbox/processed/Cases_China_Heilongjiang.csv&#10;#&#9;data_sandbox/processed/Cases_China_Henan.csv&#10;#&#9;data_sandbox/processed/Cases_China_Hong_Kong.csv&#10;#&#9;data_sandbox/processed/Cases_China_Hubei.csv&#10;#&#9;data_sandbox/processed/Cases_China_Hunan.csv&#10;#&#9;data_sandbox/processed/Cases_China_Inner_Mongolia.csv&#10;#&#9;data_sandbox/processed/Cases_China_Jiangsu.csv&#10;#&#9;data_sandbox/processed/Cases_China_Jiangxi.csv&#10;#&#9;data_sandbox/processed/Cases_China_Jilin.csv&#10;#&#9;data_sandbox/processed/Cases_China_Liaoning.csv&#10;#&#9;data_sandbox/processed/Cases_China_Macau.csv&#10;#&#9;data_sandbox/processed/Cases_China_Ningxia.csv&#10;#&#9;data_sandbox/processed/Cases_China_Qinghai.csv&#10;#&#9;data_sandbox/processed/Cases_China_Shaanxi.csv&#10;#&#9;data_sandbox/processed/Cases_China_Shandong.csv&#10;#&#9;data_sandbox/processed/Cases_China_Shanghai.csv&#10;#&#9;data_sandbox/processed/Cases_China_Shanxi.csv&#10;#&#9;data_sandbox/processed/Cases_China_Sichuan.csv&#10;#&#9;data_sandbox/processed/Cases_China_Tianjin.csv&#10;#&#9;data_sandbox/processed/Cases_China_Tibet.csv&#10;#&#9;data_sandbox/processed/Cases_China_Yunnan.csv&#10;#&#9;data_sandbox/processed/Cases_China_Zhejiang.csv&#10;#&#9;data_sandbox/processed/Cases_Comoros_None.csv&#10;#&#9;data_sandbox/processed/Cases_Congo_(Brazzaville)_None.csv&#10;#&#9;data_sandbox/processed/Cases_Congo_(Kinshasa)_None.csv&#10;#&#9;data_sandbox/processed/Cases_Costa_Rica_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cote_d'Ivoire_None.csv&#10;#&#9;data_sandbox/processed/Cases_Croatia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cuba_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cyprus_None.csv&#10;#&#9;data_sandbox/processed/Cases_Czechia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Denmark_Faroe_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_Denmark_Greenland.csv&#10;#&#9;data_sandbox/processed/Cases_Denmark_None.csv&#10;#&#9;data_sandbox/processed/Cases_Djibouti_None.csv&#10;#&#9;data_sandbox/processed/Cases_Dominica_None.csv&#10;#&#9;data_sandbox/processed/Cases_Dominican_Republic_None.csv&#10;#&#9;data_sandbox/processed/Cases_Ecuador_None.csv&#10;#&#9;data_sandbox/processed/Cases_Egypt_None.csv&#10;#&#9;data_sandbox/processed/Cases_El_Salvador_None.csv&#10;#&#9;data_sandbox/processed/Cases_Equatorial_Guinea_None.csv&#10;#&#9;data_sandbox/processed/Cases_Eritrea_None.csv&#10;#&#9;data_sandbox/processed/Cases_Estonia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Eswatini_None.csv&#10;#&#9;data_sandbox/processed/Cases_Ethiopia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Fiji_None.csv&#10;#&#9;data_sandbox/processed/Cases_Finland_None.csv&#10;#&#9;data_sandbox/processed/Cases_France_French_Guiana.csv&#10;#&#9;data_sandbox/processed/Cases_France_Guadeloupe.csv&#10;#&#9;data_sandbox/processed/Cases_France_Martinique.csv&#10;#&#9;data_sandbox/processed/Cases_France_Mayotte.csv&#10;#&#9;data_sandbox/processed/Cases_France_New_Caledonia.csv&#10;#&#9;data_sandbox/processed/Cases_France_None.csv&#10;#&#9;data_sandbox/processed/Cases_France_Reunion.csv&#10;#&#9;data_sandbox/processed/Cases_France_Saint_Barthelemy.csv&#10;#&#9;data_sandbox/processed/Cases_France_Saint_Pierre_and_Miquelon.csv&#10;#&#9;data_sandbox/processed/Cases_Gabon_None.csv&#10;#&#9;data_sandbox/processed/Cases_Georgia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Germany_None.csv&#10;#&#9;data_sandbox/processed/Cases_Ghana_None.csv&#10;#&#9;data_sandbox/processed/Cases_Greece_None.csv&#10;#&#9;data_sandbox/processed/Cases_Grenada_None.csv&#10;#&#9;data_sandbox/processed/Cases_Guatemala_None.csv&#10;#&#9;data_sandbox/processed/Cases_Guinea-Bissau_None.csv&#10;#&#9;data_sandbox/processed/Cases_Guinea_None.csv&#10;#&#9;data_sandbox/processed/Cases_Guyana_None.csv&#10;#&#9;data_sandbox/processed/Cases_Haiti_None.csv&#10;#&#9;data_sandbox/processed/Cases_Holy_See_None.csv&#10;#&#9;data_sandbox/processed/Cases_Honduras_None.csv&#10;#&#9;data_sandbox/processed/Cases_Hungary_None.csv&#10;#&#9;data_sandbox/processed/Cases_Iceland_None.csv&#10;#&#9;data_sandbox/processed/Cases_India_None.csv&#10;#&#9;data_sandbox/processed/Cases_Indonesia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Iran_None.csv&#10;#&#9;data_sandbox/processed/Cases_Iraq_None.csv&#10;#&#9;data_sandbox/processed/Cases_Ireland_None.csv&#10;#&#9;data_sandbox/processed/Cases_Israel_None.csv&#10;#&#9;data_sandbox/processed/Cases_Italy_None.csv&#10;#&#9;data_sandbox/processed/Cases_Jamaica_None.csv&#10;#&#9;data_sandbox/processed/Cases_Jordan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Kazakhstan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Kenya_None.csv&#10;#&#9;data_sandbox/processed/Cases_Korea,_South_None.csv&#10;#&#9;data_sandbox/processed/Cases_Kuwait_None.csv&#10;#&#9;data_sandbox/processed/Cases_Kyrgyzstan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Laos_None.csv&#10;#&#9;data_sandbox/processed/Cases_Latvia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Lebanon_None.csv&#10;#&#9;data_sandbox/processed/Cases_Liberia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Libya_None.csv&#10;#&#9;data_sandbox/processed/Cases_Lithuania_None.csv&#10;#&#9;data_sandbox/processed/Cases_Luxembourg_None.csv&#10;#&#9;data_sandbox/processed/Cases_MS_Zaandam_None.csv&#10;#&#9;data_sandbox/processed/Cases_Madagascar_None.csv&#10;#&#9;data_sandbox/processed/Cases_Malawi_None.csv&#10;#&#9;data_sandbox/processed/Cases_Malaysia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Maldives_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mali_None.csv&#10;#&#9;data_sandbox/processed/Cases_Malta_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mauritania_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mauritius_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mexico_None.csv&#10;#&#9;data_sandbox/processed/Cases_Moldova_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mongolia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Montenegro_None.csv&#10;#&#9;data_sandbox/processed/Cases_Morocco_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mozambique_None.csv&#10;#&#9;data_sandbox/processed/Cases_Nepal_None.csv&#10;#&#9;data_sandbox/processed/Cases_Netherlands_Aruba.csv&#10;#&#9;data_sandbox/processed/Cases_Netherlands_Bonaire,_Sint_Eustatius_and_Saba.csv&#10;#&#9;data_sandbox/processed/Cases_Netherlands_Curacao.csv&#10;#&#9;data_sandbox/processed/Cases_Netherlands_None.csv&#10;#&#9;data_sandbox/processed/Cases_New_Zealand_None.csv&#10;#&#9;data_sandbox/processed/Cases_Nicaragua_None.csv&#10;#&#9;data_sandbox/processed/Cases_Niger_None.csv&#10;#&#9;data_sandbox/processed/Cases_Nigeria_None.csv&#10;#&#9;data_sandbox/processed/Cases_North_Macedonia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Norway_None.csv&#10;#&#9;data_sandbox/processed/Cases_Oman_None.csv&#10;#&#9;data_sandbox/processed/Cases_Pakistan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Panama_None.csv&#10;#&#9;data_sandbox/processed/Cases_Paraguay_None.csv&#10;#&#9;data_sandbox/processed/Cases_Peru_None.csv&#10;#&#9;data_sandbox/processed/Cases_Philippines_None.csv&#10;#&#9;data_sandbox/processed/Cases_Poland_None.csv&#10;#&#9;data_sandbox/processed/Cases_Portugal_None.csv&#10;#&#9;data_sandbox/processed/Cases_Qatar_None.csv&#10;#&#9;data_sandbox/processed/Cases_Romania_None.csv&#10;#&#9;data_sandbox/processed/Cases_Russia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Rwanda_None.csv&#10;#&#9;data_sandbox/processed/Cases_Saint_Kitts_and_Nevis_None.csv&#10;#&#9;data_sandbox/processed/Cases_Saint_Lucia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Saint_Vincent_and_the_Grenadines_None.csv&#10;#&#9;data_sandbox/processed/Cases_San_Marino_None.csv&#10;#&#9;data_sandbox/processed/Cases_Sao_Tome_and_Principe_None.csv&#10;#&#9;data_sandbox/processed/Cases_Saudi_Arabia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Senegal_None.csv&#10;#&#9;data_sandbox/processed/Cases_Serbia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Sierra_Leone_None.csv&#10;#&#9;data_sandbox/processed/Cases_Singapore_None.csv&#10;#&#9;data_sandbox/processed/Cases_Slovakia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Slovenia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Somalia_None.csv&#10;#&#9;data_sandbox/processed/Cases_South_Africa_None.csv&#10;#&#9;data_sandbox/processed/Cases_South_Sudan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Spain_None.csv&#10;#&#9;data_sandbox/processed/Cases_Sri_Lanka_None.csv&#10;#&#9;data_sandbox/processed/Cases_Sudan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Suriname_None.csv&#10;#&#9;data_sandbox/processed/Cases_Sweden_None.csv&#10;#&#9;data_sandbox/processed/Cases_Syria_None.csv&#10;#&#9;data_sandbox/processed/Cases_Taiwan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Tajikistan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Tanzania_None.csv&#10;#&#9;data_sandbox/processed/Cases_Thailand_None.csv&#10;#&#9;data_sandbox/processed/Cases_Timor-Leste_None.csv&#10;#&#9;data_sandbox/processed/Cases_Togo_None.csv&#10;#&#9;data_sandbox/processed/Cases_Trinidad_and_Tobago_None.csv&#10;#&#9;data_sandbox/processed/Cases_Tunisia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Turkey_None.csv&#10;#&#9;data_sandbox/processed/Cases_US_Alabama.csv&#10;#&#9;data_sandbox/processed/Cases_US_Alaska.csv&#10;#&#9;data_sandbox/processed/Cases_US_American_Samoa.csv&#10;#&#9;data_sandbox/processed/Cases_US_Arizona.csv&#10;#&#9;data_sandbox/processed/Cases_US_Arkansas.csv&#10;#&#9;data_sandbox/processed/Cases_US_Colorado.csv&#10;#&#9;data_sandbox/processed/Cases_US_Connecticut.csv&#10;#&#9;data_sandbox/processed/Cases_US_Delaware.csv&#10;#&#9;data_sandbox/processed/Cases_US_District_of_Columbia.csv&#10;#&#9;data_sandbox/processed/Cases_US_Florida.csv&#10;#&#9;data_sandbox/processed/Cases_US_Georgia.csv&#10;#&#9;data_sandbox/processed/Cases_US_Guam.csv&#10;#&#9;data_sandbox/processed/Cases_US_Hawaii.csv&#10;#&#9;data_sandbox/processed/Cases_US_Idaho.csv&#10;#&#9;data_sandbox/processed/Cases_US_Illinois.csv&#10;#&#9;data_sandbox/processed/Cases_US_Indiana.csv&#10;#&#9;data_sandbox/processed/Cases_US_Iowa.csv&#10;#&#9;data_sandbox/processed/Cases_US_Kansas.csv&#10;#&#9;data_sandbox/processed/Cases_US_Kentucky.csv&#10;#&#9;data_sandbox/processed/Cases_US_Louisiana.csv&#10;#&#9;data_sandbox/processed/Cases_US_Maine.csv&#10;#&#9;data_sandbox/processed/Cases_US_Maryland.csv&#10;#&#9;data_sandbox/processed/Cases_US_Massachusetts.csv&#10;#&#9;data_sandbox/processed/Cases_US_Michigan.csv&#10;#&#9;data_sandbox/processed/Cases_US_Minnesota.csv&#10;#&#9;data_sandbox/processed/Cases_US_Mississippi.csv&#10;#&#9;data_sandbox/processed/Cases_US_Missouri.csv&#10;#&#9;data_sandbox/processed/Cases_US_Montana.csv&#10;#&#9;data_sandbox/processed/Cases_US_Nebraska.csv&#10;#&#9;data_sandbox/processed/Cases_US_Nevada.csv&#10;#&#9;data_sandbox/processed/Cases_US_New_Hampshire.csv&#10;#&#9;data_sandbox/processed/Cases_US_New_Mexico.csv&#10;#&#9;data_sandbox/processed/Cases_US_North_Carolina.csv&#10;#&#9;data_sandbox/processed/Cases_US_North_Dakota.csv&#10;#&#9;data_sandbox/processed/Cases_US_Northern_Mariana_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_US_Ohio.csv&#10;#&#9;data_sandbox/processed/Cases_US_Oklahoma.csv&#10;#&#9;data_sandbox/processed/Cases_US_Oregon.csv&#10;#&#9;data_sandbox/processed/Cases_US_Pennsylvania.csv&#10;#&#9;data_sandbox/processed/Cases_US_Puerto_Rico.csv&#10;#&#9;data_sandbox/processed/Cases_US_Rhode_Island.csv&#10;#&#9;data_sandbox/processed/Cases_US_South_Carolina.csv&#10;#&#9;data_sandbox/processed/Cases_US_South_Dakota.csv&#10;#&#9;data_sandbox/processed/Cases_US_Tennessee.csv&#10;#&#9;data_sandbox/processed/Cases_US_Utah.csv&#10;#&#9;data_sandbox/processed/Cases_US_Vermont.csv&#10;#&#9;data_sandbox/processed/Cases_US_Virginia.csv&#10;#&#9;data_sandbox/processed/Cases_US_Washington.csv&#10;#&#9;data_sandbox/processed/Cases_US_West_Virginia.csv&#10;#&#9;data_sandbox/processed/Cases_US_Wisconsin.csv&#10;#&#9;data_sandbox/processed/Cases_US_Wyoming.csv&#10;#&#9;data_sandbox/processed/Cases_Uganda_None.csv&#10;#&#9;data_sandbox/processed/Cases_Ukraine_None.csv&#10;#&#9;data_sandbox/processed/Cases_United_Arab_Emirates_None.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Anguilla.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Bermuda.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_British_Virgin_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Cayman_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Channel_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Falkland_Islands_(Malvinas).csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Gibraltar.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Isle_of_Man.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Montserrat.csv&#10;#&#9;data_sandbox/processed/Cases_Uruguay_None.csv&#10;#&#9;data_sandbox/processed/Cases_Uzbekistan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Venezuela_None.csv&#10;#&#9;data_sandbox/processed/Cases_Vietnam_None.csv&#10;#&#9;data_sandbox/processed/Cases_West_Bank_and_Gaza_None.csv&#10;#&#9;data_sandbox/processed/Cases_Western_Sahara_None.csv&#10;#&#9;data_sandbox/processed/Cases_Yemen_None.csv&#10;#&#9;data_sandbox/processed/Cases_Zambia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Zimbabwe_None.csv">
+      <created>1600132537494</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1600132537494</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Extra mock logs file to create the folder">
+      <created>1600133171762</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1600133171762</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Extra info in backtest logger (MSE &amp; MAE flags)">
+      <created>1600136782562</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1600136782562</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Added PopulationCI check">
+      <created>1600220194726</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1600220194728</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,31 +492,31 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bug wih district of columbia in pop density" />
-    <MESSAGE value="Running version for alpha varying by state" />
-    <MESSAGE value="new version NY only" />
-    <MESSAGE value="v7 with all free parameters (per state) and mobility data" />
-    <MESSAGE value="v7 with all free parameters (per state) and policy data + renamed files for clarity" />
-    <MESSAGE value="bugfix" />
-    <MESSAGE value="raw data file" />
-    <MESSAGE value="raw data file added" />
-    <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements&#10;&#10;# Conflicts:&#10;#&#9;__pycache__/DELPHI_utils_V6_NY_only.cpython-37.pyc&#10;#&#9;__pycache__/DELPHI_utils_v7_free_params_policies_US.cpython-37.pyc" />
-    <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements" />
-    <MESSAGE value="New version with arctan working well and binary data for US" />
-    <MESSAGE value="New version working perfectly fine !!!!!!" />
-    <MESSAGE value="branch with the data updated 27/04/2020" />
-    <MESSAGE value="consistent folder naming" />
-    <MESSAGE value="update 3.0+CR 06/11" />
-    <MESSAGE value="update 3.0+CR 06/12" />
-    <MESSAGE value="update 3.0+CR 06/13 with multiprocessing (new files for 06/13 + new code)" />
-    <MESSAGE value="Making sure that postprocessing and saving is consistent between 2.0 and 3.0+CR" />
-    <MESSAGE value="changed file naming &amp; update CR+3.0 06/15" />
-    <MESSAGE value="new 2.0+policy backtest &amp; update CR+3.0 06/16" />
-    <MESSAGE value="update CR+3.0 06/17 -&gt; 06/21 + new backtests with RMSE as well" />
     <MESSAGE value="debugged version of the code for michael" />
     <MESSAGE value="multiprocessing version of DELPHI_model_V2.py" />
     <MESSAGE value="Adding total runtime in the prints" />
     <MESSAGE value="reorganizing repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="reorganizing repository" />
+    <MESSAGE value="First layer of refactoring on the DELPHI code" />
+    <MESSAGE value="Reorganizing repo + code refactoring part 2" />
+    <MESSAGE value="Updated processed data for external users" />
+    <MESSAGE value="Slight modifications" />
+    <MESSAGE value="Merge branch 'delphi_improvements' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements&#10;&#10;# Conflicts:&#10;#&#9;DELPHI_model_V3.py&#10;#&#9;DELPHI_utils_V3.py" />
+    <MESSAGE value="Modification for logging path + parameter prompt in command line" />
+    <MESSAGE value="CLI for policy predictions asking for user in the command line + moved default dict of gamma shifts to params" />
+    <MESSAGE value="Updated the README.md file" />
+    <MESSAGE value="Removed duplicated line of code" />
+    <MESSAGE value="Merged PR + reorganizing archive + reorganizing data_sandbox" />
+    <MESSAGE value="Implemented Backtest Script and updated the README.md" />
+    <MESSAGE value="First layer separating DELPHI_utils.py into 2 files and cleaning up the code from unused functions &amp; methods" />
+    <MESSAGE value="Slight modifications/deletions, need to document functions" />
+    <MESSAGE value="Re-writing and beginning of additional documentation for DELPHI_utils_V3_static.py" />
+    <MESSAGE value="Finished documentation for static utils" />
+    <MESSAGE value="Finished documentation for dynamic utils+renamed variable in many files" />
+    <MESSAGE value="Finished documentation for dynamic utils+renamed variable in many files+added optimizer in DELPHI with policies for the choice of the parameters file." />
+    <MESSAGE value="Merge branch 'master' of https://github.com/COVIDAnalytics/DELPHI into delphi_improvements&#10;&#10;# Conflicts:&#10;#&#9;README.md&#10;#&#9;data/processed/Cases_Barbados_None.csv&#10;#&#9;data/processed/Cases_Belize_None.csv&#10;#&#9;data/processed/Cases_Bhutan_None.csv&#10;#&#9;data/processed/Cases_Botswana_None.csv&#10;#&#9;data/processed/Cases_Chile_None.csv&#10;#&#9;data/processed/Cases_China_Xinjiang.csv&#10;#&#9;data/processed/Cases_Colombia_None.csv&#10;#&#9;data/processed/Cases_France_French_Polynesia.csv&#10;#&#9;data/processed/Cases_France_St_Martin.csv&#10;#&#9;data/processed/Cases_Gambia_None.csv&#10;#&#9;data/processed/Cases_Japan_None.csv&#10;#&#9;data/processed/Cases_Kosovo_None.csv&#10;#&#9;data/processed/Cases_Lesotho_None.csv&#10;#&#9;data/processed/Cases_Liechtenstein_None.csv&#10;#&#9;data/processed/Cases_Monaco_None.csv&#10;#&#9;data/processed/Cases_Namibia_None.csv&#10;#&#9;data/processed/Cases_Netherlands_Sint_Maarten.csv&#10;#&#9;data/processed/Cases_Papua_New_Guinea_None.csv&#10;#&#9;data/processed/Cases_Seychelles_None.csv&#10;#&#9;data/processed/Cases_Switzerland_None.csv&#10;#&#9;data/processed/Cases_US_California.csv&#10;#&#9;data/processed/Cases_US_New_Jersey.csv&#10;#&#9;data/processed/Cases_US_New_York.csv&#10;#&#9;data/processed/Cases_US_None.csv&#10;#&#9;data/processed/Cases_US_Texas.csv&#10;#&#9;data/processed/Cases_US_Virgin_Islands.csv&#10;#&#9;data/processed/Cases_United_Kingdom_None.csv&#10;#&#9;data/processed/Cases_United_Kingdom_Turks_and_Caicos_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_Afghanistan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Albania_None.csv&#10;#&#9;data_sandbox/processed/Cases_Algeria_None.csv&#10;#&#9;data_sandbox/processed/Cases_Andorra_None.csv&#10;#&#9;data_sandbox/processed/Cases_Angola_None.csv&#10;#&#9;data_sandbox/processed/Cases_Antigua_and_Barbuda_None.csv&#10;#&#9;data_sandbox/processed/Cases_Argentina_None.csv&#10;#&#9;data_sandbox/processed/Cases_Armenia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Australian_Capital_Territory.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_New_South_Wales.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Northern_Territory.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Queensland.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_South_Australia.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Tasmania.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Victoria.csv&#10;#&#9;data_sandbox/processed/Cases_Australia_Western_Australia.csv&#10;#&#9;data_sandbox/processed/Cases_Austria_None.csv&#10;#&#9;data_sandbox/processed/Cases_Azerbaijan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bahamas_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bahrain_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bangladesh_None.csv&#10;#&#9;data_sandbox/processed/Cases_Belarus_None.csv&#10;#&#9;data_sandbox/processed/Cases_Belgium_None.csv&#10;#&#9;data_sandbox/processed/Cases_Benin_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bolivia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bosnia_and_Herzegovina_None.csv&#10;#&#9;data_sandbox/processed/Cases_Brazil_None.csv&#10;#&#9;data_sandbox/processed/Cases_Brunei_None.csv&#10;#&#9;data_sandbox/processed/Cases_Bulgaria_None.csv&#10;#&#9;data_sandbox/processed/Cases_Burkina_Faso_None.csv&#10;#&#9;data_sandbox/processed/Cases_Burma_None.csv&#10;#&#9;data_sandbox/processed/Cases_Burundi_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cabo_Verde_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cambodia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cameroon_None.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Alberta.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_British_Columbia.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Manitoba.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_New_Brunswick.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Newfoundland_and_Labrador.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Northwest_Territories.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Nova_Scotia.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Ontario.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Prince_Edward_Island.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Quebec.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Saskatchewan.csv&#10;#&#9;data_sandbox/processed/Cases_Canada_Yukon.csv&#10;#&#9;data_sandbox/processed/Cases_Central_African_Republic_None.csv&#10;#&#9;data_sandbox/processed/Cases_Chad_None.csv&#10;#&#9;data_sandbox/processed/Cases_China_Anhui.csv&#10;#&#9;data_sandbox/processed/Cases_China_Beijing.csv&#10;#&#9;data_sandbox/processed/Cases_China_Chongqing.csv&#10;#&#9;data_sandbox/processed/Cases_China_Fujian.csv&#10;#&#9;data_sandbox/processed/Cases_China_Gansu.csv&#10;#&#9;data_sandbox/processed/Cases_China_Guangdong.csv&#10;#&#9;data_sandbox/processed/Cases_China_Guangxi.csv&#10;#&#9;data_sandbox/processed/Cases_China_Guizhou.csv&#10;#&#9;data_sandbox/processed/Cases_China_Hainan.csv&#10;#&#9;data_sandbox/processed/Cases_China_Hebei.csv&#10;#&#9;data_sandbox/processed/Cases_China_Heilongjiang.csv&#10;#&#9;data_sandbox/processed/Cases_China_Henan.csv&#10;#&#9;data_sandbox/processed/Cases_China_Hong_Kong.csv&#10;#&#9;data_sandbox/processed/Cases_China_Hubei.csv&#10;#&#9;data_sandbox/processed/Cases_China_Hunan.csv&#10;#&#9;data_sandbox/processed/Cases_China_Inner_Mongolia.csv&#10;#&#9;data_sandbox/processed/Cases_China_Jiangsu.csv&#10;#&#9;data_sandbox/processed/Cases_China_Jiangxi.csv&#10;#&#9;data_sandbox/processed/Cases_China_Jilin.csv&#10;#&#9;data_sandbox/processed/Cases_China_Liaoning.csv&#10;#&#9;data_sandbox/processed/Cases_China_Macau.csv&#10;#&#9;data_sandbox/processed/Cases_China_Ningxia.csv&#10;#&#9;data_sandbox/processed/Cases_China_Qinghai.csv&#10;#&#9;data_sandbox/processed/Cases_China_Shaanxi.csv&#10;#&#9;data_sandbox/processed/Cases_China_Shandong.csv&#10;#&#9;data_sandbox/processed/Cases_China_Shanghai.csv&#10;#&#9;data_sandbox/processed/Cases_China_Shanxi.csv&#10;#&#9;data_sandbox/processed/Cases_China_Sichuan.csv&#10;#&#9;data_sandbox/processed/Cases_China_Tianjin.csv&#10;#&#9;data_sandbox/processed/Cases_China_Tibet.csv&#10;#&#9;data_sandbox/processed/Cases_China_Yunnan.csv&#10;#&#9;data_sandbox/processed/Cases_China_Zhejiang.csv&#10;#&#9;data_sandbox/processed/Cases_Comoros_None.csv&#10;#&#9;data_sandbox/processed/Cases_Congo_(Brazzaville)_None.csv&#10;#&#9;data_sandbox/processed/Cases_Congo_(Kinshasa)_None.csv&#10;#&#9;data_sandbox/processed/Cases_Costa_Rica_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cote_d'Ivoire_None.csv&#10;#&#9;data_sandbox/processed/Cases_Croatia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cuba_None.csv&#10;#&#9;data_sandbox/processed/Cases_Cyprus_None.csv&#10;#&#9;data_sandbox/processed/Cases_Czechia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Denmark_Faroe_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_Denmark_Greenland.csv&#10;#&#9;data_sandbox/processed/Cases_Denmark_None.csv&#10;#&#9;data_sandbox/processed/Cases_Djibouti_None.csv&#10;#&#9;data_sandbox/processed/Cases_Dominica_None.csv&#10;#&#9;data_sandbox/processed/Cases_Dominican_Republic_None.csv&#10;#&#9;data_sandbox/processed/Cases_Ecuador_None.csv&#10;#&#9;data_sandbox/processed/Cases_Egypt_None.csv&#10;#&#9;data_sandbox/processed/Cases_El_Salvador_None.csv&#10;#&#9;data_sandbox/processed/Cases_Equatorial_Guinea_None.csv&#10;#&#9;data_sandbox/processed/Cases_Eritrea_None.csv&#10;#&#9;data_sandbox/processed/Cases_Estonia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Eswatini_None.csv&#10;#&#9;data_sandbox/processed/Cases_Ethiopia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Fiji_None.csv&#10;#&#9;data_sandbox/processed/Cases_Finland_None.csv&#10;#&#9;data_sandbox/processed/Cases_France_French_Guiana.csv&#10;#&#9;data_sandbox/processed/Cases_France_Guadeloupe.csv&#10;#&#9;data_sandbox/processed/Cases_France_Martinique.csv&#10;#&#9;data_sandbox/processed/Cases_France_Mayotte.csv&#10;#&#9;data_sandbox/processed/Cases_France_New_Caledonia.csv&#10;#&#9;data_sandbox/processed/Cases_France_None.csv&#10;#&#9;data_sandbox/processed/Cases_France_Reunion.csv&#10;#&#9;data_sandbox/processed/Cases_France_Saint_Barthelemy.csv&#10;#&#9;data_sandbox/processed/Cases_France_Saint_Pierre_and_Miquelon.csv&#10;#&#9;data_sandbox/processed/Cases_Gabon_None.csv&#10;#&#9;data_sandbox/processed/Cases_Georgia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Germany_None.csv&#10;#&#9;data_sandbox/processed/Cases_Ghana_None.csv&#10;#&#9;data_sandbox/processed/Cases_Greece_None.csv&#10;#&#9;data_sandbox/processed/Cases_Grenada_None.csv&#10;#&#9;data_sandbox/processed/Cases_Guatemala_None.csv&#10;#&#9;data_sandbox/processed/Cases_Guinea-Bissau_None.csv&#10;#&#9;data_sandbox/processed/Cases_Guinea_None.csv&#10;#&#9;data_sandbox/processed/Cases_Guyana_None.csv&#10;#&#9;data_sandbox/processed/Cases_Haiti_None.csv&#10;#&#9;data_sandbox/processed/Cases_Holy_See_None.csv&#10;#&#9;data_sandbox/processed/Cases_Honduras_None.csv&#10;#&#9;data_sandbox/processed/Cases_Hungary_None.csv&#10;#&#9;data_sandbox/processed/Cases_Iceland_None.csv&#10;#&#9;data_sandbox/processed/Cases_India_None.csv&#10;#&#9;data_sandbox/processed/Cases_Indonesia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Iran_None.csv&#10;#&#9;data_sandbox/processed/Cases_Iraq_None.csv&#10;#&#9;data_sandbox/processed/Cases_Ireland_None.csv&#10;#&#9;data_sandbox/processed/Cases_Israel_None.csv&#10;#&#9;data_sandbox/processed/Cases_Italy_None.csv&#10;#&#9;data_sandbox/processed/Cases_Jamaica_None.csv&#10;#&#9;data_sandbox/processed/Cases_Jordan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Kazakhstan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Kenya_None.csv&#10;#&#9;data_sandbox/processed/Cases_Korea,_South_None.csv&#10;#&#9;data_sandbox/processed/Cases_Kuwait_None.csv&#10;#&#9;data_sandbox/processed/Cases_Kyrgyzstan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Laos_None.csv&#10;#&#9;data_sandbox/processed/Cases_Latvia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Lebanon_None.csv&#10;#&#9;data_sandbox/processed/Cases_Liberia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Libya_None.csv&#10;#&#9;data_sandbox/processed/Cases_Lithuania_None.csv&#10;#&#9;data_sandbox/processed/Cases_Luxembourg_None.csv&#10;#&#9;data_sandbox/processed/Cases_MS_Zaandam_None.csv&#10;#&#9;data_sandbox/processed/Cases_Madagascar_None.csv&#10;#&#9;data_sandbox/processed/Cases_Malawi_None.csv&#10;#&#9;data_sandbox/processed/Cases_Malaysia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Maldives_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mali_None.csv&#10;#&#9;data_sandbox/processed/Cases_Malta_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mauritania_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mauritius_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mexico_None.csv&#10;#&#9;data_sandbox/processed/Cases_Moldova_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mongolia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Montenegro_None.csv&#10;#&#9;data_sandbox/processed/Cases_Morocco_None.csv&#10;#&#9;data_sandbox/processed/Cases_Mozambique_None.csv&#10;#&#9;data_sandbox/processed/Cases_Nepal_None.csv&#10;#&#9;data_sandbox/processed/Cases_Netherlands_Aruba.csv&#10;#&#9;data_sandbox/processed/Cases_Netherlands_Bonaire,_Sint_Eustatius_and_Saba.csv&#10;#&#9;data_sandbox/processed/Cases_Netherlands_Curacao.csv&#10;#&#9;data_sandbox/processed/Cases_Netherlands_None.csv&#10;#&#9;data_sandbox/processed/Cases_New_Zealand_None.csv&#10;#&#9;data_sandbox/processed/Cases_Nicaragua_None.csv&#10;#&#9;data_sandbox/processed/Cases_Niger_None.csv&#10;#&#9;data_sandbox/processed/Cases_Nigeria_None.csv&#10;#&#9;data_sandbox/processed/Cases_North_Macedonia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Norway_None.csv&#10;#&#9;data_sandbox/processed/Cases_Oman_None.csv&#10;#&#9;data_sandbox/processed/Cases_Pakistan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Panama_None.csv&#10;#&#9;data_sandbox/processed/Cases_Paraguay_None.csv&#10;#&#9;data_sandbox/processed/Cases_Peru_None.csv&#10;#&#9;data_sandbox/processed/Cases_Philippines_None.csv&#10;#&#9;data_sandbox/processed/Cases_Poland_None.csv&#10;#&#9;data_sandbox/processed/Cases_Portugal_None.csv&#10;#&#9;data_sandbox/processed/Cases_Qatar_None.csv&#10;#&#9;data_sandbox/processed/Cases_Romania_None.csv&#10;#&#9;data_sandbox/processed/Cases_Russia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Rwanda_None.csv&#10;#&#9;data_sandbox/processed/Cases_Saint_Kitts_and_Nevis_None.csv&#10;#&#9;data_sandbox/processed/Cases_Saint_Lucia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Saint_Vincent_and_the_Grenadines_None.csv&#10;#&#9;data_sandbox/processed/Cases_San_Marino_None.csv&#10;#&#9;data_sandbox/processed/Cases_Sao_Tome_and_Principe_None.csv&#10;#&#9;data_sandbox/processed/Cases_Saudi_Arabia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Senegal_None.csv&#10;#&#9;data_sandbox/processed/Cases_Serbia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Sierra_Leone_None.csv&#10;#&#9;data_sandbox/processed/Cases_Singapore_None.csv&#10;#&#9;data_sandbox/processed/Cases_Slovakia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Slovenia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Somalia_None.csv&#10;#&#9;data_sandbox/processed/Cases_South_Africa_None.csv&#10;#&#9;data_sandbox/processed/Cases_South_Sudan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Spain_None.csv&#10;#&#9;data_sandbox/processed/Cases_Sri_Lanka_None.csv&#10;#&#9;data_sandbox/processed/Cases_Sudan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Suriname_None.csv&#10;#&#9;data_sandbox/processed/Cases_Sweden_None.csv&#10;#&#9;data_sandbox/processed/Cases_Syria_None.csv&#10;#&#9;data_sandbox/processed/Cases_Taiwan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Tajikistan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Tanzania_None.csv&#10;#&#9;data_sandbox/processed/Cases_Thailand_None.csv&#10;#&#9;data_sandbox/processed/Cases_Timor-Leste_None.csv&#10;#&#9;data_sandbox/processed/Cases_Togo_None.csv&#10;#&#9;data_sandbox/processed/Cases_Trinidad_and_Tobago_None.csv&#10;#&#9;data_sandbox/processed/Cases_Tunisia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Turkey_None.csv&#10;#&#9;data_sandbox/processed/Cases_US_Alabama.csv&#10;#&#9;data_sandbox/processed/Cases_US_Alaska.csv&#10;#&#9;data_sandbox/processed/Cases_US_American_Samoa.csv&#10;#&#9;data_sandbox/processed/Cases_US_Arizona.csv&#10;#&#9;data_sandbox/processed/Cases_US_Arkansas.csv&#10;#&#9;data_sandbox/processed/Cases_US_Colorado.csv&#10;#&#9;data_sandbox/processed/Cases_US_Connecticut.csv&#10;#&#9;data_sandbox/processed/Cases_US_Delaware.csv&#10;#&#9;data_sandbox/processed/Cases_US_District_of_Columbia.csv&#10;#&#9;data_sandbox/processed/Cases_US_Florida.csv&#10;#&#9;data_sandbox/processed/Cases_US_Georgia.csv&#10;#&#9;data_sandbox/processed/Cases_US_Guam.csv&#10;#&#9;data_sandbox/processed/Cases_US_Hawaii.csv&#10;#&#9;data_sandbox/processed/Cases_US_Idaho.csv&#10;#&#9;data_sandbox/processed/Cases_US_Illinois.csv&#10;#&#9;data_sandbox/processed/Cases_US_Indiana.csv&#10;#&#9;data_sandbox/processed/Cases_US_Iowa.csv&#10;#&#9;data_sandbox/processed/Cases_US_Kansas.csv&#10;#&#9;data_sandbox/processed/Cases_US_Kentucky.csv&#10;#&#9;data_sandbox/processed/Cases_US_Louisiana.csv&#10;#&#9;data_sandbox/processed/Cases_US_Maine.csv&#10;#&#9;data_sandbox/processed/Cases_US_Maryland.csv&#10;#&#9;data_sandbox/processed/Cases_US_Massachusetts.csv&#10;#&#9;data_sandbox/processed/Cases_US_Michigan.csv&#10;#&#9;data_sandbox/processed/Cases_US_Minnesota.csv&#10;#&#9;data_sandbox/processed/Cases_US_Mississippi.csv&#10;#&#9;data_sandbox/processed/Cases_US_Missouri.csv&#10;#&#9;data_sandbox/processed/Cases_US_Montana.csv&#10;#&#9;data_sandbox/processed/Cases_US_Nebraska.csv&#10;#&#9;data_sandbox/processed/Cases_US_Nevada.csv&#10;#&#9;data_sandbox/processed/Cases_US_New_Hampshire.csv&#10;#&#9;data_sandbox/processed/Cases_US_New_Mexico.csv&#10;#&#9;data_sandbox/processed/Cases_US_North_Carolina.csv&#10;#&#9;data_sandbox/processed/Cases_US_North_Dakota.csv&#10;#&#9;data_sandbox/processed/Cases_US_Northern_Mariana_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_US_Ohio.csv&#10;#&#9;data_sandbox/processed/Cases_US_Oklahoma.csv&#10;#&#9;data_sandbox/processed/Cases_US_Oregon.csv&#10;#&#9;data_sandbox/processed/Cases_US_Pennsylvania.csv&#10;#&#9;data_sandbox/processed/Cases_US_Puerto_Rico.csv&#10;#&#9;data_sandbox/processed/Cases_US_Rhode_Island.csv&#10;#&#9;data_sandbox/processed/Cases_US_South_Carolina.csv&#10;#&#9;data_sandbox/processed/Cases_US_South_Dakota.csv&#10;#&#9;data_sandbox/processed/Cases_US_Tennessee.csv&#10;#&#9;data_sandbox/processed/Cases_US_Utah.csv&#10;#&#9;data_sandbox/processed/Cases_US_Vermont.csv&#10;#&#9;data_sandbox/processed/Cases_US_Virginia.csv&#10;#&#9;data_sandbox/processed/Cases_US_Washington.csv&#10;#&#9;data_sandbox/processed/Cases_US_West_Virginia.csv&#10;#&#9;data_sandbox/processed/Cases_US_Wisconsin.csv&#10;#&#9;data_sandbox/processed/Cases_US_Wyoming.csv&#10;#&#9;data_sandbox/processed/Cases_Uganda_None.csv&#10;#&#9;data_sandbox/processed/Cases_Ukraine_None.csv&#10;#&#9;data_sandbox/processed/Cases_United_Arab_Emirates_None.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Anguilla.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Bermuda.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_British_Virgin_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Cayman_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Channel_Islands.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Falkland_Islands_(Malvinas).csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Gibraltar.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Isle_of_Man.csv&#10;#&#9;data_sandbox/processed/Cases_United_Kingdom_Montserrat.csv&#10;#&#9;data_sandbox/processed/Cases_Uruguay_None.csv&#10;#&#9;data_sandbox/processed/Cases_Uzbekistan_None.csv&#10;#&#9;data_sandbox/processed/Cases_Venezuela_None.csv&#10;#&#9;data_sandbox/processed/Cases_Vietnam_None.csv&#10;#&#9;data_sandbox/processed/Cases_West_Bank_and_Gaza_None.csv&#10;#&#9;data_sandbox/processed/Cases_Western_Sahara_None.csv&#10;#&#9;data_sandbox/processed/Cases_Yemen_None.csv&#10;#&#9;data_sandbox/processed/Cases_Zambia_None.csv&#10;#&#9;data_sandbox/processed/Cases_Zimbabwe_None.csv" />
+    <MESSAGE value="Extra mock logs file to create the folder" />
+    <MESSAGE value="Extra info in backtest logger (MSE &amp; MAE flags)" />
+    <MESSAGE value="Added PopulationCI check" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added PopulationCI check" />
   </component>
 </project>

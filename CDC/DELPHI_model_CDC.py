@@ -27,6 +27,7 @@ USER_RUNNING = "michael"
 
 time_beginning = time.time()
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+print(yesterday)
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 popcountries = pd.read_csv(
@@ -34,8 +35,9 @@ popcountries = pd.read_csv(
 )
 popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
 
+past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 def solve_and_predict_area(
-        tuple_area_: tuple, yesterday_: str, allowed_deviation_: float, pastparameters_: pd.DataFrame,
+        tuple_area_: tuple, yesterday_: str, allowed_deviation_: float, pastparameters_: pd.DataFrame, past_prediction_date = past_prediction_date
 ):
     time_entering = time.time()
     continent, country, province = tuple_area_
@@ -59,13 +61,28 @@ def solve_and_predict_area(
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
-                param_list_lower = [x - 0.1 * abs(x) for x in parameter_list]
-                param_list_upper = [x + 0.1 * abs(x) for x in parameter_list]
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = parameter_list
+                parameter_list = (
+                    max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
+                )                
+                param_list_lower = [x - max(0.2 * abs(x), 0.2) for x in parameter_list]
+                alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
+                param_list_lower = [
+                    max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.02), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
+                         max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 1)
+                ]
+                param_list_upper = [x +  max(0.2 * abs(x), 0.2) for x in parameter_list]
+                alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
+                param_list_upper = [
+                    max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.02), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
+                         max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 1)
+                ]
                 bounds_params = [(lower, upper)
                                  for lower, upper in zip(param_list_lower, param_list_upper)]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 validcases = totalcases[
-                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date >= str(date_day_since100.date())) &
                     (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
 #                parameter_list.insert(5, 0.2)
@@ -83,7 +100,7 @@ def solve_and_predict_area(
                 bounds_params = default_bounds_params
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
                 validcases = totalcases[
-                    (totalcases.day_since100 >= 0) &
+                    (totalcases.date >= str(date_day_since100.date())) &
                     (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         else:
@@ -92,7 +109,7 @@ def solve_and_predict_area(
             bounds_params = default_bounds_params
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
             validcases = totalcases[
-                (totalcases.day_since100 >= 0) &
+                (totalcases.day_since100 >= str(date_day_since100.date())) &
                 (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
                 ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         # Now we start the modeling part:
@@ -191,8 +208,8 @@ def solve_and_predict_area(
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = params
                 params = (
-                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(min(r_dthdecay, 1), 0),
-                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
+                    max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
                 )
                 x_0_cases = get_initial_conditions(
                     params_fitted=params,
@@ -209,8 +226,13 @@ def solve_and_predict_area(
                 # weights[-15:] =[x + 50 for x in weights[-15:]]
                 residuals_value = sum(
                     np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
-                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
-                )
+                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)) + sum(
+                    np.multiply((x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2, weights[7:])
+                    + balance * balance * np.multiply((x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2, weights[7:])
+                    )
+#                residuals_value = sum(
+#                    np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
+#                    + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights))
                 return residuals_value
 
             # def last_point(params):
@@ -234,7 +256,7 @@ def solve_and_predict_area(
             output = minimize(
                 residuals_totalcases,
                 parameter_list,
-                method='tnc',  # Can't use Nelder-Mead if I want to put bounds on the params
+                method="tnc",  # Can't use Nelder-Mead if I want to put bounds on the params
                 bounds=bounds_params,
                 options={'maxiter': max_iter}
             )
@@ -243,6 +265,11 @@ def solve_and_predict_area(
 
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = optimal_params
+                optimal_params = [
+                    max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
+                         max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
+                ]
                 x_0_cases = get_initial_conditions(
                     params_fitted=optimal_params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
@@ -277,6 +304,9 @@ def solve_and_predict_area(
             df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
                 data_creator.create_datasets_predictions()
             )
+#            df_predictions_since_today_cont_country_prov, df_predictions_since_100_cont_country_prov = (
+#                data_creator.create_datasets_with_confidence_intervals(fitcasesnd, fitcasesd, past_prediction_file = PATH_TO_FOLDER_DANGER_MAP + + f"predicted/Global/Global_V2_{past_prediction_date}.csv", past_prediction_date = past_prediction_date)
+#            )
             print(
                 f"Finished predicting for Continent={continent}, Country={country} and Province={province} in " +
                 f"{round(time.time() - time_entering, 2)} seconds"
@@ -312,7 +342,7 @@ if __name__ == "__main__":
         solve_and_predict_area, yesterday_=yesterday, pastparameters_=pastparameters,
         allowed_deviation_=allowed_deviation
     )
-    n_cpu = 6
+    n_cpu = 4
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
     list_tuples = [x for x in list_tuples if x[1] in ["US"]]
