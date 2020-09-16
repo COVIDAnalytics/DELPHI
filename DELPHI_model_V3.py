@@ -3,6 +3,7 @@ import os
 import yaml
 import logging
 import time
+import psutil
 import argparse
 import pandas as pd
 import numpy as np
@@ -441,7 +442,7 @@ if __name__ == "__main__":
         past_parameters_=past_parameters,
         popcountries=popcountries,
     )
-    n_cpu = mp.cpu_count()
+    n_cpu = psutil.cpu_count(logical = False)
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
 
     list_tuples = popcountries.tuple_area.tolist()
