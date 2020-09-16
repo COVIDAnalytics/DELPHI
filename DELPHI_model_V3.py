@@ -17,7 +17,7 @@ from DELPHI_utils_V3_static import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
-from DELPHI_utils_V3_dynamic import get_bounds_params_from_pastparams
+from DELPHI_utils_V3_dynamic import get_bounds_params_from_pastparams, DELPHIModelComparison
 from DELPHI_params_V3 import (
     default_parameter_list,
     dict_default_reinit_parameters,
@@ -61,7 +61,7 @@ yesterday_logs_filename = "".join(
 parser = argparse.ArgumentParser()
 parser.add_argument(
     '--user', '-u', type=str, required=True,
-    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham"],
+    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham", "saksham2"],
     help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
 )
 parser.add_argument(
@@ -76,12 +76,17 @@ parser.add_argument(
     '--confidence_intervals', '-ci', type=int, required=True, choices=[0, 1],
     help="Generate Confidence Intervals? Reply 0 or 1 (for False or True).",
 )
+parser.add_argument(
+    '--compare_methods', '-cm', type=int, required=False, choices=[0,1],
+    help="to do comparison between annealing and tnc or not"
+)
 arguments = parser.parse_args()
 USER_RUNNING = arguments.user
 OPTIMIZER = arguments.optimizer
 GET_CONFIDENCE_INTERVALS = bool(arguments.confidence_intervals)
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
+COMPARE = arguments.compare_methods
 #############################################################################################################
 
 def solve_and_predict_area(
@@ -190,7 +195,7 @@ def solve_and_predict_area(
             maxT: Maximum # of Days Modeled
             p_d: Percentage of True Cases Detected
             p_v: Percentage of Hospitalized Patients Ventilated,
-            balance: Regularization coefficient between cases and deaths 
+            balance: Regularization coefficient between cases and deaths
             """
             maxT = (default_maxT - date_day_since100).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
@@ -418,6 +423,7 @@ if __name__ == "__main__":
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
+    popcountries = popcountries.iloc[0:10]
 
     try:
         past_parameters = pd.read_csv(
@@ -497,7 +503,67 @@ if __name__ == "__main__":
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
     )
     delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=False, website=True)
+
     logging.info(
         f"Exported all 3 datasets to website & danger_map repositories, "
         + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
     )
+
+    if COMPARE == 1:
+        today_date_str = "".join(str(datetime.now().date()).split("-"))
+        # PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_since100_annealing_{today_date_str}.csv'
+        global_annealing_predictions_since_100days = pd.read_csv(
+            PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_since100_annealing_{today_date_str}.csv'
+        )
+        states_annealing_predictions_since_100days = pd.read_csv(
+            PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_since100_annealing_{today_date_str}.csv'
+        )
+        total_tnc_predictions_since_100days = pd.read_csv(
+            PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_since100_{today_date_str}.csv'
+        )
+  
+        states_annealing_predictions_since_100days['Day'] = states_annealing_predictions_since_100days['Day'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d'))
+        global_annealing_predictions_since_100days['Day'] = global_annealing_predictions_since_100days['Day'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d'))
+        total_tnc_predictions_since_100days['Day'] = total_tnc_predictions_since_100days['Day'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d'))
+
+        model_compare = DELPHIModelComparison(
+            PATH_TO_FOLDER_DANGER_MAP,
+            CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING],
+            global_annealing_predictions_since_100days,
+            states_annealing_predictions_since_100days,
+            total_tnc_predictions_since_100days 
+        )
+
+        # country_list =  ['France',
+        #             'Italy',
+        #             'Germany',
+        #             'Greece',
+        #             'Spain',
+        #             'Netherlands',
+        #             'Finland',
+        #             'Portugal',
+        #             'Belgium',
+        #             'Switzerland']
+
+        model_metrics = []
+        for region in popcountries["tuple_area"]:
+        # for i in range(len(country_list)):
+            model_metrics.append(model_compare.compare_metric((region[0], region[1], region[2])))
+
+        model_comparison_df = pd.DataFrame()
+        model_comparison_df['region'] = popcountries["tuple_area"]
+        model_comparison_df['annealing_selected'] = [(1 if m[0] else 0) for m in model_metrics]
+        model_comparison_df['annealing_metric'] = [m[1] for m in model_metrics]
+        model_comparison_df['tnc_metric'] = [m[2] for m in model_metrics]
+        model_comparison_df['annealing_mape'] = [m[3] for m in model_metrics]
+        annealing_count = np.sum(model_comparison_df['annealing_metric'])
+
+        model_comparison_df.to_csv(
+            CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING] + f'model_comparison_{today_date_str}.csv',
+            index=False
+        )
+
+        logging.info(
+        f"Checked Annealing v/s TNC. Annealing performs better {annealing_count}/{model_comparison_df.shape[0]}"
+        + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
+        )

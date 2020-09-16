@@ -6,6 +6,7 @@ from typing import Union
 from copy import deepcopy
 from itertools import compress
 from DELPHI_params_V3 import MAPPING_STATE_CODE_TO_STATE_NAME, future_policies
+from matplotlib import pyplot as plt
 
 
 def get_bounds_params_from_pastparams(
@@ -764,3 +765,97 @@ def get_testing_data_us() -> pd.DataFrame:
     df_test_final = pd.concat(list_df_concat).reset_index(drop=True)
     df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
     return df_test_final
+
+class DELPHIModelComparison:
+    def __init__(
+        self,
+        path_to_folder_danger_map: str,
+        path_to_folder_data_sandbox: str,
+        global_annealing_since_100days: pd.DataFrame,
+        states_annealing_since_100days: pd.DataFrame,
+        total_tnc_since_100days: pd.DataFrame
+    ):
+        self.DANGER_MAP = path_to_folder_danger_map
+        self.DATA_SANDBOX = path_to_folder_data_sandbox
+        self.global_annealing_since_100days = global_annealing_since_100days
+        self.states_annealing_since_100days = states_annealing_since_100days
+        self.total_tnc_since_100days = total_tnc_since_100days
+
+    @staticmethod
+    def KL(a, b):
+        a = np.asarray(a, dtype=np.float)
+        b = np.asarray(b, dtype=np.float)
+        return np.sum(np.where(a != 0, a * np.log(a / b), 0))
+
+    @staticmethod
+    def MAPE(a, b):
+        return max([abs(x-y)/x for x,y in zip(a,b) if y!= 0 and x > 100])
+
+    def get_province(self, province, country=True, min_case_count=100):
+        if country:
+            true_df = pd.read_csv(self.DATA_SANDBOX + 'processed/Cases_' + province + '_None.csv')
+        else:
+            true_df = pd.read_csv(self.DANGER_MAP + 'Cases_' + province + '.csv')
+        true_df = true_df.query('case_cnt >= @min_case_count').sort_values('date').groupby('date').min().reset_index()
+        return(true_df)
+
+    def compare_metric(self,
+                    province_tuple,
+                    min_case_count=100,
+                    metric=KL,
+                    threshold=0.25,
+                    plot=False,
+                    verbose=True):
+
+        today_date_str = "".join(str(datetime.now().date()).split("-"))
+
+        continent, country, state = province_tuple
+
+        if country=='US' and state != 'None':
+            true_df = self.get_province(state, country=False, min_case_count=min_case_count)
+            annealing_df = self.states_annealing_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @state').sort_values('Day').groupby('Day').min().reset_index()
+        elif state == 'None':
+            true_df = self.get_province(country, country=True, min_case_count=min_case_count)
+            annealing_df = self.global_annealing_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @state').sort_values('Day').groupby('Day').min().reset_index()
+
+        tnc_df = self.total_tnc_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @state').sort_values('Day').groupby('Day').min().reset_index()
+
+        annealing_df['Annealing Prediction'] = annealing_df['Total Detected'].diff().apply(lambda x: x if x > 1 else 1)
+        tnc_df['TNC Prediction'] = tnc_df['Total Detected'].diff().apply(lambda x: x if x > 1 else 1)
+        true_df['True Value'] = true_df['case_cnt'].diff().apply(lambda x: x if x > 1 else 1)
+
+        annealing_df = annealing_df[['Day', 'Annealing Prediction']].dropna()
+        tnc_df = tnc_df[['Day', 'TNC Prediction']].dropna()
+        true_df = true_df[['date', 'True Value']].dropna()
+        true_df['date'] = true_df['date'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d'))
+
+        merged = true_df.merge(annealing_df, how='inner', left_on='date', right_on='Day').merge(tnc_df, how='inner', left_on='date', right_on='Day').drop(columns=['Day_x', 'Day_y'])
+
+        if plot:
+            plt.plot(merged['date'], merged['True Value'], label='True')
+            plt.plot(merged['date'], merged['Annealing Prediction'], label='Annealing')
+            plt.plot(merged['date'], merged['TNC Prediction'], label='TNC')
+            plt.title(str(province_tuple))
+            plt.savefig(self.DATA_SANDBOX + f"plots/model_comparison_{country}_{state}_{today_date_str}.png")
+            # plt.show()
+
+        metric_annealing = metric(merged['True Value'], merged['Annealing Prediction'])
+        metric_tnc = metric(merged['True Value'], merged['TNC Prediction'])
+        mape = DELPHIModelComparison.MAPE(merged['True Value'], merged['Annealing Prediction'])
+
+        if verbose:
+            print('Distance for Annealing: ' + str(metric_annealing))
+            print('Distance for TNC: ' + str(metric_tnc))
+            print(('Annealing' if metric_annealing < metric_tnc else 'TNC') + ' is better')
+
+        if metric_annealing < metric_tnc:
+            print('MAPE for Annealing: ' + str(mape) + '. Threshold is ' + str(threshold))
+            if mape < threshold:
+                print('MAPE condition satisfied and Annealing better than TNC. Use Annealing.')
+                return (True, metric_annealing, metric_tnc, mape)
+            else:
+                print('Annealing better than TNC but MAPE condition not satisfied. Retrain.')
+                return (False, metric_annealing, metric_tnc, mape)
+        else:
+            print('TNC better than Annealing. Retrain.')
+            return (False, metric_annealing, metric_tnc, mape)
