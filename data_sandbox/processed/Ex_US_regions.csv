@@ -1,484 +1,433 @@
 Continent,Country,Province,pop2016
-Europe,Spain,Comunidad de Madrid,6747425
-Europe,Spain,Cataluna,7619494
-Europe,Spain,Comunidad Valenciana,5003769
-Europe,Spain,Pais Vasco,2167707
-Europe,Spain,Castilla y Leon,2418694
-Europe,Spain,Andalucia,8476718
-Europe,Spain,La Rioja,315675
-Europe,Spain,Galicia,2708339
-Europe,Spain,Navarra,647554
-Europe,Spain,Castilla-La Mancha,2106331
-Europe,Spain,Islas Canarias,2127685
+Europe,Spain,Comunidad de Madrid,6641649
+Europe,Spain,Cataluna,7566431
+Europe,Spain,Comunidad Valenciana,4974969
+Europe,Spain,Andalucia,8427405
+Europe,Spain,Castilla y Leon,2407733
+Europe,Spain,Pais Vasco,2177880
 Europe,Spain,Aragon,1324397
-Europe,Spain,Extremadura,1067710
-Europe,Spain,Region de Murcia,1504607
-Europe,Spain,Islas Baleares,1149460
-Europe,Spain,Asturias,1028244
-Europe,Spain,Cantabria,580229
-Europe,Spain,Melilla,86487
-Europe,Spain,Ceuta,84777
-Europe,Italy,Lombardy,10067494
-Europe,Italy,Veneto,4926818
+Europe,Spain,Galicia,2700441
+Europe,Spain,Islas Canarias,2206901
+Europe,Spain,La Rioja,313571
+Europe,Spain,Navarra,649946
+Europe,Spain,Extremadura,1065424
+Europe,Spain,Castilla-La Mancha,2034877
+Europe,Spain,Cantabria,581641
+Europe,Spain,Region de Murcia,1487663
+Europe,Spain,Islas Baleares,1188220
+Europe,Spain,Asturias,1022205
+Europe,Spain,Melilla,84689
+Asia,Japan,Tokyo,13942856
+Asia,Japan,Aichi,7549594
+Asia,Japan,Kanagawa,9200166
+Asia,Japan,Hokkaido,5273681
+Asia,Japan,Chiba,6279026
+Asia,Japan,Osaka,8823453
+Asia,Japan,Hyogo,5463609
+Asia,Japan,Kyoto,2583140
+Asia,Japan,Saitama,7337330
+Asia,Japan,Gunma,1937626
+Asia,Japan,Gifu,1991390
+Asia,Japan,Fukuoka,5110113
+Asia,Japan,Ibaraki,2868041
+Asia,Japan,Kumamoto,1746740
+Asia,Japan,Nara,1331330
+Asia,Japan,Ishikawa,1137181
+Asia,Japan,Shizuoka,3639226
+Asia,Japan,Okinawa,1457162
+Europe,Italy,Veneto,4905854
+Europe,Italy,Lombardy,10060574
 Europe,Italy,Emilia-Romagna,4459477
-Europe,Italy,Piedmont,4341375
-Europe,Italy,Marche,1522608
-Europe,Italy,Tuscany,3745983
-Europe,Italy,Campania,5869965
 Europe,Italy,Liguria,1550640
+Europe,Italy,Piedmont,4356406
+Europe,Italy,Campania,5801692
+Europe,Italy,Tuscany,3729641
+Europe,Italy,Marche,1525271
 Europe,Italy,Lazio,5879082
 Europe,Italy,Friuli Venezia Giulia,1215220
-Europe,Italy,Trentino-Alto Adige,541098
-Europe,Italy,South Tyrol,531178
-Europe,Italy,Sicily,4983478
+Europe,Italy,Sicily,4999891
 Europe,Italy,Apulia,4029053
+Europe,Italy,Molise,305617
 Europe,Italy,Umbria,882015
-Europe,Italy,Abruzzo,1308451
+Europe,Italy,Trentino-Alto Adige,541098
+Europe,Italy,Abruzzo,1311580
 Europe,Italy,Sardinia,1639591
 Europe,Italy,Aosta Valley,125666
 Europe,Italy,Calabria,1947131
+Europe,Italy,South Tyrol,531178
 Europe,Italy,Basilicata,562869
-Europe,Italy,Molise,304285
 Europe,United Kingdom,England,53012456
-Europe,United Kingdom,Greater London,8899375
-Europe,United Kingdom,South East,9180135
-Europe,United Kingdom,West Midlands,5602000
-Europe,United Kingdom,East Midlands,4533222
-Europe,United Kingdom,East of England,5907300
-Europe,United Kingdom,Scotland,5404700
-Europe,United Kingdom,Wales,3113000
-Europe,United Kingdom,Northern Ireland,1852168
-Asia,Philippines,Metro Manila,12877253
-Asia,Philippines,Calabarzon,14414774
-Asia,Philippines,Central Luzon,11218177
-Asia,Philippines,Davao Region,4893318
-Asia,Philippines,Central Visayas,7396898
-Asia,Philippines,Zamboanga Peninsula,3629783
-Asia,Philippines,Ilocos Region,5026128
-Asia,Philippines,Western Visayas,7536383
-Asia,Philippines,Eastern Visayas,4440150
-Asia,Philippines,Cordillera Administrative Region,1722006
-Asia,Philippines,Bicol Region,5796989
-Asia,Philippines,Mimaropa,2963360
-Asia,Philippines,Northern Mindanao,4689302
-Asia,Philippines,Autonomous Region in Muslim Mindanao,3781387
-Asia,Philippines,Cagayan Valley,3451410
-Asia,Philippines,Caraga,2596709
-Asia,Philippines,Soccsksargen,4245838
-Asia,Japan,Hokkaido,5273681
-Asia,Japan,Aichi,7549594
-Asia,Japan,Osaka,8823453
-Asia,Japan,Tokyo,13942856
-Asia,Japan,Hyogo,5463609
-Asia,Japan,Kanagawa,9200166
-Asia,Japan,Chiba,6279026
-Asia,Japan,Saitama,7337330
-Asia,Japan,Kyoto,2583140
-Asia,Japan,Fukuoka,5110113
-Asia,Japan,Ibaraki,2868041
-Asia,Japan,Ishikawa,1137181
-Asia,Japan,Gifu,1991390
-Asia,Japan,Gunma,1937626
-Asia,Japan,Hiroshima,2811410
-Asia,Japan,Fukui,767742
-Asia,Japan,Okinawa,1457162
-Asia,Japan,Toyama,1042998
-Asia,Japan,Shiga,1413959
-Asia,Japan,Kagoshima,1601711
-Asia,Japan,Nara,1331330
-Asia,Japan,Miyagi,2303160
-Asia,Japan,Tochigi,1942312
-Asia,Japan,Shizuoka,3639226
-Asia,Japan,Wakayama,923721
-Asia,Japan,Kumamoto,1746740
-Asia,Japan,Miyazaki,1071723
-Asia,Japan,Nagano,2049653
-Asia,Japan,Niigata,2222004
-Asia,Japan,Mie,1781948
-Asia,Japan,Nagasaki,1325205
-Asia,Japan,Yamanashi,812056
-Asia,Japan,Saga,814211
-Asia,Japan,Okayama,1891346
-Asia,Japan,Ehime,1338811
-Asia,Japan,Shimane,673891
-Asia,Japan,Fukushima,1844173
-Asia,Japan,Kochi,697674
-Asia,Japan,Oita,1134431
-Asia,Japan,Tokushima,728633
-Asia,Japan,Yamaguchi,1355495
-Europe,Germany,North Rhine-Westphalia,17932651
-Europe,Germany,Bavaria,12930751
-Europe,Germany,Baden-Wurttemberg,11069533
-Europe,Germany,Berlin,3644826
-Europe,Germany,Lower Saxony,7982448
-Europe,Germany,Hesse,6265809
-Europe,Germany,Rhineland-Palatinate,4084844
-Europe,Germany,Hamburg,1841179
-Europe,Germany,Saxony,4077937
-Europe,Germany,Schleswig-Holstein,2896712
-Europe,Germany,Brandenburg,2449193
-Europe,Germany,Saarland,995597
-Europe,Germany,Saxony-Anhalt,2245470
-Europe,Germany,Mecklenburg-Vorpommern,1609675
-Europe,Germany,Bremen,661000
-Europe,Germany,Thuringia,2143145
-Europe,Belgium,Liege,1105326
-Europe,Belgium,Flemish Brabant,1138489
-Europe,Belgium,Limburg,870880
-Europe,Belgium,Brussels,1175173
-Europe,Belgium,East Flanders,1505053
-Europe,Belgium,Antwerp,1847486
-Europe,Belgium,West Flanders,1195796
-Europe,Belgium,Hainaut,1341645
-Europe,Belgium,Walloon Brabant,401106
-Europe,Belgium,Namur,487145
-Europe,Belgium,Luxembourg,283227
-Europe,Netherlands,North Brabant,2256848
-Europe,Netherlands,Limburg,1120006
-Europe,Netherlands,Utrecht,1253672
-Europe,Netherlands,South Holland,3577032
-Europe,Netherlands,North Holland,2813466
-Europe,Netherlands,Gelderland,2019692
-Europe,Netherlands,Overijssel,1142360
-Europe,Netherlands,Groningen,582728
-Europe,Netherlands,Zeeland,380726
-Europe,Netherlands,Flevoland,399893
-Europe,Netherlands,Friesland,649944
-Europe,Netherlands,Drenthe,491792
-Oceania,Australia,New South Wales,7480228
-Oceania,Australia,Victoria,5926624
-Oceania,Australia,Queensland,4703193
-Oceania,Australia,Western Australia,2474410
-Oceania,Australia,South Australia,1676653
-Oceania,Australia,Tasmania,509965
-Oceania,Australia,Australian Capital Territory,396857
-Europe,France,Ile-de-France,12174880
-Europe,France,Grand Est,5549586
-Europe,France,Auvergne-Rhone-Alpes,7948287
-Europe,France,Occitanie,5845102
-Europe,France,Provence-Alpes-Cote d'Azur,5030890
-Europe,France,Hauts-de-France,6003815
-Europe,France,Nouvelle-Aquitaine,5956978
-Europe,France,Centre-Val de Loire,2576252
-Europe,France,Bourgogne-Franche-Comte,2811423
-Europe,France,Normandy,3330478
-Europe,France,Pays de la Loire,3757600
-Europe,France,Brittany,3318904
-Europe,France,Corsica,334938
+Europe,United Kingdom,South East,9175033
+Europe,United Kingdom,Greater London,8982256
+Europe,United Kingdom,North West,7300075
+Europe,United Kingdom,South West,5616381
+Europe,United Kingdom,Yorkshire and the Humber,5486230
+Europe,United Kingdom,East Midlands,4811065
+Europe,United Kingdom,East of England,6235410
+Europe,United Kingdom,West Midlands,5907872
+Europe,United Kingdom,Scotland,5454238
+Europe,United Kingdom,Northern Ireland,1885189
+Europe,United Kingdom,North East,2656980
+Europe,United Kingdom,Wales,3136383
 North America,Canada,Ontario,14279196
 North America,Canada,British Columbia,4841078
-North America,Canada,Quebec,8484965
 North America,Canada,Alberta,4067175
-North America,Canada,Newfoundland and Labrador,528430
+North America,Canada,Quebec,8484965
+North America,Canada,Manitoba,1343371
 North America,Canada,Saskatchewan,1168057
 North America,Canada,Nova Scotia,957600
-North America,Canada,Manitoba,1343371
-North America,Canada,New Brunswick,760868
-South America,Brazil,Sao Paulo,45094866
-South America,Brazil,Rio de Janeiro,16718956
-South America,Brazil,Ceara,9020460
-South America,Brazil,Distrito Federal,3039444
-South America,Brazil,Minas Gerais,21119536
-South America,Brazil,Santa Catarina,7001161
-South America,Brazil,Rio Grande do Sul,11322895
-South America,Brazil,Bahia,15344447
-South America,Brazil,Parana,11320892
-South America,Brazil,Amazonas,4063614
-South America,Brazil,Pernambuco,9473266
-South America,Brazil,Rio Grande do Norte,3507003
-South America,Brazil,Espirito Santo,3885049
-South America,Brazil,Goias,6778772
-South America,Brazil,Maranhao,7000229
-South America,Brazil,Para,8366628
-South America,Brazil,Amapa,797722
-South America,Brazil,MatoGrosso,3344544
-South America,Brazil,MatoGrosso do Sul,2713147
-South America,Brazil,Paraiba,4025558
-South America,Brazil,Roraima,1805788
-South America,Brazil,Acre,881935
-South America,Brazil,Piaui,3219257
-South America,Brazil,Alagoas,3375823
-South America,Brazil,Rondonia,1590011
-South America,Brazil,Sergipe,2288116
-South America,Brazil,Tocantins,1550194
-South America,Chile,Santiago Metropolitan Region,7112808
-South America,Chile,Nuble,480609
-South America,Chile,Araucania,957224
-South America,Chile,Biobio,1556805
-South America,Chile,Los Lagos,828708
-South America,Chile,Valparaiso,1815902
-South America,Chile,Magallanes,166533
-South America,Chile,Maule,1044950
-South America,Chile,Los Rios,384837
-South America,Chile,Antofagasta,607534
-South America,Chile,Arica y Parinacota,226068
-South America,Chile,Tarapaca,330558
-South America,Chile,O'Higgins,914555
-South America,Chile,Coquimbo,757586
-South America,Chile,Atacama,286168
-South America,Chile,Aysen,103158
-South America,Mexico,Mexico City,8851639
-South America,Mexico,State of Mexico,15181290
-South America,Mexico,Jalisco,7378533
-South America,Mexico,Puebla,5787259
-South America,Mexico,Baja California,3167289
-South America,Mexico,Quintana Roo,1330846
-South America,Mexico,Colima,654775
-South America,Mexico,Sinaloa,2783193
-South America,Mexico,Tabasco,2240834
-South America,Mexico,Nuevo Leon,4666880
-South America,Mexico,Baja California Sur,646618
-South America,Mexico,Yucatan,1961350
-South America,Mexico,Chihuahua,3441447
-South America,Mexico,Sonora,2684101
-South America,Mexico,Veracruz,7689219
-South America,Mexico,Guanajuato,5504468
-South America,Mexico,Guerrero,3400317
-South America,Mexico,Tamaulipas,3287896
-South America,Mexico,Michoacan,4371696
-South America,Mexico,Morelos,1781720
-South America,Mexico,Hidalgo,2668544
-South America,Mexico,Aguascalientes,1191191
-South America,Mexico,Queretaro,1832201
-South America,Mexico,Tlaxcala,1172893
-South America,Mexico,Chiapas,4848676
-South America,Mexico,Oaxaca,3814000
-South America,Mexico,San Luis Potosi,2598831
-South America,Mexico,Campeche,831433
-South America,Mexico,Nayarit,1093466
-South America,Mexico,Zacatecas,1500451
-South America,Mexico,Durango,1648107
-South America,Peru,Metropolitan Municipality of Lima,8574974
-South America,Peru,Loreto,883510
-South America,Peru,Callao,994494
-South America,Peru,Lambayeque,1197260
-South America,Peru,La Libertad,1778080
-South America,Peru,Lima Region,910431
-South America,Peru,Piura,1856809
-South America,Peru,Ancash,1083519
-South America,Peru,Cusco,1205527
-South America,Peru,Tumbes,224863
-South America,Peru,Arequipa,1382730
-South America,Peru,Ica,850765
-South America,Peru,Junin,1246038
-South America,Peru,Huanuco,721047
-South America,Peru,Ucayali,496459
-South America,Peru,San Martin,813381
-South America,Peru,Cajamarca,1341012
-South America,Peru,Madre de Dios,141070
-South America,Peru,Puno,1172697
-South America,Peru,Pasco,254065
-South America,Peru,Moquegua,174863
-South America,Peru,Amazonas,379384
-South America,Peru,Tacna,329332
-South America,Peru,Apurimac,405759
-South America,Peru,Huancavelica,347639
-South America,Peru,Ayacucho,616176
-Asia,Russia,Moscow,12500123
-Asia,Russia,Moscow Oblast,7503385
-Asia,Russia,Saint Petersburg,5351935
-Asia,Russia,Komi Republic,840873
-Asia,Russia,Krasnodar Krai,5514250
-Asia,Russia,Leningrad Oblast,1813816
-Asia,Russia,Nizhny Novgorod Oblast,3234752
-Asia,Russia,Bryansk Oblast,1210982
-Asia,Russia,Murmansk Oblast,753557
-Asia,Russia,Bashkortostan,4063293
-Asia,Russia,Krasnoyarsk Krai,2876497
-Asia,Russia,Tatarstan,3894284
-Asia,Russia,Ryazan Oblast,1121474
-Asia,Russia,Ulyanovsk Oblast,1246618
-Asia,Russia,Tula Oblast,1491855
-Asia,Russia,Tver Oblast,1283873
-Asia,Russia,Mari El,680380
-Asia,Russia,Rostov Oblast,4220452
-Asia,Russia,Vladimir Oblast,1378337
-Asia,Russia,Ivanovo Oblast,1014646
-Asia,Russia,Sverdlovsk Oblast,4325256
-Asia,Russia,Perm Krai,2623122
-Asia,Russia,Stavropol Krai,2800674
-Asia,Russia,Smolensk Oblast,949348
-Asia,Russia,Chechnya,1436981
-Asia,Russia,Dagestan,3063885
-Asia,Russia,Tambov Oblast,1033552
-Asia,Russia,Tyumen Oblast,3692400
-Asia,Russia,Penza Oblast,1331655
-Asia,Russia,Khanty-Mansi Avtonomnyy Okrug,1625501
-Asia,Russia,Kaluga Oblast,1012156
-Asia,Russia,Kursk Oblast,1115237
-Asia,Russia,Ingushetia,488043
-Asia,Russia,Chuvashia,1231117
-Asia,Russia,Lipetsk Oblast,1150201
-Asia,Russia,Kaliningrad Oblast,994599
-Asia,Russia,Khabarovsk Krai,1328302
-Asia,Russia,Mordovia,805056
-Asia,Russia,Orenburg Oblast,1977720
-Asia,Russia,Buryatia,984511
-Asia,Russia,Voronezh Oblast,2333768
-Asia,Russia,Yamalo-Nenets Avtonomnyy Okrug,538547
-Asia,Russia,Kirov Oblast,1283238
-Asia,Russia,Kabardino-Balkaria,865828
-Asia,Russia,Oryol Oblast,747247
-Asia,Russia,Yaroslavl Oblast,1265684
-Asia,Russia,Saratov Oblast,2462950
-Asia,Russia,Astrakhan Oblast,1017514
-Asia,Russia,North Ossetia-Alania,701765
-Asia,Russia,Novosibirsk Oblast,2788849
-Asia,Russia,Arkhangelsk Oblast,1155028
-Asia,Russia,Novgorod Oblast,606476
-Asia,Russia,Belgorod Oblast,1549876
-Asia,Russia,Yakutia,970105
-Asia,Russia,Volgograd Oblast,2521276
-Asia,Russia,Primorsky Krai,1913037
-Asia,Russia,Altai Krai,2350080
-Asia,Russia,Samara Oblast,3193514
-Asia,Russia,Udmurtia,1513044
-Asia,Russia,Vologda Oblast,1176689
-Asia,Russia,Karachay-Cherkessia,466305
-Asia,Russia,Adygea,453376
-Asia,Russia,Chelyabinsk Oblast,3500361
-Asia,Russia,Kostroma Oblast,643324
-Asia,Russia,Khakassia,537513
-Asia,Russia,Kalmykia,275413
-Asia,Russia,Kemerovo Oblast,2694877
-Asia,Russia,Kamchatka Krai,315557
-Asia,Russia,Pskov Oblast,636546
-Asia,Russia,Jewish Avtonomnyy Okrug,158381
-Asia,Russia,Zabaykalsky Krai,1072806
-Asia,Russia,Irkutsk Oblast,2404195
-Asia,Russia,Magadan Oblast,144091
-Asia,Russia,Omsk Oblast,1960081
-Asia,Russia,Tomsk Oblast,1078280
-Asia,Russia,Republic of Crimea,1957801
-Asia,Russia,Amur Oblast,798424
-Asia,Russia,Sevastopol,428753
-Asia,Russia,Republic of Karelia,622484
-Asia,Russia,Tuva,321722
-Asia,Russia,Kurgan Oblast,845537
-Asia,Russia,Altai Republic,215263
-Asia,Russia,Sakhalin Oblast,490181
-Asia,Russia,Chukotka Avtonomnyy Okrug,49348
-Asia,Russia,Nenets Avtonomnyy Okrug,43997
-Africa,South Africa,Gauteng,15488137
-Africa,South Africa,Western Cape,7005741
-Africa,South Africa,KwaZulu_Natal,11531628
-Africa,South Africa,Eastern Cape,6996976
-Africa,South Africa,Free State,2928903
-Africa,South Africa,Limpopo,5404868
-Africa,South Africa,Mpumalanga,4039939
-Africa,South Africa,North West,3509953
-Africa,South Africa,Northern Cape,1292786
-South America,Argentina,City of Buenos Aires,3063728
-South America,Argentina,Buenos Aires Province,17370144
-South America,Argentina,Santa Fe,3509113
-South America,Argentina,Cordoba,3722332
-South America,Argentina,Chaco,1192616
-South America,Argentina,Rio Negro,738060
-South America,Argentina,Tierra del Fuego,169183
-South America,Argentina,Neuquen,655501
-South America,Argentina,Mendoza,1969982
-South America,Argentina,Corrientes,1111052
-South America,Argentina,Entre Rios,1373270
-South America,Argentina,Chubut,618994
-South America,Argentina,Jujuy,762440
-South America,Argentina,La Rioja,388386
-South America,Argentina,Salta,1406584
-South America,Argentina,Santa Cruz,356647
-South America,Argentina,Tucuman,1674622
-South America,Argentina,La Pampa,355422
-South America,Argentina,Santiago del Estero,968309
-South America,Argentina,San Juan,772876
-South America,Argentina,San Luis,502000
-South America,Colombia,Bogota D.C.,7743955
-South America,Colombia,Valle Del Cauca,4532152
-South America,Colombia,Antioquia,6677930
-South America,Colombia,Cundinamarca,3242999
-South America,Colombia,Bolivar,2180976
-South America,Colombia,Risaralda,961055
-South America,Colombia,Atlantico,2722128
-South America,Colombia,Magdalena,1427026
-South America,Colombia,Meta,1062454
-South America,Colombia,Narino,1627589
-South America,Colombia,Huila,1122622
-South America,Colombia,Amazonas,79020
-South America,Colombia,Tolima,1339998
-South America,Colombia,Caldas,1018453
-South America,Colombia,Norte de Santander,1620318
-South America,Colombia,Boyaca,1242731
-South America,Colombia,Choco,544764
-South America,Colombia,Cesar,1295387
-South America,Colombia,Quindio,555401
-South America,Colombia,Cordoba,1828947
-South America,Colombia,Cauca,1491937
-South America,Colombia,Santander,2280908
-South America,Colombia,La Guajira,965718
-South America,Colombia,Sucre,949252
-South America,Colombia,Arauca,294206
-South America,Colombia,Casanare,435195
-South America,Colombia,Caqueta,410521
-South America,Colombia,Putumayo,359127
-South America,Colombia,Guaviare,86657
-South America,Colombia,Vaupes,44712
-South America,Colombia,San Andres and Providencia,63692
-South America,Colombia,Guainia,50636
-South America,Colombia,Vichada,112958
-South America,India,Maharashtra,112372972
+Europe,Belgium,Flemish Brabant,1146643
+Europe,Belgium,Brussels,1215290
+Europe,Belgium,Antwerp,1860470
+Europe,Belgium,Liege,1110068
+Europe,Belgium,Limburg,875842
+Europe,Belgium,East Flanders,1516283
+Europe,Belgium,West Flanders,1196995
+Europe,Belgium,Hainaut,1346082
+Europe,Belgium,Walloon Brabant,404270
+Europe,Belgium,Namur,496891
+Europe,Belgium,Luxembourg,286685
+Oceania,Australia,New South Wales,7480228
+Oceania,Australia,Queensland,4703193
+Oceania,Australia,Victoria,5926624
+Oceania,Australia,Western Australia,2474410
+South America,India,Haryana,27761063
 South America,India,Kerala,34523726
-South America,India,Delhi,26495000
-South America,India,Tamil Nadu,72147030
+South America,India,Maharashtra,112372972
 South America,India,Uttar Pradesh,199581477
 South America,India,Karnataka,61130704
 South America,India,Telangana,35193978
-South America,India,Andhra Pradesh,49386799
+South America,India,Delhi,26495000
 South America,India,Rajasthan,68548437
-South America,India,Madhya Pradesh,72597565
-South America,India,Gujarat,60383628
-South America,India,Jammu and Kashmir,12258433
-South America,India,Haryana,27761063
+South America,India,Ladakh,274289
 South America,India,Punjab,27743338
+South America,India,Gujarat,60383628
+South America,India,Tamil Nadu,72147030
+South America,India,Jammu and Kashmir,12258433
+South America,India,Madhya Pradesh,72597565
+South America,India,Andhra Pradesh,49386799
 South America,India,West Bengal,91276115
 South America,India,Bihar,103804637
-South America,India,Odisha,41974218
-South America,India,Jharkhand,32988134
 South America,India,Chandigarh,1055450
-South America,India,Tripura,3673917
 South America,India,Assam,31205576
 South America,India,Uttarakhand,10086292
+South America,India,Odisha,41974218
 South America,India,Himachal Pradesh,6864602
+South America,India,Andaman and Nicobar Islands,356152
+South America,India,Jharkhand,32988134
 South America,India,Chhattisgarh,25545198
+South America,India,Meghalaya,3211000
+South America,India,Tripura,3673917
+South America,India,Puducherry,973829
 South America,India,Goa,1458545
 South America,India,Manipur,2855794
 South America,India,Nagaland,1978502
-South America,India,Puducherry,973829
-South America,India,Ladakh,274289
-South America,India,Mizoram,1097206
 South America,India,Arunachal Pradesh,1382611
+South America,India,Mizoram,1097206
 South America,India,Dadra and Nagar Haveli and Daman and Diu,342853
-South America,India,Andaman and Nicobar Islands,356152
 South America,India,Sikkim,611000
-South America,India,Meghalaya,3211000
-Europe,Ukraine,Kiev,2967000
+Asia,Philippines,Metro Manila,12877253
+Asia,Philippines,Calabarzon,14414774
+Asia,Philippines,Central Luzon,11218177
+Asia,Philippines,Central Visayas,7396898
+Asia,Philippines,Davao Region,65463
+Asia,Philippines,Ilocos Region,5026128
+Asia,Philippines,Western Visayas,7536383
+Asia,Philippines,Cagayan Valley,3451410
+Asia,Philippines,Mimaropa,2963360
+Asia,Philippines,Cordillera Administrative Region,1722006
+Asia,Philippines,Soccsksargen,4245838
+Asia,Philippines,Bicol Region,5796989
+Asia,Philippines,Zamboanga Peninsula,3629783
+Asia,Philippines,Eastern Visayas,4440150
+Asia,Philippines,Northern Mindanao,4689302
+South America,Brazil,Sao Paulo,45094866
+South America,Brazil,Rio de Janeiro,16718956
+South America,Brazil,Distrito Federal,3039444
+South America,Brazil,Pernambuco,9473266
+South America,Brazil,Rio Grande do Sul,11322895
+South America,Brazil,Parana,11320892
+South America,Brazil,Minas Gerais,21119536
+South America,Brazil,Santa Catarina,7001161
+South America,Brazil,Ceara,9020460
+South America,Brazil,Bahia,15344447
+South America,Brazil,Espirito Santo,3885049
+South America,Brazil,Goias,6778772
+South America,Brazil,Amazonas,4063614
+South America,Brazil,MatoGrosso do Sul,2713147
+South America,Brazil,Acre,881935
+South America,Brazil,Rio Grande do Norte,3507003
+South America,Brazil,Sergipe,2288116
+South America,Brazil,Alagoas,3375823
+South America,Brazil,MatoGrosso,3344544
+South America,Brazil,Para,8366628
+South America,Brazil,Maranhao,7000229
+South America,Brazil,Roraima,1805788
+South America,Brazil,Paraiba,4025558
+South America,Brazil,Piaui,3219257
+South America,Brazil,Tocantins,1550194
+South America,Brazil,Amapa,797722
+South America,Brazil,Rondonia,1590011
+South America,Argentina,City of Buenos Aires,3063728
+South America,Argentina,Buenos Aires Province,17370144
+South America,Argentina,Chaco,1192616
+South America,Argentina,Cordoba,3722332
+South America,Argentina,Santa Fe,3509113
+South America,Argentina,Tierra del Fuego,169183
+South America,Argentina,Tucuman,1674622
+South America,Argentina,Corrientes,1111052
+South America,Argentina,Neuquen,655501
+South America,Argentina,Mendoza,1969982
+South America,Argentina,Entre Rios,1235994
+South America,Argentina,Santa Cruz,356647
+South America,Argentina,Rio Negro,738060
+South America,Argentina,La Rioja,388386
+South America,Argentina,Santiago del Estero,968309
+South America,Argentina,Salta,1406584
+South America,Argentina,Chubut,618994
+South America,Argentina,Jujuy,762440
+South America,Mexico,State of Mexico,15181290
+South America,Mexico,Mexico City,8851639
+South America,Mexico,Nuevo Leon,4666880
+South America,Mexico,Jalisco,7378533
+South America,Mexico,Puebla,5787259
+South America,Mexico,Quintana Roo,1330846
+South America,Mexico,Yucatan,1961350
+South America,Mexico,Queretaro,1832201
+South America,Mexico,Coahuila,2758518
+South America,Mexico,San Luis Potosi,2598831
+South America,Mexico,Baja California,3167289
+South America,Mexico,Veracruz,7689219
+South America,Mexico,Guanajuato,5504468
+South America,Mexico,Guerrero,3400317
+South America,Mexico,Michoacan,4371696
+South America,Mexico,Aguascalientes,1191191
+South America,Mexico,Hidalgo,2668544
+South America,Mexico,Tabasco,2240834
+South America,Mexico,Sinaloa,2783193
+South America,Mexico,Sonora,2684101
+South America,Mexico,Morelos,1781720
+South America,Mexico,Oaxaca,3814000
+South America,Mexico,Chihuahua,3441447
+South America,Mexico,Baja California Sur,646618
+South America,Mexico,Chiapas,4848676
+South America,Mexico,Tamaulipas,3287896
+South America,Mexico,Durango,1648107
+South America,Mexico,Tlaxcala,1172893
+South America,Mexico,Zacatecas,1500451
+South America,Mexico,Nayarit,1093466
+South America,Mexico,Campeche,831433
+South America,Mexico,Colima,654775
+South America,Peru,Metropolitan Municipality of Lima,8574974
+South America,Peru,Loreto,883510
+South America,Peru,Piura,1856809
+South America,Peru,Lambayeque,1197260
+South America,Peru,Arequipa,1382730
+South America,Peru,Callao,994494
+South America,Peru,Junin,1246038
+South America,Peru,Cusco,1205527
+South America,Peru,La Libertad,1778080
+South America,Peru,Ancash,1083519
+South America,Peru,Lima Region,910431
+South America,Peru,Tumbes,224863
+South America,Peru,Ica,850765
+South America,Peru,Ucayali,496459
+South America,Peru,Huanuco,721047
+South America,Peru,San Martin,813381
+South America,Peru,Cajamarca,1341012
+South America,Peru,Amazonas,379384
+South America,Peru,Pasco,254065
+South America,Peru,Ayacucho,616176
+South America,Peru,Madre de Dios,141070
+South America,Peru,Huancavelica,347639
+South America,Peru,Apurimac,405759
+South America,Peru,Moquegua,174863
+South America,Peru,Tacna,329332
+South America,Peru,Puno,1172697
+South America,Chile,Santiago Metropolitan Region,7112808
+South America,Chile,Nuble,480609
+South America,Chile,Los Lagos,828708
+South America,Chile,Biobio,1556805
+South America,Chile,Maule,1044950
+South America,Chile,Araucania,957224
+South America,Chile,Valparaiso,1815902
+South America,Chile,Antofagasta,607534
+South America,Chile,Coquimbo,757586
+South America,Chile,O'Higgins,914555
+South America,Chile,Los Rios,384837
+South America,Chile,Magallanes,166533
+South America,Chile,Tarapaca,330558
+South America,Chile,Arica y Parinacota,226068
+South America,Chile,Atacama,286168
+Europe,France,Ile-de-France,12244807
+Europe,France,Grand Est,5525291
+Europe,France,Auvergne-Rhone-Alpes,8005882
+Europe,France,Nouvelle-Aquitaine,5986318
+Europe,France,Occitanie,5899209
+Europe,France,Hauts-de-France,5977437
+Europe,France,Provence-Alpes-Cote d'Azur,5048405
+Europe,France,Bourgogne-Franche-Comte,2793333
+Europe,France,Normandy,3313340
+Europe,France,Centre-Val de Loire,2565258
+Europe,France,Pays de la Loire,3787400
+Europe,France,Brittany,3333720
+Europe,France,Corsica,341554
+Asia,Russia,Moscow,12500123
+Asia,Russia,Moscow Oblast,7503385
+Asia,Russia,Saint Petersburg,5351935
+Asia,Russia,Sverdlovsk Oblast,4325256
+Asia,Russia,Yakutia,964330
+Asia,Russia,Samara Oblast,3193514
+Asia,Russia,Republic of Crimea,1957801
+Asia,Russia,Tatarstan,3894284
+Asia,Russia,Kaliningrad Oblast,994599
+Asia,Russia,Krasnoyarsk Krai,2876497
+Asia,Russia,Perm Krai,2623122
+Asia,Russia,Nizhny Novgorod Oblast,3234752
+Asia,Russia,Tula Oblast,1491855
+Asia,Russia,Krasnodar Krai,5514250
+Asia,Russia,Chelyabinsk Oblast,3500361
+Asia,Russia,Buryatia,984511
+Asia,Russia,Kirov Oblast,1283238
+Asia,Russia,Komi Republic,840873
+Asia,Russia,Leningrad Oblast,1813816
+Asia,Russia,Dagestan,3063885
+Asia,Russia,Penza Oblast,1331655
+Asia,Russia,Murmansk Oblast,753557
+Asia,Russia,Saratov Oblast,2462950
+Asia,Russia,Lipetsk Oblast,1150201
+Asia,Russia,Ivanovo Oblast,1014646
+Asia,Russia,Voronezh Oblast,2333768
+Asia,Russia,Stavropol Krai,2800674
+Asia,Russia,Vologda Oblast,1176689
+Asia,Russia,Orenburg Oblast,1977720
+Asia,Russia,Tyumen Oblast,3692400
+Asia,Russia,Chechnya,1436981
+Asia,Russia,Yamalo-Nenets Avtonomnyy Okrug,538547
+Asia,Russia,Khanty-Mansi Avtonomnyy Okrug,1625501
+Asia,Russia,Ryazan Oblast,1121474
+Asia,Russia,Bryansk Oblast,1210982
+Asia,Russia,Novosibirsk Oblast,2788849
+Asia,Russia,Khabarovsk Krai,1328302
+Asia,Russia,Arkhangelsk Oblast,1155028
+Asia,Russia,Volgograd Oblast,2521276
+Asia,Russia,Adygea,453376
+Asia,Russia,Belgorod Oblast,1549876
+Asia,Russia,Altai Krai,2350080
+Asia,Russia,Tambov Oblast,1033552
+Asia,Russia,Mari El,680380
+Asia,Russia,Irkutsk Oblast,2404195
+Asia,Russia,Kalmykia,275413
+Asia,Russia,Kaluga Oblast,1012156
+Asia,Russia,Kabardino-Balkaria,865828
+Asia,Russia,Yaroslavl Oblast,1265684
+Asia,Russia,Bashkortostan,4063293
+Asia,Russia,Rostov Oblast,4220452
+Asia,Russia,Oryol Oblast,747247
+Asia,Russia,Omsk Oblast,1960081
+Asia,Russia,Pskov Oblast,636546
+Asia,Russia,Vladimir Oblast,1378337
+Asia,Russia,Chuvashia,1231117
+Asia,Russia,Primorsky Krai,1913037
+Asia,Russia,Sakhalin Oblast,490181
+Asia,Russia,Tver Oblast,1283873
+Asia,Russia,North Ossetia-Alania,701765
+Asia,Russia,Mordovia,805056
+Asia,Russia,Karachay-Cherkessia,466305
+Asia,Russia,Ingushetia,488043
+Asia,Russia,Astrakhan Oblast,1017514
+Asia,Russia,Kostroma Oblast,643324
+Asia,Russia,Novgorod Oblast,606476
+Asia,Russia,Kursk Oblast,1115237
+Asia,Russia,Smolensk Oblast,949348
+Asia,Russia,Kemerovo Oblast,2694877
+Asia,Russia,Udmurtia,1513044
+Asia,Russia,Ulyanovsk Oblast,1246618
+Asia,Russia,Khakassia,537513
+Asia,Russia,Zabaykalsky Krai,1072806
+Asia,Russia,Tomsk Oblast,1078280
+Asia,Russia,Kamchatka Krai,315557
+Asia,Russia,Magadan Oblast,144091
+Asia,Russia,Kurgan Oblast,845537
+Asia,Russia,Jewish Avtonomnyy Okrug,158381
+Asia,Russia,Amur Oblast,798424
+Asia,Russia,Republic of Karelia,622484
+Asia,Russia,Tuva,321722
+Asia,Russia,Altai Republic,215263
+Europe,Netherlands,Overijssel,1156431
+Europe,Netherlands,South Holland,3709139
+Europe,Netherlands,Utrecht,1306912
+Europe,Netherlands,Gelderland,2071972
+Europe,Netherlands,North Brabant,2544806
+Europe,Netherlands,North Holland,2853359
+Europe,Netherlands,Limburg,1116137
+Europe,Netherlands,Drenthe,492167
+Europe,Netherlands,Flevoland,416546
+Europe,Netherlands,Zeeland,383032
+Europe,Netherlands,Friesland,647672
+Europe,Netherlands,Groningen,583990
+South America,Colombia,Bogota D.C.,7743955
+South America,Colombia,Valle Del Cauca,4532152
+South America,Colombia,Antioquia,6677930
+South America,Colombia,Bolivar,2180976
+South America,Colombia,Cundinamarca,3242999
+South America,Colombia,Risaralda,961055
+South America,Colombia,Huila,1122622
+South America,Colombia,Norte de Santander,1620318
+South America,Colombia,Quindio,555401
+South America,Colombia,Atlantico,2722128
+South America,Colombia,Caldas,1018453
+South America,Colombia,Cesar,1295387
+South America,Colombia,Santander,2280908
+South America,Colombia,Magdalena,1427026
+South America,Colombia,Meta,1062454
+South America,Colombia,Cauca,1491937
+South America,Colombia,Tolima,1339998
+South America,Colombia,Boyaca,1242731
+South America,Colombia,Narino,1627589
+South America,Colombia,Cordoba,1828947
+South America,Colombia,Amazonas,79020
+South America,Colombia,Casanare,435195
+South America,Colombia,Choco,544764
+South America,Colombia,Caqueta,410521
+South America,Colombia,La Guajira,965718
+South America,Colombia,San Andres and Providencia,63692
+South America,Colombia,Vaupes,44712
+South America,Colombia,Sucre,949252
+South America,Colombia,Putumayo,359127
+South America,Colombia,Arauca,294206
+South America,Colombia,Guaviare,86657
+Africa,South Africa,KwaZulu_Natal,10267300
+Africa,South Africa,Gauteng,12272263
+Africa,South Africa,Western Cape,7005741
+Africa,South Africa,Free State,2928903
+Africa,South Africa,Limpopo,5404868
+Africa,South Africa,Mpumalanga,4039939
+Africa,South Africa,Eastern Cape,6436761
+Africa,South Africa,North West,3509953
+Africa,South Africa,Northern Cape,1145861
 Europe,Ukraine,Chernivtsi,906600
-Europe,Ukraine,Ternopil,1052312
-Europe,Ukraine,Ivano-Frankivsk,1377496
+Europe,Ukraine,Kiev,2967000
 Europe,Ukraine,Kiev Oblast,1754284
+Europe,Ukraine,Ivano-Frankivsk,1377496
+Europe,Ukraine,Ternopil,1052312
 Europe,Ukraine,Vinnytsia,1575808
-Europe,Ukraine,Kirovohrad,956250
-Europe,Ukraine,Rivne,1160647
-Europe,Ukraine,Lviv,2529608
-Europe,Ukraine,Cherkasy,1220363
-Europe,Ukraine,Zhytomyr,1231239
-Europe,Ukraine,Zakarpattia,1258155
 Europe,Ukraine,Zaporizhzhya,1723171
-Europe,Ukraine,Volyn,1038457
+Europe,Ukraine,Cherkasy,1220363
+Europe,Ukraine,Rivne,1160647
+Europe,Ukraine,Sumy,1094284
 Europe,Ukraine,Odessa,2383075
+Europe,Ukraine,Lviv,2529608
 Europe,Ukraine,Dnipropetrovsk,3231140
+Europe,Ukraine,Kirovohrad,956250
+Europe,Ukraine,Volyn,1038457
+Europe,Ukraine,Zakarpattia,1258155
+Europe,Ukraine,Zhytomyr,1231239
 Europe,Ukraine,Poltava,1413829
+Europe,Ukraine,Kherson,1046981
+Europe,Ukraine,Donetsk,4200461
+Europe,Ukraine,Khmelnytskyi,1274409
 Europe,Ukraine,Kharkiv,2694007
 Europe,Ukraine,Mykolaiv,1141324
-Europe,Ukraine,Kherson,1046981
-Europe,Ukraine,Sumy,1094284
-Europe,Ukraine,Khmelnytskyi,1274409
-Europe,Ukraine,Donetsk,4200461
 Europe,Ukraine,Chernihiv,1020078
 Europe,Ukraine,Luhansk,2167802

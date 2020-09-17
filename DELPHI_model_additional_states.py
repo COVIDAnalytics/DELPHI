@@ -200,7 +200,7 @@ def solve_and_predict_area_additional_states(
             # We do not scale
             N = PopulationT
             PopulationI = validcases.loc[0, "case_cnt"]
-            PopulationR = validcases.loc[0, "death_cnt"] * 5
+            PopulationR = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
             PopulationD = validcases.loc[0, "death_cnt"]
             PopulationCI = PopulationI - PopulationD - PopulationR
             """
