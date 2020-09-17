@@ -1243,19 +1243,19 @@ class DELPHIAggregations:
 #            active_hospitalized = df_agg_country_temp['Active Hospitalized'] 
 #            cumulative_hospitalized = df_agg_country_temp['Cumulative Hospitalized'] 
 #            active_ventilated = df_agg_country_temp['Active Ventilated'] 
-            fitcasesnd = df_agg_country_temp['Total Detected True'] 
-            fitcasesd = df_agg_country_temp['Total Detected Deaths True'] 
+            cases_fit_data = df_agg_country_temp['Total Detected True'] 
+            deaths_fit_data = df_agg_country_temp['Total Detected Deaths True'] 
             since_100_dates = df_agg_country_temp['Day'] 
             n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
             if len(past_predictions_temp) > 0:
-                fitcasesnd_past = [y for x, y in zip(since_100_dates,fitcasesnd) if ((x > past_prediction_date) and (not np.isnan(y)))]
-                fitcasesd_past = [y for x, y in zip(since_100_dates,fitcasesd) if ((x > past_prediction_date) and (not np.isnan(y)))]
-                total_detected_past = past_predictions_temp["Total Detected"].values[:len(fitcasesnd_past)]
-                total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(fitcasesd_past)]
-                residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-                residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
-                residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-                residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
+                cases_fit_data_past = [y for x, y in zip(since_100_dates,cases_fit_data) if ((x > past_prediction_date) and (not np.isnan(y)))]
+                deaths_fit_data_past = [y for x, y in zip(since_100_dates,deaths_fit_data) if ((x > past_prediction_date) and (not np.isnan(y)))]
+                total_detected_past = past_predictions_temp["Total Detected"].values[:len(cases_fit_data_past)]
+                total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(deaths_fit_data_past)]
+                residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_fit_data_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_fit_data_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
+                residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_fit_data_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_fit_data_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
         
                 # Generation of the dataframe from the day since 100th case
                 df_predictions_since_100_cont_country_prov = pd.DataFrame({
@@ -1326,19 +1326,19 @@ class DELPHIAggregations:
 #            active_hospitalized = df_agg_continent_temp['Active Hospitalized'] 
 #            cumulative_hospitalized = df_agg_continent_temp['Cumulative Hospitalized'] 
 #            active_ventilated = df_agg_continent_temp['Active Ventilated'] 
-            fitcasesnd = df_agg_continent_temp['Total Detected True'] 
-            fitcasesd = df_agg_continent_temp['Total Detected Deaths True'] 
+            cases_fit_data = df_agg_continent_temp['Total Detected True'] 
+            deaths_fit_data = df_agg_continent_temp['Total Detected Deaths True'] 
             since_100_dates = df_agg_continent_temp['Day']   
             n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
             if len(past_predictions_temp) > 0:
-                fitcasesnd_past = [y for x, y in zip(since_100_dates,fitcasesnd) if ((x > past_prediction_date) and (not np.isnan(y)))]
-                fitcasesd_past = [y for x, y in zip(since_100_dates,fitcasesd) if ((x > past_prediction_date) and (not np.isnan(y)))]
-                total_detected_past = past_predictions_temp["Total Detected"].values[:len(fitcasesnd_past)]
-                total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(fitcasesd_past)]
-                residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-                residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
-                residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-                residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
+                cases_fit_data_past = [y for x, y in zip(since_100_dates,cases_fit_data) if ((x > past_prediction_date) and (not np.isnan(y)))]
+                deaths_fit_data_past = [y for x, y in zip(since_100_dates,deaths_fit_data) if ((x > past_prediction_date) and (not np.isnan(y)))]
+                total_detected_past = past_predictions_temp["Total Detected"].values[:len(cases_fit_data_past)]
+                total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(deaths_fit_data_past)]
+                residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_fit_data_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_fit_data_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
+                residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_fit_data_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+                residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_fit_data_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
                 # Generation of the dataframe from the day since 100th case
                 df_predictions_since_100_cont_country_prov = pd.DataFrame({
                     "Total Detected LB": make_increasing([max(int(round(v + residual_cases_lb * np.sqrt(max(c - n_days_btw_today_since_100, 0)),0)),0) for c, v in enumerate(total_detected)]),
@@ -1405,19 +1405,19 @@ class DELPHIAggregations:
 #        active_hospitalized = df_agg_world['Active Hospitalized'] 
 #        cumulative_hospitalized = df_agg_world['Cumulative Hospitalized'] 
 #        active_ventilated = df_agg_world['Active Ventilated'] 
-        fitcasesnd = df_agg_world['Total Detected True'] 
-        fitcasesd = df_agg_world['Total Detected Deaths True'] 
+        cases_fit_data = df_agg_world['Total Detected True'] 
+        deaths_fit_data = df_agg_world['Total Detected Deaths True'] 
         since_100_dates = df_agg_world['Day']   
         n_days_btw_today_since_100 = (datetime.now() - pd.to_datetime(min(since_100_dates))).days
         if len(past_predictions_temp) > 0:
-            fitcasesnd_past = [y for x, y in zip(since_100_dates,fitcasesnd) if ((x > past_prediction_date) and (not np.isnan(y)))]
-            fitcasesd_past = [y for x, y in zip(since_100_dates,fitcasesd) if ((x > past_prediction_date) and (not np.isnan(y)))]
-            total_detected_past = past_predictions_temp["Total Detected"].values[:len(fitcasesnd_past)]
-            total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(fitcasesd_past)]
-            residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-            residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesnd_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
-            residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
-            residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(fitcasesd_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
+            cases_fit_data_past = [y for x, y in zip(since_100_dates,cases_fit_data) if ((x > past_prediction_date) and (not np.isnan(y)))]
+            deaths_fit_data_past = [y for x, y in zip(since_100_dates,deaths_fit_data) if ((x > past_prediction_date) and (not np.isnan(y)))]
+            total_detected_past = past_predictions_temp["Total Detected"].values[:len(cases_fit_data_past)]
+            total_detected_deaths_past = past_predictions_temp["Total Detected Deaths"].values[:len(deaths_fit_data_past)]
+            residual_cases_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_fit_data_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+            residual_cases_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(cases_fit_data_past,total_detected_past)])) * scipy.stats.norm.ppf(0.5 + q /2)
+            residual_deaths_lb = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_fit_data_past,total_detected_deaths_past)])) * scipy.stats.norm.ppf(0.5 - q /2)
+            residual_deaths_ub = np.sqrt(np.mean([(x- y) ** 2 for x,y in zip(deaths_fit_data_past,total_detected_deaths_past)])) *  scipy.stats.norm.ppf(0.5 + q /2)
     
             # Generation of the dataframe from the day since 100th case
             df_predictions_since_100_cont_country_prov = pd.DataFrame({
