@@ -35,9 +35,14 @@ parser.add_argument(
             "method for global optimization: "
     )
 )
+parser.add_argument(
+    '--website', '-w', type=int, required=True, choices=[0, 1],
+    help="Save to website? Reply 0 or 1 for False or True.",
+)
 arguments = parser.parse_args()
 USER_RUNNING = arguments.user
 OPTIMIZER = arguments.optimizer
+SAVE_TO_WEBSITE = bool(arguments.website)
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
@@ -351,6 +356,6 @@ delphi_data_saver = DELPHIDataSaver(
     df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
 )
 # df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
-delphi_data_saver.save_policy_predictions_to_json(website=True, local_delphi=False)
+delphi_data_saver.save_policy_predictions_to_json(website=SAVE_TO_WEBSITE, local_delphi=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
 
