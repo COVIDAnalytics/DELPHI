@@ -34,16 +34,12 @@ parser.add_argument(
     '--plots', '-p', type=int, required=True, choices=[0, 1],
     help="Save plots comparing predictions or not? Enter 0/1"
 )
-parser.add_argument(
-    '--verbose', '-v', type=int, required=True, choices=[0, 1],
-    help="Print messages or not? Enter 0/1"
-)
+
 arguments = parser.parse_args()
 USER_RUNNING = arguments.user
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PLOT_OPTION = arguments.plots 
-VERBOSE = arguments.verbose
-TRAIN = arguments.run_model
+RUN_MODEL = arguments.run_model
 
 #############################################################################################################
 
@@ -62,14 +58,15 @@ if __name__ == "__main__":
         format="%(asctime)s | %(levelname)s | %(message)s",
         datefmt="%m-%d-%Y %I:%M:%S %p",
     )
-    logging.info(
+    logger = logging.getLogger("CompareLogger")
+    logger.info(
         f"The user is {USER_RUNNING}, Comparing Annealing and TNC performance."
     )
     today_date_str = "".join(str(datetime.now().date()).split("-"))
 
     ## Run annealing and tnc
-    if TRAIN:
-        logging.info('Running TNC and Annealing')
+    if RUN_MODEL:
+        logger.info('Running TNC and Annealing')
         os.system(
             f'python3 DELPHI_model_V3.py -u {USER_RUNNING} -o tnc -ci 0 -s100 1 -w 0'
         )
@@ -106,7 +103,8 @@ if __name__ == "__main__":
         PATH_TO_FOLDER_DANGER_MAP,
         CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING],
         global_annealing_predictions_since_100days,
-        total_tnc_predictions_since_100days 
+        total_tnc_predictions_since_100days,
+        logger=logger
     )
 
     comparison_results = {'region': [], 'annealing_selected': [], 'annealing_metric': [], 'tnc_metric': [], 'annealing_mape': []}
@@ -116,16 +114,16 @@ if __name__ == "__main__":
         continent = tnc_params.Continent
         country = tnc_params.Country
         province = tnc_params.Province
-        an_select, an_metric, tnc_metric, an_mape = model_compare.compare_metric((continent, country, province), plot=PLOT_OPTION, verbose=VERBOSE)
+        annealing_select, annnealine_metric, tnc_metric, annealing_mape = model_compare.compare_metric((continent, country, province), plot=PLOT_OPTION)
         
         comparison_results['region'].append((continent, country, province))
-        comparison_results['annealing_selected'].append(an_select)
-        comparison_results['annealing_metric'].append(an_metric)
+        comparison_results['annealing_selected'].append(annealing_select)
+        comparison_results['annealing_metric'].append(annnealine_metric)
         comparison_results['tnc_metric'].append(tnc_metric)
-        comparison_results['annealing_mape'].append(an_mape)
+        comparison_results['annealing_mape'].append(annealing_mape)
         
-        if not an_select:
-            logging.warning(f'Annealing performs worse in {country} - {province}')
+        if not annealing_select:
+            logger.warning(f'Annealing performs worse in {country} - {province}')
             best_params = global_parameters_tnc.query('Continent == @continent').query('Country == @country').query('Province == @province')
             global_parameters_best = global_parameters_best.append(best_params.iloc[0])
         else:
@@ -137,17 +135,17 @@ if __name__ == "__main__":
             index=False,
     )
 
-    comparison_df = pd.DataFrame.from_dict(comparison_results)
-    annealing_count = np.sum(comparison_df['annealing_selected'])
+    df_comparison = pd.DataFrame.from_dict(comparison_results)
+    annealing_count = np.sum(df_comparison['annealing_selected'])
 
-    comparison_df.to_csv(
+    df_comparison.to_csv(
         CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING] + f'comparison/model_comparison_{today_date_str}.csv',
         index=False
     )
 
-    logging.info(
-    f"Checked Annealing v/s TNC. Annealing performs better {annealing_count}/{comparison_df.shape[0]} \n"
-    + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
+    logger.info(
+        f"Checked Annealing v/s TNC. Annealing performs better {annealing_count}/{df_comparison.shape[0]} \n"
+        + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
     )
     
 

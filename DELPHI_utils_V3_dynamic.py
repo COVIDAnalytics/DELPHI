@@ -7,7 +7,7 @@ from copy import deepcopy
 from itertools import compress
 from DELPHI_params_V3 import MAPPING_STATE_CODE_TO_STATE_NAME, future_policies
 from matplotlib import pyplot as plt
-
+from logging import Logger
 
 def get_bounds_params_from_pastparams(
         optimizer: str, parameter_list: list, dict_default_reinit_parameters: dict, percentage_drift_lower_bound: float,
@@ -766,34 +766,55 @@ def get_testing_data_us() -> pd.DataFrame:
     df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
     return df_test_final
 
-def KL(a, b):
-    a = np.asarray(a, dtype=np.float)
-    b = np.asarray(b, dtype=np.float)
-    return np.sum(np.where(a != 0, a * np.log(a / b), 0))
-
-def MAPE(a, b):
-    X = [abs(x-y)/x for x,y in zip(a,b) if y!= 0 and x > 100]
-    if len(X)>0:
-        return max(X)
-    return 0
-
 class DELPHIModelComparison:
     def __init__(
         self,
         path_to_folder_danger_map: str,
         path_to_folder_data_sandbox: str,
         global_annealing_since_100days: pd.DataFrame,
-        total_tnc_since_100days: pd.DataFrame
+        total_tnc_since_100days: pd.DataFrame,
+        logger: Logger
     ):
         self.DANGER_MAP = path_to_folder_danger_map
         self.DATA_SANDBOX = path_to_folder_data_sandbox
         self.global_annealing_since_100days = global_annealing_since_100days
         self.total_tnc_since_100days = total_tnc_since_100days
+        self.logger = logger
 
-    def get_province(self, country, province, min_case_count=100):
-        # if country:
-        #     true_df = pd.read_csv(self.DATA_SANDBOX + 'processed/Cases_' + province + '_None.csv')
-        # else:
+    @staticmethod
+    def kl_divergence(y_true: list, y_pred: list) -> float:
+        """
+        Compute the KL divergence between two lists
+        :param y_true: list of true historical values
+        :param y_pred: list of predicted values
+        :return: a float, corresponding to the KL divergence
+        """
+        y_true = np.asarray(y_true, dtype=np.float)
+        y_pred = np.asarray(y_pred, dtype=np.float)
+        return np.sum(np.where(y_true != 0, y_true * np.log(y_true / y_pred), 0))
+
+    @staticmethod
+    def max_ape(y_true: list, y_pred: list) -> float:
+        """
+        Compute the Maximum Absolute Percentage Error between two lists
+        :param y_true: list of true historical values
+        :param y_pred: list of predicted values
+        :return: a float, corresponding to the MAPE
+        """
+        ape = [abs(x-y)/x for x,y in zip(y_true, y_pred) if y!= 0 and x > 100]
+        if len(ape)>0:
+            return max(ape)
+        return 0
+
+    def get_province(self, country: str, province: str, min_case_count=100) -> pd.DataFrame:
+        """
+        Returns actual cases data for the given country and province
+        :param country: str, the name of the country 
+        :param province: str, the name of the province
+        :param min_case_count: int, the minimum number of cases since when data is selected
+        :return: a pandas dataframe for date wise cases for the given country and provinve where cases >
+        min_case_count
+        """
         province = '_'.join(province.split())
         country = '_'.join(country.split())
         if country == 'US':
@@ -806,18 +827,25 @@ class DELPHIModelComparison:
     def compare_metric(self,
                     province_tuple,
                     min_case_count=100,
-                    metric=KL,
+                    metric=None,
                     threshold=0.25,
-                    plot=False,
-                    verbose=True):
-
+                    plot=False):
+        """
+        Computes the given metric for predictions with annealing and tnc and the MAPE for annealing.
+        Returns the metrics along with a flag showing whether annealing did better than tnc.
+        :param province_tuple: a 3 tuple of str, tuple of (continent, country, province)
+        :param min_case_count: int, the minimum number of cases since when data is selected
+        :param metric: function, the primary metric that is used, KL divergence by default
+        :param threshold: float, the threshold on MAPE score for annealing to be selected
+        :param plot: boolean, to save plots of predictions or not, default = False
+        :return: a 4 tuple of (if annealing is better, metric for annealing, metric for tnc,
+        MAPE for annealing)
+        """
         today_date_str = "".join(str(datetime.now().date()).split("-"))
 
         continent, country, province = province_tuple
-
         true_df = self.get_province(country, province, min_case_count=min_case_count)
         annealing_df = self.global_annealing_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @province').sort_values('Day').groupby('Day').min().reset_index()
-
         tnc_df = self.total_tnc_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @province').sort_values('Day').groupby('Day').min().reset_index()
 
         annealing_df['Annealing Prediction'] = annealing_df['Total Detected'].diff().apply(lambda x: x if x > 1 else 1)
@@ -839,23 +867,24 @@ class DELPHIModelComparison:
             plt.savefig(self.DATA_SANDBOX + f"plots/model_comparison_{country}_{province}_{today_date_str}.png")
             plt.clf()
 
+        if metric is None:
+            metric = DELPHIModelComparison.kl_divergence
         metric_annealing = metric(merged['True Value'], merged['Annealing Prediction'])
         metric_tnc = metric(merged['True Value'], merged['TNC Prediction'])
-        mape = MAPE(merged['True Value'], merged['Annealing Prediction'])
+        mape = DELPHIModelComparison.max_ape(merged['True Value'], merged['Annealing Prediction'])
 
-        if verbose:
-            print('Distance for Annealing: ' + str(metric_annealing))
-            print('Distance for TNC: ' + str(metric_tnc))
-            print(('Annealing' if metric_annealing < metric_tnc else 'TNC') + ' is better')
+        self.logger.info('Distance for Annealing: ' + str(metric_annealing))
+        self.logger.info('Distance for TNC: ' + str(metric_tnc))
+        self.logger.info(('Annealing' if metric_annealing < metric_tnc else 'TNC') + ' is better')
 
         if metric_annealing < metric_tnc:
-            print('MAPE for Annealing: ' + str(mape) + '. Threshold is ' + str(threshold))
+            self.logger.info('MAPE for Annealing: ' + str(mape) + '. Threshold is ' + str(threshold))
             if mape < threshold:
-                print('MAPE condition satisfied and Annealing better than TNC. Use Annealing.')
+                self.logger.info('MAPE condition satisfied and Annealing better than TNC. Use Annealing.')
                 return (True, metric_annealing, metric_tnc, mape)
             else:
-                print('Annealing better than TNC but MAPE condition not satisfied. Retrain.')
+                self.logger.info('Annealing better than TNC but MAPE condition not satisfied. Retrain.')
                 return (False, metric_annealing, metric_tnc, mape)
         else:
-            print('TNC better than Annealing. Retrain.')
+            self.logger.info('TNC better than Annealing. Retrain.')
             return (False, metric_annealing, metric_tnc, mape)

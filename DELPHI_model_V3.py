@@ -432,8 +432,7 @@ if __name__ == "__main__":
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-    past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
-    # popcountries = popcountries.iloc[10:16]
+    # popcountries = popcountries.iloc[10:14]
 
     try:
         past_parameters = pd.read_csv(
