@@ -77,12 +77,10 @@ parser.add_argument(
     '--confidence_intervals', '-ci', type=bool, required=True, choices=[False, True],
     help="Generate Confidence Intervals? Reply False or True.",
 )
-
 parser.add_argument(
     '--since100case', '-s100', type=bool, required=True, choices=[False, True],
     help="Save all history (since 100 cases)? Reply False or True.",
 )
-
 parser.add_argument(
     '--website', '-w', type=bool, required=True, choices=[False, True],
     help="Save to website? Reply False or True.",
@@ -457,7 +455,7 @@ if __name__ == "__main__":
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
 
     list_tuples = popcountries.tuple_area.tolist()
-    list_tuples = [x for x in list_tuples if x[0] == "Oceania"]
+#    list_tuples = [x for x in list_tuples if x[0] == "Oceania"]
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
