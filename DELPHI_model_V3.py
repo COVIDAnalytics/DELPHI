@@ -435,7 +435,7 @@ if __name__ == "__main__":
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
-    # popcountries = popcountries.iloc[0:2]
+    # popcountries = popcountries.iloc[10:16]
 
     try:
         past_parameters = pd.read_csv(

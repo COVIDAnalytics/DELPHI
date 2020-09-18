@@ -27,16 +27,16 @@ parser.add_argument(
     help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
 )
 parser.add_argument(
-    '--run_model', type=bool, required=True, choices=[True, False],
-    help="Run model with Annealing and TNC or not? Choose False if model for given date has already been run and files are saved."
+    '--run_model', '-r', type=int, required=True, choices=[0, 1],
+    help="Run model with Annealing and TNC or not? Choose 0 if model for given date has already been run and files are saved."
 )
 parser.add_argument(
-    '--plots', '-p', type=bool, required=True, choices=[True, False],
-    help="Save plots comparing predictions or not? Reply True or False"
+    '--plots', '-p', type=int, required=True, choices=[0, 1],
+    help="Save plots comparing predictions or not? Enter 0/1"
 )
 parser.add_argument(
-    '--verbose', '-v', type=bool, required=True, choices=[True, False],
-    help="Print messages or not? Reply True or False"
+    '--verbose', '-v', type=int, required=True, choices=[0, 1],
+    help="Print messages or not? Enter 0/1"
 )
 arguments = parser.parse_args()
 USER_RUNNING = arguments.user
@@ -44,6 +44,7 @@ PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PLOT_OPTION = arguments.plots 
 VERBOSE = arguments.verbose
 TRAIN = arguments.run_model
+
 #############################################################################################################
 
 if __name__ == "__main__":
@@ -68,23 +69,27 @@ if __name__ == "__main__":
 
     ## Run annealing and tnc
     if TRAIN:
+        logging.info('Running TNC and Annealing')
         os.system(
-            f'python3 DELPHI_model_V3.py -u {USER_RUNNING} -o tnc -ci 0 -cm 0  -s100 1 -w 0'
+            f'python3 DELPHI_model_V3.py -u {USER_RUNNING} -o tnc -ci 0 -s100 1 -w 0'
         )
         os.system(
-            f'python3 DELPHI_model_V3.py -u {USER_RUNNING} -o annealing -ci 0 -cm 0  -s100 1 -w 0'
+            f'python3 DELPHI_model_V3.py -u {USER_RUNNING} -o annealing -ci 0 -s100 1 -w 0'
         )
 
     ## Read parameter files
     global_parameters_tnc = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}.csv",
-            index=False
+        PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}.csv"
     )
     global_parameters_annealing = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_annealing_{today_date_str}.csv",
-            index=False
+        PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_annealing_{today_date_str}.csv"
     )
     global_parameters_best = pd.DataFrame(columns=global_parameters_tnc.columns)
+
+    ## Check if modifying latest file
+    next_day = "".join(str(datetime.now().date() + timedelta(days=1)).split("-"))
+    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_annealing_{next_day}.csv"):
+        raise RuntimeError("Not modifying the latest parameters file")
 
     ## Compare metrics
     global_annealing_predictions_since_100days = pd.read_csv(
@@ -104,8 +109,8 @@ if __name__ == "__main__":
         total_tnc_predictions_since_100days 
     )
 
-    comparison_results = {'region': [], 'annealing_selected': [], 'annealing_metric': [], 'tnc_metric': [], 'annealing_mape': []])
-    for i in global_parameters_tnc.shape[0]:
+    comparison_results = {'region': [], 'annealing_selected': [], 'annealing_metric': [], 'tnc_metric': [], 'annealing_mape': []}
+    for i in range(global_parameters_tnc.shape[0]):
         tnc_params = global_parameters_tnc.iloc[i]
         annealing_params = global_parameters_annealing.iloc[i]
         continent = tnc_params.Continent
@@ -119,26 +124,31 @@ if __name__ == "__main__":
         comparison_results['tnc_metric'].append(tnc_metric)
         comparison_results['annealing_mape'].append(an_mape)
         
-        if not region_result[0]:
+        if not an_select:
             logging.warning(f'Annealing performs worse in {country} - {province}')
-            best_params = global_parameters_tnc.query('Continent == @continent').query('Country == @country').query('Province == @state')
+            best_params = global_parameters_tnc.query('Continent == @continent').query('Country == @country').query('Province == @province')
             global_parameters_best = global_parameters_best.append(best_params.iloc[0])
         else:
-            best_params = global_parameters_annealing.query('Continent == @continent').query('Country == @country').query('Province == @state')
-            global_parameters_best = global_parameters_best.append(best_params.iloc[0])
+            best_params = global_parameters_annealing.query('Continent == @continent').query('Country == @country').query('Province == @province')
+            global_parameters_best = global_parameters_best.append(best_params.iloc[0], ignore_index=True)
 
+    global_parameters_best.to_csv(
+            PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_{today_date_str}.csv",
+            index=False,
+    )
 
     comparison_df = pd.DataFrame.from_dict(comparison_results)
     annealing_count = np.sum(comparison_df['annealing_selected'])
 
-    model_comparison_df.to_csv(
+    comparison_df.to_csv(
         CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING] + f'comparison/model_comparison_{today_date_str}.csv',
         index=False
     )
 
     logging.info(
-    f"Checked Annealing v/s TNC. Annealing performs better {annealing_count}/{model_comparison_df.shape[0]} \n"
+    f"Checked Annealing v/s TNC. Annealing performs better {annealing_count}/{comparison_df.shape[0]} \n"
     + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
     )
     
+
 
