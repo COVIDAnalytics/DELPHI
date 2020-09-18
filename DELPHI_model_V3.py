@@ -74,25 +74,23 @@ parser.add_argument(
     )
 )
 parser.add_argument(
-    '--confidence_intervals', '-ci', type=bool, required=True, choices=[False, True],
-    help="Generate Confidence Intervals? Reply False or True.",
+    '--confidence_intervals', '-ci', type=int, required=True, choices=[0, 1],
+    help="Generate Confidence Intervals? Reply 0 or 1 for False or True.",
 )
-
 parser.add_argument(
-    '--since100case', '-s100', type=bool, required=True, choices=[False, True],
-    help="Save all history (since 100 cases)? Reply False or True.",
+    '--since100case', '-s100', type=int, required=True, choices=[0, 1],
+    help="Save all history (since 100 cases)? Reply 0 or 1 for False or True.",
 )
-
 parser.add_argument(
-    '--website', '-w', type=bool, required=True, choices=[False, True],
-    help="Save to website? Reply False or True.",
+    '--website', '-w', type=int, required=True, choices=[0, 1],
+    help="Save to website? Reply 0 or 1 for False or True.",
 )
 arguments = parser.parse_args()
 USER_RUNNING = arguments.user
 OPTIMIZER = arguments.optimizer
-GET_CONFIDENCE_INTERVALS = arguments.confidence_intervals
-SAVE_TO_WEBSITE = arguments.website
-SAVE_SINCE100_CASES = arguments.since100case
+GET_CONFIDENCE_INTERVALS = bool(arguments.confidence_intervals)
+SAVE_TO_WEBSITE = bool(arguments.website)
+SAVE_SINCE100_CASES = bool(arguments.since100case)
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
@@ -460,7 +458,7 @@ if __name__ == "__main__":
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
 
     list_tuples = popcountries.tuple_area.tolist()
-    list_tuples = [x for x in list_tuples if x[0] == "Oceania"]
+#    list_tuples = [x for x in list_tuples if x[0] == "Oceania"]
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
