@@ -75,14 +75,25 @@ parser.add_argument(
 )
 parser.add_argument(
     '--confidence_intervals', '-ci', type=int, required=True, choices=[0, 1],
-    help="Generate Confidence Intervals? Reply 0 or 1 (for False or True).",
+    help="Generate Confidence Intervals? Reply 0 or 1 for False or True.",
+)
+parser.add_argument(
+    '--since100case', '-s100', type=int, required=True, choices=[0, 1],
+    help="Save all history (since 100 cases)? Reply 0 or 1 for False or True.",
+)
+parser.add_argument(
+    '--website', '-w', type=int, required=True, choices=[0, 1],
+    help="Save to website? Reply 0 or 1 for False or True.",
 )
 arguments = parser.parse_args()
 USER_RUNNING = arguments.user
 OPTIMIZER = arguments.optimizer
 GET_CONFIDENCE_INTERVALS = bool(arguments.confidence_intervals)
+SAVE_TO_WEBSITE = bool(arguments.website)
+SAVE_SINCE100_CASES = bool(arguments.since100case)
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
+past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 #############################################################################################################
 
 def solve_and_predict_area(
@@ -421,8 +432,6 @@ if __name__ == "__main__":
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-    past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
-
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
@@ -483,7 +492,7 @@ if __name__ == "__main__":
     )
     df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
     if GET_CONFIDENCE_INTERVALS:
-        df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
+        df_global_predictions_since_today, df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
             df_global_predictions_since_100_cases,
             past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv",
             past_prediction_date=str(pd.to_datetime(past_prediction_date).date())
@@ -500,7 +509,7 @@ if __name__ == "__main__":
         df_global_predictions_since_today=df_global_predictions_since_today,
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
     )
-    delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=False, website=True)
+    delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=SAVE_SINCE100_CASES, website=SAVE_TO_WEBSITE)
     logging.info(
         f"Exported all 3 datasets to website & danger_map repositories, "
         + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
