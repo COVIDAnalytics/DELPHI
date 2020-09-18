@@ -50,12 +50,12 @@ To run the model successfully for python, please first add a new user in the `co
 
 ### Command Line Interface
 In order to run the model, run the following command on your terminal: 
-`python3 DELPHI_model_V3.py --user <USER> --optimizer <OPTIMIZER> --confidence_intervals <0 or 1>` or a shorter
-version of it: `python3 DELPHI_model_V3.py -u <USER> -o <OPTIMIZER> -ci <0 or 1>`. 
+`python3 DELPHI_model_V3.py --user <USER> --optimizer <OPTIMIZER> --confidence_intervals <0 or 1> --since100case <0 or 1> --website <0 or 1>` or a shorter
+version of it: `python3 DELPHI_model_V3.py -u <USER> -o <OPTIMIZER> -ci <0 or 1> -s100 <0 or 1> -w <0 or 1>`. 
 
-If one wants to run the policy model,
-the following command should be run on the terminal: `python3 DELPHI_model_V3_with_policies.py --user <USER> --optimizer <OPTIMIZER>` or a shorter
-version of it: `python3 DELPHI_model_V3_with_policies.py -u <USER> -o <OPTIMIZER>`.
+If one wants to run the policy model, the following command should be run on the terminal: 
+`python3 DELPHI_model_V3_with_policies.py --user <USER> --optimizer <OPTIMIZER> --website <0 or 1>` or a shorter
+version of it: `python3 DELPHI_model_V3_with_policies.py -u <USER> -o <OPTIMIZER> -w <0 or 1>`.
 
 The `USER` must have its file paths referenced in the `config.yml` file, otherwise the script will throw an error. 
 Similarly, the `OPTIMIZER` must be one of the three currently supported in our implementation (`tnc`, `trust-constr` 
@@ -63,7 +63,11 @@ or `annealing`), otherwise it will throw an error. It is also important for the 
 from which optimizer the parameters that will be used will come from. Finally, the `confidence_intervals` parameter must 
 be a 0 (for False) or 1 (for True), depending on whether or not the user wants a final output containing confidence 
 intervals on the number of cases and deaths (like the ones generated for the website). 
-We advise users of this codebase to use 0 as default.
+We advise users of this codebase to use 0 as default. Parameter `since100case` allows to save (or not) a prediction file
+starting from the date at which each area had its 100th case (varies from one area to another) on top of the file for 
+which predictions start on the day of running the script. This is especially useful when one wants to evaluate model 
+fitting on historical data. Finally, the `website` parameter allows to choose whether or not to save the prediction and 
+parameters files on the `DELPHI/website` repository (default should be 0).
 
 ## Backtest How To Run Instructions
 Very similarly, to perform a backtest of the model (computing certain metrics on number of cases and number of deaths) one should just use the Command Line Interface running the following command:

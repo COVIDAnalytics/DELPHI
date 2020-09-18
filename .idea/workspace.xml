@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,13 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587433101130</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Querying gamma_t using dictionaries only">
-      <created>1587433652449</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1587433652449</updated>
     </task>
     <task id="LOCAL-00002" summary="Running code end to end, init at 0 for b_i (i=1:7)">
       <created>1587505688172</created>
@@ -475,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600220194728</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Quick bugfix">
+      <created>1600220317831</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1600220317835</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -492,7 +494,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="debugged version of the code for michael" />
     <MESSAGE value="multiprocessing version of DELPHI_model_V2.py" />
     <MESSAGE value="Adding total runtime in the prints" />
     <MESSAGE value="reorganizing repository" />
@@ -517,6 +518,7 @@
     <MESSAGE value="Extra mock logs file to create the folder" />
     <MESSAGE value="Extra info in backtest logger (MSE &amp; MAE flags)" />
     <MESSAGE value="Added PopulationCI check" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added PopulationCI check" />
+    <MESSAGE value="Quick bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Quick bugfix" />
   </component>
 </project>
