@@ -80,3 +80,11 @@ The `n_days` needs to be an integer. The script will automatically check that th
 and prediction data in the `danger_map` folder and the two latter inputs from the user running the script.
 The flags `mse` and `mae` must be 0 or 1, depending on whether or not the user wants to compute MSE and MAE as well. The default
 metric is MAPE and is always computed for both cases and deaths.
+
+## Compare Performance of Annealing and TNC
+DELPHI_compare.py can be run to compare the performance of Annealing and TNC at province level using the Command Line Interface in the following way:
+`python3 DELPHI_compare.py --user <USER_RUNNING> --run_model <RUN_MODEL> --plots <PLOT_OPTION>`
+alternately,
+`python3 DELPHI_compare.py -u <USER_RUNNING> -r <RUN_MODEL> -p <PLOT_OPTION>`
+
+As mentioned for other use cases, `USER` should have file paths in the `config.yml` file. If the `run_model` option is 1, the script will run the model with TNC and Annealing consecutively and then compare the metrics, otherwise predictions till current day with annealing and tnc both should be present in the `covid19orc/danger_map/predicted` and the script will automatically read those. If `plot_option` is 1, it will save the plot comparing predictions for every region in the `data_sandbox` folder. The metrics used for default are KL divergence and Maximum Absolute Percentage Error.

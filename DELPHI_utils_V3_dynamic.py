@@ -827,7 +827,7 @@ class DELPHIModelComparison:
     def compare_metric(self,
                     province_tuple,
                     min_case_count=100,
-                    metric=None,
+                    metric="KL",
                     threshold=0.25,
                     plot=False):
         """
@@ -836,10 +836,10 @@ class DELPHIModelComparison:
         :param province_tuple: a 3 tuple of str, tuple of (continent, country, province)
         :param min_case_count: int, the minimum number of cases since when data is selected
         :param metric: function, the primary metric that is used, KL divergence by default
-        :param threshold: float, the threshold on MAPE score for annealing to be selected
+        :param threshold: float, the threshold on Max APE score for annealing to be selected
         :param plot: boolean, to save plots of predictions or not, default = False
         :return: a 4 tuple of (if annealing is better, metric for annealing, metric for tnc,
-        MAPE for annealing)
+        Max APE for annealing)
         """
         today_date_str = "".join(str(datetime.now().date()).split("-"))
 
@@ -867,24 +867,28 @@ class DELPHIModelComparison:
             plt.savefig(self.DATA_SANDBOX + f"plots/model_comparison_{country}_{province}_{today_date_str}.png")
             plt.clf()
 
-        if metric is None:
+        if metric == "KL":
+            self.logger.info("Using KL divergence metric")
             metric = DELPHIModelComparison.kl_divergence
+        else:
+            self.logger.error(f"Metric {metric} has not been implemented. Only KL divergence is implemented so far")
+            raise NotImplementedError("Only KL divergence is implemented as a comparison metric")
         metric_annealing = metric(merged['True Value'], merged['Annealing Prediction'])
         metric_tnc = metric(merged['True Value'], merged['TNC Prediction'])
-        mape = DELPHIModelComparison.max_ape(merged['True Value'], merged['Annealing Prediction'])
+        max_ape = DELPHIModelComparison.max_ape(merged['True Value'], merged['Annealing Prediction'])
 
         self.logger.info('Distance for Annealing: ' + str(metric_annealing))
         self.logger.info('Distance for TNC: ' + str(metric_tnc))
         self.logger.info(('Annealing' if metric_annealing < metric_tnc else 'TNC') + ' is better')
 
         if metric_annealing < metric_tnc:
-            self.logger.info('MAPE for Annealing: ' + str(mape) + '. Threshold is ' + str(threshold))
-            if mape < threshold:
-                self.logger.info('MAPE condition satisfied and Annealing better than TNC. Use Annealing.')
-                return (True, metric_annealing, metric_tnc, mape)
+            self.logger.info(f'Max APE for Annealing: {max_ape:.3g} Threshold is {threshold}')
+            if max_ape < threshold:
+                self.logger.debug('Max APE condition satisfied and Annealing better than TNC. Use Annealing.')
+                return (True, metric_annealing, metric_tnc, max_ape)
             else:
-                self.logger.info('Annealing better than TNC but MAPE condition not satisfied. Retrain.')
-                return (False, metric_annealing, metric_tnc, mape)
+                self.logger.debug('Annealing better than TNC but Max APE condition not satisfied. Retrain.')
+                return (False, metric_annealing, metric_tnc, max_ape)
         else:
-            self.logger.info('TNC better than Annealing. Retrain.')
-            return (False, metric_annealing, metric_tnc, mape)
+            self.logger.debug('TNC better than Annealing. Retrain.')
+            return (False, metric_annealing, metric_tnc, max_ape)

@@ -107,20 +107,20 @@ if __name__ == "__main__":
         logger=logger
     )
 
-    comparison_results = {'region': [], 'annealing_selected': [], 'annealing_metric': [], 'tnc_metric': [], 'annealing_mape': []}
+    comparison_results = {'region': [], 'annealing_selected': [], 'annealing_metric': [], 'tnc_metric': [], 'annealing_max_ape': []}
     for i in range(global_parameters_tnc.shape[0]):
         tnc_params = global_parameters_tnc.iloc[i]
         annealing_params = global_parameters_annealing.iloc[i]
         continent = tnc_params.Continent
         country = tnc_params.Country
         province = tnc_params.Province
-        annealing_select, annnealine_metric, tnc_metric, annealing_mape = model_compare.compare_metric((continent, country, province), plot=PLOT_OPTION)
+        annealing_select, annnealing_metric, tnc_metric, annealing_max_ape = model_compare.compare_metric((continent, country, province), plot=PLOT_OPTION)
         
         comparison_results['region'].append((continent, country, province))
         comparison_results['annealing_selected'].append(annealing_select)
-        comparison_results['annealing_metric'].append(annnealine_metric)
+        comparison_results['annealing_metric'].append(annnealing_metric)
         comparison_results['tnc_metric'].append(tnc_metric)
-        comparison_results['annealing_mape'].append(annealing_mape)
+        comparison_results['annealing_max_ape'].append(annealing_max_ape)
         
         if not annealing_select:
             logger.warning(f'Annealing performs worse in {country} - {province}')
@@ -137,7 +137,6 @@ if __name__ == "__main__":
 
     df_comparison = pd.DataFrame.from_dict(comparison_results)
     annealing_count = np.sum(df_comparison['annealing_selected'])
-
     df_comparison.to_csv(
         CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING] + f'comparison/model_comparison_{today_date_str}.csv',
         index=False
