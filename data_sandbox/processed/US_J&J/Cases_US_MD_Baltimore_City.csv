@@ -234,5 +234,6 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-09-10,US,MD_Baltimore_City,166,15092,471,,,,,,
 2020-09-11,US,MD_Baltimore_City,167,15162,472,,,,,,
 2020-09-12,US,MD_Baltimore_City,168,15183,472,,,,,,
-2020-09-13,US,MD_Baltimore_City,169,15254,473,,,,,,
-2020-09-14,US,MD_Baltimore_City,170,15299,473,,,,,,
+2020-09-13,US,MD_Baltimore_City,169,15236,473,,,,,,
+2020-09-14,US,MD_Baltimore_City,170,15236,473,,,,,,
+2020-09-15,US,MD_Baltimore_City,171,15236,474,,,,,,
