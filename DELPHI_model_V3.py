@@ -62,7 +62,7 @@ yesterday_logs_filename = "".join(
 parser = argparse.ArgumentParser()
 parser.add_argument(
     '--user', '-u', type=str, required=True,
-    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham"],
+    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham", "saksham2"],
     help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
 )
 parser.add_argument(
@@ -205,7 +205,7 @@ def solve_and_predict_area(
             maxT: Maximum # of Days Modeled
             p_d: Percentage of True Cases Detected
             p_v: Percentage of Hospitalized Patients Ventilated,
-            balance: Regularization coefficient between cases and deaths 
+            balance: Regularization coefficient between cases and deaths
             """
             maxT = (default_maxT - date_day_since100).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
@@ -432,6 +432,8 @@ if __name__ == "__main__":
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
+    # popcountries = popcountries.iloc[10:14]
+
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP

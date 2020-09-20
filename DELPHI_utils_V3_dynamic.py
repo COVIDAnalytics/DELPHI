@@ -1,4 +1,5 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
+import os
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
@@ -6,7 +7,8 @@ from typing import Union
 from copy import deepcopy
 from itertools import compress
 from DELPHI_params_V3 import MAPPING_STATE_CODE_TO_STATE_NAME, future_policies
-
+from matplotlib import pyplot as plt
+from logging import Logger
 
 def get_bounds_params_from_pastparams(
         optimizer: str, parameter_list: list, dict_default_reinit_parameters: dict, percentage_drift_lower_bound: float,
@@ -764,3 +766,132 @@ def get_testing_data_us() -> pd.DataFrame:
     df_test_final = pd.concat(list_df_concat).reset_index(drop=True)
     df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
     return df_test_final
+
+class DELPHIModelComparison:
+    def __init__(
+        self,
+        path_to_folder_danger_map: str,
+        path_to_folder_data_sandbox: str,
+        global_annealing_since_100days: pd.DataFrame,
+        total_tnc_since_100days: pd.DataFrame,
+        logger: Logger
+    ):
+        self.DANGER_MAP = path_to_folder_danger_map
+        self.DATA_SANDBOX = path_to_folder_data_sandbox
+        self.global_annealing_since_100days = global_annealing_since_100days
+        self.total_tnc_since_100days = total_tnc_since_100days
+        self.logger = logger
+
+    @staticmethod
+    def kl_divergence(y_true: list, y_pred: list) -> float:
+        """
+        Compute the KL divergence between two lists
+        :param y_true: list of true historical values
+        :param y_pred: list of predicted values
+        :return: a float, corresponding to the KL divergence
+        """
+        y_true = np.asarray(y_true, dtype=np.float)
+        y_pred = np.asarray(y_pred, dtype=np.float)
+        return np.sum(np.where(y_true != 0, y_true * np.log(y_true / y_pred), 0))
+
+    @staticmethod
+    def max_ape(y_true: list, y_pred: list) -> float:
+        """
+        Compute the Maximum Absolute Percentage Error between two lists
+        :param y_true: list of true historical values
+        :param y_pred: list of predicted values
+        :return: a float, corresponding to the MAPE
+        """
+        ape = [abs(x-y)/x for x,y in zip(y_true, y_pred) if y!= 0 and x > 100]
+        if len(ape)>0:
+            return max(ape)
+        return 0
+
+    def get_province(self, country: str, province: str, min_case_count=100) -> pd.DataFrame:
+        """
+        Returns actual cases data for the given country and province
+        :param country: str, the name of the country 
+        :param province: str, the name of the province
+        :param min_case_count: int, the minimum number of cases since when data is selected
+        :return: a pandas dataframe for date wise cases for the given country and provinve where cases >
+        min_case_count
+        """
+        province = '_'.join(province.split())
+        country = '_'.join(country.split())
+        if country == 'US':
+            true_df = pd.read_csv(self.DANGER_MAP + f'processed/Cases_{country}_{province}.csv')
+        else:
+            true_df = pd.read_csv(self.DANGER_MAP + f'processed/Global/Cases_{country}_{province}.csv')
+        true_df = true_df.query('case_cnt >= @min_case_count').sort_values('date').groupby('date').min().reset_index()
+        return(true_df)
+
+    def compare_metric(self,
+                    province_tuple,
+                    min_case_count=100,
+                    metric="KL",
+                    threshold=0.25,
+                    plot=False):
+        """
+        Computes the given metric for predictions with annealing and tnc and the MAPE for annealing.
+        Returns the metrics along with a flag showing whether annealing did better than tnc.
+        :param province_tuple: a 3 tuple of str, tuple of (continent, country, province)
+        :param min_case_count: int, the minimum number of cases since when data is selected
+        :param metric: function, the primary metric that is used, KL divergence by default
+        :param threshold: float, the threshold on Max APE score for annealing to be selected
+        :param plot: boolean, to save plots of predictions or not, default = False
+        :return: a 4 tuple of (if annealing is better, metric for annealing, metric for tnc,
+        Max APE for annealing)
+        """
+        today_date_str = "".join(str(datetime.now().date()).split("-"))
+
+        continent, country, province = province_tuple
+        true_df = self.get_province(country, province, min_case_count=min_case_count)
+        annealing_df = self.global_annealing_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @province').sort_values('Day').groupby('Day').min().reset_index()
+        tnc_df = self.total_tnc_since_100days.query('Continent == @continent').query('Country == @country').query('Province == @province').sort_values('Day').groupby('Day').min().reset_index()
+
+        annealing_df['Annealing Prediction'] = annealing_df['Total Detected'].diff().apply(lambda x: x if x > 1 else 1)
+        tnc_df['TNC Prediction'] = tnc_df['Total Detected'].diff().apply(lambda x: x if x > 1 else 1)
+        true_df['True Value'] = true_df['case_cnt'].diff().apply(lambda x: x if x > 1 else 1)
+
+        annealing_df = annealing_df[['Day', 'Annealing Prediction']].dropna()
+        tnc_df = tnc_df[['Day', 'TNC Prediction']].dropna()
+        true_df = true_df[['date', 'True Value']].dropna()
+        true_df['date'] = true_df['date'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d'))
+
+        merged = true_df.merge(annealing_df, how='inner', left_on='date', right_on='Day').merge(tnc_df, how='inner', left_on='date', right_on='Day').drop(columns=['Day_x', 'Day_y'])
+
+        if plot:
+            if not os.path.exists(self.DATA_SANDBOX + "plots/"):
+                os.mkdir(self.DATA_SANDBOX + "plots/")
+            plt.plot(merged['date'], merged['True Value'], label='True')
+            plt.plot(merged['date'], merged['Annealing Prediction'], label='Annealing')
+            plt.plot(merged['date'], merged['TNC Prediction'], label='TNC')
+            plt.title(str(province_tuple))
+            plt.savefig(self.DATA_SANDBOX + f"plots/model_comparison_{country}_{province}_{today_date_str}.png")
+            plt.clf()
+
+        if metric == "KL":
+            self.logger.info("Using KL divergence metric")
+            metric = DELPHIModelComparison.kl_divergence
+        else:
+            self.logger.error(f"Metric {metric} has not been implemented. Only KL divergence is implemented so far")
+            raise NotImplementedError("Only KL divergence is implemented as a comparison metric")
+        metric_annealing = metric(merged['True Value'], merged['Annealing Prediction'])
+        metric_tnc = metric(merged['True Value'], merged['TNC Prediction'])
+        max_ape = DELPHIModelComparison.max_ape(merged['True Value'], merged['Annealing Prediction'])
+
+        self.logger.info('Distance for Annealing: ' + str(metric_annealing))
+        self.logger.info('Distance for TNC: ' + str(metric_tnc))
+        self.logger.info(('Annealing' if metric_annealing < metric_tnc else 'TNC') + ' is better')
+
+        if metric_annealing < metric_tnc:
+            self.logger.info(f'Max APE for Annealing: {max_ape:.3g} Threshold is {threshold}')
+            if max_ape < threshold:
+                self.logger.debug('Max APE condition satisfied and Annealing better than TNC. Use Annealing.')
+                return (True, metric_annealing, metric_tnc, max_ape)
+            else:
+                self.logger.debug('Annealing better than TNC but Max APE condition not satisfied. Retrain.')
+                return (False, metric_annealing, metric_tnc, max_ape)
+        else:
+            self.logger.debug('TNC better than Annealing. Retrain.')
+            return (False, metric_annealing, metric_tnc, max_ape)
