@@ -1,4 +1,5 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
+import os
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
@@ -860,6 +861,8 @@ class DELPHIModelComparison:
         merged = true_df.merge(annealing_df, how='inner', left_on='date', right_on='Day').merge(tnc_df, how='inner', left_on='date', right_on='Day').drop(columns=['Day_x', 'Day_y'])
 
         if plot:
+            if not os.path.exists(self.DATA_SANDBOX + "plots/"):
+                os.mkdir(self.DATA_SANDBOX + "plots/")
             plt.plot(merged['date'], merged['True Value'], label='True')
             plt.plot(merged['date'], merged['Annealing Prediction'], label='Annealing')
             plt.plot(merged['date'], merged['TNC Prediction'], label='TNC')

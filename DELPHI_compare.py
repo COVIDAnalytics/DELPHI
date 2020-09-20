@@ -47,6 +47,9 @@ if __name__ == "__main__":
     assert USER_RUNNING in CONFIG_FILEPATHS["delphi_repo"].keys(), f"User {USER_RUNNING} not referenced in config.yml"
     if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_comparison/"):
         os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_comparison/")
+    
+    if not os.path.exists(CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING] + 'comparison/'):
+        os.mkdir(CONFIG_FILEPATHS['data_sandbox'][USER_RUNNING] + 'comparison/')
 
     logger_filename = (
             CONFIG_FILEPATHS["logs"][USER_RUNNING] +
