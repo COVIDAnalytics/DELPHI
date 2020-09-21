@@ -34,14 +34,16 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "server"
-training_start_date = datetime(2020, 9, 7)
-training_end_date = datetime(2020, 9, 15)
+training_start_date = datetime(2020, 9, 14)
+training_end_date = datetime(2020, 9, 16)
 training_last_date = training_end_date - timedelta(days=1)
 # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
 n_days_to_train = (training_last_date - training_start_date).days
 annealing_opt = False
 replace_already_existing_par = False
-
+replace_deathcounts = ['Bourgogne-Franche-Comte',
+          'Brittany', 'Corsica','Pays_de_la_Loire' ,'Hauts-de-France', 'Grand_Est',
+          'La_Rioja', 'Mendoza','Entre_Rios' ]
 def check_cumulative_cases(input_table):
     correct = True
     count = input_table['day_since100'].iloc[0]
@@ -111,6 +113,8 @@ def solve_and_predict_area_additional_states(
         totalcases = pd.read_csv(
             PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"
         )
+        if province_sub in replace_deathcounts:
+            totalcases.loc[totalcases['day_since100'] <= 2, ['death_cnt']] = 1
         if check_cumulative_cases(totalcases) == False:
             print(
                 f"###################### [ERROR] Cumulative case is not increasing: " +

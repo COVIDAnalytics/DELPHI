@@ -346,8 +346,8 @@ def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFram
     ).reset_index(drop=True)
 
     df_policies_US_final_concat =  df_policies_US_final_concat[
-        (df_policies_US_final_concat['province'].isin(list_US_states))
-        # (df_policies_US_final_concat['province'].isin(us_county_names.Province))
+        (df_policies_US_final_concat['province'].isin(list_US_states)) |
+        (df_policies_US_final_concat['province'].isin(us_county_names.Province))
     ]
     return df_policies_US_final_concat
 

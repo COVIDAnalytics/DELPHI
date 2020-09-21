@@ -27,7 +27,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "ali"
-training_end_date = datetime(2020, 9, 8)
+training_end_date = datetime(2020, 9, 16)
 
 # yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
@@ -41,6 +41,9 @@ policy_data_us_only = read_policy_data_us_only_jj_version(filepath_data_sandbox=
 popcountries = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv")
 
 PATH_TO_PARAM_GLOBAL = PATH_TO_FOLDER_DANGER_MAP + 'predicted/'
+replace_deathcounts = ['Bourgogne-Franche-Comte',
+                       'Brittany', 'Corsica','Pays_de_la_Loire' ,'Hauts-de-France', 'Grand_Est',
+                       'La_Rioja', 'Mendoza','Entre_Rios' ]
 
 
 def createParameters_JJ_Global(PATH_TO_PARAM_GLOBAL, PATH_TO_DATA_SANDBOX, yesterday ):
@@ -162,6 +165,8 @@ for continent, country, province in zip(
         totalcases = pd.read_csv(
             PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"
         )
+        if province_sub in replace_deathcounts:
+            totalcases.loc[totalcases['day_since100'] <= 2, ['death_cnt']] = 1
         if totalcases.day_since100.max() < 0:
             print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
             continue
@@ -195,7 +200,7 @@ for continent, country, province in zip(
             # We do not scale
             N = PopulationT
             PopulationI = validcases.loc[0, "case_cnt"]
-            PopulationR = validcases.loc[0, "death_cnt"] * 5
+            PopulationR = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
             PopulationD = validcases.loc[0, "death_cnt"]
             PopulationCI = PopulationI - PopulationD - PopulationR
             """
