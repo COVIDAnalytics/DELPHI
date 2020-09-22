@@ -35,7 +35,6 @@ PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["danger_map"]["michael"]
 policy_data_countries = read_measures_oxford_data_jj_version()
-policy_data_us_only = read_policy_data_us_only_jj_version(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv")
 
 PATH_TO_PARAM_GLOBAL = PATH_TO_FOLDER_DANGER_MAP + 'predicted/'
@@ -60,6 +59,8 @@ if not param_global_JJ_created:
     sys.exit()
 
 pastparameters = pd.read_csv(PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_Global_{yesterday}.csv")
+policy_data_us_only = read_policy_data_us_only_jj_version(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING],
+                                                          parameters_us_state = pastparameters)
 # TODO/ files Parameters_J&J_Global_{yesterday}.csv must be a concatenation of (1) the existing regular parameter file
 #  (Parameters_Global_{yesterday}.csv) used by DELPHI on the website, and (2) the Parameters_J&J_{yesterday}.csv
 #  which is the output of DELPHI_model_additional_states.py because (2) contains extra regions/provinces (e.g states of

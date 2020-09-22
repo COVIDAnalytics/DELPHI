@@ -10,7 +10,7 @@ from scipy.optimize import dual_annealing
 from tqdm import tqdm_notebook as tqdm
 from datetime import datetime, timedelta
 from DELPHI_utils_V3 import DELPHIDataCreator as DELPHIDataCreator_regular
-
+from DELPHI_policy_predictions_additional_states import run_policy_prediction_additional_state
 from DELPHI_utils_V3 import (
     get_initial_conditions, mape
 )
@@ -33,17 +33,7 @@ import yaml
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "server"
-training_start_date = datetime(2020, 9, 14)
-training_end_date = datetime(2020, 9, 16)
-training_last_date = training_end_date - timedelta(days=1)
-# Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
-n_days_to_train = (training_last_date - training_start_date).days
-annealing_opt = False
-replace_already_existing_par = False
-replace_deathcounts = ['Bourgogne-Franche-Comte',
-          'Brittany', 'Corsica','Pays_de_la_Loire' ,'Hauts-de-France', 'Grand_Est',
-          'La_Rioja', 'Mendoza','Entre_Rios' ]
+
 def check_cumulative_cases(input_table):
     correct = True
     count = input_table['day_since100'].iloc[0]
@@ -59,42 +49,24 @@ def check_cumulative_cases(input_table):
 def solve_and_predict_area_additional_states(
         tuple_area_: tuple, yesterday_: str, day_after_yesterday_: str, allowed_deviation_: float,
         pastparameters_: pd.DataFrame, current_parameters_: pd.DataFrame,
+        country_lists: list, provinces_lists_input: list, annealing_opt: bool,
+        popcountries_population:  pd.DataFrame
 ):
     time_entering = time.time()
     continent, country, province = tuple_area_
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    us_city_names = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/US_cities.csv"
-    )
-    us_county_names = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
-    )
-    ex_us_county_names = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/Ex_US_counties.csv"
-    )
 
-    ex_us_regions = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv"
-    )
-    ex_us_names_unique =  ex_us_regions.Country.unique()
-    ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
-
-    # if country_sub not in ["US","Argentina", "Brazil", "Chile", "Colombia",
-    #                        "South_Africa", "Mexico", "Peru", "Italy", "Spain", "Canada", "Australia"]: #, "Colombia", "Mexico", "Argentina", "Chile", "Peru", "Brazil"]:
-    if country_sub not in np.concatenate((ex_us_names,['US'])): #, "Colombia", "Mexico", "Argentina", "Chile", "Peru", "Brazil"]:
+    if country_sub not in country_lists: #, "Colombia", "Mexico", "Argentina", "Chile", "Peru", "Brazil"]:
         return None
-    elif country_sub == "US":
-        if province_sub not in us_county_names.Province.values:
-            return None
-    elif country_sub != "US" :
-        regions_name_values = ex_us_regions[ex_us_regions.Country == country].Province.values
-        regions_name = [x.replace(" ", "_") for x in regions_name_values]
-        if province_sub == "None" or province_sub not in regions_name:
-            return None
-        # if province_sub == "None" or province_sub not in ex_us_county_names[ex_us_county_names.Country == country_sub].Province.values and \
-        #         province_sub not in ex_us_regions[ex_us_regions.Country == country_sub].Province.values :
-        #     return None
+
+    regions_name_values = ex_us_regions[ex_us_regions.Country == country].Province.values
+    regions_name = [x.replace(" ", "_") for x in regions_name_values]
+    all_us_non_us_prov = np.concatenate((us_county_names.Province.values,regions_name))
+    if province_sub == "None" or province_sub not in all_us_non_us_prov or \
+            (len(provinces_lists_input) > 0 and province_sub not in provinces_lists_input):
+        return None
+
 
     if current_parameters_ is not None:
         current_parameter = current_parameters_[
@@ -198,8 +170,8 @@ def solve_and_predict_area_additional_states(
             assert len(parameter_list) == 11, f"Only have {len(parameter_list)} parameters, expected 11 since July8"
         # Now we start the modeling part:
         if len(validcases) > validcases_threshold:
-            PopulationT = popcountries[
-                (popcountries.Country == country) & (popcountries.Province == province)
+            PopulationT = popcountries_population[
+                (popcountries_population.Country == country) & (popcountries_population.Province == province)
                 ].pop2016.iloc[-1]
             # We do not scale
             N = PopulationT
@@ -397,122 +369,167 @@ def solve_and_predict_area_additional_states(
         return None
 
 
-for n_days_before in range(n_days_to_train, 0, -1):
-    if n_days_before == 1:
-        annealing_opt = True
-    yesterday = "".join(str(training_last_date.date() - timedelta(days=n_days_before)).split("-"))
-    day_after_yesterday = "".join(str(pd.to_datetime(yesterday).date() + timedelta(days=1)).split("-"))
-    print(yesterday, day_after_yesterday)
-    print(f"Predictions with historical data up to {day_after_yesterday}, parameters from {yesterday}, annealing optimization {annealing_opt}")
-    PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
-    # PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"]["michael"]
-    popcountries = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
-    )
-    try:
-        pastparameters = pd.read_csv(
-            PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{yesterday}.csv"
-        )
-    except:
-        pastparameters = None
-    try:
-        current_parameters = pd.read_csv(
-            PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{day_after_yesterday}.csv"
-        )
-    except:
-        current_parameters = None
+def run_model_additional_states(country_lists,provinces_lists, popcountries):
+    annealing_opt = False
+    for n_days_before in range(n_days_to_train, 0, -1):
+        if n_days_before == 1:
+            annealing_opt = True
+        yesterday = "".join(str(training_last_date.date() - timedelta(days=n_days_before)).split("-"))
+        day_after_yesterday = "".join(str(pd.to_datetime(yesterday).date() + timedelta(days=1)).split("-"))
+        print(yesterday, day_after_yesterday)
+        print(f"Predictions with historical data up to {day_after_yesterday}, parameters from {yesterday}, annealing optimization {annealing_opt}")
+        try:
+            pastparameters = pd.read_csv(
+                PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{yesterday}.csv"
+            )
+        except:
+            pastparameters = None
+        try:
+            current_parameters = pd.read_csv(
+                PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{day_after_yesterday}.csv"
+            )
+        except:
+            current_parameters = None
 
-    # Initalizing lists of the different dataframes that will be concatenated in the end
-    list_df_global_predictions_since_today = []
-    list_df_global_predictions_since_100_cases = []
-    list_df_global_parameters = []
-    obj_value = 0
-    allowed_deviation = 0.02
-    solve_and_predict_area_partial = partial(
-        solve_and_predict_area_additional_states, yesterday_=yesterday, day_after_yesterday_=day_after_yesterday,
-        pastparameters_=pastparameters, allowed_deviation_=allowed_deviation, current_parameters_=current_parameters,
-    )
-    popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-    list_tuples = popcountries.tuple_area.tolist()
-    with mp.Pool(n_cpu_default) as pool:
-        for result_area in tqdm(
-                pool.map_async(
-                    solve_and_predict_area_partial, list_tuples,
-                ).get(), total=len(list_tuples)
-        ):
-            if result_area is not None:
-                (
-                    df_parameters_cont_country_prov, df_predictions_since_today_cont_country_prov,
-                    df_predictions_since_100_cont_country_prov, output
-                ) = result_area
-                obj_value = obj_value + output.fun
-                # Then we add it to the list of df to be concatenated to update the tracking df
-                list_df_global_parameters.append(df_parameters_cont_country_prov)
-                list_df_global_predictions_since_today.append(df_predictions_since_today_cont_country_prov)
-                list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
-            else:
-                continue
-        print("Finished the Multiprocessing for all areas")
-        pool.close()
-        pool.join()
+        # Initalizing lists of the different dataframes that will be concatenated in the end
+        list_df_global_predictions_since_today = []
+        list_df_global_predictions_since_100_cases = []
+        list_df_global_parameters = []
+        obj_value = 0
+        allowed_deviation = 0.02
+        solve_and_predict_area_partial = partial(
+            solve_and_predict_area_additional_states, yesterday_=yesterday, day_after_yesterday_=day_after_yesterday,
+            pastparameters_=pastparameters, allowed_deviation_=allowed_deviation, current_parameters_=current_parameters,
+            country_lists = country_lists, provinces_lists_input = provinces_lists, annealing_opt = annealing_opt,
+            popcountries_population = popcountries
+        )
+        popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
+        list_tuples = popcountries.tuple_area.tolist()
+        with mp.Pool(n_cpu_default) as pool:
+            for result_area in tqdm(
+                    pool.map_async(
+                        solve_and_predict_area_partial, list_tuples,
+                    ).get(), total=len(list_tuples)
+            ):
+                if result_area is not None:
+                    (
+                        df_parameters_cont_country_prov, df_predictions_since_today_cont_country_prov,
+                        df_predictions_since_100_cont_country_prov, output
+                    ) = result_area
+                    obj_value = obj_value + output.fun
+                    # Then we add it to the list of df to be concatenated to update the tracking df
+                    list_df_global_parameters.append(df_parameters_cont_country_prov)
+                    list_df_global_predictions_since_today.append(df_predictions_since_today_cont_country_prov)
+                    list_df_global_predictions_since_100_cases.append(df_predictions_since_100_cont_country_prov)
+                else:
+                    continue
+            print("Finished the Multiprocessing for all areas")
+            pool.close()
+            pool.join()
 
-    if len(list_df_global_parameters) > 0:
-        pathToParam = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{day_after_yesterday}.csv"
-        if path.exists(pathToParam):
-            future_params_already_saved = pd.read_csv(pathToParam)
-            if replace_already_existing_par == True:
-                df_global_parameters_dataframe = pd.concat(
-                    list_df_global_parameters
-                ).reset_index(drop=True)
-                for ind, row in df_global_parameters_dataframe.iterrows():
-                    future_params_already_saved = future_params_already_saved[ ((future_params_already_saved.Country == row.Country) &
-                                                                                (future_params_already_saved.Province == row.Province)) == False ]
-                    future_params_already_saved = future_params_already_saved.append(row)
-                df_global_parameters = future_params_already_saved.sort_values(["Continent", "Country", "Province"]).reset_index(drop=True)
+        if len(list_df_global_parameters) > 0:
+            pathToParam = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{day_after_yesterday}.csv"
+            if path.exists(pathToParam):
+                future_params_already_saved = pd.read_csv(pathToParam)
+                if replace_already_existing_par == True:
+                    df_global_parameters_dataframe = pd.concat(
+                        list_df_global_parameters
+                    ).reset_index(drop=True)
+                    for ind, row in df_global_parameters_dataframe.iterrows():
+                        future_params_already_saved = future_params_already_saved[ ((future_params_already_saved.Country == row.Country) &
+                                                                                    (future_params_already_saved.Province == row.Province)) == False ]
+                        future_params_already_saved = future_params_already_saved.append(row)
+                    df_global_parameters = future_params_already_saved.sort_values(["Continent", "Country", "Province"]).reset_index(drop=True)
+                else:
+                    df_global_parameters = pd.concat(
+                        [future_params_already_saved] + list_df_global_parameters
+                    ).reset_index(drop=True)
             else:
                 df_global_parameters = pd.concat(
-                    [future_params_already_saved] + list_df_global_parameters
+                    list_df_global_parameters
                 ).reset_index(drop=True)
-        else:
-            df_global_parameters = pd.concat(
-                list_df_global_parameters
-            ).reset_index(drop=True)
-        df_global_parameters.to_csv(pathToParam, index=False)
+            df_global_parameters.to_csv(pathToParam, index=False)
 
-        df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-        #df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
-        #    df_global_predictions_since_100_cases
-        #)
+            df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
+            #df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
+            #    df_global_predictions_since_100_cases
+            #)
 
-        pathToGlobal = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Global_J&J_{day_after_yesterday}.csv"
-        if path.exists(pathToGlobal):
-            # Getting already saved Brazil, South_Africa & Peru predictions
-            df_global_predictions_since_100_cases_already_saved = pd.read_csv(pathToGlobal)
-            # Concatenating with these South Africa predictions
-            if replace_already_existing_par == True:
-                for ind, row in df_global_predictions_since_100_cases.iterrows():
-                    df_global_predictions_since_100_cases_already_saved = \
-                        df_global_predictions_since_100_cases_already_saved[(
-                            (df_global_predictions_since_100_cases_already_saved.Country == row.Country) &
-                             (df_global_predictions_since_100_cases_already_saved.Province == row.Province) &
-                             (df_global_predictions_since_100_cases_already_saved.Day == row.Day)
-                                                                            )== False ]
-                    df_global_predictions_since_100_cases_already_saved = df_global_predictions_since_100_cases_already_saved.append(row)
-                df_global_predictions_since_100_cases_all = df_global_predictions_since_100_cases_already_saved.sort_values(["Continent", "Country", "Province", "Day"]).reset_index(drop=True)
+            pathToGlobal = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Global_J&J_{day_after_yesterday}.csv"
+            if path.exists(pathToGlobal):
+                # Getting already saved Brazil, South_Africa & Peru predictions
+                df_global_predictions_since_100_cases_already_saved = pd.read_csv(pathToGlobal)
+                # Concatenating with these South Africa predictions
+                if replace_already_existing_par == True:
+                    for ind, row in df_global_predictions_since_100_cases.iterrows():
+                        df_global_predictions_since_100_cases_already_saved = \
+                            df_global_predictions_since_100_cases_already_saved[(
+                                (df_global_predictions_since_100_cases_already_saved.Country == row.Country) &
+                                 (df_global_predictions_since_100_cases_already_saved.Province == row.Province) &
+                                 (df_global_predictions_since_100_cases_already_saved.Day == row.Day)
+                                                                                )== False ]
+                        df_global_predictions_since_100_cases_already_saved = df_global_predictions_since_100_cases_already_saved.append(row)
+                    df_global_predictions_since_100_cases_all = df_global_predictions_since_100_cases_already_saved.sort_values(["Continent", "Country", "Province", "Day"]).reset_index(drop=True)
+                else:
+                    df_global_predictions_since_100_cases_all = pd.concat([
+                        df_global_predictions_since_100_cases_already_saved, df_global_predictions_since_100_cases
+                    ]).sort_values(["Continent", "Country", "Province", "Day"]).reset_index(drop=True)
             else:
-                df_global_predictions_since_100_cases_all = pd.concat([
-                    df_global_predictions_since_100_cases_already_saved, df_global_predictions_since_100_cases
-                ]).sort_values(["Continent", "Country", "Province", "Day"]).reset_index(drop=True)
+                df_global_predictions_since_100_cases_all = df_global_predictions_since_100_cases.sort_values(
+                    ["Continent", "Country", "Province", "Day"]
+                ).reset_index(drop=True)
+            # Saving concatenation
+            df_global_predictions_since_100_cases_all.to_csv(pathToGlobal, index=False )
+            print(f"Exported parameters and predictions for all states/provinces in J&J Study for {day_after_yesterday}")
+            print("#########################################################################################################")
+            print("#########################################################################################################")
         else:
-            df_global_predictions_since_100_cases_all = df_global_predictions_since_100_cases.sort_values(
-                ["Continent", "Country", "Province", "Day"]
-            ).reset_index(drop=True)
-        # Saving concatenation
-        df_global_predictions_since_100_cases_all.to_csv(pathToGlobal, index=False )
-        print(f"Exported parameters and predictions for all states/provinces in J&J Study for {day_after_yesterday}")
-        print("#########################################################################################################")
-        print("#########################################################################################################")
-    else:
-        print(f"Nothing changed for {day_after_yesterday}")
-        print("#########################################################################################################")
-        print("#########################################################################################################")
+            print(f"Nothing changed for {day_after_yesterday}")
+            print("#########################################################################################################")
+            print("#########################################################################################################")
+
+
+
+if __name__ == '__main__':
+    USER_RUNNING = "ali"
+
+    replace_deathcounts = ['Bourgogne-Franche-Comte',
+                           'Brittany', 'Corsica','Pays_de_la_Loire' ,'Hauts-de-France', 'Grand_Est',
+                           'La_Rioja', 'Mendoza','Entre_Rios' ]
+
+    PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
+    PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+
+    popcountries_org = pd.read_csv(
+        PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
+    )
+
+    us_city_names = pd.read_csv(
+        PATH_TO_DATA_SANDBOX + f"processed/US_cities.csv"
+    )
+    us_county_names = pd.read_csv(
+        PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
+    )
+    ex_us_county_names = pd.read_csv(
+        PATH_TO_DATA_SANDBOX + f"processed/Ex_US_counties.csv"
+    )
+
+    ex_us_regions = pd.read_csv(
+        PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv"
+    )
+    ex_us_names_unique =  ex_us_regions.Country.unique()
+    ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
+
+    training_start_date = datetime(2020, 9, 14)
+    training_end_date = datetime(2020, 9, 16)
+    training_last_date = training_end_date - timedelta(days=1)
+    # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
+    n_days_to_train = (training_last_date - training_start_date).days
+    replace_already_existing_par = False
+
+    provinces_lists = []
+    country_lists = ['US'] # ex_us_names
+    run_model_additional_states(country_lists,provinces_lists,popcountries_org)
+    run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX, PATH_TO_FOLDER_DANGER_MAP
+                                           , training_end_date, country_lists,provinces_lists,popcountries_org,
+                                           replace_deathcounts)

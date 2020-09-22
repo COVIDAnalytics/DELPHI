@@ -10,7 +10,7 @@ from DELPHI_utils import (check_us_policy_data_consistency, create_features_from
                           create_final_policy_features_us)
 
 
-def read_policy_data_us_only_jj_version(filepath_data_sandbox: str):
+def read_policy_data_us_only_jj_version(filepath_data_sandbox: str, parameters_us_state: pd.DataFrame):
     policies = [
         "travel_limit", "stay_home", "educational_fac", "any_gathering_restrict",
         "any_business", "all_non-ess_business"
@@ -39,11 +39,13 @@ def read_policy_data_us_only_jj_version(filepath_data_sandbox: str):
     df_policies_US_final = create_final_policy_features_us(df_policies_US=df_policies_US)
     # Adding cities in there
     df_policies_US_final = create_additional_cities_for_policies_data(df_policies_US_final=df_policies_US_final,
-                                                                      filepath_data_sandbox= filepath_data_sandbox)
+                                                                      filepath_data_sandbox= filepath_data_sandbox,
+                                                                      parameters_us_state = parameters_us_state)
     return df_policies_US_final
 
 
-def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFrame, filepath_data_sandbox: str) -> pd.DataFrame:
+def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFrame,
+                                               filepath_data_sandbox: str, parameters_us_state: pd.DataFrame) -> pd.DataFrame:
     df_policies_US_final_Chicago = df_policies_US_final[
         df_policies_US_final.province == "Illinois"
     ]
@@ -307,12 +309,9 @@ def create_additional_cities_for_policies_data(df_policies_US_final: pd.DataFram
         filepath_data_sandbox + f"processed/US_counties.csv"
     )
     ## USE a more smart way to get the date of parameters
-    parameters_20200811 = pd.read_csv(
-        filepath_data_sandbox + f"predicted/parameters/Parameters_J&J_20200811.csv"
-    )
 
     for ind, row in us_county_names.iterrows():
-        if row['Province'] in parameters_20200811.Province.values: # this is needed since if some cities/counties does not exist
+        if row['Province'] in parameters_us_state.Province.values: # this is needed since if some cities/counties does not exist
             # in parameters. it will gives out error. not sure why...
             state = MAPPING_STATE_CODE_TO_STATE_NAME[row['Province'].split('_')[0]]
             df_policies_US_final_Temp = df_policies_US_final[
