@@ -1,6 +1,7 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
+import zipfile
 from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
 from DELPHI_utils_V3 import (
@@ -370,11 +371,11 @@ def run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX,PATH_TO_FOLDER_D
         list_df_global_predictions_since_100_cases_scenarios
     ).reset_index(drop=True)
     path_to_output = PATH_TO_DATA_SANDBOX + f'predicted/policy_scenario_predictions/df_scenarios_provinces_j&j_{day_after_yesterday}.csv'
-    # path_to_output_zip = PATH_TO_DATA_SANDBOX + f'predicted/policy_scenario_predictions/df_scenarios_provinces_j&j_{day_after_yesterday}.zip'
+    path_to_output_zip = PATH_TO_DATA_SANDBOX + f'predicted/policy_scenario_predictions/df_scenarios_provinces_j&j_{day_after_yesterday}.zip'
     df_global_predictions_since_100_cases_scenarios.to_csv(
         path_to_output,
         index=False
     )
-    # zipfile.ZipFile(path_to_output_zip, mode='w').write(path_to_output,f'df_scenarios_provinces_j&j_{day_after_yesterday}.csv' )
-    # os.remove(path_to_output)
+    zipfile.ZipFile(path_to_output_zip, 'w', zipfile.ZIP_DEFLATED).write(path_to_output,f'df_scenarios_provinces_j&j_{day_after_yesterday}.csv' )
+    os.remove(path_to_output)
     print("Exported all policy-dependent predictions for all countries to data_sandbox")
