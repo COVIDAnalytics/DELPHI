@@ -370,12 +370,14 @@ def run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX,PATH_TO_FOLDER_D
     df_global_predictions_since_100_cases_scenarios = pd.concat(
         list_df_global_predictions_since_100_cases_scenarios
     ).reset_index(drop=True)
-    path_to_output = PATH_TO_DATA_SANDBOX + f'predicted/policy_scenario_predictions/df_scenarios_provinces_j&j_{day_after_yesterday}.csv'
-    path_to_output_zip = PATH_TO_DATA_SANDBOX + f'predicted/policy_scenario_predictions/df_scenarios_provinces_j&j_{day_after_yesterday}.zip'
+    file_name =  f'df_scenarios_provinces_j&j_{day_after_yesterday}'+'_US' if 'US' in country_lists else  \
+        f'df_scenarios_provinces_j&j_{day_after_yesterday}'+'_Ex_US'
+    path_to_output = PATH_TO_DATA_SANDBOX + f'predicted/policy_scenario_predictions/' + file_name + '.csv'
+    path_to_output_zip = PATH_TO_DATA_SANDBOX + f'predicted/policy_scenario_predictions/' + file_name + '.zip'
     df_global_predictions_since_100_cases_scenarios.to_csv(
         path_to_output,
         index=False
     )
-    zipfile.ZipFile(path_to_output_zip, 'w', zipfile.ZIP_DEFLATED).write(path_to_output,f'df_scenarios_provinces_j&j_{day_after_yesterday}.csv' )
+    zipfile.ZipFile(path_to_output_zip, 'w', zipfile.ZIP_DEFLATED).write(path_to_output,file_name + '.csv')
     os.remove(path_to_output)
     print("Exported all policy-dependent predictions for all countries to data_sandbox")
