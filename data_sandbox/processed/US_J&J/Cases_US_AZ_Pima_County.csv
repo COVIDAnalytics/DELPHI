@@ -241,4 +241,7 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-09-17,US,AZ_Pima_County,174,23563,612,,,,,,
 2020-09-18,US,AZ_Pima_County,175,24313,613,,,,,,
 2020-09-19,US,AZ_Pima_County,176,24511,613,,,,,,
-2020-09-20,US,AZ_Pima_County,177,24610,615,,,,,,
+2020-09-20,US,AZ_Pima_County,177,24610,613,,,,,,
+2020-09-21,US,AZ_Pima_County,178,24798,613,,,,,,
+2020-09-22,US,AZ_Pima_County,179,24798,613,,,,,,
+2020-09-23,US,AZ_Pima_County,180,25004,613,,,,,,
