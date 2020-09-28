@@ -28,7 +28,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 USER_RUNNING = "ali"
-current_time = datetime(2020,9,21)
+current_time = datetime(2020,9,25)
 
 yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
@@ -65,7 +65,8 @@ dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
 dict_current_policy_international = dict_current_policy_countries.copy()
 dict_current_policy_international.update(dict_current_policy_us_only)
 
-with open('dict_current_policy_international.csv', 'w') as f:
+str_date = "".join(str(pd.to_datetime(current_time).date()).split("-"))
+with open(f'dict_current_policy_international_{str_date}.csv', 'w') as f:
     for key in dict_current_policy_international.keys():
         f.write("%s,%s\n"%(key,dict_current_policy_international[key]))
 
@@ -347,7 +348,7 @@ delphi_data_saver = DELPHIDataSaver(
 )
 if RUNNING_FOR_JJ == 'True':
     print("JJ file is printed")
-    df_global_predictions_since_100_cases_scenarios.to_csv('df_global_predictions_since_100_cases_scenarios_world.csv', index=False)
+    df_global_predictions_since_100_cases_scenarios.to_csv(f'df_global_predictions_since_100_cases_scenarios_world_{str_date}.csv', index=False)
 else:
     delphi_data_saver.save_policy_predictions_to_dict_pickle(website=True, local_delphi=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
