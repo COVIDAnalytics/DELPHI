@@ -3823,19 +3823,19 @@ Europe,Spain,Pais Vasco,2167707.0
 Europe,Spain,Castilla y Leon,2418694.0
 Europe,Spain,Andalucia,8476718.0
 Europe,Spain,Aragon,1324397.0
-Europe,United Kingdom,England,53012456
-Europe,United Kingdom,South East,9175033
-Europe,United Kingdom,Greater London,8982256
-Europe,United Kingdom,North West,7300075
-Europe,United Kingdom,South West,5616381
-Europe,United Kingdom,Yorkshire and the Humber,5486230
-Europe,United Kingdom,East Midlands,4811065
-Europe,United Kingdom,East of England,6235410
-Europe,United Kingdom,West Midlands,5907872
-Europe,United Kingdom,Scotland,5454238
-Europe,United Kingdom,Northern Ireland,1885189
-Europe,United Kingdom,North East,2656980
-Europe,United Kingdom,Wales,3136383
+Europe,United Kingdom,England,53012456.0
+Europe,United Kingdom,South East,9175033.0
+Europe,United Kingdom,Greater London,8982256.0
+Europe,United Kingdom,North West,7300075.0
+Europe,United Kingdom,South West,5616381.0
+Europe,United Kingdom,Yorkshire and the Humber,5486230.0
+Europe,United Kingdom,East Midlands,4811065.0
+Europe,United Kingdom,East of England,6235410.0
+Europe,United Kingdom,West Midlands,5907872.0
+Europe,United Kingdom,Scotland,5454238.0
+Europe,United Kingdom,Northern Ireland,1885189.0
+Europe,United Kingdom,North East,2656980.0
+Europe,United Kingdom,Wales,3136383.0
 Asia,Japan,Hokkaido,5273681.0
 Asia,Japan,Aichi,7549594.0
 Asia,Japan,Osaka,8823453.0
@@ -3878,7 +3878,7 @@ Asia,Japan,Oita,1134431.0
 Asia,Japan,Tokushima,728633.0
 Asia,Japan,Yamaguchi,1355495.0
 Europe,Germany,Bavaria,12930751.0
-Europe,Germany,Baden-Wurttemberg,11069533.0
+Europe,Germany,Baden-Württemberg,11069533.0
 Europe,Germany,North Rhine-Westphalia,17932651.0
 Europe,Germany,Berlin,3644826.0
 Europe,Germany,Lower Saxony,7982448.0
@@ -4024,45 +4024,45 @@ South America,India,Dadra and Nagar Haveli and Daman and Diu,342853.0
 South America,India,Sikkim,611000.0
 South America,India,Andaman and Nicobar Islands,356152.0
 South America,India,Meghalaya,3211000.0
-Asia,Philippines,Metro Manila,12877253
-Asia,Philippines,Calabarzon,14414774
-Asia,Philippines,Central Luzon,11218177
-Asia,Philippines,Davao Region,4893318
-Asia,Philippines,Central Visayas,7396898
-Asia,Philippines,Zamboanga Peninsula,3629783
-Asia,Philippines,Ilocos Region,5026128
-Asia,Philippines,Western Visayas,7536383
-Asia,Philippines,Eastern Visayas,4440150
-Asia,Philippines,Cordillera Administrative Region,1722006
-Asia,Philippines,Bicol Region,5796989
-Asia,Philippines,Mimaropa,2963360
-Asia,Philippines,Northern Mindanao,4689302
-Asia,Philippines,Autonomous Region in Muslim Mindanao,3781387
-Asia,Philippines,Cagayan Valley,3451410
-Asia,Philippines,Soccsksargen,4245838
-Asia,Philippines,Caraga,2596709
-Europe,Ukraine,Kiev,2967000
-Europe,Ukraine,Chernivtsi,906600
-Europe,Ukraine,Ternopil,1052312
-Europe,Ukraine,Ivano-Frankivsk,1377496
-Europe,Ukraine,Kiev Oblast,1754284
-Europe,Ukraine,Vinnytsia,1575808
-Europe,Ukraine,Kirovohrad,956250
-Europe,Ukraine,Rivne,1160647
-Europe,Ukraine,Lviv,2529608
-Europe,Ukraine,Cherkasy,1220363
-Europe,Ukraine,Zhytomyr,1231239
-Europe,Ukraine,Zakarpattia,1258155
-Europe,Ukraine,Volyn,1038457
-Europe,Ukraine,Zaporizhzhya,1723171
-Europe,Ukraine,Odessa,2383075
-Europe,Ukraine,Dnipropetrovsk,3231140
-Europe,Ukraine,Poltava,1413829
-Europe,Ukraine,Kharkiv,2694007
-Europe,Ukraine,Mykolaiv,1141324
-Europe,Ukraine,Kherson,1046981
-Europe,Ukraine,Sumy,1094284
-Europe,Ukraine,Khmelnytskyi,1274409
-Europe,Ukraine,Donetsk,4200461
-Europe,Ukraine,Chernihiv,1020078
-Europe,Ukraine,Luhansk,2167802
+Asia,Philippines,Metro Manila,12877253.0
+Asia,Philippines,Calabarzon,14414774.0
+Asia,Philippines,Central Luzon,11218177.0
+Asia,Philippines,Davao Region,4893318.0
+Asia,Philippines,Central Visayas,7396898.0
+Asia,Philippines,Zamboanga Peninsula,3629783.0
+Asia,Philippines,Ilocos Region,5026128.0
+Asia,Philippines,Western Visayas,7536383.0
+Asia,Philippines,Eastern Visayas,4440150.0
+Asia,Philippines,Cordillera Administrative Region,1722006.0
+Asia,Philippines,Bicol Region,5796989.0
+Asia,Philippines,Mimaropa,2963360.0
+Asia,Philippines,Northern Mindanao,4689302.0
+Asia,Philippines,Autonomous Region in Muslim Mindanao,3781387.0
+Asia,Philippines,Cagayan Valley,3451410.0
+Asia,Philippines,Soccsksargen,4245838.0
+Asia,Philippines,Caraga,2596709.0
+Europe,Ukraine,Kiev,2967000.0
+Europe,Ukraine,Chernivtsi,906600.0
+Europe,Ukraine,Ternopil,1052312.0
+Europe,Ukraine,Ivano-Frankivsk,1377496.0
+Europe,Ukraine,Kiev Oblast,1754284.0
+Europe,Ukraine,Vinnytsia,1575808.0
+Europe,Ukraine,Kirovohrad,956250.0
+Europe,Ukraine,Rivne,1160647.0
+Europe,Ukraine,Lviv,2529608.0
+Europe,Ukraine,Cherkasy,1220363.0
+Europe,Ukraine,Zhytomyr,1231239.0
+Europe,Ukraine,Zakarpattia,1258155.0
+Europe,Ukraine,Volyn,1038457.0
+Europe,Ukraine,Zaporizhzhya,1723171.0
+Europe,Ukraine,Odessa,2383075.0
+Europe,Ukraine,Dnipropetrovsk,3231140.0
+Europe,Ukraine,Poltava,1413829.0
+Europe,Ukraine,Kharkiv,2694007.0
+Europe,Ukraine,Mykolaiv,1141324.0
+Europe,Ukraine,Kherson,1046981.0
+Europe,Ukraine,Sumy,1094284.0
+Europe,Ukraine,Khmelnytskyi,1274409.0
+Europe,Ukraine,Donetsk,4200461.0
+Europe,Ukraine,Chernihiv,1020078.0
+Europe,Ukraine,Luhansk,2167802.0

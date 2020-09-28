@@ -7,7 +7,7 @@ __pycache__/
 *.iml
 ._*
 *.pyc
-
+*Icon*
 # C extensions
 *.so
 

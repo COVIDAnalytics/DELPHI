@@ -40,7 +40,7 @@ def run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX,PATH_TO_FOLDER_D
 
 
     def createParameters_JJ_Global(path_to, PATH_TO_DATA_SANDBOX, yesterday ):
-        Parameters_Global = pd.read_csv(path_to+f'Parameters_Global_V2_{yesterday}.csv')
+        Parameters_Global = pd.read_csv(path_to+f'Parameters_Global_V2_20200925.csv')
         Parameters_J = pd.read_csv(PATH_TO_DATA_SANDBOX + f'predicted/parameters/Parameters_J&J_{yesterday}.csv')
 
         parameter_Global_J = pd.concat([Parameters_J,Parameters_Global]).reset_index(drop=True)
