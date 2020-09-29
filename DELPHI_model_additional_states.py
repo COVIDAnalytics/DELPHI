@@ -491,7 +491,8 @@ def run_model_additional_states(country_lists,provinces_lists, popcountries):
 
 
 if __name__ == '__main__':
-    USER_RUNNING = "server"
+    USER = os.getenv('USER')
+    USER_RUNNING = "ali" if USER == 'ali' else 'server'
 
     replace_deathcounts = ['Bourgogne-Franche-Comte',
                            'Brittany', 'Corsica','Pays_de_la_Loire' ,'Hauts-de-France', 'Grand_Est',
@@ -520,16 +521,17 @@ if __name__ == '__main__':
     ex_us_names_unique =  ex_us_regions.Country.unique()
     ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
 
-    training_start_date = datetime(2020, 9, 15)
-    training_end_date = datetime(2020, 9, 25)
+    training_start_date = datetime(2020, 9, 21)
+    training_end_date = datetime(2020, 9, 23)
     training_last_date = training_end_date - timedelta(days=1)
     # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
     n_days_to_train = (training_last_date - training_start_date).days
     replace_already_existing_par = False
+    upload_to_s3 = True
 
     provinces_lists = []
-    country_lists = ['Germany', 'Russia'] # ex_us_names
+    country_lists = ['US'] # ex_us_names
     run_model_additional_states(country_lists,provinces_lists,popcountries_org)
     run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX, PATH_TO_FOLDER_DANGER_MAP
                                            , training_end_date, country_lists,provinces_lists,popcountries_org,
-                                           replace_deathcounts)
+                                           replace_deathcounts, upload_to_s3)

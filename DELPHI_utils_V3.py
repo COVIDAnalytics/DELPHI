@@ -9,7 +9,8 @@ from itertools import compress
 import json
 from DELPHI_params_V3 import (TIME_DICT, MAPPING_STATE_CODE_TO_STATE_NAME, default_policy,
                            default_policy_enaction_time, future_policies)
-
+import boto3
+from botocore.exceptions import ClientError
 
 class DELPHIDataSaver:
     def __init__(
@@ -1499,3 +1500,24 @@ def get_testing_data_us() -> pd.DataFrame:
 
 def create_df_policy_change_tracking():
     return ""
+
+def upload_s3_file(file_name, object_name):
+    """Upload a file to an S3 bucket
+
+    :param file_name: File to upload
+    :param bucket: Bucket to upload to
+    :param object_name: S3 object name. If not specified then file_name is used
+    :return: True if file was uploaded, else False
+    """
+    bucket = 'itx-bhq-covid-prediction-files'
+    # If S3 object_name was not specified, use file_name
+    object_name = 'mit_pred/' + object_name
+
+    # Upload the file
+    s3_client = boto3.client('s3')
+    try:
+        response = s3_client.upload_file(file_name, bucket, object_name)
+    except ClientError as e:
+        logging.error(e)
+        return False
+    return True
