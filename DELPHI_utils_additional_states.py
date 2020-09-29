@@ -557,7 +557,7 @@ def read_measures_oxford_data_jj_version():
 
     # counties:
     ex_us_county_names = pd.read_csv(
-         "data_sandbox/processed/Ex_US_counties.csv"
+         "data_sandbox/Ex_US_counties.csv"
     )
 
     ex_us_regions_names = pd.read_csv(

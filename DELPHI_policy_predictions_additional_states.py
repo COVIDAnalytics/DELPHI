@@ -122,22 +122,13 @@ def run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX,PATH_TO_FOLDER_D
     list_df_global_predictions_since_today_scenarios = []
     list_df_global_predictions_since_100_cases_scenarios = []
     obj_value = 0
-    us_city_names = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/US_cities.csv"
-    )
     us_county_names = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
-    )
-    ex_us_county_names = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/Ex_US_counties.csv"
     )
 
     ex_us_regions = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv"
     )
-
-    ex_us_names_unique =  ex_us_regions.Country.unique()
-    ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
 
 
     for continent, country, province in zip(

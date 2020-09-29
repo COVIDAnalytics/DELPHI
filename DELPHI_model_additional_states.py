@@ -505,14 +505,8 @@ if __name__ == '__main__':
         PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
     )
 
-    us_city_names = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/US_cities.csv"
-    )
     us_county_names = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
-    )
-    ex_us_county_names = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/Ex_US_counties.csv"
     )
 
     ex_us_regions = pd.read_csv(
