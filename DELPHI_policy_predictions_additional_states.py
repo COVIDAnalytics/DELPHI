@@ -92,13 +92,14 @@ def run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX,PATH_TO_FOLDER_D
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
     str_date = "".join(str(training_end_date.date()).split("-"))
-    dic_file_name = f'dict_current_policy_international_{str_date}.csv'
-    with open(dic_file_name, 'w') as f:
+    path_to_results = 'data_sandbox/predicted/policy_scenario_predictions/'
+    dic_file_name = f'dict_current_policy_international_provinces_{str_date}.csv'
+    with open(path_to_results + dic_file_name, 'w') as f:
         for key in dict_current_policy_international.keys():
             c_name , p_name = key
-            f.write("%s,%s,%s\n"%(c_name,p_name.replace(',',' '),dict_current_policy_international[key]))
+            f.write("%s,%s\n"%((c_name.replace(',',' '),p_name),dict_current_policy_international[key]))
     if upload_to_s3:
-        upload_s3_file(dic_file_name,dic_file_name)
+        upload_s3_file(path_to_results + dic_file_name,dic_file_name)
     dict_normalized_policy_gamma_us_only = {
         'No_Measure': 1.0,
         'Restrict_Mass_Gatherings': 0.873,

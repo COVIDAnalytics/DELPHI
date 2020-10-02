@@ -28,8 +28,10 @@ class DELPHIDataSaver:
     def save_all_datasets(self, save_since_100_cases=False, website=False):
         today_date_str = "".join(str(datetime.now().date()).split("-"))
         # Save parameters
+        file_name_param = f"Parameters_Global_V2_annealing_{today_date_str}.csv"
+        print("Parameters are created in " + file_name_param)
         self.df_global_parameters.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_annealing_{today_date_str}.csv", index=False
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/"+file_name_param, index=False
         )
         # Save predictions since today
         self.df_global_predictions_since_today.to_csv(

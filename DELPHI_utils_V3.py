@@ -1511,12 +1511,13 @@ def upload_s3_file(file_name, object_name):
     """
     bucket = 'itx-bhq-covid-prediction-files'
     # If S3 object_name was not specified, use file_name
-    object_name = 'mit_pred/' + object_name
+    object_name_folder = 'mit_pred/' + object_name
 
     # Upload the file
+    extra_arg = {'ServerSideEncryption' : 'AES256'}
     s3_client = boto3.client('s3')
     try:
-        response = s3_client.upload_file(file_name, bucket, object_name)
+        response = s3_client.upload_file(file_name, bucket, object_name_folder,extra_arg)
     except ClientError as e:
         logging.error(e)
         return False

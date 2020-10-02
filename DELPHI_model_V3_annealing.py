@@ -17,24 +17,14 @@ from DELPHI_params_V3 import (
     validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
     VentilatedD, default_maxT, p_v, p_d, p_h, max_iter
 )
-import os
+from DELPHI_model_secondwave_with_policies import run_model_secondwave_with_policies
+import os, sys
 import yaml
 
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-USER_RUNNING = "server"
-
-current_time = datetime.now()
-time_beginning = time.time()
-yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
-PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
-PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
-popcountries = pd.read_csv(
-    PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
-)
-popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
 
 def solve_and_predict_area(
         tuple_area_: tuple, yesterday_: str, allowed_deviation_: float, pastparameters_: pd.DataFrame,
@@ -51,7 +41,7 @@ def solve_and_predict_area(
             print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
             return None
 
-        print(country + ", " + province)
+        print(country + ", " + province + ", " + totalcases.date.iloc[-1])
         if pastparameters_ is not None:
             parameter_list_total = pastparameters_[
                 (pastparameters_.Country == country) &
@@ -318,6 +308,16 @@ def solve_and_predict_area(
         return None
 
 if __name__ == "__main__":
+    arg = sys.argv[1:len(sys.argv)]
+    RUNNING_FOR_JJ = arg[0] if len(arg) > 0 else ""
+    USER = os.getenv('USER')
+    USER_RUNNING = "ali" if USER == 'ali' else 'server'
+    upload_to_s3 = False
+    current_time = datetime.now()
+    time_beginning = time.time()
+    yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
+    PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
+    PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
     popcountries = pd.read_csv(
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
@@ -325,6 +325,7 @@ if __name__ == "__main__":
         pastparameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V2_{yesterday}.csv"
         )
+        print(f"Parameters_Global_V2_{yesterday}.csv used")
     except:
         pastparameters = None
     # Initalizing lists of the different dataframes that will be concatenated in the end
@@ -367,24 +368,29 @@ if __name__ == "__main__":
     # Appending parameters, aggregations per country, per continent, and for the world
     # for predictions today & since 100
     today_date_str = "".join(str(current_time.date()).split("-"))
-    df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
-        ["Country", "Province"]
-    ).reset_index(drop=True)
-    df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
-    df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_today
-    )
-    df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-    df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_100_cases
-    )
-    delphi_data_saver = DELPHIDataSaver(
-        path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
-        path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
-        df_global_parameters=df_global_parameters,
-        df_global_predictions_since_today=df_global_predictions_since_today,
-        df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
-    )
-    delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
-    print(f"Exported all 3 datasets to website & danger_map repositories, "+
-          f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes")
+    if len(list_df_global_parameters) > 0:
+        df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
+            ["Country", "Province"]
+        ).reset_index(drop=True)
+        df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
+        df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
+            df_global_predictions_since_today
+        )
+        df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
+        df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
+            df_global_predictions_since_100_cases
+        )
+        delphi_data_saver = DELPHIDataSaver(
+            path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
+            path_to_website_predicted=PATH_TO_FOLDER_DANGER_MAP,
+            df_global_parameters=df_global_parameters,
+            df_global_predictions_since_today=df_global_predictions_since_today,
+            df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
+        )
+        delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
+        print(f"Exported all 3 datasets to website & danger_map repositories, "+
+              f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes")
+    else:
+        print("No parameters created...")
+    run_model_secondwave_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
+                                       current_time, list_tuples, upload_to_s3)
