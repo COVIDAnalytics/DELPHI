@@ -515,8 +515,8 @@ if __name__ == '__main__':
     ex_us_names_unique =  ex_us_regions.Country.unique()
     ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
 
-    training_start_date = datetime(2020, 9, 21)
-    training_end_date = datetime(2020, 9, 23)
+    training_start_date = datetime(2020, 9, 22)
+    training_end_date = datetime(2020, 10, 1)
     training_last_date = training_end_date - timedelta(days=1)
     # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
     n_days_to_train = (training_last_date - training_start_date).days

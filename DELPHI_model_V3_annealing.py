@@ -312,7 +312,7 @@ if __name__ == "__main__":
     RUNNING_FOR_JJ = arg[0] if len(arg) > 0 else ""
     USER = os.getenv('USER')
     USER_RUNNING = "ali" if USER == 'ali' else 'server'
-    upload_to_s3 = False
+    upload_to_s3 = True
     current_time = datetime.now()
     time_beginning = time.time()
     yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
