@@ -1509,7 +1509,7 @@ def upload_s3_file(file_name, object_name):
     :param object_name: S3 object name. If not specified then file_name is used
     :return: True if file was uploaded, else False
     """
-    bucket = 'itx-bhq-covid-prediction-files'
+    bucket = 'itx-bhq-data-covidcollector'
     # If S3 object_name was not specified, use file_name
     object_name_folder = 'mit_pred/' + object_name
 
