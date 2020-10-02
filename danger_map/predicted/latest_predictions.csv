@@ -1,0 +1,192 @@
+Continent,Country,Province,Day,Total Detected,Total Detected Deaths
+Africa,Algeria,None,2020-08-15,13660,1009
+Africa,Burkina Faso,None,2020-08-15,946,59
+Africa,Cameroon,None,2020-08-15,47439,1395
+Africa,Congo (Kinshasa),None,2020-08-15,13756,303
+Africa,Cote d'Ivoire,None,2020-08-15,20543,211
+Africa,Djibouti,None,2020-08-15,30673,330
+Africa,Egypt,None,2020-08-15,527546,19972
+Africa,Ethiopia,None,2020-08-15,24939,628
+Africa,Gabon,None,2020-08-15,4863,33
+Africa,Ghana,None,2020-08-15,15161,68
+Africa,Guinea,None,2020-08-15,5465,32
+Africa,Jamaica,None,2020-08-15,600,10
+Africa,Kenya,None,2020-08-15,52059,1631
+Africa,Madagascar,None,2020-08-15,2974,54
+Africa,Mali,None,2020-08-15,3005,202
+Africa,Mauritius,None,2020-08-15,336,10
+Africa,Morocco,None,2020-08-15,8902,243
+Africa,Niger,None,2020-08-15,1040,80
+Africa,Nigeria,None,2020-08-15,29621,833
+Africa,None,None,2020-08-15,2102610,60937
+Africa,Rwanda,None,2020-08-15,683,1
+Africa,Senegal,None,2020-08-15,8750,115
+Africa,Somalia,None,2020-08-15,3901,138
+Africa,South Africa,None,2020-08-15,1274330,32807
+Africa,Sudan,None,2020-08-15,9841,705
+Africa,Tanzania,None,2020-08-15,514,21
+Africa,Tunisia,None,2020-08-15,1063,47
+Asia,Afghanistan,None,2020-08-15,69849,1291
+Asia,Azerbaijan,None,2020-08-15,55251,674
+Asia,Bahrain,None,2020-08-15,72647,140
+Asia,Bangladesh,None,2020-08-15,414576,5618
+Asia,Georgia,None,2020-08-15,830,14
+Asia,India,None,2020-08-15,1331445,39041
+Asia,Indonesia,None,2020-08-15,118927,7152
+Asia,Iran,None,2020-08-15,274118,14541
+Asia,Iraq,None,2020-08-15,712025,20934
+Asia,Israel,None,2020-08-15,17627,300
+Asia,Japan,None,2020-08-15,17921,1121
+Asia,Jordan,None,2020-08-15,1247,16
+Asia,Kazakhstan,None,2020-08-15,36763,174
+Asia,"Korea, South",None,2020-08-15,11443,283
+Asia,Kuwait,None,2020-08-15,56661,623
+Asia,Lebanon,None,2020-08-15,2253,53
+Asia,Malaysia,None,2020-08-15,8036,127
+Asia,None,None,2020-08-15,5939713,138184
+Asia,Oman,None,2020-08-15,249215,1151
+Asia,Pakistan,None,2020-08-15,1127066,23038
+Asia,Philippines,None,2020-08-15,68366,3459
+Asia,Qatar,None,2020-08-15,129066,131
+Asia,Russia,None,2020-08-15,653588,11239
+Asia,Saudi Arabia,None,2020-08-15,225295,1614
+Asia,Singapore,None,2020-08-15,44072,32
+Asia,Sri Lanka,None,2020-08-15,3126,22
+Asia,Thailand,None,2020-08-15,3074,58
+Asia,Turkey,None,2020-08-15,175172,4883
+Asia,United Arab Emirates,None,2020-08-15,53293,429
+Asia,Uzbekistan,None,2020-08-15,6413,26
+Asia,Vietnam,None,2020-08-15,348,0
+Europe,Albania,None,2020-08-15,2374,68
+Europe,Andorra,None,2020-08-15,803,52
+Europe,Austria,None,2020-08-15,16257,705
+Europe,Belarus,None,2020-08-15,69577,393
+Europe,Belgium,None,2020-08-15,59300,9800
+Europe,Bosnia and Herzegovina,None,2020-08-15,3070,206
+Europe,Bulgaria,None,2020-08-15,3691,229
+Europe,Croatia,None,2020-08-15,2252,116
+Europe,Cyprus,None,2020-08-15,968,17
+Europe,Czechia,None,2020-08-15,9662,346
+Europe,Denmark,None,2020-08-15,12110,606
+Europe,Estonia,None,2020-08-15,1900,72
+Europe,Finland,None,2020-08-15,7219,353
+Europe,France,None,2020-08-15,184579,28893
+Europe,Germany,None,2020-08-15,179669,9448
+Europe,Greece,None,2020-08-15,2932,178
+Europe,Hungary,None,2020-08-15,4103,583
+Europe,Iceland,None,2020-08-15,1817,10
+Europe,Ireland,None,2020-08-15,24840,1694
+Europe,Italy,None,2020-08-15,235522,34027
+Europe,Kosovo,None,2020-08-15,1238,33
+Europe,Lithuania,None,2020-08-15,1752,82
+Europe,Luxembourg,None,2020-08-15,4036,113
+Europe,Moldova,None,2020-08-15,14629,623
+Europe,Netherlands,None,2020-08-15,47482,6109
+Europe,None,None,2020-08-15,1718180,184131
+Europe,Norway,None,2020-08-15,9310,271
+Europe,Poland,None,2020-08-15,37045,1774
+Europe,Portugal,None,2020-08-15,37692,1676
+Europe,Romania,None,2020-08-15,22901,1555
+Europe,San Marino,None,2020-08-15,688,45
+Europe,Serbia,None,2020-08-15,11930,253
+Europe,Slovakia,None,2020-08-15,1547,30
+Europe,Slovenia,None,2020-08-15,1481,113
+Europe,Spain,None,2020-08-15,238849,27635
+Europe,Sweden,None,2020-08-15,82651,9121
+Europe,Switzerland,None,2020-08-15,30844,1958
+Europe,Ukraine,None,2020-08-15,48452,1478
+Europe,United Kingdom,None,2020-08-15,303008,43466
+None,None,None,2020-08-15,17873951,796360
+North America,Canada,Alberta,2020-08-15,7442,151
+North America,Canada,British Columbia,2020-08-15,2531,179
+North America,Canada,Manitoba,2020-08-15,300,7
+North America,Canada,New Brunswick,2020-08-15,472,0
+North America,Canada,Newfoundland and Labrador,2020-08-15,261,3
+North America,Canada,None,2020-08-15,107206,9580
+North America,Canada,Nova Scotia,2020-08-15,1068,69
+North America,Canada,Ontario,2020-08-15,36995,3046
+North America,Canada,Quebec,2020-08-15,57437,6113
+North America,Canada,Saskatchewan,2020-08-15,700,12
+North America,Costa Rica,None,2020-08-15,2724,26
+North America,Cuba,None,2020-08-15,2188,88
+North America,Dominican Republic,None,2020-08-15,39465,1162
+North America,El Salvador,None,2020-08-15,6128,137
+North America,Guatemala,None,2020-08-15,32197,1266
+North America,Honduras,None,2020-08-15,22611,897
+North America,Mexico,None,2020-08-15,406962,57131
+North America,None,None,2020-08-15,3561390,229078
+North America,Panama,None,2020-08-15,50162,1218
+North America,US,Alabama,2020-08-15,41872,1546
+North America,US,Alaska,2020-08-15,1035,20
+North America,US,Arizona,2020-08-15,265928,14206
+North America,US,Arkansas,2020-08-15,37648,643
+North America,US,California,2020-08-15,262012,9623
+North America,US,Colorado,2020-08-15,31510,1816
+North America,US,Connecticut,2020-08-15,46024,4440
+North America,US,Delaware,2020-08-15,11036,467
+North America,US,District of Columbia,2020-08-15,10521,572
+North America,US,Florida,2020-08-15,149084,6957
+North America,US,Georgia,2020-08-15,67821,3034
+North America,US,Hawaii,2020-08-15,670,17
+North America,US,Idaho,2020-08-15,5211,154
+North America,US,Illinois,2020-08-15,146888,6967
+North America,US,Indiana,2020-08-15,44900,2849
+North America,US,Iowa,2020-08-15,26716,808
+North America,US,Kansas,2020-08-15,11673,276
+North America,US,Kentucky,2020-08-15,18127,780
+North America,US,Louisiana,2020-08-15,51530,3707
+North America,US,Maine,2020-08-15,5076,199
+North America,US,Maryland,2020-08-15,73489,3674
+North America,US,Massachusetts,2020-08-15,108001,8055
+North America,US,Michigan,2020-08-15,71447,6795
+North America,US,Minnesota,2020-08-15,40430,1884
+North America,US,Mississippi,2020-08-15,25622,1326
+North America,US,Missouri,2020-08-15,18866,1247
+North America,US,Montana,2020-08-15,549,19
+North America,US,Nebraska,2020-08-15,18960,234
+North America,US,Nevada,2020-08-15,19125,954
+North America,US,New Hampshire,2020-08-15,6301,505
+North America,US,New Jersey,2020-08-15,167024,13025
+North America,US,New Mexico,2020-08-15,12399,600
+North America,US,New York,2020-08-15,377370,30722
+North America,US,None,2020-08-15,2891747,157573
+North America,US,North Carolina,2020-08-15,111075,3600
+North America,US,North Dakota,2020-08-15,3536,95
+North America,US,Ohio,2020-08-15,47459,3190
+North America,US,Oklahoma,2020-08-15,18868,944
+North America,US,Oregon,2020-08-15,7973,281
+North America,US,Pennsylvania,2020-08-15,89709,7581
+North America,US,Rhode Island,2020-08-15,16932,1012
+North America,US,South Carolina,2020-08-15,62299,2637
+North America,US,South Dakota,2020-08-15,6915,108
+North America,US,Tennessee,2020-08-15,39437,672
+North America,US,Texas,2020-08-15,120745,3139
+North America,US,Utah,2020-08-15,36104,395
+North America,US,Vermont,2020-08-15,1112,60
+North America,US,Virginia,2020-08-15,71391,2180
+North America,US,Washington,2020-08-15,40636,2108
+North America,US,West Virginia,2020-08-15,3003,129
+North America,US,Wisconsin,2020-08-15,37986,1280
+North America,US,Wyoming,2020-08-15,1702,41
+Oceania,Australia,Australian Capital Territory,2020-08-15,108,3
+Oceania,Australia,New South Wales,2020-08-15,3101,51
+Oceania,Australia,None,2020-08-15,7229,106
+Oceania,Australia,Queensland,2020-08-15,1056,6
+Oceania,Australia,South Australia,2020-08-15,440,4
+Oceania,Australia,Tasmania,2020-08-15,228,13
+Oceania,Australia,Victoria,2020-08-15,1720,20
+Oceania,Australia,Western Australia,2020-08-15,576,9
+Oceania,New Zealand,None,2020-08-15,1506,23
+Oceania,None,None,2020-08-15,8735,129
+South America,Argentina,None,2020-08-15,375930,11267
+South America,Bolivia,None,2020-08-15,73650,2500
+South America,Brazil,None,2020-08-15,2295330,124555
+South America,Chile,None,2020-08-15,903927,15158
+South America,Colombia,None,2020-08-15,411116,14104
+South America,Ecuador,None,2020-08-15,40846,4563
+South America,None,None,2020-08-15,4543323,183901
+South America,Paraguay,None,2020-08-15,1418,15
+South America,Peru,None,2020-08-15,391876,11233
+South America,Trinidad and Tobago,None,2020-08-15,117,8
+South America,Uruguay,None,2020-08-15,928,28
+South America,Venezuela,None,2020-08-15,48185,470

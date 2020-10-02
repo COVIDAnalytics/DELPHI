@@ -1,0 +1,2 @@
+Continent,Country,Province,Data Start Date,MAPE,Infection Rate,Median Day of Action,Rate of Action,Rate of Death,Mortality Rate,Rate of Mortality Rate Decay,Internal Parameter 1,Internal Parameter 2,Jump Magnitude,Jump Time,Jump Decay
+Europe,Germany,None,2020-03-01,53.5642150739014,2.677494106843973,5.195919113778112,4.433701322379444,0.07411301929294752,0.049420571360542606,0.02527099558450257,2.6869293369112826,0.4814319288331464,3.070234326601789,97.62232252280076,1.0407803833222

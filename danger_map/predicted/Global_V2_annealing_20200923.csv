@@ -1,0 +1,1009 @@
+Continent,Country,Province,Day,Total Detected,Active,Active Hospitalized,Cumulative Hospitalized,Total Detected Deaths,Active Ventilated
+None,None,None,2020-09-23,28773,23066809,3460183,4307,-23064254,864997
+None,None,None,2020-09-24,28789,24745267,3711947,4309,-24742775,927940
+None,None,None,2020-09-25,28802,26545909,3982040,4311,-26543477,995465
+None,None,None,2020-09-26,28815,28477598,4271789,4312,-28475221,1067903
+None,None,None,2020-09-27,28828,30549912,4582633,4314,-30547589,1145616
+None,None,None,2020-09-28,28839,32772966,4916085,4316,-32770693,1228981
+None,None,None,2020-09-29,28849,35157718,5273795,4318,-35155495,1318409
+None,None,None,2020-09-30,28858,37716002,5657533,4319,-37713826,1414344
+None,None,None,2020-10-01,28867,40460520,6069207,4320,-40458387,1517264
+None,None,None,2020-10-02,28875,43404841,6510852,4323,-43402752,1627676
+None,None,None,2020-10-03,28882,46563426,6984636,4324,-46561376,1746124
+None,None,None,2020-10-04,28888,49951959,7492910,4325,-49949949,1873194
+None,None,None,2020-10-05,28894,53587035,8038168,4325,-53585060,2009509
+None,None,None,2020-10-06,28900,57486498,8623084,4326,-57484558,2155739
+None,None,None,2020-10-07,28905,61669660,9250556,4327,-61667756,2312608
+None,None,None,2020-10-08,28909,66157298,9923697,4327,-66155425,2480894
+None,None,None,2020-10-09,28914,70971639,10645845,4328,-70969795,2661432
+None,None,None,2020-10-10,28918,76136374,11420553,4329,-76134558,2855110
+None,None,None,2020-10-11,28922,81677031,12251649,4329,-81675242,3062884
+None,None,None,2020-10-12,28925,87620920,13143228,4329,-87619156,3285780
+None,None,None,2020-10-13,28927,93997130,14099656,4330,-93995392,3524888
+None,None,None,2020-10-14,28931,100837187,15125661,4330,-100835470,3781390
+None,None,None,2020-10-15,28933,108175039,16226336,4331,-108173344,4056560
+None,None,None,2020-10-16,28935,116047072,17407139,4331,-116045398,4351761
+None,None,None,2020-10-17,28937,124492101,18673890,4331,-124490447,4668450
+None,None,None,2020-10-18,28939,133551736,20032832,4331,-133550099,5008186
+None,None,None,2020-10-19,28940,143270831,21490694,4332,-143269213,5372653
+None,None,None,2020-10-20,28942,153696860,23054596,4332,-153695258,5763628
+None,None,None,2020-10-21,28944,164881266,24732255,4333,-164879681,6183043
+None,None,None,2020-10-22,28946,176879548,26531995,4333,-176877977,6632979
+None,None,None,2020-10-23,28948,189751244,28462748,4334,-189749688,7115668
+None,None,None,2020-10-24,28949,203559949,30534051,4334,-203558405,7633495
+None,None,None,2020-10-25,28950,218373517,32756084,4334,-218371987,8189004
+None,None,None,2020-10-26,28951,234265571,35139890,4334,-234264052,8784956
+None,None,None,2020-10-27,28953,251313696,37697106,4334,-251312188,9424261
+None,None,None,2020-10-28,28953,269601751,40440313,4334,-269600254,10110063
+None,None,None,2020-10-29,28954,289220381,43383105,4334,-289218894,10845761
+None,None,None,2020-10-30,28955,310267019,46540098,4334,-310265542,11635011
+None,None,None,2020-10-31,28955,332845888,49926927,4334,-332844420,12481718
+None,None,None,2020-11-01,28956,357067995,53560242,4335,-357066536,13390047
+None,None,None,2020-11-02,28956,383053264,57458031,4335,-383051814,14364495
+None,None,None,2020-11-03,28957,410929589,61639478,4335,-410928146,15409857
+None,None,None,2020-11-04,28957,440833343,66125040,4335,-440831907,16531248
+None,None,None,2020-11-05,28958,472912355,70936891,4335,-472910927,17734211
+None,None,None,2020-11-06,28958,507325918,76098923,4335,-507324497,19024720
+None,None,None,2020-11-07,28958,544244781,81636750,4335,-544243364,20409177
+None,None,None,2020-11-08,28959,583851147,87577704,4335,-583849737,21894416
+None,None,None,2020-11-09,28959,626339621,93950973,4335,-626338216,23487734
+None,None,None,2020-11-10,28959,671921259,100788218,4335,-671919859,25197046
+None,None,None,2020-11-11,28959,720818582,108122816,4335,-720817187,27030695
+None,None,None,2020-11-12,28960,773272376,115990884,4335,-773270987,28997713
+None,None,None,2020-11-13,28960,829542737,124431437,4335,-829541352,31107851
+None,None,None,2020-11-14,28960,889909063,133486385,4335,-889907681,33371588
+None,None,None,2020-11-15,28960,954670062,143200534,4335,-954668684,35800126
+None,None,None,2020-11-16,28960,1024143854,153621602,4335,-1024142480,38405393
+None,None,None,2020-11-17,28960,1098675121,164801291,4335,-1098673750,41200316
+None,None,None,2020-11-18,28960,1178629383,176794430,4335,-1178628017,44198601
+None,None,None,2020-11-19,28961,1264398916,189659858,4335,-1264397552,47414958
+None,None,None,2020-11-20,28961,1356408257,203461259,4335,-1356406897,50865309
+None,None,None,2020-11-21,28961,1455114220,218267152,4335,-1455112863,54566782
+None,None,None,2020-11-22,28961,1561005885,234150901,4335,-1561004531,58537720
+None,None,None,2020-11-23,28961,1674604604,251190708,4335,-1674603253,62797672
+None,None,None,2020-11-24,28961,1796471531,269470746,4335,-1796470182,67367682
+None,None,None,2020-11-25,28961,1927207891,289081200,4335,-1927206543,72270295
+None,None,None,2020-11-26,28961,2067453147,310117988,4335,-2067451801,77529492
+None,None,None,2020-11-27,28961,2217900346,332685067,4335,-2217899002,83171262
+None,None,None,2020-11-28,28961,2379296260,356894453,4335,-2379294917,89223609
+None,None,None,2020-11-29,28961,2552441382,382866221,4335,-2552440040,95716551
+None,None,None,2020-11-30,28961,2738189928,410728502,4335,-2738188588,102682122
+None,None,None,2020-12-01,28961,2937456205,440618443,4335,-2937454867,110154607
+None,None,None,2020-12-02,28961,3151228503,472684287,4335,-3151227167,118171068
+None,None,None,2020-12-03,28962,3380550018,507082513,4335,-3380548683,126770625
+None,None,None,2020-12-04,28962,3626551134,543982680,4335,-3626549800,135995667
+None,None,None,2020-12-05,28962,3890452191,583567838,4335,-3890450858,145891957
+None,None,None,2020-12-06,28962,4173563473,626034530,4335,-4173562142,156508630
+None,None,None,2020-12-07,28962,4477285220,671592792,4335,-4477283891,167898195
+None,None,None,2020-12-08,28962,4803108770,720466324,4335,-4803107441,180116578
+None,None,None,2020-12-09,28962,5152651591,772897747,4335,-5152650263,193224434
+None,None,None,2020-12-10,28962,5527626055,829143916,4335,-5527624730,207285977
+None,None,None,2020-12-11,28962,5929873686,889481061,4335,-5929872362,222370263
+None,None,None,2020-12-12,28962,6361386372,954207963,4335,-6361385048,238551989
+None,None,None,2020-12-13,28962,6824306368,1023645962,4335,-6824305046,255911488
+None,None,None,2020-12-14,28962,7320926298,1098138952,4335,-7320924977,274534736
+None,None,None,2020-12-15,28962,7853689156,1178053380,4335,-7853687836,294513343
+Oceania,Australia,Australian Capital Territory,2020-09-23,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-09-24,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-09-25,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-09-26,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-09-27,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-09-28,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-09-29,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-09-30,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-01,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-02,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-03,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-04,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-05,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-06,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-07,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-08,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-09,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-10,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-11,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-12,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-13,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-14,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-15,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-16,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-17,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-18,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-19,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-20,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-21,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-22,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-23,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-24,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-25,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-26,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-27,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-28,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-29,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-30,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-10-31,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-01,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-02,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-03,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-04,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-05,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-06,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-07,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-08,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-09,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-10,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-11,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-12,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-13,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-14,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-15,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-16,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-17,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-18,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-19,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-20,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-21,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-22,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-23,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-24,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-25,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-26,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-27,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-28,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-29,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-11-30,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-01,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-02,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-03,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-04,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-05,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-06,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-07,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-08,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-09,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-10,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-11,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-12,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-13,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-14,108,0,0,14,3,0
+Oceania,Australia,Australian Capital Territory,2020-12-15,108,0,0,14,3,0
+Oceania,Australia,New South Wales,2020-09-23,3978,42,13,595,54,1
+Oceania,Australia,New South Wales,2020-09-24,3978,39,12,595,54,1
+Oceania,Australia,New South Wales,2020-09-25,3978,37,12,595,54,1
+Oceania,Australia,New South Wales,2020-09-26,3978,35,11,595,54,1
+Oceania,Australia,New South Wales,2020-09-27,3979,33,11,595,54,1
+Oceania,Australia,New South Wales,2020-09-28,3979,31,10,595,54,1
+Oceania,Australia,New South Wales,2020-09-29,3979,29,10,595,54,1
+Oceania,Australia,New South Wales,2020-09-30,3979,28,9,595,54,1
+Oceania,Australia,New South Wales,2020-10-01,3979,26,9,595,54,1
+Oceania,Australia,New South Wales,2020-10-02,3979,25,9,595,54,1
+Oceania,Australia,New South Wales,2020-10-03,3979,23,8,595,54,1
+Oceania,Australia,New South Wales,2020-10-04,3979,22,8,595,54,1
+Oceania,Australia,New South Wales,2020-10-05,3979,21,7,595,54,1
+Oceania,Australia,New South Wales,2020-10-06,3979,20,7,595,54,1
+Oceania,Australia,New South Wales,2020-10-07,3979,18,7,595,54,1
+Oceania,Australia,New South Wales,2020-10-08,3979,17,6,595,54,0
+Oceania,Australia,New South Wales,2020-10-09,3979,16,6,595,54,0
+Oceania,Australia,New South Wales,2020-10-10,3979,15,6,595,54,0
+Oceania,Australia,New South Wales,2020-10-11,3979,15,6,595,54,0
+Oceania,Australia,New South Wales,2020-10-12,3979,14,5,595,54,0
+Oceania,Australia,New South Wales,2020-10-13,3979,13,5,595,54,0
+Oceania,Australia,New South Wales,2020-10-14,3979,12,5,595,54,0
+Oceania,Australia,New South Wales,2020-10-15,3979,12,5,595,54,0
+Oceania,Australia,New South Wales,2020-10-16,3979,11,5,595,54,0
+Oceania,Australia,New South Wales,2020-10-17,3979,10,4,595,54,0
+Oceania,Australia,New South Wales,2020-10-18,3979,10,4,595,54,0
+Oceania,Australia,New South Wales,2020-10-19,3979,9,4,595,54,0
+Oceania,Australia,New South Wales,2020-10-20,3979,9,4,595,54,0
+Oceania,Australia,New South Wales,2020-10-21,3979,8,4,595,54,0
+Oceania,Australia,New South Wales,2020-10-22,3979,8,3,595,54,0
+Oceania,Australia,New South Wales,2020-10-23,3979,7,3,595,54,0
+Oceania,Australia,New South Wales,2020-10-24,3979,7,3,595,54,0
+Oceania,Australia,New South Wales,2020-10-25,3979,6,3,595,54,0
+Oceania,Australia,New South Wales,2020-10-26,3979,6,3,595,54,0
+Oceania,Australia,New South Wales,2020-10-27,3980,6,3,595,54,0
+Oceania,Australia,New South Wales,2020-10-28,3980,5,3,595,54,0
+Oceania,Australia,New South Wales,2020-10-29,3980,5,2,595,54,0
+Oceania,Australia,New South Wales,2020-10-30,3980,5,2,595,54,0
+Oceania,Australia,New South Wales,2020-10-31,3980,5,2,595,54,0
+Oceania,Australia,New South Wales,2020-11-01,3980,4,2,595,54,0
+Oceania,Australia,New South Wales,2020-11-02,3980,4,2,595,54,0
+Oceania,Australia,New South Wales,2020-11-03,3980,4,2,595,54,0
+Oceania,Australia,New South Wales,2020-11-04,3980,4,2,595,54,0
+Oceania,Australia,New South Wales,2020-11-05,3980,3,2,595,54,0
+Oceania,Australia,New South Wales,2020-11-06,3980,3,2,595,54,0
+Oceania,Australia,New South Wales,2020-11-07,3980,3,2,595,54,0
+Oceania,Australia,New South Wales,2020-11-08,3980,3,2,595,54,0
+Oceania,Australia,New South Wales,2020-11-09,3980,3,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-10,3980,3,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-11,3980,2,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-12,3980,2,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-13,3980,2,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-14,3980,2,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-15,3980,2,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-16,3980,2,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-17,3980,2,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-18,3980,2,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-19,3980,2,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-20,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-21,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-22,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-23,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-24,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-25,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-26,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-27,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-28,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-29,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-11-30,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-12-01,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-12-02,3980,1,1,595,54,0
+Oceania,Australia,New South Wales,2020-12-03,3980,1,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-04,3980,1,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-05,3980,1,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-06,3980,1,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-07,3980,1,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-08,3980,1,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-09,3980,1,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-10,3980,0,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-11,3980,0,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-12,3980,0,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-13,3980,0,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-14,3980,0,0,595,54,0
+Oceania,Australia,New South Wales,2020-12-15,3980,0,0,595,54,0
+Oceania,Australia,None,2020-09-23,26736,23066700,3460157,4003,-23064282,864994
+Oceania,Australia,None,2020-09-24,26750,24745164,3711922,4005,-24742803,927937
+Oceania,Australia,None,2020-09-25,26763,26545811,3982016,4007,-26543505,995462
+Oceania,Australia,None,2020-09-26,26774,28477505,4271766,4008,-28475249,1067900
+Oceania,Australia,None,2020-09-27,26786,30549823,4582610,4010,-30547617,1145613
+Oceania,Australia,None,2020-09-28,26796,32772881,4916064,4012,-32770721,1228978
+Oceania,Australia,None,2020-09-29,26805,35157638,5273774,4014,-35155523,1318406
+Oceania,Australia,None,2020-09-30,26814,37715926,5657513,4015,-37713854,1414342
+Oceania,Australia,None,2020-10-01,26822,40460447,6069188,4016,-40458415,1517262
+Oceania,Australia,None,2020-10-02,26829,43404773,6510834,4017,-43402780,1627674
+Oceania,Australia,None,2020-10-03,26836,46563361,6984618,4018,-46561404,1746122
+Oceania,Australia,None,2020-10-04,26842,49951898,7492894,4019,-49949977,1873192
+Oceania,Australia,None,2020-10-05,26847,53586976,8038152,4019,-53585088,2009507
+Oceania,Australia,None,2020-10-06,26853,57486442,8623069,4020,-57484586,2155737
+Oceania,Australia,None,2020-10-07,26857,61669608,9250541,4021,-61667785,2312606
+Oceania,Australia,None,2020-10-08,26861,66157249,9923683,4021,-66155454,2480892
+Oceania,Australia,None,2020-10-09,26866,70971592,10645832,4022,-70969824,2661430
+Oceania,Australia,None,2020-10-10,26869,76136330,11420540,4023,-76134587,2855108
+Oceania,Australia,None,2020-10-11,26873,81676989,12251636,4023,-81675271,3062882
+Oceania,Australia,None,2020-10-12,26876,87620880,13143216,4023,-87619185,3285779
+Oceania,Australia,None,2020-10-13,26878,93997093,14099645,4024,-93995421,3524887
+Oceania,Australia,None,2020-10-14,26882,100837151,15125650,4024,-100835499,3781389
+Oceania,Australia,None,2020-10-15,26884,108175005,16226326,4025,-108173373,4056559
+Oceania,Australia,None,2020-10-16,26886,116047040,17407129,4025,-116045427,4351760
+Oceania,Australia,None,2020-10-17,26888,124492071,18673880,4025,-124490476,4668449
+Oceania,Australia,None,2020-10-18,26890,133551707,20032823,4025,-133550128,5008185
+Oceania,Australia,None,2020-10-19,26891,143270804,21490686,4026,-143269242,5372652
+Oceania,Australia,None,2020-10-20,26893,153696834,23054588,4026,-153695287,5763628
+Oceania,Australia,None,2020-10-21,26894,164881242,24732247,4027,-164879710,6183043
+Oceania,Australia,None,2020-10-22,26896,176879525,26531987,4027,-176878006,6632979
+Oceania,Australia,None,2020-10-23,26898,189751222,28462740,4028,-189749717,7115668
+Oceania,Australia,None,2020-10-24,26899,203559928,30534044,4028,-203558434,7633495
+Oceania,Australia,None,2020-10-25,26900,218373497,32756077,4028,-218372016,8189004
+Oceania,Australia,None,2020-10-26,26901,234265552,35139884,4028,-234264082,8784956
+Oceania,Australia,None,2020-10-27,26903,251313679,37697100,4028,-251312218,9424261
+Oceania,Australia,None,2020-10-28,26903,269601734,40440307,4028,-269600284,10110063
+Oceania,Australia,None,2020-10-29,26904,289220365,43383099,4028,-289218924,10845761
+Oceania,Australia,None,2020-10-30,26905,310267004,46540093,4028,-310265572,11635011
+Oceania,Australia,None,2020-10-31,26905,332845874,49926922,4028,-332844450,12481718
+Oceania,Australia,None,2020-11-01,26906,357067981,53560237,4029,-357066566,13390047
+Oceania,Australia,None,2020-11-02,26906,383053252,57458026,4029,-383051844,14364495
+Oceania,Australia,None,2020-11-03,26907,410929577,61639473,4029,-410928176,15409857
+Oceania,Australia,None,2020-11-04,26907,440833331,66125035,4029,-440831937,16531248
+Oceania,Australia,None,2020-11-05,26908,472912344,70936886,4029,-472910957,17734211
+Oceania,Australia,None,2020-11-06,26908,507325908,76098919,4029,-507324527,19024720
+Oceania,Australia,None,2020-11-07,26908,544244771,81636747,4029,-544243394,20409177
+Oceania,Australia,None,2020-11-08,26909,583851138,87577701,4029,-583849767,21894416
+Oceania,Australia,None,2020-11-09,26909,626339612,93950970,4029,-626338246,23487734
+Oceania,Australia,None,2020-11-10,26909,671921250,100788215,4029,-671919889,25197046
+Oceania,Australia,None,2020-11-11,26909,720818573,108122813,4029,-720817217,27030695
+Oceania,Australia,None,2020-11-12,26910,773272369,115990881,4029,-773271017,28997713
+Oceania,Australia,None,2020-11-13,26910,829542730,124431434,4029,-829541382,31107851
+Oceania,Australia,None,2020-11-14,26910,889909056,133486382,4029,-889907711,33371588
+Oceania,Australia,None,2020-11-15,26910,954670055,143200531,4029,-954668714,35800126
+Oceania,Australia,None,2020-11-16,26910,1024143848,153621599,4029,-1024142510,38405393
+Oceania,Australia,None,2020-11-17,26910,1098675115,164801288,4029,-1098673780,41200316
+Oceania,Australia,None,2020-11-18,26910,1178629377,176794427,4029,-1178628047,44198601
+Oceania,Australia,None,2020-11-19,26911,1264398910,189659856,4029,-1264397582,47414958
+Oceania,Australia,None,2020-11-20,26911,1356408251,203461257,4029,-1356406927,50865309
+Oceania,Australia,None,2020-11-21,26911,1455114215,218267150,4029,-1455112893,54566782
+Oceania,Australia,None,2020-11-22,26911,1561005881,234150899,4029,-1561004561,58537720
+Oceania,Australia,None,2020-11-23,26911,1674604600,251190706,4029,-1674603283,62797672
+Oceania,Australia,None,2020-11-24,26911,1796471527,269470744,4029,-1796470212,67367682
+Oceania,Australia,None,2020-11-25,26911,1927207887,289081198,4029,-1927206574,72270295
+Oceania,Australia,None,2020-11-26,26911,2067453143,310117986,4029,-2067451832,77529492
+Oceania,Australia,None,2020-11-27,26911,2217900342,332685065,4029,-2217899033,83171262
+Oceania,Australia,None,2020-11-28,26911,2379296256,356894451,4029,-2379294948,89223609
+Oceania,Australia,None,2020-11-29,26911,2552441378,382866219,4029,-2552440071,95716551
+Oceania,Australia,None,2020-11-30,26911,2738189925,410728501,4029,-2738188619,102682122
+Oceania,Australia,None,2020-12-01,26911,2937456202,440618442,4029,-2937454898,110154607
+Oceania,Australia,None,2020-12-02,26911,3151228500,472684286,4029,-3151227198,118171068
+Oceania,Australia,None,2020-12-03,26912,3380550015,507082512,4029,-3380548714,126770625
+Oceania,Australia,None,2020-12-04,26912,3626551131,543982679,4029,-3626549831,135995667
+Oceania,Australia,None,2020-12-05,26912,3890452188,583567837,4029,-3890450889,145891957
+Oceania,Australia,None,2020-12-06,26912,4173563470,626034529,4029,-4173562173,156508630
+Oceania,Australia,None,2020-12-07,26912,4477285217,671592791,4029,-4477283922,167898195
+Oceania,Australia,None,2020-12-08,26912,4803108767,720466323,4029,-4803107472,180116578
+Oceania,Australia,None,2020-12-09,26912,5152651588,772897746,4029,-5152650294,193224434
+Oceania,Australia,None,2020-12-10,26912,5527626053,829143915,4029,-5527624761,207285977
+Oceania,Australia,None,2020-12-11,26912,5929873684,889481060,4029,-5929872393,222370263
+Oceania,Australia,None,2020-12-12,26912,6361386370,954207962,4029,-6361385079,238551989
+Oceania,Australia,None,2020-12-13,26912,6824306366,1023645961,4029,-6824305077,255911488
+Oceania,Australia,None,2020-12-14,26912,7320926297,1098138951,4029,-7320925008,274534736
+Oceania,Australia,None,2020-12-15,26912,7853689155,1178053379,4029,-7853687867,294513343
+Oceania,Australia,Queensland,2020-09-23,1153,21,4,173,5,1
+Oceania,Australia,Queensland,2020-09-24,1154,21,4,173,5,1
+Oceania,Australia,Queensland,2020-09-25,1155,20,4,173,5,1
+Oceania,Australia,Queensland,2020-09-26,1155,20,4,173,5,1
+Oceania,Australia,Queensland,2020-09-27,1156,19,4,173,5,1
+Oceania,Australia,Queensland,2020-09-28,1157,19,4,174,5,1
+Oceania,Australia,Queensland,2020-09-29,1157,18,4,174,5,1
+Oceania,Australia,Queensland,2020-09-30,1158,17,4,174,5,1
+Oceania,Australia,Queensland,2020-10-01,1159,17,4,174,5,1
+Oceania,Australia,Queensland,2020-10-02,1159,16,4,174,5,1
+Oceania,Australia,Queensland,2020-10-03,1160,16,4,174,5,1
+Oceania,Australia,Queensland,2020-10-04,1160,15,3,174,5,1
+Oceania,Australia,Queensland,2020-10-05,1160,15,3,174,5,0
+Oceania,Australia,Queensland,2020-10-06,1161,14,3,174,5,0
+Oceania,Australia,Queensland,2020-10-07,1161,13,3,174,5,0
+Oceania,Australia,Queensland,2020-10-08,1161,13,3,174,5,0
+Oceania,Australia,Queensland,2020-10-09,1162,12,3,174,5,0
+Oceania,Australia,Queensland,2020-10-10,1162,12,3,174,5,0
+Oceania,Australia,Queensland,2020-10-11,1162,11,3,174,5,0
+Oceania,Australia,Queensland,2020-10-12,1162,11,3,174,5,0
+Oceania,Australia,Queensland,2020-10-13,1162,10,3,174,5,0
+Oceania,Australia,Queensland,2020-10-14,1163,10,2,174,5,0
+Oceania,Australia,Queensland,2020-10-15,1163,9,2,174,5,0
+Oceania,Australia,Queensland,2020-10-16,1163,9,2,174,5,0
+Oceania,Australia,Queensland,2020-10-17,1163,9,2,174,5,0
+Oceania,Australia,Queensland,2020-10-18,1163,8,2,174,5,0
+Oceania,Australia,Queensland,2020-10-19,1163,8,2,174,5,0
+Oceania,Australia,Queensland,2020-10-20,1163,7,2,174,5,0
+Oceania,Australia,Queensland,2020-10-21,1163,7,2,175,5,0
+Oceania,Australia,Queensland,2020-10-22,1163,7,2,175,5,0
+Oceania,Australia,Queensland,2020-10-23,1164,6,2,175,5,0
+Oceania,Australia,Queensland,2020-10-24,1164,6,2,175,5,0
+Oceania,Australia,Queensland,2020-10-25,1164,6,2,175,5,0
+Oceania,Australia,Queensland,2020-10-26,1164,5,2,175,5,0
+Oceania,Australia,Queensland,2020-10-27,1164,5,1,175,5,0
+Oceania,Australia,Queensland,2020-10-28,1164,5,1,175,5,0
+Oceania,Australia,Queensland,2020-10-29,1164,5,1,175,5,0
+Oceania,Australia,Queensland,2020-10-30,1164,4,1,175,5,0
+Oceania,Australia,Queensland,2020-10-31,1164,4,1,175,5,0
+Oceania,Australia,Queensland,2020-11-01,1164,4,1,175,5,0
+Oceania,Australia,Queensland,2020-11-02,1164,4,1,175,5,0
+Oceania,Australia,Queensland,2020-11-03,1164,3,1,175,5,0
+Oceania,Australia,Queensland,2020-11-04,1164,3,1,175,5,0
+Oceania,Australia,Queensland,2020-11-05,1164,3,1,175,5,0
+Oceania,Australia,Queensland,2020-11-06,1164,3,1,175,5,0
+Oceania,Australia,Queensland,2020-11-07,1164,3,1,175,5,0
+Oceania,Australia,Queensland,2020-11-08,1164,3,1,175,5,0
+Oceania,Australia,Queensland,2020-11-09,1164,2,1,175,5,0
+Oceania,Australia,Queensland,2020-11-10,1164,2,1,175,5,0
+Oceania,Australia,Queensland,2020-11-11,1164,2,1,175,5,0
+Oceania,Australia,Queensland,2020-11-12,1164,2,1,175,5,0
+Oceania,Australia,Queensland,2020-11-13,1164,2,1,175,5,0
+Oceania,Australia,Queensland,2020-11-14,1164,2,1,175,5,0
+Oceania,Australia,Queensland,2020-11-15,1164,2,1,175,5,0
+Oceania,Australia,Queensland,2020-11-16,1164,2,1,175,5,0
+Oceania,Australia,Queensland,2020-11-17,1164,2,1,175,5,0
+Oceania,Australia,Queensland,2020-11-18,1164,1,1,175,5,0
+Oceania,Australia,Queensland,2020-11-19,1164,1,1,175,5,0
+Oceania,Australia,Queensland,2020-11-20,1164,1,1,175,5,0
+Oceania,Australia,Queensland,2020-11-21,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-11-22,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-11-23,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-11-24,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-11-25,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-11-26,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-11-27,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-11-28,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-11-29,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-11-30,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-12-01,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-12-02,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-12-03,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-12-04,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-12-05,1164,1,0,175,5,0
+Oceania,Australia,Queensland,2020-12-06,1164,0,0,175,5,0
+Oceania,Australia,Queensland,2020-12-07,1164,0,0,175,5,0
+Oceania,Australia,Queensland,2020-12-08,1164,0,0,175,5,0
+Oceania,Australia,Queensland,2020-12-09,1164,0,0,175,5,0
+Oceania,Australia,Queensland,2020-12-10,1164,0,0,175,5,0
+Oceania,Australia,Queensland,2020-12-11,1164,0,0,175,5,0
+Oceania,Australia,Queensland,2020-12-12,1164,0,0,175,5,0
+Oceania,Australia,Queensland,2020-12-13,1164,0,0,175,5,0
+Oceania,Australia,Queensland,2020-12-14,1164,0,0,175,5,0
+Oceania,Australia,Queensland,2020-12-15,1164,0,0,175,5,0
+Oceania,Australia,South Australia,2020-09-23,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-09-24,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-09-25,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-09-26,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-09-27,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-09-28,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-09-29,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-09-30,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-10-01,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-10-02,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-10-03,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-10-04,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-10-05,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-10-06,464,1,0,70,4,0
+Oceania,Australia,South Australia,2020-10-07,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-08,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-09,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-10,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-11,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-12,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-13,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-14,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-15,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-16,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-17,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-18,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-19,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-20,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-21,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-22,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-23,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-24,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-25,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-26,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-27,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-28,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-29,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-30,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-10-31,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-01,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-02,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-03,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-04,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-05,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-06,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-07,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-08,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-09,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-10,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-11,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-12,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-13,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-14,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-15,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-16,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-17,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-18,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-19,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-20,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-21,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-22,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-23,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-24,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-25,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-26,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-27,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-28,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-29,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-11-30,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-01,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-02,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-03,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-04,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-05,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-06,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-07,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-08,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-09,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-10,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-11,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-12,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-13,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-14,464,0,0,70,4,0
+Oceania,Australia,South Australia,2020-12-15,464,0,0,70,4,0
+Oceania,Australia,Tasmania,2020-09-23,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-09-24,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-09-25,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-09-26,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-09-27,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-09-28,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-09-29,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-09-30,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-01,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-02,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-03,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-04,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-05,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-06,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-07,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-08,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-09,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-10,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-11,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-12,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-13,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-14,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-15,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-16,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-17,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-18,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-19,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-20,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-21,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-22,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-23,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-24,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-25,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-26,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-27,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-28,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-29,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-30,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-10-31,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-01,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-02,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-03,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-04,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-05,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-06,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-07,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-08,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-09,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-10,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-11,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-12,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-13,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-14,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-15,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-16,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-17,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-18,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-19,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-20,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-21,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-22,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-23,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-24,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-25,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-26,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-27,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-28,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-29,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-11-30,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-01,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-02,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-03,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-04,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-05,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-06,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-07,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-08,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-09,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-10,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-11,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-12,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-13,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-14,230,0,0,32,13,0
+Oceania,Australia,Tasmania,2020-12-15,230,0,0,32,13,0
+Oceania,Australia,Victoria,2020-09-23,20147,23066635,3460140,3022,-23064370,864992
+Oceania,Australia,Victoria,2020-09-24,20160,24745102,3711906,3024,-24742891,927935
+Oceania,Australia,Victoria,2020-09-25,20172,26545752,3982000,3026,-26543593,995460
+Oceania,Australia,Victoria,2020-09-26,20183,28477448,4271751,3027,-28475337,1067898
+Oceania,Australia,Victoria,2020-09-27,20193,30549769,4582595,3029,-30547705,1145611
+Oceania,Australia,Victoria,2020-09-28,20202,32772829,4916050,3030,-32770809,1228976
+Oceania,Australia,Victoria,2020-09-29,20211,35157589,5273760,3032,-35155611,1318404
+Oceania,Australia,Victoria,2020-09-30,20219,37715879,5657500,3033,-37713942,1414340
+Oceania,Australia,Victoria,2020-10-01,20226,40460402,6069175,3034,-40458503,1517260
+Oceania,Australia,Victoria,2020-10-02,20233,43404730,6510821,3035,-43402868,1627672
+Oceania,Australia,Victoria,2020-10-03,20239,46563320,6984606,3036,-46561492,1746120
+Oceania,Australia,Victoria,2020-10-04,20245,49951860,7492883,3037,-49950065,1873190
+Oceania,Australia,Victoria,2020-10-05,20250,53586939,8038142,3037,-53585176,2009506
+Oceania,Australia,Victoria,2020-10-06,20255,57486407,8623059,3038,-57484674,2155736
+Oceania,Australia,Victoria,2020-10-07,20259,61669577,9250531,3039,-61667873,2312605
+Oceania,Australia,Victoria,2020-10-08,20263,66157219,9923674,3039,-66155542,2480892
+Oceania,Australia,Victoria,2020-10-09,20267,70971564,10645823,3040,-70969912,2661430
+Oceania,Australia,Victoria,2020-10-10,20270,76136303,11420531,3041,-76134675,2855108
+Oceania,Australia,Victoria,2020-10-11,20274,81676963,12251627,3041,-81675359,3062882
+Oceania,Australia,Victoria,2020-10-12,20277,87620855,13143208,3041,-87619273,3285779
+Oceania,Australia,Victoria,2020-10-13,20279,93997070,14099637,3042,-93995509,3524887
+Oceania,Australia,Victoria,2020-10-14,20282,100837129,15125643,3042,-100835587,3781389
+Oceania,Australia,Victoria,2020-10-15,20284,108174984,16226319,3043,-108173461,4056559
+Oceania,Australia,Victoria,2020-10-16,20286,116047020,17407122,3043,-116045515,4351760
+Oceania,Australia,Victoria,2020-10-17,20288,124492052,18673874,3043,-124490564,4668449
+Oceania,Australia,Victoria,2020-10-18,20290,133551689,20032817,3043,-133550216,5008185
+Oceania,Australia,Victoria,2020-10-19,20291,143270787,21490680,3044,-143269330,5372652
+Oceania,Australia,Victoria,2020-10-20,20293,153696818,23054582,3044,-153695375,5763628
+Oceania,Australia,Victoria,2020-10-21,20294,164881227,24732241,3044,-164879798,6183043
+Oceania,Australia,Victoria,2020-10-22,20296,176879510,26531982,3044,-176878094,6632979
+Oceania,Australia,Victoria,2020-10-23,20297,189751209,28462735,3045,-189749805,7115668
+Oceania,Australia,Victoria,2020-10-24,20298,203559915,30534039,3045,-203558522,7633495
+Oceania,Australia,Victoria,2020-10-25,20299,218373485,32756072,3045,-218372104,8189004
+Oceania,Australia,Victoria,2020-10-26,20300,234265541,35139879,3045,-234264170,8784956
+Oceania,Australia,Victoria,2020-10-27,20301,251313668,37697096,3045,-251312306,9424261
+Oceania,Australia,Victoria,2020-10-28,20301,269601724,40440303,3045,-269600372,10110063
+Oceania,Australia,Victoria,2020-10-29,20302,289220355,43383096,3045,-289219012,10845761
+Oceania,Australia,Victoria,2020-10-30,20303,310266995,46540090,3045,-310265660,11635011
+Oceania,Australia,Victoria,2020-10-31,20303,332845865,49926919,3045,-332844538,12481718
+Oceania,Australia,Victoria,2020-11-01,20304,357067973,53560234,3046,-357066654,13390047
+Oceania,Australia,Victoria,2020-11-02,20304,383053244,57458023,3046,-383051932,14364495
+Oceania,Australia,Victoria,2020-11-03,20305,410929570,61639470,3046,-410928264,15409857
+Oceania,Australia,Victoria,2020-11-04,20305,440833324,66125032,3046,-440832025,16531248
+Oceania,Australia,Victoria,2020-11-05,20306,472912338,70936883,3046,-472911045,17734211
+Oceania,Australia,Victoria,2020-11-06,20306,507325902,76098916,3046,-507324615,19024720
+Oceania,Australia,Victoria,2020-11-07,20306,544244765,81636744,3046,-544243482,20409177
+Oceania,Australia,Victoria,2020-11-08,20307,583851132,87577698,3046,-583849855,21894416
+Oceania,Australia,Victoria,2020-11-09,20307,626339607,93950968,3046,-626338334,23487734
+Oceania,Australia,Victoria,2020-11-10,20307,671921245,100788213,3046,-671919977,25197046
+Oceania,Australia,Victoria,2020-11-11,20307,720818569,108122811,3046,-720817305,27030695
+Oceania,Australia,Victoria,2020-11-12,20308,773272365,115990879,3046,-773271105,28997713
+Oceania,Australia,Victoria,2020-11-13,20308,829542726,124431432,3046,-829541470,31107851
+Oceania,Australia,Victoria,2020-11-14,20308,889909052,133486380,3046,-889907799,33371588
+Oceania,Australia,Victoria,2020-11-15,20308,954670051,143200529,3046,-954668802,35800126
+Oceania,Australia,Victoria,2020-11-16,20308,1024143844,153621597,3046,-1024142598,38405393
+Oceania,Australia,Victoria,2020-11-17,20308,1098675111,164801286,3046,-1098673868,41200316
+Oceania,Australia,Victoria,2020-11-18,20308,1178629374,176794425,3046,-1178628135,44198601
+Oceania,Australia,Victoria,2020-11-19,20309,1264398907,189659854,3046,-1264397670,47414958
+Oceania,Australia,Victoria,2020-11-20,20309,1356408249,203461255,3046,-1356407015,50865309
+Oceania,Australia,Victoria,2020-11-21,20309,1455114213,218267149,3046,-1455112981,54566782
+Oceania,Australia,Victoria,2020-11-22,20309,1561005879,234150898,3046,-1561004649,58537720
+Oceania,Australia,Victoria,2020-11-23,20309,1674604598,251190705,3046,-1674603371,62797672
+Oceania,Australia,Victoria,2020-11-24,20309,1796471525,269470743,3046,-1796470300,67367682
+Oceania,Australia,Victoria,2020-11-25,20309,1927207885,289081197,3046,-1927206662,72270295
+Oceania,Australia,Victoria,2020-11-26,20309,2067453141,310117985,3046,-2067451920,77529492
+Oceania,Australia,Victoria,2020-11-27,20309,2217900340,332685064,3046,-2217899121,83171262
+Oceania,Australia,Victoria,2020-11-28,20309,2379296254,356894450,3046,-2379295036,89223609
+Oceania,Australia,Victoria,2020-11-29,20309,2552441376,382866218,3046,-2552440159,95716551
+Oceania,Australia,Victoria,2020-11-30,20309,2738189923,410728500,3046,-2738188707,102682122
+Oceania,Australia,Victoria,2020-12-01,20309,2937456200,440618441,3046,-2937454986,110154607
+Oceania,Australia,Victoria,2020-12-02,20309,3151228498,472684285,3046,-3151227286,118171068
+Oceania,Australia,Victoria,2020-12-03,20310,3380550013,507082512,3046,-3380548802,126770625
+Oceania,Australia,Victoria,2020-12-04,20310,3626551129,543982679,3046,-3626549919,135995667
+Oceania,Australia,Victoria,2020-12-05,20310,3890452186,583567837,3046,-3890450977,145891957
+Oceania,Australia,Victoria,2020-12-06,20310,4173563469,626034529,3046,-4173562261,156508630
+Oceania,Australia,Victoria,2020-12-07,20310,4477285216,671592791,3046,-4477284010,167898195
+Oceania,Australia,Victoria,2020-12-08,20310,4803108766,720466323,3046,-4803107560,180116578
+Oceania,Australia,Victoria,2020-12-09,20310,5152651587,772897746,3046,-5152650382,193224434
+Oceania,Australia,Victoria,2020-12-10,20310,5527626053,829143915,3046,-5527624849,207285977
+Oceania,Australia,Victoria,2020-12-11,20310,5929873684,889481060,3046,-5929872481,222370263
+Oceania,Australia,Victoria,2020-12-12,20310,6361386370,954207962,3046,-6361385167,238551989
+Oceania,Australia,Victoria,2020-12-13,20310,6824306366,1023645961,3046,-6824305165,255911488
+Oceania,Australia,Victoria,2020-12-14,20310,7320926297,1098138951,3046,-7320925096,274534736
+Oceania,Australia,Victoria,2020-12-15,20310,7853689155,1178053379,3046,-7853687955,294513343
+Oceania,Australia,Western Australia,2020-09-23,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-09-24,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-09-25,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-09-26,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-09-27,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-09-28,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-09-29,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-09-30,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-01,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-02,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-03,656,1,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-04,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-05,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-06,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-07,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-08,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-09,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-10,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-11,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-12,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-13,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-14,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-15,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-16,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-17,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-18,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-19,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-20,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-21,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-22,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-23,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-24,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-25,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-26,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-27,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-28,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-29,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-30,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-10-31,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-01,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-02,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-03,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-04,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-05,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-06,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-07,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-08,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-09,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-10,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-11,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-12,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-13,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-14,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-15,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-16,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-17,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-18,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-19,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-20,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-21,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-22,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-23,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-24,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-25,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-26,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-27,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-28,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-29,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-11-30,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-01,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-02,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-03,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-04,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-05,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-06,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-07,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-08,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-09,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-10,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-11,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-12,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-13,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-14,656,0,0,97,9,0
+Oceania,Australia,Western Australia,2020-12-15,656,0,0,97,9,0
+Oceania,New Zealand,None,2020-09-23,1513,44,10,227,21,1
+Oceania,New Zealand,None,2020-09-24,1514,41,10,227,21,1
+Oceania,New Zealand,None,2020-09-25,1514,39,9,227,21,1
+Oceania,New Zealand,None,2020-09-26,1515,37,9,227,21,1
+Oceania,New Zealand,None,2020-09-27,1515,36,9,227,21,1
+Oceania,New Zealand,None,2020-09-28,1516,34,8,227,21,1
+Oceania,New Zealand,None,2020-09-29,1516,32,8,227,21,1
+Oceania,New Zealand,None,2020-09-30,1516,30,8,227,21,1
+Oceania,New Zealand,None,2020-10-01,1517,29,7,227,21,1
+Oceania,New Zealand,None,2020-10-02,1517,27,7,228,21,1
+Oceania,New Zealand,None,2020-10-03,1517,26,7,228,21,1
+Oceania,New Zealand,None,2020-10-04,1517,24,6,228,21,1
+Oceania,New Zealand,None,2020-10-05,1517,23,6,228,21,1
+Oceania,New Zealand,None,2020-10-06,1517,22,6,228,21,1
+Oceania,New Zealand,None,2020-10-07,1518,20,6,228,21,1
+Oceania,New Zealand,None,2020-10-08,1518,19,5,228,21,1
+Oceania,New Zealand,None,2020-10-09,1518,18,5,228,21,1
+Oceania,New Zealand,None,2020-10-10,1518,17,5,228,21,1
+Oceania,New Zealand,None,2020-10-11,1518,16,5,228,21,1
+Oceania,New Zealand,None,2020-10-12,1518,15,5,228,21,0
+Oceania,New Zealand,None,2020-10-13,1518,14,4,228,21,0
+Oceania,New Zealand,None,2020-10-14,1518,14,4,228,21,0
+Oceania,New Zealand,None,2020-10-15,1518,13,4,228,21,0
+Oceania,New Zealand,None,2020-10-16,1518,12,4,228,21,0
+Oceania,New Zealand,None,2020-10-17,1518,11,4,228,21,0
+Oceania,New Zealand,None,2020-10-18,1518,11,3,228,21,0
+Oceania,New Zealand,None,2020-10-19,1518,10,3,228,21,0
+Oceania,New Zealand,None,2020-10-20,1518,10,3,228,21,0
+Oceania,New Zealand,None,2020-10-21,1518,9,3,228,21,0
+Oceania,New Zealand,None,2020-10-22,1518,8,3,228,21,0
+Oceania,New Zealand,None,2020-10-23,1518,8,3,228,21,0
+Oceania,New Zealand,None,2020-10-24,1518,8,3,228,21,0
+Oceania,New Zealand,None,2020-10-25,1518,7,3,228,21,0
+Oceania,New Zealand,None,2020-10-26,1518,7,2,228,21,0
+Oceania,New Zealand,None,2020-10-27,1518,6,2,228,21,0
+Oceania,New Zealand,None,2020-10-28,1518,6,2,228,21,0
+Oceania,New Zealand,None,2020-10-29,1518,6,2,228,21,0
+Oceania,New Zealand,None,2020-10-30,1518,5,2,228,21,0
+Oceania,New Zealand,None,2020-10-31,1518,5,2,228,21,0
+Oceania,New Zealand,None,2020-11-01,1518,5,2,228,21,0
+Oceania,New Zealand,None,2020-11-02,1518,4,2,228,21,0
+Oceania,New Zealand,None,2020-11-03,1518,4,2,228,21,0
+Oceania,New Zealand,None,2020-11-04,1518,4,2,228,21,0
+Oceania,New Zealand,None,2020-11-05,1518,4,2,228,21,0
+Oceania,New Zealand,None,2020-11-06,1518,3,1,228,21,0
+Oceania,New Zealand,None,2020-11-07,1518,3,1,228,21,0
+Oceania,New Zealand,None,2020-11-08,1518,3,1,228,21,0
+Oceania,New Zealand,None,2020-11-09,1518,3,1,228,21,0
+Oceania,New Zealand,None,2020-11-10,1518,3,1,228,21,0
+Oceania,New Zealand,None,2020-11-11,1518,3,1,228,21,0
+Oceania,New Zealand,None,2020-11-12,1518,2,1,228,21,0
+Oceania,New Zealand,None,2020-11-13,1518,2,1,228,21,0
+Oceania,New Zealand,None,2020-11-14,1518,2,1,228,21,0
+Oceania,New Zealand,None,2020-11-15,1518,2,1,228,21,0
+Oceania,New Zealand,None,2020-11-16,1518,2,1,228,21,0
+Oceania,New Zealand,None,2020-11-17,1518,2,1,228,21,0
+Oceania,New Zealand,None,2020-11-18,1518,2,1,228,21,0
+Oceania,New Zealand,None,2020-11-19,1518,2,1,228,21,0
+Oceania,New Zealand,None,2020-11-20,1518,2,1,228,21,0
+Oceania,New Zealand,None,2020-11-21,1518,1,1,228,21,0
+Oceania,New Zealand,None,2020-11-22,1518,1,1,228,21,0
+Oceania,New Zealand,None,2020-11-23,1518,1,1,228,21,0
+Oceania,New Zealand,None,2020-11-24,1518,1,1,228,21,0
+Oceania,New Zealand,None,2020-11-25,1518,1,1,228,21,0
+Oceania,New Zealand,None,2020-11-26,1518,1,1,228,21,0
+Oceania,New Zealand,None,2020-11-27,1518,1,1,228,21,0
+Oceania,New Zealand,None,2020-11-28,1518,1,1,228,21,0
+Oceania,New Zealand,None,2020-11-29,1518,1,1,228,21,0
+Oceania,New Zealand,None,2020-11-30,1518,1,0,228,21,0
+Oceania,New Zealand,None,2020-12-01,1518,1,0,228,21,0
+Oceania,New Zealand,None,2020-12-02,1518,1,0,228,21,0
+Oceania,New Zealand,None,2020-12-03,1518,1,0,228,21,0
+Oceania,New Zealand,None,2020-12-04,1518,1,0,228,21,0
+Oceania,New Zealand,None,2020-12-05,1518,1,0,228,21,0
+Oceania,New Zealand,None,2020-12-06,1518,1,0,228,21,0
+Oceania,New Zealand,None,2020-12-07,1518,1,0,228,21,0
+Oceania,New Zealand,None,2020-12-08,1518,1,0,228,21,0
+Oceania,New Zealand,None,2020-12-09,1518,1,0,228,21,0
+Oceania,New Zealand,None,2020-12-10,1518,0,0,228,21,0
+Oceania,New Zealand,None,2020-12-11,1518,0,0,228,21,0
+Oceania,New Zealand,None,2020-12-12,1518,0,0,228,21,0
+Oceania,New Zealand,None,2020-12-13,1518,0,0,228,21,0
+Oceania,New Zealand,None,2020-12-14,1518,0,0,228,21,0
+Oceania,New Zealand,None,2020-12-15,1518,0,0,228,21,0
+Oceania,None,None,2020-09-23,28773,23066809,3460183,4307,-23064254,864997
+Oceania,None,None,2020-09-24,28789,24745267,3711947,4309,-24742775,927940
+Oceania,None,None,2020-09-25,28802,26545909,3982040,4311,-26543477,995465
+Oceania,None,None,2020-09-26,28815,28477598,4271789,4312,-28475221,1067903
+Oceania,None,None,2020-09-27,28828,30549912,4582633,4314,-30547589,1145616
+Oceania,None,None,2020-09-28,28839,32772966,4916085,4316,-32770693,1228981
+Oceania,None,None,2020-09-29,28849,35157718,5273795,4318,-35155495,1318409
+Oceania,None,None,2020-09-30,28858,37716002,5657533,4319,-37713826,1414344
+Oceania,None,None,2020-10-01,28867,40460520,6069207,4320,-40458387,1517264
+Oceania,None,None,2020-10-02,28875,43404841,6510852,4323,-43402752,1627676
+Oceania,None,None,2020-10-03,28882,46563426,6984636,4324,-46561376,1746124
+Oceania,None,None,2020-10-04,28888,49951959,7492910,4325,-49949949,1873194
+Oceania,None,None,2020-10-05,28894,53587035,8038168,4325,-53585060,2009509
+Oceania,None,None,2020-10-06,28900,57486498,8623084,4326,-57484558,2155739
+Oceania,None,None,2020-10-07,28905,61669660,9250556,4327,-61667756,2312608
+Oceania,None,None,2020-10-08,28909,66157298,9923697,4327,-66155425,2480894
+Oceania,None,None,2020-10-09,28914,70971639,10645845,4328,-70969795,2661432
+Oceania,None,None,2020-10-10,28918,76136374,11420553,4329,-76134558,2855110
+Oceania,None,None,2020-10-11,28922,81677031,12251649,4329,-81675242,3062884
+Oceania,None,None,2020-10-12,28925,87620920,13143228,4329,-87619156,3285780
+Oceania,None,None,2020-10-13,28927,93997130,14099656,4330,-93995392,3524888
+Oceania,None,None,2020-10-14,28931,100837187,15125661,4330,-100835470,3781390
+Oceania,None,None,2020-10-15,28933,108175039,16226336,4331,-108173344,4056560
+Oceania,None,None,2020-10-16,28935,116047072,17407139,4331,-116045398,4351761
+Oceania,None,None,2020-10-17,28937,124492101,18673890,4331,-124490447,4668450
+Oceania,None,None,2020-10-18,28939,133551736,20032832,4331,-133550099,5008186
+Oceania,None,None,2020-10-19,28940,143270831,21490694,4332,-143269213,5372653
+Oceania,None,None,2020-10-20,28942,153696860,23054596,4332,-153695258,5763628
+Oceania,None,None,2020-10-21,28944,164881266,24732255,4333,-164879681,6183043
+Oceania,None,None,2020-10-22,28946,176879548,26531995,4333,-176877977,6632979
+Oceania,None,None,2020-10-23,28948,189751244,28462748,4334,-189749688,7115668
+Oceania,None,None,2020-10-24,28949,203559949,30534051,4334,-203558405,7633495
+Oceania,None,None,2020-10-25,28950,218373517,32756084,4334,-218371987,8189004
+Oceania,None,None,2020-10-26,28951,234265571,35139890,4334,-234264052,8784956
+Oceania,None,None,2020-10-27,28953,251313696,37697106,4334,-251312188,9424261
+Oceania,None,None,2020-10-28,28953,269601751,40440313,4334,-269600254,10110063
+Oceania,None,None,2020-10-29,28954,289220381,43383105,4334,-289218894,10845761
+Oceania,None,None,2020-10-30,28955,310267019,46540098,4334,-310265542,11635011
+Oceania,None,None,2020-10-31,28955,332845888,49926927,4334,-332844420,12481718
+Oceania,None,None,2020-11-01,28956,357067995,53560242,4335,-357066536,13390047
+Oceania,None,None,2020-11-02,28956,383053264,57458031,4335,-383051814,14364495
+Oceania,None,None,2020-11-03,28957,410929589,61639478,4335,-410928146,15409857
+Oceania,None,None,2020-11-04,28957,440833343,66125040,4335,-440831907,16531248
+Oceania,None,None,2020-11-05,28958,472912355,70936891,4335,-472910927,17734211
+Oceania,None,None,2020-11-06,28958,507325918,76098923,4335,-507324497,19024720
+Oceania,None,None,2020-11-07,28958,544244781,81636750,4335,-544243364,20409177
+Oceania,None,None,2020-11-08,28959,583851147,87577704,4335,-583849737,21894416
+Oceania,None,None,2020-11-09,28959,626339621,93950973,4335,-626338216,23487734
+Oceania,None,None,2020-11-10,28959,671921259,100788218,4335,-671919859,25197046
+Oceania,None,None,2020-11-11,28959,720818582,108122816,4335,-720817187,27030695
+Oceania,None,None,2020-11-12,28960,773272376,115990884,4335,-773270987,28997713
+Oceania,None,None,2020-11-13,28960,829542737,124431437,4335,-829541352,31107851
+Oceania,None,None,2020-11-14,28960,889909063,133486385,4335,-889907681,33371588
+Oceania,None,None,2020-11-15,28960,954670062,143200534,4335,-954668684,35800126
+Oceania,None,None,2020-11-16,28960,1024143854,153621602,4335,-1024142480,38405393
+Oceania,None,None,2020-11-17,28960,1098675121,164801291,4335,-1098673750,41200316
+Oceania,None,None,2020-11-18,28960,1178629383,176794430,4335,-1178628017,44198601
+Oceania,None,None,2020-11-19,28961,1264398916,189659858,4335,-1264397552,47414958
+Oceania,None,None,2020-11-20,28961,1356408257,203461259,4335,-1356406897,50865309
+Oceania,None,None,2020-11-21,28961,1455114220,218267152,4335,-1455112863,54566782
+Oceania,None,None,2020-11-22,28961,1561005885,234150901,4335,-1561004531,58537720
+Oceania,None,None,2020-11-23,28961,1674604604,251190708,4335,-1674603253,62797672
+Oceania,None,None,2020-11-24,28961,1796471531,269470746,4335,-1796470182,67367682
+Oceania,None,None,2020-11-25,28961,1927207891,289081200,4335,-1927206543,72270295
+Oceania,None,None,2020-11-26,28961,2067453147,310117988,4335,-2067451801,77529492
+Oceania,None,None,2020-11-27,28961,2217900346,332685067,4335,-2217899002,83171262
+Oceania,None,None,2020-11-28,28961,2379296260,356894453,4335,-2379294917,89223609
+Oceania,None,None,2020-11-29,28961,2552441382,382866221,4335,-2552440040,95716551
+Oceania,None,None,2020-11-30,28961,2738189928,410728502,4335,-2738188588,102682122
+Oceania,None,None,2020-12-01,28961,2937456205,440618443,4335,-2937454867,110154607
+Oceania,None,None,2020-12-02,28961,3151228503,472684287,4335,-3151227167,118171068
+Oceania,None,None,2020-12-03,28962,3380550018,507082513,4335,-3380548683,126770625
+Oceania,None,None,2020-12-04,28962,3626551134,543982680,4335,-3626549800,135995667
+Oceania,None,None,2020-12-05,28962,3890452191,583567838,4335,-3890450858,145891957
+Oceania,None,None,2020-12-06,28962,4173563473,626034530,4335,-4173562142,156508630
+Oceania,None,None,2020-12-07,28962,4477285220,671592792,4335,-4477283891,167898195
+Oceania,None,None,2020-12-08,28962,4803108770,720466324,4335,-4803107441,180116578
+Oceania,None,None,2020-12-09,28962,5152651591,772897747,4335,-5152650263,193224434
+Oceania,None,None,2020-12-10,28962,5527626055,829143916,4335,-5527624730,207285977
+Oceania,None,None,2020-12-11,28962,5929873686,889481061,4335,-5929872362,222370263
+Oceania,None,None,2020-12-12,28962,6361386372,954207963,4335,-6361385048,238551989
+Oceania,None,None,2020-12-13,28962,6824306368,1023645962,4335,-6824305046,255911488
+Oceania,None,None,2020-12-14,28962,7320926298,1098138952,4335,-7320924977,274534736
+Oceania,None,None,2020-12-15,28962,7853689156,1178053380,4335,-7853687836,294513343
+Oceania,Papua New Guinea,None,2020-09-23,524,65,16,77,7,2
+Oceania,Papua New Guinea,None,2020-09-24,525,62,15,77,7,2
+Oceania,Papua New Guinea,None,2020-09-25,525,59,15,77,7,2
+Oceania,Papua New Guinea,None,2020-09-26,526,56,14,77,7,2
+Oceania,Papua New Guinea,None,2020-09-27,527,53,14,77,7,2
+Oceania,Papua New Guinea,None,2020-09-28,527,51,13,77,7,2
+Oceania,Papua New Guinea,None,2020-09-29,528,48,13,77,7,2
+Oceania,Papua New Guinea,None,2020-09-30,528,46,12,77,7,1
+Oceania,Papua New Guinea,None,2020-10-01,528,44,12,77,7,1
+Oceania,Papua New Guinea,None,2020-10-02,529,41,11,78,7,1
+Oceania,Papua New Guinea,None,2020-10-03,529,39,11,78,7,1
+Oceania,Papua New Guinea,None,2020-10-04,529,37,10,78,7,1
+Oceania,Papua New Guinea,None,2020-10-05,530,36,10,78,7,1
+Oceania,Papua New Guinea,None,2020-10-06,530,34,9,78,7,1
+Oceania,Papua New Guinea,None,2020-10-07,530,32,9,78,8,1
+Oceania,Papua New Guinea,None,2020-10-08,530,30,9,78,8,1
+Oceania,Papua New Guinea,None,2020-10-09,530,29,8,78,8,1
+Oceania,Papua New Guinea,None,2020-10-10,531,27,8,78,8,1
+Oceania,Papua New Guinea,None,2020-10-11,531,26,8,78,8,1
+Oceania,Papua New Guinea,None,2020-10-12,531,25,7,78,8,1
+Oceania,Papua New Guinea,None,2020-10-13,531,23,7,78,8,1
+Oceania,Papua New Guinea,None,2020-10-14,531,22,7,78,8,1
+Oceania,Papua New Guinea,None,2020-10-15,531,21,6,78,8,1
+Oceania,Papua New Guinea,None,2020-10-16,531,20,6,78,8,1
+Oceania,Papua New Guinea,None,2020-10-17,531,19,6,78,8,1
+Oceania,Papua New Guinea,None,2020-10-18,531,18,6,78,8,1
+Oceania,Papua New Guinea,None,2020-10-19,531,17,5,78,8,1
+Oceania,Papua New Guinea,None,2020-10-20,531,16,5,78,8,0
+Oceania,Papua New Guinea,None,2020-10-21,532,15,5,78,8,0
+Oceania,Papua New Guinea,None,2020-10-22,532,15,5,78,8,0
+Oceania,Papua New Guinea,None,2020-10-23,532,14,5,78,8,0
+Oceania,Papua New Guinea,None,2020-10-24,532,13,4,78,8,0
+Oceania,Papua New Guinea,None,2020-10-25,532,13,4,78,8,0
+Oceania,Papua New Guinea,None,2020-10-26,532,12,4,78,9,0
+Oceania,Papua New Guinea,None,2020-10-27,532,11,4,78,9,0
+Oceania,Papua New Guinea,None,2020-10-28,532,11,4,78,9,0
+Oceania,Papua New Guinea,None,2020-10-29,532,10,4,78,9,0
+Oceania,Papua New Guinea,None,2020-10-30,532,10,3,78,9,0
+Oceania,Papua New Guinea,None,2020-10-31,532,9,3,78,9,0
+Oceania,Papua New Guinea,None,2020-11-01,532,9,3,78,9,0
+Oceania,Papua New Guinea,None,2020-11-02,532,8,3,78,9,0
+Oceania,Papua New Guinea,None,2020-11-03,532,8,3,78,9,0
+Oceania,Papua New Guinea,None,2020-11-04,532,8,3,78,9,0
+Oceania,Papua New Guinea,None,2020-11-05,532,7,3,78,9,0
+Oceania,Papua New Guinea,None,2020-11-06,532,7,3,78,9,0
+Oceania,Papua New Guinea,None,2020-11-07,532,7,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-08,532,6,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-09,532,6,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-10,532,6,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-11,532,6,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-12,532,5,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-13,532,5,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-14,532,5,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-15,532,5,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-16,532,4,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-17,532,4,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-18,532,4,2,78,9,0
+Oceania,Papua New Guinea,None,2020-11-19,532,4,1,78,9,0
+Oceania,Papua New Guinea,None,2020-11-20,532,4,1,78,9,0
+Oceania,Papua New Guinea,None,2020-11-21,532,4,1,78,9,0
+Oceania,Papua New Guinea,None,2020-11-22,532,3,1,78,9,0
+Oceania,Papua New Guinea,None,2020-11-23,532,3,1,78,9,0
+Oceania,Papua New Guinea,None,2020-11-24,532,3,1,78,9,0
+Oceania,Papua New Guinea,None,2020-11-25,532,3,1,78,10,0
+Oceania,Papua New Guinea,None,2020-11-26,532,3,1,78,10,0
+Oceania,Papua New Guinea,None,2020-11-27,532,3,1,78,10,0
+Oceania,Papua New Guinea,None,2020-11-28,532,3,1,78,10,0
+Oceania,Papua New Guinea,None,2020-11-29,532,3,1,78,10,0
+Oceania,Papua New Guinea,None,2020-11-30,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-01,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-02,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-03,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-04,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-05,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-06,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-07,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-08,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-09,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-10,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-11,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-12,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-13,532,2,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-14,532,1,1,78,10,0
+Oceania,Papua New Guinea,None,2020-12-15,532,1,1,78,10,0
