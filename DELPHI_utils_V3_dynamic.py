@@ -816,12 +816,9 @@ class DELPHIModelComparison:
         :return: a pandas dataframe for date wise cases for the given country and provinve where cases >
         min_case_count
         """
-        if country == 'US':
-            true_df = pd.read_csv(self.DANGER_MAP + f'processed/Cases_{country}_{province}.csv')
-        else:
-            province = '_'.join(province.split())
-            country = '_'.join(country.split())
-            true_df = pd.read_csv(self.DANGER_MAP + f'processed/Global/Cases_{country}_{province}.csv')
+        province = '_'.join(province.split())
+        country = '_'.join(country.split())
+        true_df = pd.read_csv(self.DANGER_MAP + f'processed/Global/Cases_{country}_{province}.csv')
         true_df = true_df.query('case_cnt >= @min_case_count').sort_values('date').groupby('date').min().reset_index()
         return(true_df)
 
