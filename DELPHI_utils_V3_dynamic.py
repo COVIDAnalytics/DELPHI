@@ -816,12 +816,9 @@ class DELPHIModelComparison:
         :return: a pandas dataframe for date wise cases for the given country and provinve where cases >
         min_case_count
         """
-        if country == 'US':
-            true_df = pd.read_csv(self.DANGER_MAP + f'processed/Cases_{country}_{province}.csv')
-        else:
-            province = '_'.join(province.split())
-            country = '_'.join(country.split())
-            true_df = pd.read_csv(self.DANGER_MAP + f'processed/Global/Cases_{country}_{province}.csv')
+        province = '_'.join(province.split())
+        country = '_'.join(country.split())
+        true_df = pd.read_csv(self.DANGER_MAP + f'processed/Global/Cases_{country}_{province}.csv')
         true_df = true_df.query('case_cnt >= @min_case_count').sort_values('date').groupby('date').min().reset_index()
         return(true_df)
 
@@ -866,7 +863,8 @@ class DELPHIModelComparison:
             plt.plot(merged['date'], merged['True Value'], label='True')
             plt.plot(merged['date'], merged['Annealing Prediction'], label='Annealing')
             plt.plot(merged['date'], merged['TNC Prediction'], label='TNC')
-            plt.title(str(province_tuple))
+            plt.title(f"{continent} {country} {province}")
+            plt.legend()
             plt.savefig(self.DATA_SANDBOX + f"plots/model_comparison_{country}_{province}_{today_date_str}.png")
             plt.clf()
 
@@ -884,7 +882,8 @@ class DELPHIModelComparison:
         self.logger.info('Distance for TNC: ' + str(metric_tnc))
         self.logger.info(('Annealing' if metric_annealing < metric_tnc else 'TNC') + ' is better')
 
-        if metric_annealing < metric_tnc:
+        eps = 0.05*abs(metric_tnc)
+        if metric_annealing < metric_tnc - eps:
             self.logger.info(f'Max APE for Annealing: {max_ape:.3g} Threshold is {threshold}')
             if max_ape < threshold:
                 self.logger.debug('Max APE condition satisfied and Annealing better than TNC. Use Annealing.')

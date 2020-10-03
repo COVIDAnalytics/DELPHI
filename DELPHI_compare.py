@@ -118,29 +118,23 @@ if __name__ == "__main__":
         continent = tnc_params.Continent
         country = tnc_params.Country
         province = tnc_params.Province
-        
-        annealing_select, annnealing_metric, tnc_metric, annealing_max_ape = model_compare.compare_metric((continent, country, province), plot=PLOT_OPTION)
-
         annealing_params = global_parameters_annealing.query('Continent == @continent').query('Country == @country').query('Province == @province')
-        annealing_available = True
+
         if annealing_params.shape[0] == 0:
-            annealing_select = False
-            annealing_available = False
-        
-        comparison_results['region'].append((continent, country, province))
-        comparison_results['annealing_selected'].append(annealing_select)
-        comparison_results['annealing_metric'].append(annnealing_metric)
-        comparison_results['tnc_metric'].append(tnc_metric)
-        comparison_results['annealing_max_ape'].append(annealing_max_ape)
-        
-        if not annealing_select:
-            if annealing_available:
-                logger.warning(f'Annealing performs worse in {country} - {province}')
-            else:
-                logger.warning(f'Annealing parameters not present for {country} - {province}')
-            global_parameters_best = global_parameters_best.append(tnc_params, ignore_index=True)
+            logger.warning(f'Annealing parameters not present for {country} - {province}')
         else:
-            global_parameters_best = global_parameters_best.append(annealing_params, ignore_index=True)
+            annealing_select, annnealing_metric, tnc_metric, annealing_max_ape = model_compare.compare_metric((continent, country, province), plot=PLOT_OPTION)
+            comparison_results['region'].append((continent, country, province))
+            comparison_results['annealing_selected'].append(annealing_select)
+            comparison_results['annealing_metric'].append(annnealing_metric)
+            comparison_results['tnc_metric'].append(tnc_metric)
+            comparison_results['annealing_max_ape'].append(annealing_max_ape)
+        
+            if not annealing_select:
+                logger.warning(f'Annealing performs worse in {country} - {province}')
+                global_parameters_best = global_parameters_best.append(tnc_params, ignore_index=True)
+            else:
+                global_parameters_best = global_parameters_best.append(annealing_params, ignore_index=True)
 
     global_parameters_best.to_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}.csv",
