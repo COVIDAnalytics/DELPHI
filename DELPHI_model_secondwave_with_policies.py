@@ -66,7 +66,7 @@ def run_model_secondwave_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_S
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
 
-    str_date = "".join(str(datetime.now()).split("-"))
+    str_date = "".join(str(datetime.now().date()).split("-"))
     dic_file_name = f'policy_{str_date}_global.csv'
     with open(path_to_output_zip + dic_file_name, 'w') as f:
         for key in dict_current_policy_international.keys():
