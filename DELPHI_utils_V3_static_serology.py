@@ -225,11 +225,11 @@ class DELPHIDataCreator:
     ):
         if testing_data_included:
             assert (
-                    len(best_params) == 14
+                    len(best_params) == 15
             ), f"Expected 9 best parameters, got {len(best_params)}"
         else:
             assert (
-                    len(best_params) == 11
+                    len(best_params) == 12
             ), f"Expected 7 best parameters, got {len(best_params)}"
         self.x_sol_final = x_sol_final
         self.date_day_since100 = date_day_since100
@@ -268,6 +268,7 @@ class DELPHIDataCreator:
                 "Jump Magnitude": [self.best_params[8]],
                 "Jump Time": [self.best_params[9]],
                 "Jump Decay": [self.best_params[10]],
+                "Percentage Detected": [self.best_params[11]],
             }
         )
         return df_parameters
@@ -1153,8 +1154,8 @@ class DELPHIAggregations:
         :param df_predictions: DELPHI predictions dataframe
         :return: DELPHI predictions dataframe aggregated at the country level
         """
-        df_predictions2 = df_predictions[df_predictions["Province"] != "None"]
-        df_agg_country = df_predictions2.groupby(["Continent", "Country", "Day"]).sum().reset_index()
+        df_predictions = df_predictions[df_predictions["Province"] != "None"]
+        df_agg_country = df_predictions.groupby(["Continent", "Country", "Day"]).sum().reset_index()
         df_agg_country["Province"] = "None"
         df_agg_country = df_agg_country[df_predictions.columns]
         return df_agg_country
@@ -1193,7 +1194,9 @@ class DELPHIAggregations:
         :param df_predictions: dataframe with the raw predictions from DELPHI
         :return: dataframe with raw predictions from DELPHI and aggregated ones at the country, continent & world levels
         """
-        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(df_predictions)
+        df_agg_since_today_per_country = DELPHIAggregations.get_aggregation_per_country(
+            df_predictions
+        )
         df_agg_since_today_per_continent = DELPHIAggregations.get_aggregation_per_continent(
             df_predictions
         )
@@ -1743,8 +1746,8 @@ def get_initial_conditions(params_fitted: tuple, global_params_fixed: tuple) -> 
     :param global_params_fixed: tuple of fixed and constant parameters for the model defined a while ago
     :return: a list of initial conditions for all 16 states of the DELPHI model
     """
-    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2 = params_fitted[:8]
-    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
+    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, p_d  = params_fitted
+    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_h, p_v = global_params_fixed
     S_0 = (
         (N - PopulationCI / p_d)
         - (PopulationCI / p_d * (k1 + k2))
@@ -1888,7 +1891,7 @@ def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, x_sol_fin
                     x_sol_final[15, len(cases_data_fit) - 15: len(cases_data_fit)],
                 ) + compute_mape(
                     deaths_data_fit[-15:],
-                    x_sol_final[14, len(deaths_data_fit) - 15: len(deaths_data_fit)],
+                    x_sol_final[14, len(cases_data_fit) - 15: len(deaths_data_fit)],
                 )
         ) / 2
     else:  # We take MAPE on all available previous days (less than 15)
