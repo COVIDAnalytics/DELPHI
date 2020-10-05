@@ -66,8 +66,8 @@ def run_model_secondwave_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_S
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
 
-    str_date = "".join(str(pd.to_datetime(current_time).date()).split("-"))
-    dic_file_name = f'dict_current_policy_international_global_{str_date}.csv'
+    str_date = "".join(str(datetime.now()).split("-"))
+    dic_file_name = f'policy_{str_date}_global.csv'
     with open(path_to_output_zip + dic_file_name, 'w') as f:
         for key in dict_current_policy_international.keys():
             c_name , p_name = key
@@ -353,7 +353,7 @@ def run_model_secondwave_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_S
     df_global_predictions_since_100_cases_scenarios.to_csv(path_to_output_zip + file_name, index=False)
     zipfile.ZipFile(path_to_output_zip + file_name.replace("csv", "zip"), 'w', zipfile.ZIP_DEFLATED).\
         write(path_to_output_zip+file_name,file_name)
-    os.remove(path_to_output_zip + file_name)
     if upload_to_s3:
-        upload_s3_file(path_to_output_zip + file_name.replace("csv", "zip"),file_name.replace("csv", "zip"))
+        upload_s3_file(path_to_output_zip + file_name,file_name)
+    os.remove(path_to_output_zip + file_name)
 
