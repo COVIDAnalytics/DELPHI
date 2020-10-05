@@ -866,10 +866,7 @@ class DELPHIModelComparison:
         """
         province = '_'.join(province.split())
         country = '_'.join(country.split())
-        if country == 'US':
-            true_df = pd.read_csv(self.DANGER_MAP + f'processed/Cases_{country}_{province}.csv')
-        else:
-            true_df = pd.read_csv(self.DANGER_MAP + f'processed/Global/Cases_{country}_{province}.csv')
+        true_df = pd.read_csv(self.DANGER_MAP + f'processed/Global/Cases_{country}_{province}.csv')
         true_df = true_df.query('case_cnt >= @min_case_count').sort_values('date').groupby('date').min().reset_index()
         return(true_df)
 
