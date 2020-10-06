@@ -863,7 +863,7 @@ class DELPHIModelComparison:
             plt.plot(merged['date'], merged['True Value'], label='True')
             plt.plot(merged['date'], merged['Annealing Prediction'], label='Annealing')
             plt.plot(merged['date'], merged['TNC Prediction'], label='TNC')
-            plt.title(f"{continent} {country} {province}")
+            plt.title(f"{continent}, {country}, {province}")
             plt.legend()
             plt.savefig(self.DATA_SANDBOX + f"plots/model_comparison_{country}_{province}_{today_date_str}.png")
             plt.clf()
