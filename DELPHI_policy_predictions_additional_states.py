@@ -31,7 +31,7 @@ CONFIG_FILEPATHS = CONFIG["filepaths"]
 
 def run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX,PATH_TO_FOLDER_DANGER_MAP,
                                            trainging_date, country_lists,provinces_lists,popcountries,replace_deathcounts,
-                                           upload_to_s3):
+                                           upload_to_s3,today_time):
     training_end_date = trainging_date
 
     yesterday = "".join(str(training_end_date.date() - timedelta(days=1)).split("-"))
@@ -91,14 +91,14 @@ def run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX,PATH_TO_FOLDER_D
     )
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
-    str_date = "".join(str(training_end_date.date()).split("-"))
+    str_date = "".join(str(today_time.date()).split("-"))
     path_to_results = 'data_sandbox/predicted/policy_scenario_predictions/'
-    dic_file_name = f'dict_current_policy_international_provinces_{str_date}.csv'
+    dic_file_name = f'policy_{str_date}_provinces.csv'
     with open(path_to_results + dic_file_name, 'w') as f:
         for key in dict_current_policy_international.keys():
             c_name , p_name = key
             f.write("%s,%s\n"%((c_name.replace(',',' '),p_name),dict_current_policy_international[key]))
-    if upload_to_s3:
+    if upload_to_s3 and 'US' in country_lists:
         upload_s3_file(path_to_results + dic_file_name,dic_file_name)
     dict_normalized_policy_gamma_us_only = {
         'No_Measure': 1.0,
@@ -371,8 +371,8 @@ def run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX,PATH_TO_FOLDER_D
     df_global_predictions_since_100_cases_scenarios = pd.concat(
         list_df_global_predictions_since_100_cases_scenarios
     ).reset_index(drop=True)
-    file_name =  f'df_scenarios_provinces_j&j_{day_after_yesterday}'+'_US' if 'US' in country_lists else  \
-        f'df_scenarios_provinces_j&j_{day_after_yesterday}'+'_Ex_US'
+    file_name =  f'df_scenarios_provinces_j&j_{str_date}'+'_US' if 'US' in country_lists else  \
+        f'df_scenarios_provinces_j&j_{str_date}'+'_Ex_US'
     path_to_output = PATH_TO_DATA_SANDBOX + f'predicted/policy_scenario_predictions/' + file_name + '.csv'
     path_to_output_zip = PATH_TO_DATA_SANDBOX + f'predicted/policy_scenario_predictions/' + file_name + '.zip'
     df_global_predictions_since_100_cases_scenarios.to_csv(
@@ -380,7 +380,7 @@ def run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX,PATH_TO_FOLDER_D
         index=False
     )
     zipfile.ZipFile(path_to_output_zip, 'w', zipfile.ZIP_DEFLATED).write(path_to_output,file_name + '.csv')
-    os.remove(path_to_output)
     print("Exported all policy-dependent predictions for all countries to data_sandbox")
     if upload_to_s3:
-        upload_s3_file(path_to_output_zip,file_name + '.zip')
+        upload_s3_file(path_to_output,file_name + '.csv')
+    os.remove(path_to_output)

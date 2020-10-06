@@ -15,7 +15,7 @@ def read_policy_data_us_only_jj_version(filepath_data_sandbox: str, parameters_u
         "travel_limit", "stay_home", "educational_fac", "any_gathering_restrict",
         "any_business", "all_non-ess_business"
     ]
-    df = pd.read_csv(filepath_data_sandbox + "10052020_raw_policy_data_US_only.csv")
+    df = pd.read_csv(filepath_data_sandbox + "12062020_raw_policy_data_us_only.csv")
     df = df[df.location_name.isin(list_US_states)][[
         "location_name", "travel_limit_start_date", "travel_limit_end_date",
         "stay_home_start_date", "stay_home_end_date", "educational_fac_start_date",
