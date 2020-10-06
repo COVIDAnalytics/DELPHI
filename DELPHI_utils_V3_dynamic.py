@@ -827,7 +827,8 @@ class DELPHIModelComparison:
                     min_case_count=100,
                     metric="KL",
                     threshold=0.25,
-                    plot=False):
+                    plot=False,
+                    eps=0.05):
         """
         Computes the given metric for predictions with annealing and tnc and the MAPE for annealing.
         Returns the metrics along with a flag showing whether annealing did better than tnc.
@@ -882,8 +883,7 @@ class DELPHIModelComparison:
         self.logger.info('Distance for TNC: ' + str(metric_tnc))
         self.logger.info(('Annealing' if metric_annealing < metric_tnc else 'TNC') + ' is better')
 
-        eps = 0.05*abs(metric_tnc)
-        if metric_annealing < metric_tnc - eps:
+        if metric_annealing < metric_tnc - eps*abs(metric_tnc):
             self.logger.info(f'Max APE for Annealing: {max_ape:.3g} Threshold is {threshold}')
             if max_ape < threshold:
                 self.logger.debug('Max APE condition satisfied and Annealing better than TNC. Use Annealing.')
