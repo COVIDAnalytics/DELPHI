@@ -66,8 +66,7 @@ def run_model_secondwave_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_S
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
 
-    str_date = "".join(str(datetime.now().date()).split("-"))
-    dic_file_name = f'policy_{str_date}_global.csv'
+    dic_file_name = f'policy_{today}_global.csv'
     with open(path_to_output_zip + dic_file_name, 'w') as f:
         for key in dict_current_policy_international.keys():
             c_name , p_name = key
@@ -348,7 +347,7 @@ def run_model_secondwave_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_S
         df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
     )
-    file_name = f'df_global_predictions_since_100_cases_scenarios_world_{str_date}.csv'
+    file_name = f'df_global_predictions_since_100_cases_scenarios_world_{today}.csv'
     print("Exported all policy-dependent predictions for all countries for JJ in " + file_name)
     df_global_predictions_since_100_cases_scenarios.to_csv(path_to_output_zip + file_name, index=False)
     zipfile.ZipFile(path_to_output_zip + file_name.replace("csv", "zip"), 'w', zipfile.ZIP_DEFLATED).\
