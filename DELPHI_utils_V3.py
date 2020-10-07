@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 import scipy.stats
+import os
 from datetime import datetime, timedelta
 from typing import Union
 from copy import deepcopy
@@ -1522,3 +1523,114 @@ def upload_s3_file(file_name, object_name):
         logging.error(e)
         return False
     return True
+
+
+
+def getDaySince100(data):
+    res = []
+    count = -1
+    for x in data['cumulative_cases']:
+        if x >= 100 and count < 0:
+            count = 0
+        elif x >= 100 and count >= 0:
+            count +=1
+        else:
+            count -=1
+        res.append(count)
+    resRev = []
+    count = 0
+    for x in reversed(res):
+        if x>=0:
+            resRev.insert(0,x)
+        else:
+            count -= 1
+            resRev.insert(0,count)
+    return resRev
+
+def process_data(rawDF,provinceColumn, change_province_name):
+    provinces = []
+    populations = []
+    Continents = []
+    Countries = []
+    population = pd.read_csv('data_sandbox/processed/Population_Global.csv')
+    dictProv = {"KwaZulu-Natal": "KwaZulu_Natal",
+                'St_Louis': 'St._Louis',
+                'Mato Grosso': 'MatoGrosso',
+                'Mato Grosso do Sul': 'MatoGrosso do Sul',
+                'Northwest': 'North_West'}
+
+    for country in rawDF.country.unique():
+        #     if country not in ['Philippines', 'Ukraine']:
+        countriesDF = rawDF[rawDF.country == country].reset_index(drop=True)
+        country = 'US'  if country == 'USA' else country
+        filename = country + '_J&J'
+        for province in pd.unique(countriesDF[provinceColumn]):
+            provinceDF = countriesDF[
+                (countriesDF[provinceColumn] == province)].reset_index(drop=True)
+            province = dictProv[province] if province in dictProv.keys() else province
+            updatedData = pd.DataFrame([x for x in provinceDF.date], columns = ["date"])
+            print(country,province,updatedData.date.tail(1).values[0])
+            province_name = province.replace(' ', '_') if change_province_name == True else province
+
+            updatedData['country'] = country
+            updatedData['province'] = province_name
+            updatedData['day_since100'] = getDaySince100(provinceDF)
+            updatedData['case_cnt'] = provinceDF['cumulative_cases']
+            updatedData['death_cnt'] = provinceDF['cumulative_deaths']
+            for c in ['new_hospitalization', 'total_hospitalization','new_icu'
+                ,'total_icu','new_recovered','total_recovered']:
+                updatedData[c] = np.nan
+            pathdr = 'data_sandbox/processed/'+filename.replace(' ', '_')
+            try:
+                os.mkdir(pathdr)
+            except OSError:
+                print("")
+            updatedData.to_csv( pathdr +'/Cases_'+country.replace(' ', '_')+'_'+province.replace(' ', '_')+'.csv', index=False)
+            # for population
+            provinces.append(province_name)
+            popul_column = 'population' if provinceColumn == "key" else provinceColumn+'_population'
+            #             populations.append(provinceDF['population'][1])
+            populations.append(provinceDF[popul_column][0])
+            res_continent = population[(population.Country == country) & (population.Province == province_name)]
+            if res_continent.shape[0] > 0:
+                continent = res_continent.Continent.values[0]
+            else:
+                res_continent = population[(population.Country == country)]
+                continent = res_continent.Continent.values[0]
+                new_row = {'Continent':continent, 'Country':country, 'Province':province_name, 'pop2016':int(provinceDF[popul_column][0]) }
+                population = population.append(new_row, ignore_index=True)
+                population.to_csv('data_sandbox/processed/Population_Global.csv'  , index=False)
+                print(f"new region: {continent} {country} {province_name} ")
+            #                 continent = 0
+
+            Continents.append(continent)
+            Countries.append(country)
+
+    updatedData = pd.DataFrame()
+    updatedData['Continent']= Continents
+    updatedData['Country'] = Countries
+    updatedData['Province'] = provinces
+    updatedData['pop2016'] = populations
+    if provinceColumn == 'county':
+        file_name = 'US_counties.csv'
+    elif provinceColumn == 'state_province':
+        file_name = 'Ex_US_regions.csv'
+    else:
+        file_name = 'deleteme_populations.csv'
+
+    updatedData.to_csv( 'data_sandbox/processed/'+file_name, index=False)
+
+def runProcessData(date_files):
+    inputFile_us_county = "data_sandbox/raw_data_additional_states/" + date_files + "_county_data.csv"
+    rawDF_us_county = pd.read_csv(inputFile_us_county)
+    rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
+
+    # inputFile_ex_us_provinces = "data_sandbox/raw_data_additional_states/" + date_files + "_ex_us_regions.csv"
+    # rawDF_ex_us_provinces = pd.read_csv(inputFile_ex_us_provinces)
+    # rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
+
+
+    process_data(rawDF_us_county,'county',True)
+    # process_data(rawDF_ex_us_provinces,'state_province',False)
+
+#runProcessData("100220")
