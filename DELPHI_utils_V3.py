@@ -1625,12 +1625,12 @@ def runProcessData(date_files):
     rawDF_us_county = pd.read_csv(inputFile_us_county)
     rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
 
-    # inputFile_ex_us_provinces = "data_sandbox/raw_data_additional_states/" + date_files + "_ex_us_regions.csv"
-    # rawDF_ex_us_provinces = pd.read_csv(inputFile_ex_us_provinces)
-    # rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
+    inputFile_ex_us_provinces = "data_sandbox/raw_data_additional_states/" + date_files + "_ex_us_regions.csv"
+    rawDF_ex_us_provinces = pd.read_csv(inputFile_ex_us_provinces)
+    rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
 
 
     process_data(rawDF_us_county,'county',True)
-    # process_data(rawDF_ex_us_provinces,'state_province',False)
+    process_data(rawDF_ex_us_provinces,'state_province',False)
 
 #runProcessData("100220")

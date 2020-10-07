@@ -501,9 +501,9 @@ if __name__ == '__main__':
     PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 
-    popcountries_org = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
-    )
+    # popcountries_org = pd.read_csv(
+    #     PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
+    # )
 
     us_county_names = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
@@ -526,7 +526,8 @@ if __name__ == '__main__':
 
     provinces_lists = []
     country_lists = ['US'] # ex_us_names
-    run_model_additional_states(country_lists,provinces_lists,popcountries_org)
+    popcountries_us_ex = us_county_names.append(ex_us_regions)
+    run_model_additional_states(country_lists,provinces_lists,popcountries_us_ex)
     run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX, PATH_TO_FOLDER_DANGER_MAP
-                                           , training_end_date, country_lists,provinces_lists,popcountries_org,
+                                           , training_end_date, country_lists,provinces_lists,popcountries_us_ex,
                                            replace_deathcounts, upload_to_s3,today_time)
