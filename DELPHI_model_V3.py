@@ -298,23 +298,27 @@ def solve_and_predict_area(
                 )
                 x_0_cases = get_initial_conditions(
                     params_fitted=params, global_params_fixed=GLOBAL_PARAMS_FIXED
-                )
-                x_sol = solve_ivp(
+                )                
+                x_sol_total = solve_ivp(
                     fun=model_covid,
                     y0=x_0_cases,
                     t_span=[t_cases[0], t_cases[-1]],
                     t_eval=t_cases,
                     args=tuple(params),
-                ).y
-                weights = list(range(1, len(cases_data_fit) + 1))
-                residuals_value = get_residuals_value(
-                    optimizer=OPTIMIZER,
-                    balance=balance,
-                    x_sol=x_sol,
-                    cases_data_fit=cases_data_fit,
-                    deaths_data_fit=deaths_data_fit,
-                    weights=weights
                 )
+                x_sol = x_sol_total.y
+                weights = list(range(1, len(cases_data_fit) + 1))
+                if x_sol_total.status == 0:
+                    residuals_value = get_residuals_value(
+                        optimizer=OPTIMIZER,
+                        balance=balance,
+                        x_sol=x_sol,
+                        cases_data_fit=cases_data_fit,
+                        deaths_data_fit=deaths_data_fit,
+                        weights=weights
+                    )
+                else:
+                    residuals_value = 1e12
                 return residuals_value
 
             if OPTIMIZER in ["tnc", "trust-constr"]:
@@ -460,7 +464,7 @@ if __name__ == "__main__":
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
 
     list_tuples = popcountries.tuple_area.tolist()
-    list_tuples = [x for x in list_tuples if x[1] == "US"]
+#    list_tuples = [x for x in list_tuples if x[0] == "Europe" and x[1] in ["Germany","United Kingdom","Italy","Greece","Switzerland","Portugal","Spain"]]
 
 #    list_tuples = [x for x in list_tuples if x[1] == "US" and x[2] in ["California","New York", "Massachusetts", "Florida", "Texas","Illinois","Vermont","Arizona", "Nevada"]]
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")

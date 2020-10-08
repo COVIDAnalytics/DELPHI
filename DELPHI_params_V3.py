@@ -28,14 +28,14 @@ validcases_threshold_policy = 15  # Minimum number of cases to train the country
 max_iter = 500  # Maximum number of iterations for the algorithm
 
 # Default parameters - Annealing
-percentage_drift_upper_bound_annealing = 0.5
-default_upper_bound_annealing = 0.5
-percentage_drift_lower_bound_annealing = 0.5
-default_lower_bound_annealing = 0.5
+percentage_drift_upper_bound_annealing = 1
+default_upper_bound_annealing = 1
+percentage_drift_lower_bound_annealing = 1
+default_lower_bound_annealing = 1
 default_lower_bound_jump = 0
 default_upper_bound_jump = 5
 default_lower_bound_std_normal = 1
-default_upper_bound_std_normal = 50
+default_upper_bound_std_normal = 100
 
 # Initial condition of exposed state and infected state
 IncubeD = 5

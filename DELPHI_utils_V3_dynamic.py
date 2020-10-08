@@ -874,7 +874,7 @@ class DELPHIModelComparison:
                     province_tuple,
                     min_case_count=100,
                     metric="KL",
-                    threshold=0.25,
+                    threshold=10.25,
                     plot=False):
         """
         Computes the given metric for predictions with annealing and tnc and the MAPE for annealing.
