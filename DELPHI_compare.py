@@ -65,10 +65,6 @@ if __name__ == "__main__":
     logger.info(
         f"The user is {USER_RUNNING}, Comparing Annealing and TNC performance."
     )
-    today_date_str = "".join(str(datetime.now().date()).split("-"))
-    next_day = "".join(str(datetime.now().date() + timedelta(days=1)).split("-"))
-    # today_date_str = '20201002'
-    # next_day = '20201003'
 
     ## Run annealing and tnc
     if RUN_MODEL:
@@ -80,6 +76,8 @@ if __name__ == "__main__":
             f'python3 DELPHI_model_V3.py -u {USER_RUNNING} -o annealing -ci 0 -s100 1 -w 0'
         )
 
+    today_date_str = "".join(str(datetime.now().date()).split("-"))
+    # today_date_str = '20201004'
     ## Read parameter files
     global_parameters_tnc = pd.read_csv(
         PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}.csv"
@@ -88,10 +86,6 @@ if __name__ == "__main__":
         PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_annealing_{today_date_str}.csv"
     )
     global_parameters_best = pd.DataFrame(columns=global_parameters_tnc.columns)
-
-    ## Check if modifying latest file
-    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_annealing_{next_day}.csv"):
-        raise RuntimeError("Not modifying the latest parameters file")
 
     ## Compare metrics
     global_annealing_predictions_since_100days = pd.read_csv(
@@ -137,7 +131,7 @@ if __name__ == "__main__":
                 global_parameters_best = global_parameters_best.append(annealing_params, ignore_index=True)
 
     global_parameters_best.to_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}.csv",
+            PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}_testing.csv",
             index=False,
     )
 
