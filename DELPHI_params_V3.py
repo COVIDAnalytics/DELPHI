@@ -14,12 +14,41 @@ def get_default_parameter_list_and_bounds(validcases: list):
         (0, 0.5), (0.1, 10), (0.1, 10), (0, 5), (0, len(validcases) - 1), (0.1, 5)
     ]  # Bounds for the solver
     return default_parameter_list, default_bounds_params
+default_parameter_list = [1, 0, 2, 0.2, 0.05, 0.2, 3, 3, 0.1, 3, 1] # Default parameters for the solver
 
+dict_default_reinit_parameters = {
+    "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0, "r_dthdecay": 0,
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1,
+}  # Allows for reinitialization of parameters in case they reach a value that is too low/high
+dict_default_reinit_lower_bounds = {
+    "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0, "r_dthdecay": 0,
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1,
+}  # Allows for reinitialization of lower bounds in case they reach a value that is too low
+dict_default_reinit_upper_bounds = {
+    "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0, "r_dthdecay": 0,
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1,
+}  # Allows for reinitialization of upper bounds in case they reach a value that is too high
+default_upper_bound = 0.2
+percentage_drift_upper_bound = 0.2
+default_lower_bound = 0.2
+percentage_drift_lower_bound = 0.2
+default_bounds_params = (
+    (0.75, 1.25), (-10, 10), (1, 3), (0.05, 0.5), (0.01, 0.25), (0, 0.5), (0.1, 10), (0.1, 10), (0, 5), (0, 7), (0.1, 5)
+)  # Bounds for the solver
 
 validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
 max_iter = 500  # Maximum number of iterations for the algorithm
 n_cpu_default = 90  # Default number of CPUs used
+# Default parameters - Annealing
+percentage_drift_upper_bound_annealing = 1
+default_upper_bound_annealing = 1
+percentage_drift_lower_bound_annealing = 1
+default_lower_bound_annealing = 1
+default_lower_bound_jump = 0
+default_upper_bound_jump = 5
+default_lower_bound_std_normal = 1
+default_upper_bound_std_normal = 100
 
 # Initial condition of exposed state and infected state
 IncubeD = 5
