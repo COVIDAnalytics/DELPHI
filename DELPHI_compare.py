@@ -77,7 +77,7 @@ if __name__ == "__main__":
         )
 
     today_date_str = "".join(str(datetime.now().date()).split("-"))
-    # today_date_str = '20201004'
+    #today_date_str = '20201004'
     ## Read parameter files
     global_parameters_tnc = pd.read_csv(
         PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}.csv"
