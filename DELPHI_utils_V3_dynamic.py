@@ -850,10 +850,29 @@ class DELPHIModelComparison:
         :param y_pred: list of predicted values
         :return: a float, corresponding to the MAPE
         """
-        ape = [abs(x-y)/x for x,y in zip(y_true, y_pred) if y!= 0 and x > 100]
+        # ape = [abs(x-y)/x for x,y in zip(y_true, y_pred) if y!= 0 and x > 100]
+        ape = [abs(x-y)/x for x,y in zip(y_true, y_pred) if x > 0]
         if len(ape)>0:
             return max(ape)
-        return 0
+        return 0.0
+
+    @staticmethod
+    def max_ape_ma(y_true: list, y_pred: list, n:int = 10) -> float:
+        """
+        Compute the Maximum Absolute Percentage Error between two lists
+        :param y_true: list of true historical values
+        :param y_pred: list of predicted values
+        :return: a float, corresponding to the MAPE
+        """
+        y_true_ma = np.cumsum(np.array(y_true))
+        y_true_ma = y_true_ma[n:] - y_true_ma[:-n]
+        y_pred_ma = np.cumsum(np.array(y_pred))
+        y_pred_ma = y_pred_ma[n:] - y_pred_ma[:-n]
+
+        ape = [abs(x-y)/x for x,y in zip(y_true_ma, y_pred_ma) if x > 0]
+        if len(ape)>0:
+            return max(ape)
+        return 10.0
 
     def get_province(self, country: str, province: str, min_case_count=100) -> pd.DataFrame:
         """
@@ -874,7 +893,7 @@ class DELPHIModelComparison:
                     province_tuple,
                     min_case_count=100,
                     metric="KL",
-                    threshold=0.25,
+                    threshold=1.0,
                     plot=False,
                     eps=0.05):
         """
@@ -925,7 +944,7 @@ class DELPHIModelComparison:
             raise NotImplementedError("Only KL divergence is implemented as a comparison metric")
         metric_annealing = metric(merged['True Value'], merged['Annealing Prediction'])
         metric_tnc = metric(merged['True Value'], merged['TNC Prediction'])
-        max_ape = DELPHIModelComparison.max_ape(merged['True Value'], merged['Annealing Prediction'])
+        max_ape = DELPHIModelComparison.max_ape_ma(merged['True Value'], merged['Annealing Prediction'])
 
         self.logger.info('Distance for Annealing: ' + str(metric_annealing))
         self.logger.info('Distance for TNC: ' + str(metric_tnc))
