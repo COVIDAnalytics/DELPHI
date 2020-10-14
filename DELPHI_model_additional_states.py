@@ -271,28 +271,33 @@ def solve_and_predict_area_additional_states(
                     params_fitted=params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED
                 )
-                x_sol = solve_ivp(
+                x_sol_total = solve_ivp(
                     fun=model_covid,
                     y0=x_0_cases,
                     t_span=[t_cases[0], t_cases[-1]],
                     t_eval=t_cases,
                     args=tuple(params)
-                ).y
+                )
                 weights = list(range(1, len(fitcasesnd) + 1))
+                x_sol = x_sol_total.y
                 # weights[-15:] =[x + 50 for x in weights[-15:]]
-                if annealing_opt == True:
-                    residuals_value = sum(
-                        np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
-                        + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)) + sum(
-                        np.multiply((x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2, weights[7:])
-                        + balance * balance * np.multiply((x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2, weights[7:])
-                    )
+                if x_sol_total.status == 0:
+                    if annealing_opt == True:
+                        residuals_value = sum(
+                            np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
+                            + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)) + sum(
+                            np.multiply((x_sol[15, 7:] - x_sol[15, :-7] - fitcasesnd[7:] + fitcasesnd[:-7]) ** 2, weights[7:])
+                            + balance * balance * np.multiply((x_sol[14, 7:] - x_sol[14, :-7] - fitcasesd[7:] + fitcasesd[:-7]) ** 2, weights[7:])
+                        )
+                    else:
+                        residuals_value = sum(
+                            np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
+                            + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
+                        )
+                    return residuals_value
                 else:
-                    residuals_value = sum(
-                        np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
-                        + balance * balance * np.multiply((x_sol[14, :] - fitcasesd) ** 2, weights)
-                    )
-                return residuals_value
+                    residuals_value = 1e12
+                    return residuals_value
 
             if annealing_opt == True:
                 output = dual_annealing(residuals_totalcases, x0 = parameter_list, bounds = bounds_params)
