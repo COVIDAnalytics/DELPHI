@@ -501,9 +501,9 @@ if __name__ == '__main__':
     PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 
-    # popcountries_org = pd.read_csv(
-    #     PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
-    # )
+    popcountries_org = pd.read_csv(
+        PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
+    )
 
     us_county_names = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv"
@@ -516,8 +516,8 @@ if __name__ == '__main__':
     ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
     today_time = datetime.now()
 
-    training_start_date = datetime(2020, 9, 30)
-    training_end_date = datetime(2020, 10, 6)
+    training_start_date = datetime(2020, 10, 5)
+    training_end_date = datetime(2020, 10, 13)
     training_last_date = training_end_date - timedelta(days=1)
     # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
     n_days_to_train = (training_last_date - training_start_date).days
@@ -526,8 +526,8 @@ if __name__ == '__main__':
 
     provinces_lists = []
     country_lists = ['US'] # ex_us_names
-    popcountries_us_ex = us_county_names.append(ex_us_regions)
-    run_model_additional_states(country_lists,provinces_lists,popcountries_us_ex)
+    # popcountries_us_ex = us_county_names.append(ex_us_regions)
+    run_model_additional_states(country_lists,provinces_lists,popcountries_org)
     run_policy_prediction_additional_state(PATH_TO_DATA_SANDBOX, PATH_TO_FOLDER_DANGER_MAP
-                                           , training_end_date, country_lists,provinces_lists,popcountries_us_ex,
+                                           , training_end_date, country_lists,provinces_lists,popcountries_org,
                                            replace_deathcounts, upload_to_s3,today_time)
