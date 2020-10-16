@@ -245,7 +245,7 @@ def solve_and_predict_area(
                     (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                     + jump * np.exp(-(t - t_jump) ** 2 / (2 * std_normal ** 2))
                 )
-                p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(-t / 20 * r_dthdecay) + np.pi / 2) + 0.01
+                p_dth_mod = (2 / np.pi) * (p_dth - 0.001) * (np.arctan(-t / 20 * r_dthdecay) + np.pi / 2) + 0.001
                 assert (
                     len(x) == 16
                 ), f"Too many input variables, got {len(x)}, expected 16"
@@ -308,6 +308,7 @@ def solve_and_predict_area(
                 )
                 x_sol = x_sol_total.y
                 weights = list(range(1, len(cases_data_fit) + 1))
+#                weights = [(x/len(cases_data_fit))**2 for x in weights]
                 if x_sol_total.status == 0:
                     residuals_value = get_residuals_value(
                         optimizer=OPTIMIZER,
@@ -335,7 +336,6 @@ def solve_and_predict_area(
                 )
             else:
                 raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
-            print((OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success))
             if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success):
                 best_params = output.x
                 t_predictions = [i for i in range(maxT)]
@@ -460,13 +460,13 @@ if __name__ == "__main__":
         past_parameters_=past_parameters,
         popcountries=popcountries,
     )
-    n_cpu = psutil.cpu_count(logical = False) - 1
+    n_cpu = psutil.cpu_count(logical = False) - 2
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
 
     list_tuples = popcountries.tuple_area.tolist()
-#    list_tuples = [x for x in list_tuples if x[0] == "Europe" and x[1] in ["Germany","United Kingdom","Italy","Greece","Switzerland","Portugal","Spain"]]
+#    list_tuples = [x for x in list_tuples if x[0] == "Europe"]
 
-#    list_tuples = [x for x in list_tuples if x[1] == "US" and x[2] in ["California","New York", "Massachusetts", "Florida", "Texas","Illinois","Vermont","Arizona", "Nevada"]]
+    list_tuples = [x for x in list_tuples if x[1] == "US"]
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(

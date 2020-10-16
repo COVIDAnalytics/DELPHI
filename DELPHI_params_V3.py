@@ -35,7 +35,7 @@ default_lower_bound_annealing = 1
 default_lower_bound_jump = 0
 default_upper_bound_jump = 5
 default_lower_bound_std_normal = 1
-default_upper_bound_std_normal = 100
+default_upper_bound_std_normal = 200
 
 # Initial condition of exposed state and infected state
 IncubeD = 5
@@ -43,7 +43,7 @@ RecoverID = 10
 RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
-default_maxT = datetime(2020, 12, 15)  # Maximum timespan of prediction
+default_maxT = datetime(2021, 1, 15)  # Maximum timespan of prediction
 n_params_without_policy_params = 7  # alpha, r_dth, p_dth, a, b, k1, k2
 p_v = 0.25  # Percentage of ventilated
 p_d = 0.2  # Percentage of infection cases detected.

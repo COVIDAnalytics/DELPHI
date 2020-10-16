@@ -219,7 +219,7 @@ for continent, country, province in zip(
                               (2 / np.pi) * np.arctan(-(t_cases[-1] + future_time - days) / 20 * r_s) + 1 +
                               jump * np.exp(-(t_cases[-1] + future_time - t_jump)**2 / (2 * std_normal ** 2))
                         )
-                        p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
+                        p_dth_mod = (2 / np.pi) * (p_dth - 0.001) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.001
                         if t > t_cases[-1] + future_time:
                             normalized_gamma_future_policy = dict_normalized_policy_gamma_countries[future_policy]
                             normalized_gamma_current_policy = dict_normalized_policy_gamma_countries[

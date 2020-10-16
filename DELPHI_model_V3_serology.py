@@ -234,6 +234,7 @@ def solve_and_predict_area(
                 :param jump: Amplitude of the Gaussian jump modeling the resurgence in cases
                 :param t_jump: Time where the Gaussian jump will reach its maximum value
                 :param std_normal: Standard Deviation of the Gaussian jump (~ time span of the resurgence in cases)
+                :param p_d: Detection Probability
                 :return: predictions for all 16 states, which are the following
                 [0 S, 1 E, 2 I, 3 UR, 4 DHR, 5 DQR, 6 UD, 7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
                 """
@@ -246,7 +247,7 @@ def solve_and_predict_area(
                     (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                     + jump * np.exp(-(t - t_jump) ** 2 / (2 * std_normal ** 2))
                 )
-                p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(-t / 20 * r_dthdecay) + np.pi / 2) + 0.01
+                p_dth_mod = (2 / np.pi) * (p_dth - 0.001) * (np.arctan(-t / 20 * r_dthdecay) + np.pi / 2) + 0.001
                 assert (
                     len(x) == 16
                 ), f"Too many input variables, got {len(x)}, expected 16"
