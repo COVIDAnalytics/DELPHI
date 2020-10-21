@@ -66,13 +66,13 @@ def solve_and_predict_area(
                     max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
                          max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
                 )                
-                param_list_lower = [x - max(0.2 * abs(x), 0.2) for x in parameter_list]
+                param_list_lower = [x - max(0.3 * abs(x), 0.3) for x in parameter_list]
                 alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
                 param_list_lower = [
                     max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.02), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
                          max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 1)
                 ]
-                param_list_upper = [x +  max(0.2 * abs(x), 0.2) for x in parameter_list]
+                param_list_upper = [x +  max(0.3 * abs(x), 0.3) for x in parameter_list]
                 alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
                 param_list_upper = [
                     max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.02), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
@@ -141,7 +141,7 @@ def solve_and_predict_area(
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             validcases_nondeath = validcases["case_cnt"].tolist()
             validcases_death = validcases["death_cnt"].tolist()
-            balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
+            balance = validcases_nondeath[-1] / max(validcases_death[-1], 10)
             fitcasesnd = validcases_nondeath
             fitcasesd = validcases_death
             GLOBAL_PARAMS_FIXED = (
@@ -174,7 +174,7 @@ def solve_and_predict_area(
                 #     gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                 # else:
                 #     gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump
-                p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
+                p_dth_mod = (2 / np.pi) * (p_dth - 0.001) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.001
                 assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 # Equations on main variables
