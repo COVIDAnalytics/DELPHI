@@ -21,10 +21,36 @@ from DELPHI_utils_V3_annealing import (
     DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
 from DELPHI_params_V3 import (
-    get_default_parameter_list_and_bounds, n_cpu_default,
-    validcases_threshold, IncubeD, RecoverID, RecoverHD, DetectD,
-    VentilatedD, default_maxT, p_v, p_d, p_h, max_iter
+    get_default_parameter_list_and_bounds,
+    dict_default_reinit_parameters,
+    dict_default_reinit_lower_bounds,
+    dict_default_reinit_upper_bounds,
+    default_upper_bound,
+    default_lower_bound,
+    percentage_drift_upper_bound,
+    percentage_drift_lower_bound,
+    percentage_drift_upper_bound_annealing,
+    percentage_drift_lower_bound_annealing,
+    default_upper_bound_annealing,
+    default_lower_bound_annealing,
+    default_lower_bound_jump,
+    default_upper_bound_jump,
+    default_lower_bound_std_normal,
+    default_upper_bound_std_normal,
+    validcases_threshold,
+    IncubeD,
+    RecoverID,
+    RecoverHD,
+    DetectD,
+    VentilatedD,
+    default_maxT,
+    p_v,
+    p_d,
+    p_h,
+    n_cpu_default,
+    max_iter
 )
+from DELPHI_utils_V3_dynamic import (get_bounds_params_from_pastparams)
 import os
 from os import path
 import yaml
@@ -107,44 +133,26 @@ def solve_and_predict_area_additional_states(
                 assert len(parameter_list) == 11, f"Only have {len(parameter_list)} parameters, expected 11 since July8"
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = parameter_list
-                if annealing_opt == True:
-                    parameter_list = (
-                        max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
-                        max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
-                    )
-                    param_list_lower = [x - max(0.5 * abs(x), 0.5) for x in parameter_list]
-                    alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
-                    param_list_lower = [
-                        max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.02), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
-                        max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 1)
-                    ]
-                    param_list_upper = [x +  max(0.5 * abs(x), 0.5) for x in parameter_list]
-                    alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
-                    param_list_upper = [
-                        max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.02), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
-                        max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 1)
-                    ]
-                else:
-                    parameter_list = (
-                        max(alpha, 0), days, max(min(r_s, 10), 0), max(min(r_dth, 1), 0.01), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
-                        max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 0)
-                    )
-                    param_list_lower = [x - max(1 * abs(x), 1) for x in parameter_list]
-                    alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
-                    param_list_lower = [
-                        max(alpha_l, 0), days_l, max(min(r_s_l, 10), 0), max(min(r_dth_l, 1), 0.01), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
-                        max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 0)
-                    ]
-                    param_list_upper = [x +  max(1 * abs(x), 1) for x in parameter_list]
-                    alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
-                    param_list_upper = [
-                        max(alpha_u, 0), days_u, max(min(r_s_u,10), 0), max(min(r_dth_u, 1), 0.01), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
-                        max(k1_u, 0), max(k2_u, 0), max(jump_u, 0), max(t_jump_u, 0),max(std_normal_u, 0)
-                    ]
-                bounds_params = [
-                    (lower, upper)
-                     for lower, upper in zip(param_list_lower, param_list_upper)
-                ]
+                alg_name = 'annealing' if annealing_opt else 'tnc'
+                bounds_params = get_bounds_params_from_pastparams(
+                    optimizer=alg_name,
+                    parameter_list=parameter_list,
+                    dict_default_reinit_parameters=dict_default_reinit_parameters,
+                    percentage_drift_lower_bound=percentage_drift_lower_bound,
+                    default_lower_bound=default_lower_bound,
+                    dict_default_reinit_lower_bounds=dict_default_reinit_lower_bounds,
+                    percentage_drift_upper_bound=percentage_drift_upper_bound,
+                    default_upper_bound=default_upper_bound,
+                    dict_default_reinit_upper_bounds=dict_default_reinit_upper_bounds,
+                    percentage_drift_lower_bound_annealing=percentage_drift_lower_bound_annealing,
+                    default_lower_bound_annealing=default_lower_bound_annealing,
+                    percentage_drift_upper_bound_annealing=percentage_drift_upper_bound_annealing,
+                    default_upper_bound_annealing=default_upper_bound_annealing,
+                    default_lower_bound_jump=default_lower_bound_jump,
+                    default_upper_bound_jump=default_upper_bound_jump,
+                    default_lower_bound_std_normal=default_lower_bound_std_normal,
+                    default_upper_bound_std_normal=default_upper_bound_std_normal,
+                )
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 validcases = totalcases[
                     (totalcases.day_since100 >= 0) &
@@ -264,8 +272,17 @@ def solve_and_predict_area_additional_states(
                 # Variables Initialization for the ODE system
                 alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = params
                 params = (
-                    max(alpha, 0), days, max(r_s, 0), max(r_dth, 0), max(min(p_dth, 1), 0), max(min(r_dthdecay, 1), 0),
-                    max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0), max(std_normal, 0)
+                    max(alpha, dict_default_reinit_parameters["alpha"]),
+                    days,
+                    max(r_s, dict_default_reinit_parameters["r_s"]),
+                    max(min(r_dth, 1), dict_default_reinit_parameters["r_dth"]),
+                    max(min(p_dth, 1), dict_default_reinit_parameters["p_dth"]),
+                    max(r_dthdecay, dict_default_reinit_parameters["r_dthdecay"]),
+                    max(k1, dict_default_reinit_parameters["k1"]),
+                    max(k2, dict_default_reinit_parameters["k2"]),
+                    max(jump, dict_default_reinit_parameters["jump"]),
+                    max(t_jump, dict_default_reinit_parameters["t_jump"]),
+                    max(std_normal, dict_default_reinit_parameters["std_normal"]),
                 )
                 x_0_cases = get_initial_conditions(
                     params_fitted=params,
@@ -314,6 +331,20 @@ def solve_and_predict_area_additional_states(
             t_predictions = [i for i in range(maxT)]
 
             def solve_best_params_and_predict(optimal_params):
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = optimal_params
+                optimal_params = [
+                    max(alpha, dict_default_reinit_parameters["alpha"]),
+                    days,
+                    max(r_s, dict_default_reinit_parameters["r_s"]),
+                    max(min(r_dth, 1), dict_default_reinit_parameters["r_dth"]),
+                    max(min(p_dth, 1), dict_default_reinit_parameters["p_dth"]),
+                    max(r_dthdecay, dict_default_reinit_parameters["r_dthdecay"]),
+                    max(k1, dict_default_reinit_parameters["k1"]),
+                    max(k2, dict_default_reinit_parameters["k2"]),
+                    max(jump, dict_default_reinit_parameters["jump"]),
+                    max(t_jump, dict_default_reinit_parameters["t_jump"]),
+                    max(std_normal, dict_default_reinit_parameters["std_normal"]),
+                ]
                 # Variables Initialization for the ODE system
                 x_0_cases = get_initial_conditions(
                     params_fitted=optimal_params,
@@ -521,8 +552,8 @@ if __name__ == '__main__':
     ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
     today_time = datetime.now()
 
-    training_start_date = datetime(2020, 10, 5)
-    training_end_date = datetime(2020, 10, 13)
+    training_start_date = datetime(2020, 10, 12)
+    training_end_date = datetime(2020, 10, 20)
     training_last_date = training_end_date - timedelta(days=1)
     # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
     n_days_to_train = (training_last_date - training_start_date).days
