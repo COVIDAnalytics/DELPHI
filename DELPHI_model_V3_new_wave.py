@@ -36,7 +36,7 @@ from DELPHI_params_V3 import (
     default_upper_bound_jump,
     default_lower_bound_std_normal,
     default_upper_bound_std_normal,
-    default_bounds_params,
+    #default_bounds_params,
     validcases_threshold,
     IncubeD,
     RecoverID,
@@ -94,6 +94,9 @@ SAVE_SINCE100_CASES = bool(arguments.since100case)
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
+default_bounds_params = (
+    (0.75, 1.25), (-100, 100), (1, 3), (0.05, 0.5), (0.01, 0.25), (0, 0.5), (0.1, 10), (0.1, 10), (0, 5), (0, 100), (0.1, 100)
+)  # Bounds for the solver
 #############################################################################################################
 
 def predict_area(
@@ -698,7 +701,7 @@ if __name__ == "__main__":
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
-            + f"predicted/Parameters_Global_V2_{end_date}.csv"
+            + f"predicted/Parameters_Global_V2_{yesterday}.csv"
         )
     except:
         past_parameters = None
@@ -739,7 +742,7 @@ if __name__ == "__main__":
     solve_and_predict_area_partial = partial(
         solve_and_predict_area_with_initial_state,
         yesterday_=yesterday,
-        past_parameters_=past_parameters,
+        past_parameters_=None,
         popcountries=popcountries,
         startT=end_date
     )
