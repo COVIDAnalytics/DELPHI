@@ -234,8 +234,8 @@ def solve_and_predict_area(
                     args=tuple(params)
                 )
                 x_sol = x_sol_total.y
-                # weights = list(range(1, len(fitcasesnd) + 1))
-                weights = [(x/len(fitcasesnd))**2 for x in weights]
+                weights = list(range(1, len(fitcasesnd) + 1))
+                weights = [( x / len(fitcasesnd) )**2 for x in weights]
                 # weights[-15:] =[x + 50 for x in weights[-15:]]
                 if x_sol_total.status == 0:
                     residuals_value = sum(
