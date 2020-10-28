@@ -295,7 +295,8 @@ def solve_and_predict_area_additional_states(
                     t_eval=t_cases,
                     args=tuple(params)
                 )
-                weights = list(range(1, len(fitcasesnd) + 1))
+                # weights = list(range(1, len(fitcasesnd) + 1))
+                weights = [(x/len(fitcasesnd))**2 for x in weights]
                 x_sol = x_sol_total.y
                 # weights[-15:] =[x + 50 for x in weights[-15:]]
                 if x_sol_total.status == 0:
