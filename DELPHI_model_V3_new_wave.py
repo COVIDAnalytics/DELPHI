@@ -95,8 +95,8 @@ PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 default_bounds_params = (
-    (0.75, 1.25), (-100, 100), (1, 3), (0.05, 0.5), (0.01, 0.25), (0, 0.5), (0.1, 10), (0.1, 10), (0, 5), (0, 100), (0.1, 100)
-)  # Bounds for the solver
+    (0.1, 10), (-200, 100), (1, 15), (0.05, 0.5), (0.01, 0.25), (0, 5), (1, 100), (0.05, 100), (0, 5), (0, 100), (0.1, 100)
+)  # Updated bounds for the solver
 #############################################################################################################
 
 def predict_area(
@@ -435,7 +435,6 @@ def solve_and_predict_area_with_initial_state(
                 PopulationR = min(R_0*p_d, validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"])
             else:
                 PopulationR = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
-            PopulationR = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
             PopulationD = validcases.loc[0, "death_cnt"]
             PopulationCI = PopulationI - PopulationD - PopulationR
             if PopulationCI <= 0:
@@ -552,7 +551,7 @@ def solve_and_predict_area_with_initial_state(
                 )
                 x_sol = x_sol_total.y
                 weights = list(range(1, len(cases_data_fit) + 1))
-                # weights = [(x/len(cases_data_fit))**2 for x in weights]
+                weights = [(x/len(cases_data_fit))**2 for x in weights]
                 if x_sol_total.status == 0:
                     residuals_value = get_residuals_value(
                         optimizer=OPTIMIZER,
@@ -684,17 +683,17 @@ if __name__ == "__main__":
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-    #list_tuples = popcountries.tuple_area.tolist()
-    # list_tuples = [x for x in list_tuples if x[0] == "Europe"]
-    list_tuples = [('North America' , 'US' , 'Alabama'), 
-                ('North America' , 'US' , 'California'),
-                ('North America' , 'US' , 'Florida'),
-                ('North America' , 'US' , 'Georgia'),
-                ('North America' , 'US' , 'Massachusetts'),
-                ('North America' , 'US' , 'Nevada'),
-                ('North America' , 'US' , 'New York'),
-                ('North America' , 'US' , 'Ohio'),
-                ('North America' , 'US' , 'Texas')]
+    list_tuples = popcountries.tuple_area.tolist()
+    # list_tuples = [x for x in list_tuples if x[1] == "Mexico"]
+    # list_tuples = [('North America' , 'US' , 'Alabama'), 
+    #             ('North America' , 'US' , 'California'),
+    #             ('North America' , 'US' , 'Florida'),
+    #             ('North America' , 'US' , 'Georgia'),
+    #             ('North America' , 'US' , 'Massachusetts'),
+    #             ('North America' , 'US' , 'Nevada'),
+    #             ('North America' , 'US' , 'New York'),
+    #             ('North America' , 'US' , 'Ohio'),
+    #             ('North America' , 'US' , 'Texas')]
 
     ### Compute the state of model till a given date ###
     end_date = '2020-07-01'
