@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_model_V3_with_policies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +33,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dynideas_v2" />
+        <entry key="$PROJECT_DIR$" value="delphi_improvements" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -133,13 +131,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587433101130</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Running code end to end, init at 0 for b_i (i=1:7)">
-      <created>1587505688172</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1587505688173</updated>
     </task>
     <task id="LOCAL-00003" summary="commenting experimental parameters">
       <created>1587523035704</created>
@@ -477,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600220317835</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Modified README + Added website argument to DELPHI V3 Policies">
+      <created>1600441618435</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1600441618446</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -494,7 +492,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="multiprocessing version of DELPHI_model_V2.py" />
     <MESSAGE value="Adding total runtime in the prints" />
     <MESSAGE value="reorganizing repository" />
     <MESSAGE value="First layer of refactoring on the DELPHI code" />
@@ -519,6 +516,7 @@
     <MESSAGE value="Extra info in backtest logger (MSE &amp; MAE flags)" />
     <MESSAGE value="Added PopulationCI check" />
     <MESSAGE value="Quick bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Quick bugfix" />
+    <MESSAGE value="Modified README + Added website argument to DELPHI V3 Policies" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified README + Added website argument to DELPHI V3 Policies" />
   </component>
 </project>
