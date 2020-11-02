@@ -415,8 +415,10 @@ def solve_and_predict_area_with_initial_state(
                 (totalcases.day_since100 >= 0)
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
             ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
-
-        bounds_params = tuple(bounds_params)
+        # Adding new parameter for initial state estimate correction
+        # parameter_list.append(1.0)
+        # bounds_params = tuple(bounds_params)
+        # bounds_params = bounds_params + ((0.5,1.5),)
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
             logging.warning(
@@ -430,16 +432,22 @@ def solve_and_predict_area_with_initial_state(
             ].pop2016.iloc[-1]
             N = PopulationT
             PopulationI = validcases.loc[0, "case_cnt"]
+            PopulationD = validcases.loc[0, "death_cnt"]
             if initial_state is not None:
                 R_0 = initial_state[9]
-                PopulationR = min(R_0*p_d, validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"])
+                cases_t_14days = totalcases[totalcases.date >= str((pd.to_datetime(startT) - pd.Timedelta(14, 'D')))]['case_cnt'].values[0]
+                deaths_t_9days = totalcases[totalcases.date >= str((pd.to_datetime(startT) - pd.Timedelta(9, 'D')))]['death_cnt'].values[0]
+                R_upperbound = validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]
+                if int(R_0*p_d) >= R_upperbound  and cases_t_14days - deaths_t_9days >= R_upperbound:
+                    logging.error(f"Problem with initial conditions {country}-{province}, on {startT}, need to check why")
+                PopulationR = min(int(R_0*p_d), R_upperbound - 1, cases_t_14days - deaths_t_9days)
             else:
                 PopulationR = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
-            PopulationD = validcases.loc[0, "death_cnt"]
             PopulationCI = PopulationI - PopulationD - PopulationR
             if PopulationCI <= 0:
-                logging.error(f"PopulationCI value is negative ({PopulationCI}), need to check why")
-                raise ValueError(f"PopulationCI value is negative ({PopulationCI}), need to check why")
+                logging.error(f"PopulationCI value is negative ({PopulationCI}) for {country}-{province}, need to check why")
+                return None
+                # raise ValueError(f"PopulationCI value is negative ({PopulationCI}), need to check why")
             """
             Fixed Parameters based on meta-analysis:
             p_h: Hospitalization Percentage
@@ -683,17 +691,17 @@ if __name__ == "__main__":
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-    list_tuples = popcountries.tuple_area.tolist()
-    # list_tuples = [x for x in list_tuples if x[1] == "Mexico"]
-    # list_tuples = [('North America' , 'US' , 'Alabama'), 
-    #             ('North America' , 'US' , 'California'),
-    #             ('North America' , 'US' , 'Florida'),
-    #             ('North America' , 'US' , 'Georgia'),
-    #             ('North America' , 'US' , 'Massachusetts'),
-    #             ('North America' , 'US' , 'Nevada'),
-    #             ('North America' , 'US' , 'New York'),
-    #             ('North America' , 'US' , 'Ohio'),
-    #             ('North America' , 'US' , 'Texas')]
+    # list_tuples = popcountries.tuple_area.tolist()
+    # list_tuples = [x for x in list_tuples if x[1] == "US"]
+    list_tuples = [('North America' , 'US' , 'Alaska'), 
+                ('North America' , 'US' , 'Arkansas'),
+                ('North America' , 'US' , 'North Dakota'),
+                ('North America' , 'US' , 'Wisconsin'),
+                ('North America' , 'US' , 'Wyoming'),
+                ('North America' , 'US' , 'Virginia'),
+                ('North America' , 'US' , 'West Virginia'),
+                ('North America' , 'US' , 'Kansas')]
+                # ('North America' , 'US' , 'Texas')]
 
     ### Compute the state of model till a given date ###
     end_date = '2020-07-01'
