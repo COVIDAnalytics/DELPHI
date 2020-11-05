@@ -15,9 +15,10 @@ from functools import partial
 from tqdm import tqdm
 from scipy.optimize import dual_annealing
 from DELPHI_utils_V3_static import (
-    DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions,
+    DELPHIAggregations, DELPHIDataSaver, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
+from DELPHI_utils_V3_new_wave import get_initial_conditions_new_wave, DELPHIDataCreator
 from DELPHI_utils_V3_dynamic import get_bounds_params_from_pastparams
 from DELPHI_params_V3 import (
     default_parameter_list,
@@ -95,7 +96,7 @@ PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 default_bounds_params = (
-    (0.1, 10), (-200, 100), (1, 15), (0.05, 0.5), (0.01, 0.25), (0, 5), (1, 100), (0.05, 100), (0, 5), (0, 100), (0.1, 100)
+    (0.1, 10), (-200, 100), (1, 15), (0.05, 0.5), (0.01, 0.25), (0, 5), (0.001, 5), (0.001, 5), (0, 5), (0, 100), (0.1, 100)
 )  # Updated bounds for the solver
 #############################################################################################################
 
@@ -416,9 +417,9 @@ def solve_and_predict_area_with_initial_state(
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
             ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         # Adding new parameter for initial state estimate correction
-        # parameter_list.append(1.0)
-        # bounds_params = tuple(bounds_params)
-        # bounds_params = bounds_params + ((0.5,1.5),)
+        parameter_list_new = parameter_list + [1.0]
+        bounds_params = tuple(bounds_params)
+        bounds_params_new = bounds_params + ((0.2,2.0),)
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
             logging.warning(
@@ -464,7 +465,7 @@ def solve_and_predict_area_with_initial_state(
             GLOBAL_PARAMS_FIXED = (N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v)
 
             def model_covid(
-                t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal,
+                t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3
             ) -> list:
                 """
                 SEIR based model with 16 distinct states, taking into account undetected, deaths, hospitalized and
@@ -531,7 +532,7 @@ def solve_and_predict_area_with_initial_state(
                 :return: the value of the loss function as a float that is optimized against (in our case, minimized)
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = params
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = params
                 # Force params values to stay in a certain range during the optimization process with re-initializations
                 params = (
                     max(alpha, dict_default_reinit_parameters["alpha"]),
@@ -545,9 +546,10 @@ def solve_and_predict_area_with_initial_state(
                     max(jump, dict_default_reinit_parameters["jump"]),
                     max(t_jump, dict_default_reinit_parameters["t_jump"]),
                     max(std_normal, dict_default_reinit_parameters["std_normal"]),
+                    k3
                 )
 
-                x_0_cases = get_initial_conditions(
+                x_0_cases = get_initial_conditions_new_wave(
                     params_fitted=params, global_params_fixed=GLOBAL_PARAMS_FIXED
                 )
                 x_sol_total = solve_ivp(
@@ -576,14 +578,14 @@ def solve_and_predict_area_with_initial_state(
             if OPTIMIZER in ["tnc", "trust-constr"]:
                 output = minimize(
                     residuals_totalcases,
-                    parameter_list,
+                    parameter_list_new,
                     method=OPTIMIZER,
-                    bounds=bounds_params,
+                    bounds=bounds_params_new,
                     options={"maxiter": max_iter},
                 )
             elif OPTIMIZER == "annealing":
                 output = dual_annealing(
-                    residuals_totalcases, x0=parameter_list, bounds=bounds_params
+                    residuals_totalcases, x0=parameter_list_new, bounds=bounds_params_new
                 )
             else:
                 raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
@@ -594,7 +596,7 @@ def solve_and_predict_area_with_initial_state(
     
                 def solve_best_params_and_predict(optimal_params):
                     # Variables Initialization for the ODE system
-                    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = optimal_params
+                    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = optimal_params
                     optimal_params = [
                         max(alpha, dict_default_reinit_parameters["alpha"]),
                         days,
@@ -607,6 +609,7 @@ def solve_and_predict_area_with_initial_state(
                         max(jump, dict_default_reinit_parameters["jump"]),
                         max(t_jump, dict_default_reinit_parameters["t_jump"]),
                         max(std_normal, dict_default_reinit_parameters["std_normal"]),
+                        k3
                     ]
                     x_0_cases = get_initial_conditions(
                         params_fitted=optimal_params,
@@ -691,17 +694,18 @@ if __name__ == "__main__":
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-    # list_tuples = popcountries.tuple_area.tolist()
-    # list_tuples = [x for x in list_tuples if x[1] == "US"]
-    list_tuples = [('North America' , 'US' , 'Alaska'), 
-                ('North America' , 'US' , 'Arkansas'),
-                ('North America' , 'US' , 'North Dakota'),
-                ('North America' , 'US' , 'Wisconsin'),
-                ('North America' , 'US' , 'Wyoming'),
-                ('North America' , 'US' , 'Virginia'),
-                ('North America' , 'US' , 'West Virginia'),
-                ('North America' , 'US' , 'Kansas')]
-                # ('North America' , 'US' , 'Texas')]
+    list_tuples = popcountries.tuple_area.tolist()
+    list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany', 'Greece', 'Poland', 
+    'Japan', 'South Africa', 'Singapore', 'Morocco', 'Iran', 'Russia', 'Brazil'] ]
+    # list_tuples = [('North America' , 'US' , 'Alaska'),
+    #             ('North America' , 'US' , 'Arkansas'),
+    #             ('North America' , 'US' , 'North Dakota'),
+    #             ('North America' , 'US' , 'Wyoming'),
+    #             ('North America' , 'US' , 'Wisconsin'),
+    #             ('North America' , 'US' , 'Virginia'),
+    #             ('North America' , 'US' , 'West Virginia'),
+    #             ('North America' , 'US' , 'Kansas'),
+    #             ('North America' , 'US' , 'Texas')]
 
     ### Compute the state of model till a given date ###
     end_date = '2020-07-01'
@@ -739,6 +743,7 @@ if __name__ == "__main__":
         pool.close()
         pool.join()
     df_initial_states = pd.DataFrame(list_initial_state_dicts)
+    print(df_initial_states.shape)
 
     ### Fitting the Model ###
     # Initalizing lists of the different dataframes that will be concatenated in the end
