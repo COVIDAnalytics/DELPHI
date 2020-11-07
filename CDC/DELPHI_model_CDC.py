@@ -72,7 +72,7 @@ def solve_and_predict_area(
                     max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.02), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
                          max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 1)
                 ]
-                param_list_upper = [x +  max(0.3 * abs(x), 0.3) for x in parameter_list]
+                param_list_upper = [x +  max(0.3* abs(x), 0.3) for x in parameter_list]
                 alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
                 param_list_upper = [
                     max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.02), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
@@ -174,7 +174,7 @@ def solve_and_predict_area(
                 #     gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                 # else:
                 #     gamma_t = (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1 + jump
-                p_dth_mod = (2 / np.pi) * (p_dth - 0.001) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.001
+                p_dth_mod = (2 / np.pi) * (p_dth - 0.01) * (np.arctan(- t / 20 * r_dthdecay) + np.pi / 2) + 0.01
                 assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 # Equations on main variables
@@ -223,6 +223,7 @@ def solve_and_predict_area(
                     args=tuple(params)
                 ).y
                 weights = list(range(1, len(fitcasesnd) + 1))
+                weights = [(x/len(fitcasesnd))**2 for x in weights]
                 # weights[-15:] =[x + 50 for x in weights[-15:]]
                 residuals_value = sum(
                     np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
@@ -342,7 +343,7 @@ if __name__ == "__main__":
         solve_and_predict_area, yesterday_=yesterday, pastparameters_=pastparameters,
         allowed_deviation_=allowed_deviation
     )
-    n_cpu = 4
+    n_cpu = 6
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
     list_tuples = [x for x in list_tuples if x[1] in ["US"]]
