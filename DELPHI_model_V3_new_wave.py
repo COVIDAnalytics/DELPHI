@@ -436,19 +436,19 @@ def solve_and_predict_area_with_initial_state(
             PopulationD = validcases.loc[0, "death_cnt"]
             if initial_state is not None:
                 R_0 = initial_state[9]
-                cases_t_14days = totalcases[totalcases.date >= str((pd.to_datetime(startT) - pd.Timedelta(14, 'D')))]['case_cnt'].values[0]
-                deaths_t_9days = totalcases[totalcases.date >= str((pd.to_datetime(startT) - pd.Timedelta(9, 'D')))]['death_cnt'].values[0]
-                R_upperbound = validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]
-                if int(R_0*p_d) >= R_upperbound  and cases_t_14days - deaths_t_9days >= R_upperbound:
-                    logging.error(f"Problem with initial conditions {country}-{province}, on {startT}, need to check why")
-                PopulationR = min(int(R_0*p_d), R_upperbound - 1, cases_t_14days - deaths_t_9days)
             else:
-                PopulationR = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
-            PopulationCI = PopulationI - PopulationD - PopulationR
-            if PopulationCI <= 0:
-                logging.error(f"PopulationCI value is negative ({PopulationCI}) for {country}-{province}, need to check why")
-                return None
-                # raise ValueError(f"PopulationCI value is negative ({PopulationCI}), need to check why")
+                R_0 = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
+            cases_t_14days = totalcases[totalcases.date >= str((pd.to_datetime(startT) - pd.Timedelta(14, 'D')))]['case_cnt'].values[0]
+            deaths_t_9days = totalcases[totalcases.date >= str((pd.to_datetime(startT) - pd.Timedelta(9, 'D')))]['death_cnt'].values[0]
+            R_upperbound = validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]
+            R_heuristic = cases_t_14days - deaths_t_9days
+            if int(R_0*p_d) >= R_upperbound and R_heuristic >= R_upperbound:
+                    logging.error(f"Initial conditions for PopulationR too high for {country}-{province}, on {startT}")
+            # PopulationCI = PopulationI - PopulationD - PopulationR
+            # if PopulationCI <= 0:
+            #     logging.error(f"PopulationCI value is negative ({PopulationCI}) for {country}-{province}, need to check why")
+            #     return None
+            #     # raise ValueError(f"PopulationCI value is negative ({PopulationCI}), need to check why")
             """
             Fixed Parameters based on meta-analysis:
             p_h: Hospitalization Percentage
@@ -462,7 +462,8 @@ def solve_and_predict_area_with_initial_state(
             maxT = (default_maxT - date_day_since100).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
-            GLOBAL_PARAMS_FIXED = (N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v)
+            GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
+            # print(GLOBAL_PARAMS_FIXED)
 
             def model_covid(
                 t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3
@@ -589,6 +590,7 @@ def solve_and_predict_area_with_initial_state(
                 )
             else:
                 raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
+            # breakpoint()
 
             if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success):
                 best_params = output.x
@@ -611,10 +613,11 @@ def solve_and_predict_area_with_initial_state(
                         max(std_normal, dict_default_reinit_parameters["std_normal"]),
                         k3
                     ]
-                    x_0_cases = get_initial_conditions(
+                    x_0_cases = get_initial_conditions_new_wave(
                         params_fitted=optimal_params,
                         global_params_fixed=GLOBAL_PARAMS_FIXED,
                     )
+                    # print(x_0_cases)
                     x_sol_best = solve_ivp(
                         fun=model_covid,
                         y0=x_0_cases,
@@ -695,8 +698,9 @@ if __name__ == "__main__":
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-    list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany', 'Greece', 'Poland', 
-    'Japan', 'South Africa', 'Singapore', 'Morocco', 'Iran', 'Russia', 'Brazil'] ]
+    list_tuples = [x for x in list_tuples if x[1] in ['Brazil']]
+    # ['France', 'Germany', 'Greece', 'Poland', 
+    # 'Japan', 'South Africa', 'Singapore', 'Morocco', 'Iran', 'Russia', 'Brazil'] ]
     # list_tuples = [('North America' , 'US' , 'Alaska'),
     #             ('North America' , 'US' , 'Arkansas'),
     #             ('North America' , 'US' , 'North Dakota'),
@@ -743,7 +747,6 @@ if __name__ == "__main__":
         pool.close()
         pool.join()
     df_initial_states = pd.DataFrame(list_initial_state_dicts)
-    print(df_initial_states.shape)
 
     ### Fitting the Model ###
     # Initalizing lists of the different dataframes that will be concatenated in the end
