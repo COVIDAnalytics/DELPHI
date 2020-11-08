@@ -353,6 +353,7 @@ if __name__ == "__main__":
 
     ### Compute the state of model till a given date ###
     end_date = '2020-07-01'
+    yesterday = '20201105'
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP

@@ -10,6 +10,8 @@ from DELPHI_params_V3 import (
     default_policy_enaction_time,
 )
 
+def set_initial_states():
+    return
 
 def get_initial_conditions_new_wave(params_fitted: tuple, global_params_fixed: tuple) -> list:
     """
@@ -20,7 +22,11 @@ def get_initial_conditions_new_wave(params_fitted: tuple, global_params_fixed: t
     :return: a list of initial conditions for all 16 states of the DELPHI model
     """
     alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = params_fitted 
-    N, PopulationCI, PopulationR, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
+    N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
+
+    PopulationR = min(R_upperbound - 1, k3*min(int(R_0*p_d), R_heuristic))
+    PopulationCI = PopulationI - PopulationD - PopulationR
+
     S_0 = (
         (N - PopulationCI / p_d)
         - (PopulationCI / p_d * (k1 + k2))
