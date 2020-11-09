@@ -15,6 +15,182 @@ from DELPHI_params_V3 import (
 from DELPHI_utils_V3_dynamic import make_increasing
 
 
+class DELPHIBacktestSensitivity:
+    def __init__(
+        self, path_to_folder_danger_map: str,
+        param_perturbed: str,
+        prediction_date: str, n_days_backtest: int,
+        get_mae: bool, get_mse: bool, logger: Logger,
+        prediction_data_path: str="/Users/hamzatazi/Desktop/MIT/999.1 Research Assistantship/4. COVID19_Global/DELPHI/data_sandbox/sensitivity_analysis/predicted/",
+    ):
+        self.historical_data_path = path_to_folder_danger_map + "processed/Global/"
+        self.prediction_data_path = prediction_data_path
+        self.param_perturbed = param_perturbed
+        self.prediction_date = prediction_date
+        self.n_days_backtest = n_days_backtest
+        self.get_mae = get_mae
+        self.get_mse = get_mse
+        self.logger = logger
+
+    def get_historical_data_df(self) -> pd.DataFrame:
+        """
+        Generates a concatenation of all historical data available in the danger_map folder, all areas
+        starting from the prediction date given by the user, and keeping only relevant columns
+        :return: a dataframe with all relevant historical data
+        """
+        list_historical_data_filepaths = [
+            self.historical_data_path + filename
+            for filename in os.listdir(self.historical_data_path)
+            if "Cases_" in filename
+        ]
+        df_historical = []
+        for filepath_historical in list_historical_data_filepaths:
+            df_historical.append(pd.read_csv(filepath_historical))
+
+        df_historical = pd.concat(df_historical).sort_values(
+            ["country", "province", "date"]
+        ).reset_index(drop=True)[
+            ["country", "province", "date", "day_since100", "case_cnt", "death_cnt"]
+        ]
+        df_historical["province"].fillna("None", inplace=True)
+        df_historical.rename(
+            columns={"country": "Country", "province": "Province", "date": "Day"}, inplace=True
+        )
+        df_historical["tuple"] = list(zip(df_historical.Country, df_historical.Province))
+        df_historical = df_historical[
+            (df_historical.Day >= self.prediction_date)
+        ].reset_index(drop=True)
+        df_historical = df_historical[df_historical.tuple != ("US", "None")].reset_index(drop=True)
+        return df_historical
+
+    def get_prediction_data(self) -> pd.DataFrame:
+        """
+        Retrieve the predicted data on the prediction_date given as an input by the user running
+        :param prediction_date: prediction date to be used to look for the file in the danger_map folder, format
+        has to be YYYY-MM-DD (it is asserted outside of this function)
+        :return: a dataframe that contains the relevant predictions on the relevant prediction date
+        """
+        if os.path.exists(
+            self.prediction_data_path +
+            f"Global_V2_since100_20201030_param_pert_{self.param_perturbed}_datepred_{self.prediction_date}.csv"
+        ):
+            self.logger.info("Backtesting on DELPHI V3.0 predictions because filename contains _V2")
+            df_prediction = pd.read_csv(
+                self.prediction_data_path +
+                f"Global_V2_since100_20201030_param_pert_{self.param_perturbed}_datepred_{self.prediction_date}.csv"
+            )
+        elif os.path.exists(
+            self.prediction_data_path +
+            f"Global_V2_since100_20201031_param_pert_{self.param_perturbed}_datepred_{self.prediction_date}.csv"
+        ):
+            self.logger.info("Backtesting on DELPHI V1.0 or V2.0 predictions because filename doesn't contain _V2")
+            df_prediction = pd.read_csv(
+                self.prediction_data_path +
+                f"Global_V2_since100_20201031_param_pert_{self.param_perturbed}_datepred_{self.prediction_date}.csv"
+            )
+        else:
+            raise ValueError(f"The file on prediction date {self.prediction_date} has never been generated")
+
+        df_prediction = df_prediction[
+            df_prediction.Day >= self.prediction_date
+        ].reset_index(drop=True)
+        return df_prediction[
+            ["Continent", "Country", "Province", "Day",
+             "Total Detected", "Total Detected Deaths"]
+        ]
+
+    def get_feasibility_flag(self, df_historical: pd.DataFrame, df_prediction: pd.DataFrame) -> bool:
+        """
+        Checks that there is enough historical and prediction data to perform the backtest based on the user input
+        :param df_historical: a dataframe with all relevant historical data
+        :param df_prediction: a dataframe that contains the relevant predictions on the relevant prediction date
+        :return: a True boolean, otherwise will raise a ValueError with more details as to why backtest is infeasible
+        """
+        max_date_historical = df_historical.Day.max()
+        max_date_prediction = df_prediction.Day.max()
+        max_date_backtest = str((pd.to_datetime(self.prediction_date) + timedelta(days=self.n_days_backtest)).date())
+        days_missing_historical = (pd.to_datetime(max_date_backtest) - pd.to_datetime(max_date_historical)).days
+        days_missing_prediction = (pd.to_datetime(max_date_backtest) - pd.to_datetime(max_date_prediction)).days
+        if (days_missing_historical > 0) or (days_missing_prediction > 0):
+            feasibility_flag = False
+        else:
+            feasibility_flag = True
+
+        if not feasibility_flag:
+            error_message = (
+                    "Backtest date and number of days of backtest incompatible with available data: missing " +
+                    f"{days_missing_historical} days of historical data and {days_missing_prediction} days of prediction data " +
+                    "(if negative value for number of days: not missing)"
+            )
+            self.logger.warning(error_message)
+            raise ValueError(error_message)
+
+        self.logger.info(f"Backtest is feasible based on input prediction date and number of backtesting days")
+        return True
+
+    def generate_empty_metrics_dict(self) -> dict:
+        """
+        Generates the format of the dictionary that will compose the dataframe with all backtest metrics
+        based on the get_mae and get_mse flags given by the user
+        :return: a dictionary with either 5, 7 or 9 keys depending on the MAE and MSE flags
+        """
+        dict_df_backtest_metrics = {
+            "prediction_date": [],
+            "n_days_backtest": [],
+            "tuple_area": [],
+            "mape_cases": [],
+            "mape_deaths": [],
+        }
+        if self.get_mae:
+            dict_df_backtest_metrics["mae_cases"] = []
+            dict_df_backtest_metrics["mae_deaths"] = []
+
+        if self.get_mse:
+            dict_df_backtest_metrics["mse_cases"] = []
+            dict_df_backtest_metrics["mse_deaths"] = []
+
+        return dict_df_backtest_metrics
+
+    def get_backtest_metrics_area(
+            self, df_backtest: pd.DataFrame, tuple_area: tuple, dict_df_backtest_metrics: dict,
+    ) -> dict:
+        """
+        Updates the backtest metrics dictionary with metrics values for that particular area tuple
+        :param df_backtest: pre-processed dataframe containing historical and prediction data
+        :param tuple_area: tuple of the format (Continent, Country, Province)
+        :param dict_df_backtest_metrics: dictionary containing all the metrics and will be used to create final
+        backtest metrics dataframe
+        :return: updated dictionary with backtest metrics for that particular area tuple
+        """
+        df_temp = df_backtest[df_backtest.tuple_complete == tuple_area]
+        max_date_backtest = str((pd.to_datetime(self.prediction_date) + timedelta(days=self.n_days_backtest)).date())
+        df_temp = df_temp[(df_temp.Day >= self.prediction_date) & (df_temp.Day <= max_date_backtest)].sort_values(
+            ["Continent", "Country", "Province", "Day"]
+        ).reset_index(drop=True)
+        mae_cases, mape_cases = compute_mae_and_mape(
+            y_true=df_temp.case_cnt.tolist(), y_pred=df_temp["Total Detected"].tolist()
+        )
+        mae_deaths, mape_deaths = compute_mae_and_mape(
+            y_true=df_temp.death_cnt.tolist(), y_pred=df_temp["Total Detected Deaths"].tolist()
+        )
+        mse_cases = compute_mse(y_true=df_temp.case_cnt.tolist(), y_pred=df_temp["Total Detected"].tolist())
+        mse_deaths = compute_mse(y_true=df_temp.death_cnt.tolist(), y_pred=df_temp["Total Detected Deaths"].tolist())
+        dict_df_backtest_metrics["prediction_date"].append(self.prediction_date)
+        dict_df_backtest_metrics["n_days_backtest"].append(self.n_days_backtest)
+        dict_df_backtest_metrics["tuple_area"].append(tuple_area)
+        dict_df_backtest_metrics["mape_cases"].append(mape_cases)
+        dict_df_backtest_metrics["mape_deaths"].append(mape_deaths)
+        if self.get_mae:
+            dict_df_backtest_metrics["mae_cases"].append(mae_cases)
+            dict_df_backtest_metrics["mae_deaths"].append(mae_deaths)
+
+        if self.get_mse:
+            dict_df_backtest_metrics["mse_cases"].append(mse_cases)
+            dict_df_backtest_metrics["mse_deaths"].append(mse_deaths)
+
+        return dict_df_backtest_metrics
+
+
 class DELPHIDataSaver:
     def __init__(
             self,
@@ -33,7 +209,8 @@ class DELPHIDataSaver:
         )
 
     def save_all_datasets(
-            self, optimizer: str, save_since_100_cases: bool = False, website: bool = False
+            self, optimizer: str, param_perturbed: str, yesterday: str,
+            save_since_100_cases: bool = False, website: bool = False
     ):
         """
         Saves the parameters and predictions datasets (since 100 cases and since the day of running)
@@ -56,12 +233,12 @@ class DELPHIDataSaver:
             raise ValueError("Optimizer not supported in this implementation")
         # Save parameters
         self.df_global_parameters.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_{subname_file}_{today_date_str}.csv",
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_{subname_file}_{today_date_str}_param_pert_{param_perturbed}_datepred_{yesterday}.csv",
             index=False,
             )
         # Save predictions since today
         self.df_global_predictions_since_today.to_csv(
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/{subname_file}_{today_date_str}.csv",
+            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/{subname_file}_{today_date_str}_param_pert_{param_perturbed}_datepred_{yesterday}.csv",
             index=False,
             )
         if website:
@@ -81,7 +258,7 @@ class DELPHIDataSaver:
         if save_since_100_cases:
             # Save predictions since 100 cases
             self.df_global_predictions_since_100_cases.to_csv(
-                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/{subname_file}_since100_{today_date_str}.csv",
+                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/{subname_file}_since100_{today_date_str}_param_pert_{param_perturbed}_datepred_{yesterday}.csv",
                 index=False,
                 )
             if website:

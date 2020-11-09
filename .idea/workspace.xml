@@ -2,7 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef4f7f0f-a7f2-4ab4-bc8e-f25b9a307f7a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/DELPHI_backtest_sensitivity_analysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-07-02_n_days_30_param_perturbed_p_d.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-07-02_n_days_30_param_perturbed_p_h.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-07-02_n_days_30_param_perturbed_p_v.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-07-02_n_days_30_param_perturbed_r_d.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-07-02_n_days_30_param_perturbed_r_i.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-07-02_n_days_30_param_perturbed_r_rh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-07-02_n_days_30_param_perturbed_r_ri.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-07-02_n_days_30_param_perturbed_r_rv.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-08-02_n_days_30_param_perturbed_p_d.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-08-02_n_days_30_param_perturbed_p_h.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-08-02_n_days_30_param_perturbed_p_v.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-08-02_n_days_30_param_perturbed_r_d.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-08-02_n_days_30_param_perturbed_r_i.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-08-02_n_days_30_param_perturbed_r_rh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-08-02_n_days_30_param_perturbed_r_ri.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-08-02_n_days_30_param_perturbed_r_rv.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-09-02_n_days_30_param_perturbed_p_d.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-09-02_n_days_30_param_perturbed_p_h.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-09-02_n_days_30_param_perturbed_p_v.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-09-02_n_days_30_param_perturbed_r_d.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-09-02_n_days_30_param_perturbed_r_i.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-09-02_n_days_30_param_perturbed_r_rh.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-09-02_n_days_30_param_perturbed_r_ri.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_sandbox/backtest_outputs_sensitivity_analysis/backtest_pd_2020-09-02_n_days_30_param_perturbed_r_rv.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_sensitivity_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_sensitivity_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DELPHI_utils_V3_static.py" beforeDir="false" afterPath="$PROJECT_DIR$/DELPHI_utils_V3_static.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,13 +159,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587433101130</updated>
-    </task>
-    <task id="LOCAL-00003" summary="commenting experimental parameters">
-      <created>1587523035704</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1587523035704</updated>
     </task>
     <task id="LOCAL-00004" summary="v5 of the code ready to be optimized">
       <created>1587615094336</created>
@@ -475,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600441618446</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Added empty file for sensitivity analysis">
+      <created>1603990080558</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1603990080558</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -492,7 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding total runtime in the prints" />
     <MESSAGE value="reorganizing repository" />
     <MESSAGE value="First layer of refactoring on the DELPHI code" />
     <MESSAGE value="Reorganizing repo + code refactoring part 2" />
@@ -517,6 +544,7 @@
     <MESSAGE value="Added PopulationCI check" />
     <MESSAGE value="Quick bugfix" />
     <MESSAGE value="Modified README + Added website argument to DELPHI V3 Policies" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified README + Added website argument to DELPHI V3 Policies" />
+    <MESSAGE value="Added empty file for sensitivity analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added empty file for sensitivity analysis" />
   </component>
 </project>
