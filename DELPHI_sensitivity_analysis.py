@@ -92,7 +92,7 @@ parser.add_argument(
     help="Date from which to take fitted parameters",
 )
 arguments = parser.parse_args()
-yesterday = arguments.yesterday
+yesterday = "".join((arguments.yesterday).split("-"))
 USER_RUNNING = arguments.user
 OPTIMIZER = arguments.optimizer
 GET_CONFIDENCE_INTERVALS = bool(arguments.confidence_intervals)
@@ -496,8 +496,11 @@ if __name__ == "__main__":
             PATH_TO_FOLDER_DANGER_MAP
             + f"predicted/Parameters_Global_V2_{yesterday}.csv"
         )
+        logging.info(f"We are  using past parameters from date {yesterday}.")
+
     except:
         past_parameters = None
+        logging.info(f"We are not using past parameters.")
 
     # Initalizing lists of the different dataframes that will be concatenated in the end
     list_df_global_predictions_since_today = []
