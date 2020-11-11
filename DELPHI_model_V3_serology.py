@@ -138,11 +138,11 @@ def solve_and_predict_area(
                     optimizer=OPTIMIZER,
                     parameter_list=parameter_list,
                     dict_default_reinit_parameters=dict_default_reinit_parameters,
-                    percentage_drift_lower_bound=0.5,
-                    default_lower_bound=default_lower_bound,
+                    percentage_drift_lower_bound=0,
+                    default_lower_bound=0,
                     dict_default_reinit_lower_bounds=dict_default_reinit_lower_bounds,
-                    percentage_drift_upper_bound=0.5,
-                    default_upper_bound=default_upper_bound,
+                    percentage_drift_upper_bound=0,
+                    default_upper_bound=0,
                     dict_default_reinit_upper_bounds=dict_default_reinit_upper_bounds,
                     percentage_drift_lower_bound_annealing=percentage_drift_lower_bound_annealing,
                     default_lower_bound_annealing=default_lower_bound_annealing,
@@ -179,7 +179,12 @@ def solve_and_predict_area(
             ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         # This is the special serology part
         parameter_list.append(0.2)
-        bounds_params = bounds_params + ((0.02,0.5),)
+        parameter_list.append(1)
+        parameter_list.append(100)
+        parameter_list.append(20)
+        parameter_list.append(0.01)
+
+        bounds_params = bounds_params + ((0.02,0.5),(0,5),(0,200),(0,100), (0,0.02),)
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
             logging.warning(
@@ -215,7 +220,7 @@ def solve_and_predict_area(
             GLOBAL_PARAMS_FIXED = (N, PopulationCI, PopulationR, PopulationD, PopulationI, p_h, p_v)
 
             def model_covid(
-                t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, p_d
+                t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, p_d, jump_2, t_jump_2, std_normal_2, p_dth_final
             ) -> list:
                 """
                 SEIR based model with 16 distinct states, taking into account undetected, deaths, hospitalized and
@@ -246,8 +251,9 @@ def solve_and_predict_area(
                 gamma_t = (
                     (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
                     + jump * np.exp(-(t - t_jump) ** 2 / (2 * std_normal ** 2))
+                    + jump_2 * np.exp(-(t - t_jump_2) ** 2 / (2 * std_normal_2 ** 2))
                 )
-                p_dth_mod = (2 / np.pi) * (p_dth - 0.001) * (np.arctan(-t / 20 * r_dthdecay) + np.pi / 2) + 0.001
+                p_dth_mod = (2 / np.pi) * (p_dth - p_dth_final) * (np.arctan(-t / 20 * r_dthdecay) + np.pi / 2) + p_dth_final
                 assert (
                     len(x) == 16
                 ), f"Too many input variables, got {len(x)}, expected 16"
@@ -283,7 +289,7 @@ def solve_and_predict_area(
                 :return: the value of the loss function as a float that is optimized against (in our case, minimized)
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, p_d  = params
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, p_d, jump_2, t_jump_2, std_normal_2, p_dth_final  = params
                 # Force params values to stay in a certain range during the optimization process with re-initializations
                 params = (
                     max(alpha, dict_default_reinit_parameters["alpha"]),
@@ -297,7 +303,11 @@ def solve_and_predict_area(
                     max(jump, dict_default_reinit_parameters["jump"]),
                     max(t_jump, dict_default_reinit_parameters["t_jump"]),
                     max(std_normal, dict_default_reinit_parameters["std_normal"]),
-                    p_d
+                    p_d,
+                    max(jump_2, dict_default_reinit_parameters["jump"]),
+                    max(max(t_jump_2, dict_default_reinit_parameters["t_jump"]),max(t_jump, dict_default_reinit_parameters["t_jump"])),
+                    max(std_normal_2, dict_default_reinit_parameters["std_normal"]),
+                    min(max(min(p_dth_final, 1), dict_default_reinit_parameters["p_dth"]),max(min(p_dth, 1), dict_default_reinit_parameters["p_dth"]))                    
                 )
                 x_0_cases = get_initial_conditions(
                     params_fitted=params, global_params_fixed=GLOBAL_PARAMS_FIXED
@@ -341,7 +351,7 @@ def solve_and_predict_area(
             def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
                 if OPTIMIZER in ["tnc", "trust-constr"]:
-                    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, p_d = optimal_params
+                    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, p_d, jump_2, t_jump_2, std_normal_2, p_dth_final = optimal_params
                     optimal_params = [
                         max(alpha, dict_default_reinit_parameters["alpha"]),
                         days,
@@ -352,9 +362,13 @@ def solve_and_predict_area(
                         max(k1, dict_default_reinit_parameters["k1"]),
                         max(k2, dict_default_reinit_parameters["k2"]),
                         max(jump, dict_default_reinit_parameters["jump"]),
-                        max(t_jump, dict_default_reinit_parameters["t_jump"]),
+                        max(max(t_jump_2, dict_default_reinit_parameters["t_jump"]),max(t_jump, dict_default_reinit_parameters["t_jump"])),
                         max(std_normal, dict_default_reinit_parameters["std_normal"]),
-                        p_d
+                        p_d,
+                    max(jump_2, dict_default_reinit_parameters["jump"]),
+                    max(t_jump_2, dict_default_reinit_parameters["t_jump"]),
+                    max(std_normal_2, dict_default_reinit_parameters["std_normal"]),
+                    min(max(min(p_dth_final, 1), dict_default_reinit_parameters["p_dth"]),max(min(p_dth, 1), dict_default_reinit_parameters["p_dth"]))        
                     ]
                 x_0_cases = get_initial_conditions(
                     params_fitted=optimal_params,

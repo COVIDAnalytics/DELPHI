@@ -152,10 +152,10 @@ def get_bounds_params_from_pastparams(
             max(t_jump_upper, dict_default_reinit_upper_bounds["t_jump"]),
             max(std_normal_upper, dict_default_reinit_upper_bounds["std_normal"]),
         ]
-        param_list_lower[8] = default_lower_bound_jump  # jump lower bound
-        param_list_upper[8] = default_upper_bound_jump  # jump upper bound
-        param_list_lower[10] = default_lower_bound_std_normal  # std_normal lower bound
-        param_list_upper[10] = default_upper_bound_std_normal  # std_normal upper bound
+#        param_list_lower[8] = default_lower_bound_jump  # jump lower bound
+#        param_list_upper[8] = default_upper_bound_jump  # jump upper bound
+#        param_list_lower[10] = default_lower_bound_std_normal  # std_normal lower bound
+#        param_list_upper[10] = default_upper_bound_std_normal  # std_normal upper bound
     else:
         raise ValueError(f"Optimizer {optimizer} not supported in this implementation so can't generate bounds")
 

@@ -47,11 +47,11 @@ class DELPHIDataSaver:
         """
         today_date_str = "".join(str(datetime.now().date()).split("-"))
         if optimizer == "tnc":
-            subname_file = "Global_V2"
+            subname_file = "Global_V3"
         elif optimizer == "annealing":
-            subname_file = "Global_V2_annealing"
+            subname_file = "Global_V3_annealing"
         elif optimizer == "trust-constr":
-            subname_file = "Global_V2_trust"
+            subname_file = "Global_V3_trust"
         else:
             raise ValueError("Optimizer not supported in this implementation")
         # Save parameters
@@ -225,11 +225,11 @@ class DELPHIDataCreator:
     ):
         if testing_data_included:
             assert (
-                    len(best_params) == 15
+                    len(best_params) == 19
             ), f"Expected 9 best parameters, got {len(best_params)}"
         else:
             assert (
-                    len(best_params) == 12
+                    len(best_params) == 16
             ), f"Expected 7 best parameters, got {len(best_params)}"
         self.x_sol_final = x_sol_final
         self.date_day_since100 = date_day_since100
@@ -269,6 +269,10 @@ class DELPHIDataCreator:
                 "Jump Time": [self.best_params[9]],
                 "Jump Decay": [self.best_params[10]],
                 "Percentage Detected": [self.best_params[11]],
+                "Jump Time 2": [self.best_params[12]],
+                "Jump Magnitude 2": [self.best_params[13]],
+                "Jump Decay 2": [self.best_params[14]],
+                "Final Mortality": [self.best_params[15]],
             }
         )
         return df_parameters
@@ -1746,7 +1750,7 @@ def get_initial_conditions(params_fitted: tuple, global_params_fixed: tuple) -> 
     :param global_params_fixed: tuple of fixed and constant parameters for the model defined a while ago
     :return: a list of initial conditions for all 16 states of the DELPHI model
     """
-    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, p_d  = params_fitted
+    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, p_d,  jump_2, t_jump_2, std_normal_2, p_dth_final  = params_fitted
     N, PopulationCI, PopulationR, PopulationD, PopulationI, p_h, p_v = global_params_fixed
     S_0 = (
         (N - PopulationCI / p_d)
