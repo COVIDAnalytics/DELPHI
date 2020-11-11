@@ -24,13 +24,13 @@ def get_initial_conditions_new_wave(params_fitted: tuple, global_params_fixed: t
     alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = params_fitted 
     N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v = global_params_fixed
 
-    PopulationR = min(R_upperbound - 1, k3*min(int(R_0*p_d), R_heuristic))
-    PopulationCI = PopulationI - PopulationD - PopulationR
+    PopulationR = min(R_upperbound - 1, min(int(R_0*p_d), R_heuristic))
+    PopulationCI = (PopulationI - PopulationD - PopulationR)*k3
 
     S_0 = (
         (N - PopulationCI / p_d)
         - (PopulationCI / p_d * (k1 + k2))
-        - (PopulationR / p_d * k3)
+        - (PopulationR / p_d)
         - (PopulationD / p_d)
     )
     E_0 = PopulationCI / p_d * k1
@@ -41,7 +41,7 @@ def get_initial_conditions_new_wave(params_fitted: tuple, global_params_fixed: t
     UD_0 = (PopulationCI / p_d - PopulationCI) * p_dth
     DHD_0 = PopulationCI * p_h * p_dth
     DQD_0 = PopulationCI * (1 - p_h) * p_dth
-    R_0 = PopulationR / p_d * k3
+    R_0 = PopulationR / p_d
     D_0 = PopulationD / p_d
     TH_0 = PopulationCI * p_h
     DVR_0 = (PopulationCI * p_h * p_v) * (1 - p_dth)

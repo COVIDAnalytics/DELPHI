@@ -562,7 +562,7 @@ def solve_and_predict_area_with_initial_state(
                 )
                 x_sol = x_sol_total.y
                 weights = list(range(1, len(cases_data_fit) + 1))
-                weights = [(x/len(cases_data_fit))**2 for x in weights]
+                # weights = [(x/len(cases_data_fit))**2 for x in weights]
                 if x_sol_total.status == 0:
                     residuals_value = get_residuals_value(
                         optimizer=OPTIMIZER,
@@ -573,7 +573,7 @@ def solve_and_predict_area_with_initial_state(
                         weights=weights
                     )
                 else:
-                    residuals_value = 1e12
+                    residuals_value = 1e16
                 return residuals_value
 
             if OPTIMIZER in ["tnc", "trust-constr"]:
@@ -590,7 +590,6 @@ def solve_and_predict_area_with_initial_state(
                 )
             else:
                 raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
-            # breakpoint()
 
             if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success):
                 best_params = output.x
@@ -617,7 +616,6 @@ def solve_and_predict_area_with_initial_state(
                         params_fitted=optimal_params,
                         global_params_fixed=GLOBAL_PARAMS_FIXED,
                     )
-                    # print(x_0_cases)
                     x_sol_best = solve_ivp(
                         fun=model_covid,
                         y0=x_0_cases,
@@ -626,7 +624,7 @@ def solve_and_predict_area_with_initial_state(
                         args=tuple(optimal_params),
                     ).y
                     return x_sol_best
-    
+
                 x_sol_final = solve_best_params_and_predict(best_params)
                 data_creator = DELPHIDataCreator(
                     x_sol_final=x_sol_final,
@@ -697,22 +695,21 @@ if __name__ == "__main__":
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-    list_tuples = popcountries.tuple_area.tolist()
-    list_tuples = [x for x in list_tuples if x[1] in ['Brazil']]
-    # ['France', 'Germany', 'Greece', 'Poland', 
+    # list_tuples = popcountries.tuple_area.tolist()
+    # list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany', 'Greece', 'Poland', 
     # 'Japan', 'South Africa', 'Singapore', 'Morocco', 'Iran', 'Russia', 'Brazil'] ]
-    # list_tuples = [('North America' , 'US' , 'Alaska'),
-    #             ('North America' , 'US' , 'Arkansas'),
-    #             ('North America' , 'US' , 'North Dakota'),
-    #             ('North America' , 'US' , 'Wyoming'),
-    #             ('North America' , 'US' , 'Wisconsin'),
-    #             ('North America' , 'US' , 'Virginia'),
-    #             ('North America' , 'US' , 'West Virginia'),
-    #             ('North America' , 'US' , 'Kansas'),
-    #             ('North America' , 'US' , 'Texas')]
+    list_tuples = [('North America' , 'US' , 'Arkansas'),
+                ('North America' , 'US' , 'North Dakota')]
+                # ('North America' , 'US' , 'Wisconsin'),
+                # ('North America' , 'US' , 'Virginia'),
+                # ('North America' , 'US' , 'West Virginia'),
+                # ('North America' , 'US' , 'Kansas'),
+                # ('North America' , 'US' , 'Texas'),
+                # ('North America' , 'US' , 'Florida')]
 
     ### Compute the state of model till a given date ###
     end_date = '2020-07-01'
+
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
