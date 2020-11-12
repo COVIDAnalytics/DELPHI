@@ -18,26 +18,12 @@ from DELPHI_utils_V4_static import (
     DELPHIAggregations, DELPHIDataSaver, DELPHIDataCreator, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
-from DELPHI_utils_V4_dynamic import get_bounds_params_from_pastparams
 from DELPHI_params_V4 import (
     fitting_start_date,
     default_parameter_list,
     dict_default_reinit_parameters,
     dict_default_reinit_lower_bounds,
     dict_default_reinit_upper_bounds,
-    default_upper_bound,
-    default_lower_bound,
-    percentage_drift_upper_bound,
-    percentage_drift_lower_bound,
-    percentage_drift_upper_bound_annealing,
-    percentage_drift_lower_bound_annealing,
-    default_upper_bound_annealing,
-    default_lower_bound_annealing,
-    default_lower_bound_jump,
-    default_upper_bound_jump,
-    default_lower_bound_std_normal,
-    default_upper_bound_std_normal,
-    default_bounds_params,
     validcases_threshold,
     IncubeD,
     RecoverID,
@@ -67,43 +53,26 @@ parser.add_argument(
     help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
 )
 parser.add_argument(
-    '--optimizer', '-o', type=str, required=True, choices=["tnc", "trust-constr", "annealing"],
-    help=(
-            "Which optimizer among 'tnc', 'trust-constr' or 'annealing' would you like to use ? " +
-            "Note that 'tnc' and 'trust-constr' lead to local optima, while 'annealing' is a " +
-            "method for global optimization: "
-    )
+    '--end_date', '-d', type=str, required=True,
+    help="The date for which model states should be predicted"
 )
-parser.add_argument(
-    '--confidence_intervals', '-ci', type=int, required=True, choices=[0, 1],
-    help="Generate Confidence Intervals? Reply 0 or 1 for False or True.",
-)
-parser.add_argument(
-    '--since100case', '-s100', type=int, required=True, choices=[0, 1],
-    help="Save all history (since 100 cases)? Reply 0 or 1 for False or True.",
-)
-parser.add_argument(
-    '--website', '-w', type=int, required=True, choices=[0, 1],
-    help="Save to website? Reply 0 or 1 for False or True.",
-)
+
 arguments = parser.parse_args()
+end_date = arguments.end_date
 USER_RUNNING = arguments.user
-OPTIMIZER = arguments.optimizer
-GET_CONFIDENCE_INTERVALS = bool(arguments.confidence_intervals)
-SAVE_TO_WEBSITE = bool(arguments.website)
-SAVE_SINCE100_CASES = bool(arguments.since100case)
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 #############################################################################################################
 
-def solve_and_predict_area(
+def predict_area(
         tuple_area_state_: tuple,
         yesterday_: str,
         past_parameters_: pd.DataFrame,
         popcountries: pd.DataFrame,
         startT: str = None, # added to change optimmization start date
+        endT: str = None, # added to change prediction date
 ):
     """
     Parallelizable version of the fitting & solving process for DELPHI V3, this function is called with multiprocessing
@@ -112,10 +81,7 @@ def solve_and_predict_area(
     format has to be 'YYYYMMDD'
     :param past_parameters_: Parameters from yesterday_ used as a starting point for the fitting process
     :startT: date from where the model will be started (format should be 'YYYY-MM-DD')
-    :return: either None if can't optimize (either less than 100 cases or less than 7 days with 100 cases) or a tuple
-    with 3 dataframes related to that tuple_area_ (parameters df, predictions since yesterday_+1, predictions since
-    first day with 100 cases) and a scipy.optimize object (OptimizeResult) that contains the predictions for all
-    16 states of the model (and some other information that isn't used)
+    :return: final_model_state: dict capturing the 16 delphi model states at date endT
     """
     time_entering = time.time()
     continent, country, province, initial_state = tuple_area_state_
@@ -140,36 +106,14 @@ def solve_and_predict_area(
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
-                bounds_params = get_bounds_params_from_pastparams(
-                    optimizer=OPTIMIZER,
-                    parameter_list=parameter_list,
-                    dict_default_reinit_parameters=dict_default_reinit_parameters,
-                    percentage_drift_lower_bound=percentage_drift_lower_bound,
-                    default_lower_bound=default_lower_bound,
-                    dict_default_reinit_lower_bounds=dict_default_reinit_lower_bounds,
-                    percentage_drift_upper_bound=percentage_drift_upper_bound,
-                    default_upper_bound=default_upper_bound,
-                    dict_default_reinit_upper_bounds=dict_default_reinit_upper_bounds,
-                    percentage_drift_lower_bound_annealing=percentage_drift_lower_bound_annealing,
-                    default_lower_bound_annealing=default_lower_bound_annealing,
-                    percentage_drift_upper_bound_annealing=percentage_drift_upper_bound_annealing,
-                    default_upper_bound_annealing=default_upper_bound_annealing,
-                    default_lower_bound_jump=default_lower_bound_jump,
-                    default_upper_bound_jump=default_upper_bound_jump,
-                    default_lower_bound_std_normal=default_lower_bound_std_normal,
-                    default_upper_bound_std_normal=default_upper_bound_std_normal,
-                )
                 start_date = pd.to_datetime(parameter_list_line[3])
-                bounds_params = tuple(bounds_params)
             else:
                 # Otherwise use established lower/upper bounds
                 parameter_list = default_parameter_list
-                bounds_params = default_bounds_params
                 start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
         else:
             # Otherwise use established lower/upper bounds
             parameter_list = default_parameter_list
-            bounds_params = default_bounds_params
             start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
         if startT is not None:
@@ -218,7 +162,8 @@ def solve_and_predict_area(
             p_v: Percentage of Hospitalized Patients Ventilated,
             balance: Regularization coefficient between cases and deaths
             """
-            maxT = (default_maxT - start_date).days + 1
+            endT = default_maxT if endT is None else pd.to_datetime(endT)
+            maxT = (endT - start_date).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
@@ -283,17 +228,12 @@ def solve_and_predict_area(
                     dDQDdt, dRdt, dDdt, dTHdt, dDVRdt, dDVDdt, dDDdt, dDTdt,
                 ]
 
-            def residuals_totalcases(params) -> float:
-                """
-                Function that makes sure the parameters are in the right range during the fitting process and computes
-                the loss function depending on the optimizer that has been chosen for this run as a global variable
-                :param params: currently fitted values of the parameters during the fitting process
-                :return: the value of the loss function as a float that is optimized against (in our case, minimized)
-                """
+            t_predictions = [i for i in range(maxT)]
+
+            def solve_best_params_and_predict(optimal_params):
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = params
-                # Force params values to stay in a certain range during the optimization process with re-initializations
-                params = (
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = optimal_params
+                optimal_params = [
                     max(alpha, dict_default_reinit_parameters["alpha"]),
                     days,
                     max(r_s, dict_default_reinit_parameters["r_s"]),
@@ -305,124 +245,32 @@ def solve_and_predict_area(
                     max(jump, dict_default_reinit_parameters["jump"]),
                     max(t_jump, dict_default_reinit_parameters["t_jump"]),
                     max(std_normal, dict_default_reinit_parameters["std_normal"]),
-                    k3
-                )
-
+                    max(k3, dict_default_reinit_parameters["k3"]),
+                ]
                 x_0_cases = get_initial_conditions(
-                    params_fitted=params, global_params_fixed=GLOBAL_PARAMS_FIXED
+                    params_fitted=optimal_params,
+                    global_params_fixed=GLOBAL_PARAMS_FIXED,
                 )
-                x_sol_total = solve_ivp(
+                x_sol_best = solve_ivp(
                     fun=model_covid,
                     y0=x_0_cases,
-                    t_span=[t_cases[0], t_cases[-1]],
-                    t_eval=t_cases,
-                    args=tuple(params),
-                )
-                x_sol = x_sol_total.y
-                weights = list(range(1, len(cases_data_fit) + 1))
-                # weights = [(x/len(cases_data_fit))**2 for x in weights]
-                if x_sol_total.status == 0:
-                    residuals_value = get_residuals_value(
-                        optimizer=OPTIMIZER,
-                        balance=balance,
-                        x_sol=x_sol,
-                        cases_data_fit=cases_data_fit,
-                        deaths_data_fit=deaths_data_fit,
-                        weights=weights
-                    )
-                else:
-                    residuals_value = 1e16
-                return residuals_value
+                    t_span=[t_predictions[0], t_predictions[-1]],
+                    t_eval=t_predictions,
+                    args=tuple(optimal_params),
+                ).y
+                return x_sol_best
 
-            if OPTIMIZER in ["tnc", "trust-constr"]:
-                output = minimize(
-                    residuals_totalcases,
-                    parameter_list,
-                    method=OPTIMIZER,
-                    bounds=bounds_params,
-                    options={"maxiter": max_iter},
-                )
-            elif OPTIMIZER == "annealing":
-                output = dual_annealing(
-                    residuals_totalcases, x0=parameter_list, bounds=bounds_params
-                )
-            else:
-                raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
-
-            if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success):
-                best_params = output.x
-                t_predictions = [i for i in range(maxT)]
-    
-                def solve_best_params_and_predict(optimal_params):
-                    # Variables Initialization for the ODE system
-                    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = optimal_params
-                    optimal_params = [
-                        max(alpha, dict_default_reinit_parameters["alpha"]),
-                        days,
-                        max(r_s, dict_default_reinit_parameters["r_s"]),
-                        max(min(r_dth, 1), dict_default_reinit_parameters["r_dth"]),
-                        max(min(p_dth, 1), dict_default_reinit_parameters["p_dth"]),
-                        max(r_dthdecay, dict_default_reinit_parameters["r_dthdecay"]),
-                        max(k1, dict_default_reinit_parameters["k1"]),
-                        max(k2, dict_default_reinit_parameters["k2"]),
-                        max(jump, dict_default_reinit_parameters["jump"]),
-                        max(t_jump, dict_default_reinit_parameters["t_jump"]),
-                        max(std_normal, dict_default_reinit_parameters["std_normal"]),
-                        max(k3, dict_default_reinit_parameters["k3"]),
-                    ]
-                    x_0_cases = get_initial_conditions(
-                        params_fitted=optimal_params,
-                        global_params_fixed=GLOBAL_PARAMS_FIXED,
-                    )
-                    x_sol_best = solve_ivp(
-                        fun=model_covid,
-                        y0=x_0_cases,
-                        t_span=[t_predictions[0], t_predictions[-1]],
-                        t_eval=t_predictions,
-                        args=tuple(optimal_params),
-                    ).y
-                    return x_sol_best
-
-                x_sol_final = solve_best_params_and_predict(best_params)
-                data_creator = DELPHIDataCreator(
-                    x_sol_final=x_sol_final,
-                    date_day_since100=start_date,
-                    best_params=best_params,
-                    continent=continent,
-                    country=country,
-                    province=province,
-                    testing_data_included=False,
-                )
-                mape_data = get_mape_data_fitting(
-                    cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, x_sol_final=x_sol_final
-                )
-                
-                logging.info(f"In-Sample MAPE Last 15 Days {country, province}: {round(mape_data, 3)} %")
-                logging.debug(f"Best fitted parameters for {country, province}: {best_params}")
-                df_parameters_area = data_creator.create_dataset_parameters(mape_data)
-                # Creating the datasets for predictions of this area
-                if GET_CONFIDENCE_INTERVALS:
-                   df_predictions_since_today_area, df_predictions_since_100_area = (
-                       data_creator.create_datasets_with_confidence_intervals(
-                           cases_data_fit, deaths_data_fit,
-                           past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V4_{past_prediction_date}.csv",
-                           past_prediction_date=str(pd.to_datetime(past_prediction_date).date()))
-                   )
-                else:
-                    df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions()
-                logging.info(
-                    f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
-                    + f"{round(time.time() - time_entering, 2)} seconds"
-                )
-                logging.info("--------------------------------------------------------------------------------------------")
-                return (
-                    df_parameters_area,
-                    df_predictions_since_today_area,
-                    df_predictions_since_100_area,
-                    output,
-                )
-            else:
-                return None
+            x_final = solve_best_params_and_predict(parameter_list)
+            [S, E, I, UR, DHR, DQR, UD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT] = x_final[:, -1]
+            final_state_dict = {'S':S, 'E':E, 'I':I, 'UR':UR, 'DHR':DHR, 'DQR':DQR, 'UD':UD, 'DHD':DHD, 
+                'DQD':DQD, 'R':R, 'D':D, 'TH':TH, 'DVR':DVR, 'DVD':DVD, 'DD':DD, 'DT':DT,
+                'continent': continent, 'country':country, 'province':province}
+            logging.info(
+                f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
+                + f"{round(time.time() - time_entering, 2)} seconds"
+            )
+            logging.info("--------------------------------------------------------------------------------------------")
+            return (final_state_dict)
     else:  # file for that tuple (continent, country, province) doesn't exist in processed files
         logging.info(
             f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available"
@@ -437,7 +285,7 @@ if __name__ == "__main__":
 
     logger_filename = (
             CONFIG_FILEPATHS["logs"][USER_RUNNING] +
-            f"model_fitting/delphi_model_V4_{yesterday_logs_filename}_{OPTIMIZER}.log"
+            f"model_fitting/delphi_model_V4_predict_{yesterday_logs_filename}.log"
     )
     logging.basicConfig(
         filename=logger_filename,
@@ -446,8 +294,7 @@ if __name__ == "__main__":
         datefmt="%m-%d-%Y %I:%M:%S %p",
     )
     logging.info(
-        f"The user is {USER_RUNNING}, the chosen optimizer for this run was {OPTIMIZER} and " +
-        f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
+        f"The user is {USER_RUNNING}"
     )
     popcountries = pd.read_csv(
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
@@ -482,16 +329,14 @@ if __name__ == "__main__":
 
     ### Fitting the Model ###
     # Initalizing lists of the different dataframes that will be concatenated in the end
-    list_df_global_predictions_since_today = []
-    list_df_global_predictions_since_100_cases = []
-    list_df_global_parameters = []
-    obj_value = 0
-    solve_and_predict_area_partial = partial(
-        solve_and_predict_area,
+    list_predicted_state_dicts = []
+    predict_area_partial = partial(
+        predict_area,
         yesterday_=yesterday,
         past_parameters_=past_parameters,
         popcountries=popcountries,
-        startT=fitting_start_date
+        startT=fitting_start_date,
+        endT=end_date
     )
     n_cpu = psutil.cpu_count(logical = False) - 2
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
@@ -499,58 +344,18 @@ if __name__ == "__main__":
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
-            pool.map_async(solve_and_predict_area_partial, list_tuples).get(),
+            pool.map_async(predict_area_partial, list_tuples).get(),
             total=len(list_tuples),
         ):
             if result_area is not None:
-                (
-                    df_parameters_area,
-                    df_predictions_since_today_area,
-                    df_predictions_since_100_area,
-                    output,
-                ) = result_area
-                obj_value = obj_value + output.fun
+                (model_state_dict) = result_area
                 # Then we add it to the list of df to be concatenated to update the tracking df
-                list_df_global_parameters.append(df_parameters_area)
-                list_df_global_predictions_since_today.append(df_predictions_since_today_area)
-                list_df_global_predictions_since_100_cases.append(df_predictions_since_100_area)
+                list_predicted_state_dicts.append(model_state_dict)
             else:
                 continue
         logging.info("Finished the Multiprocessing for all areas")
         pool.close()
         pool.join()
 
-    # Appending parameters, aggregations per country, per continent, and for the world
-    # for predictions today & since 100
-    today_date_str = "".join(str(datetime.now().date()).split("-"))
-    df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
-        ["Country", "Province"]
-    ).reset_index(drop=True)
-    df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
-    df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_today
-    )
-    df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-    if GET_CONFIDENCE_INTERVALS:
-        df_global_predictions_since_today, df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
-            df_global_predictions_since_100_cases,
-            past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V4_{past_prediction_date}.csv",
-            past_prediction_date=str(pd.to_datetime(past_prediction_date).date())
-        )
-    else:
-        df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
-            df_global_predictions_since_100_cases
-        )
-
-    delphi_data_saver = DELPHIDataSaver(
-        path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
-        path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
-        df_global_parameters=df_global_parameters,
-        df_global_predictions_since_today=df_global_predictions_since_today,
-        df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
-    )
-    delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=SAVE_SINCE100_CASES, website=SAVE_TO_WEBSITE)
-    logging.info(
-        f"Exported all 3 datasets to website & danger_map repositories, "
-        + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
-    )
+    df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
+    df_predicted_states.to_csv(f'data_sandbox/predicted/raw_predictions/predicted_model_state_global_{fitting_start_date}.csv', index=False)

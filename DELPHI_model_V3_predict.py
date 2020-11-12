@@ -18,7 +18,6 @@ from DELPHI_utils_V3_static import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
-from DELPHI_params_V4 import fitting_start_date
 from DELPHI_params_V3 import (
     default_parameter_list,
     dict_default_reinit_parameters,
@@ -53,17 +52,13 @@ parser.add_argument(
     help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
 )
 parser.add_argument(
-    '--optimizer', '-o', type=str, required=True, choices=["tnc", "trust-constr", "annealing"],
-    help=(
-            "Which optimizer among 'tnc', 'trust-constr' or 'annealing' would you like to use ? " +
-            "Note that 'tnc' and 'trust-constr' lead to local optima, while 'annealing' is a " +
-            "method for global optimization: "
-    )
+    '--end_date', '-d', type=str, required=True,
+    help="The date for which model states should be predicted"
 )
 
 arguments = parser.parse_args()
+end_date = arguments.end_date
 USER_RUNNING = arguments.user
-OPTIMIZER = arguments.optimizer
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
@@ -85,7 +80,7 @@ def predict_area(
     :param past_parameters_: Parameters from yesterday_ used as a starting point for the fitting process
     :startT: date from where the model will be started (format should be 'YYYYMMDD')
     :endT: date till predictions will be calculated and saved (format should be 'YYYYMMDD')
-    :return: final_model_state: dict capturing the delphi model state at date endT
+    :return: final_model_state: dict capturing the 16 delphi model states at date endT
     """
     time_entering = time.time()
     continent, country, province = tuple_area_
@@ -132,7 +127,6 @@ def predict_area(
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
             ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
 
-        bounds_params = tuple(bounds_params)
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
             logging.warning(
@@ -284,7 +278,7 @@ if __name__ == "__main__":
 
     logger_filename = (
             CONFIG_FILEPATHS["logs"][USER_RUNNING] +
-            f"model_fitting/delphi_model_V3_predict_{yesterday_logs_filename}_{OPTIMIZER}.log"
+            f"model_fitting/delphi_model_V3_predict_{yesterday_logs_filename}.log"
     )
     logging.basicConfig(
         filename=logger_filename,
@@ -293,7 +287,7 @@ if __name__ == "__main__":
         datefmt="%m-%d-%Y %I:%M:%S %p",
     )
     logging.info(
-        f"The user is {USER_RUNNING}, the chosen optimizer for this run was {OPTIMIZER}"
+        f"The user is {USER_RUNNING}"
     )
     popcountries = pd.read_csv(
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
@@ -327,12 +321,12 @@ if __name__ == "__main__":
         yesterday_=yesterday,
         past_parameters_=past_parameters,
         popcountries=popcountries,
-        endT=fitting_start_date
+        endT=end_date
     )
     n_cpu = psutil.cpu_count(logical = False) - 2
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
     logging.info(f"Number of areas to be predicted in this run: {len(list_tuples)}")
-    list_initial_state_dicts = []
+    list_predicted_state_dicts = []
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
             pool.map_async(predict_area_partial, list_tuples).get(),
@@ -341,11 +335,11 @@ if __name__ == "__main__":
             if result_area is not None:
                 (model_state_dict) = result_area
                 # Then we add it to the list of df to be concatenated to update the tracking df
-                list_initial_state_dicts.append(model_state_dict)
+                list_predicted_state_dicts.append(model_state_dict)
             else:
                 continue
         logging.info("Finished the Multiprocessing for all areas")
         pool.close()
         pool.join()
-    df_initial_states = pd.DataFrame(list_initial_state_dicts)
-    df_initial_states.to_csv(f'data_sandbox/predicted/raw_predictions/predicted_model_state_global_{fitting_start_date}.csv', index=False)
+    df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
+    df_predicted_states.to_csv(f'data_sandbox/predicted/raw_predictions/predicted_model_state_global_{end_date}.csv', index=False)
