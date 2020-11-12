@@ -18,25 +18,12 @@ from DELPHI_utils_V3_static import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
-from DELPHI_utils_V3_dynamic import get_bounds_params_from_pastparams
+from DELPHI_params_V4 import fitting_start_date
 from DELPHI_params_V3 import (
     default_parameter_list,
     dict_default_reinit_parameters,
     dict_default_reinit_lower_bounds,
     dict_default_reinit_upper_bounds,
-    default_upper_bound,
-    default_lower_bound,
-    percentage_drift_upper_bound,
-    percentage_drift_lower_bound,
-    percentage_drift_upper_bound_annealing,
-    percentage_drift_lower_bound_annealing,
-    default_upper_bound_annealing,
-    default_lower_bound_annealing,
-    default_lower_bound_jump,
-    default_upper_bound_jump,
-    default_lower_bound_std_normal,
-    default_upper_bound_std_normal,
-    #default_bounds_params,
     validcases_threshold,
     IncubeD,
     RecoverID,
@@ -80,9 +67,6 @@ OPTIMIZER = arguments.optimizer
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
-default_bounds_params = (
-    (0.1, 10), (-200, 100), (1, 15), (0.05, 0.5), (0.01, 0.25), (0, 5), (1, 100), (0.05, 100), (0, 5), (0, 100), (0.1, 100)
-)  # Updated bounds for the solver
 #############################################################################################################
 
 def predict_area(
@@ -126,36 +110,14 @@ def predict_area(
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
-                bounds_params = get_bounds_params_from_pastparams(
-                    optimizer=OPTIMIZER,
-                    parameter_list=parameter_list,
-                    dict_default_reinit_parameters=dict_default_reinit_parameters,
-                    percentage_drift_lower_bound=percentage_drift_lower_bound,
-                    default_lower_bound=default_lower_bound,
-                    dict_default_reinit_lower_bounds=dict_default_reinit_lower_bounds,
-                    percentage_drift_upper_bound=percentage_drift_upper_bound,
-                    default_upper_bound=default_upper_bound,
-                    dict_default_reinit_upper_bounds=dict_default_reinit_upper_bounds,
-                    percentage_drift_lower_bound_annealing=percentage_drift_lower_bound_annealing,
-                    default_lower_bound_annealing=default_lower_bound_annealing,
-                    percentage_drift_upper_bound_annealing=percentage_drift_upper_bound_annealing,
-                    default_upper_bound_annealing=default_upper_bound_annealing,
-                    default_lower_bound_jump=default_lower_bound_jump,
-                    default_upper_bound_jump=default_upper_bound_jump,
-                    default_lower_bound_std_normal=default_lower_bound_std_normal,
-                    default_upper_bound_std_normal=default_upper_bound_std_normal,
-                )
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
-                bounds_params = tuple(bounds_params)
             else:
                 # Otherwise use established lower/upper bounds
                 parameter_list = default_parameter_list
-                bounds_params = default_bounds_params
                 date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
         else:
             # Otherwise use established lower/upper bounds
             parameter_list = default_parameter_list
-            bounds_params = default_bounds_params
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
         if startT is not None:
@@ -339,8 +301,8 @@ if __name__ == "__main__":
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
     # list_tuples = [x for x in list_tuples if x[1] == "US"]
-    list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany', 'Greece', 'Poland', 
-    'Japan', 'South Africa', 'Singapore', 'Morocco', 'Iran', 'Russia', 'Brazil'] ]
+    # list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany', 'Greece', 'Poland', 
+    # 'Japan', 'South Africa', 'Singapore', 'Morocco', 'Iran', 'Russia', 'Brazil'] ]
     # list_tuples = [('North America' , 'US' , 'Alabama'), 
     #             ('North America' , 'US' , 'California'),
     #             ('North America' , 'US' , 'Florida'),
@@ -352,8 +314,6 @@ if __name__ == "__main__":
     #             ('North America' , 'US' , 'Texas')]
 
     ### Compute the state of model till a given date ###
-    end_date = '2020-07-01'
-    yesterday = '20201105'
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
@@ -367,7 +327,7 @@ if __name__ == "__main__":
         yesterday_=yesterday,
         past_parameters_=past_parameters,
         popcountries=popcountries,
-        endT=end_date
+        endT=fitting_start_date
     )
     n_cpu = psutil.cpu_count(logical = False) - 2
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
@@ -388,4 +348,4 @@ if __name__ == "__main__":
         pool.close()
         pool.join()
     df_initial_states = pd.DataFrame(list_initial_state_dicts)
-    df_initial_states.to_csv(f'data_sandbox/predicted/raw_predictions/predicted_model_state_{end_date}.csv', index=False)
+    df_initial_states.to_csv(f'data_sandbox/predicted/raw_predictions/predicted_model_state_global_{fitting_start_date}.csv', index=False)
