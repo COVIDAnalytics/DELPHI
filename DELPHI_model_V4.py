@@ -60,38 +60,21 @@ yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday_logs_filename = "".join(
     (str(datetime.now().date() - timedelta(days=1)) + f"_{datetime.now().hour}H{datetime.now().minute}M").split("-")
 )
+
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    '--user', '-u', type=str, required=True,
-    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham", "saksham2"],
-    help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
-)
-parser.add_argument(
-    '--optimizer', '-o', type=str, required=True, choices=["tnc", "trust-constr", "annealing"],
-    help=(
-            "Which optimizer among 'tnc', 'trust-constr' or 'annealing' would you like to use ? " +
-            "Note that 'tnc' and 'trust-constr' lead to local optima, while 'annealing' is a " +
-            "method for global optimization: "
-    )
-)
-parser.add_argument(
-    '--confidence_intervals', '-ci', type=int, required=True, choices=[0, 1],
-    help="Generate Confidence Intervals? Reply 0 or 1 for False or True.",
-)
-parser.add_argument(
-    '--since100case', '-s100', type=int, required=True, choices=[0, 1],
-    help="Save all history (since 100 cases)? Reply 0 or 1 for False or True.",
-)
-parser.add_argument(
-    '--website', '-w', type=int, required=True, choices=[0, 1],
-    help="Save to website? Reply 0 or 1 for False or True.",
+    '--run_config', '-rc', type=str, required=True,
+    help="specify relative path for the run config YAML file"
 )
 arguments = parser.parse_args()
-USER_RUNNING = arguments.user
-OPTIMIZER = arguments.optimizer
-GET_CONFIDENCE_INTERVALS = bool(arguments.confidence_intervals)
-SAVE_TO_WEBSITE = bool(arguments.website)
-SAVE_SINCE100_CASES = bool(arguments.since100case)
+with open(arguments.run_config, "r") as ymlfile:
+    RUN_CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+
+USER_RUNNING = RUN_CONFIG["arguments"]["user"]
+OPTIMIZER = RUN_CONFIG["arguments"]["optimizer"]
+GET_CONFIDENCE_INTERVALS = bool(int(RUN_CONFIG["arguments"]["confidence_intervals"]))
+SAVE_TO_WEBSITE = bool(int(RUN_CONFIG["arguments"]["website"]))
+SAVE_SINCE100_CASES = bool(int(RUN_CONFIG["arguments"]["since100case"]))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]

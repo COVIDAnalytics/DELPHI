@@ -46,20 +46,18 @@ yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 yesterday_logs_filename = "".join(
     (str(datetime.now().date() - timedelta(days=1)) + f"_{datetime.now().hour}H{datetime.now().minute}M").split("-")
 )
+
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    '--user', '-u', type=str, required=True,
-    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham", "saksham2"],
-    help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
+    '--run_config', '-rc', type=str, required=True,
+    help="specify relative path for the run config YAML file"
 )
-parser.add_argument(
-    '--end_date', '-d', type=str, required=True,
-    help="The date for which model states should be predicted"
-)
-
 arguments = parser.parse_args()
-end_date = arguments.end_date
-USER_RUNNING = arguments.user
+with open(arguments.run_config, "r") as ymlfile:
+    RUN_CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+
+USER_RUNNING = RUN_CONFIG["arguments"]["user"]
+end_date = RUN_CONFIG["arguments"]["end_date"]
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
