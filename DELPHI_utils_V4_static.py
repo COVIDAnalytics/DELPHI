@@ -225,11 +225,11 @@ class DELPHIDataCreator:
     ):
         if testing_data_included:
             assert (
-                    len(best_params) == 14
+                    len(best_params) == 15
             ), f"Expected 9 best parameters, got {len(best_params)}"
         else:
             assert (
-                    len(best_params) == 11
+                    len(best_params) == 12
             ), f"Expected 7 best parameters, got {len(best_params)}"
         self.x_sol_final = x_sol_final
         self.date_day_since100 = date_day_since100

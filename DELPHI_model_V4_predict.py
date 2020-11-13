@@ -300,23 +300,12 @@ if __name__ == "__main__":
         PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-    list_tuples = popcountries.tuple_area.tolist()
-    # list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany', 'Greece', 'Poland', 
-    # 'Japan', 'South Africa', 'Singapore', 'Morocco', 'Iran', 'Russia', 'Brazil'] ]
-    # list_tuples = [('North America' , 'US' , 'Arkansas'),
-    #             ('North America' , 'US' , 'North Dakota'),
-    #             ('North America' , 'US' , 'Wisconsin'),
-    #             ('North America' , 'US' , 'Virginia'),
-    #             ('North America' , 'US' , 'West Virginia'),
-    #             ('North America' , 'US' , 'Kansas'),
-    #             ('North America' , 'US' , 'Texas'),
-    #             ('North America' , 'US' , 'Florida')]
 
-    if not os.path.exists(PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/predicted_model_state_global_{fitting_start_date}.csv"):
+    if not os.path.exists(PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"):
         logging.error(f"Initial model state file not found, can not train from {fitting_start_date}. Use model_V3 to train on entire data.")
         raise FileNotFoundError
     df_initial_states = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/predicted_model_state_global_{fitting_start_date}.csv"
+        PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
     )
 
     try:
@@ -358,4 +347,4 @@ if __name__ == "__main__":
         pool.join()
 
     df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
-    df_predicted_states.to_csv(f'data_sandbox/predicted/raw_predictions/predicted_model_state_global_{fitting_start_date}.csv', index=False)
+    df_predicted_states.to_csv(f'data_sandbox/predicted/raw_predictions/Predicted_model_state_V4_{fitting_start_date}.csv', index=False)

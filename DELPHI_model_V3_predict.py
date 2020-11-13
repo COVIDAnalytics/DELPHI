@@ -53,7 +53,7 @@ parser.add_argument(
 )
 parser.add_argument(
     '--end_date', '-d', type=str, required=True,
-    help="The date for which model states should be predicted"
+    help="The date for which model states should be predicted, in yyyy-mm-dd format"
 )
 
 arguments = parser.parse_args()
@@ -298,14 +298,14 @@ if __name__ == "__main__":
     # list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany', 'Greece', 'Poland', 
     # 'Japan', 'South Africa', 'Singapore', 'Morocco', 'Iran', 'Russia', 'Brazil'] ]
     # list_tuples = [('North America' , 'US' , 'Alabama'), 
-    #             ('North America' , 'US' , 'California'),
-    #             ('North America' , 'US' , 'Florida'),
-    #             ('North America' , 'US' , 'Georgia'),
-    #             ('North America' , 'US' , 'Massachusetts'),
-    #             ('North America' , 'US' , 'Nevada'),
-    #             ('North America' , 'US' , 'New York'),
-    #             ('North America' , 'US' , 'Ohio'),
-    #             ('North America' , 'US' , 'Texas')]
+    #             ('North America' , 'US' , 'California')]
+                # ('North America' , 'US' , 'Florida'),
+                # ('North America' , 'US' , 'Georgia'),
+                # ('North America' , 'US' , 'Massachusetts'),
+                # ('North America' , 'US' , 'Nevada'),
+                # ('North America' , 'US' , 'New York'),
+                # ('North America' , 'US' , 'Ohio'),
+                # ('North America' , 'US' , 'Texas')]
 
     ### Compute the state of model till a given date ###
     try:
@@ -342,4 +342,4 @@ if __name__ == "__main__":
         pool.close()
         pool.join()
     df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
-    df_predicted_states.to_csv(f'data_sandbox/predicted/raw_predictions/predicted_model_state_global_{end_date}.csv', index=False)
+    df_predicted_states.to_csv(f'data_sandbox/predicted/raw_predictions/Predicted_model_state_V3_{end_date}.csv', index=False)
