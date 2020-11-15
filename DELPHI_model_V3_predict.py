@@ -69,7 +69,6 @@ def predict_area(
         yesterday_: str,
         past_parameters_: pd.DataFrame,
         popcountries: pd.DataFrame,
-        startT: str = None, # added to change model run start date
         endT: str = None, # added to change prediction date
 ):
     """
@@ -115,17 +114,20 @@ def predict_area(
             parameter_list = default_parameter_list
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
-        if startT is not None:
-            date_day_since100 = pd.to_datetime(startT)
-            validcases = totalcases[
-                (totalcases.date >= startT)
-                & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
-            ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
-        else:
-            validcases = totalcases[
-                (totalcases.day_since100 >= 0)
-                & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
-            ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+        if date_day_since100 > pd.to_datetime(endT):
+            logging.warning(
+                f"End date is less than date since 100 cases for, Continent={continent}, Country={country} and Province={province} in "
+                + f"{round(time.time() - time_entering, 2)} seconds"
+            )
+            final_state_dict = {'S':None, 'E':None, 'I':None, 'UR':None, 'DHR':None, 'DQR':None, 'UD':None, 'DHD':None, 
+                'DQD':None, 'R':None, 'D':None, 'TH':None, 'DVR':None, 'DVD':None, 'DD':None, 'DT':None,
+                'continent': continent, 'country':country, 'province':province}
+            return (final_state_dict)
+
+        validcases = totalcases[
+            (totalcases.day_since100 >= 0)
+            & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
+        ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
 
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
@@ -297,15 +299,8 @@ if __name__ == "__main__":
     # list_tuples = [x for x in list_tuples if x[1] == "US"]
     # list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany', 'Greece', 'Poland', 
     # 'Japan', 'South Africa', 'Singapore', 'Morocco', 'Iran', 'Russia', 'Brazil'] ]
-    # list_tuples = [('North America' , 'US' , 'Alabama'), 
-    #             ('North America' , 'US' , 'California')]
-                # ('North America' , 'US' , 'Florida'),
-                # ('North America' , 'US' , 'Georgia'),
-                # ('North America' , 'US' , 'Massachusetts'),
-                # ('North America' , 'US' , 'Nevada'),
-                # ('North America' , 'US' , 'New York'),
-                # ('North America' , 'US' , 'Ohio'),
-                # ('North America' , 'US' , 'Texas')]
+    # list_tuples = [('Oceania' , 'Papua New Guinea' , 'None'), 
+    #             ('Africa' , 'Lesotho' , 'None')]
 
     ### Compute the state of model till a given date ###
     try:

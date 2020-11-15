@@ -156,9 +156,9 @@ def solve_and_predict_area(
             start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
         if startT is not None:
-            start_date = pd.to_datetime(startT)
+            start_date = max(pd.to_datetime(startT), start_date)
             validcases = totalcases[
-                (totalcases.date >= startT)
+                (totalcases.date >= str(start_date))
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
             ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         else:
@@ -184,12 +184,12 @@ def solve_and_predict_area(
                 R_0 = initial_state[9]
             else:
                 R_0 = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
-            cases_t_14days = totalcases[totalcases.date >= str((pd.to_datetime(startT) - pd.Timedelta(14, 'D')))]['case_cnt'].values[0]
-            deaths_t_9days = totalcases[totalcases.date >= str((pd.to_datetime(startT) - pd.Timedelta(9, 'D')))]['death_cnt'].values[0]
+            cases_t_14days = totalcases[totalcases.date >= str(start_date- pd.Timedelta(14, 'D'))]['case_cnt'].values[0]
+            deaths_t_9days = totalcases[totalcases.date >= str(start_date - pd.Timedelta(9, 'D'))]['death_cnt'].values[0]
             R_upperbound = validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]
             R_heuristic = cases_t_14days - deaths_t_9days
             if int(R_0*p_d) >= R_upperbound and R_heuristic >= R_upperbound:
-                    logging.error(f"Initial conditions for PopulationR too high for {country}-{province}, on {startT}")
+                logging.error(f"Initial conditions for PopulationR too high for {country}-{province}, on {startT}")
 
             """
             Fixed Parameters based on meta-analysis:
@@ -467,7 +467,12 @@ if __name__ == "__main__":
     )
     n_cpu = psutil.cpu_count(logical = False) - 2
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
-    list_tuples = [(r.continent ,r.country, r.province, r.values[:16]) for _, r in df_initial_states.iterrows()]
+    list_tuples = [(
+        r.continent, 
+        r.country, 
+        r.province, 
+        r.values[:16] if not pd.isna(r.S) else None
+        ) for _, r in df_initial_states.iterrows()]
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
