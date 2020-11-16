@@ -184,6 +184,9 @@ def solve_and_predict_area(
                 R_0 = initial_state[9]
             else:
                 R_0 = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
+                bounds_params_list = list(bounds_params)
+                bounds_params_list[-1] = (0.999,1)
+                bounds_params = tuple(bounds_params_list)
             cases_t_14days = totalcases[totalcases.date >= str(start_date- pd.Timedelta(14, 'D'))]['case_cnt'].values[0]
             deaths_t_9days = totalcases[totalcases.date >= str(start_date - pd.Timedelta(9, 'D'))]['death_cnt'].values[0]
             R_upperbound = validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]
@@ -351,7 +354,7 @@ def solve_and_predict_area(
                         max(jump, dict_default_reinit_parameters["jump"]),
                         max(t_jump, dict_default_reinit_parameters["t_jump"]),
                         max(std_normal, dict_default_reinit_parameters["std_normal"]),
-                        max(k3, dict_default_reinit_parameters["k3"]),
+                        k3,
                     ]
                     x_0_cases = get_initial_conditions(
                         params_fitted=optimal_params,
@@ -465,7 +468,7 @@ if __name__ == "__main__":
         popcountries=popcountries,
         startT=fitting_start_date
     )
-    n_cpu = psutil.cpu_count(logical = False) - 2
+    n_cpu = psutil.cpu_count(logical = False) - 1
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
     list_tuples = [(
         r.continent, 
