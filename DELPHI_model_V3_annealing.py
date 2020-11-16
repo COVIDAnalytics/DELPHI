@@ -427,7 +427,7 @@ if __name__ == "__main__":
             df_global_predictions_since_today=df_global_predictions_since_today,
             df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
         )
-        delphi_data_saver.save_all_datasets(save_since_100_cases=True, website=False)
+        delphi_data_saver.save_all_datasets(current_time = current_time , save_since_100_cases=True, website=False)
         print(f"Exported all 3 datasets to website & danger_map repositories, "+
               f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes")
     else:

@@ -553,8 +553,8 @@ if __name__ == '__main__':
     ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
     today_time = datetime.now()
 
-    training_start_date = datetime(2020, 11, 6)
-    training_end_date = datetime(2020, 11, 9)
+    training_start_date = datetime(2020, 11, 8)
+    training_end_date = datetime(2020, 11, 15)
     training_last_date = training_end_date - timedelta(days=1)
     # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
     n_days_to_train = (training_last_date - training_start_date).days
