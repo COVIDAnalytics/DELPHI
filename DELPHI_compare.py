@@ -131,7 +131,7 @@ if __name__ == "__main__":
                 global_parameters_best = global_parameters_best.append(annealing_params, ignore_index=True)
 
     global_parameters_best.to_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}_testing.csv",
+            PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}.csv",
             index=False,
     )
 
