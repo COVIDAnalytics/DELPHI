@@ -291,7 +291,7 @@ def solve_and_predict_area(
                     max(jump, dict_default_reinit_parameters["jump"]),
                     max(t_jump, dict_default_reinit_parameters["t_jump"]),
                     max(std_normal, dict_default_reinit_parameters["std_normal"]),
-                    k3
+                    max(k3, dict_default_reinit_lower_bounds["k3"]),
                 )
 
                 x_0_cases = get_initial_conditions(
@@ -354,7 +354,7 @@ def solve_and_predict_area(
                         max(jump, dict_default_reinit_parameters["jump"]),
                         max(t_jump, dict_default_reinit_parameters["t_jump"]),
                         max(std_normal, dict_default_reinit_parameters["std_normal"]),
-                        k3,
+                        max(k3, dict_default_reinit_lower_bounds["k3"]),
                     ]
                     x_0_cases = get_initial_conditions(
                         params_fitted=optimal_params,
@@ -522,12 +522,14 @@ if __name__ == "__main__":
             df_global_predictions_since_100_cases
         )
 
+    logger = logging.getLogger("CompareLogger")
     delphi_data_saver = DELPHIDataSaver(
         path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
         path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
         df_global_parameters=df_global_parameters,
         df_global_predictions_since_today=df_global_predictions_since_today,
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
+        logger=logger
     )
     delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=SAVE_SINCE100_CASES, website=SAVE_TO_WEBSITE)
     logging.info(

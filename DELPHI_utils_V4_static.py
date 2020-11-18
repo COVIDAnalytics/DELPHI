@@ -23,6 +23,7 @@ class DELPHIDataSaver:
             df_global_parameters: Union[pd.DataFrame, None],
             df_global_predictions_since_today: pd.DataFrame,
             df_global_predictions_since_100_cases: pd.DataFrame,
+            logger
     ):
         self.PATH_TO_FOLDER_DANGER_MAP = path_to_folder_danger_map
         self.PATH_TO_WEBSITE_PREDICTED = path_to_website_predicted
@@ -31,6 +32,28 @@ class DELPHIDataSaver:
         self.df_global_predictions_since_100_cases = (
             df_global_predictions_since_100_cases
         )
+        self.logger = logger
+
+    @staticmethod
+    def save_dataframe(df, path, logger):
+        attempt = 0
+        success = False
+        filename = path
+        while attempt <= 5 and not success:
+            success = True
+            attempt+=1
+            try:
+                df.to_csv(filename, index=False)
+            except IOError:
+                success = False
+                filename = path.replace(".csv", f"_try_{attempt}.csv")
+
+        if not success:
+            logger.error(
+                f"Unable to save file {path}, skipping after {attempt} attempts"
+            )
+            return attempt
+        return 0
 
     def save_all_datasets(
             self, optimizer: str, save_since_100_cases: bool = False, website: bool = False
@@ -55,43 +78,52 @@ class DELPHIDataSaver:
         else:
             raise ValueError("Optimizer not supported in this implementation")
         # Save parameters
-        self.df_global_parameters.to_csv(
+
+        DELPHIDataSaver.save_dataframe(
+            self.df_global_parameters,
             self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_{subname_file}_{today_date_str}.csv",
-            index=False,
+            self.logger
             )
         # Save predictions since today
-        self.df_global_predictions_since_today.to_csv(
+        DELPHIDataSaver.save_dataframe(
+            self.df_global_predictions_since_today,
             self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/{subname_file}_{today_date_str}.csv",
-            index=False,
+            self.logger
             )
         if website:
-            self.df_global_parameters.to_csv(
+            DELPHIDataSaver.save_dataframe(
+                self.df_global_parameters,
                 self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Parameters_{subname_file}_{today_date_str}.csv",
-                index=False,
+                self.logger
                 )
-            self.df_global_predictions_since_today.to_csv(
+            DELPHIDataSaver.save_dataframe(
+                self.df_global_predictions_since_today,
                 self.PATH_TO_WEBSITE_PREDICTED
                 + f"data/predicted/{subname_file}_{today_date_str}.csv",
-                index=False,
+                self.logger
                 )
-            self.df_global_predictions_since_today.to_csv(
+            DELPHIDataSaver.save_dataframe(
+                self.df_global_predictions_since_today,
                 self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/Global.csv",
-                index=False,
+                self.logger
                 )
         if save_since_100_cases:
             # Save predictions since 100 cases
-            self.df_global_predictions_since_100_cases.to_csv(
+            DELPHIDataSaver.save_dataframe(
+                self.df_global_predictions_since_100_cases,
                 self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/{subname_file}_since100_{today_date_str}.csv",
-                index=False,
+                self.logger
                 )
             if website:
-                self.df_global_predictions_since_100_cases.to_csv(
+                DELPHIDataSaver.save_dataframe(
+                    self.df_global_predictions_since_100_cases,
                     self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/{subname_file}_since100_{today_date_str}.csv",
-                    index=False,
+                    self.logger
                     )
-                self.df_global_predictions_since_100_cases.to_csv(
+                DELPHIDataSaver.save_dataframe(
+                    self.df_global_predictions_since_100_cases,
                     self.PATH_TO_WEBSITE_PREDICTED + f"data/predicted/{subname_file}_since100.csv",
-                    index=False,
+                    self.logger
                     )
 
     def save_policy_predictions_to_json(self, website: bool = False, local_delphi: bool = False):
