@@ -44,7 +44,7 @@ class DELPHIDataSaver:
             attempt+=1
             try:
                 df.to_csv(filename, index=False)
-            except IOError:
+            except OSError:
                 success = False
                 filename = path.replace(".csv", f"_try_{attempt}.csv")
 
