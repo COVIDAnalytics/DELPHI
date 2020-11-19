@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 from scipy.optimize import minimize
 from datetime import datetime, timedelta
-from DELPHI_utils_V3_dynamic import DELPHIModelComparison
+from DELPHI_utils_V4_dynamic import DELPHIModelComparison
 
 
 ## Initializing Global Variables ##########################################################################
@@ -21,11 +21,6 @@ yesterday_logs_filename = "".join(
     (str(datetime.now().date() - timedelta(days=1)) + f"_{datetime.now().hour}H{datetime.now().minute}M").split("-")
 )
 parser = argparse.ArgumentParser()
-parser.add_argument(
-    '--user', '-u', type=str, required=True,
-    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham", "saksham2"],
-    help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
-)
 parser.add_argument(
     '--run_model', '-r', type=int, required=True, choices=[0, 1],
     help="Run model with Annealing and TNC or not? Choose 0 if model for given date has already been run and files are saved."
@@ -53,7 +48,7 @@ if __name__ == "__main__":
 
     logger_filename = (
             CONFIG_FILEPATHS["logs"][USER_RUNNING] +
-            f"model_comparison/delphi_model_V3_{yesterday_logs_filename}.log"
+            f"model_comparison/delphi_model_V4_{yesterday_logs_filename}.log"
     )
     logging.basicConfig(
         filename=logger_filename,
@@ -70,29 +65,29 @@ if __name__ == "__main__":
     if RUN_MODEL:
         logger.info('Running TNC and Annealing')
         os.system(
-            f'python3 DELPHI_model_V3.py -u {USER_RUNNING} -o tnc -ci 0 -s100 1 -w 0'
+            f'python3 DELPHI_model_V4.py -rc tnc-run-config.yml'
         )
         os.system(
-            f'python3 DELPHI_model_V3.py -u {USER_RUNNING} -o annealing -ci 0 -s100 1 -w 0'
+            f'python3 DELPHI_model_V4.py -rc annealing-run-config.yml'
         )
 
     today_date_str = "".join(str(datetime.now().date()).split("-"))
     #today_date_str = '20201004'
     ## Read parameter files
     global_parameters_tnc = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}.csv"
+        PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V4_{today_date_str}.csv"
     )
     global_parameters_annealing = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_annealing_{today_date_str}.csv"
+        PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V4_annealing_{today_date_str}.csv"
     )
     global_parameters_best = pd.DataFrame(columns=global_parameters_tnc.columns)
 
     ## Compare metrics
     global_annealing_predictions_since_100days = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_annealing_since100_{today_date_str}.csv'
+        PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V4_annealing_since100_{today_date_str}.csv'
     )
     total_tnc_predictions_since_100days = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V2_since100_{today_date_str}.csv'
+        PATH_TO_FOLDER_DANGER_MAP + f'predicted/Global_V4_since100_{today_date_str}.csv'
     )
 
     global_annealing_predictions_since_100days['Day'] = global_annealing_predictions_since_100days['Day'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d'))
@@ -131,7 +126,7 @@ if __name__ == "__main__":
                 global_parameters_best = global_parameters_best.append(annealing_params, ignore_index=True)
 
     global_parameters_best.to_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V2_{today_date_str}.csv",
+            PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_Global_V4_{today_date_str}.csv",
             index=False,
     )
 
