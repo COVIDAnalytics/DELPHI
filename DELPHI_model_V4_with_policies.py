@@ -1,10 +1,9 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
-import time
 from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
-from DELPHI_utils_V4_static import DELPHIDataCreator, DELPHIDataSaver, get_initial_conditions, compute_mape
+from DELPHI_utils_V4_static import DELPHIDataCreator, DELPHIDataSaver, get_initial_conditions, compute_mape, create_fitting_data_from_validcases, get_mape_data_fitting, DELPHIAggregations
 from DELPHI_utils_V4_dynamic import (
     read_oxford_international_policy_data, get_normalized_policy_shifts_and_current_policy_all_countries,
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
@@ -65,7 +64,7 @@ else:
     param_MATHEMATICA = False
 # True if we use the Mathematica run parameters, False if we use those from Python runs
 # This is because the past_parameters dataframe's columns are not in the same order in both cases
-
+startT = fitting_start_date
 # Get the policies shifts from the CART tree to compute different values of gamma(t)
 # Depending on the policy in place in the future to affect predictions
 dict_normalized_policy_gamma_countries, dict_current_policy_countries = (
@@ -99,7 +98,7 @@ list_tuples = [(
     r.province, 
     r.values[:16] if not pd.isna(r.S) else None
     ) for _, r in df_initial_states.iterrows()]
-for continent, country, province， initial_state in list_tuples:
+for continent, country, province, initial_state in list_tuples:
     if country == "US":  # This line is necessary because the keys are the same in both cases
         dict_normalized_policy_gamma_international = dict_normalized_policy_gamma_us_only.copy()
     else:
@@ -132,10 +131,11 @@ for continent, country, province， initial_state in list_tuples:
                     parameter_list = parameter_list_line[5:]
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
+                start_date = max(pd.to_datetime(startT), date_day_since100)
                 validcases = totalcases[
-                    (totalcases.day_since100 >= 0) &
-                    (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
-                    ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                    (totalcases.date >= str(start_date))
+                    & (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
+                ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
             else:
                 print(f"Must have past parameters for {country} and {province}")
                 continue
@@ -155,15 +155,10 @@ for continent, country, province， initial_state in list_tuples:
                 R_0 = initial_state[9]
             else:
                 R_0 = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
-                bounds_params_list = list(bounds_params)
-                bounds_params_list[-1] = (0.999,1)
-                bounds_params = tuple(bounds_params_list)
             cases_t_14days = totalcases[totalcases.date >= str(start_date- pd.Timedelta(14, 'D'))]['case_cnt'].values[0]
             deaths_t_9days = totalcases[totalcases.date >= str(start_date - pd.Timedelta(9, 'D'))]['death_cnt'].values[0]
             R_upperbound = validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]
             R_heuristic = cases_t_14days - deaths_t_9days
-            if int(R_0*p_d) >= R_upperbound and R_heuristic >= R_upperbound:
-                logging.error(f"Initial conditions for PopulationR too high for {country}-{province}, on {startT}")
 
             """
             Fixed Parameters based on meta-analysis:
@@ -175,7 +170,7 @@ for continent, country, province， initial_state in list_tuples:
             p_v: Percentage of Hospitalized Patients Ventilated,
             balance: Regularization coefficient between cases and deaths
             """
-            maxT = (default_maxT - start_date).days + 1
+            maxT = (default_maxT_policies - date_day_since100).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
@@ -282,15 +277,15 @@ for continent, country, province， initial_state in list_tuples:
                     )
                     # Creating the parameters dataset for this (Continent, Country, Province)
                     mape_data = (
-                                        compute_mape(fitcasesnd, x_sol_final[15, :len(fitcasesnd)]) +
-                                        compute_mape(fitcasesd, x_sol_final[14, :len(fitcasesd)])
+                                        compute_mape(cases_data_fit, x_sol_final[15, :len(cases_data_fit)]) +
+                                        compute_mape(deaths_data_fit, x_sol_final[14, :len(deaths_data_fit)])
                                 ) / 2
                     try:
                         mape_data_2 = (
-                                              compute_mape(fitcasesnd[-15:],
-                                                   x_sol_final[15, len(fitcasesnd) - 15:len(fitcasesnd)]) +
-                                              compute_mape(fitcasesd[-15:],
-                                                   x_sol_final[14, len(fitcasesnd) - 15:len(fitcasesd)])
+                                              compute_mape(cases_data_fit[-15:],
+                                                   x_sol_final[15, len(cases_data_fit) - 15:len(cases_data_fit)]) +
+                                              compute_mape(deaths_data_fit[-15:],
+                                                   x_sol_final[14, len(deaths_data_fit) - 15:len(deaths_data_fit)])
                                       ) / 2
                     except IndexError:
                         mape_data_2 = mape_data

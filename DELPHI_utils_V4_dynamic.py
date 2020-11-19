@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from typing import Union
 from copy import deepcopy
 from itertools import compress
-from DELPHI_params_V3 import MAPPING_STATE_CODE_TO_STATE_NAME, future_policies
+from DELPHI_params_V4 import MAPPING_STATE_CODE_TO_STATE_NAME, future_policies
 from matplotlib import pyplot as plt
 from logging import Logger
 
