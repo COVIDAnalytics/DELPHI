@@ -939,7 +939,7 @@ class DELPHIModelComparison:
             plt.plot(merged['date'], merged['TNC Prediction'], label='TNC')
             plt.title(f"{continent}, {country}, {province}")
             plt.legend()
-            plt.savefig(self.DATA_SANDBOX + f"plots/model_comparison_{country}_{province}_{today_date_str}.png")
+            plt.savefig(self.DATA_SANDBOX + f"plots/model_v4_comparison_{country}_{province}_{today_date_str}.png")
             plt.clf()
 
         if metric == "KL":
