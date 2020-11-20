@@ -23,7 +23,7 @@ class DELPHIDataSaver:
             df_global_parameters: Union[pd.DataFrame, None],
             df_global_predictions_since_today: pd.DataFrame,
             df_global_predictions_since_100_cases: pd.DataFrame,
-            logger
+            logger: Logger = None
     ):
         self.PATH_TO_FOLDER_DANGER_MAP = path_to_folder_danger_map
         self.PATH_TO_WEBSITE_PREDICTED = path_to_website_predicted
