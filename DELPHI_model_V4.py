@@ -89,12 +89,13 @@ def solve_and_predict_area(
         startT: str = None, # added to change optimmization start date
 ):
     """
-    Parallelizable version of the fitting & solving process for DELPHI V3, this function is called with multiprocessing
+    Parallelizable version of the fitting & solving process for DELPHI V4, this function is called with multiprocessing
     :param tuple_area_: tuple corresponding to (continent, country, province)
     :param yesterday_: string corresponding to the date from which the model will read the previous parameters. The
     format has to be 'YYYYMMDD'
     :param past_parameters_: Parameters from yesterday_ used as a starting point for the fitting process
-    :startT: date from where the model will be started (format should be 'YYYY-MM-DD')
+    :param popcountries: DataFrame containing population information for all countries and provinces
+    :startT: string for the date from when the pandemic will be modelled (format should be 'YYYY-MM-DD')
     :return: either None if can't optimize (either less than 100 cases or less than 7 days with 100 cases) or a tuple
     with 3 dataframes related to that tuple_area_ (parameters df, predictions since yesterday_+1, predictions since
     first day with 100 cases) and a scipy.optimize object (OptimizeResult) that contains the predictions for all
@@ -229,6 +230,7 @@ def solve_and_predict_area(
                 :param jump: Amplitude of the Gaussian jump modeling the resurgence in cases
                 :param t_jump: Time where the Gaussian jump will reach its maximum value
                 :param std_normal: Standard Deviation of the Gaussian jump (~ time span of the resurgence in cases)
+                :param k3: Internal parameter 2 (used for initial conditions)
                 :return: predictions for all 16 states, which are the following
                 [0 S, 1 E, 2 I, 3 UR, 4 DHR, 5 DQR, 6 UD, 7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
                 """
@@ -522,7 +524,7 @@ if __name__ == "__main__":
             df_global_predictions_since_100_cases
         )
 
-    logger = logging.getLogger("CompareLogger")
+    logger = logging.getLogger("V4Logger")
     delphi_data_saver = DELPHIDataSaver(
         path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
         path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,

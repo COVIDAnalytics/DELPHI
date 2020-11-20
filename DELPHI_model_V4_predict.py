@@ -73,12 +73,14 @@ def predict_area(
         endT: str = None, # added to change prediction date
 ):
     """
-    Parallelizable version of the fitting & solving process for DELPHI V3, this function is called with multiprocessing
+    Parallelizable version of the solving process for DELPHI V4, this function is called with multiprocessing
     :param tuple_area_: tuple corresponding to (continent, country, province)
     :param yesterday_: string corresponding to the date from which the model will read the previous parameters. The
     format has to be 'YYYYMMDD'
     :param past_parameters_: Parameters from yesterday_ used as a starting point for the fitting process
-    :startT: date from where the model will be started (format should be 'YYYY-MM-DD')
+    :param popcountries: DataFrame containing population information for all countries and provinces
+    :startT: string for the date from when the pandemic will be modelled (format should be 'YYYY-MM-DD')
+    :endT: string for the date for which model state will be returned (format should be 'YYYY-MM-DD')
     :return: final_model_state: dict capturing the 16 delphi model states at date endT
     """
     time_entering = time.time()
