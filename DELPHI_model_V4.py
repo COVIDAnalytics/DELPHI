@@ -71,6 +71,9 @@ with open(arguments.run_config, "r") as ymlfile:
     RUN_CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 
 USER_RUNNING = RUN_CONFIG["arguments"]["user"]
+if USER_RUNNING == "ali":
+    USER = os.getenv('USER')
+    USER_RUNNING = "ali" if USER == 'ali' else 'server'
 OPTIMIZER = RUN_CONFIG["arguments"]["optimizer"]
 GET_CONFIDENCE_INTERVALS = bool(int(RUN_CONFIG["arguments"]["confidence_intervals"]))
 SAVE_TO_WEBSITE = bool(int(RUN_CONFIG["arguments"]["website"]))

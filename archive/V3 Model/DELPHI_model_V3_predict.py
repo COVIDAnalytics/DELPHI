@@ -47,7 +47,7 @@ yesterday_logs_filename = "".join(
 )
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    '--user', '-u', type=str, required=True,
+    '--user', '-u', type=str, required=False,
     choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham", "saksham2"],
     help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
 )
@@ -58,7 +58,11 @@ parser.add_argument(
 
 arguments = parser.parse_args()
 end_date = arguments.end_date
-USER_RUNNING = arguments.user
+USER = os.getenv('USER')
+if arguments.user is not None:
+    USER_RUNNING = arguments.user
+else:
+    USER_RUNNING = "ali" if USER == 'ali' else 'server'
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
@@ -296,7 +300,8 @@ if __name__ == "__main__":
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-    # list_tuples = [x for x in list_tuples if x[1] == "US"]
+    # list_tuples = [x for x in list_tuples if x[2] == 'None' or x[1] in ['US', 'Canada','Australia']]
+    # list_tuples = [x for x in list_tuples if x[1] in ['US']]
     list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany'] ]
     # list_tuples = [('Oceania' , 'Papua New Guinea' , 'None'), 
     #             ('Africa' , 'Lesotho' , 'None')]
