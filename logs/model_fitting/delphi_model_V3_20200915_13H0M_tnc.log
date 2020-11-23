@@ -1,0 +1,5 @@
+09-16-2020 01:00:03 PM | INFO | The user is michael, the chosen optimizer for this run was tnc and generation of Confidence Intervals' flag is False
+09-16-2020 01:00:03 PM | INFO | Number of CPUs found and used in this run: 6
+09-16-2020 01:00:03 PM | INFO | Number of areas to be fitted in this run: 351
+09-16-2020 01:57:51 PM | INFO | Finished the Multiprocessing for all areas
+09-16-2020 01:57:52 PM | INFO | Exported all 3 datasets to website & danger_map repositories, total runtime was 57.82 minutes

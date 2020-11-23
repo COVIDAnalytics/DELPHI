@@ -1,0 +1,6 @@
+arguments:
+  user: ali
+  optimizer: annealing
+  confidence_intervals: 0
+  since100case: 1
+  website: 0

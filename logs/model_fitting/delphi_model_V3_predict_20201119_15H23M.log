@@ -1,0 +1,9 @@
+11-20-2020 03:23:17 PM | INFO | The user is ali
+11-20-2020 03:23:43 PM | INFO | The user is ali
+11-20-2020 03:23:43 PM | INFO | Number of CPUs found and used in this run: 4
+11-20-2020 03:23:43 PM | INFO | Number of areas to be predicted in this run: 2
+11-20-2020 03:23:43 PM | INFO | Finished predicting for Continent=Europe, Country=France and Province=None in 0.06 seconds
+11-20-2020 03:23:43 PM | INFO | Finished predicting for Continent=Europe, Country=Germany and Province=None in 0.06 seconds
+11-20-2020 03:23:43 PM | INFO | --------------------------------------------------------------------------------------------
+11-20-2020 03:23:43 PM | INFO | --------------------------------------------------------------------------------------------
+11-20-2020 03:23:43 PM | INFO | Finished the Multiprocessing for all areas
