@@ -454,8 +454,9 @@ if __name__ == "__main__":
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
-            + f"predicted/Parameters_Global_V4_{yesterday}.csv"
+            + f"predicted/Parameters_Global_V4_annealing_{yesterday}.csv"
         )
+        print(f"/Parameters_Global_V4_annealing_{yesterday}.csv is used  ")
     except:
         past_parameters = None
 

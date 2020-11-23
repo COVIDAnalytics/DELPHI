@@ -300,9 +300,9 @@ if __name__ == "__main__":
     )
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     list_tuples = popcountries.tuple_area.tolist()
-    # list_tuples = [x for x in list_tuples if x[2] == 'None' or x[1] in ['US', 'Canada','Australia']]
+    list_tuples = [x for x in list_tuples if x[2] == 'None' or x[1] in ['US', 'Canada','Australia']]
     # list_tuples = [x for x in list_tuples if x[1] in ['US']]
-    list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany'] ]
+    # list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany'] ]
     # list_tuples = [('Oceania' , 'Papua New Guinea' , 'None'), 
     #             ('Africa' , 'Lesotho' , 'None')]
 
