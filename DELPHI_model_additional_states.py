@@ -9,7 +9,7 @@ from scipy.optimize import minimize
 from scipy.optimize import dual_annealing
 from tqdm import tqdm_notebook as tqdm
 from datetime import datetime, timedelta
-from DELPHI_utils_V3 import DELPHIDataCreator as DELPHIDataCreator_regular
+from DELPHI_utils_V3 import DELPHIDataCreator as DELPHIDataCreator_regular,runProcessData
 from DELPHI_policy_predictions_additional_states import run_policy_prediction_additional_state
 from DELPHI_utils_V3 import (
     get_initial_conditions, mape
@@ -530,11 +530,11 @@ def run_model_additional_states(country_lists,provinces_lists, popcountries):
 if __name__ == '__main__':
     USER = os.getenv('USER')
     USER_RUNNING = "ali" if USER == 'ali' else 'server'
-
+    date_files = "112420"
     replace_deathcounts = ['Bourgogne-Franche-Comte',
                            'Brittany', 'Corsica','Pays_de_la_Loire' ,'Hauts-de-France', 'Grand_Est',
                            'La_Rioja', 'Mendoza','Entre_Rios' ]
-
+    runProcessData(date_files)
     PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 

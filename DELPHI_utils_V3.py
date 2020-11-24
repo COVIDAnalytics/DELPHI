@@ -1622,13 +1622,22 @@ def process_data(rawDF,provinceColumn, change_province_name):
 
 def runProcessData(date_files):
     inputFile_us_county = "data_sandbox/raw_data_additional_states/" + date_files + "_county_data.csv"
-    rawDF_us_county = pd.read_csv(inputFile_us_county)
-    rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
+    if os.path.exists(inputFile_us_county):
+        rawDF_us_county = pd.read_csv(inputFile_us_county)
+        rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
 
-    inputFile_ex_us_provinces = "data_sandbox/raw_data_additional_states/" + date_files + "_ex_us_regions.csv"
-    rawDF_ex_us_provinces = pd.read_csv(inputFile_ex_us_provinces)
-    rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
+        inputFile_ex_us_provinces = "data_sandbox/raw_data_additional_states/" + date_files + "_ex_us_regions.csv"
+        rawDF_ex_us_provinces = pd.read_csv(inputFile_ex_us_provinces)
+        rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
+    else:
+        client = boto3.client('s3')
+        obj = client.get_object(Bucket='itx-bhq-data-covidcollector', Key=f'gt_for_mit/{date_files}_county_data.csv')
+        rawDF_us_county = pd.read_csv(obj['Body'])
+        rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
 
+        obj = client.get_object(Bucket='itx-bhq-data-covidcollector', Key=f'gt_for_mit/{date_files}_ex_us_regions.csv')
+        rawDF_ex_us_provinces = pd.read_csv(obj['Body'])
+        rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
 
     process_data(rawDF_us_county,'county',True)
     process_data(rawDF_ex_us_provinces,'state_province',False)
