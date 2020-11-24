@@ -24,6 +24,29 @@ import argparse
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
+def get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,current_time,OPTIMIZER, raiseErr):
+    today = "".join(str(current_time.date()).split("-"))
+    subname_parameters_file = None
+    if OPTIMIZER == "tnc":
+        subname_parameters_file = "Global_V4"
+    elif OPTIMIZER == "annealing":
+        subname_parameters_file = "Global_V4_annealing"
+    elif OPTIMIZER == "trust-constr":
+        subname_parameters_file = "Global_V4_trust"
+    else:
+        raise ValueError("Optimizer not supported in this implementation")
+    file_name = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_{subname_parameters_file}_{today}.csv"
+    if not os.path.exists(file_name):
+        print(f"file name {file_name} does not exist")
+        if raiseErr:
+            raise ValueError("file does not exist")
+        else:
+            None
+    else:
+        print(f"file name {file_name} used to check")
+        fileDF = pd.read_csv(file_name)
+        return fileDF
+
 def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, current_time,upload_to_s3):
     today = "".join(str(current_time.date()).split("-"))
     path_to_output_zip = 'data_sandbox/predicted/policy_scenario_predictions/'
@@ -47,18 +70,7 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, 
     df_initial_states = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
     )
-    subname_parameters_file = None
-    if OPTIMIZER == "tnc":
-        subname_parameters_file = "Global_V4"
-    elif OPTIMIZER == "annealing":
-        subname_parameters_file = "Global_V4_annealing"
-    elif OPTIMIZER == "trust-constr":
-        subname_parameters_file = "Global_V4_trust"
-    else:
-        raise ValueError("Optimizer not supported in this implementation")
-    past_parameters = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_{subname_parameters_file}_{today}.csv"
-    )
+    past_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,current_time,OPTIMIZER, True)
     if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
         param_MATHEMATICA = True
     else:

@@ -50,7 +50,7 @@ from DELPHI_params_V4 import (
     p_h,
     max_iter,
 )
-from DELPHI_model_V4_with_policies_additional_states import run_model_V4_with_policies
+from DELPHI_model_V4_with_policies_additional_states import run_model_V4_with_policies, get_past_parameters
 
 ## Initializing Global Variables ##########################################################################
 with open("config.yml", "r") as ymlfile:
@@ -83,6 +83,7 @@ PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
+replace_already_existing_par = False
 #############################################################################################################
 
 def check_cumulative_cases(input_table):
@@ -102,6 +103,7 @@ def solve_and_predict_area(
         yesterday_: str,
         past_parameters_: pd.DataFrame,
         popcountries: pd.DataFrame,
+        current_parameters_:pd.DataFrame,
         startT: str = None, # added to change optimmization start date
 ):
     """
@@ -123,6 +125,17 @@ def solve_and_predict_area(
     province_sub = province.replace(" ", "_")
     print(f"starting to predict for {continent}, {country}, {province}")
     if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
+        if current_parameters_ is not None:
+            current_parameter = current_parameters_[
+                (current_parameters_.Country == country) &
+                (current_parameters_.Province == province)
+                ].reset_index(drop=True)
+            if len(current_parameter) > 0 and replace_already_existing_par == False:
+                print(
+                    f"Parameters already exist on day after {yesterday_} " +
+                    f"Continent={continent}, Country={country} and Province={province}"
+                )
+                return None
         totalcases = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
@@ -464,7 +477,7 @@ if __name__ == "__main__":
     df_initial_states = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
     )
-
+    current_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,current_time,OPTIMIZER, False)
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
@@ -485,6 +498,7 @@ if __name__ == "__main__":
         yesterday_=yesterday,
         past_parameters_=past_parameters,
         popcountries=popcountries,
+        current_parameters_ = current_parameters,
         startT=fitting_start_date
     )
     n_cpu = psutil.cpu_count(logical = False) 
@@ -521,39 +535,46 @@ if __name__ == "__main__":
 
     # Appending parameters, aggregations per country, per continent, and for the world
     # for predictions today & since 100
-    df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
-        ["Country", "Province"]
-    ).reset_index(drop=True)
-    df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
-    df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_today
-    )
-    df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-    if GET_CONFIDENCE_INTERVALS:
-        df_global_predictions_since_today, df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
-            df_global_predictions_since_100_cases,
-            past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv",
-            past_prediction_date=str(pd.to_datetime(past_prediction_date).date())
+    if len(list_df_global_parameters) > 0:
+        df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
+            ["Country", "Province"]
+        ).reset_index(drop=True)
+        df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
+        df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
+            df_global_predictions_since_today
+        )
+        df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
+        if GET_CONFIDENCE_INTERVALS:
+            df_global_predictions_since_today, df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
+                df_global_predictions_since_100_cases,
+                past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv",
+                past_prediction_date=str(pd.to_datetime(past_prediction_date).date())
+            )
+        else:
+            df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
+                df_global_predictions_since_100_cases
+            )
+
+        logger = logging.getLogger("V4Logger")
+        delphi_data_saver = DELPHIDataSaver(
+            path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
+            path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
+            df_global_parameters=df_global_parameters,
+            df_global_predictions_since_today=df_global_predictions_since_today,
+            df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
+            logger=logger
+        )
+        delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=SAVE_SINCE100_CASES,
+                                            website=SAVE_TO_WEBSITE,current_time = current_time)
+        print(
+            f"Exported all 3 datasets to website & danger_map repositories, "
+            + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
         )
     else:
-        df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
-            df_global_predictions_since_100_cases
+        print(
+            f"Nothing changed for, "
+            + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
         )
 
-    logger = logging.getLogger("V4Logger")
-    delphi_data_saver = DELPHIDataSaver(
-        path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
-        path_to_website_predicted=PATH_TO_WEBSITE_PREDICTED,
-        df_global_parameters=df_global_parameters,
-        df_global_predictions_since_today=df_global_predictions_since_today,
-        df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
-        logger=logger
-    )
-    delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=SAVE_SINCE100_CASES,
-                                        website=SAVE_TO_WEBSITE,current_time = current_time)
-    print(
-        f"Exported all 3 datasets to website & danger_map repositories, "
-        + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
-    )
-    upload_to_s3 = True
+    upload_to_s3 = False
     run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, current_time,upload_to_s3)
