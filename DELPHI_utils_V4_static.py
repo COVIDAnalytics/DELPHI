@@ -2,6 +2,8 @@
 import os
 import pandas as pd
 import numpy as np
+import boto3
+from botocore.exceptions import ClientError
 import scipy.stats
 from datetime import datetime, timedelta
 from typing import Union
@@ -56,7 +58,7 @@ class DELPHIDataSaver:
         return 0
 
     def save_all_datasets(
-            self, optimizer: str, save_since_100_cases: bool = False, website: bool = False
+            self, optimizer: str, save_since_100_cases: bool = False, website: bool = False,current_time = datetime.now(),
     ):
         """
         Saves the parameters and predictions datasets (since 100 cases and since the day of running)
@@ -68,7 +70,7 @@ class DELPHIDataSaver:
         :param website: boolean, whether or not we want to save the files in the website repository as well
         :return:
         """
-        today_date_str = "".join(str(datetime.now().date()).split("-"))
+        today_date_str = "".join(str(current_time.date()).split("-"))
         if optimizer == "tnc":
             subname_file = "Global_V4"
         elif optimizer == "annealing":
@@ -2012,3 +2014,26 @@ def compute_mape(y_true: list, y_pred: list) -> float:
     y_true, y_pred = np.array(y_true), np.array(y_pred)
     mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
     return mape
+
+
+def upload_s3_file(file_name, object_name):
+    """Upload a file to an S3 bucket
+
+    :param file_name: File to upload
+    :param bucket: Bucket to upload to
+    :param object_name: S3 object name. If not specified then file_name is used
+    :return: True if file was uploaded, else False
+    """
+    bucket = 'itx-bhq-data-covidcollector'
+    # If S3 object_name was not specified, use file_name
+    object_name_folder = 'mit_pred/' + object_name
+
+    # Upload the file
+    extra_arg = {'ServerSideEncryption' : 'AES256'}
+    s3_client = boto3.client('s3')
+    try:
+        response = s3_client.upload_file(file_name, bucket, object_name_folder,extra_arg)
+    except ClientError as e:
+        print(e)
+        return False
+    return True

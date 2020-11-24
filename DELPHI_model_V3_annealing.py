@@ -407,7 +407,6 @@ if __name__ == "__main__":
 
     # Appending parameters, aggregations per country, per continent, and for the world
     # for predictions today & since 100
-    today_date_str = "".join(str(current_time.date()).split("-"))
     if len(list_df_global_parameters) > 0:
         df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
             ["Country", "Province"]

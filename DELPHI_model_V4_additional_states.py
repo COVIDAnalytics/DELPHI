@@ -50,6 +50,7 @@ from DELPHI_params_V4 import (
     p_h,
     max_iter,
 )
+from DELPHI_model_V4_with_policies_additional_states import run_model_V4_with_policies
 
 ## Initializing Global Variables ##########################################################################
 with open("config.yml", "r") as ymlfile:
@@ -84,6 +85,17 @@ PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
 #############################################################################################################
 
+def check_cumulative_cases(input_table):
+    correct = True
+    count = input_table['day_since100'].iloc[0]
+    for ind, row in input_table.iterrows():
+        if count != row['day_since100']:
+            correct = False
+            break
+        else:
+            count += 1
+    return correct
+
 
 def solve_and_predict_area(
         tuple_area_state_: tuple,
@@ -115,7 +127,7 @@ def solve_and_predict_area(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
         )
         if totalcases.day_since100.max() < 0:
-            logging.warning(
+            print(
                 f"Not enough cases (less than 100) for Continent={continent}, Country={country} and Province={province}"
             )
             return None
@@ -173,7 +185,7 @@ def solve_and_predict_area(
             ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
-            logging.warning(
+            print(
                 f"Not enough historical data (less than a week)"
                 + f"for Continent={continent}, Country={country} and Province={province}"
             )
@@ -401,11 +413,11 @@ def solve_and_predict_area(
                    )
                 else:
                     df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions()
-                logging.info(
+                print(
                     f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
                     + f"{round(time.time() - time_entering, 2)} seconds"
                 )
-                logging.info("--------------------------------------------------------------------------------------------")
+                print("--------------------------------------------------------------------------------------------")
                 return (
                     df_parameters_area,
                     df_predictions_since_today_area,
@@ -415,7 +427,7 @@ def solve_and_predict_area(
             else:
                 return None
     else:  # file for that tuple (continent, country, province) doesn't exist in processed files
-        logging.info(
+        print(
             f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available"
         )
         return None
@@ -425,6 +437,7 @@ if __name__ == "__main__":
     assert USER_RUNNING in CONFIG_FILEPATHS["delphi_repo"].keys(), f"User {USER_RUNNING} not referenced in config.yml"
     if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/"):
         os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
+    current_time = datetime.now()
 
     logger_filename = (
             CONFIG_FILEPATHS["logs"][USER_RUNNING] +
@@ -436,7 +449,7 @@ if __name__ == "__main__":
         format="%(asctime)s | %(levelname)s | %(message)s",
         datefmt="%m-%d-%Y %I:%M:%S %p",
     )
-    logging.info(
+    print(
         f"The user is {USER_RUNNING}, the chosen optimizer for this run was {OPTIMIZER} and " +
         f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
     )
@@ -475,14 +488,14 @@ if __name__ == "__main__":
         startT=fitting_start_date
     )
     n_cpu = psutil.cpu_count(logical = False) 
-    logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
+    print(f"Number of CPUs found and used in this run: {n_cpu}")
     list_tuples = [(
         r.continent, 
         r.country, 
         r.province, 
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
-    logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
+    print(f"Number of areas to be fitted in this run: {len(list_tuples)}")
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
             pool.map_async(solve_and_predict_area_partial, list_tuples).get(),
@@ -502,13 +515,12 @@ if __name__ == "__main__":
                 list_df_global_predictions_since_100_cases.append(df_predictions_since_100_area)
             else:
                 continue
-        logging.info("Finished the Multiprocessing for all areas")
+        print("Finished the Multiprocessing for all areas")
         pool.close()
         pool.join()
 
     # Appending parameters, aggregations per country, per continent, and for the world
     # for predictions today & since 100
-    today_date_str = "".join(str(datetime.now().date()).split("-"))
     df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
         ["Country", "Province"]
     ).reset_index(drop=True)
@@ -537,8 +549,11 @@ if __name__ == "__main__":
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases,
         logger=logger
     )
-    delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=SAVE_SINCE100_CASES, website=SAVE_TO_WEBSITE)
-    logging.info(
+    delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=SAVE_SINCE100_CASES,
+                                        website=SAVE_TO_WEBSITE,current_time = current_time)
+    print(
         f"Exported all 3 datasets to website & danger_map repositories, "
         + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
     )
+    upload_to_s3 = True
+    run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, current_time,upload_to_s3)
