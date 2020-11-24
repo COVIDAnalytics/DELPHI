@@ -57,7 +57,7 @@ parser.add_argument(
 
 parser.add_argument(
     '--type', '-t', type=str, required=False,
-    help="running for GLOBAL: global, or skip this, US counties: US, ex US regions: ExUS "
+    help="running for GLOBAL: global, or skip this, US counties and regions ex US regions: USExUS "
 )
 
 arguments = parser.parse_args()
@@ -100,12 +100,15 @@ def predict_area(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     print(f"starting to predict for {continent}, {country}, {province}")
-    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
-        totalcases = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
-        )
+    if TYPE_RUNNING == "global":
+        file_name = PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
+    else:
+        file_name = PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"
+
+    if os.path.exists(file_name):
+        totalcases = pd.read_csv(file_name)
         if totalcases.day_since100.max() < 0:
-            logging.warning(
+            print(
                 f"Not enough cases (less than 100) for Continent={continent}, Country={country} and Province={province}"
             )
             return None
@@ -129,7 +132,7 @@ def predict_area(
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
         if date_day_since100 > pd.to_datetime(endT):
-            logging.warning(
+            print(
                 f"End date is less than date since 100 cases for, Continent={continent}, Country={country} and Province={province} in "
                 + f"{round(time.time() - time_entering, 2)} seconds"
             )
@@ -145,7 +148,7 @@ def predict_area(
 
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
-            logging.warning(
+            print(
                 f"Not enough historical data (less than a week)"
                 + f"for Continent={continent}, Country={country} and Province={province}"
             )
@@ -160,7 +163,7 @@ def predict_area(
             PopulationD = validcases.loc[0, "death_cnt"]
             PopulationCI = PopulationI - PopulationD - PopulationR
             if PopulationCI <= 0:
-                logging.error(f"PopulationCI value is negative ({PopulationCI}), need to check why")
+                print(f"PopulationCI value is negative ({PopulationCI}), need to check why")
                 raise ValueError(f"PopulationCI value is negative ({PopulationCI}), need to check why")
             """
             Fixed Parameters based on meta-analysis:
@@ -259,29 +262,36 @@ def predict_area(
                     params_fitted=optimal_params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED,
                 )
-                x_sol_best = solve_ivp(
-                    fun=model_covid,
-                    y0=x_0_cases,
-                    t_span=[t_predictions[0], t_predictions[-1]],
-                    t_eval=t_predictions,
-                    args=tuple(optimal_params),
-                ).y
+                try:
+                    x_sol_best = solve_ivp(
+                        fun=model_covid,
+                        y0=x_0_cases,
+                        t_span=[t_predictions[0], t_predictions[-1]],
+                        t_eval=t_predictions,
+                        args=tuple(optimal_params),
+                    ).y
+                except:
+                    print(f"ERROR in solve_ivp for Continent={continent}, Country={country} and Province={province} ")
+                    return None
+
                 return x_sol_best
 
             x_final = solve_best_params_and_predict(parameter_list)
+            if x_final is None:
+                return None
             [S, E, I, UR, DHR, DQR, UD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT] = x_final[:, -1]
             final_state_dict = {'S':S, 'E':E, 'I':I, 'UR':UR, 'DHR':DHR, 'DQR':DQR, 'UD':UD, 'DHD':DHD, 
                 'DQD':DQD, 'R':R, 'D':D, 'TH':TH, 'DVR':DVR, 'DVD':DVD, 'DD':DD, 'DT':DT,
                 'continent': continent, 'country':country, 'province':province}
             
-            logging.info(
+            print(
                 f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
                 + f"{round(time.time() - time_entering, 2)} seconds"
             )
-            logging.info("--------------------------------------------------------------------------------------------")
+            print("--------------------------------------------------------------------------------------------")
             return (final_state_dict)
     else:  # file for that tuple (continent, country, province) doesn't exist in processed files
-        logging.info(
+        print(
             f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available"
         )
         return None
@@ -320,25 +330,35 @@ if __name__ == "__main__":
         popcountries = pd.read_csv(
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )
+        # if TYPE_RUNNING == "US":
+        #     us_county_names = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv")
+        #     us_county_names["tuple_area"] = list(zip(us_county_names.Continent, us_county_names.Country, us_county_names.Province))
+        #     list_tuples = us_county_names.tuple_area.tolist()
+        # else:
+        #     ex_us_regions = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv")
+        #     ex_us_names_unique =  ex_us_regions.Country.unique()
+        #     ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
+        #     ex_us_regions["tuple_area"] = list(zip(ex_us_regions.Continent, ex_us_regions.Country, ex_us_regions.Province))
+        #     list_tuples = ex_us_regions.tuple_area.tolist()
+        #     # list_tuples = [x for x in list_tuples if x[2] in ["Andaman and Nicobar Islands"] ]
         us_county_names = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv")
-
         ex_us_regions = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv")
-        ex_us_names_unique =  ex_us_regions.Country.unique()
-        ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
-
-        popcountries["tuple_area"] = list(zip(us_county_names.Continent, us_county_names.Country, us_county_names.Province))
-        list_tuples = us_county_names.tuple_area.tolist()
-        # list_tuples = [x for x in list_tuples if x[2] == 'None' or x[1] in ['US', 'Canada','Australia']]
-
+        all_countries = pd.concat([
+            us_county_names, ex_us_regions
+        ]).reset_index(drop=True)
+        all_countries["tuple_area"] = list(zip(all_countries.Continent, all_countries.Country, all_countries.Province))
+        list_tuples = all_countries.tuple_area.tolist()
 
     ### Compute the state of model till a given date ###
-    # the_last_V2_global = "2020-"
-    yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+    the_last_V2_global = datetime.now().date() - timedelta(days=1) if TYPE_RUNNING == "global" else datetime(2020,11,15).date()
+    yesterday = "".join(str(the_last_V2_global).split("-"))
+    if TYPE_RUNNING == "global":
+        file_path = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V2_{yesterday}.csv"
+    else:
+        file_path = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_Global_{yesterday}.csv"
+
     try:
-        past_parameters = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP
-            + f"predicted/Parameters_Global_V2_{yesterday}.csv"
-        )
+        past_parameters = pd.read_csv(file_path)
     except:
         past_parameters = None
     
@@ -350,7 +370,7 @@ if __name__ == "__main__":
         endT=end_date
     )
     n_cpu = psutil.cpu_count(logical = False) - 2
-    logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
+    print(f"Number of CPUs found and used in this run: {n_cpu}")
     logging.info(f"Number of areas to be predicted in this run: {len(list_tuples)}")
     list_predicted_state_dicts = []
     with mp.Pool(n_cpu) as pool:
@@ -364,8 +384,9 @@ if __name__ == "__main__":
                 list_predicted_state_dicts.append(model_state_dict)
             else:
                 continue
-        logging.info("Finished the Multiprocessing for all areas")
+        print("Finished the Multiprocessing for all areas")
         pool.close()
         pool.join()
     df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
-    df_predicted_states.to_csv(f'data_sandbox/predicted/raw_predictions/Predicted_model_state_V3_{end_date}.csv', index=False)
+    file_name_state = f'Predicted_model_state_V3_{end_date}.csv' if TYPE_RUNNING == "global" else  f'Predicted_model_provinces_V3_{end_date}.csv'
+    df_predicted_states.to_csv( f'data_sandbox/predicted/raw_predictions/' + file_name_state, index=False)
