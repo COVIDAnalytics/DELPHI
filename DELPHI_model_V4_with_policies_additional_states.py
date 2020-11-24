@@ -98,6 +98,14 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, 
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
 
+    dic_file_name = f'policy_{today}_global.csv'
+    with open(path_to_output_zip + dic_file_name, 'w') as f:
+        for key in dict_current_policy_international.keys():
+            c_name , p_name = key
+            f.write("%s,%s\n"%((c_name.replace(',',' '),p_name),dict_current_policy_international[key]))
+    if upload_to_s3:
+        upload_s3_file(path_to_output_zip+dic_file_name,dic_file_name)
+
     dict_normalized_policy_gamma_us_only = default_dict_normalized_policy_gamma
     dict_normalized_policy_gamma_countries = default_dict_normalized_policy_gamma
 
