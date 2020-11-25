@@ -99,7 +99,7 @@ def get_bounds_params_from_pastparams(
             max(k3_upper, dict_default_reinit_upper_bounds["k3"]),
         ]
     elif optimizer == "annealing":  # Annealing procedure for global optimization
-        alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal = parameter_list
+        alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = parameter_list
         parameter_list = [
             max(alpha, dict_default_reinit_parameters["alpha"]),
             days,

@@ -29,6 +29,11 @@ parser.add_argument(
     '--plots', '-p', type=int, required=True, choices=[0, 1],
     help="Save plots comparing predictions or not? Enter 0/1"
 )
+parser.add_argument(
+    '--user', '-u', type=str, required=True,
+    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham", "saksham2"],
+    help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
+)
 
 arguments = parser.parse_args()
 USER_RUNNING = arguments.user
