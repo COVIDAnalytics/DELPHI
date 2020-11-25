@@ -116,7 +116,7 @@ def predict_area(
             parameter_list = default_parameter_list
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
-        if date_day_since100 > pd.to_datetime(endT):
+        if date_day_since100 >= pd.to_datetime(endT):
             logging.warning(
                 f"End date is less than date since 100 cases for, Continent={continent}, Country={country} and Province={province} in "
                 + f"{round(time.time() - time_entering, 2)} seconds"
