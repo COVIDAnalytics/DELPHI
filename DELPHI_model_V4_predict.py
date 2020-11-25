@@ -106,18 +106,28 @@ def predict_area(
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
-                start_date = pd.to_datetime(parameter_list_line[3])
+                date_day_since100 = pd.to_datetime(parameter_list_line[3])
             else:
                 # Otherwise use established lower/upper bounds
                 parameter_list = default_parameter_list
-                start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
+                date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
         else:
             # Otherwise use established lower/upper bounds
             parameter_list = default_parameter_list
-            start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
+            date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
+
+        if date_day_since100 > pd.to_datetime(endT):
+            logging.warning(
+                f"End date is less than date since 100 cases for, Continent={continent}, Country={country} and Province={province} in "
+                + f"{round(time.time() - time_entering, 2)} seconds"
+            )
+            final_state_dict = {'S':None, 'E':None, 'I':None, 'UR':None, 'DHR':None, 'DQR':None, 'UD':None, 'DHD':None, 
+                'DQD':None, 'R':None, 'D':None, 'TH':None, 'DVR':None, 'DVD':None, 'DD':None, 'DT':None,
+                'continent': continent, 'country':country, 'province':province}
+            return (final_state_dict)
 
         if startT is not None:
-            start_date = pd.to_datetime(startT)
+            start_date = max(pd.to_datetime(startT), start_date)
             validcases = totalcases[
                 (totalcases.date >= startT)
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
