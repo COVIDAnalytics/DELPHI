@@ -576,5 +576,5 @@ if __name__ == "__main__":
             + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
         )
 
-    upload_to_s3 = False
+    upload_to_s3 = True
     run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, current_time,upload_to_s3)
