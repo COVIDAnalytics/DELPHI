@@ -530,7 +530,7 @@ def run_model_additional_states(country_lists,provinces_lists, popcountries):
 if __name__ == '__main__':
     USER = os.getenv('USER')
     USER_RUNNING = "ali" if USER == 'ali' else 'server'
-    date_files = "112420"
+    date_files = "112920"
     replace_deathcounts = ['Bourgogne-Franche-Comte',
                            'Brittany', 'Corsica','Pays_de_la_Loire' ,'Hauts-de-France', 'Grand_Est',
                            'La_Rioja', 'Mendoza','Entre_Rios' ]
@@ -553,8 +553,8 @@ if __name__ == '__main__':
     ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
     today_time = datetime.now()
 
-    training_start_date = datetime(2020, 11, 15)
-    training_end_date = datetime(2020, 11, 23)
+    training_start_date = datetime(2020, 11, 22)
+    training_end_date = datetime(2020, 11, 28)
     training_last_date = training_end_date - timedelta(days=1)
     # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
     n_days_to_train = (training_last_date - training_start_date).days

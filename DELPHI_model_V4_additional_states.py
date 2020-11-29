@@ -19,6 +19,7 @@ from DELPHI_utils_V4_static import (
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
 from DELPHI_utils_V4_dynamic import get_bounds_params_from_pastparams
+from DELPHI_utils_V3 import runProcessData
 from DELPHI_params_V4 import (
     fitting_start_date,
     default_parameter_list,
@@ -451,6 +452,8 @@ if __name__ == "__main__":
     if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/"):
         os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
     current_time = datetime.now()
+    date_files = "112920"
+    runProcessData(date_files)
 
     logger_filename = (
             CONFIG_FILEPATHS["logs"][USER_RUNNING] +
