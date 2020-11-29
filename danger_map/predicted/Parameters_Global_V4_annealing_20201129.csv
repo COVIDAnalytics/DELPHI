@@ -1,0 +1,2 @@
+Continent,Country,Province,Data Start Date,MAPE,Infection Rate,Median Day of Action,Rate of Action,Rate of Death,Mortality Rate,Rate of Mortality Rate Decay,Internal Parameter 1,Internal Parameter 2,Jump Magnitude,Jump Time,Jump Decay,Internal Parameter 3
+North America,US,Connecticut,2020-07-01,0.8095513754909057,1.4999703513176665,-50.051746312803985,1.0461363857805726,0.2539323956725596,0.029344825434831835,0.3733818548292681,4.601121758774346,0.6784830784365444,0.31620636764585913,112.45216273655434,48.01527299614252,0.20051681064146495
