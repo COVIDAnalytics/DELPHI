@@ -131,7 +131,7 @@ def predict_area(
             parameter_list = default_parameter_list
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
-        if date_day_since100 > pd.to_datetime(endT):
+        if date_day_since100 >= pd.to_datetime(endT):
             print(
                 f"End date is less than date since 100 cases for, Continent={continent}, Country={country} and Province={province} in "
                 + f"{round(time.time() - time_entering, 2)} seconds"
@@ -262,17 +262,17 @@ def predict_area(
                     params_fitted=optimal_params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED,
                 )
-                try:
-                    x_sol_best = solve_ivp(
-                        fun=model_covid,
-                        y0=x_0_cases,
-                        t_span=[t_predictions[0], t_predictions[-1]],
-                        t_eval=t_predictions,
-                        args=tuple(optimal_params),
-                    ).y
-                except:
-                    print(f"ERROR in solve_ivp for Continent={continent}, Country={country} and Province={province} ")
-                    return None
+                # try:
+                x_sol_best = solve_ivp(
+                    fun=model_covid,
+                    y0=x_0_cases,
+                    t_span=[t_predictions[0], t_predictions[-1]],
+                    t_eval=t_predictions,
+                    args=tuple(optimal_params),
+                ).y
+                # except:
+                #     print(f"ERROR in solve_ivp for Continent={continent}, Country={country} and Province={province} ")
+                #     return None
 
                 return x_sol_best
 
@@ -350,7 +350,7 @@ if __name__ == "__main__":
         list_tuples = all_countries.tuple_area.tolist()
 
     ### Compute the state of model till a given date ###
-    the_last_V2_global = datetime.now().date() - timedelta(days=1) if TYPE_RUNNING == "global" else datetime(2020,11,15).date()
+    the_last_V2_global = datetime.now().date() - timedelta(days=1) if TYPE_RUNNING == "global" else datetime(2020,11,27).date()
     yesterday = "".join(str(the_last_V2_global).split("-"))
     if TYPE_RUNNING == "global":
         file_path = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V2_{yesterday}.csv"
