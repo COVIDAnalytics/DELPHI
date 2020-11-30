@@ -452,8 +452,8 @@ if __name__ == "__main__":
     if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/"):
         os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
     current_time = datetime.now()
-    date_files = "112920"
-    runProcessData(date_files)
+    # date_files = "112920"
+    # runProcessData(date_files)
 
     logger_filename = (
             CONFIG_FILEPATHS["logs"][USER_RUNNING] +
@@ -484,9 +484,9 @@ if __name__ == "__main__":
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
-            + f"predicted/Parameters_Global_V4_annealing_{yesterday}.csv"
+            + f"predicted/Parameters_Global_V4_{yesterday}.csv"
         )
-        print(f"/Parameters_Global_V4_annealing_{yesterday}.csv is used  ")
+        print(f"/Parameters_Global_V4_{yesterday}.csv is used  ")
     except:
         past_parameters = None
 
