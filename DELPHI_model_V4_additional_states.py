@@ -84,8 +84,18 @@ if arguments.type is not None:
     TYPE_RUNNING = arguments.type
 else:
     TYPE_RUNNING = "global"
+logger_filename = (
+        CONFIG_FILEPATHS["logs"][USER_RUNNING] +
+        f"model_fitting/delphi_model_V4_{yesterday_logs_filename}.log"
+)
+logging.basicConfig(
+    filename=logger_filename,
+    level=logging.DEBUG,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+    datefmt="%m-%d-%Y %I:%M:%S %p",
+)
 
-OPTIMIZER = RUN_CONFIG["arguments"]["optimizer"]
+# OPTIMIZER = RUN_CONFIG["arguments"]["optimizer"]
 GET_CONFIDENCE_INTERVALS = bool(int(RUN_CONFIG["arguments"]["confidence_intervals"]))
 SAVE_TO_WEBSITE = bool(int(RUN_CONFIG["arguments"]["website"]))
 SAVE_SINCE100_CASES = bool(int(RUN_CONFIG["arguments"]["since100case"]))
@@ -455,51 +465,8 @@ def solve_and_predict_area(
         )
         return None
 
-
-if __name__ == "__main__":
-    assert USER_RUNNING in CONFIG_FILEPATHS["delphi_repo"].keys(), f"User {USER_RUNNING} not referenced in config.yml"
-    if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/"):
-        os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
-    current_time = datetime.now()
-    # if TYPE_RUNNING != "global":
-    #     date_files = "112920"
-    #     runProcessData(date_files)
-
-    logger_filename = (
-            CONFIG_FILEPATHS["logs"][USER_RUNNING] +
-            f"model_fitting/delphi_model_V4_{yesterday_logs_filename}_{OPTIMIZER}.log"
-    )
-    logging.basicConfig(
-        filename=logger_filename,
-        level=logging.DEBUG,
-        format="%(asctime)s | %(levelname)s | %(message)s",
-        datefmt="%m-%d-%Y %I:%M:%S %p",
-    )
-    print(
-        f"The user is {USER_RUNNING}, the chosen optimizer for this run was {OPTIMIZER} type {TYPE_RUNNING} and " +
-        f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
-    )
-    if TYPE_RUNNING == "global":
-        popcountries = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
-        )
-        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
-    else:
-        popcountries = pd.read_csv(
-            PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
-        )
-        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
-    popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
-
-    if not os.path.exists(prev_param_file):
-        logging.error(f"Initial model state {prev_param_file} file not found, can not train from {fitting_start_date}. Use model_V3 to train on entire data.")
-        raise FileNotFoundError
-    df_initial_states = pd.read_csv(prev_param_file)
-    if TYPE_RUNNING == "ExUS":
-        df_initial_states = df_initial_states[df_initial_states.country != 'US']
-    elif TYPE_RUNNING == "US":
-        df_initial_states = df_initial_states[df_initial_states.country == 'US']
-
+def run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states):
+    print(f"running for {current_time} optimizer {OPTIMIZER}")
     current_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_time,OPTIMIZER, False,TYPE_RUNNING)
     yesterday_date = current_time - timedelta(days=1)
     OPTIMIZER_tnc = "tnc"
@@ -527,19 +494,19 @@ if __name__ == "__main__":
         TYPE_RUNNING = TYPE_RUNNING,
         startT=fitting_start_date
     )
-    n_cpu = psutil.cpu_count(logical = False) 
+    n_cpu = psutil.cpu_count(logical = False)
     print(f"Number of CPUs found and used in this run: {n_cpu}")
     list_tuples = [(
-        r.continent, 
-        r.country, 
-        r.province, 
+        r.continent,
+        r.country,
+        r.province,
         r.values[:16] if not pd.isna(r.S) else None
-        ) for _, r in df_initial_states.iterrows()]
+    ) for _, r in df_initial_states.iterrows()]
     print(f"Number of areas to be fitted in this run: {len(list_tuples)}")
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
-            pool.map_async(solve_and_predict_area_partial, list_tuples).get(),
-            total=len(list_tuples),
+                pool.map_async(solve_and_predict_area_partial, list_tuples).get(),
+                total=len(list_tuples),
         ):
             if result_area is not None:
                 (
@@ -603,6 +570,52 @@ if __name__ == "__main__":
             + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
         )
 
+
+if __name__ == "__main__":
+    assert USER_RUNNING in CONFIG_FILEPATHS["delphi_repo"].keys(), f"User {USER_RUNNING} not referenced in config.yml"
+    if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/"):
+        os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
+
+    # if TYPE_RUNNING != "global":
+    #     date_files = "112920"
+    #     runProcessData(date_files)
+
+    print(
+        f"The user is {USER_RUNNING}, the chosen optimizer for this run is variable type {TYPE_RUNNING} and " +
+        f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
+    )
+    if TYPE_RUNNING == "global":
+        popcountries = pd.read_csv(
+            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
+        )
+        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
+        training_start_date = datetime.now()
+        training_end_date = datetime.now()
+    else:
+        popcountries = pd.read_csv(
+            PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
+        )
+        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
+        training_start_date = datetime(2020, 11, 25)
+        training_end_date = datetime(2020, 11, 27)
+    # popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
+
+    if not os.path.exists(prev_param_file):
+        logging.error(f"Initial model state {prev_param_file} file not found, can not train from {fitting_start_date}. Use model_V3 to train on entire data.")
+        raise FileNotFoundError
+    df_initial_states = pd.read_csv(prev_param_file)
+    if TYPE_RUNNING == "ExUS":
+        df_initial_states = df_initial_states[df_initial_states.country != 'US']
+    elif TYPE_RUNNING == "US":
+        df_initial_states = df_initial_states[df_initial_states.country == 'US']
+    OPTIMIZER = "tnc"
+    n_days_to_train = (training_end_date - training_start_date).days
+    for n_days_after in range(min(1,n_days_to_train), max(n_days_to_train + 1,1)):
+        if n_days_after == n_days_to_train:
+            OPTIMIZER = "annealing"
+        current_time = training_start_date +  timedelta(days=n_days_after)
+        run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states)
+
     upload_to_s3 = True
-    run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, current_time,upload_to_s3,TYPE_RUNNING,
+    run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, training_end_date,upload_to_s3,TYPE_RUNNING,
                                OPTIMIZER,popcountries,df_initial_states)

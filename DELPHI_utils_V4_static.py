@@ -2033,7 +2033,7 @@ def upload_s3_file(file_name, object_name):
 def get_subname(OPTIMIZER,TYPE_RUNNING):
     global_str = "Global_" if TYPE_RUNNING == "global" else ""
     subname_parameters_file = None
-    if OPTIMIZER == "tnc":
+    if OPTIMIZER == "tnc" or TYPE_RUNNING != "global":
         subname_parameters_file = global_str + "V4"
     elif OPTIMIZER == "annealing":
         subname_parameters_file = global_str + "V4_annealing"
