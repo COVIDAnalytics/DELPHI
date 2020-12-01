@@ -5,7 +5,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from datetime import datetime, timedelta
 from DELPHI_utils_V4_static import DELPHIDataCreator, DELPHIDataSaver, get_initial_conditions, compute_mape, \
-    create_fitting_data_from_validcases, get_mape_data_fitting, DELPHIAggregations,upload_s3_file
+    create_fitting_data_from_validcases, get_mape_data_fitting, DELPHIAggregations,upload_s3_file, get_past_parameters,get_single_case
 from DELPHI_utils_V4_dynamic import (
     read_oxford_international_policy_data, get_normalized_policy_shifts_and_current_policy_all_countries,
     get_normalized_policy_shifts_and_current_policy_us_only, read_policy_data_us_only
@@ -16,6 +16,10 @@ from DELPHI_params_V4 import (
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
     default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
 )
+from DELPHI_utils_additional_states import (
+    read_measures_oxford_data_jj_version, get_normalized_policy_shifts_and_current_policy_all_countries_jj_version,
+    read_policy_data_us_only_jj_version
+)
 import yaml
 import os
 import argparse
@@ -24,53 +28,27 @@ import argparse
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
-def get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,current_time,OPTIMIZER, raiseErr):
-    today = "".join(str(current_time.date()).split("-"))
-    subname_parameters_file = None
-    if OPTIMIZER == "tnc":
-        subname_parameters_file = "Global_V4"
-    elif OPTIMIZER == "annealing":
-        subname_parameters_file = "Global_V4_annealing"
-    elif OPTIMIZER == "trust-constr":
-        subname_parameters_file = "Global_V4_trust"
-    else:
-        raise ValueError("Optimizer not supported in this implementation")
-    file_name = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_{subname_parameters_file}_{today}.csv"
-    if not os.path.exists(file_name):
-        print(f"file name {file_name} does not exist")
-        if raiseErr:
-            raise ValueError("file does not exist")
-        else:
-            None
-    else:
-        print(f"file name {file_name} used to check")
-        fileDF = pd.read_csv(file_name)
-        return fileDF
 
-def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, current_time,upload_to_s3):
+def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
+                               current_time,upload_to_s3,TYPE_RUNNING,OPTIMIZER,popcountries,df_initial_states):
     today = "".join(str(current_time.date()).split("-"))
-    path_to_output_zip = 'data_sandbox/predicted/policy_scenario_predictions/'
+    path_to_output_file = 'data_sandbox/predicted/policy_scenario_predictions/'
     yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        '--run_config', '-rc', type=str, required=True,
-        help="specify relative path for the run config YAML file"
-    )
-    arguments = parser.parse_args()
-    with open(arguments.run_config, "r") as ymlfile:
-        RUN_CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
-
-    OPTIMIZER = RUN_CONFIG["arguments"]["optimizer"]
     # GET_CONFIDENCE_INTERVALS = bool(int(RUN_CONFIG["arguments"]["confidence_intervals"]))
     # SAVE_SINCE100_CASES = bool(int(RUN_CONFIG["arguments"]["since100case"]))
     # PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
-    policy_data_countries = read_oxford_international_policy_data(yesterday=yesterday)
-    policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=PATH_TO_DATA_SANDBOX)
-    popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
-    df_initial_states = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
-    )
-    past_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,current_time,OPTIMIZER, True)
+    if TYPE_RUNNING == "global":
+        policy_data_countries = read_oxford_international_policy_data(yesterday=yesterday)
+        policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=PATH_TO_DATA_SANDBOX)
+    else:
+        policy_data_countries = read_measures_oxford_data_jj_version()
+
+    # popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
+    # df_initial_states = pd.read_csv(
+    #     PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
+    # )
+    past_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_time,OPTIMIZER, True,TYPE_RUNNING)
+    past_parameters_global = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_time - timedelta(days=1),OPTIMIZER, True,'global')
     if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
         param_MATHEMATICA = True
     else:
@@ -80,31 +58,42 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, 
     startT = fitting_start_date
     # Get the policies shifts from the CART tree to compute different values of gamma(t)
     # Depending on the policy in place in the future to affect predictions
-    dict_normalized_policy_gamma_countries, dict_current_policy_countries = (
-        get_normalized_policy_shifts_and_current_policy_all_countries(
-            policy_data_countries=policy_data_countries,
-            past_parameters=past_parameters,
+    if TYPE_RUNNING == "global":
+        dict_normalized_policy_gamma_countries, dict_current_policy_countries = (
+            get_normalized_policy_shifts_and_current_policy_all_countries(
+                policy_data_countries=policy_data_countries,
+                past_parameters=past_parameters,
+            )
         )
-    )
+    else:
+        dict_normalized_policy_gamma_countries, dict_current_policy_countries = (
+            get_normalized_policy_shifts_and_current_policy_all_countries_jj_version(
+                policy_data_countries=policy_data_countries,
+                pastparameters=past_parameters,
+            )
+        )
+        policy_data_us_only = read_policy_data_us_only_jj_version(filepath_data_sandbox=PATH_TO_DATA_SANDBOX,
+                                                                  parameters_us_state = past_parameters)
     # Setting same value for these 2 policies because of the inherent structure of the tree
     dict_normalized_policy_gamma_countries[future_policies[3]] = dict_normalized_policy_gamma_countries[future_policies[5]]
     # US Only Policies
+    parameter_Global_J = pd.concat([past_parameters,past_parameters_global]).reset_index(drop=True)
     dict_normalized_policy_gamma_us_only, dict_current_policy_us_only = (
         get_normalized_policy_shifts_and_current_policy_us_only(
             policy_data_us_only=policy_data_us_only,
-            past_parameters=past_parameters,
+            past_parameters=parameter_Global_J,
         )
     )
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
-
-    dic_file_name = f'policy_{today}_global.csv'
-    with open(path_to_output_zip + dic_file_name, 'w') as f:
-        for key in dict_current_policy_international.keys():
-            c_name , p_name = key
-            f.write("%s,%s\n"%((c_name.replace(',',' '),p_name),dict_current_policy_international[key]))
-    if upload_to_s3:
-        upload_s3_file(path_to_output_zip+dic_file_name,dic_file_name)
+    if 'ExUS' not in TYPE_RUNNING:
+        dic_file_name = f'policy_{today}_global.csv' if TYPE_RUNNING == "global" else f'policy_{today}_provinces.csv'
+        with open(path_to_output_file + dic_file_name, 'w') as f:
+            for key in dict_current_policy_international.keys():
+                c_name , p_name = key
+                f.write("%s,%s\n"%((c_name.replace(',',' '),p_name),dict_current_policy_international[key]))
+        if upload_to_s3:
+            upload_s3_file(path_to_output_file+dic_file_name,dic_file_name)
 
     dict_normalized_policy_gamma_us_only = default_dict_normalized_policy_gamma
     dict_normalized_policy_gamma_countries = default_dict_normalized_policy_gamma
@@ -127,13 +116,12 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, 
 
         country_sub = country.replace(" ", "_")
         province_sub = province.replace(" ", "_")
+        file_name = get_single_case(TYPE_RUNNING,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,country_sub,province_sub)
         if (
-                (os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"))
+                (os.path.exists(file_name))
                 and ((country, province) in dict_current_policy_international.keys())
         ):
-            totalcases = pd.read_csv(
-                PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
-            )
+            totalcases = pd.read_csv(file_name)
             if totalcases.day_since100.max() < 0:
                 print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
                 continue
@@ -373,12 +361,17 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, 
         df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
     )
     # delphi_data_saver.save_policy_predictions_to_json(website=SAVE_TO_WEBSITE, local_delphi=False)
-    file_name = f'df_global_predictions_since_100_cases_scenarios_world_V4_{today}.csv'
+    if TYPE_RUNNING == "global":
+        file_name = f'df_global_predictions_since_100_cases_scenarios_world_V4_{today}.csv'
+    else:
+        file_name =  f'df_scenarios_provinces_j&j_{today}'+'_US.csv' if 'US' in TYPE_RUNNING else \
+            f'df_scenarios_provinces_j&j_{today}'+'_Ex_US.csv'
+
     print("Exported all policy-dependent predictions for all countries for JJ in " + file_name)
-    df_global_predictions_since_100_cases_scenarios.to_csv(path_to_output_zip + file_name, index=False)
-    zipfile.ZipFile(path_to_output_zip + file_name.replace("csv", "zip"), 'w', zipfile.ZIP_DEFLATED). \
-        write(path_to_output_zip+file_name,file_name)
+    df_global_predictions_since_100_cases_scenarios.to_csv(path_to_output_file + file_name, index=False)
+    zipfile.ZipFile(path_to_output_file + file_name.replace("csv", "zip"), 'w', zipfile.ZIP_DEFLATED). \
+        write(path_to_output_file+file_name,file_name)
     if upload_to_s3:
-        upload_s3_file(path_to_output_zip + file_name,file_name)
-    os.remove(path_to_output_zip + file_name)
+        upload_s3_file(path_to_output_file + file_name,file_name)
+    os.remove(path_to_output_file + file_name)
 

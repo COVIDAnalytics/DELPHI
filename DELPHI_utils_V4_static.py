@@ -59,6 +59,7 @@ class DELPHIDataSaver:
 
     def save_all_datasets(
             self, optimizer: str, save_since_100_cases: bool = False, website: bool = False,current_time = datetime.now(),
+            PATH_TO_DATA_SANDBOX = None,TYPE_RUNNING = "global"
     ):
         """
         Saves the parameters and predictions datasets (since 100 cases and since the day of running)
@@ -71,27 +72,19 @@ class DELPHIDataSaver:
         :return:
         """
         today_date_str = "".join(str(current_time.date()).split("-"))
-        if optimizer == "tnc":
-            subname_file = "Global_V4"
-        elif optimizer == "annealing":
-            subname_file = "Global_V4_annealing"
-        elif optimizer == "trust-constr":
-            subname_file = "Global_V4_trust"
-        else:
-            raise ValueError("Optimizer not supported in this implementation")
-        # Save parameters
+        subname_file = get_subname(optimizer,TYPE_RUNNING)
+        file_name = get_param_file_name(optimizer,TYPE_RUNNING,today_date_str,self.PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX)
 
         DELPHIDataSaver.save_dataframe(
-            self.df_global_parameters,
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/Parameters_{subname_file}_{today_date_str}.csv",
+            self.df_global_parameters,file_name,
             self.logger
             )
         # Save predictions since today
-        DELPHIDataSaver.save_dataframe(
-            self.df_global_predictions_since_today,
-            self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/{subname_file}_{today_date_str}.csv",
-            self.logger
-            )
+        # DELPHIDataSaver.save_dataframe(
+        #     self.df_global_predictions_since_today,
+        #     self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/{subname_file}_{today_date_str}.csv",
+        #     self.logger
+        #     )
         if website:
             DELPHIDataSaver.save_dataframe(
                 self.df_global_parameters,
@@ -111,11 +104,11 @@ class DELPHIDataSaver:
                 )
         if save_since_100_cases:
             # Save predictions since 100 cases
-            DELPHIDataSaver.save_dataframe(
-                self.df_global_predictions_since_100_cases,
-                self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/{subname_file}_since100_{today_date_str}.csv",
-                self.logger
-                )
+            # DELPHIDataSaver.save_dataframe(
+            #     self.df_global_predictions_since_100_cases,
+            #     self.PATH_TO_FOLDER_DANGER_MAP + f"/predicted/{subname_file}_since100_{today_date_str}.csv",
+            #     self.logger
+            #     )
             if website:
                 DELPHIDataSaver.save_dataframe(
                     self.df_global_predictions_since_100_cases,
@@ -2037,3 +2030,45 @@ def upload_s3_file(file_name, object_name):
         print(e)
         return False
     return True
+def get_subname(OPTIMIZER,TYPE_RUNNING):
+    global_str = "Global_" if TYPE_RUNNING == "global" else ""
+    subname_parameters_file = None
+    if OPTIMIZER == "tnc":
+        subname_parameters_file = global_str + "V4"
+    elif OPTIMIZER == "annealing":
+        subname_parameters_file = global_str + "V4_annealing"
+    elif OPTIMIZER == "trust-constr":
+        subname_parameters_file = global_str + "V4_trust"
+    else:
+        raise ValueError("Optimizer not supported in this implementation")
+    return subname_parameters_file
+
+def get_param_file_name(OPTIMIZER,TYPE_RUNNING,today,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX):
+    subname_parameters_file = get_subname(OPTIMIZER,TYPE_RUNNING)
+    if TYPE_RUNNING == "global":
+        file_name = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_{subname_parameters_file}_{today}.csv"
+    else:
+        file_name = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{TYPE_RUNNING}_{subname_parameters_file}_{today}.csv"
+    return file_name
+
+
+def get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_time,OPTIMIZER, raiseErr, TYPE_RUNNING):
+    today = "".join(str(current_time.date()).split("-"))
+    file_name = get_param_file_name(OPTIMIZER,TYPE_RUNNING,today,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX)
+    if not os.path.exists(file_name):
+        print(f"file name {file_name} does not exist")
+        if raiseErr:
+            raise ValueError("file does not exist")
+        else:
+            return None
+    else:
+        print(f"file name {file_name} used to check")
+        fileDF = pd.read_csv(file_name)
+        return fileDF
+
+def get_single_case(TYPE_RUNNING,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,country_sub,province_sub):
+    if TYPE_RUNNING == "global":
+        file_name = PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
+    else:
+        file_name = PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"
+    return file_name

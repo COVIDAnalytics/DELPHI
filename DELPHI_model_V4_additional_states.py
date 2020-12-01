@@ -16,7 +16,7 @@ from tqdm import tqdm
 from scipy.optimize import dual_annealing
 from DELPHI_utils_V4_static import (
     DELPHIAggregations, DELPHIDataSaver, DELPHIDataCreator, get_initial_conditions,
-    get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
+    get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value,get_past_parameters,get_single_case
 )
 from DELPHI_utils_V4_dynamic import get_bounds_params_from_pastparams
 from DELPHI_utils_V3 import runProcessData
@@ -51,7 +51,7 @@ from DELPHI_params_V4 import (
     p_h,
     max_iter,
 )
-from DELPHI_model_V4_with_policies_additional_states import run_model_V4_with_policies, get_past_parameters
+from DELPHI_model_V4_with_policies_additional_states import run_model_V4_with_policies
 
 ## Initializing Global Variables ##########################################################################
 with open("config.yml", "r") as ymlfile:
@@ -68,6 +68,10 @@ parser.add_argument(
     '--run_config', '-rc', type=str, required=True,
     help="specify relative path for the run config YAML file"
 )
+parser.add_argument(
+    '--type', '-t', type=str, required=False,
+    help="running for GLOBAL: global, or skip this, US counties : US , ex US regions: ExUS "
+)
 arguments = parser.parse_args()
 with open(arguments.run_config, "r") as ymlfile:
     RUN_CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
@@ -76,6 +80,11 @@ USER_RUNNING = RUN_CONFIG["arguments"]["user"]
 if USER_RUNNING == "ali":
     USER = os.getenv('USER')
     USER_RUNNING = "ali" if USER == 'ali' else 'server'
+if arguments.type is not None:
+    TYPE_RUNNING = arguments.type
+else:
+    TYPE_RUNNING = "global"
+
 OPTIMIZER = RUN_CONFIG["arguments"]["optimizer"]
 GET_CONFIDENCE_INTERVALS = bool(int(RUN_CONFIG["arguments"]["confidence_intervals"]))
 SAVE_TO_WEBSITE = bool(int(RUN_CONFIG["arguments"]["website"]))
@@ -105,6 +114,7 @@ def solve_and_predict_area(
         past_parameters_: pd.DataFrame,
         popcountries: pd.DataFrame,
         current_parameters_:pd.DataFrame,
+        TYPE_RUNNING: str,
         startT: str = None, # added to change optimmization start date
 ):
     """
@@ -125,7 +135,8 @@ def solve_and_predict_area(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     print(f"starting to predict for {continent}, {country}, {province}")
-    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
+    file_name = get_single_case(TYPE_RUNNING,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,country_sub,province_sub)
+    if os.path.exists(file_name):
         if current_parameters_ is not None:
             current_parameter = current_parameters_[
                 (current_parameters_.Country == country) &
@@ -137,9 +148,7 @@ def solve_and_predict_area(
                     f"Continent={continent}, Country={country} and Province={province}"
                 )
                 return None
-        totalcases = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
-        )
+        totalcases = pd.read_csv(file_name)
         if totalcases.day_since100.max() < 0:
             print(
                 f"Not enough cases (less than 100) for Continent={continent}, Country={country} and Province={province}"
@@ -452,8 +461,9 @@ if __name__ == "__main__":
     if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/"):
         os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
     current_time = datetime.now()
-    # date_files = "112920"
-    # runProcessData(date_files)
+    # if TYPE_RUNNING != "global":
+    #     date_files = "112920"
+    #     runProcessData(date_files)
 
     logger_filename = (
             CONFIG_FILEPATHS["logs"][USER_RUNNING] +
@@ -466,29 +476,41 @@ if __name__ == "__main__":
         datefmt="%m-%d-%Y %I:%M:%S %p",
     )
     print(
-        f"The user is {USER_RUNNING}, the chosen optimizer for this run was {OPTIMIZER} and " +
+        f"The user is {USER_RUNNING}, the chosen optimizer for this run was {OPTIMIZER} type {TYPE_RUNNING} and " +
         f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
     )
-    popcountries = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
-    )
+    if TYPE_RUNNING == "global":
+        popcountries = pd.read_csv(
+            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
+        )
+        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
+    else:
+        popcountries = pd.read_csv(
+            PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
+        )
+        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
     popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
 
-    if not os.path.exists(PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"):
-        logging.error(f"Initial model state file not found, can not train from {fitting_start_date}. Use model_V3 to train on entire data.")
+    if not os.path.exists(prev_param_file):
+        logging.error(f"Initial model state {prev_param_file} file not found, can not train from {fitting_start_date}. Use model_V3 to train on entire data.")
         raise FileNotFoundError
-    df_initial_states = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
-    )
-    current_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,current_time,OPTIMIZER, False)
-    try:
-        past_parameters = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP
-            + f"predicted/Parameters_Global_V4_{yesterday}.csv"
-        )
-        print(f"/Parameters_Global_V4_{yesterday}.csv is used  ")
-    except:
-        past_parameters = None
+    df_initial_states = pd.read_csv(prev_param_file)
+    if TYPE_RUNNING == "ExUS":
+        df_initial_states = df_initial_states[df_initial_states.country != 'US']
+    elif TYPE_RUNNING == "US":
+        df_initial_states = df_initial_states[df_initial_states.country == 'US']
+
+    current_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_time,OPTIMIZER, False,TYPE_RUNNING)
+    yesterday_date = current_time - timedelta(days=1)
+    OPTIMIZER_tnc = "tnc"
+    if TYPE_RUNNING == "global":
+        past_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,yesterday_date,OPTIMIZER_tnc, False,TYPE_RUNNING)
+    else:
+        past_parameters_annealing = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,yesterday_date,OPTIMIZER, False,TYPE_RUNNING)
+        if past_parameters_annealing is None:
+            past_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,yesterday_date,OPTIMIZER_tnc, False,TYPE_RUNNING)
+        else:
+            past_parameters = past_parameters_annealing
 
     ### Fitting the Model ###
     # Initalizing lists of the different dataframes that will be concatenated in the end
@@ -502,6 +524,7 @@ if __name__ == "__main__":
         past_parameters_=past_parameters,
         popcountries=popcountries,
         current_parameters_ = current_parameters,
+        TYPE_RUNNING = TYPE_RUNNING,
         startT=fitting_start_date
     )
     n_cpu = psutil.cpu_count(logical = False) 
@@ -568,7 +591,8 @@ if __name__ == "__main__":
             logger=logger
         )
         delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=SAVE_SINCE100_CASES,
-                                            website=SAVE_TO_WEBSITE,current_time = current_time)
+                                            website=SAVE_TO_WEBSITE,current_time = current_time, TYPE_RUNNING= TYPE_RUNNING,
+                                            PATH_TO_DATA_SANDBOX = PATH_TO_DATA_SANDBOX)
         print(
             f"Exported all 3 datasets to website & danger_map repositories, "
             + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
@@ -580,4 +604,5 @@ if __name__ == "__main__":
         )
 
     upload_to_s3 = True
-    run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, current_time,upload_to_s3)
+    run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, current_time,upload_to_s3,TYPE_RUNNING,
+                               OPTIMIZER,popcountries,df_initial_states)
