@@ -86,7 +86,7 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
     )
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
-    if 'ExUS' not in TYPE_RUNNING:
+    if 'ExUS' != TYPE_RUNNING:
         dic_file_name = f'policy_{today}_global.csv' if TYPE_RUNNING == "global" else f'policy_{today}_provinces.csv'
         with open(path_to_output_file + dic_file_name, 'w') as f:
             for key in dict_current_policy_international.keys():
@@ -364,7 +364,7 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
     if TYPE_RUNNING == "global":
         file_name = f'df_global_predictions_since_100_cases_scenarios_world_V4_{today}.csv'
     else:
-        file_name =  f'df_scenarios_provinces_j&j_{today}'+'_US.csv' if 'US' in TYPE_RUNNING else \
+        file_name =  f'df_scenarios_provinces_j&j_{today}'+'_US.csv' if 'US' == TYPE_RUNNING else \
             f'df_scenarios_provinces_j&j_{today}'+'_Ex_US.csv'
 
     print("Exported all policy-dependent predictions for all countries for JJ in " + file_name)
