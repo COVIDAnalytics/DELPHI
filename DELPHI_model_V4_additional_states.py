@@ -596,7 +596,7 @@ if __name__ == "__main__":
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )
         prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
-        training_start_date = datetime(2020, 11, 25)
+        training_start_date = datetime(2020, 11, 20)
         training_end_date = datetime(2020, 11, 27)
     # popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
 

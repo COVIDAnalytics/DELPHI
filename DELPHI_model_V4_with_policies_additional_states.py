@@ -48,7 +48,7 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
     #     PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
     # )
     past_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_time,OPTIMIZER, True,TYPE_RUNNING)
-    past_parameters_global = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_time - timedelta(days=1),OPTIMIZER, True,'global')
+    past_parameters_global = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,datetime(2020,11,30),OPTIMIZER, True,'global')
     if pd.to_datetime(yesterday) < pd.to_datetime(date_MATHEMATICA):
         param_MATHEMATICA = True
     else:
@@ -364,8 +364,8 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
     if TYPE_RUNNING == "global":
         file_name = f'df_global_predictions_since_100_cases_scenarios_world_V4_{today}.csv'
     else:
-        file_name =  f'df_scenarios_provinces_j&j_{today}'+'_US.csv' if 'US' == TYPE_RUNNING else \
-            f'df_scenarios_provinces_j&j_{today}'+'_Ex_US.csv'
+        file_name =  f'df_scenarios_provinces_j&j_V4_{today}'+'_US.csv' if 'US' == TYPE_RUNNING else \
+            f'df_scenarios_provinces_j&j_V4_{today}'+'_Ex_US.csv'
 
     print("Exported all policy-dependent predictions for all countries for JJ in " + file_name)
     df_global_predictions_since_100_cases_scenarios.to_csv(path_to_output_file + file_name, index=False)
