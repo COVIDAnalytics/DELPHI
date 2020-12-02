@@ -607,7 +607,7 @@ if __name__ == "__main__":
     if TYPE_RUNNING == "ExUS":
         df_initial_states = df_initial_states[df_initial_states.country != 'US']
     elif TYPE_RUNNING == "US":
-        df_initial_states = df_initial_states[df_initial_states.continent == 'Europe']
+        df_initial_states = df_initial_states[df_initial_states.country == 'US']
     OPTIMIZER = "tnc"
     n_days_to_train = (training_end_date - training_start_date).days
     for n_days_after in range(min(1,n_days_to_train), max(n_days_to_train + 1,1)):
