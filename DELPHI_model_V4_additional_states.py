@@ -576,10 +576,6 @@ if __name__ == "__main__":
     if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/"):
         os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
 
-    # if TYPE_RUNNING != "global":
-    #     date_files = "112920"
-    #     runProcessData(date_files)
-
     print(
         f"The user is {USER_RUNNING}, the chosen optimizer for this run is variable type {TYPE_RUNNING} and " +
         f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
@@ -595,9 +591,11 @@ if __name__ == "__main__":
         popcountries = pd.read_csv(
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )
+        date_files = "112920"
+        last_date_c , last_date_ex = runProcessData(date_files)
         prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
         training_start_date = datetime(2020, 11, 20)
-        training_end_date = datetime(2020, 11, 27)
+        training_end_date = last_date_c
     # popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
 
     if not os.path.exists(prev_param_file):

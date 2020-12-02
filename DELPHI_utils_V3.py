@@ -1558,6 +1558,7 @@ def process_data(rawDF,provinceColumn, change_province_name):
                 'Mato Grosso': 'MatoGrosso',
                 'Mato Grosso do Sul': 'MatoGrosso do Sul',
                 'Northwest': 'North_West'}
+    find_lastdate =  pd.DataFrame(data = {'last_date': [datetime(2020,11,13)], 'count': [1]})
 
     for country in rawDF.country.unique():
         #     if country not in ['Philippines', 'Ukraine']:
@@ -1569,7 +1570,8 @@ def process_data(rawDF,provinceColumn, change_province_name):
                 (countriesDF[provinceColumn] == province)].reset_index(drop=True)
             province = dictProv[province] if province in dictProv.keys() else province
             updatedData = pd.DataFrame([x for x in provinceDF.date], columns = ["date"])
-            print(country,province,updatedData.date.tail(1).values[0])
+            # print(country,province,updatedData.date.tail(1).values[0])
+            find_lastdate = find_lastdate.append({'last_date':updatedData.date.tail(1).values[0], 'count':1 }, ignore_index=True)
             province_name = province.replace(' ', '_') if change_province_name == True else province
 
             updatedData['country'] = country
@@ -1584,7 +1586,8 @@ def process_data(rawDF,provinceColumn, change_province_name):
             try:
                 os.mkdir(pathdr)
             except OSError:
-                print("")
+                # print("")
+                r=1
             updatedData.to_csv( pathdr +'/Cases_'+country.replace(' ', '_')+'_'+province.replace(' ', '_')+'.csv', index=False)
             # for population
             provinces.append(province_name)
@@ -1619,6 +1622,11 @@ def process_data(rawDF,provinceColumn, change_province_name):
         file_name = 'deleteme_populations.csv'
 
     updatedData.to_csv( 'data_sandbox/processed/'+file_name, index=False)
+    lastdate=pd.DataFrame(find_lastdate.groupby('last_date', as_index=False).sum()).sort_values(by='count',ascending=False,ignore_index=True)
+    print(f"finished for {provinceColumn}")
+    print(lastdate)
+    return lastdate.last_date[0]
+
 
 def runProcessData(date_files):
     inputFile_us_county = "data_sandbox/raw_data_additional_states/" + date_files + "_county_data.csv"
@@ -1639,7 +1647,8 @@ def runProcessData(date_files):
         rawDF_ex_us_provinces = pd.read_csv(obj['Body'])
         rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
 
-    process_data(rawDF_us_county,'county',True)
-    process_data(rawDF_ex_us_provinces,'state_province',False)
+    last_date_c = process_data(rawDF_us_county,'county',True)
+    last_date_ex = process_data(rawDF_ex_us_provinces,'state_province',False)
+    return last_date_c , last_date_ex
 
 #runProcessData("100220")
