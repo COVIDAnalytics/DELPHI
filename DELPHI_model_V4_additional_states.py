@@ -289,7 +289,7 @@ def solve_and_predict_area(
                 r_rv = np.log(2) / VentilatedD  # Rate of recovery under ventilation
                 gamma_t = (
                     (2 / np.pi) * np.arctan(-(t - days) / 20 * r_s) + 1
-                    + jump * np.exp(-(t - t_jump) ** 2 / (2 * std_normal ** 2))
+                    + jump * np.exp(-(t - t_jump) ** 2 / (2 * std_normal ** 2 + 1e-5))
                 )
                 p_dth_mod = (2 / np.pi) * (p_dth - 0.001) * (np.arctan(-t / 20 * r_dthdecay) + np.pi / 2) + 0.001
                 assert (
@@ -607,7 +607,7 @@ if __name__ == "__main__":
     if TYPE_RUNNING == "ExUS":
         df_initial_states = df_initial_states[df_initial_states.country != 'US']
     elif TYPE_RUNNING == "US":
-        df_initial_states = df_initial_states[df_initial_states.country == 'US']
+        df_initial_states = df_initial_states[df_initial_states.continent == 'Europe']
     OPTIMIZER = "tnc"
     n_days_to_train = (training_end_date - training_start_date).days
     for n_days_after in range(min(1,n_days_to_train), max(n_days_to_train + 1,1)):
