@@ -1547,7 +1547,7 @@ def getDaySince100(data):
             resRev.insert(0,count)
     return resRev
 
-def process_data(rawDF,provinceColumn, change_province_name, filename_input):
+def process_data(rawDF,provinceColumn, change_province_name, filename_input,log):
     if filename_input is not None:
         rawDF.to_csv( 'data_sandbox/raw_data_additional_states/'+filename_input, index=False)
     provinces = []
@@ -1560,6 +1560,7 @@ def process_data(rawDF,provinceColumn, change_province_name, filename_input):
                 'Mato Grosso': 'MatoGrosso',
                 'Mato Grosso do Sul': 'MatoGrosso do Sul',
                 'Northwest': 'North_West'}
+    dict_continent = {"Taiwan": "Asia"}
     find_lastdate =  pd.DataFrame(data = {'last_date': [datetime(2020,11,13)], 'count': [1]})
 
     for country in rawDF.country.unique():
@@ -1600,13 +1601,16 @@ def process_data(rawDF,provinceColumn, change_province_name, filename_input):
             if res_continent.shape[0] > 0:
                 continent = res_continent.Continent.values[0]
             else:
+                print(f"new region: {continent} {country} {province_name} ")
+                log.info(f"new region: {continent} {country} {province_name} ")
                 res_continent = population[(population.Country == country)]
-                continent = res_continent.Continent.values[0]
+                if res_continent.shape[0] > 0:
+                    continent = res_continent.Continent.values[0]
+                else:
+                    continent = dict_continent[country]
                 new_row = {'Continent':continent, 'Country':country, 'Province':province_name, 'pop2016':int(provinceDF[popul_column][0]) }
                 population = population.append(new_row, ignore_index=True)
                 population.to_csv('data_sandbox/processed/Population_Global.csv'  , index=False)
-                print(f"new region: {continent} {country} {province_name} ")
-            #                 continent = 0
 
             Continents.append(continent)
             Countries.append(country)
@@ -1627,6 +1631,8 @@ def process_data(rawDF,provinceColumn, change_province_name, filename_input):
     lastdate=pd.DataFrame(find_lastdate.groupby('last_date', as_index=False).sum()).sort_values(by='count',ascending=False,ignore_index=True)
     print(f"finished for {provinceColumn}")
     print(lastdate)
+    log.info(f"finished for {provinceColumn}")
+    log.info(lastdate)
     return lastdate.last_date[0]
 
 
@@ -1638,11 +1644,11 @@ def runProcessData(date_files, logger, type_run):
     if type_run == "US" and os.path.exists(inputFile_us_county):
         rawDF_us_county = pd.read_csv(inputFile_us_county)
         rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
-        last_date = process_data(rawDF_us_county,'county',True,None)
+        last_date = process_data(rawDF_us_county,'county',True,None,logger)
     elif type_run == "ExUS" and os.path.exists(inputFile_us_ex_US):
         rawDF_ex_us_provinces = pd.read_csv(inputFile_us_ex_US)
         rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
-        last_date = process_data(rawDF_ex_us_provinces,'state_province',False,None)
+        last_date = process_data(rawDF_ex_us_provinces,'state_province',False,None,logger)
     else:
         client = boto3.client('s3')
         file_path_bef = 'gt_for_mit/'
@@ -1653,7 +1659,7 @@ def runProcessData(date_files, logger, type_run):
             obj = client.get_object(Bucket='itx-bhq-data-covidcollector', Key= file_path_bef + file_path)
             rawDF_us_county = pd.read_csv(obj['Body'])
             rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
-            last_date = process_data(rawDF_us_county,'county',True,file_path)
+            last_date = process_data(rawDF_us_county,'county',True,file_path,logger)
         elif type_run == "ExUS":
             file_path =  date_files + ex_us_file_name
             print(f"getting {file_path}")
@@ -1661,7 +1667,7 @@ def runProcessData(date_files, logger, type_run):
             obj = client.get_object(Bucket='itx-bhq-data-covidcollector', Key= file_path_bef + file_path)
             rawDF_ex_us_provinces = pd.read_csv(obj['Body'])
             rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
-            last_date = process_data(rawDF_ex_us_provinces,'state_province',False,file_path)
+            last_date = process_data(rawDF_ex_us_provinces,'state_province',False,file_path,logger)
 
     return last_date
 

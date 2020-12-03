@@ -61,7 +61,7 @@ parser.add_argument(
     help="running for GLOBAL: global, or skip this, US counties and regions ex US regions: USExUS "
 )
 parser.add_argument(
-    '--input_date', '-d', type=str, required=False,
+    '--input_date', '-dt', type=str, required=False,
     help="only when you want to run the US and ExUS you should have this as input for example: 112920"
 )
 
