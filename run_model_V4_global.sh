@@ -1,3 +1,6 @@
+git config --global user.email "ali@dynideas.com"
+git config --global user.name "Server"
+cd ..
 git clone https://"$GIT_USER":"$GIT_PASS"@github.com/COVIDAnalytics/covid19orc.git
 cd covid19orc/
 git checkout danger_map
@@ -10,8 +13,6 @@ cd DELPHI
 
 python DELPHI_model_V4_additional_states.py -rc run_configs/annealing-run-config.yml -t 'global'
 
-git config --global user.email "ali@dynideas.com"
-git config --global user.name "Server"
 git pull
 git add danger_map/processed/*
 git add danger_map/predicted/*
