@@ -1631,8 +1631,10 @@ def process_data(rawDF,provinceColumn, change_province_name, filename_input):
 
 
 def runProcessData(date_files, logger, type_run):
-    inputFile_us_county = "data_sandbox/raw_data_additional_states/" + date_files + "_county_data.csv"
-    inputFile_us_ex_US = "data_sandbox/raw_data_additional_states/" + date_files + "_ex_us_regions.csv"
+    county_file_name = "_county_data.csv"
+    ex_us_file_name = "_ex_us_regions.csv"
+    inputFile_us_county = "data_sandbox/raw_data_additional_states/" + date_files + county_file_name
+    inputFile_us_ex_US = "data_sandbox/raw_data_additional_states/" + date_files + ex_us_file_name
     if type_run == "US" and os.path.exists(inputFile_us_county):
         rawDF_us_county = pd.read_csv(inputFile_us_county)
         rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
@@ -1645,7 +1647,7 @@ def runProcessData(date_files, logger, type_run):
         client = boto3.client('s3')
         file_path_bef = 'gt_for_mit/'
         if type_run == "US":
-            file_path = f'{date_files}_county_data.csv'
+            file_path = date_files+county_file_name
             print(f"getting {file_path}")
             logger.info(f"getting {file_path}")
             obj = client.get_object(Bucket='itx-bhq-data-covidcollector', Key= file_path_bef + file_path)
@@ -1653,7 +1655,7 @@ def runProcessData(date_files, logger, type_run):
             rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
             last_date = process_data(rawDF_us_county,'county',True,file_path)
         elif type_run == "ExUS":
-            file_path = f'{date_files}_ex_us_regions.csv'
+            file_path =  date_files + ex_us_file_name
             print(f"getting {file_path}")
             logger.info(f"getting {file_path}")
             obj = client.get_object(Bucket='itx-bhq-data-covidcollector', Key= file_path_bef + file_path)
