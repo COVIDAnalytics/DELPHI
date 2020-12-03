@@ -30,7 +30,7 @@ with open("config.yml", "r") as ymlfile:
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 
 def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
-                               current_time,upload_to_s3,TYPE_RUNNING,OPTIMIZER,popcountries,df_initial_states):
+                               current_time,upload_to_s3,TYPE_RUNNING,OPTIMIZER,popcountries,df_initial_states,logging):
     today = "".join(str(current_time.date()).split("-"))
     path_to_output_file = 'data_sandbox/predicted/policy_scenario_predictions/'
     yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
@@ -88,6 +88,7 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
     dict_current_policy_international.update(dict_current_policy_us_only)
     if 'ExUS' != TYPE_RUNNING:
         dic_file_name = f'policy_{current_time_str}_global.csv' if TYPE_RUNNING == "global" else f'policy_{current_time_str}_provinces.csv'
+        logging.info(f"this file saved {dic_file_name}")
         with open(path_to_output_file + dic_file_name, 'w') as f:
             for key in dict_current_policy_international.keys():
                 c_name , p_name = key
@@ -124,8 +125,10 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
             totalcases = pd.read_csv(file_name)
             if totalcases.day_since100.max() < 0:
                 print(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
+                logging.info(f"Not enough cases for Continent={continent}, Country={country} and Province={province}")
                 continue
             print(country + " " + province)
+            logging.info(country + " " + province)
             if past_parameters is not None:
                 parameter_list_total = past_parameters[
                     (past_parameters.Country == country) &
@@ -147,9 +150,11 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
                     ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
                 else:
                     print(f"Must have past parameters for {country} and {province}")
+                    logging.info(f"Must have past parameters for {country} and {province}")
                     continue
             else:
                 print("Must have past parameters")
+                logging.info("Must have past parameters")
                 continue
 
             # Now we start the modeling part:
@@ -326,6 +331,7 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
                         list_df_global_predictions_since_100_cases_scenarios.append(
                             df_predictions_since_100_cont_country_prov)
                 print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
+                logging.info(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
                 # plt.plot(fitcasesnd, label="Historical Data")
                 # dates_values = [
                 #     str((pd.to_datetime(yesterday)+timedelta(days=i)).date())[5:] if i % 10 == 0 else " "
@@ -337,9 +343,12 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
                 # plt.title(f"{country}, {province} Predictions & Historical for # Cases")
                 # plt.savefig(country + "_" + province + "_prediction_cases.png", bpi=300)
                 print("--------------------------------------------------------------------------")
+                logging.info("--------------------------------------------------------------------------")
             else:  # len(validcases) <= 7
                 print(f"Not enough historical data (less than a week)" +
                       f"for Continent={continent}, Country={country} and Province={province}")
+                logging.info(f"Not enough historical data (less than a week)" +
+                             f"for Continent={continent}, Country={country} and Province={province}")
                 continue
         else:  # file for that tuple (country, province) doesn't exist in processed files
             continue
@@ -368,6 +377,7 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
             f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_Ex_US.csv'
 
     print("Exported all policy-dependent predictions for all countries for JJ in " + file_name)
+    logging.info("Exported all policy-dependent predictions for all countries for JJ in " + file_name)
     df_global_predictions_since_100_cases_scenarios.to_csv(path_to_output_file + file_name, index=False)
     zipfile.ZipFile(path_to_output_file + file_name.replace("csv", "zip"), 'w', zipfile.ZIP_DEFLATED). \
         write(path_to_output_file+file_name,file_name)

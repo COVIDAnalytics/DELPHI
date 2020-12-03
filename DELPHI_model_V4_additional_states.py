@@ -643,4 +643,4 @@ if __name__ == "__main__":
 
     upload_to_s3 = True
     run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, training_end_date,upload_to_s3,TYPE_RUNNING,
-                               OPTIMIZER,popcountries,df_initial_states)
+                               OPTIMIZER,popcountries,df_initial_states,logging)
