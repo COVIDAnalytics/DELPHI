@@ -76,6 +76,11 @@ parser.add_argument(
     '--input_date', '-d', type=str, required=False,
     help="only when you want to run the US and ExUS you should have this as input for example: 112920"
 )
+parser.add_argument(
+    '--global_JNJ', '-g', type=str, required=False,
+    help="send true if you want to run 'Australia', 'China', 'Canada', 'Taiwan', 'USA' for JNJ"
+)
+
 arguments = parser.parse_args()
 with open(arguments.run_config, "r") as ymlfile:
     RUN_CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
@@ -93,6 +98,11 @@ if arguments.type is not None:
         INPUT_DATE = str(datetime.now().strftime("%m%d%y"))
 else:
     TYPE_RUNNING = "global"
+if arguments.global_JNJ is not None:
+    GLOBAL_JJ = arguments.global_JNJ
+else:
+    GLOBAL_JJ = 'false'
+
 logger_filename = (
         CONFIG_FILEPATHS["logs"][USER_RUNNING] +
         f"model_fitting/delphi_model_V4_{yesterday_logs_filename}.log"
@@ -616,7 +626,7 @@ if __name__ == "__main__":
         popcountries = pd.read_csv(
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )
-        last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING)
+        last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING,GLOBAL_JJ)
         training_start_date = get_start_date(last_date_c,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,OPTIMIZER,TYPE_RUNNING)
         training_end_date = last_date_c
         prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
@@ -631,7 +641,10 @@ if __name__ == "__main__":
         raise FileNotFoundError
     df_initial_states = pd.read_csv(prev_param_file)
     if TYPE_RUNNING == "ExUS":
-        df_initial_states = df_initial_states[df_initial_states.country != 'US']
+        if GLOBAL_JJ == "true":
+            df_initial_states = df_initial_states[df_initial_states.province == 'None']
+        else:
+            df_initial_states = df_initial_states[df_initial_states.country != 'US']
     elif TYPE_RUNNING == "US":
         df_initial_states = df_initial_states[df_initial_states.country == 'US']
     n_days_to_train = (training_end_date - training_start_date).days

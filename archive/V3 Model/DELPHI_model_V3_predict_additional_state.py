@@ -64,6 +64,11 @@ parser.add_argument(
     '--input_date', '-dt', type=str, required=False,
     help="only when you want to run the US and ExUS you should have this as input for example: 112920"
 )
+parser.add_argument(
+    '--global_JNJ', '-g', type=str, required=False,
+    help="send true if you want to run 'Australia', 'China', 'Canada', 'Taiwan', 'USA' for JNJ"
+)
+
 
 arguments = parser.parse_args()
 end_date = arguments.end_date
@@ -80,6 +85,10 @@ if arguments.input_date is not None:
     INPUT_DATE = arguments.input_date
 else:
     INPUT_DATE = str(datetime.now().strftime("%m%d%y"))
+if arguments.global_JNJ is not None:
+    GLOBAL_JJ = arguments.global_JNJ
+else:
+    GLOBAL_JJ = 'false'
 
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
@@ -336,7 +345,7 @@ if __name__ == "__main__":
         # list_tuples = [('Oceania' , 'Papua New Guinea' , 'None'),
         #             ('Africa' , 'Lesotho' , 'None')]
     else:
-        last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING)
+        last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING,GLOBAL_JJ)
         popcountries = pd.read_csv(
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )

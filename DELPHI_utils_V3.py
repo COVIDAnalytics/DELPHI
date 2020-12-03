@@ -1636,9 +1636,9 @@ def process_data(rawDF,provinceColumn, change_province_name, filename_input,log)
     return lastdate.last_date[0]
 
 
-def runProcessData(date_files, logger, type_run):
+def runProcessData(date_files, logger, type_run,GLOBAL_JJ):
     county_file_name = "_county_data.csv"
-    ex_us_file_name = "_ex_us_regions.csv"
+    ex_us_file_name = "_global.csv" if GLOBAL_JJ == 'true' else "_ex_us_regions.csv"
     inputFile_us_county = "data_sandbox/raw_data_additional_states/" + date_files + county_file_name
     inputFile_us_ex_US = "data_sandbox/raw_data_additional_states/" + date_files + ex_us_file_name
     if type_run == "US" and os.path.exists(inputFile_us_county):
