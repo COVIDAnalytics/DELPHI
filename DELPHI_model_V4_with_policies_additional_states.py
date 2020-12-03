@@ -29,7 +29,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 
-def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
+def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
                                current_time,upload_to_s3,TYPE_RUNNING,OPTIMIZER,popcountries,df_initial_states):
     today = "".join(str(current_time.date()).split("-"))
     path_to_output_file = 'data_sandbox/predicted/policy_scenario_predictions/'
@@ -39,7 +39,6 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
     # PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
     if TYPE_RUNNING == "global":
         policy_data_countries = read_oxford_international_policy_data(yesterday=yesterday)
-        policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=PATH_TO_DATA_SANDBOX)
     else:
         policy_data_countries = read_measures_oxford_data_jj_version()
 
@@ -65,6 +64,7 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
                 past_parameters=past_parameters,
             )
         )
+        policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=PATH_TO_DATA_SANDBOX)
     else:
         dict_normalized_policy_gamma_countries, dict_current_policy_countries = (
             get_normalized_policy_shifts_and_current_policy_all_countries_jj_version(
@@ -87,7 +87,7 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
     if 'ExUS' != TYPE_RUNNING:
-        dic_file_name = f'policy_{today}_global.csv' if TYPE_RUNNING == "global" else f'policy_{today}_provinces.csv'
+        dic_file_name = f'policy_{current_time_str}_global.csv' if TYPE_RUNNING == "global" else f'policy_{current_time_str}_provinces.csv'
         with open(path_to_output_file + dic_file_name, 'w') as f:
             for key in dict_current_policy_international.keys():
                 c_name , p_name = key
@@ -362,10 +362,10 @@ def run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
     )
     # delphi_data_saver.save_policy_predictions_to_json(website=SAVE_TO_WEBSITE, local_delphi=False)
     if TYPE_RUNNING == "global":
-        file_name = f'df_global_predictions_since_100_cases_scenarios_world_V4_{today}.csv'
+        file_name = f'df_global_predictions_since_100_cases_scenarios_world_V4_{current_time_str}.csv'
     else:
-        file_name =  f'df_scenarios_provinces_j&j_V4_{today}'+'_US.csv' if 'US' == TYPE_RUNNING else \
-            f'df_scenarios_provinces_j&j_V4_{today}'+'_Ex_US.csv'
+        file_name =  f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_US.csv' if 'US' == TYPE_RUNNING else \
+            f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_Ex_US.csv'
 
     print("Exported all policy-dependent predictions for all countries for JJ in " + file_name)
     df_global_predictions_since_100_cases_scenarios.to_csv(path_to_output_file + file_name, index=False)

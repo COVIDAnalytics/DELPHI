@@ -72,6 +72,10 @@ parser.add_argument(
     '--type', '-t', type=str, required=False,
     help="running for GLOBAL: global, or skip this, US counties : US , ex US regions: ExUS "
 )
+parser.add_argument(
+    '--input_date', '-d', type=str, required=False,
+    help="only when you want to run the US and ExUS you should have this as input for example: 112920"
+)
 arguments = parser.parse_args()
 with open(arguments.run_config, "r") as ymlfile:
     RUN_CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
@@ -80,8 +84,13 @@ USER_RUNNING = RUN_CONFIG["arguments"]["user"]
 if USER_RUNNING == "ali":
     USER = os.getenv('USER')
     USER_RUNNING = "ali" if USER == 'ali' else 'server'
+INPUT_DATE = "112920"
 if arguments.type is not None:
     TYPE_RUNNING = arguments.type
+    if arguments.input_date is not None:
+        INPUT_DATE = arguments.input_date
+    else:
+        INPUT_DATE = "".join(str(datetime.now().strftime("%m%d%y")))
 else:
     TYPE_RUNNING = "global"
 logger_filename = (
@@ -575,7 +584,7 @@ if __name__ == "__main__":
     assert USER_RUNNING in CONFIG_FILEPATHS["delphi_repo"].keys(), f"User {USER_RUNNING} not referenced in config.yml"
     if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/"):
         os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
-
+    current_time_str = str(datetime.now().strftime("%Y%m%d"))
     print(
         f"The user is {USER_RUNNING}, the chosen optimizer for this run is variable type {TYPE_RUNNING} and " +
         f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
@@ -591,11 +600,10 @@ if __name__ == "__main__":
         popcountries = pd.read_csv(
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )
-        date_files = "112920"
-        last_date_c , last_date_ex = runProcessData(date_files)
-        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
+        last_date_c , last_date_ex = runProcessData(INPUT_DATE)
         training_start_date = datetime(2020, 11, 20)
         training_end_date = last_date_c
+        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
     # popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
 
     if not os.path.exists(prev_param_file):
@@ -615,5 +623,5 @@ if __name__ == "__main__":
         run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states)
 
     upload_to_s3 = True
-    run_model_V4_with_policies(PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, training_end_date,upload_to_s3,TYPE_RUNNING,
+    run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, training_end_date,upload_to_s3,TYPE_RUNNING,
                                OPTIMIZER,popcountries,df_initial_states)
