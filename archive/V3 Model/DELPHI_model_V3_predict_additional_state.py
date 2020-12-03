@@ -18,6 +18,7 @@ from DELPHI_utils_V3_static import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
+from DELPHI_utils_V3 import runProcessData
 from DELPHI_params_V3 import (
     default_parameter_list,
     dict_default_reinit_parameters,
@@ -59,6 +60,10 @@ parser.add_argument(
     '--type', '-t', type=str, required=False,
     help="running for GLOBAL: global, or skip this, US counties and regions ex US regions: USExUS "
 )
+parser.add_argument(
+    '--input_date', '-d', type=str, required=False,
+    help="only when you want to run the US and ExUS you should have this as input for example: 112920"
+)
 
 arguments = parser.parse_args()
 end_date = arguments.end_date
@@ -71,6 +76,10 @@ if arguments.type is not None:
     TYPE_RUNNING = arguments.type
 else:
     TYPE_RUNNING = "global"
+if arguments.input_date is not None:
+    INPUT_DATE = arguments.input_date
+else:
+    INPUT_DATE = str(datetime.now().strftime("%m%d%y"))
 
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
@@ -99,7 +108,7 @@ def predict_area(
     continent, country, province = tuple_area_
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    print(f"starting to predict for {continent}, {country}, {province}")
+    logging.info(f"starting to predict for {continent}, {country}, {province}")
     if TYPE_RUNNING == "global":
         file_name = PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
     else:
@@ -108,7 +117,7 @@ def predict_area(
     if os.path.exists(file_name):
         totalcases = pd.read_csv(file_name)
         if totalcases.day_since100.max() < 0:
-            print(
+            logging.info(
                 f"Not enough cases (less than 100) for Continent={continent}, Country={country} and Province={province}"
             )
             return None
@@ -132,7 +141,7 @@ def predict_area(
             date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
         if date_day_since100 >= pd.to_datetime(endT):
-            print(
+            logging.info(
                 f"End date is less than date since 100 cases for, Continent={continent}, Country={country} and Province={province} in "
                 + f"{round(time.time() - time_entering, 2)} seconds"
             )
@@ -148,7 +157,7 @@ def predict_area(
 
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
-            print(
+            logging.info(
                 f"Not enough historical data (less than a week)"
                 + f"for Continent={continent}, Country={country} and Province={province}"
             )
@@ -163,7 +172,7 @@ def predict_area(
             PopulationD = validcases.loc[0, "death_cnt"]
             PopulationCI = PopulationI - PopulationD - PopulationR
             if PopulationCI <= 0:
-                print(f"PopulationCI value is negative ({PopulationCI}), need to check why")
+                logging.info(f"PopulationCI value is negative ({PopulationCI}), need to check why")
                 raise ValueError(f"PopulationCI value is negative ({PopulationCI}), need to check why")
             """
             Fixed Parameters based on meta-analysis:
@@ -283,15 +292,15 @@ def predict_area(
             final_state_dict = {'S':S, 'E':E, 'I':I, 'UR':UR, 'DHR':DHR, 'DQR':DQR, 'UD':UD, 'DHD':DHD, 
                 'DQD':DQD, 'R':R, 'D':D, 'TH':TH, 'DVR':DVR, 'DVD':DVD, 'DD':DD, 'DT':DT,
                 'continent': continent, 'country':country, 'province':province}
-            
-            print(
+
+            logging.info(
                 f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
                 + f"{round(time.time() - time_entering, 2)} seconds"
             )
-            print("--------------------------------------------------------------------------------------------")
+            logging.info("--------------------------------------------------------------------------------------------")
             return (final_state_dict)
     else:  # file for that tuple (continent, country, province) doesn't exist in processed files
-        print(
+        logging.info(
             f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available"
         )
         return None
@@ -327,6 +336,7 @@ if __name__ == "__main__":
         # list_tuples = [('Oceania' , 'Papua New Guinea' , 'None'),
         #             ('Africa' , 'Lesotho' , 'None')]
     else:
+        last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING)
         popcountries = pd.read_csv(
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )
@@ -371,6 +381,7 @@ if __name__ == "__main__":
     )
     n_cpu = psutil.cpu_count(logical = False) - 2
     print(f"Number of CPUs found and used in this run: {n_cpu}")
+    logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
     logging.info(f"Number of areas to be predicted in this run: {len(list_tuples)}")
     list_predicted_state_dicts = []
     with mp.Pool(n_cpu) as pool:
@@ -384,9 +395,12 @@ if __name__ == "__main__":
                 list_predicted_state_dicts.append(model_state_dict)
             else:
                 continue
+        logging.info("Finished the Multiprocessing for all areas")
         print("Finished the Multiprocessing for all areas")
         pool.close()
         pool.join()
     df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
     file_name_state = f'Predicted_model_state_V3_{end_date}.csv' if TYPE_RUNNING == "global" else  f'Predicted_model_provinces_V3_{end_date}.csv'
     df_predicted_states.to_csv( f'data_sandbox/predicted/raw_predictions/' + file_name_state, index=False)
+    print(f"data_sandbox/predicted/raw_predictions/{file_name_state} is saved")
+    logging.info(f"data_sandbox/predicted/raw_predictions/{file_name_state} is saved")
