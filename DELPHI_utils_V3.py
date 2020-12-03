@@ -1628,7 +1628,7 @@ def process_data(rawDF,provinceColumn, change_province_name):
     return lastdate.last_date[0]
 
 
-def runProcessData(date_files):
+def runProcessData(date_files, logger, type_run):
     inputFile_us_county = "data_sandbox/raw_data_additional_states/" + date_files + "_county_data.csv"
     if os.path.exists(inputFile_us_county):
         rawDF_us_county = pd.read_csv(inputFile_us_county)
@@ -1637,18 +1637,27 @@ def runProcessData(date_files):
         inputFile_ex_us_provinces = "data_sandbox/raw_data_additional_states/" + date_files + "_ex_us_regions.csv"
         rawDF_ex_us_provinces = pd.read_csv(inputFile_ex_us_provinces)
         rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
+        last_date = process_data(rawDF_ex_us_provinces,'county',True)
+        last_date = process_data(rawDF_us_county,'county',True)
     else:
-        client = boto3.client('s3')
-        obj = client.get_object(Bucket='itx-bhq-data-covidcollector', Key=f'gt_for_mit/{date_files}_county_data.csv')
-        rawDF_us_county = pd.read_csv(obj['Body'])
-        rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
+        if type_run == "US":
+            client = boto3.client('s3')
+            file_path = f'gt_for_mit/{date_files}_county_data.csv'
+            print(f"getting {file_path}")
+            logger.info(f"getting {file_path}")
+            obj = client.get_object(Bucket='itx-bhq-data-covidcollector', Key=file_path)
+            rawDF_us_county = pd.read_csv(obj['Body'])
+            rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
+            last_date = process_data(rawDF_us_county,'county',True)
+        elif type_run == "ExUS":
+            file_path = f'gt_for_mit/{date_files}_ex_us_regions.csv'
+            print(f"getting {file_path}")
+            logger.info(f"getting {file_path}")
+            obj = client.get_object(Bucket='itx-bhq-data-covidcollector', Key=file_path)
+            rawDF_ex_us_provinces = pd.read_csv(obj['Body'])
+            rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
+            last_date = process_data(rawDF_ex_us_provinces,'state_province',False)
 
-        obj = client.get_object(Bucket='itx-bhq-data-covidcollector', Key=f'gt_for_mit/{date_files}_ex_us_regions.csv')
-        rawDF_ex_us_provinces = pd.read_csv(obj['Body'])
-        rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
-
-    last_date_c = process_data(rawDF_us_county,'county',True)
-    last_date_ex = process_data(rawDF_ex_us_provinces,'state_province',False)
-    return last_date_c , last_date_ex
+    return last_date
 
 #runProcessData("100220")

@@ -534,7 +534,7 @@ if __name__ == '__main__':
     replace_deathcounts = ['Bourgogne-Franche-Comte',
                            'Brittany', 'Corsica','Pays_de_la_Loire' ,'Hauts-de-France', 'Grand_Est',
                            'La_Rioja', 'Mendoza','Entre_Rios' ]
-    last_date_c , last_date_ex = runProcessData(date_files)
+    # last_date_c , last_date_ex = runProcessData(date_files)
     PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 
@@ -554,7 +554,7 @@ if __name__ == '__main__':
     today_time = datetime.now()
 
     training_start_date = datetime(2020, 11, 22)
-    training_end_date = last_date_c + timedelta(days=1)  # can be used here
+    training_end_date = datetime(2020, 11, 22)  #last_date_c + timedelta(days=1)  # can be used here
     training_last_date = training_end_date - timedelta(days=1)
     # Default training_last_date is up to day before now, but depends on what's the most recent historical data you have
     n_days_to_train = (training_last_date - training_start_date).days

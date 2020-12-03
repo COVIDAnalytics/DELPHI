@@ -616,7 +616,7 @@ if __name__ == "__main__":
         popcountries = pd.read_csv(
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )
-        last_date_c , last_date_ex = runProcessData(INPUT_DATE)
+        last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING)
         training_start_date = get_start_date(last_date_c,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,OPTIMIZER,TYPE_RUNNING)
         training_end_date = last_date_c
         prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
