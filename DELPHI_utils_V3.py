@@ -1633,14 +1633,14 @@ def process_data(rawDF,provinceColumn, change_province_name, filename_input):
 def runProcessData(date_files, logger, type_run):
     inputFile_us_county = "data_sandbox/raw_data_additional_states/" + date_files + "_county_data.csv"
     inputFile_us_ex_US = "data_sandbox/raw_data_additional_states/" + date_files + "_ex_us_regions.csv"
-    if os.path.exists(inputFile_us_county):
+    if type_run == "US" and os.path.exists(inputFile_us_county):
         rawDF_us_county = pd.read_csv(inputFile_us_county)
         rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
         last_date = process_data(rawDF_us_county,'county',True,None)
-    elif os.path.exists(inputFile_us_ex_US):
+    elif type_run == "ExUS" and os.path.exists(inputFile_us_ex_US):
         rawDF_ex_us_provinces = pd.read_csv(inputFile_us_ex_US)
         rawDF_ex_us_provinces = rawDF_ex_us_provinces.sort_values(['date']).reset_index(drop=True)
-        last_date = process_data(rawDF_ex_us_provinces,'county',True,None)
+        last_date = process_data(rawDF_ex_us_provinces,'state_province',False,None)
     else:
         client = boto3.client('s3')
         file_path_bef = 'gt_for_mit/'
