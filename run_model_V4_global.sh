@@ -15,6 +15,7 @@ python DELPHI_model_V4_additional_states.py -rc run_configs/annealing-run-config
 git pull
 git add danger_map/processed/*
 git add danger_map/predicted/*
+git add data_sandbox/predicted/policy_scenario_predictions/*
 git -c user.name='Server' -c user.email=ali@dynideas.com commit -m "Global results"
 git push https://"$GIT_USER":"$GIT_PASS"@github.com/COVIDAnalytics/DELPHI.git --all
 
