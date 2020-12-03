@@ -30,7 +30,7 @@ with open("config.yml", "r") as ymlfile:
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 
 def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
-                               current_time,upload_to_s3,TYPE_RUNNING,OPTIMIZER,popcountries,df_initial_states,logging):
+                               current_time,upload_to_s3,TYPE_RUNNING,OPTIMIZER,popcountries,df_initial_states,logging,GLOBAL_JJ):
     today = "".join(str(current_time.date()).split("-"))
     path_to_output_file = 'data_sandbox/predicted/policy_scenario_predictions/'
     yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
@@ -86,8 +86,9 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
     )
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
-    if 'ExUS' != TYPE_RUNNING:
+    if 'ExUS' != TYPE_RUNNING or GLOBAL_JJ == 'true':
         dic_file_name = f'policy_{current_time_str}_global.csv' if TYPE_RUNNING == "global" else f'policy_{current_time_str}_provinces.csv'
+        dic_file_name = dic_file_name if GLOBAL_JJ != 'true' else f'policy_{current_time_str}_global_JNJ.csv'
         logging.info(f"this file saved {dic_file_name}")
         with open(path_to_output_file + dic_file_name, 'w') as f:
             for key in dict_current_policy_international.keys():
@@ -362,19 +363,15 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
     df_global_predictions_since_100_cases_scenarios = pd.concat(
         list_df_global_predictions_since_100_cases_scenarios
     ).reset_index(drop=True)
-    delphi_data_saver = DELPHIDataSaver(
-        path_to_folder_danger_map=PATH_TO_FOLDER_DANGER_MAP,
-        path_to_website_predicted=PATH_TO_FOLDER_DANGER_MAP,
-        df_global_parameters=None,
-        df_global_predictions_since_today=df_global_predictions_since_today_scenarios,
-        df_global_predictions_since_100_cases=df_global_predictions_since_100_cases_scenarios,
-    )
-    # delphi_data_saver.save_policy_predictions_to_json(website=SAVE_TO_WEBSITE, local_delphi=False)
     if TYPE_RUNNING == "global":
         file_name = f'df_global_predictions_since_100_cases_scenarios_world_V4_{current_time_str}.csv'
     else:
-        file_name =  f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_US.csv' if 'US' == TYPE_RUNNING else \
-            f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_Ex_US.csv'
+        if TYPE_RUNNING == 'US':
+            file_name =  f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_US.csv'
+        elif GLOBAL_JJ == 'true':
+            file_name = f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_Global.csv'
+        else:
+            file_name = f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_Ex_US.csv'
 
     print("Exported all policy-dependent predictions for all countries for JJ in " + file_name)
     logging.info("Exported all policy-dependent predictions for all countries for JJ in " + file_name)
