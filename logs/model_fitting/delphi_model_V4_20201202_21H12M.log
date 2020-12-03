@@ -1,0 +1,196 @@
+12-03-2020 09:12:42 PM | INFO | The user is server, the chosen optimizer for this run is variable type ExUS and generation of Confidence Intervals' flag is False
+12-03-2020 09:12:42 PM | INFO | finished for state_province
+12-03-2020 09:12:42 PM | INFO |    last_date  count
+0 2020-12-02      4
+1 2020-11-13      1
+2 2020-12-01      1
+12-03-2020 09:12:42 PM | INFO | Start date: 2020-12-02 00:00:00, End date: 2020-12-02 00:00:00
+12-03-2020 09:12:43 PM | INFO | running for 2020-12-02 00:00:00 optimizer annealing
+12-03-2020 09:12:43 PM | INFO | Number of CPUs found and used in this run: 48
+12-03-2020 09:12:43 PM | INFO | Number of areas to be fitted in this run: 5
+12-03-2020 09:12:43 PM | INFO | starting to predict for Oceania, Australia, None
+12-03-2020 09:12:43 PM | INFO | starting to predict for Asia, China, None
+12-03-2020 09:12:43 PM | INFO | starting to predict for North America, Canada, None
+12-03-2020 09:12:43 PM | INFO | Parameters already exist on day after 20201202 Continent=Oceania, Country=Australia and Province=None
+12-03-2020 09:12:43 PM | INFO | starting to predict for Asia, Taiwan, None
+12-03-2020 09:12:43 PM | INFO | Parameters already exist on day after 20201202 Continent=Asia, Country=China and Province=None
+12-03-2020 09:12:43 PM | INFO | Parameters already exist on day after 20201202 Continent=North America, Country=Canada and Province=None
+12-03-2020 09:12:43 PM | INFO | starting to predict for North America, US, None
+12-03-2020 09:12:43 PM | INFO | Parameters already exist on day after 20201202 Continent=Asia, Country=Taiwan and Province=None
+12-03-2020 09:12:43 PM | INFO | Parameters already exist on day after 20201202 Continent=North America, Country=US and Province=None
+12-03-2020 09:12:43 PM | INFO | Finished the Multiprocessing for all areas
+12-03-2020 09:12:43 PM | INFO | Nothing changed for, total runtime was 0.01 minutes
+12-03-2020 09:12:57 PM | INFO | this file saved policy_20201203_global_JNJ.csv
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from before-call.apigateway to before-call.api-gateway
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+12-03-2020 09:12:57 PM | DEBUG | Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+12-03-2020 09:12:57 PM | DEBUG | IMDS ENDPOINT: http://169.254.169.254/
+12-03-2020 09:12:57 PM | DEBUG | Looking for credentials via: env
+12-03-2020 09:12:57 PM | INFO | Found credentials in environment variables.
+12-03-2020 09:12:57 PM | DEBUG | Loading JSON file: /opt/conda/lib/python3.7/site-packages/botocore/data/endpoints.json
+12-03-2020 09:12:57 PM | DEBUG | Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f0b6965a4d0>
+12-03-2020 09:12:57 PM | DEBUG | Loading JSON file: /opt/conda/lib/python3.7/site-packages/botocore/data/s3/2006-03-01/service-2.json
+12-03-2020 09:12:57 PM | DEBUG | Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x7f0b696ff050>
+12-03-2020 09:12:57 PM | DEBUG | Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x7f0b457dbd40>
+12-03-2020 09:12:57 PM | DEBUG | Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x7f0b69702dd0>
+12-03-2020 09:12:57 PM | DEBUG | Setting s3 timeout as (60, 60)
+12-03-2020 09:12:57 PM | DEBUG | Loading JSON file: /opt/conda/lib/python3.7/site-packages/botocore/data/_retry.json
+12-03-2020 09:12:57 PM | DEBUG | Registering retry handlers for service: s3
+12-03-2020 09:12:57 PM | DEBUG | Acquiring 0
+12-03-2020 09:12:57 PM | DEBUG | UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f0b3e83c4d0>}) about to wait for the following futures []
+12-03-2020 09:12:57 PM | DEBUG | UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f0b3e83c4d0>}) done waiting for dependent futures
+12-03-2020 09:12:57 PM | DEBUG | Executing task UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f0b3e83c4d0>}) with kwargs {'client': <botocore.client.S3 object at 0x7f0b3e942c90>, 'config': <boto3.s3.transfer.TransferConfig object at 0x7f0b3e831d90>, 'osutil': <s3transfer.utils.OSUtils object at 0x7f0b3e831490>, 'request_executor': <s3transfer.futures.BoundedExecutor object at 0x7f0b3e831fd0>, 'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f0b3e83c4d0>}
+12-03-2020 09:12:57 PM | DEBUG | Submitting task PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/policy_20201203_global_JNJ.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f0b3e831fd0> for transfer request: 0.
+12-03-2020 09:12:57 PM | DEBUG | Acquiring 0
+12-03-2020 09:12:57 PM | DEBUG | PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/policy_20201203_global_JNJ.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) about to wait for the following futures []
+12-03-2020 09:12:57 PM | DEBUG | Releasing acquire 0/None
+12-03-2020 09:12:57 PM | DEBUG | PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/policy_20201203_global_JNJ.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) done waiting for dependent futures
+12-03-2020 09:12:57 PM | DEBUG | Executing task PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/policy_20201203_global_JNJ.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) with kwargs {'client': <botocore.client.S3 object at 0x7f0b3e942c90>, 'fileobj': <s3transfer.utils.ReadFileChunk object at 0x7f0b3e83c710>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/policy_20201203_global_JNJ.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}
+12-03-2020 09:12:57 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function validate_ascii_metadata at 0x7f0b6968b320>
+12-03-2020 09:12:57 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function sse_md5 at 0x7f0b69683710>
+12-03-2020 09:12:57 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function convert_body_to_file_like_object at 0x7f0b6968bc20>
+12-03-2020 09:12:57 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function validate_bucket_name at 0x7f0b69683680>
+12-03-2020 09:12:57 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f0b3e94f390>>
+12-03-2020 09:12:57 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f0b5ac2bd10>>
+12-03-2020 09:12:57 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function generate_idempotent_uuid at 0x7f0b696834d0>
+12-03-2020 09:12:57 PM | DEBUG | Event before-call.s3.PutObject: calling handler <function conditionally_calculate_md5 at 0x7f0b697de170>
+12-03-2020 09:12:57 PM | DEBUG | Event before-call.s3.PutObject: calling handler <function add_expect_header at 0x7f0b696839e0>
+12-03-2020 09:12:57 PM | DEBUG | Adding expect 100 continue header to request.
+12-03-2020 09:12:57 PM | DEBUG | Event before-call.s3.PutObject: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f0b3e94f390>>
+12-03-2020 09:12:57 PM | DEBUG | Event before-call.s3.PutObject: calling handler <function inject_api_version_header_if_needed at 0x7f0b6968bd40>
+12-03-2020 09:12:57 PM | DEBUG | Making request for OperationModel(name=PutObject) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/policy_20201203_global_JNJ.csv', 'query_string': {}, 'method': 'PUT', 'headers': {'x-amz-server-side-encryption': 'AES256', 'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.203-156.332.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': 'gR2IWZby9lBlNanJ+sInyA==', 'Expect': '100-continue'}, 'body': <s3transfer.utils.ReadFileChunk object at 0x7f0b3e83c710>, 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/policy_20201203_global_JNJ.csv', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f0b3e942d50>, 'has_streaming_input': True, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+12-03-2020 09:12:57 PM | DEBUG | Event request-created.s3.PutObject: calling handler <function signal_not_transferring at 0x7f0b3e925a70>
+12-03-2020 09:12:57 PM | DEBUG | Event request-created.s3.PutObject: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f0b3e942cd0>>
+12-03-2020 09:12:57 PM | DEBUG | Event choose-signer.s3.PutObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f0b457dfc10>>
+12-03-2020 09:12:57 PM | DEBUG | Event choose-signer.s3.PutObject: calling handler <function set_operation_specific_signer at 0x7f0b696833b0>
+12-03-2020 09:12:57 PM | DEBUG | Event before-sign.s3.PutObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f0b3e831d10>>
+12-03-2020 09:12:57 PM | DEBUG | Defaulting to S3 virtual host style addressing with path style addressing fallback.
+12-03-2020 09:12:57 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/policy_20201203_global_JNJ.csv
+12-03-2020 09:12:57 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/policy_20201203_global_JNJ.csv
+12-03-2020 09:12:57 PM | DEBUG | Calculating signature using v4 auth.
+12-03-2020 09:12:57 PM | DEBUG | CanonicalRequest:
+PUT
+/mit_pred/policy_20201203_global_JNJ.csv
+
+content-md5:gR2IWZby9lBlNanJ+sInyA==
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:UNSIGNED-PAYLOAD
+x-amz-date:20201203T211257Z
+x-amz-server-side-encryption:AES256
+
+content-md5;host;x-amz-content-sha256;x-amz-date;x-amz-server-side-encryption
+UNSIGNED-PAYLOAD
+12-03-2020 09:12:57 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20201203T211257Z
+20201203/us-east-1/s3/aws4_request
+d851e3ca4e65e2d1f03543ea71b3be64ee8433471e1f385c90860c011050e464
+12-03-2020 09:12:57 PM | DEBUG | Signature:
+37c1c5d82c5fc3f078f56581abd83241102446a653996f46eee11d7d7962d31b
+12-03-2020 09:12:57 PM | DEBUG | Event request-created.s3.PutObject: calling handler <function signal_transferring at 0x7f0b3e8b4d40>
+12-03-2020 09:12:57 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/policy_20201203_global_JNJ.csv, headers={'x-amz-server-side-encryption': b'AES256', 'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.203-156.332.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': b'gR2IWZby9lBlNanJ+sInyA==', 'Expect': b'100-continue', 'X-Amz-Date': b'20201203T211257Z', 'X-Amz-Content-SHA256': b'UNSIGNED-PAYLOAD', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20201203/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date;x-amz-server-side-encryption, Signature=37c1c5d82c5fc3f078f56581abd83241102446a653996f46eee11d7d7962d31b', 'Content-Length': '14361'}>
+12-03-2020 09:12:57 PM | DEBUG | Starting new HTTPS connection (1): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+12-03-2020 09:12:57 PM | DEBUG | Waiting for 100 Continue response.
+12-03-2020 09:12:57 PM | DEBUG | 100 Continue response seen, now sending request body.
+12-03-2020 09:12:57 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "PUT /mit_pred/policy_20201203_global_JNJ.csv HTTP/1.1" 200 0
+12-03-2020 09:12:57 PM | DEBUG | Response headers: {'x-amz-id-2': '5asgslrF2Fxxi187JyT6F5XkS7aClzA5unwCT+wxKENFlHczj4uOhTak2KxUQXskVRFTi+vVh9Y=', 'x-amz-request-id': '2153FD1DF6F376A2', 'Date': 'Thu, 03 Dec 2020 21:12:58 GMT', 'x-amz-version-id': 'LQ9nvbJNkxN_hrxXqJYcn8ROYEd1OOn_', 'x-amz-server-side-encryption': 'AES256', 'ETag': '"811d885996f2f6506535a9c9fac227c8"', 'Content-Length': '0', 'Server': 'AmazonS3'}
+12-03-2020 09:12:57 PM | DEBUG | Response body:
+b''
+12-03-2020 09:12:57 PM | DEBUG | Event needs-retry.s3.PutObject: calling handler <botocore.retryhandler.RetryHandler object at 0x7f0b5ac2b9d0>
+12-03-2020 09:12:57 PM | DEBUG | No retry needed.
+12-03-2020 09:12:57 PM | DEBUG | Event needs-retry.s3.PutObject: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f0b3e94f390>>
+12-03-2020 09:12:57 PM | DEBUG | Releasing acquire 0/None
+12-03-2020 09:12:57 PM | INFO | Australia None
+12-03-2020 09:12:59 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=None
+12-03-2020 09:12:59 PM | INFO | --------------------------------------------------------------------------
+12-03-2020 09:12:59 PM | INFO | China None
+12-03-2020 09:13:00 PM | INFO | Finished predicting for Continent=Asia, Country=China and Province=None
+12-03-2020 09:13:00 PM | INFO | --------------------------------------------------------------------------
+12-03-2020 09:13:00 PM | INFO | Canada None
+12-03-2020 09:13:01 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=None
+12-03-2020 09:13:01 PM | INFO | --------------------------------------------------------------------------
+12-03-2020 09:13:01 PM | INFO | Taiwan None
+12-03-2020 09:13:03 PM | INFO | Finished predicting for Continent=Asia, Country=Taiwan and Province=None
+12-03-2020 09:13:03 PM | INFO | --------------------------------------------------------------------------
+12-03-2020 09:13:03 PM | INFO | US None
+12-03-2020 09:13:04 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=None
+12-03-2020 09:13:04 PM | INFO | --------------------------------------------------------------------------
+12-03-2020 09:13:04 PM | INFO | Exported all policy-dependent predictions for all countries for JJ in df_scenarios_provinces_j&j_V4_20201203_Global.csv
+12-03-2020 09:13:04 PM | DEBUG | Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f0b6965a4d0>
+12-03-2020 09:13:04 PM | DEBUG | Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x7f0b696ff050>
+12-03-2020 09:13:04 PM | DEBUG | Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x7f0b457dbd40>
+12-03-2020 09:13:04 PM | DEBUG | Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x7f0b69702dd0>
+12-03-2020 09:13:04 PM | DEBUG | Setting s3 timeout as (60, 60)
+12-03-2020 09:13:04 PM | DEBUG | Registering retry handlers for service: s3
+12-03-2020 09:13:04 PM | DEBUG | Acquiring 0
+12-03-2020 09:13:04 PM | DEBUG | UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f0b3e27f9d0>}) about to wait for the following futures []
+12-03-2020 09:13:04 PM | DEBUG | UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f0b3e27f9d0>}) done waiting for dependent futures
+12-03-2020 09:13:04 PM | DEBUG | Executing task UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f0b3e27f9d0>}) with kwargs {'client': <botocore.client.S3 object at 0x7f0b3e26b690>, 'config': <boto3.s3.transfer.TransferConfig object at 0x7f0b3e27f290>, 'osutil': <s3transfer.utils.OSUtils object at 0x7f0b3e27f210>, 'request_executor': <s3transfer.futures.BoundedExecutor object at 0x7f0b3e27f490>, 'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f0b3e27f9d0>}
+12-03-2020 09:13:04 PM | DEBUG | Submitting task PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_scenarios_provinces_j&j_V4_20201203_Global.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f0b3e27f490> for transfer request: 0.
+12-03-2020 09:13:04 PM | DEBUG | Acquiring 0
+12-03-2020 09:13:04 PM | DEBUG | PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_scenarios_provinces_j&j_V4_20201203_Global.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) about to wait for the following futures []
+12-03-2020 09:13:04 PM | DEBUG | Releasing acquire 0/None
+12-03-2020 09:13:04 PM | DEBUG | PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_scenarios_provinces_j&j_V4_20201203_Global.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) done waiting for dependent futures
+12-03-2020 09:13:04 PM | DEBUG | Executing task PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_scenarios_provinces_j&j_V4_20201203_Global.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) with kwargs {'client': <botocore.client.S3 object at 0x7f0b3e26b690>, 'fileobj': <s3transfer.utils.ReadFileChunk object at 0x7f0b3e27fcd0>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_scenarios_provinces_j&j_V4_20201203_Global.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}
+12-03-2020 09:13:04 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function validate_ascii_metadata at 0x7f0b6968b320>
+12-03-2020 09:13:04 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function sse_md5 at 0x7f0b69683710>
+12-03-2020 09:13:04 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function convert_body_to_file_like_object at 0x7f0b6968bc20>
+12-03-2020 09:13:04 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function validate_bucket_name at 0x7f0b69683680>
+12-03-2020 09:13:04 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f0b3e26bd10>>
+12-03-2020 09:13:04 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f0b3e26bad0>>
+12-03-2020 09:13:04 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function generate_idempotent_uuid at 0x7f0b696834d0>
+12-03-2020 09:13:04 PM | DEBUG | Event before-call.s3.PutObject: calling handler <function conditionally_calculate_md5 at 0x7f0b697de170>
+12-03-2020 09:13:04 PM | DEBUG | Event before-call.s3.PutObject: calling handler <function add_expect_header at 0x7f0b696839e0>
+12-03-2020 09:13:04 PM | DEBUG | Adding expect 100 continue header to request.
+12-03-2020 09:13:04 PM | DEBUG | Event before-call.s3.PutObject: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f0b3e26bd10>>
+12-03-2020 09:13:04 PM | DEBUG | Event before-call.s3.PutObject: calling handler <function inject_api_version_header_if_needed at 0x7f0b6968bd40>
+12-03-2020 09:13:04 PM | DEBUG | Making request for OperationModel(name=PutObject) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/df_scenarios_provinces_j%26j_V4_20201203_Global.csv', 'query_string': {}, 'method': 'PUT', 'headers': {'x-amz-server-side-encryption': 'AES256', 'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.203-156.332.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': 'cUMWqrVtDbG0T2TfZPx0wg==', 'Expect': '100-continue'}, 'body': <s3transfer.utils.ReadFileChunk object at 0x7f0b3e27fcd0>, 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_scenarios_provinces_j%26j_V4_20201203_Global.csv', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f0b3e26b810>, 'has_streaming_input': True, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+12-03-2020 09:13:04 PM | DEBUG | Event request-created.s3.PutObject: calling handler <function signal_not_transferring at 0x7f0b3e925a70>
+12-03-2020 09:13:04 PM | DEBUG | Event request-created.s3.PutObject: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f0b3e26b7d0>>
+12-03-2020 09:13:04 PM | DEBUG | Event choose-signer.s3.PutObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f0b3e333f10>>
+12-03-2020 09:13:04 PM | DEBUG | Event choose-signer.s3.PutObject: calling handler <function set_operation_specific_signer at 0x7f0b696833b0>
+12-03-2020 09:13:04 PM | DEBUG | Event before-sign.s3.PutObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f0b3e27f190>>
+12-03-2020 09:13:04 PM | DEBUG | Defaulting to S3 virtual host style addressing with path style addressing fallback.
+12-03-2020 09:13:04 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_scenarios_provinces_j%26j_V4_20201203_Global.csv
+12-03-2020 09:13:04 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_scenarios_provinces_j%26j_V4_20201203_Global.csv
+12-03-2020 09:13:04 PM | DEBUG | Calculating signature using v4 auth.
+12-03-2020 09:13:04 PM | DEBUG | CanonicalRequest:
+PUT
+/mit_pred/df_scenarios_provinces_j%26j_V4_20201203_Global.csv
+
+content-md5:cUMWqrVtDbG0T2TfZPx0wg==
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:UNSIGNED-PAYLOAD
+x-amz-date:20201203T211304Z
+x-amz-server-side-encryption:AES256
+
+content-md5;host;x-amz-content-sha256;x-amz-date;x-amz-server-side-encryption
+UNSIGNED-PAYLOAD
+12-03-2020 09:13:04 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20201203T211304Z
+20201203/us-east-1/s3/aws4_request
+b4a3fafe8f81634869e9d0979addbf089c6fc5c38309305b37e42700345e896c
+12-03-2020 09:13:04 PM | DEBUG | Signature:
+3cfed536a2e125d3e79280bdaa2e473fc5fa27511689b40dea9828edc359b488
+12-03-2020 09:13:04 PM | DEBUG | Event request-created.s3.PutObject: calling handler <function signal_transferring at 0x7f0b3e8b4d40>
+12-03-2020 09:13:04 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_scenarios_provinces_j%26j_V4_20201203_Global.csv, headers={'x-amz-server-side-encryption': b'AES256', 'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.203-156.332.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': b'cUMWqrVtDbG0T2TfZPx0wg==', 'Expect': b'100-continue', 'X-Amz-Date': b'20201203T211304Z', 'X-Amz-Content-SHA256': b'UNSIGNED-PAYLOAD', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20201203/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date;x-amz-server-side-encryption, Signature=3cfed536a2e125d3e79280bdaa2e473fc5fa27511689b40dea9828edc359b488', 'Content-Length': '5071988'}>
+12-03-2020 09:13:04 PM | DEBUG | Starting new HTTPS connection (1): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+12-03-2020 09:13:04 PM | DEBUG | Waiting for 100 Continue response.
+12-03-2020 09:13:04 PM | DEBUG | 100 Continue response seen, now sending request body.
+12-03-2020 09:13:05 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "PUT /mit_pred/df_scenarios_provinces_j%26j_V4_20201203_Global.csv HTTP/1.1" 200 0
+12-03-2020 09:13:05 PM | DEBUG | Response headers: {'x-amz-id-2': '5I4pCqnDGuG9lpLq5stK2F+JKu9Y03Nb5FmPiuq1OSuFxnsv4Tkyu1WcXtHA5S5aqekQT2xU+g4=', 'x-amz-request-id': '032B5ACA9730F5D8', 'Date': 'Thu, 03 Dec 2020 21:13:05 GMT', 'x-amz-version-id': 'vvmkMasYKXwMT2iWWAkMtBBuQO5NpL8M', 'x-amz-server-side-encryption': 'AES256', 'ETag': '"714316aab56d0db1b44f64df64fc74c2"', 'Content-Length': '0', 'Server': 'AmazonS3'}
+12-03-2020 09:13:05 PM | DEBUG | Response body:
+b''
+12-03-2020 09:13:05 PM | DEBUG | Event needs-retry.s3.PutObject: calling handler <botocore.retryhandler.RetryHandler object at 0x7f0b3e26bd50>
+12-03-2020 09:13:05 PM | DEBUG | No retry needed.
+12-03-2020 09:13:05 PM | DEBUG | Event needs-retry.s3.PutObject: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f0b3e26bd10>>
+12-03-2020 09:13:05 PM | DEBUG | Releasing acquire 0/None
