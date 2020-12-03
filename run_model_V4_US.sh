@@ -7,6 +7,7 @@ git config --global user.name "Server"
 git pull
 git add data_sandbox/predicted/parameters/*
 git add data_sandbox/predicted/policy_scenario_predictions/*
+git add logs/*
 git -c user.name='Server' -c user.email=ali@dynideas.com commit -m "US results"
 git push https://"$GIT_USER":"$GIT_PASS"@github.com/COVIDAnalytics/DELPHI.git --all
 

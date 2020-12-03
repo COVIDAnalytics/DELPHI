@@ -9,6 +9,7 @@ git add data_sandbox/processed/*
 git add data_sandbox/predicted/raw_predictions/*
 git add data_sandbox/predicted/parameters/*
 git add data_sandbox/predicted/policy_scenario_predictions/*
+git add logs/*
 git -c user.name='Server' -c user.email=ali@dynideas.com commit -m "Ex US results"
 git push https://"$GIT_USER":"$GIT_PASS"@github.com/COVIDAnalytics/DELPHI.git --all
 

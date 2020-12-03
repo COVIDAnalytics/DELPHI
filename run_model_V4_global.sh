@@ -16,6 +16,7 @@ git pull
 git add danger_map/processed/*
 git add danger_map/predicted/*
 git add data_sandbox/predicted/policy_scenario_predictions/*
+git add logs/*
 git -c user.name='Server' -c user.email=ali@dynideas.com commit -m "Global results"
 git push https://"$GIT_USER":"$GIT_PASS"@github.com/COVIDAnalytics/DELPHI.git --all
 

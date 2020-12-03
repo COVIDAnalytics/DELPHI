@@ -154,6 +154,7 @@ def solve_and_predict_area(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     print(f"starting to predict for {continent}, {country}, {province}")
+    logging.info(f"starting to predict for {continent}, {country}, {province}")
     file_name = get_single_case(TYPE_RUNNING,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,country_sub,province_sub)
     if os.path.exists(file_name):
         if current_parameters_ is not None:
@@ -166,12 +167,17 @@ def solve_and_predict_area(
                     f"Parameters already exist on day after {yesterday_} " +
                     f"Continent={continent}, Country={country} and Province={province}"
                 )
+                logging.info(
+                    f"Parameters already exist on day after {yesterday_} " +
+                    f"Continent={continent}, Country={country} and Province={province}"
+                )
                 return None
         totalcases = pd.read_csv(file_name)
         if totalcases.day_since100.max() < 0:
             print(
                 f"Not enough cases (less than 100) for Continent={continent}, Country={country} and Province={province}"
             )
+            logging.info(f"Not enough cases (less than 100) for Continent={continent}, Country={country} and Province={province}")
             return None
 
         if past_parameters_ is not None:
@@ -231,6 +237,9 @@ def solve_and_predict_area(
                 f"Not enough historical data (less than a week)"
                 + f"for Continent={continent}, Country={country} and Province={province}"
             )
+            logging.info(f"Not enough historical data (less than a week)"
+                         + f"for Continent={continent}, Country={country} and Province={province}"
+                         )
             return None
         else:
             PopulationT = popcountries[
@@ -392,6 +401,7 @@ def solve_and_predict_area(
                     residuals_totalcases, x0=parameter_list, bounds=bounds_params
                 )
             else:
+                logging.error("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
                 raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
 
             if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success):
@@ -455,11 +465,11 @@ def solve_and_predict_area(
                    )
                 else:
                     df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions()
-                print(
-                    f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
-                    + f"{round(time.time() - time_entering, 2)} seconds"
-                )
-                print("--------------------------------------------------------------------------------------------")
+                inf = f"Finished predicting for Continent={continent}, Country={country} and Province={province} in " +\
+                      f"{round(time.time() - time_entering, 2)} seconds\n" + \
+                      "--------------------------------------------------------------------------------------------"
+                print(inf)
+                logging.info(inf)
                 return (
                     df_parameters_area,
                     df_predictions_since_today_area,
@@ -472,10 +482,12 @@ def solve_and_predict_area(
         print(
             f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available"
         )
+        logging.info(f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available")
         return None
 
 def run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states):
     print(f"running for {current_time} optimizer {OPTIMIZER}")
+    logging.info(f"running for {current_time} optimizer {OPTIMIZER}")
     current_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_time,OPTIMIZER, False,TYPE_RUNNING)
     yesterday_date = current_time - timedelta(days=1)
     OPTIMIZER_tnc = "tnc"
@@ -505,6 +517,7 @@ def run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states):
     )
     n_cpu = psutil.cpu_count(logical = False)
     print(f"Number of CPUs found and used in this run: {n_cpu}")
+    logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
     list_tuples = [(
         r.continent,
         r.country,
@@ -512,6 +525,7 @@ def run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states):
         r.values[:16] if not pd.isna(r.S) else None
     ) for _, r in df_initial_states.iterrows()]
     print(f"Number of areas to be fitted in this run: {len(list_tuples)}")
+    logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(
                 pool.map_async(solve_and_predict_area_partial, list_tuples).get(),
@@ -532,6 +546,7 @@ def run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states):
             else:
                 continue
         print("Finished the Multiprocessing for all areas")
+        logging.info("Finished the Multiprocessing for all areas")
         pool.close()
         pool.join()
 
@@ -569,15 +584,15 @@ def run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states):
         delphi_data_saver.save_all_datasets(optimizer=OPTIMIZER, save_since_100_cases=SAVE_SINCE100_CASES,
                                             website=SAVE_TO_WEBSITE,current_time = current_time, TYPE_RUNNING= TYPE_RUNNING,
                                             PATH_TO_DATA_SANDBOX = PATH_TO_DATA_SANDBOX)
-        print(
-            f"Exported all 3 datasets to website & danger_map repositories, "
-            + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
-        )
+        inf =f"Exported all 3 datasets to website & danger_map repositories, " + \
+            f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
+        print(inf)
+        logging.info(inf)
     else:
-        print(
-            f"Nothing changed for, "
-            + f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
-        )
+        inf = f"Nothing changed for, " + \
+            f"total runtime was {round((time.time() - time_beginning)/60, 2)} minutes"
+        print(inf)
+        logging.info(inf)
 
 
 if __name__ == "__main__":
@@ -586,10 +601,10 @@ if __name__ == "__main__":
         os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
     current_time_str = str(datetime.now().strftime("%Y%m%d"))
     OPTIMIZER = "tnc"
-    print(
-        f"The user is {USER_RUNNING}, the chosen optimizer for this run is variable type {TYPE_RUNNING} and " +
-        f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
-    )
+    inf = f"The user is {USER_RUNNING}, the chosen optimizer for this run is variable type {TYPE_RUNNING} and " + \
+          f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
+    print(inf)
+    logging.info(inf)
     if TYPE_RUNNING == "global":
         popcountries = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
@@ -607,9 +622,12 @@ if __name__ == "__main__":
         prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
     # popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
     print(f"Start date: {training_start_date}, End date: {training_end_date}")
+    logging.info(f"Start date: {training_start_date}, End date: {training_end_date}")
 
     if not os.path.exists(prev_param_file):
-        logging.error(f"Initial model state {prev_param_file} file not found, can not train from {fitting_start_date}. Use model_V3 to train on entire data.")
+        inf = f"Initial model state {prev_param_file} file not found, can not train from {fitting_start_date}. Use model_V3 to train on entire data."
+        logging.error(inf)
+        print(inf)
         raise FileNotFoundError
     df_initial_states = pd.read_csv(prev_param_file)
     if TYPE_RUNNING == "ExUS":
