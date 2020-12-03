@@ -1640,8 +1640,8 @@ def runProcessData(date_files, logger, type_run):
         last_date = process_data(rawDF_ex_us_provinces,'county',True)
         last_date = process_data(rawDF_us_county,'county',True)
     else:
+        client = boto3.client('s3')
         if type_run == "US":
-            client = boto3.client('s3')
             file_path = f'gt_for_mit/{date_files}_county_data.csv'
             print(f"getting {file_path}")
             logger.info(f"getting {file_path}")
