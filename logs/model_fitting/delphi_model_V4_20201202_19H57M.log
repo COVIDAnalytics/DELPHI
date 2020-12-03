@@ -1,0 +1,219 @@
+12-03-2020 07:57:37 PM | INFO | The user is server, the chosen optimizer for this run is variable type ExUS and generation of Confidence Intervals' flag is False
+12-03-2020 07:57:37 PM | INFO | finished for state_province
+12-03-2020 07:57:37 PM | INFO |    last_date  count
+0 2020-12-02      4
+1 2020-11-13      1
+2 2020-12-01      1
+12-03-2020 07:57:37 PM | INFO | Start date: 2020-11-27 00:00:00, End date: 2020-12-02 00:00:00
+12-03-2020 07:57:37 PM | INFO | running for 2020-11-28 00:00:00 optimizer tnc
+12-03-2020 07:57:37 PM | INFO | Number of CPUs found and used in this run: 48
+12-03-2020 07:57:37 PM | INFO | Number of areas to be fitted in this run: 5
+12-03-2020 07:57:37 PM | INFO | starting to predict for Oceania, Australia, None
+12-03-2020 07:57:37 PM | INFO | starting to predict for Asia, China, None
+12-03-2020 07:57:37 PM | INFO | starting to predict for North America, Canada, None
+12-03-2020 07:57:37 PM | INFO | starting to predict for Asia, Taiwan, None
+12-03-2020 07:57:37 PM | INFO | starting to predict for North America, US, None
+12-03-2020 07:58:42 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'None'): 16.038 %
+12-03-2020 07:58:42 PM | DEBUG | Best fitted parameters for ('US', 'None'): [ 1.50000000e+00 -6.56923219e+01  1.55382023e+00  2.00000000e-02
+  2.18582346e-02  2.31768908e-02  2.25728107e+00  1.33442874e+00
+  7.10731823e-01  4.77017466e+00  1.18209087e+00  2.00000000e-01]
+12-03-2020 07:58:42 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=None in 64.34 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 07:58:44 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'None'): 1.756 %
+12-03-2020 07:58:44 PM | DEBUG | Best fitted parameters for ('Australia', 'None'): [  1.42630444 -16.9253147    1.36387144   0.0395782    0.05836904
+   0.33082675   3.0856969    2.84934858   0.           0.05338832
+   0.28859495   0.2       ]
+12-03-2020 07:58:44 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=None in 66.43 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 07:58:45 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'None'): 23.185 %
+12-03-2020 07:58:45 PM | DEBUG | Best fitted parameters for ('Canada', 'None'): [ 1.50000000e+00 -2.65534941e+01  1.00000000e+00  2.53786895e-01
+  1.09210686e-02  5.13852884e-02  6.89457980e-01  1.00000000e-03
+  0.00000000e+00  0.00000000e+00  2.54246952e+00  2.00000000e-01]
+12-03-2020 07:58:45 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=None in 67.89 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 07:58:49 PM | INFO | In-Sample MAPE Last 15 Days ('Taiwan', 'None'): 6.292 %
+12-03-2020 07:58:49 PM | DEBUG | Best fitted parameters for ('Taiwan', 'None'): [ 1.42685547 -0.82420997  1.          0.49408134  0.01        5.
+  0.97027313  0.12476212  0.          5.96186657  0.1         0.21842448]
+12-03-2020 07:58:49 PM | INFO | Finished predicting for Continent=Asia, Country=Taiwan and Province=None in 71.79 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 07:58:49 PM | INFO | In-Sample MAPE Last 15 Days ('China', 'None'): 1.025 %
+12-03-2020 07:58:49 PM | DEBUG | Best fitted parameters for ('China', 'None'): [ 1.09830838e+00 -1.04053531e+02  1.78708337e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  1.90871504e-01  1.00000000e-03
+  4.60274154e-01  5.24101929e+01  1.53751944e+01  2.00000000e-01]
+12-03-2020 07:58:49 PM | INFO | Finished predicting for Continent=Asia, Country=China and Province=None in 71.99 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 07:58:49 PM | INFO | Finished the Multiprocessing for all areas
+12-03-2020 07:58:49 PM | INFO | Exported all 3 datasets to website & danger_map repositories, total runtime was 1.2 minutes
+12-03-2020 07:58:49 PM | INFO | running for 2020-11-29 00:00:00 optimizer tnc
+12-03-2020 07:58:49 PM | INFO | Number of CPUs found and used in this run: 48
+12-03-2020 07:58:49 PM | INFO | Number of areas to be fitted in this run: 5
+12-03-2020 07:58:49 PM | INFO | starting to predict for Oceania, Australia, None
+12-03-2020 07:58:49 PM | INFO | starting to predict for Asia, China, None
+12-03-2020 07:58:49 PM | INFO | starting to predict for North America, Canada, None
+12-03-2020 07:58:49 PM | INFO | starting to predict for Asia, Taiwan, None
+12-03-2020 07:58:49 PM | INFO | starting to predict for North America, US, None
+12-03-2020 07:59:05 PM | INFO | In-Sample MAPE Last 15 Days ('Taiwan', 'None'): 5.165 %
+12-03-2020 07:59:05 PM | DEBUG | Best fitted parameters for ('Taiwan', 'None'): [ 1.60387676 -0.90814606  0.84159102  0.69408134  0.          4.41913731
+  0.77029197  0.01337136  0.01199357  5.93514357  1.          0.0553741 ]
+12-03-2020 07:59:05 PM | INFO | Finished predicting for Continent=Asia, Country=Taiwan and Province=None in 15.19 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 07:59:55 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'None'): 18.165 %
+12-03-2020 07:59:55 PM | DEBUG | Best fitted parameters for ('US', 'None'): [ 1.80000000e+00 -6.34391766e+01  1.24305618e+00  2.00000000e-02
+  1.96385270e-02  0.00000000e+00  1.95161221e+00  1.06754299e+00
+  9.10731823e-01  4.90152507e+00  1.41850904e+00  9.89155797e-02]
+12-03-2020 07:59:55 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=None in 66.04 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 07:59:57 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'None'): 1.461 %
+12-03-2020 07:59:57 PM | DEBUG | Best fitted parameters for ('Australia', 'None'): [  1.440897   -16.82451789   1.35520869   0.04705191   0.04825439
+   0.13639689   3.10502659   2.8418958    0.02506222   0.07560132
+   1.02271323   0.18585256]
+12-03-2020 07:59:57 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=None in 67.53 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:00:04 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'None'): 17.76 %
+12-03-2020 08:00:04 PM | DEBUG | Best fitted parameters for ('Canada', 'None'): [ 1.80000000e+00 -2.12427953e+01  8.00000000e-01  5.37868945e-02
+  2.04480030e-02  2.23755368e-01  4.92293634e-01  0.00000000e+00
+  5.63031391e-02  7.02902186e-04  2.75065670e+00  2.46059060e-02]
+12-03-2020 08:00:04 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=None in 74.78 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:00:11 PM | INFO | In-Sample MAPE Last 15 Days ('China', 'None'): 0.524 %
+12-03-2020 08:00:11 PM | DEBUG | Best fitted parameters for ('China', 'None'): [ 1.12163200e+00 -1.04190221e+02  1.45189854e+00  5.31242883e-02
+  5.57244606e-03  5.00413778e+00  1.76529931e-01  0.00000000e+00
+  4.11273406e-01  5.34859632e+01  1.60186052e+01  2.07734925e-01]
+12-03-2020 08:00:11 PM | INFO | Finished predicting for Continent=Asia, Country=China and Province=None in 81.12 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:00:11 PM | INFO | Finished the Multiprocessing for all areas
+12-03-2020 08:00:11 PM | INFO | Exported all 3 datasets to website & danger_map repositories, total runtime was 2.56 minutes
+12-03-2020 08:00:11 PM | INFO | running for 2020-11-30 00:00:00 optimizer tnc
+12-03-2020 08:00:11 PM | INFO | Number of CPUs found and used in this run: 48
+12-03-2020 08:00:11 PM | INFO | Number of areas to be fitted in this run: 5
+12-03-2020 08:00:11 PM | INFO | starting to predict for Oceania, Australia, None
+12-03-2020 08:00:11 PM | INFO | starting to predict for Asia, China, None
+12-03-2020 08:00:11 PM | INFO | starting to predict for North America, Canada, None
+12-03-2020 08:00:11 PM | INFO | starting to predict for Asia, Taiwan, None
+12-03-2020 08:00:11 PM | INFO | starting to predict for North America, US, None
+12-03-2020 08:01:09 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'None'): 4.102 %
+12-03-2020 08:01:09 PM | DEBUG | Best fitted parameters for ('Canada', 'None'): [ 2.16000000e+00 -1.69942362e+01  6.00000000e-01  2.00000000e-02
+  4.39226772e-02  1.61327889e-01  4.78165487e-01  2.60601031e-02
+  4.01671604e-02  5.20498580e-03  2.93569654e+00  1.53926591e-04]
+12-03-2020 08:01:09 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=None in 58.59 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:01:17 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'None'): 1.376 %
+12-03-2020 08:01:17 PM | DEBUG | Best fitted parameters for ('Australia', 'None'): [ 1.43928583e+00 -1.63624192e+01  1.36796861e+00  5.24542924e-02
+  4.19177086e-02  0.00000000e+00  3.11340057e+00  2.82889596e+00
+  1.08912213e-02  6.72151679e-02  1.01158870e+00  1.85283442e-01]
+12-03-2020 08:01:17 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=None in 66.66 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:01:19 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'None'): 14.896 %
+12-03-2020 08:01:19 PM | DEBUG | Best fitted parameters for ('US', 'None'): [ 2.16000000e+00 -5.07513413e+01  9.94444948e-01  2.00000000e-02
+  2.15264022e-02  1.17905524e-03  2.01813093e+00  1.07387364e+00
+  9.56917710e-01  5.88183009e+00  1.48502864e+00  2.12147276e-02]
+12-03-2020 08:01:19 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=None in 67.97 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:01:30 PM | INFO | In-Sample MAPE Last 15 Days ('China', 'None'): 0.484 %
+12-03-2020 08:01:30 PM | DEBUG | Best fitted parameters for ('China', 'None'): [ 1.12395109e+00 -1.04131169e+02  1.39497364e+00  2.36224904e-02
+  6.23473426e-03  4.84477877e+00  1.73161060e-01  0.00000000e+00
+  4.06117968e-01  5.35273819e+01  1.60651557e+01  2.07276219e-01]
+12-03-2020 08:01:30 PM | INFO | Finished predicting for Continent=Asia, Country=China and Province=None in 78.73 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:01:37 PM | INFO | In-Sample MAPE Last 15 Days ('Taiwan', 'None'): 2.265 %
+12-03-2020 08:01:37 PM | DEBUG | Best fitted parameters for ('Taiwan', 'None'): [ 1.83336822e+00 -9.34724554e-01  6.41591020e-01  7.14062300e-01
+  0.00000000e+00  4.65761110e+00  5.70291968e-01  2.02179550e-01
+  5.33356369e-02  5.96281300e+00  1.00357432e+00  1.20820019e-03]
+12-03-2020 08:01:37 PM | INFO | Finished predicting for Continent=Asia, Country=Taiwan and Province=None in 86.09 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:01:37 PM | INFO | Finished the Multiprocessing for all areas
+12-03-2020 08:01:37 PM | INFO | Exported all 3 datasets to website & danger_map repositories, total runtime was 4.0 minutes
+12-03-2020 08:01:37 PM | INFO | running for 2020-12-01 00:00:00 optimizer tnc
+12-03-2020 08:01:37 PM | INFO | Number of CPUs found and used in this run: 48
+12-03-2020 08:01:37 PM | INFO | Number of areas to be fitted in this run: 5
+12-03-2020 08:01:37 PM | INFO | starting to predict for Oceania, Australia, None
+12-03-2020 08:01:37 PM | INFO | starting to predict for Asia, China, None
+12-03-2020 08:01:37 PM | INFO | starting to predict for North America, Canada, None
+12-03-2020 08:01:37 PM | INFO | starting to predict for Asia, Taiwan, None
+12-03-2020 08:01:37 PM | INFO | starting to predict for North America, US, None
+12-03-2020 08:01:56 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'None'): 1.406 %
+12-03-2020 08:01:56 PM | DEBUG | Best fitted parameters for ('Australia', 'None'): [ 1.43647020e+00 -1.62329532e+01  1.37539713e+00  5.17960828e-02
+  4.19535161e-02  0.00000000e+00  3.11868001e+00  2.82732841e+00
+  1.18186785e-02  6.75513013e-02  1.01181860e+00  1.86707404e-01]
+12-03-2020 08:01:56 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=None in 18.38 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:02:03 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'None'): 1.413 %
+12-03-2020 08:02:03 PM | DEBUG | Best fitted parameters for ('Canada', 'None'): [ 2.23192731e+00 -1.69245295e+01  5.43913985e-01  2.29101057e-02
+  4.69119119e-02  1.60555966e-01  4.78399866e-01  2.62704793e-02
+  4.02132308e-02  5.20540661e-03  2.93571446e+00  3.01215602e-05]
+12-03-2020 08:02:03 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=None in 25.83 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:02:33 PM | INFO | In-Sample MAPE Last 15 Days ('China', 'None'): 0.502 %
+12-03-2020 08:02:33 PM | DEBUG | Best fitted parameters for ('China', 'None'): [ 1.12408411e+00 -1.03888120e+02  1.39405941e+00  2.00001234e-02
+  6.51714331e-03  4.85126363e+00  1.73298816e-01  0.00000000e+00
+  4.05002181e-01  5.35715280e+01  1.60894458e+01  2.07513764e-01]
+12-03-2020 08:02:33 PM | INFO | Finished predicting for Continent=Asia, Country=China and Province=None in 55.91 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:02:46 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'None'): 10.229 %
+12-03-2020 08:02:46 PM | DEBUG | Best fitted parameters for ('US', 'None'): [ 2.59200000e+00 -4.62639034e+01  7.94444948e-01  1.32493469e-01
+  2.02481076e-02  1.11034474e-01  2.06332155e+00  1.10945983e+00
+  1.07218545e+00  5.77186612e+00  1.50032308e+00  1.24976231e-03]
+12-03-2020 08:02:46 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=None in 69.11 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:02:53 PM | INFO | In-Sample MAPE Last 15 Days ('Taiwan', 'None'): 2.21 %
+12-03-2020 08:02:53 PM | DEBUG | Best fitted parameters for ('Taiwan', 'None'): [ 1.46669458e+00 -1.13472455e+00  4.97076210e-01  5.14062300e-01
+  0.00000000e+00  3.72608888e+00  5.67318132e-01  2.06382351e-01
+  6.07955948e-02  5.82406609e+00  1.04081201e+00  3.53987743e-03]
+12-03-2020 08:02:53 PM | INFO | Finished predicting for Continent=Asia, Country=Taiwan and Province=None in 76.11 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:02:53 PM | INFO | Finished the Multiprocessing for all areas
+12-03-2020 08:02:53 PM | INFO | Exported all 3 datasets to website & danger_map repositories, total runtime was 5.27 minutes
+12-03-2020 08:02:53 PM | INFO | running for 2020-12-02 00:00:00 optimizer annealing
+12-03-2020 08:02:53 PM | INFO | Number of CPUs found and used in this run: 48
+12-03-2020 08:02:53 PM | INFO | Number of areas to be fitted in this run: 5
+12-03-2020 08:02:53 PM | INFO | starting to predict for Oceania, Australia, None
+12-03-2020 08:02:53 PM | INFO | starting to predict for Asia, China, None
+12-03-2020 08:02:53 PM | INFO | starting to predict for North America, Canada, None
+12-03-2020 08:02:53 PM | INFO | starting to predict for Asia, Taiwan, None
+12-03-2020 08:02:53 PM | INFO | starting to predict for North America, US, None
+12-03-2020 08:08:21 PM | INFO | In-Sample MAPE Last 15 Days ('Taiwan', 'None'): 0.61 %
+12-03-2020 08:08:21 PM | DEBUG | Best fitted parameters for ('Taiwan', 'None'): [ 0.40331631 -0.26427587  0.          0.02        0.          0.
+  0.35192026  1.20638235  0.          8.18407169  1.          1.00353988]
+12-03-2020 08:08:21 PM | INFO | Finished predicting for Continent=Asia, Country=Taiwan and Province=None in 327.6 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:09:02 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'None'): 1.373 %
+12-03-2020 08:09:02 PM | DEBUG | Best fitted parameters for ('Australia', 'None'): [ 1.9080498  -2.93771311  2.75079426  0.05338212  0.04251838  0.
+  5.83485053  4.93294311  1.00506854  0.81884667  1.79081255  0.01556616]
+12-03-2020 08:09:02 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=None in 368.89 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:09:43 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'None'): 2.872 %
+12-03-2020 08:09:43 PM | DEBUG | Best fitted parameters for ('US', 'None'): [ 4.05754342e-01 -9.18251900e+01  0.00000000e+00  1.71562516e-01
+  3.35163884e-02  3.79790389e-01  5.77662788e-02  2.18137936e+00
+  1.99339045e+00  0.00000000e+00  1.00000000e+00  2.41963178e-02]
+12-03-2020 08:09:43 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=None in 409.8 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:16:08 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'None'): 1.244 %
+12-03-2020 08:16:08 PM | DEBUG | Best fitted parameters for ('Canada', 'None'): [ 2.19258093e+00 -1.75073941e+01  5.22857660e-01  2.94468068e-02
+  5.06297435e-02  2.27871993e-01  5.17470715e-01  6.53212110e-02
+  7.95485778e-02  2.87595989e-01  3.14710364e+00  2.10626599e-05]
+12-03-2020 08:16:08 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=None in 794.06 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:18:28 PM | INFO | In-Sample MAPE Last 15 Days ('China', 'None'): 0.173 %
+12-03-2020 08:18:28 PM | DEBUG | Best fitted parameters for ('China', 'None'): [ 1.16366260e+00 -1.28115110e+02  3.32272310e-01  4.74770748e-02
+  1.62855568e-02  2.93471978e-01  7.66964686e-01  4.02116978e-09
+  2.35433283e-01  1.07143056e+02  1.90386687e+01  2.35079667e-02]
+12-03-2020 08:18:28 PM | INFO | Finished predicting for Continent=Asia, Country=China and Province=None in 934.94 seconds
+--------------------------------------------------------------------------------------------
+12-03-2020 08:18:28 PM | INFO | Finished the Multiprocessing for all areas
+12-03-2020 08:18:29 PM | INFO | Exported all 3 datasets to website & danger_map repositories, total runtime was 20.86 minutes
+12-03-2020 08:18:43 PM | INFO | Australia None
+12-03-2020 08:18:45 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=None
+12-03-2020 08:18:45 PM | INFO | --------------------------------------------------------------------------
+12-03-2020 08:18:45 PM | INFO | China None
+12-03-2020 08:18:46 PM | INFO | Finished predicting for Continent=Asia, Country=China and Province=None
+12-03-2020 08:18:46 PM | INFO | --------------------------------------------------------------------------
+12-03-2020 08:18:46 PM | INFO | Canada None
+12-03-2020 08:18:47 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=None
+12-03-2020 08:18:47 PM | INFO | --------------------------------------------------------------------------
+12-03-2020 08:18:47 PM | INFO | Taiwan None
+12-03-2020 08:18:48 PM | INFO | Finished predicting for Continent=Asia, Country=Taiwan and Province=None
+12-03-2020 08:18:48 PM | INFO | --------------------------------------------------------------------------
+12-03-2020 08:18:48 PM | INFO | US None
+12-03-2020 08:18:49 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=None
+12-03-2020 08:18:49 PM | INFO | --------------------------------------------------------------------------
+12-03-2020 08:18:49 PM | INFO | Exported all policy-dependent predictions for all countries for JJ in df_scenarios_provinces_j&j_V4_20201203_Ex_US.csv
