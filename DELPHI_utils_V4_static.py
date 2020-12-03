@@ -2072,3 +2072,16 @@ def get_single_case(TYPE_RUNNING,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,
     else:
         file_name = PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"
     return file_name
+
+
+def get_start_date(last_date_ex,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,OPTIMIZER,TYPE_RUNNING):
+    date_to_start =  last_date_ex - timedelta(days=10)
+    for d in range(0,10):
+        d = last_date_ex - timedelta(days=d)
+        current_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,d,OPTIMIZER, False,TYPE_RUNNING)
+        if current_parameters is not None:
+            date_to_start = d
+            break
+    return date_to_start
+
+

@@ -16,7 +16,7 @@ from tqdm import tqdm
 from scipy.optimize import dual_annealing
 from DELPHI_utils_V4_static import (
     DELPHIAggregations, DELPHIDataSaver, DELPHIDataCreator, get_initial_conditions,
-    get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value,get_past_parameters,get_single_case
+    get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value,get_past_parameters,get_single_case,get_start_date
 )
 from DELPHI_utils_V4_dynamic import get_bounds_params_from_pastparams
 from DELPHI_utils_V3 import runProcessData
@@ -90,7 +90,7 @@ if arguments.type is not None:
     if arguments.input_date is not None:
         INPUT_DATE = arguments.input_date
     else:
-        INPUT_DATE = "".join(str(datetime.now().strftime("%m%d%y")))
+        INPUT_DATE = str(datetime.now().strftime("%m%d%y"))
 else:
     TYPE_RUNNING = "global"
 logger_filename = (
@@ -585,6 +585,7 @@ if __name__ == "__main__":
     if not os.path.exists(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/"):
         os.mkdir(CONFIG_FILEPATHS["logs"][USER_RUNNING] + "model_fitting/")
     current_time_str = str(datetime.now().strftime("%Y%m%d"))
+    OPTIMIZER = "tnc"
     print(
         f"The user is {USER_RUNNING}, the chosen optimizer for this run is variable type {TYPE_RUNNING} and " +
         f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
@@ -601,10 +602,11 @@ if __name__ == "__main__":
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )
         last_date_c , last_date_ex = runProcessData(INPUT_DATE)
-        training_start_date = datetime(2020, 11, 20)
+        training_start_date = get_start_date(last_date_c,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,OPTIMIZER,TYPE_RUNNING)
         training_end_date = last_date_c
         prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
     # popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
+    print(f"Start date: {training_start_date}, End date: {training_end_date}")
 
     if not os.path.exists(prev_param_file):
         logging.error(f"Initial model state {prev_param_file} file not found, can not train from {fitting_start_date}. Use model_V3 to train on entire data.")
@@ -614,7 +616,6 @@ if __name__ == "__main__":
         df_initial_states = df_initial_states[df_initial_states.country != 'US']
     elif TYPE_RUNNING == "US":
         df_initial_states = df_initial_states[df_initial_states.country == 'US']
-    OPTIMIZER = "tnc"
     n_days_to_train = (training_end_date - training_start_date).days
     for n_days_after in range(min(1,n_days_to_train), max(n_days_to_train + 1,1)):
         if n_days_after == n_days_to_train:

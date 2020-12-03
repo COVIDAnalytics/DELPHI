@@ -530,7 +530,7 @@ def run_model_additional_states(country_lists,provinces_lists, popcountries):
 if __name__ == '__main__':
     USER = os.getenv('USER')
     USER_RUNNING = "ali" if USER == 'ali' else 'server'
-    date_files = "112920"
+    date_files =str(datetime.now().strftime("%m%d%y")) # "112920"
     replace_deathcounts = ['Bourgogne-Franche-Comte',
                            'Brittany', 'Corsica','Pays_de_la_Loire' ,'Hauts-de-France', 'Grand_Est',
                            'La_Rioja', 'Mendoza','Entre_Rios' ]
