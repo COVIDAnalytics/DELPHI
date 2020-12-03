@@ -19,7 +19,7 @@ from DELPHI_utils_V4_static import (
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value,get_past_parameters,get_single_case,get_start_date
 )
 from DELPHI_utils_V4_dynamic import get_bounds_params_from_pastparams
-from DELPHI_utils_V3 import runProcessData
+from utils.DELPHI_utils_V3 import runProcessData
 from DELPHI_params_V4 import (
     fitting_start_date,
     default_parameter_list,

@@ -9,7 +9,7 @@ import time
 from functools import partial
 from tqdm import tqdm_notebook as tqdm
 from scipy.optimize import dual_annealing
-from DELPHI_utils_V3 import (
+from utils.DELPHI_utils_V3 import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
 )
 from DELPHI_params_V3 import (

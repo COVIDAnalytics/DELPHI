@@ -18,7 +18,7 @@ from DELPHI_utils_V3_static import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
-from DELPHI_utils_V3 import runProcessData
+from utils.DELPHI_utils_V3 import runProcessData
 from DELPHI_params_V3 import (
     default_parameter_list,
     dict_default_reinit_parameters,
