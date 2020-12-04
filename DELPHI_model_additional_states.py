@@ -534,7 +534,7 @@ if __name__ == '__main__':
     replace_deathcounts = ['Bourgogne-Franche-Comte',
                            'Brittany', 'Corsica','Pays_de_la_Loire' ,'Hauts-de-France', 'Grand_Est',
                            'La_Rioja', 'Mendoza','Entre_Rios' ]
-    # last_date_c , last_date_ex = runProcessData(date_files)
+    last_date_c = runProcessData(date_files)
     PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
     PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 

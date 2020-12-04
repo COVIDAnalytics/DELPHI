@@ -2085,3 +2085,23 @@ def get_start_date(last_date_ex,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,O
     return date_to_start
 
 
+def save_replace_param_jnj(list_df_global_parameters,future_params_already_saved,
+                           replace_already_existing_par):
+
+    if len(list_df_global_parameters) > 0:
+        if future_params_already_saved is not None:
+            if replace_already_existing_par == True:
+                df_global_parameters_dataframe = pd.concat(list_df_global_parameters).reset_index(drop=True)
+                for ind, row in df_global_parameters_dataframe.iterrows():
+                    future_params_already_saved = future_params_already_saved[ ((future_params_already_saved.Country == row.Country) &
+                                                                                (future_params_already_saved.Province == row.Province)) == False ]
+                    future_params_already_saved = future_params_already_saved.append(row)
+                df_global_parameters = future_params_already_saved.sort_values(["Continent", "Country", "Province"]).reset_index(drop=True)
+            else:
+                df_global_parameters = pd.concat([future_params_already_saved] + list_df_global_parameters).reset_index(drop=True)
+        else:
+            df_global_parameters = pd.concat(list_df_global_parameters).reset_index(drop=True)
+        return df_global_parameters
+    else:
+        print(f"Nothing changed for ")
+        return None

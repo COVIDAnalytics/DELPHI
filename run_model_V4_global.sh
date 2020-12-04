@@ -8,7 +8,7 @@ cd ..
 'cp' -rf covid19orc/danger_map/processed/* /repos/DELPHI/danger_map/processed/
 'cp' -rf covid19orc/danger_map/predicted/* /repos/DELPHI/danger_map/predicted/
 rm -rf covid19orc;cd ..;cd /repos/DELPHI
-#python archive/V3\ Model/DELPHI_model_V3_predict_additional_state.py -d "2020-07-01" -t 'global'
+#python DELPHI_model_V3_predict_additional_state.py -d "2020-07-01" -t 'global'
 
 python DELPHI_model_V4_additional_states.py -rc run_configs/annealing-run-config.yml -t 'global'
 

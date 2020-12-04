@@ -16,7 +16,8 @@ from tqdm import tqdm
 from scipy.optimize import dual_annealing
 from DELPHI_utils_V4_static import (
     DELPHIAggregations, DELPHIDataSaver, DELPHIDataCreator, get_initial_conditions,
-    get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value,get_past_parameters,get_single_case,get_start_date
+    get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value,get_past_parameters,get_single_case,get_start_date,
+    save_replace_param_jnj
 )
 from DELPHI_utils_V4_dynamic import get_bounds_params_from_pastparams
 from utils.DELPHI_utils_V3 import runProcessData
@@ -563,9 +564,7 @@ def run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states):
     # Appending parameters, aggregations per country, per continent, and for the world
     # for predictions today & since 100
     if len(list_df_global_parameters) > 0:
-        df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
-            ["Country", "Province"]
-        ).reset_index(drop=True)
+        df_global_parameters = save_replace_param_jnj(list_df_global_parameters,current_parameters,replace_already_existing_par)
         df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
         df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
             df_global_predictions_since_today
