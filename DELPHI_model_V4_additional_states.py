@@ -164,8 +164,6 @@ def solve_and_predict_area(
     continent, country, province, initial_state = tuple_area_state_
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    print(f"starting to predict for {continent}, {country}, {province}")
-    logging.info(f"starting to predict for {continent}, {country}, {province}")
     file_name = get_single_case(TYPE_RUNNING,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,country_sub,province_sub)
     if os.path.exists(file_name):
         if current_parameters_ is not None:
@@ -183,6 +181,8 @@ def solve_and_predict_area(
                     f"Continent={continent}, Country={country} and Province={province}"
                 )
                 return None
+        print(f"starting to predict for {continent}, {country}, {province}")
+        logging.info(f"starting to predict for {continent}, {country}, {province}")
         totalcases = pd.read_csv(file_name)
         if totalcases.day_since100.max() < 0:
             print(
@@ -626,7 +626,7 @@ if __name__ == "__main__":
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )
         last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING,GLOBAL_JJ)
-        training_start_date = get_start_date(last_date_c,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,OPTIMIZER,TYPE_RUNNING)
+        training_start_date = last_date_c - timedelta(days=10) # get_start_date(last_date_c,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,OPTIMIZER,TYPE_RUNNING)
         training_end_date = last_date_c
         prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
     # popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
