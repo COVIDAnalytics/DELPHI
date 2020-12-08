@@ -159,12 +159,12 @@ def solve_and_predict_area(
             validcases = totalcases[
                 (totalcases.date >= str(start_date))
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
-            ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+            ][["day_since100", "case_cnt", "death_cnt", "total_hospitalization"]].reset_index(drop=True)
         else:
             validcases = totalcases[
                 (totalcases.day_since100 >= 0)
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
-            ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+            ][["day_since100", "case_cnt", "death_cnt","total_hospitalization"]].reset_index(drop=True)
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
             logging.warning(
@@ -204,7 +204,7 @@ def solve_and_predict_area(
             """
             maxT = (default_maxT - start_date).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
-            balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
+            balance_deaths, balance_hospitalizations, cases_data_fit, deaths_data_fit, hospitalizations_data_fit = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_v)
 
             def model_covid(
@@ -311,10 +311,12 @@ def solve_and_predict_area(
                 if x_sol_total.status == 0:
                     residuals_value = get_residuals_value(
                         optimizer=OPTIMIZER,
-                        balance=balance,
+                        balance_deaths=balance_deaths,
+                        balance_hospitalizations=balance_hospitalizations,
                         x_sol=x_sol,
                         cases_data_fit=cases_data_fit,
                         deaths_data_fit=deaths_data_fit,
+                        hospitalizations_data_fit=hospitalizations_data_fit, 
                         weights=weights
                     )
                 else:
@@ -391,14 +393,15 @@ def solve_and_predict_area(
                 df_parameters_area = data_creator.create_dataset_parameters(mape_data)
                 # Creating the datasets for predictions of this area
                 if GET_CONFIDENCE_INTERVALS:
-                   df_predictions_since_today_area, df_predictions_since_100_area = (
-                       data_creator.create_datasets_with_confidence_intervals(
-                           cases_data_fit, deaths_data_fit,
-                           past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv",
-                           past_prediction_date=str(pd.to_datetime(past_prediction_date).date()))
-                   )
+                    ValueError("Not Implemented")
+#                   df_predictions_since_today_area, df_predictions_since_100_area = (
+#                       data_creator.create_datasets_with_confidence_intervals(
+#                           cases_data_fit, deaths_data_fit,
+#                           past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv",
+#                           past_prediction_date=str(pd.to_datetime(past_prediction_date).date()))
+#                   )
                 else:
-                    df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions()
+                    df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions_corrected(cases = cases_data_fit, deaths = deaths_data_fit, hospitalizations = hospitalizations_data_fit)
                 logging.info(
                     f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
                     + f"{round(time.time() - time_entering, 2)} seconds"
@@ -510,20 +513,7 @@ if __name__ == "__main__":
         ["Country", "Province"]
     ).reset_index(drop=True)
     df_global_predictions_since_today = pd.concat(list_df_global_predictions_since_today)
-    df_global_predictions_since_today = DELPHIAggregations.append_all_aggregations(
-        df_global_predictions_since_today
-    )
     df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-    if GET_CONFIDENCE_INTERVALS:
-        df_global_predictions_since_today, df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
-            df_global_predictions_since_100_cases,
-            past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv",
-            past_prediction_date=str(pd.to_datetime(past_prediction_date).date())
-        )
-    else:
-        df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations(
-            df_global_predictions_since_100_cases
-        )
 
     logger = logging.getLogger("V4Logger")
     delphi_data_saver = DELPHIDataSaver(
