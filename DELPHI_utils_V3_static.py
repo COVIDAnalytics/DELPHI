@@ -70,25 +70,27 @@ class DELPHIBacktestSensitivity:
         has to be YYYY-MM-DD (it is asserted outside of this function)
         :return: a dataframe that contains the relevant predictions on the relevant prediction date
         """
+        pred_date_str = "".join(self.prediction_date.split("-"))
         if os.path.exists(
             self.prediction_data_path +
-            f"Global_V2_since100_20201030_param_pert_{self.param_perturbed}_datepred_{self.prediction_date}.csv"
+            f"Global_V2_annealing_since100_20201111_param_pert_{self.param_perturbed}_datepred_{pred_date_str}.csv"
         ):
             self.logger.info("Backtesting on DELPHI V3.0 predictions because filename contains _V2")
             df_prediction = pd.read_csv(
                 self.prediction_data_path +
-                f"Global_V2_since100_20201030_param_pert_{self.param_perturbed}_datepred_{self.prediction_date}.csv"
+                f"Global_V2_annealing_since100_20201111_param_pert_{self.param_perturbed}_datepred_{pred_date_str}.csv"
             )
-        elif os.path.exists(
-            self.prediction_data_path +
-            f"Global_V2_since100_20201031_param_pert_{self.param_perturbed}_datepred_{self.prediction_date}.csv"
-        ):
-            self.logger.info("Backtesting on DELPHI V1.0 or V2.0 predictions because filename doesn't contain _V2")
-            df_prediction = pd.read_csv(
-                self.prediction_data_path +
-                f"Global_V2_since100_20201031_param_pert_{self.param_perturbed}_datepred_{self.prediction_date}.csv"
-            )
+        #elif os.path.exists(
+        #    self.prediction_data_path +
+        #    f"Global_V2_since100_20201031_param_pert_{self.param_perturbed}_datepred_{self.prediction_date}.csv"
+        #):
+        #    self.logger.info("Backtesting on DELPHI V1.0 or V2.0 predictions because filename doesn't contain _V2")
+        #    df_prediction = pd.read_csv(
+        #        self.prediction_data_path +
+        #        f"Global_V2_since100_20201031_param_pert_{self.param_perturbed}_datepred_{self.prediction_date}.csv"
+        #    )
         else:
+            self.logger.error(f"The file on prediction date {self.prediction_date} has never been generated")
             raise ValueError(f"The file on prediction date {self.prediction_date} has never been generated")
 
         df_prediction = df_prediction[
