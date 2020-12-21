@@ -32,9 +32,11 @@ default_parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3, 0.1, 30, 30, 10, 0.2] # Defa
 
 start_date = pd.to_datetime("2020-07-01")
 default_maxT = pd.to_datetime("2021-03-01")
-start_state_file = "I://DELPHI//data_sandbox//predicted//raw_predictions//Predicted_model_state_V3_2020-07-01.csv"
-ct_prediction_file = "I://covid19orc//danger_map//predicted//Parameters_Global_CT_annealing_20201130.csv"
-raw_data = pd.read_excel("MIT Census.xlsx")
+start_state_file = "E://Github//DELPHI//data_sandbox//predicted//raw_predictions//Predicted_model_state_V3_2020-07-01.csv"
+ct_prediction_file = "E://Github//covid19orc//danger_map//predicted//Parameters_Global_CT_annealing_20201130.csv"
+past_parameters_file = "HHC_Prediction_Parameters_20201202.csv"
+past_parameters = pd.read_csv(past_parameters_file)
+raw_data = pd.read_excel("MIT Census.xlsx",engine='openpyxl')
 locations = raw_data.LOC_NAME.unique()
 list_ct_output = []
 list_ct_parameters_output = []
@@ -56,10 +58,80 @@ for location in locations:
         location_abbr = "Windham"
     elif "Charlotte" in location:
         location_abbr = "CHH"
-    elif "St.Vincent" in location:
+    elif "St. Vincent's" in location:
         location_abbr = "St.V's"  
     else:
         continue
+    print(f"Predicting for {location_abbr}")
+    try:
+        past_parameters_line = list(past_parameters[past_parameters.Hospital == location_abbr].iloc[0][3:].values)
+    except:
+        past_parameters_line = None
+    if past_parameters_line is None:
+        parameter_list = default_parameter_list
+        bounds_params = default_bounds_params
+    else:
+        parameter_list = past_parameters_line
+        alpha, days, r_s, r_dth, p_dth, k1, k2, jump, t_jump, std_normal, t_rh, p_d = parameter_list
+        parameter_list = [
+            max(alpha, 0),
+            days,
+            max(r_s, 0),
+            max(min(r_dth, 1), 0.01),
+            max(min(p_dth, 1), 0),
+            max(k1, 0),
+            max(k2, 0),
+            max(jump, 0),
+            max(t_jump, 0),
+            max(std_normal, 1),
+            max(t_rh, 0),
+            min(max(p_d, 0.01),1)
+        ]
+        param_list_lower = [
+            x - max(0.8 * abs(x), 0.8) for x in
+            parameter_list
+        ]
+        (
+            alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower,
+            k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower, t_rh_lower, p_d_lower
+        ) = param_list_lower
+        param_list_lower = [
+            max(alpha_lower, 0),
+            days_lower,
+            max(r_s_lower, 0),
+            max(min(r_dth_lower, 1), 0.01),
+            max(min(p_dth_lower, 1), 0),
+            max(k1_lower, 0),
+            max(k2_lower, 0),
+            max(jump_lower, 0),
+            max(t_jump_lower, 0),
+            max(std_normal_lower, 1),
+            max(t_rh_lower, 0),
+            min(max(p_d_lower, 0.01),1)
+        ]
+        param_list_upper = [
+            x + max(0.8 * abs(x), 0.8) for x in
+            parameter_list
+        ]
+        (
+            alpha_upper, days_upper, r_s_upper, r_dth_upper, p_dth_upper, 
+            k1_upper, k2_upper, jump_upper, t_jump_upper, std_normal_upper, t_rh_upper, p_d_upper
+        ) = param_list_upper
+        param_list_upper = [
+            max(alpha_upper, 0),
+            days_upper,
+            max(r_s_upper, 0),
+            max(min(r_dth_upper, 1), 0.01),
+            max(min(p_dth_upper, 1), 0),
+            max(k1_upper, 0),
+            max(k2_upper, 0),
+            max(jump_upper, 0),
+            max(t_jump_upper, 0),
+            max(std_normal_upper, 1),
+            max(t_rh_upper, 0),
+            min(max(p_d_upper, 0.01),1)
+        ]
+        bounds_params = [(lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)]
     N = pop_connecticut_areas[location_abbr]
     starting_state = pd.read_csv(start_state_file)
     PopulationR = starting_state[(starting_state.country == "US") & (starting_state.province == "Connecticut")].R.values.item() * N/ pop_connecticut
@@ -120,7 +192,7 @@ for location in locations:
             max(t_jump, 0),
             max(std_normal, 1),
             max(t_rh, 0),
-            max(p_d, 0.01)
+            min(max(p_d, 0.01),1)
         )
         alpha, days, r_s, r_dth, p_dth, k1, k2, jump, t_jump, std_normal, t_rh, p_d = params
     
@@ -164,7 +236,7 @@ for location in locations:
             residuals_value = 1e16
         return residuals_value
     output = dual_annealing(
-        residuals_totalcases, x0=default_parameter_list, bounds=default_bounds_params
+        residuals_totalcases, x0=parameter_list, bounds=bounds_params
     )
     best_params = output.x
     t_predictions = [i for i in range(maxT)]
@@ -184,7 +256,7 @@ for location in locations:
         max(t_jump, 0),
         max(std_normal, 1),
         max(t_rh, 0),
-        max(p_d, 0.01)
+        min(max(p_d, 0.01),1)
     )
         S_0 = (N
             - (PopulationCI / p_h) * (k1 + k2 + 1 / p_d)
