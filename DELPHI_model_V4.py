@@ -398,7 +398,7 @@ def solve_and_predict_area(
                    df_predictions_since_today_area, df_predictions_since_100_area = (
                        data_creator.create_datasets_with_confidence_intervals(
                            cases_data_fit, deaths_data_fit,
-                           past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv",
+                           past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V4_{past_prediction_date}.csv",
                            past_prediction_date=str(pd.to_datetime(past_prediction_date).date()))
                    )
                 else:
@@ -525,7 +525,7 @@ if __name__ == "__main__":
     if GET_CONFIDENCE_INTERVALS:
         df_global_predictions_since_today, df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
             df_global_predictions_since_100_cases,
-            past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V2_{past_prediction_date}.csv",
+            past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V4_{past_prediction_date}.csv",
             past_prediction_date=str(pd.to_datetime(past_prediction_date).date())
         )
     else:

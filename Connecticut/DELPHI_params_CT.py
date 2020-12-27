@@ -7,15 +7,15 @@ fitting_start_date = "2020-07-01" # date to start model fitting from. prediction
 default_parameter_list = [1, 0, 2, 0.2, 0.05, 0.2, 3, 3, 0.1, 3, 1, 1, 0.05, 10] # Default parameters for the solver
 dict_default_reinit_parameters = {
     "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0, "r_dthdecay": 0,
-    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0, "p_h" :0, "t_rh": 0 
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0, "p_h" :0, "t_rh": 1 
 }  # Allows for reinitialization of parameters in case they reach a value that is too low/high
 dict_default_reinit_lower_bounds = {
     "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0, "r_dthdecay": 0,
-    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0, "p_h" :0, "t_rh": 0 
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0, "p_h" :0, "t_rh": 1 
 }  # Allows for reinitialization of lower bounds in case they reach a value that is too low
 dict_default_reinit_upper_bounds = {
     "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0, "r_dthdecay": 0,
-    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0, "p_h" :0, "t_rh": 0 
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0, "p_h" :0, "t_rh": 1 
 }  # Allows for reinitialization of upper bounds in case they reach a value that is too high
 default_upper_bound = 0.2
 percentage_drift_upper_bound = 0.2
@@ -44,7 +44,7 @@ RecoverID = 10
 RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
-default_maxT = datetime(2021, 1, 15)  # Maximum timespan of prediction
+default_maxT = datetime(2021, 3, 15)  # Maximum timespan of prediction
 n_params_without_policy_params = 7  # alpha, r_dth, p_dth, a, b, k1, k2
 p_v = 0.25  # Percentage of ventilated
 p_d = 0.2  # Percentage of infection cases detected.

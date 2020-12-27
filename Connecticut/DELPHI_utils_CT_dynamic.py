@@ -43,7 +43,7 @@ def get_bounds_params_from_pastparams(
     """
     if optimizer in ["tnc", "trust-constr"]:
         # Allowing a drift for parameters
-        alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = parameter_list
+        alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3, p_h, t_rh = parameter_list
         parameter_list = [
             max(alpha, dict_default_reinit_parameters["alpha"]),
             days,
@@ -57,11 +57,13 @@ def get_bounds_params_from_pastparams(
             max(t_jump, dict_default_reinit_parameters["t_jump"]),
             max(std_normal, dict_default_reinit_parameters["std_normal"]),
             max(k3, dict_default_reinit_parameters["k3"]),
+            max(p_h, dict_default_reinit_parameters["p_h"]),
+            max(t_rh, dict_default_reinit_parameters["t_rh"])
         ]
         param_list_lower = [x - max(percentage_drift_lower_bound * abs(x), default_lower_bound) for x in parameter_list]
         (
             alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower, r_dthdecay_lower,
-            k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower, k3_lower
+            k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower, k3_lower, p_h_lower, t_rh_lower
         ) = param_list_lower
         param_list_lower = [
             max(alpha_lower, dict_default_reinit_lower_bounds["alpha"]),
@@ -76,13 +78,15 @@ def get_bounds_params_from_pastparams(
             max(t_jump_lower, dict_default_reinit_lower_bounds["t_jump"]),
             max(std_normal_lower, dict_default_reinit_lower_bounds["std_normal"]),
             max(k3_lower, dict_default_reinit_lower_bounds["k3"]),
+            max(p_h_lower, dict_default_reinit_lower_bounds["p_h"]),
+            max(t_rh_lower, dict_default_reinit_lower_bounds["t_rh"])
         ]
         param_list_upper = [
             x + max(percentage_drift_upper_bound * abs(x), default_upper_bound) for x in parameter_list
         ]
         (
             alpha_upper, days_upper, r_s_upper, r_dth_upper, p_dth_upper, r_dthdecay_upper,
-            k1_upper, k2_upper, jump_upper, t_jump_upper, std_normal_upper, k3_upper
+            k1_upper, k2_upper, jump_upper, t_jump_upper, std_normal_upper, k3_upper, p_h_upper, t_rh_upper
         ) = param_list_upper
         param_list_upper = [
             max(alpha_upper, dict_default_reinit_upper_bounds["alpha"]),
@@ -97,9 +101,11 @@ def get_bounds_params_from_pastparams(
             max(t_jump_upper, dict_default_reinit_upper_bounds["t_jump"]),
             max(std_normal_upper, dict_default_reinit_upper_bounds["std_normal"]),
             max(k3_upper, dict_default_reinit_upper_bounds["k3"]),
+            max(p_h_upper, dict_default_reinit_upper_bounds["p_h"]),
+            max(t_rh_upper, dict_default_reinit_upper_bounds["t_rh"])
         ]
     elif optimizer == "annealing":  # Annealing procedure for global optimization
-        alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = parameter_list
+        alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 , p_h, t_rh = parameter_list
         parameter_list = [
             max(alpha, dict_default_reinit_parameters["alpha"]),
             days,
@@ -113,6 +119,8 @@ def get_bounds_params_from_pastparams(
             max(t_jump, dict_default_reinit_parameters["t_jump"]),
             max(std_normal, dict_default_reinit_parameters["std_normal"]),
             max(k3, dict_default_reinit_parameters["k3"]),
+            max(p_h, dict_default_reinit_parameters["p_h"]),
+            max(t_rh, dict_default_reinit_parameters["t_rh"])
         ]
         param_list_lower = [
             x - max(percentage_drift_lower_bound_annealing * abs(x), default_lower_bound_annealing) for x in
@@ -120,7 +128,7 @@ def get_bounds_params_from_pastparams(
         ]
         (
             alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower, r_dthdecay_lower,
-            k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower, k3_lower
+            k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower, k3_lower, p_h_lower, t_rh_lower
         ) = param_list_lower
         param_list_lower = [
             max(alpha_lower, dict_default_reinit_lower_bounds["alpha"]),
@@ -135,6 +143,8 @@ def get_bounds_params_from_pastparams(
             max(t_jump_lower, dict_default_reinit_lower_bounds["t_jump"]),
             max(std_normal_lower, dict_default_reinit_lower_bounds["std_normal"]),
             max(k3_lower, dict_default_reinit_lower_bounds["k3"]),
+            max(p_h_lower, dict_default_reinit_lower_bounds["p_h"]),
+            max(t_rh_lower, dict_default_reinit_lower_bounds["t_rh"])
         ]
         param_list_upper = [
             x + max(percentage_drift_upper_bound_annealing * abs(x), default_upper_bound_annealing) for x in
@@ -142,7 +152,7 @@ def get_bounds_params_from_pastparams(
         ]
         (
             alpha_upper, days_upper, r_s_upper, r_dth_upper, p_dth_upper, r_dthdecay_upper,
-            k1_upper, k2_upper, jump_upper, t_jump_upper, std_normal_upper, k3_upper
+            k1_upper, k2_upper, jump_upper, t_jump_upper, std_normal_upper, k3_upper, p_h_upper, t_rh_upper
         ) = param_list_upper
         param_list_upper = [
             max(alpha_upper, dict_default_reinit_upper_bounds["alpha"]),
@@ -157,6 +167,8 @@ def get_bounds_params_from_pastparams(
             max(t_jump_upper, dict_default_reinit_upper_bounds["t_jump"]),
             max(std_normal_upper, dict_default_reinit_upper_bounds["std_normal"]),
             max(k3_upper, dict_default_reinit_upper_bounds["k3"]),
+            max(p_h_upper, dict_default_reinit_upper_bounds["p_h"]),
+            max(t_rh_upper, dict_default_reinit_upper_bounds["t_rh"])
         ]
 #        param_list_lower[8] = default_lower_bound_jump  # jump lower bound
 #        param_list_upper[8] = default_upper_bound_jump  # jump upper bound
