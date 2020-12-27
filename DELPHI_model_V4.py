@@ -143,7 +143,6 @@ def solve_and_predict_area(
                     default_lower_bound_std_normal=default_lower_bound_std_normal,
                     default_upper_bound_std_normal=default_upper_bound_std_normal,
                 )
-                parameter_list[9] = parameter_list[9] - 92
                 start_date = pd.to_datetime(parameter_list_line[3])
                 bounds_params = tuple(bounds_params)
             else:
@@ -158,7 +157,14 @@ def solve_and_predict_area(
             start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
         if startT is not None:
-            start_date = max(pd.to_datetime(startT), start_date)
+            input_start_date = pd.to_datetime(startT)
+            if input_start_date > start_date:
+                delta_days = (input_start_date - start_date).days
+                parameter_list[9] = parameter_list[9] - delta_days
+                bounds_params_list = list(bounds_params)
+                bounds_params_list[9] = (bounds_params_list[9][0]-delta_days, bounds_params_list[9][1]-delta_days)
+                bounds_params = tuple(bounds_params_list)
+                start_date = input_start_date
             validcases = totalcases[
                 (totalcases.date >= str(start_date))
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
@@ -209,11 +215,6 @@ def solve_and_predict_area(
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
-
-            bounds_params_list = list(bounds_params)
-            bounds_params_list[5] = (-0.2, bounds_params_list[5][1])
-            bounds_params_list[9] = (bounds_params_list[9][0]-92, bounds_params_list[9][1]-92)
-            bounds_params = tuple(bounds_params_list)
 
             def model_covid(
                 t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3
@@ -459,6 +460,7 @@ if __name__ == "__main__":
             PATH_TO_FOLDER_DANGER_MAP
             + f"predicted/Parameters_Global_V4_{yesterday}.csv"
         )
+        print(PATH_TO_FOLDER_DANGER_MAP+ f"predicted/Parameters_Global_V4_{yesterday}.csv")
     except:
         past_parameters = None
 
@@ -484,7 +486,7 @@ if __name__ == "__main__":
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
 
-    list_tuples = [t for t in list_tuples if t[1] in ["Germany"]]
+    # list_tuples = [t for t in list_tuples if t[1] in ["Germany"]]
     # , "Poland", "Belgium", "France", "Greece"]]
 
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
