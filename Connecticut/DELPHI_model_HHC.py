@@ -34,7 +34,7 @@ start_date = pd.to_datetime("2020-07-01")
 default_maxT = pd.to_datetime("2021-03-01")
 start_state_file = "E://Github//DELPHI//data_sandbox//predicted//raw_predictions//Predicted_model_state_V3_2020-07-01.csv"
 ct_prediction_file = "E://Github//covid19orc//danger_map//predicted//Parameters_Global_CT_annealing_20201130.csv"
-past_parameters_file = "HHC_Prediction_Parameters_20201202.csv"
+past_parameters_file = "HHC_Prediction_Parameters_20201222.csv"
 past_parameters = pd.read_csv(past_parameters_file)
 raw_data = pd.read_excel("MIT Census.xlsx",engine='openpyxl')
 locations = raw_data.LOC_NAME.unique()
@@ -84,7 +84,7 @@ for location in locations:
             max(jump, 0),
             max(t_jump, 0),
             max(std_normal, 1),
-            max(t_rh, 0),
+            max(t_rh,3),
             min(max(p_d, 0.01),1)
         ]
         param_list_lower = [
@@ -106,7 +106,7 @@ for location in locations:
             max(jump_lower, 0),
             max(t_jump_lower, 0),
             max(std_normal_lower, 1),
-            max(t_rh_lower, 0),
+            max(t_rh_lower, 3),
             min(max(p_d_lower, 0.01),1)
         ]
         param_list_upper = [
@@ -128,7 +128,7 @@ for location in locations:
             max(jump_upper, 0),
             max(t_jump_upper, 0),
             max(std_normal_upper, 1),
-            max(t_rh_upper, 0),
+            max(t_rh_upper, 3),
             min(max(p_d_upper, 0.01),1)
         ]
         bounds_params = [(lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)]
@@ -191,7 +191,7 @@ for location in locations:
             max(jump, 0),
             max(t_jump, 0),
             max(std_normal, 1),
-            max(t_rh, 0),
+            max(t_rh, 3),
             min(max(p_d, 0.01),1)
         )
         alpha, days, r_s, r_dth, p_dth, k1, k2, jump, t_jump, std_normal, t_rh, p_d = params
@@ -255,7 +255,7 @@ for location in locations:
         max(jump, 0),
         max(t_jump, 0),
         max(std_normal, 1),
-        max(t_rh, 0),
+        max(t_rh, 3),
         min(max(p_d, 0.01),1)
     )
         S_0 = (N
