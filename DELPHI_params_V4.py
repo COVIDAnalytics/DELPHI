@@ -6,16 +6,16 @@ date_MATHEMATICA = "2020-05-07"  # Transition date from Mathematica to Python
 fitting_start_date = "2020-10-01" # date to start model fitting from. predictions of all model states on this date are needed
 default_parameter_list = [1, 0, 2, 0.2, 0.05, 0.2, 3, 3, 0.1, 3, 1, 1] # Default parameters for the solver
 dict_default_reinit_parameters = {
-    "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0, "r_dthdecay": 0,
-    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0,
+    "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0.001, "r_dthdecay": -0.2,
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": -100, "std_normal": 1, "k3": 0,
 }  # Allows for reinitialization of parameters in case they reach a value that is too low/high
 dict_default_reinit_lower_bounds = {
-    "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0, "r_dthdecay": -0.2,
+    "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0.001, "r_dthdecay": -0.2,
     "k1": 0, "k2": 0, "jump": 0, "t_jump": -100, "std_normal": 1, "k3": 0,
 }  # Allows for reinitialization of lower bounds in case they reach a value that is too low
 dict_default_reinit_upper_bounds = {
-    "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0, "r_dthdecay": 0,
-    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0,
+    "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0.001, "r_dthdecay": -0.2,
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": -100, "std_normal": 1, "k3": 0,
 }  # Allows for reinitialization of upper bounds in case they reach a value that is too high
 default_upper_bound = 0.2
 percentage_drift_upper_bound = 0.2
