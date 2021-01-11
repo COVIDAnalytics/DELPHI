@@ -345,3 +345,6 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-12-30,US,CA_Fresno_County,271,65149,646,,,,,,
 2020-12-31,US,CA_Fresno_County,272,65400,646,,,,,,
 2021-01-01,US,CA_Fresno_County,273,66442,646,,,,,,
+2021-01-02,US,CA_Fresno_County,274,67484,711,,,,,,
+2021-01-03,US,CA_Fresno_County,275,68740,711,,,,,,
+2021-01-04,US,CA_Fresno_County,276,69318,711,,,,,,

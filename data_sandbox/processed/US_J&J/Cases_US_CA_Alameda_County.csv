@@ -344,4 +344,7 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-12-29,US,CA_Alameda_County,282,50405,625,,,,,,
 2020-12-30,US,CA_Alameda_County,283,50946,625,,,,,,
 2020-12-31,US,CA_Alameda_County,284,51430,625,,,,,,
-2021-01-01,US,CA_Alameda_County,285,52475,657,,,,,,
+2021-01-01,US,CA_Alameda_County,285,52475,656,,,,,,
+2021-01-02,US,CA_Alameda_County,286,53518,656,,,,,,
+2021-01-03,US,CA_Alameda_County,287,54518,656,,,,,,
+2021-01-04,US,CA_Alameda_County,288,55073,656,,,,,,

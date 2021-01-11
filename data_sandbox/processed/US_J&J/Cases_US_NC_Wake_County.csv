@@ -345,3 +345,6 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-12-30,US,NC_Wake_County,278,42951,345,,,,,,
 2020-12-31,US,NC_Wake_County,279,44059,345,,,,,,
 2021-01-01,US,NC_Wake_County,280,44059,345,,,,,,
+2021-01-02,US,NC_Wake_County,281,44954,348,,,,,,
+2021-01-03,US,NC_Wake_County,282,45725,348,,,,,,
+2021-01-04,US,NC_Wake_County,283,46288,348,,,,,,

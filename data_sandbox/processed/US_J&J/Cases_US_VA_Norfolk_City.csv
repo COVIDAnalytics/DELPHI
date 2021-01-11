@@ -344,4 +344,7 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-12-29,US,VA_Norfolk_City,257,8609,105,,,,,,
 2020-12-30,US,VA_Norfolk_City,258,8697,105,,,,,,
 2020-12-31,US,VA_Norfolk_City,259,8849,107,,,,,,
-2021-01-01,US,VA_Norfolk_City,260,8978,108,,,,,,
+2021-01-01,US,VA_Norfolk_City,260,8975,108,,,,,,
+2021-01-02,US,VA_Norfolk_City,261,8975,109,,,,,,
+2021-01-03,US,VA_Norfolk_City,262,9077,109,,,,,,
+2021-01-04,US,VA_Norfolk_City,263,9169,109,,,,,,

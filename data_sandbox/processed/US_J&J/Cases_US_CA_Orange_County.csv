@@ -345,3 +345,6 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-12-30,US,CA_Orange_County,282,154411,1847,,,,,,
 2020-12-31,US,CA_Orange_County,283,156611,1874,,,,,,
 2021-01-01,US,CA_Orange_County,284,161586,1875,,,,,,
+2021-01-02,US,CA_Orange_County,285,165440,1875,,,,,,
+2021-01-03,US,CA_Orange_County,286,168457,1901,,,,,,
+2021-01-04,US,CA_Orange_County,287,169874,1901,,,,,,

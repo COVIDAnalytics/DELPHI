@@ -345,3 +345,6 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-12-30,US,TX_Smith_County,260,12613,259,,,,,,
 2020-12-31,US,TX_Smith_County,261,12748,261,,,,,,
 2021-01-01,US,TX_Smith_County,262,12843,267,,,,,,
+2021-01-02,US,TX_Smith_County,263,12843,269,,,,,,
+2021-01-03,US,TX_Smith_County,264,12843,269,,,,,,
+2021-01-04,US,TX_Smith_County,265,12843,269,,,,,,

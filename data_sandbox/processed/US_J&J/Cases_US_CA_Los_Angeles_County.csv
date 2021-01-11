@@ -345,3 +345,6 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-12-30,US,CA_Los_Angeles_County,288,731907,9782,,,,,,
 2020-12-31,US,CA_Los_Angeles_County,289,741627,10056,,,,,,
 2021-01-01,US,CA_Los_Angeles_County,290,755844,10345,,,,,,
+2021-01-02,US,CA_Los_Angeles_County,291,775578,10552,,,,,,
+2021-01-03,US,CA_Los_Angeles_County,292,791892,10682,,,,,,
+2021-01-04,US,CA_Los_Angeles_County,293,803532,10773,,,,,,

@@ -345,3 +345,6 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-12-30,US,FL_Lee_County,277,40169,673,,,,,,
 2020-12-31,US,FL_Lee_County,278,40635,673,,,,,,
 2021-01-01,US,FL_Lee_County,279,40635,673,,,,,,
+2021-01-02,US,FL_Lee_County,280,41313,675,,,,,,
+2021-01-03,US,FL_Lee_County,281,41916,675,,,,,,
+2021-01-04,US,FL_Lee_County,282,42368,680,,,,,,

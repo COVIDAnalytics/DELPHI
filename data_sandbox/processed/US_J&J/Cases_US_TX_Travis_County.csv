@@ -345,3 +345,6 @@ date,country,province,day_since100,case_cnt,death_cnt,new_hospitalization,total_
 2020-12-30,US,TX_Travis_County,280,49648,534,,,,,,
 2020-12-31,US,TX_Travis_County,281,50194,538,,,,,,
 2021-01-01,US,TX_Travis_County,282,50595,545,,,,,,
+2021-01-02,US,TX_Travis_County,283,50595,547,,,,,,
+2021-01-03,US,TX_Travis_County,284,51558,551,,,,,,
+2021-01-04,US,TX_Travis_County,285,51956,551,,,,,,
