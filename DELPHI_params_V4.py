@@ -35,6 +35,8 @@ percentage_drift_lower_bound_annealing = 1
 default_lower_bound_annealing = 1
 default_lower_bound_jump = 0
 default_upper_bound_jump = 5
+default_lower_bound_t_jump = -100
+default_upper_bound_t_jump = 300
 default_lower_bound_std_normal = 1
 default_upper_bound_std_normal = 200
 

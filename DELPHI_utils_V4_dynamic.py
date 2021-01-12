@@ -16,7 +16,7 @@ def get_bounds_params_from_pastparams(
         default_upper_bound: float, dict_default_reinit_upper_bounds: dict,
         percentage_drift_lower_bound_annealing: float, default_lower_bound_annealing: float,
         percentage_drift_upper_bound_annealing: float, default_upper_bound_annealing: float,
-        default_lower_bound_jump: float, default_upper_bound_jump: float, default_lower_bound_std_normal: float,
+        default_lower_bound_t_jump: float, default_upper_bound_t_jump: float, default_lower_bound_std_normal: float,
         default_upper_bound_std_normal: float,
 ) -> list:
     """
@@ -158,8 +158,8 @@ def get_bounds_params_from_pastparams(
             max(std_normal_upper, dict_default_reinit_upper_bounds["std_normal"]),
             max(k3_upper, dict_default_reinit_upper_bounds["k3"]),
         ]
-#        param_list_lower[8] = default_lower_bound_jump  # jump lower bound
-#        param_list_upper[8] = default_upper_bound_jump  # jump upper bound
+        param_list_lower[9] = default_lower_bound_t_jump  # jump lower bound
+        param_list_upper[9] = default_upper_bound_t_jump  # jump upper bound
 #        param_list_lower[10] = default_lower_bound_std_normal  # std_normal lower bound
 #        param_list_upper[10] = default_upper_bound_std_normal  # std_normal upper bound
     else:
