@@ -30,8 +30,9 @@ with open("config.yml", "r") as ymlfile:
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 
 def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX,
-                               current_time,upload_to_s3,TYPE_RUNNING,OPTIMIZER,popcountries,df_initial_states,logging,GLOBAL_JJ):
-    today = "".join(str(current_time.date()).split("-"))
+                               current_time,upload_to_s3,TYPE_RUNNING,OPTIMIZER,popcountries,df_initial_states,logging,
+                               GLOBAL_JJ,run7days_before):
+
     path_to_output_file = 'data_sandbox/predicted/policy_scenario_predictions/'
     yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
     # GET_CONFIDENCE_INTERVALS = bool(int(RUN_CONFIG["arguments"]["confidence_intervals"]))
@@ -370,6 +371,8 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
             file_name =  f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_US.csv'
         elif GLOBAL_JJ == 'true':
             file_name = f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_Global.csv'
+        elif run7days_before == 'true' and TYPE_RUNNING == "ExUS":
+            file_name = f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_Ex_US_OneWeekAgo.csv'
         else:
             file_name = f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_Ex_US.csv'
 

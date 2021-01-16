@@ -2056,13 +2056,13 @@ def get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_t
     today = "".join(str(current_time.date()).split("-"))
     file_name = get_param_file_name(OPTIMIZER,TYPE_RUNNING,today,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX)
     if not os.path.exists(file_name):
-        print(f"file name {file_name} does not exist")
+        print(f"Parameters {file_name} does not exist")
         if raiseErr:
             raise ValueError("file does not exist")
         else:
             return None
     else:
-        print(f"file name {file_name} used to check")
+        print(f"Parameters {file_name} exist")
         fileDF = pd.read_csv(file_name)
         return fileDF
 

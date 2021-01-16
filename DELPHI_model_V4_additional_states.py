@@ -59,7 +59,7 @@ with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 time_beginning = time.time()
-yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
+
 yesterday_logs_filename = "".join(
     (str(datetime.now().date() - timedelta(days=1)) + f"_{datetime.now().hour}H{datetime.now().minute}M").split("-")
 )
@@ -80,6 +80,10 @@ parser.add_argument(
 parser.add_argument(
     '--global_JNJ', '-g', type=str, required=False,
     help="send true if you want to run 'Australia', 'China', 'Canada', 'Taiwan', 'USA' for JNJ"
+)
+parser.add_argument(
+    '--run7days_before_JNJ', '-weekago', type=str, required=False,
+    help="to run the model using the parameters of seven days ago: true as an input. false or skip means otherwise."
 )
 
 arguments = parser.parse_args()
@@ -104,6 +108,11 @@ if arguments.global_JNJ is not None:
 else:
     GLOBAL_JJ = 'false'
 
+if arguments.run7days_before_JNJ is not None:
+    run7days_before = arguments.run7days_before_JNJ
+else:
+    run7days_before = 'false'
+
 logger_filename = (
         CONFIG_FILEPATHS["logs"][USER_RUNNING] +
         f"model_fitting/delphi_model_V4_{yesterday_logs_filename}.log"
@@ -123,7 +132,7 @@ PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
 past_prediction_date = "".join(str(datetime.now().date() - timedelta(days=14)).split("-"))
-replace_already_existing_par = False
+replace_already_existing_par = run7days_before == 'true'
 #############################################################################################################
 
 def check_cumulative_cases(input_table):
@@ -497,12 +506,14 @@ def solve_and_predict_area(
         return None
 
 def run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states):
-    print(f"running for {current_time} optimizer {OPTIMIZER}")
-    logging.info(f"running for {current_time} optimizer {OPTIMIZER}")
+    str_print = f"running for {current_time} optimizer {OPTIMIZER} replace_already_existing_par {replace_already_existing_par}"
+    print(str_print)
+    logging.info(str_print)
     current_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_time,OPTIMIZER, False,TYPE_RUNNING)
     yesterday_date = current_time - timedelta(days=1)
+    yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
     OPTIMIZER_tnc = "tnc"
-    if TYPE_RUNNING == "global":
+    if TYPE_RUNNING == "global" or OPTIMIZER == "tnc":
         past_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,yesterday_date,OPTIMIZER_tnc, False,TYPE_RUNNING)
     else:
         past_parameters_annealing = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,yesterday_date,OPTIMIZER, False,TYPE_RUNNING)
@@ -627,9 +638,9 @@ if __name__ == "__main__":
         )
         last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING,GLOBAL_JJ)
         training_start_date = last_date_c - timedelta(days=10) # get_start_date(last_date_c,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,OPTIMIZER,TYPE_RUNNING)
-        training_end_date = last_date_c
+        training_end_date = datetime.now().date() - timedelta(days=7) if run7days_before == 'true' else last_date_c
         prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
-    # popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
+
     print(f"Start date: {training_start_date}, End date: {training_end_date}")
     logging.info(f"Start date: {training_start_date}, End date: {training_end_date}")
 
@@ -655,4 +666,4 @@ if __name__ == "__main__":
 
     upload_to_s3 = True
     run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_TO_DATA_SANDBOX, training_end_date,upload_to_s3,TYPE_RUNNING,
-                               OPTIMIZER,popcountries,df_initial_states,logging,GLOBAL_JJ)
+                               OPTIMIZER,popcountries,df_initial_states,logging,GLOBAL_JJ,run7days_before)
