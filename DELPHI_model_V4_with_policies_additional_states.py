@@ -131,6 +131,7 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
                 continue
             print(country + " " + province)
             logging.info(country + " " + province)
+            totalcases = totalcases[totalcases.date <= str(current_time.date())]
             if past_parameters is not None:
                 parameter_list_total = past_parameters[
                     (past_parameters.Country == country) &
