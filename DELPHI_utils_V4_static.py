@@ -1916,13 +1916,17 @@ def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, x_sol_fin
     but otherwise the number of days available in the historical data)
     """
     if len(cases_data_fit) > 15:  # In which case we can compute MAPE on last 15 days
+        x_sol_final_len = x_sol_final.shape[1]
+        min_len_fit_case_sol = min(x_sol_final_len,len(cases_data_fit))
+        min_len_fit_death_sol = min(x_sol_final_len,len(deaths_data_fit))
+
         mape_data = (
                 compute_mape(
                     cases_data_fit[-15:],
-                    x_sol_final[15, len(cases_data_fit) - 15: len(cases_data_fit)],
+                    x_sol_final[15, min_len_fit_case_sol- 15:min_len_fit_case_sol],
                 ) + compute_mape(
                     deaths_data_fit[-15:],
-                    x_sol_final[14, len(deaths_data_fit) - 15: len(deaths_data_fit)],
+                    x_sol_final[14, min_len_fit_death_sol-15: min_len_fit_death_sol],
                 )
         ) / 2
     else:  # We take MAPE on all available previous days (less than 15)
