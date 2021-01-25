@@ -1,0 +1,552 @@
+01-25-2021 04:50:23 PM | INFO | The user is server, the chosen optimizer for this run is variable type US and generation of Confidence Intervals' flag is False
+01-25-2021 04:50:36 PM | INFO | finished for county
+01-25-2021 04:50:36 PM | INFO |    last_date  count
+0 2021-01-22    650
+1 2020-11-13      1
+01-25-2021 04:50:36 PM | INFO | Start date: 2021-01-12 00:00:00, End date: 2021-01-22 00:00:00
+01-25-2021 04:50:36 PM | INFO | running for 2021-01-13 00:00:00 optimizer tnc replace_already_existing_par False
+01-25-2021 04:50:36 PM | INFO | Number of CPUs found and used in this run: 48
+01-25-2021 04:50:36 PM | INFO | Number of areas to be fitted in this run: 104
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CT_Tolland_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CT_Windham_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=DE_Kent_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CT_Middlesex_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CT_New_Haven_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CT_New_London_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=DE_Sussex_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CT_Fairfield_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CT_Hartford_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CT_Litchfield_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=DE_New_Castle_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Ventura_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Monterey_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Tuolumne_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Yolo_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Trinity_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Solano_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Santa_Clara_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Sonoma_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Tulare_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Shasta_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Santa_Barbara_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Santa_Cruz_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Sacramento_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_San_Diego_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Riverside_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_San_Mateo_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_San_Luis_Obispo_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_San_Bernardino_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_San_Benito_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Placer_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Lake_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Merced_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Napa_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Orange_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_San_Joaquin_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_San_Francisco_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Kings_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Los_Angeles_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Marin_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Madera_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Kern_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Atlantic_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Bergen_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Burlington_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Middlesex_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Camden_County
+01-25-2021 04:50:36 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Cumberland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Cape_May_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Gloucester_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Imperial_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Hudson_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Hunterdon_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Albany_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Essex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_El_Dorado_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Mercer_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Salem_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Somerset_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Sussex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Union_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Morris_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Warren_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Fresno_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Monmouth_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Queens_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Rensselaer_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Richmond_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Dutchess_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Erie_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Jefferson_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Contra_Costa_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Madison_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Ontario_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Monroe_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Cortland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Nassau_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Niagara_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Oneida_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Onondaga_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Kings_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_New_York_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Chemung_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Chautauqua_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Broome_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Rockland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Amador_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Saratoga_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Schenectady_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Oswego_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_St._Lawrence_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Suffolk_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Tompkins_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Ulster_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Westchester_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Alameda_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Steuben_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Bronx_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NY_Orange_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Butte_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Humboldt_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Ocean_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=NJ_Passaic_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210112 Continent=North America, Country=US and Province=CA_Stanislaus_County
+01-25-2021 04:50:37 PM | INFO | Finished the Multiprocessing for all areas
+01-25-2021 04:50:37 PM | INFO | Nothing changed for, total runtime was 0.22 minutes
+01-25-2021 04:50:37 PM | INFO | running for 2021-01-14 00:00:00 optimizer tnc replace_already_existing_par False
+01-25-2021 04:50:37 PM | INFO | Number of CPUs found and used in this run: 48
+01-25-2021 04:50:37 PM | INFO | Number of areas to be fitted in this run: 104
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CT_Tolland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CT_Windham_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=DE_Kent_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CT_Middlesex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CT_New_London_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CT_New_Haven_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=DE_Sussex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CT_Fairfield_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CT_Hartford_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CT_Litchfield_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=DE_New_Castle_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Ventura_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Monterey_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Tuolumne_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Yolo_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Trinity_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Solano_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Santa_Clara_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Sonoma_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Tulare_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Shasta_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Santa_Barbara_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Santa_Cruz_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Sacramento_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Riverside_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_San_Diego_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_San_Mateo_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_San_Luis_Obispo_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_San_Benito_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_San_Bernardino_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Placer_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Lake_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Merced_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Napa_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Orange_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_San_Joaquin_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_San_Francisco_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Kings_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Los_Angeles_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Marin_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Madera_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Kern_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Atlantic_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Bergen_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Burlington_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Middlesex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Camden_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Cumberland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Cape_May_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Gloucester_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Imperial_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Hudson_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Hunterdon_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Albany_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Essex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_El_Dorado_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Mercer_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Salem_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Somerset_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Sussex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Union_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Morris_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Warren_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Fresno_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Monmouth_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Queens_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Rensselaer_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Richmond_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Dutchess_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Erie_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Jefferson_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Ontario_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Contra_Costa_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Madison_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Monroe_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Cortland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Nassau_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Niagara_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Oneida_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Onondaga_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Kings_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_New_York_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Chemung_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Chautauqua_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Broome_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Rockland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Amador_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Saratoga_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Schenectady_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Oswego_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_St._Lawrence_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Suffolk_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Tompkins_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Ulster_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Westchester_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Alameda_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Steuben_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Bronx_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NY_Orange_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Butte_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Humboldt_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Ocean_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=NJ_Passaic_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210113 Continent=North America, Country=US and Province=CA_Stanislaus_County
+01-25-2021 04:50:37 PM | INFO | Finished the Multiprocessing for all areas
+01-25-2021 04:50:37 PM | INFO | Nothing changed for, total runtime was 0.23 minutes
+01-25-2021 04:50:37 PM | INFO | running for 2021-01-15 00:00:00 optimizer tnc replace_already_existing_par False
+01-25-2021 04:50:37 PM | INFO | Number of CPUs found and used in this run: 48
+01-25-2021 04:50:37 PM | INFO | Number of areas to be fitted in this run: 104
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CT_Tolland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CT_Windham_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=DE_Kent_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CT_Middlesex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CT_New_London_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CT_New_Haven_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CT_Fairfield_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=DE_Sussex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CT_Hartford_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CT_Litchfield_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=DE_New_Castle_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Ventura_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Monterey_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Tuolumne_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Yolo_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Trinity_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Solano_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Santa_Clara_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Sonoma_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Tulare_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Shasta_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Santa_Barbara_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Santa_Cruz_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Sacramento_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Riverside_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_San_Diego_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_San_Mateo_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_San_Luis_Obispo_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_San_Benito_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_San_Bernardino_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Placer_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Lake_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Merced_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Napa_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Orange_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_San_Joaquin_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_San_Francisco_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Kings_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Los_Angeles_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Marin_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Madera_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Kern_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Atlantic_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Bergen_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Burlington_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Middlesex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Camden_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Cumberland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Cape_May_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Gloucester_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Imperial_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Hudson_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Hunterdon_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Albany_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Essex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_El_Dorado_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Mercer_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Salem_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Somerset_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Sussex_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Union_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Morris_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Warren_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Fresno_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Monmouth_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Queens_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Rensselaer_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Richmond_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Dutchess_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Erie_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Jefferson_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Ontario_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Contra_Costa_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Madison_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Monroe_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Cortland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Nassau_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Niagara_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Oneida_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Onondaga_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Kings_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_New_York_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Chemung_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Chautauqua_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Broome_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Rockland_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Amador_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Saratoga_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Schenectady_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Oswego_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_St._Lawrence_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Suffolk_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Tompkins_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Ulster_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Westchester_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Alameda_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Steuben_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Bronx_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NY_Orange_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Butte_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Humboldt_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Ocean_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=NJ_Passaic_County
+01-25-2021 04:50:37 PM | INFO | Parameters already exist on day after 20210114 Continent=North America, Country=US and Province=CA_Stanislaus_County
+01-25-2021 04:50:37 PM | INFO | Finished the Multiprocessing for all areas
+01-25-2021 04:50:37 PM | INFO | Nothing changed for, total runtime was 0.24 minutes
+01-25-2021 04:50:37 PM | INFO | running for 2021-01-16 00:00:00 optimizer tnc replace_already_existing_par False
+01-25-2021 04:50:37 PM | INFO | Number of CPUs found and used in this run: 48
+01-25-2021 04:50:37 PM | INFO | Number of areas to be fitted in this run: 104
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CT_Tolland_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CT_Windham_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=DE_Kent_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CT_Middlesex_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CT_New_London_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CT_New_Haven_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CT_Fairfield_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=DE_Sussex_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CT_Hartford_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CT_Litchfield_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=DE_New_Castle_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Ventura_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Monterey_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Tuolumne_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Yolo_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Trinity_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Solano_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Santa_Clara_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Sonoma_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Tulare_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Shasta_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Santa_Barbara_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Santa_Cruz_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Sacramento_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Riverside_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_San_Diego_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_San_Mateo_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_San_Luis_Obispo_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_San_Benito_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_San_Bernardino_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Placer_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Lake_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Merced_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Napa_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Orange_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_San_Joaquin_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_San_Francisco_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Kings_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Los_Angeles_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Marin_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Madera_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Kern_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Atlantic_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Bergen_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Burlington_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Middlesex_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Camden_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Cumberland_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Cape_May_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Gloucester_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Imperial_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Hudson_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Hunterdon_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Albany_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Essex_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_El_Dorado_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Mercer_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Salem_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Somerset_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Sussex_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Union_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Morris_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Warren_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Fresno_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Monmouth_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Queens_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Rensselaer_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Richmond_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Dutchess_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Erie_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Jefferson_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Ontario_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Contra_Costa_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Madison_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Monroe_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Cortland_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Nassau_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Niagara_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Oneida_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Onondaga_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Kings_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_New_York_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Chemung_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Chautauqua_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Broome_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Rockland_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Amador_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Saratoga_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Schenectady_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Oswego_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_St._Lawrence_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Suffolk_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Tompkins_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Ulster_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Westchester_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Alameda_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Steuben_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Bronx_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NY_Orange_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Butte_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Humboldt_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Ocean_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=NJ_Passaic_County
+01-25-2021 04:50:38 PM | INFO | Parameters already exist on day after 20210115 Continent=North America, Country=US and Province=CA_Stanislaus_County
+01-25-2021 04:50:38 PM | INFO | Finished the Multiprocessing for all areas
+01-25-2021 04:50:38 PM | INFO | Nothing changed for, total runtime was 0.24 minutes
+01-25-2021 04:50:38 PM | INFO | running for 2021-01-17 00:00:00 optimizer tnc replace_already_existing_par False
+01-25-2021 04:50:38 PM | INFO | Number of CPUs found and used in this run: 48
+01-25-2021 04:50:38 PM | INFO | Number of areas to be fitted in this run: 104
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CT_Tolland_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CT_Windham_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, DE_Kent_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CT_Middlesex_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CT_New_London_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CT_New_Haven_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, DE_Sussex_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CT_Fairfield_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CT_Hartford_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CT_Litchfield_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, DE_New_Castle_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Ventura_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Monterey_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Tuolumne_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Trinity_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Yolo_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Solano_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Santa_Clara_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Sonoma_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Tulare_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Shasta_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Santa_Barbara_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Santa_Cruz_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Sacramento_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Riverside_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_San_Diego_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_San_Mateo_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_San_Luis_Obispo_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_San_Benito_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_San_Bernardino_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Placer_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Lake_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Napa_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Merced_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Orange_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_San_Joaquin_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_San_Francisco_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Kings_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Los_Angeles_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Marin_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Madera_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, CA_Kern_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, NJ_Atlantic_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, NJ_Bergen_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, NJ_Burlington_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, NJ_Middlesex_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, NJ_Camden_County
+01-25-2021 04:50:38 PM | INFO | starting to predict for North America, US, NJ_Cape_May_County
+01-25-2021 04:50:43 PM | INFO | starting to predict for North America, US, NJ_Cumberland_County
+01-25-2021 04:50:44 PM | INFO | starting to predict for North America, US, NJ_Gloucester_County
+01-25-2021 04:50:44 PM | INFO | starting to predict for North America, US, CA_Imperial_County
+01-25-2021 04:50:44 PM | INFO | starting to predict for North America, US, NJ_Hudson_County
+01-25-2021 04:50:45 PM | INFO | starting to predict for North America, US, NJ_Hunterdon_County
+01-25-2021 04:50:45 PM | ERROR | Initial conditions for PopulationR too high for US-NJ_Hunterdon_County, on 2020-07-01
+01-25-2021 04:50:45 PM | INFO | starting to predict for North America, US, NY_Albany_County
+01-25-2021 04:50:46 PM | INFO | starting to predict for North America, US, NJ_Essex_County
+01-25-2021 04:50:46 PM | INFO | starting to predict for North America, US, CA_El_Dorado_County
+01-25-2021 04:50:47 PM | INFO | starting to predict for North America, US, NJ_Mercer_County
+01-25-2021 04:50:47 PM | INFO | starting to predict for North America, US, NJ_Salem_County
+01-25-2021 04:50:47 PM | INFO | starting to predict for North America, US, NJ_Somerset_County
+01-25-2021 04:50:47 PM | INFO | starting to predict for North America, US, NJ_Sussex_County
+01-25-2021 04:50:47 PM | ERROR | Initial conditions for PopulationR too high for US-NJ_Sussex_County, on 2020-07-01
+01-25-2021 04:50:48 PM | INFO | starting to predict for North America, US, NJ_Union_County
+01-25-2021 04:50:48 PM | INFO | starting to predict for North America, US, NJ_Morris_County
+01-25-2021 04:50:48 PM | ERROR | Initial conditions for PopulationR too high for US-NJ_Morris_County, on 2020-07-01
+01-25-2021 04:50:49 PM | INFO | starting to predict for North America, US, NJ_Warren_County
+01-25-2021 04:50:50 PM | INFO | starting to predict for North America, US, CA_Fresno_County
+01-25-2021 04:50:50 PM | INFO | starting to predict for North America, US, NJ_Monmouth_County
+01-25-2021 04:50:50 PM | INFO | starting to predict for North America, US, NY_Queens_County
+01-25-2021 04:50:51 PM | INFO | starting to predict for North America, US, NY_Rensselaer_County
+01-25-2021 04:50:51 PM | INFO | starting to predict for North America, US, NY_Richmond_County
+01-25-2021 04:50:51 PM | INFO | starting to predict for North America, US, NY_Dutchess_County
+01-25-2021 04:50:51 PM | INFO | starting to predict for North America, US, NY_Erie_County
+01-25-2021 04:50:52 PM | INFO | starting to predict for North America, US, NY_Jefferson_County
+01-25-2021 04:50:52 PM | INFO | starting to predict for North America, US, NY_Ontario_County
+01-25-2021 04:50:52 PM | INFO | starting to predict for North America, US, CA_Contra_Costa_County
+01-25-2021 04:50:52 PM | INFO | starting to predict for North America, US, NY_Madison_County
+01-25-2021 04:50:53 PM | INFO | starting to predict for North America, US, NY_Monroe_County
+01-25-2021 04:50:53 PM | INFO | starting to predict for North America, US, NY_Cortland_County
+01-25-2021 04:50:53 PM | INFO | starting to predict for North America, US, NY_Nassau_County
+01-25-2021 04:50:53 PM | INFO | starting to predict for North America, US, NY_Niagara_County
+01-25-2021 04:50:54 PM | INFO | starting to predict for North America, US, NY_Oneida_County
+01-25-2021 04:50:54 PM | INFO | starting to predict for North America, US, NY_Onondaga_County
+01-25-2021 04:50:54 PM | INFO | starting to predict for North America, US, NY_Kings_County
+01-25-2021 04:50:54 PM | INFO | starting to predict for North America, US, NY_New_York_County
+01-25-2021 04:50:54 PM | INFO | starting to predict for North America, US, NY_Chemung_County
+01-25-2021 04:50:54 PM | INFO | starting to predict for North America, US, NY_Chautauqua_County
+01-25-2021 04:50:54 PM | INFO | starting to predict for North America, US, NY_Broome_County
+01-25-2021 04:50:55 PM | INFO | starting to predict for North America, US, NY_Rockland_County
+01-25-2021 04:50:55 PM | INFO | starting to predict for North America, US, CA_Amador_County
+01-25-2021 04:50:55 PM | INFO | starting to predict for North America, US, NY_Saratoga_County
+01-25-2021 04:50:56 PM | INFO | starting to predict for North America, US, NY_Schenectady_County
+01-25-2021 04:50:56 PM | INFO | starting to predict for North America, US, NY_Oswego_County
+01-25-2021 04:50:56 PM | INFO | starting to predict for North America, US, NY_St._Lawrence_County
+01-25-2021 04:50:57 PM | INFO | starting to predict for North America, US, NY_Suffolk_County
+01-25-2021 04:50:57 PM | INFO | starting to predict for North America, US, NY_Tompkins_County
+01-25-2021 04:50:57 PM | INFO | starting to predict for North America, US, NY_Ulster_County
+01-25-2021 04:50:57 PM | INFO | starting to predict for North America, US, NY_Westchester_County
+01-25-2021 04:50:58 PM | INFO | starting to predict for North America, US, CA_Alameda_County
+01-25-2021 04:50:58 PM | INFO | starting to predict for North America, US, NY_Steuben_County
+01-25-2021 04:50:59 PM | INFO | starting to predict for North America, US, NY_Bronx_County
+01-25-2021 04:50:59 PM | INFO | starting to predict for North America, US, NY_Orange_County
+01-25-2021 04:50:59 PM | INFO | starting to predict for North America, US, CA_Butte_County
+01-25-2021 04:51:00 PM | INFO | starting to predict for North America, US, CA_Humboldt_County
+01-25-2021 04:51:00 PM | INFO | starting to predict for North America, US, NJ_Ocean_County
+01-25-2021 04:51:00 PM | INFO | starting to predict for North America, US, NJ_Passaic_County
+01-25-2021 04:51:00 PM | INFO | starting to predict for North America, US, CA_Stanislaus_County
