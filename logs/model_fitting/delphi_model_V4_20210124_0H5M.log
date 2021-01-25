@@ -1,0 +1,706 @@
+01-25-2021 12:05:53 AM | INFO | The user is server, the chosen optimizer for this run is variable type ExUS and generation of Confidence Intervals' flag is False
+01-25-2021 12:05:58 AM | INFO | finished for state_province
+01-25-2021 12:05:58 AM | INFO |     last_date  count
+0  2021-01-22    401
+1  2021-01-20     51
+2  2021-01-21     20
+3  2021-01-03      8
+4  2021-01-12      7
+5  2021-01-14      7
+6  2020-12-24      3
+7  2020-12-30      3
+8  2021-01-02      3
+9  2021-01-06      2
+10 2021-01-11      1
+11 2021-01-13      1
+12 2020-12-15      1
+13 2021-01-19      1
+14 2020-12-28      1
+15 2020-12-20      1
+16 2020-11-13      1
+01-25-2021 12:05:58 AM | INFO | Start date: 2021-01-17 00:00:00, End date: 2021-01-22 00:00:00
+01-25-2021 12:05:58 AM | INFO | running for 2021-01-18 00:00:00 optimizer tnc replace_already_existing_par False
+01-25-2021 12:05:58 AM | INFO | Number of CPUs found and used in this run: 48
+01-25-2021 12:05:58 AM | INFO | Number of areas to be fitted in this run: 431
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Germany, North Rhine-Westphalia
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Germany, Berlin
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Germany, Baden-Wurttemberg
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Germany, Saxony
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Germany, Mecklenburg-Vorpommern
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Germany, Saxony-Anhalt
+01-25-2021 12:05:58 AM | INFO | starting to predict for South America, Argentina, Cordoba
+01-25-2021 12:05:58 AM | INFO | starting to predict for South America, Argentina, Tierra del Fuego
+01-25-2021 12:05:58 AM | INFO | starting to predict for South America, Argentina, Neuquen
+01-25-2021 12:05:58 AM | INFO | starting to predict for South America, Argentina, Entre Rios
+01-25-2021 12:05:58 AM | INFO | starting to predict for South America, Argentina, Santiago del Estero
+01-25-2021 12:05:58 AM | INFO | starting to predict for South America, Argentina, Chubut
+01-25-2021 12:05:58 AM | INFO | starting to predict for South America, Argentina, Formosa
+01-25-2021 12:05:58 AM | INFO | starting to predict for South America, Argentina, La Pampa
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, United Kingdom, Greater London
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, United Kingdom, East of England
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, United Kingdom, Scotland
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, United Kingdom, Wales
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Wakayama
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Hokkaido
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Kochi
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Niigata
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Oita
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Tochigi
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Kumamoto
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Miyagi
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Shiga
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Nagano
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Okayama
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Miyazaki
+01-25-2021 12:05:58 AM | INFO | starting to predict for Asia, Japan, Nagasaki
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Italy, Veneto
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Italy, Liguria
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Italy, Marche
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Italy, Friuli Venezia Giulia
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Italy, Molise
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Italy, Abruzzo
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Italy, Calabria
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Spain, Cataluna
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Spain, Andalucia
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Spain, La Rioja
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Spain, Islas Canarias
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Spain, Galicia
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Spain, Region de Murcia
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Spain, Ceuta
+01-25-2021 12:05:58 AM | INFO | starting to predict for North America, Canada, Alberta
+01-25-2021 12:05:58 AM | INFO | starting to predict for North America, Canada, Saskatchewan
+01-25-2021 12:05:58 AM | INFO | starting to predict for Europe, Belgium, Flemish Brabant
+01-25-2021 12:06:27 AM | INFO | starting to predict for Europe, Belgium, Limburg
+01-25-2021 12:07:14 AM | INFO | starting to predict for Europe, Belgium, East Flanders
+01-25-2021 12:07:17 AM | INFO | starting to predict for Europe, Belgium, Namur
+01-25-2021 12:07:27 AM | INFO | starting to predict for Oceania, Australia, Queensland
+01-25-2021 12:07:28 AM | INFO | starting to predict for Oceania, Australia, Western Australia
+01-25-2021 12:07:29 AM | INFO | starting to predict for Asia, Philippines, Central Luzon
+01-25-2021 12:07:32 AM | INFO | starting to predict for Asia, Philippines, Davao Region
+01-25-2021 12:07:32 AM | INFO | starting to predict for Asia, Philippines, Cordillera Administrative Region
+01-25-2021 12:07:33 AM | INFO | starting to predict for Asia, Philippines, Cagayan Valley
+01-25-2021 12:07:35 AM | INFO | starting to predict for Asia, Philippines, Mimaropa
+01-25-2021 12:07:36 AM | INFO | starting to predict for South America, Brazil, Rio de Janeiro
+01-25-2021 12:07:37 AM | INFO | starting to predict for South America, Brazil, Parana
+01-25-2021 12:07:37 AM | INFO | starting to predict for South America, Brazil, Espirito Santo
+01-25-2021 12:07:37 AM | INFO | starting to predict for South America, Brazil, Bahia
+01-25-2021 12:07:38 AM | INFO | starting to predict for South America, Brazil, MatoGrosso do Sul
+01-25-2021 12:07:38 AM | INFO | In-Sample MAPE Last 15 Days ('Germany', 'Mecklenburg-Vorpommern'): 45.545 %
+01-25-2021 12:07:38 AM | DEBUG | Best fitted parameters for ('Germany', 'Mecklenburg-Vorpommern'): [1.17152573 9.17218402 1.         0.02       0.06548566 0.59185672
+ 2.2695068  2.36021299 0.         2.01844562 0.1        0.2       ]
+01-25-2021 12:07:38 AM | INFO | Finished predicting for Continent=Europe, Country=Germany and Province=Mecklenburg-Vorpommern in 100.33 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:07:38 AM | INFO | starting to predict for Europe, Germany, Thuringia
+01-25-2021 12:07:41 AM | INFO | starting to predict for South America, Brazil, Sergipe
+01-25-2021 12:07:41 AM | INFO | starting to predict for South America, Brazil, Para
+01-25-2021 12:07:42 AM | INFO | starting to predict for South America, Brazil, Paraiba
+01-25-2021 12:07:42 AM | INFO | starting to predict for South America, Brazil, Amapa
+01-25-2021 12:07:43 AM | INFO | starting to predict for South America, Mexico, State of Mexico
+01-25-2021 12:07:43 AM | INFO | starting to predict for South America, Mexico, Puebla
+01-25-2021 12:07:43 AM | INFO | starting to predict for South America, Mexico, Queretaro
+01-25-2021 12:07:43 AM | INFO | starting to predict for South America, Mexico, Veracruz
+01-25-2021 12:07:43 AM | INFO | In-Sample MAPE Last 15 Days ('Germany', 'Berlin'): 41.507 %
+01-25-2021 12:07:43 AM | DEBUG | Best fitted parameters for ('Germany', 'Berlin'): [ 1.21614436e+00 -2.67936385e+00  1.00000000e+00  2.00000000e-02
+  3.67575985e-02  5.42598434e-01  2.47524340e+00  2.82271070e+00
+  2.68500027e-03  5.47781913e+00  9.75736637e-01  2.00000000e-01]
+01-25-2021 12:07:43 AM | INFO | Finished predicting for Continent=Europe, Country=Germany and Province=Berlin in 105.43 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:07:43 AM | INFO | starting to predict for Europe, Germany, Hamburg
+01-25-2021 12:07:46 AM | INFO | starting to predict for South America, Mexico, Guerrero
+01-25-2021 12:07:46 AM | INFO | starting to predict for South America, Mexico, Tabasco
+01-25-2021 12:07:46 AM | INFO | starting to predict for South America, Mexico, Michoacan
+01-25-2021 12:07:46 AM | INFO | starting to predict for South America, Mexico, Morelos
+01-25-2021 12:07:46 AM | INFO | starting to predict for South America, Mexico, Chiapas
+01-25-2021 12:07:47 AM | INFO | starting to predict for South America, Mexico, Tlaxcala
+01-25-2021 12:07:47 AM | INFO | starting to predict for South America, Mexico, Colima
+01-25-2021 12:07:47 AM | INFO | starting to predict for South America, Peru, Piura
+01-25-2021 12:07:47 AM | INFO | starting to predict for South America, Peru, Arequipa
+01-25-2021 12:07:47 AM | INFO | starting to predict for South America, Peru, La Libertad
+01-25-2021 12:07:47 AM | INFO | starting to predict for South America, Peru, Tumbes
+01-25-2021 12:07:48 AM | INFO | starting to predict for South America, Peru, San Martin
+01-25-2021 12:07:48 AM | INFO | starting to predict for South America, Peru, Amazonas
+01-25-2021 12:07:48 AM | INFO | starting to predict for South America, Peru, Madre de Dios
+01-25-2021 12:07:49 AM | INFO | starting to predict for South America, Peru, Apurimac
+01-25-2021 12:07:49 AM | INFO | starting to predict for South America, Chile, Santiago Metropolitan Region
+01-25-2021 12:07:50 AM | INFO | starting to predict for South America, Chile, Maule
+01-25-2021 12:07:50 AM | INFO | In-Sample MAPE Last 15 Days ('Germany', 'Saxony'): 44.102 %
+01-25-2021 12:07:50 AM | DEBUG | Best fitted parameters for ('Germany', 'Saxony'): [1.49896791 5.10590511 1.         0.02       0.05131011 0.
+ 0.02538984 2.27150493 0.         8.48833831 0.24320714 0.2       ]
+01-25-2021 12:07:50 AM | INFO | Finished predicting for Continent=Europe, Country=Germany and Province=Saxony in 112.0 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:07:50 AM | INFO | starting to predict for Europe, Germany, Schleswig-Holstein
+01-25-2021 12:07:51 AM | INFO | starting to predict for South America, Chile, Valparaiso
+01-25-2021 12:07:52 AM | INFO | starting to predict for South America, Chile, O'Higgins
+01-25-2021 12:07:52 AM | INFO | starting to predict for South America, Chile, Tarapaca
+01-25-2021 12:07:53 AM | INFO | starting to predict for South America, Chile, Aysen
+01-25-2021 12:07:54 AM | INFO | starting to predict for Asia, Israel, Southern District
+01-25-2021 12:08:20 AM | INFO | starting to predict for Asia, Israel, Haifa District
+01-25-2021 12:08:29 AM | INFO | starting to predict for Europe, France, Grand Est
+01-25-2021 12:08:55 AM | INFO | starting to predict for Europe, France, Hauts-de-France
+01-25-2021 12:09:01 AM | INFO | starting to predict for Europe, France, Occitanie
+01-25-2021 12:09:10 AM | INFO | starting to predict for Europe, France, Normandy
+01-25-2021 12:09:11 AM | INFO | starting to predict for Europe, France, Brittany
+01-25-2021 12:09:12 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Davao Region'): 30.105 %
+01-25-2021 12:09:12 AM | DEBUG | Best fitted parameters for ('Philippines', 'Davao Region'): [ 1.50000000e+00 -1.67351354e+01  1.00000000e+00  2.00000000e-02
+  3.58776598e-02  1.57591474e-02  1.58368145e+00  2.68771870e+00
+  0.00000000e+00  7.18692790e+00  9.12709134e-01  2.28192128e-01]
+01-25-2021 12:09:12 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Davao Region in 100.61 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:12 AM | INFO | starting to predict for Asia, Philippines, Ilocos Region
+01-25-2021 12:09:13 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Cordillera Administrative Region'): 32.467 %
+01-25-2021 12:09:13 AM | DEBUG | Best fitted parameters for ('Philippines', 'Cordillera Administrative Region'): [ 1.27506493 -4.50136656  1.25044506  0.02        0.02677322  0.55047975
+  3.12822723  2.92397522  1.65157016  0.          0.90391264  0.2       ]
+01-25-2021 12:09:13 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Cordillera Administrative Region in 101.14 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:13 AM | INFO | starting to predict for Asia, Philippines, Northern Mindanao
+01-25-2021 12:09:17 AM | INFO | starting to predict for Europe, Netherlands, Limburg
+01-25-2021 12:09:18 AM | INFO | starting to predict for Europe, Netherlands, South Holland
+01-25-2021 12:09:19 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Cagayan Valley'): 36.049 %
+01-25-2021 12:09:19 AM | DEBUG | Best fitted parameters for ('Philippines', 'Cagayan Valley'): [  1.5        -12.42285544   1.41539252   0.16194574   0.0217225
+   0.57219579   2.89910429   2.89154058   0.04237991  17.27138696
+   0.60736426   0.32010473]
+01-25-2021 12:09:19 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Cagayan Valley in 106.56 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:19 AM | INFO | starting to predict for Asia, Philippines, Soccsksargen
+01-25-2021 12:09:20 AM | INFO | starting to predict for Europe, Netherlands, Drenthe
+01-25-2021 12:09:21 AM | INFO | starting to predict for Europe, Netherlands, Friesland
+01-25-2021 12:09:21 AM | INFO | starting to predict for Asia, India, Haryana
+01-25-2021 12:09:22 AM | INFO | starting to predict for Asia, India, Karnataka
+01-25-2021 12:09:22 AM | INFO | starting to predict for Asia, India, Rajasthan
+01-25-2021 12:09:23 AM | INFO | starting to predict for Asia, India, Ladakh
+01-25-2021 12:09:24 AM | INFO | In-Sample MAPE Last 15 Days ('Peru', 'Tumbes'): 9.835 %
+01-25-2021 12:09:24 AM | DEBUG | Best fitted parameters for ('Peru', 'Tumbes'): [ 1.41087453e+00 -3.58969117e+01  4.48114445e+00  1.94356998e-01
+  1.60139994e-02  4.92394631e-01  2.65400407e+00  2.30799369e+00
+  6.50020625e-01  2.37891753e+00  1.83587561e+00  3.35272562e-01]
+01-25-2021 12:09:24 AM | INFO | Finished predicting for Continent=South America, Country=Peru and Province=Tumbes in 96.17 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:24 AM | INFO | starting to predict for South America, Peru, Ica
+01-25-2021 12:09:24 AM | INFO | starting to predict for Asia, India, Jammu and Kashmir
+01-25-2021 12:09:24 AM | INFO | starting to predict for Asia, India, Bihar
+01-25-2021 12:09:24 AM | INFO | starting to predict for Asia, India, Odisha
+01-25-2021 12:09:24 AM | INFO | starting to predict for Asia, India, Andaman and Nicobar Islands
+01-25-2021 12:09:25 AM | INFO | starting to predict for Asia, India, Meghalaya
+01-25-2021 12:09:25 AM | INFO | starting to predict for Asia, India, Goa
+01-25-2021 12:09:25 AM | INFO | starting to predict for Asia, India, Arunachal Pradesh
+01-25-2021 12:09:26 AM | INFO | starting to predict for Asia, India, Sikkim
+01-25-2021 12:09:26 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Central Luzon'): 16.807 %
+01-25-2021 12:09:26 AM | DEBUG | Best fitted parameters for ('Philippines', 'Central Luzon'): [ 1.30749239e+00 -1.55285410e+01  1.10044979e+00  2.00000000e-02
+  4.00116757e-02  3.20612523e-01  9.71729059e-01  2.62222443e+00
+  1.19338495e-01  2.48920741e+01  4.04220058e+00  6.46998288e-01]
+01-25-2021 12:09:26 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Central Luzon in 117.75 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:26 AM | INFO | starting to predict for Asia, Philippines, Central Visayas
+01-25-2021 12:09:27 AM | INFO | In-Sample MAPE Last 15 Days ('Germany', 'Thuringia'): 53.191 %
+01-25-2021 12:09:27 AM | DEBUG | Best fitted parameters for ('Germany', 'Thuringia'): [1.00772596 9.42604628 1.         0.09163105 0.12642239 0.92932761
+ 2.60017722 2.62858533 0.30198829 4.60323037 0.66918116 0.28473835]
+01-25-2021 12:09:27 AM | INFO | Finished predicting for Continent=Europe, Country=Germany and Province=Thuringia in 108.33 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:27 AM | INFO | starting to predict for Europe, Germany, Saarland
+01-25-2021 12:09:28 AM | INFO | starting to predict for South America, Colombia, Antioquia
+01-25-2021 12:09:28 AM | INFO | starting to predict for South America, Colombia, Risaralda
+01-25-2021 12:09:28 AM | INFO | starting to predict for South America, Colombia, Atlantico
+01-25-2021 12:09:29 AM | INFO | In-Sample MAPE Last 15 Days ('Peru', 'Amazonas'): 5.211 %
+01-25-2021 12:09:29 AM | DEBUG | Best fitted parameters for ('Peru', 'Amazonas'): [ 1.50000000e+00 -1.81431100e+01  1.00000000e+00  2.39581382e-02
+  3.73685298e-02  2.14970016e+00  1.97108168e+00  2.07909690e+00
+  1.70638541e-04  1.31939932e+01  1.51730500e+00  2.00000000e-01]
+01-25-2021 12:09:29 AM | INFO | Finished predicting for Continent=South America, Country=Peru and Province=Amazonas in 101.31 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:29 AM | INFO | starting to predict for South America, Peru, Ayacucho
+01-25-2021 12:09:30 AM | INFO | starting to predict for South America, Colombia, Santander
+01-25-2021 12:09:30 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Mimaropa'): 12.153 %
+01-25-2021 12:09:30 AM | DEBUG | Best fitted parameters for ('Philippines', 'Mimaropa'): [ 1.12906489e+00 -7.12545156e+00  1.18556043e+00  2.00000000e-02
+  1.96313145e-02  0.00000000e+00  8.93404656e-01  1.33910004e+00
+  5.00000000e+00  4.85900605e+01  8.05669612e-01  2.00000000e-01]
+01-25-2021 12:09:30 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Mimaropa in 114.49 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:30 AM | INFO | starting to predict for Asia, Philippines, Caraga
+01-25-2021 12:09:30 AM | INFO | In-Sample MAPE Last 15 Days ('Peru', 'Madre de Dios'): 5.701 %
+01-25-2021 12:09:30 AM | DEBUG | Best fitted parameters for ('Peru', 'Madre de Dios'): [ 7.37542788e-01 -2.55964058e+00  1.00120859e+00  4.61853601e-02
+  1.01869445e-02  1.31836161e-01  1.50102278e+00  5.12407211e-01
+  8.65441973e-01  3.47299474e+01  6.39505287e+00  2.26402604e-01]
+01-25-2021 12:09:30 AM | INFO | Finished predicting for Continent=South America, Country=Peru and Province=Madre de Dios in 101.9 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:30 AM | INFO | starting to predict for South America, Peru, Huancavelica
+01-25-2021 12:09:31 AM | INFO | starting to predict for South America, Colombia, Meta
+01-25-2021 12:09:31 AM | INFO | starting to predict for South America, Colombia, Boyaca
+01-25-2021 12:09:31 AM | INFO | starting to predict for South America, Colombia, Choco
+01-25-2021 12:09:32 AM | INFO | In-Sample MAPE Last 15 Days ('Germany', 'Hamburg'): 30.444 %
+01-25-2021 12:09:32 AM | DEBUG | Best fitted parameters for ('Germany', 'Hamburg'): [1.50000000e+00 3.56243287e+00 1.00000000e+00 2.00000000e-02
+ 2.54650361e-02 4.21482363e-04 1.85624261e-01 6.62174612e-01
+ 0.00000000e+00 1.32829985e+01 1.00000000e-01 2.15672716e-01]
+01-25-2021 12:09:32 AM | INFO | Finished predicting for Continent=Europe, Country=Germany and Province=Hamburg in 108.06 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:32 AM | INFO | starting to predict for Europe, Germany, Rhineland-Palatinate
+01-25-2021 12:09:33 AM | INFO | starting to predict for South America, Colombia, La Guajira
+01-25-2021 12:09:33 AM | INFO | starting to predict for South America, Colombia, Vaupes
+01-25-2021 12:09:36 AM | INFO | In-Sample MAPE Last 15 Days ('Germany', 'Schleswig-Holstein'): 37.19 %
+01-25-2021 12:09:36 AM | DEBUG | Best fitted parameters for ('Germany', 'Schleswig-Holstein'): [1.28941327e+00 8.65810523e+00 1.00000000e+00 2.00000000e-02
+ 2.61720888e-02 1.07091342e-04 5.83575627e-01 5.32915546e-01
+ 0.00000000e+00 1.90014185e+01 1.00000000e-01 2.04173748e-01]
+01-25-2021 12:09:36 AM | INFO | Finished predicting for Continent=Europe, Country=Germany and Province=Schleswig-Holstein in 105.98 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:36 AM | INFO | starting to predict for Europe, Germany, Bremen
+01-25-2021 12:09:37 AM | INFO | starting to predict for South America, Colombia, Arauca
+01-25-2021 12:09:37 AM | INFO | In-Sample MAPE Last 15 Days ('Belgium', 'Namur'): nan %
+01-25-2021 12:09:37 AM | DEBUG | Best fitted parameters for ('Belgium', 'Namur'): [ 1.16121260e+00 -4.19130650e+01  1.91153134e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  2.69206750e+00  1.00000000e-03
+  4.34459683e+00  1.03155368e+02  8.58836814e+00  2.00000000e-01]
+01-25-2021 12:09:37 AM | INFO | Finished predicting for Continent=Europe, Country=Belgium and Province=Namur in 139.43 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:09:37 AM | INFO | starting to predict for Europe, Belgium, Luxembourg
+01-25-2021 12:09:38 AM | INFO | starting to predict for South America, Colombia, Vichada
+01-25-2021 12:09:40 AM | INFO | starting to predict for Europe, Ukraine, Kiev Oblast
+01-25-2021 12:09:40 AM | INFO | starting to predict for Europe, Ukraine, Vinnytsia
+01-25-2021 12:09:45 AM | INFO | starting to predict for Europe, Ukraine, Rivne
+01-25-2021 12:10:04 AM | INFO | starting to predict for Europe, Ukraine, Lviv
+01-25-2021 12:10:15 AM | INFO | starting to predict for Europe, Ukraine, Volyn
+01-25-2021 12:10:17 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Ladakh'): 14.823 %
+01-25-2021 12:10:17 AM | DEBUG | Best fitted parameters for ('India', 'Ladakh'): [  1.12583943 -10.0951078    1.24693045   0.04721521   0.07780763
+   1.48935072   0.32912374   0.27632117   0.91741433  47.10551204
+   6.32741351   0.20505131]
+01-25-2021 12:10:17 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Ladakh in 54.06 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:10:17 AM | INFO | starting to predict for Asia, India, Tamil Nadu
+01-25-2021 12:10:41 AM | INFO | In-Sample MAPE Last 15 Days ('Colombia', 'Vaupes'): 6.677 %
+01-25-2021 12:10:41 AM | DEBUG | Best fitted parameters for ('Colombia', 'Vaupes'): [ 1.39723872e+00 -2.92587983e+01  2.94045533e+00  4.22555670e-02
+  1.34184241e-02  2.19181709e-01  2.00861024e+00  6.52377007e-01
+  1.32048107e-01  4.93822138e+00  7.68425779e+00  9.99000000e-01]
+01-25-2021 12:10:41 AM | INFO | Finished predicting for Continent=South America, Country=Colombia and Province=Vaupes in 68.73 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:10:41 AM | INFO | starting to predict for South America, Colombia, Sucre
+01-25-2021 12:10:44 AM | INFO | In-Sample MAPE Last 15 Days ('Colombia', 'Vichada'): 10.304 %
+01-25-2021 12:10:44 AM | DEBUG | Best fitted parameters for ('Colombia', 'Vichada'): [ 1.50000000e+00 -1.32662099e+01  3.30110968e+00  2.00000000e-02
+  3.37728842e-02  1.74263876e+00  2.10008279e+00  6.09360729e-03
+  7.11808789e-01  1.13004928e+01  1.00000000e-01  1.00000000e+00]
+01-25-2021 12:10:44 AM | INFO | Finished predicting for Continent=South America, Country=Colombia and Province=Vichada in 66.69 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:10:44 AM | INFO | starting to predict for Europe, Ukraine, Chernivtsi
+01-25-2021 12:10:46 AM | INFO | starting to predict for Europe, Ukraine, Poltava
+01-25-2021 12:10:48 AM | INFO | starting to predict for Europe, Ukraine, Donetsk
+01-25-2021 12:10:51 AM | INFO | starting to predict for Europe, Ukraine, Chernihiv
+01-25-2021 12:10:52 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Haryana'): 13.081 %
+01-25-2021 12:10:52 AM | DEBUG | Best fitted parameters for ('India', 'Haryana'): [ 1.10759728e+00 -3.67062395e-01  1.00000000e+00  2.00000000e-02
+  1.38095728e-02  0.00000000e+00  1.67780540e+00  1.00000000e-03
+  0.00000000e+00  8.87943137e-02  3.49697598e+00  2.00000000e-01]
+01-25-2021 12:10:52 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Haryana in 90.93 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:10:52 AM | INFO | starting to predict for Asia, India, Kerala
+01-25-2021 12:10:53 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Meghalaya'): 8.934 %
+01-25-2021 12:10:53 AM | DEBUG | Best fitted parameters for ('India', 'Meghalaya'): [ 1.50000000e+00 -1.41701757e+01  1.00000000e+00  2.57657052e-02
+  1.22276450e-02  0.00000000e+00  2.03337306e+00  1.77426708e-01
+  0.00000000e+00  0.00000000e+00  9.92470608e-01  9.99000000e-01]
+01-25-2021 12:10:53 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Meghalaya in 87.9 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:10:53 AM | INFO | starting to predict for Asia, India, Tripura
+01-25-2021 12:10:54 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Jammu and Kashmir'): 8.058 %
+01-25-2021 12:10:54 AM | DEBUG | Best fitted parameters for ('India', 'Jammu and Kashmir'): [ 1.50000000e+00 -1.23383275e+01  1.00000000e+00  2.00000000e-02
+  1.69645666e-01  4.44520029e+00  1.00000000e-03  4.25619092e-01
+  6.71271799e-04  2.56421841e-02  1.00000000e-01  3.75213285e-01]
+01-25-2021 12:10:54 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Jammu and Kashmir in 90.27 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:10:54 AM | INFO | starting to predict for Asia, India, Andhra Pradesh
+01-25-2021 12:10:54 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Ilocos Region'): 21.38 %
+01-25-2021 12:10:54 AM | DEBUG | Best fitted parameters for ('Philippines', 'Ilocos Region'): [ 1.3855843  -3.00958649  1.          0.02        0.10655498  0.88495767
+  1.23345416  0.59161148  0.          3.47171907  0.1         0.2       ]
+01-25-2021 12:10:54 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Ilocos Region in 102.08 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:10:54 AM | INFO | starting to predict for Asia, Philippines, Eastern Visayas
+01-25-2021 12:10:56 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Odisha'): 3.469 %
+01-25-2021 12:10:56 AM | DEBUG | Best fitted parameters for ('India', 'Odisha'): [ 1.50000000e+00 -7.78893736e+00  1.00000000e+00  2.75399457e-02
+  1.13021600e-02  1.76221508e-01  8.29644014e-01  1.46514771e+00
+  6.38077844e-04  0.00000000e+00  8.35237646e-01  2.00361832e-01]
+01-25-2021 12:10:56 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Odisha in 91.32 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:10:56 AM | INFO | starting to predict for Asia, India, Uttarakhand
+01-25-2021 12:10:56 AM | INFO | starting to predict for Africa, South Africa, Gauteng
+01-25-2021 12:10:57 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Karnataka'): 4.731 %
+01-25-2021 12:10:57 AM | DEBUG | Best fitted parameters for ('India', 'Karnataka'): [1.22804052 0.55175019 1.         0.12524028 0.03456933 0.68409287
+ 0.83330691 1.08215849 0.         0.87321199 0.1        0.2       ]
+01-25-2021 12:10:57 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Karnataka in 95.32 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:10:57 AM | INFO | starting to predict for Asia, India, Telangana
+01-25-2021 12:11:00 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Soccsksargen'): 30.806 %
+01-25-2021 12:11:00 AM | DEBUG | Best fitted parameters for ('Philippines', 'Soccsksargen'): [ 1.01510463 -6.68508406  1.93148061  0.02        0.04026459  0.35616403
+  2.97505523  2.97006043  0.          2.26073962  1.53989186  0.999     ]
+01-25-2021 12:11:00 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Soccsksargen in 100.11 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:00 AM | INFO | starting to predict for Asia, Philippines, Zamboanga Peninsula
+01-25-2021 12:11:01 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Arunachal Pradesh'): 4.851 %
+01-25-2021 12:11:01 AM | DEBUG | Best fitted parameters for ('India', 'Arunachal Pradesh'): [  1.5        -13.99034227   1.           0.02         0.04278998
+   4.40857687   2.40603519   2.51841692   0.14035187  15.64909311
+   0.80372165   0.28234235]
+01-25-2021 12:11:01 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Arunachal Pradesh in 95.8 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:01 AM | INFO | starting to predict for Asia, India, Mizoram
+01-25-2021 12:11:02 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Goa'): 7.661 %
+01-25-2021 12:11:02 AM | DEBUG | Best fitted parameters for ('India', 'Goa'): [ 1.03794228 -5.29352995  1.          0.02023454  0.01911677  0.
+  2.86870441  2.34584176  1.15667844 18.40849331  0.1         0.2       ]
+01-25-2021 12:11:02 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Goa in 96.8 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:02 AM | INFO | starting to predict for Asia, India, Manipur
+01-25-2021 12:11:02 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Bihar'): 5.88 %
+01-25-2021 12:11:02 AM | DEBUG | Best fitted parameters for ('India', 'Bihar'): [ 1.22983939e+00 -6.65277140e+00  1.00000000e+00  2.75185408e-02
+  1.86652094e-02  1.10697033e+00  2.95651403e+00  1.00074485e-03
+  1.32639416e-01  1.26389203e+01  2.84243011e+00  4.15255921e-01]
+01-25-2021 12:11:02 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Bihar in 98.59 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:02 AM | INFO | starting to predict for Asia, India, Chandigarh
+01-25-2021 12:11:02 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Andaman and Nicobar Islands'): 5.862 %
+01-25-2021 12:11:02 AM | DEBUG | Best fitted parameters for ('India', 'Andaman and Nicobar Islands'): [ 1.01703194 -5.2074915   1.84810755  0.0307689   0.02125793  0.56693509
+  2.59648185  2.68934652  0.          6.13587613  1.68122255  0.999     ]
+01-25-2021 12:11:02 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Andaman and Nicobar Islands in 98.1 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:02 AM | INFO | starting to predict for Asia, India, Chhattisgarh
+01-25-2021 12:11:03 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Northern Mindanao'): 13.094 %
+01-25-2021 12:11:03 AM | DEBUG | Best fitted parameters for ('Philippines', 'Northern Mindanao'): [ 1.45444048e+00 -9.12384757e+00  1.33303688e+00  2.00000000e-02
+  2.49492857e-02  0.00000000e+00  2.16285885e+00  2.03669847e+00
+  1.49987170e+00  5.38702196e+01  1.00000000e-01  2.00000000e-01]
+01-25-2021 12:11:03 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Northern Mindanao in 109.23 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:03 AM | INFO | starting to predict for Asia, Philippines, Bicol Region
+01-25-2021 12:11:03 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Rajasthan'): 9.731 %
+01-25-2021 12:11:03 AM | DEBUG | Best fitted parameters for ('India', 'Rajasthan'): [ 1.50000000e+00 -1.41411153e+01  1.00000000e+00  2.00000000e-02
+  1.07038379e-02  3.33775973e-05  2.53485357e+00  1.08677964e+00
+  3.98177745e-01  1.23707633e+01  3.87982247e-01  2.00000000e-01]
+01-25-2021 12:11:03 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Rajasthan in 100.32 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:03 AM | INFO | starting to predict for Asia, India, Gujarat
+01-25-2021 12:11:04 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Sikkim'): 20.69 %
+01-25-2021 12:11:04 AM | DEBUG | Best fitted parameters for ('India', 'Sikkim'): [ 1.00706891 -6.32870978  1.77955364  0.02        0.03175494  0.45211982
+  2.85683484  2.75708784  0.          5.24217103  1.7435557   0.999     ]
+01-25-2021 12:11:04 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Sikkim in 98.56 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:04 AM | INFO | starting to predict for South America, Colombia, Bogota D.C.
+01-25-2021 12:11:04 AM | INFO | starting to predict for Africa, South Africa, North West
+01-25-2021 12:11:04 AM | INFO | starting to predict for Africa, South Africa, KwaZulu_Natal
+01-25-2021 12:11:05 AM | INFO | starting to predict for Africa, Kenya, Mombasa
+01-25-2021 12:11:05 AM | INFO | starting to predict for Africa, Kenya, Kajiado
+01-25-2021 12:11:06 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Central Visayas'): 5.964 %
+01-25-2021 12:11:06 AM | DEBUG | Best fitted parameters for ('Philippines', 'Central Visayas'): [ 1.50000000e+00 -3.48593926e+01  3.58556979e+00  3.02222499e-02
+  4.73156848e-02  1.52733118e-01  3.77106608e+00  1.73875986e+00
+  1.92251199e-01  1.73578692e-02  1.57660977e+00  4.11727110e-01]
+01-25-2021 12:11:06 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Central Visayas in 99.92 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:06 AM | INFO | starting to predict for Asia, Philippines, Western Visayas
+01-25-2021 12:11:07 AM | INFO | In-Sample MAPE Last 15 Days ('Netherlands', 'Friesland'): 30.299 %
+01-25-2021 12:11:07 AM | DEBUG | Best fitted parameters for ('Netherlands', 'Friesland'): [ 1.5        10.96984581  1.          0.02        0.03859342  0.80546161
+  0.37048287  0.20765156  1.0351695   7.40788148  0.1         0.23590577]
+01-25-2021 12:11:07 AM | INFO | Finished predicting for Continent=Europe, Country=Netherlands and Province=Friesland in 105.92 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:07 AM | INFO | starting to predict for Europe, Netherlands, Groningen
+01-25-2021 12:11:07 AM | INFO | starting to predict for Africa, Kenya, Migori
+01-25-2021 12:11:07 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Andhra Pradesh'): 6.815 %
+01-25-2021 12:11:07 AM | DEBUG | Best fitted parameters for ('India', 'Andhra Pradesh'): [9.38489780e-01 2.60621110e-01 1.63434854e+00 1.99504898e-01
+ 1.39105375e-02 6.97784818e-01 2.97775509e+00 2.90545106e+00
+ 1.96992314e-03 0.00000000e+00 1.42442390e+00 8.64954841e-01]
+01-25-2021 12:11:07 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Andhra Pradesh in 13.14 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:07 AM | INFO | starting to predict for Asia, India, West Bengal
+01-25-2021 12:11:10 AM | INFO | In-Sample MAPE Last 15 Days ('Germany', 'Saarland'): 32.652 %
+01-25-2021 12:11:10 AM | DEBUG | Best fitted parameters for ('Germany', 'Saarland'): [1.5        6.03068448 1.         0.02       0.06088724 0.33916019
+ 0.71402325 1.12710705 0.01241027 0.         0.1        0.20397695]
+01-25-2021 12:11:10 AM | INFO | Finished predicting for Continent=Europe, Country=Germany and Province=Saarland in 103.6 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:10 AM | INFO | starting to predict for Africa, Kenya, Kisumu
+01-25-2021 12:11:12 AM | INFO | starting to predict for Africa, Kenya, Meru
+01-25-2021 12:11:12 AM | INFO | starting to predict for Africa, Kenya, Bungoma
+01-25-2021 12:11:13 AM | INFO | starting to predict for Africa, Kenya, Kitui
+01-25-2021 12:11:16 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Caraga'): 28.881 %
+01-25-2021 12:11:16 AM | DEBUG | Best fitted parameters for ('Philippines', 'Caraga'): [ 0.99245509 -6.84312583  2.01368485  0.02        0.04772884  0.
+  2.7843031   2.71231036  0.          9.57658854  1.48037544  0.999     ]
+01-25-2021 12:11:16 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Caraga in 105.87 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:16 AM | INFO | starting to predict for South America, Brazil, Sao Paulo
+01-25-2021 12:11:16 AM | INFO | In-Sample MAPE Last 15 Days ('Germany', 'Bremen'): 31.356 %
+01-25-2021 12:11:16 AM | DEBUG | Best fitted parameters for ('Germany', 'Bremen'): [1.17163607 0.85038554 1.         0.02       0.06053164 1.14118813
+ 2.74680895 2.51199232 0.99102277 0.         0.59756088 0.2       ]
+01-25-2021 12:11:16 AM | INFO | Finished predicting for Continent=Europe, Country=Germany and Province=Bremen in 99.96 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:25 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Tripura'): 5.869 %
+01-25-2021 12:11:25 AM | DEBUG | Best fitted parameters for ('India', 'Tripura'): [ 1.16150298e+00 -1.82710158e+01  1.00000000e+00  2.65282023e-02
+  2.58167395e-02  9.18812638e-01  2.18878617e+00  2.48937872e+00
+  4.43601165e-03  2.15449401e+00  6.58553359e-01  4.27453331e-01]
+01-25-2021 12:11:25 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Tripura in 31.98 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:25 AM | INFO | starting to predict for Asia, India, Puducherry
+01-25-2021 12:11:26 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Mizoram'): 33.05 %
+01-25-2021 12:11:26 AM | DEBUG | Best fitted parameters for ('India', 'Mizoram'): [ 1.22758905 -4.65568863  1.          0.10213025  0.01        5.
+  2.02543874  1.40690836  0.69851368  0.          0.82627025  0.30141517]
+01-25-2021 12:11:26 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Mizoram in 24.99 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:26 AM | INFO | starting to predict for Asia, India, Dadra and Nagar Haveli and Daman and Diu
+01-25-2021 12:11:32 AM | INFO | In-Sample MAPE Last 15 Days ('Belgium', 'Luxembourg'): nan %
+01-25-2021 12:11:32 AM | DEBUG | Best fitted parameters for ('Belgium', 'Luxembourg'): [ 1.50000000e+00 -1.00962846e+02  1.30553603e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  3.42213511e-03  1.82402436e-03
+  8.43190438e-01  8.17828288e+01  2.40374744e+01  2.00000000e-01]
+01-25-2021 12:11:32 AM | INFO | Finished predicting for Continent=Europe, Country=Belgium and Province=Luxembourg in 115.65 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:32 AM | INFO | starting to predict for Oceania, Australia, New South Wales
+01-25-2021 12:11:54 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Tamil Nadu'): 3.442 %
+01-25-2021 12:11:54 AM | DEBUG | Best fitted parameters for ('India', 'Tamil Nadu'): [ 1.20982512e+00 -5.75299361e+00  1.00000000e+00  4.81017966e-01
+  2.02060294e-02  1.60731341e-01  1.00352789e+00  2.12441773e-01
+  1.34648720e+00  6.82100336e+01  5.70831130e-01  2.09481763e-01]
+01-25-2021 12:11:54 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Tamil Nadu in 97.03 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:11:54 AM | INFO | starting to predict for Asia, India, Madhya Pradesh
+01-25-2021 12:12:10 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Meru'): nan %
+01-25-2021 12:12:10 AM | DEBUG | Best fitted parameters for ('Kenya', 'Meru'): [ 1.48715150e+00 -1.92449186e+01  3.85227392e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  8.11916728e-01  1.00000000e-03
+  1.28366536e-01  2.14785581e+00  6.53711774e+01  9.99000000e-01]
+01-25-2021 12:12:10 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Meru in 58.03 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:10 AM | INFO | starting to predict for Africa, Kenya, Kericho
+01-25-2021 12:12:12 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Bungoma'): nan %
+01-25-2021 12:12:12 AM | DEBUG | Best fitted parameters for ('Kenya', 'Bungoma'): [ 6.24693931e-01 -1.26659036e+02  8.03970587e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  1.60699494e-01  1.45203460e-01
+  7.58059600e-01  1.55636623e+01  1.80911267e+01  9.99757639e-01]
+01-25-2021 12:12:12 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Bungoma in 59.93 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:12 AM | INFO | starting to predict for Africa, Kenya, Trans Nzoia
+01-25-2021 12:12:19 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Kerala'): 22.154 %
+01-25-2021 12:12:19 AM | DEBUG | Best fitted parameters for ('India', 'Kerala'): [ 1.44675823e+00 -1.20470452e+01  1.13525986e+00  2.00000000e-02
+  1.57487351e-02  1.11250689e+00  1.59583462e+00  2.25784924e+00
+  1.48798248e+00  5.12037993e+01  6.79000498e-01  5.66403843e-01]
+01-25-2021 12:12:19 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Kerala in 86.42 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:19 AM | INFO | starting to predict for Asia, India, Maharashtra
+01-25-2021 12:12:19 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Zamboanga Peninsula'): 16.528 %
+01-25-2021 12:12:19 AM | DEBUG | Best fitted parameters for ('Philippines', 'Zamboanga Peninsula'): [ 1.09979922e+00 -9.72471620e+00  1.15815660e+00  2.00000000e-02
+  9.13003380e-02  6.11696051e-01  2.47103511e+00  2.46536654e+00
+  3.66492288e+00  3.44310555e+01  3.66537324e-01  2.00000073e-01]
+01-25-2021 12:12:19 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Zamboanga Peninsula in 79.38 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:27 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Telangana'): 9.391 %
+01-25-2021 12:12:27 AM | DEBUG | Best fitted parameters for ('India', 'Telangana'): [ 1.40627260e+00 -2.93817780e+01  1.00000000e+00  2.00000000e-02
+  2.96767411e-02  4.99994294e+00  3.38787402e+00  2.83132848e+00
+  6.73134394e-02  0.00000000e+00  1.22800934e+01  2.00000000e-01]
+01-25-2021 12:12:27 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Telangana in 89.86 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:27 AM | INFO | starting to predict for Asia, India, Delhi
+01-25-2021 12:12:27 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Uttarakhand'): 20.081 %
+01-25-2021 12:12:27 AM | DEBUG | Best fitted parameters for ('India', 'Uttarakhand'): [ 0.94345899 -1.76103523  1.          0.02        0.0442018   0.53548975
+  0.03959882  2.73036476  0.32767947  5.42697892  0.33239534  0.2       ]
+01-25-2021 12:12:27 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Uttarakhand in 91.31 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:27 AM | INFO | starting to predict for Asia, India, Himachal Pradesh
+01-25-2021 12:12:27 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Kitui'): nan %
+01-25-2021 12:12:27 AM | DEBUG | Best fitted parameters for ('Kenya', 'Kitui'): [ 1.44906124e+00 -8.10943570e+01  1.00005951e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  1.33409049e-03  1.32651378e-02
+  6.35469834e-01  3.24315808e+01  1.32100829e+01  9.99000000e-01]
+01-25-2021 12:12:27 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Kitui in 74.38 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:27 AM | INFO | starting to predict for Asia, Russia, Chukotka Avtonomnyy Okrug
+01-25-2021 12:12:32 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Migori'): nan %
+01-25-2021 12:12:32 AM | DEBUG | Best fitted parameters for ('Kenya', 'Migori'): [1.50000000e+00 2.66822896e-01 1.00000000e+00 2.00000000e-02
+ 1.00000000e-02 5.00000000e+00 3.57684019e-03 1.00000000e-03
+ 1.15400528e-01 9.96506281e-01 1.00000000e-01 9.99758765e-01]
+01-25-2021 12:12:32 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Migori in 84.83 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:32 AM | INFO | starting to predict for Africa, Kenya, Uasin Gishu
+01-25-2021 12:12:32 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Chhattisgarh'): 16.898 %
+01-25-2021 12:12:32 AM | DEBUG | Best fitted parameters for ('India', 'Chhattisgarh'): [  1.493838   -11.07621026   1.           0.02         0.14285092
+   3.17954109   2.31437171   1.71362707   0.           3.83661577
+   1.36801442   0.2       ]
+01-25-2021 12:12:32 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Chhattisgarh in 89.55 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:32 AM | INFO | starting to predict for Asia, India, Jharkhand
+01-25-2021 12:12:33 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Eastern Visayas'): 24.293 %
+01-25-2021 12:12:33 AM | DEBUG | Best fitted parameters for ('Philippines', 'Eastern Visayas'): [5.14474881e-01 5.69419392e+00 1.00083865e+00 2.00000000e-02
+ 1.54731941e-02 1.08840179e-01 3.18754348e+00 1.00000000e-03
+ 6.60143460e-01 3.67968652e+01 1.61269321e+01 2.04622096e-01]
+01-25-2021 12:12:33 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Eastern Visayas in 98.92 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:33 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'West Bengal'): 8.283 %
+01-25-2021 12:12:33 AM | DEBUG | Best fitted parameters for ('India', 'West Bengal'): [ 1.50000000e+00 -7.35197127e+00  1.00000000e+00  2.00000000e-02
+  5.32523916e-02  5.96866346e-01  2.84680622e+00  1.00000000e-03
+  0.00000000e+00  1.79022867e+01  1.00000000e-01  2.00000000e-01]
+01-25-2021 12:12:33 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=West Bengal in 86.38 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:34 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Kajiado'): nan %
+01-25-2021 12:12:34 AM | DEBUG | Best fitted parameters for ('Kenya', 'Kajiado'): [ 1.50000000e+00 -5.75813756e+01  1.00000000e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  9.62431721e-01  3.10052394e-01
+  3.23463544e+00  2.56316204e+01  1.00000000e-01  9.99633469e-01]
+01-25-2021 12:12:34 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Kajiado in 89.65 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:34 AM | INFO | starting to predict for Africa, Kenya, Machakos
+01-25-2021 12:12:38 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Kericho'): nan %
+01-25-2021 12:12:38 AM | DEBUG | Best fitted parameters for ('Kenya', 'Kericho'): [ 1.50000000e+00 -4.24780261e+01  2.76346954e+00  2.00000000e-02
+  1.00000000e-02  3.27076044e+00  1.17900137e+00  8.02748394e-01
+  2.21788221e-01  3.23631757e+01  1.95489572e+00  9.99000000e-01]
+01-25-2021 12:12:38 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Kericho in 28.53 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:38 AM | INFO | starting to predict for Africa, Kenya, Turkana
+01-25-2021 12:12:39 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Bicol Region'): 12.594 %
+01-25-2021 12:12:39 AM | DEBUG | Best fitted parameters for ('Philippines', 'Bicol Region'): [ 1.03951632 -4.21885569  1.          0.02        0.08068374  0.7608233
+  2.76781219  2.82308812  0.          9.59746177  2.54733778  0.2       ]
+01-25-2021 12:12:39 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Bicol Region in 96.76 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:39 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Kisumu'): nan %
+01-25-2021 12:12:39 AM | DEBUG | Best fitted parameters for ('Kenya', 'Kisumu'): [ 1.50000000e+00 -1.92297473e+01  1.00151502e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  9.54713071e-03  1.01072296e-02
+  1.58988000e+00  4.99262804e+01  3.67283105e+00  9.99000000e-01]
+01-25-2021 12:12:40 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Kisumu in 89.18 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:40 AM | INFO | starting to predict for Africa, Kenya, Laikipia
+01-25-2021 12:12:40 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Gujarat'): 8.714 %
+01-25-2021 12:12:40 AM | DEBUG | Best fitted parameters for ('India', 'Gujarat'): [ 1.49995343e+00 -7.02643129e+00  1.06790717e+00  7.86515938e-02
+  1.39482360e-02  4.88166621e-02  2.95527092e-01  2.90311100e-02
+  1.47897873e+00  4.48444286e+01  1.00000000e-01  3.34147089e-01]
+01-25-2021 12:12:40 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Gujarat in 97.26 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:40 AM | INFO | starting to predict for Asia, India, Punjab
+01-25-2021 12:12:45 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Chandigarh'): 8.012 %
+01-25-2021 12:12:45 AM | DEBUG | Best fitted parameters for ('India', 'Chandigarh'): [ 1.11867264e+00 -2.72757501e+01  1.00000000e+00  2.00000000e-02
+  6.69223609e-02  1.04934290e+00  2.85829194e+00  1.77694873e+00
+  1.14442497e+00  8.09409087e+01  6.77252981e+00  8.49219802e-01]
+01-25-2021 12:12:45 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Chandigarh in 102.26 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:45 AM | INFO | starting to predict for Asia, India, Assam
+01-25-2021 12:12:46 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Mombasa'): nan %
+01-25-2021 12:12:46 AM | DEBUG | Best fitted parameters for ('Kenya', 'Mombasa'): [ 1.50000000e+00 -4.87663989e+01  1.03313162e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  3.26644253e-01  6.30443290e-03
+  3.34464029e+00  8.68623039e+01  4.05710539e+00  5.95515688e-01]
+01-25-2021 12:12:46 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Mombasa in 101.1 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:46 AM | INFO | starting to predict for Africa, Kenya, Nairobi City
+01-25-2021 12:12:50 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Puducherry'): 7.314 %
+01-25-2021 12:12:50 AM | DEBUG | Best fitted parameters for ('India', 'Puducherry'): [ 1.21472062 -3.91486376  1.          0.16350134  0.02490747  0.46757659
+  1.58353889  1.80562117  0.          0.          4.68564625  0.2       ]
+01-25-2021 12:12:50 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Puducherry in 85.14 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:51 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Manipur'): 3.828 %
+01-25-2021 12:12:51 AM | DEBUG | Best fitted parameters for ('India', 'Manipur'): [ 1.02492281e+00 -2.35894374e+01  1.08222284e+00  3.79502379e-02
+  1.72389731e-02  3.64804463e-02  2.48685303e+00  2.60049033e+00
+  3.13884416e+00  8.20678578e+01  3.88075543e+00  3.49108313e-01]
+01-25-2021 12:12:51 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Manipur in 108.89 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:51 AM | INFO | starting to predict for Asia, India, Nagaland
+01-25-2021 12:12:51 AM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'Western Visayas'): 9.149 %
+01-25-2021 12:12:51 AM | DEBUG | Best fitted parameters for ('Philippines', 'Western Visayas'): [1.35744346e+00 4.24206188e+00 1.00000000e+00 2.00000000e-02
+ 3.42436765e-02 5.52665675e-03 1.64160676e-03 8.75992733e-02
+ 2.63266811e-01 6.96251950e-01 1.35266671e+00 2.30915883e-01]
+01-25-2021 12:12:51 AM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=Western Visayas in 104.98 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:12:52 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Dadra and Nagar Haveli and Daman and Diu'): 58.231 %
+01-25-2021 12:12:52 AM | DEBUG | Best fitted parameters for ('India', 'Dadra and Nagar Haveli and Daman and Diu'): [ 1.50000000e+00 -2.85113956e+01  1.01618560e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  4.70005226e-01  7.78824262e-02
+  1.03245056e+00  3.30823111e-03  7.61618177e+00  2.00606016e-01]
+01-25-2021 12:12:52 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Dadra and Nagar Haveli and Daman and Diu in 85.93 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:13 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Trans Nzoia'): nan %
+01-25-2021 12:13:13 AM | DEBUG | Best fitted parameters for ('Kenya', 'Trans Nzoia'): [ 1.02544878e+00 -9.76622591e+01  3.87671507e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  6.06753025e-01  1.00000000e-03
+  4.50480596e-01  2.68932987e+01  1.59359743e+01  9.99256513e-01]
+01-25-2021 12:13:13 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Trans Nzoia in 61.6 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:13 AM | INFO | starting to predict for Africa, Kenya, Kakamega
+01-25-2021 12:13:17 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Madhya Pradesh'): 11.714 %
+01-25-2021 12:13:17 AM | DEBUG | Best fitted parameters for ('India', 'Madhya Pradesh'): [9.66642551e-01 8.20734309e+00 1.00000000e+00 2.12896977e-02
+ 1.99200798e-02 8.77446319e-02 9.85925760e-01 1.00000000e-03
+ 3.48479772e-01 2.20593152e+00 1.30519097e+01 2.00000000e-01]
+01-25-2021 12:13:17 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Madhya Pradesh in 82.68 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:30 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Turkana'): nan %
+01-25-2021 12:13:30 AM | DEBUG | Best fitted parameters for ('Kenya', 'Turkana'): [ 1.50000000e+00 -1.75909424e+01  1.00000000e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  3.52152827e-03  1.20795052e-02
+  4.36414030e+00  7.06440274e+00  1.00000000e-01  9.99603476e-01]
+01-25-2021 12:13:30 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Turkana in 51.84 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:32 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Maharashtra'): 7.285 %
+01-25-2021 12:13:32 AM | DEBUG | Best fitted parameters for ('India', 'Maharashtra'): [ 1.13140629e+00 -1.71263597e+01  1.00000000e+00  3.15218196e-02
+  2.89403260e-02  1.43703654e-02  2.52549021e+00  2.37389164e+00
+  0.00000000e+00  0.00000000e+00  1.00000000e-01  2.00000000e-01]
+01-25-2021 12:13:32 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Maharashtra in 72.97 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:38 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Delhi'): 13.533 %
+01-25-2021 12:13:38 AM | DEBUG | Best fitted parameters for ('India', 'Delhi'): [ 1.45801844e+00 -2.39349964e+01  1.00621629e+00  2.00000000e-02
+  2.75126410e-02  3.41392935e-01  2.39147887e+00  9.03713874e-01
+  1.65210481e-01  0.00000000e+00  1.00000000e-01  2.00000000e-01]
+01-25-2021 12:13:38 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Delhi in 71.37 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:40 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Himachal Pradesh'): 30.444 %
+01-25-2021 12:13:40 AM | DEBUG | Best fitted parameters for ('India', 'Himachal Pradesh'): [ 1.14217375 -2.24468374  1.          0.0368624   0.05002371  0.92610695
+  3.06720836  2.94630865  0.03516899  0.21756472  1.27817554  0.2       ]
+01-25-2021 12:13:40 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Himachal Pradesh in 73.55 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:47 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Uasin Gishu'): nan %
+01-25-2021 12:13:47 AM | DEBUG | Best fitted parameters for ('Kenya', 'Uasin Gishu'): [ 1.04363813e+00 -1.91659637e+01  1.11995539e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  1.00000000e-03  1.00000000e-03
+  9.08122192e-01  2.35979134e+01  1.80693411e+01  9.99868506e-01]
+01-25-2021 12:13:47 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Uasin Gishu in 74.99 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:47 AM | INFO | starting to predict for Africa, Kenya, Nakuru
+01-25-2021 12:13:47 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Laikipia'): nan %
+01-25-2021 12:13:47 AM | DEBUG | Best fitted parameters for ('Kenya', 'Laikipia'): [ 1.49844378e+00 -1.21356376e+02  1.73362720e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  8.31039460e-02  1.00000000e-03
+  2.71744681e-01  2.17202347e+01  6.08933225e+01  9.99686525e-01]
+01-25-2021 12:13:47 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Laikipia in 67.55 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:47 AM | INFO | starting to predict for Africa, Kenya, Nyeri
+01-25-2021 12:13:49 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Jharkhand'): 6.368 %
+01-25-2021 12:13:49 AM | DEBUG | Best fitted parameters for ('India', 'Jharkhand'): [  1.31628994 -13.99777957   1.31670226   0.02251018   0.02115109
+   0.4981663    3.45906902   3.36768957   1.32442186  20.30007762
+   0.1          0.2       ]
+01-25-2021 12:13:49 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Jharkhand in 76.5 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:50 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Punjab'): 8.084 %
+01-25-2021 12:13:50 AM | DEBUG | Best fitted parameters for ('India', 'Punjab'): [ 1.31287873 -8.77143818  1.          0.02075527  0.04217529  0.02819002
+  1.11820785  0.77974453  0.39738244  1.47863109  0.77316366  0.27236441]
+01-25-2021 12:13:50 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Punjab in 70.14 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:53 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Kakamega'): nan %
+01-25-2021 12:13:53 AM | DEBUG | Best fitted parameters for ('Kenya', 'Kakamega'): [ 1.21116289e+00 -3.81652536e+01  1.33986708e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  9.56476965e-01  3.90854884e-01
+  1.89528796e-01  1.89853306e+00  3.36296901e+00  9.99000000e-01]
+01-25-2021 12:13:53 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Kakamega in 39.02 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:55 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Machakos'): nan %
+01-25-2021 12:13:55 AM | DEBUG | Best fitted parameters for ('Kenya', 'Machakos'): [4.80243030e-01 2.02045456e+01 1.00000000e+00 2.00000000e-02
+ 1.00000000e-02 5.00000000e+00 6.00971233e-03 5.43588403e-02
+ 6.67442848e-01 7.99028139e+00 1.87521219e+01 9.99983259e-01]
+01-25-2021 12:13:55 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Machakos in 81.11 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:13:55 AM | INFO | starting to predict for Africa, Kenya, Kilifi
+01-25-2021 12:13:59 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Assam'): 2.341 %
+01-25-2021 12:13:59 AM | DEBUG | Best fitted parameters for ('India', 'Assam'): [ 1.50000000e+00 -1.35232526e+01  1.77860627e+00  2.13789708e-02
+  3.57938088e-02  4.95209085e+00  3.13338649e+00  2.86689817e+00
+  1.86422090e+00  3.28550951e+01  6.65762224e-01  3.09510254e-01]
+01-25-2021 12:13:59 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Assam in 74.42 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:14:03 AM | INFO | In-Sample MAPE Last 15 Days ('India', 'Nagaland'): 19.446 %
+01-25-2021 12:14:03 AM | DEBUG | Best fitted parameters for ('India', 'Nagaland'): [ 1.47103276e+00 -1.99992979e+01  1.00658972e+00  3.88086545e-02
+  5.10479555e-02  5.00000000e+00  2.89467822e+00  2.72527623e+00
+  1.10111804e-03  0.00000000e+00  1.00000000e-01  2.00000000e-01]
+01-25-2021 12:14:03 AM | INFO | Finished predicting for Continent=Asia, Country=India and Province=Nagaland in 72.05 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:14:11 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Nairobi City'): nan %
+01-25-2021 12:14:11 AM | DEBUG | Best fitted parameters for ('Kenya', 'Nairobi City'): [ 1.49783133e+00 -4.82158170e+01  5.18123980e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  3.30864508e-01  1.00000000e-03
+  7.17634974e-01  7.98765406e+01  2.46152532e+01  2.00000000e-01]
+01-25-2021 12:14:11 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Nairobi City in 85.39 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:14:11 AM | INFO | starting to predict for Africa, Kenya, Kiambu
+01-25-2021 12:14:45 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Nyeri'): nan %
+01-25-2021 12:14:45 AM | DEBUG | Best fitted parameters for ('Kenya', 'Nyeri'): [ 1.50000000e+00 -8.93588109e+00  6.54407389e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  1.85734301e-01  8.94499891e-01
+  5.00000000e+00  3.73757888e+01  1.00000000e-01  9.99919205e-01]
+01-25-2021 12:14:45 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Nyeri in 57.83 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:14:59 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Kilifi'): nan %
+01-25-2021 12:14:59 AM | DEBUG | Best fitted parameters for ('Kenya', 'Kilifi'): [ 1.50000000e+00 -1.04406491e+01  1.00000000e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  2.18435366e-03  1.00000000e-03
+  9.19540800e-01  8.80093311e+00  7.88182357e+00  9.99000000e-01]
+01-25-2021 12:14:59 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Kilifi in 63.7 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:15:03 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Nakuru'): nan %
+01-25-2021 12:15:03 AM | DEBUG | Best fitted parameters for ('Kenya', 'Nakuru'): [ 1.25236783e+00 -2.54046318e+01  1.00000000e+00  2.00000000e-02
+  1.00000000e-02  5.00000000e+00  6.50359884e-01  1.00000000e-03
+  6.43694351e-01  6.94029219e+01  9.47685570e+00  9.99478983e-01]
+01-25-2021 12:15:03 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Nakuru in 76.01 seconds
+--------------------------------------------------------------------------------------------
+01-25-2021 12:15:24 AM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'Kiambu'): nan %
+01-25-2021 12:15:24 AM | DEBUG | Best fitted parameters for ('Kenya', 'Kiambu'): [1.50000000e+00 2.13795150e+00 1.00000000e+00 2.00000000e-02
+ 1.00000000e-02 5.00000000e+00 3.89822314e-02 1.00000000e-03
+ 0.00000000e+00 0.00000000e+00 1.00000000e-01 9.99789882e-01]
+01-25-2021 12:15:24 AM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=Kiambu in 73.45 seconds
+--------------------------------------------------------------------------------------------
