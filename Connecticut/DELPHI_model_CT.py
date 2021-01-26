@@ -316,7 +316,7 @@ def solve_and_predict_area(
                         x_sol=x_sol,
                         cases_data_fit=cases_data_fit,
                         deaths_data_fit=deaths_data_fit,
-                        hospitalizations_data_fit=hospitalizations_data_fit, 
+                        hospitalizations_data_fit=hospitalizations_data_fit,
                         weights=weights
                     )
                 else:
@@ -341,7 +341,7 @@ def solve_and_predict_area(
             if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success):
                 best_params = output.x
                 t_predictions = [i for i in range(maxT)]
-    
+
                 def solve_best_params_and_predict(optimal_params):
                     # Variables Initialization for the ODE system
                     alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3, p_h, t_rh = optimal_params
@@ -387,7 +387,7 @@ def solve_and_predict_area(
                 mape_data = get_mape_data_fitting(
                     cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, x_sol_final=x_sol_final
                 )
-                
+
                 logging.info(f"In-Sample MAPE Last 15 Days {country, province}: {round(mape_data, 3)} %")
                 logging.debug(f"Best fitted parameters for {country, province}: {best_params}")
                 df_parameters_area = data_creator.create_dataset_parameters(mape_data)
@@ -456,8 +456,9 @@ if __name__ == "__main__":
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
-            + f"predicted/Parameters_Global_CT_20201129.csv"
+            + f"predicted/Parameters_Global_CT_annealing_20201217.csv"
         )
+        print("fitting with past parameters")
     except:
         past_parameters = None
 
@@ -477,9 +478,9 @@ if __name__ == "__main__":
     n_cpu = 1
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
     list_tuples = [(
-        r.continent, 
-        r.country, 
-        r.province, 
+        r.continent,
+        r.country,
+        r.province,
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows() if r.province == "Connecticut"]
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")

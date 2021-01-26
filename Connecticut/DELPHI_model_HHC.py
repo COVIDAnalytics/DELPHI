@@ -19,8 +19,8 @@ from scipy.optimize import dual_annealing
 today = "".join(str(datetime.now().date()).split("-"))
 OPTIMIZER = "annealing"
 #############################################################################################################
-pop_connecticut_areas = {"Hartford": 396603, "HOCC": 150066, "Midstate": 
-  121482, "Backus": 142920, "Windham": 46449, "CHH": 
+pop_connecticut_areas = {"Hartford": 396603, "HOCC": 150066, "Midstate":
+  121482, "Backus": 142920, "Windham": 46449, "CHH":
   71460, "St.V's": 128628}
 pop_connecticut = 3565000
 IncubeD = 5
@@ -30,16 +30,18 @@ parameter_file_name = "HHC_Prediction_Parameters_20201213.csv"
 past_parameters = pd.read_csv(parameter_file_name)
 default_bounds_params = (
     (0.1, 2), (-200, 100), (1, 15), (0.02, 0.5), (0.01, 0.25),  (0.0001, 5), (0.0001, 5), (0, 3), (0, 250), (0.1, 100), (3,15), (0.01, 0.5)
-)  
+)
 default_parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3, 0.1, 30, 30, 10, 0.2] # Default parameters for the solver
 
 
 
 start_date = pd.to_datetime("2020-07-01")
 default_maxT = pd.to_datetime("2021-03-01")
-start_state_file = "I://DELPHI//data_sandbox//predicted//raw_predictions//Predicted_model_state_V3_2020-07-01.csv"
-ct_prediction_file = "I://covid19orc//danger_map//predicted//Parameters_Global_CT_annealing_20201130.csv"
-raw_data = pd.read_excel("MIT Census.xlsx")
+start_state_file = "E://Github//DELPHI//data_sandbox//predicted//raw_predictions//Predicted_model_state_V3_2020-07-01.csv"
+ct_prediction_file = "E://Github//covid19orc//danger_map//predicted//Parameters_Global_CT_annealing_20201130.csv"
+past_parameters_file = "HHC_Prediction_Parameters_20201222.csv"
+past_parameters = pd.read_csv(past_parameters_file)
+raw_data = pd.read_excel("MIT Census.xlsx",engine='openpyxl')
 locations = raw_data.LOC_NAME.unique()
 list_ct_output = []
 list_ct_parameters_output = []
@@ -62,21 +64,86 @@ for location in locations:
     elif "Charlotte" in location:
         location_abbr = "CHH"
     elif "St. Vincent's" in location:
-        location_abbr = "St.V's"  
+        location_abbr = "St.V's"
     else:
         continue
-    print(f"Current prediction location is {location_abbr}")
+    print(f"Predicting for {location_abbr}")
     try:
-        past_parameter_location = past_parameters[past_parameters.Hospital == location_abbr].iloc[0]
+        past_parameters_line = list(past_parameters[past_parameters.Hospital == location_abbr].iloc[0][3:].values)
     except:
-        past_parameter_location = None
+        past_parameters_line = None
+    if past_parameters_line is None:
+        parameter_list = default_parameter_list
+        bounds_params = default_bounds_params
+    else:
+        parameter_list = past_parameters_line
+        alpha, days, r_s, r_dth, p_dth, k1, k2, jump, t_jump, std_normal, t_rh, p_d = parameter_list
+        parameter_list = [
+            max(alpha, 0),
+            days,
+            max(r_s, 0),
+            max(min(r_dth, 1), 0.01),
+            max(min(p_dth, 1), 0),
+            max(k1, 0),
+            max(k2, 0),
+            max(jump, 0),
+            max(t_jump, 0),
+            max(std_normal, 1),
+            max(t_rh,3),
+            min(max(p_d, 0.01),1)
+        ]
+        param_list_lower = [
+            x - max(0.8 * abs(x), 0.8) for x in
+            parameter_list
+        ]
+        (
+            alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower,
+            k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower, t_rh_lower, p_d_lower
+        ) = param_list_lower
+        param_list_lower = [
+            max(alpha_lower, 0),
+            days_lower,
+            max(r_s_lower, 0),
+            max(min(r_dth_lower, 1), 0.01),
+            max(min(p_dth_lower, 1), 0),
+            max(k1_lower, 0),
+            max(k2_lower, 0),
+            max(jump_lower, 0),
+            max(t_jump_lower, 0),
+            max(std_normal_lower, 1),
+            max(t_rh_lower, 3),
+            min(max(p_d_lower, 0.01),1)
+        ]
+        param_list_upper = [
+            x + max(0.8 * abs(x), 0.8) for x in
+            parameter_list
+        ]
+        (
+            alpha_upper, days_upper, r_s_upper, r_dth_upper, p_dth_upper,
+            k1_upper, k2_upper, jump_upper, t_jump_upper, std_normal_upper, t_rh_upper, p_d_upper
+        ) = param_list_upper
+        param_list_upper = [
+            max(alpha_upper, 0),
+            days_upper,
+            max(r_s_upper, 0),
+            max(min(r_dth_upper, 1), 0.01),
+            max(min(p_dth_upper, 1), 0),
+            max(k1_upper, 0),
+            max(k2_upper, 0),
+            max(jump_upper, 0),
+            max(t_jump_upper, 0),
+            max(std_normal_upper, 1),
+            max(t_rh_upper, 3),
+            min(max(p_d_upper, 0.01),1)
+        ]
+        bounds_params = [(lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)]
     N = pop_connecticut_areas[location_abbr]
     starting_state = pd.read_csv(start_state_file)
     PopulationR = starting_state[(starting_state.country == "US") & (starting_state.province == "Connecticut")].R.values.item() * N/ pop_connecticut
     PopulationD = starting_state[(starting_state.country == "US") & (starting_state.province == "Connecticut")].D.values.item() * N/ pop_connecticut
     PopulationCI = max(hospitalized_data_fit[0],1)
     p_h = pd.read_csv(ct_prediction_file)["Percentage Hospitalized"].values.item()
-            
+
     maxT = (default_maxT - start_date).days + 1
     balance_deaths = sum(hospitalized_data_fit) / sum(deaths_data_fit)
     balance_recovered = sum(hospitalized_data_fit) / sum(recovered_data_fit)
@@ -129,11 +196,11 @@ for location in locations:
             max(jump, 0),
             max(t_jump, 0),
             max(std_normal, 1),
-            max(t_rh, 0),
-            max(p_d, 0.01)
+            max(t_rh, 3),
+            min(max(p_d, 0.01),1)
         )
         alpha, days, r_s, r_dth, p_dth, k1, k2, jump, t_jump, std_normal, t_rh, p_d = params
-    
+
         S_0 = (N
             - (PopulationCI / p_h) * (k1 + k2 + 1 / p_d)
             - (PopulationR / p_d)
@@ -183,7 +250,7 @@ for location in locations:
             parameter_list
         ]
         (
-            alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower, 
+            alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower,
             k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower, t_rh_lower, p_d_lower
         ) = param_list_lower
         param_list_lower = [
@@ -231,7 +298,7 @@ for location in locations:
 
     def solve_best_params_and_predict(optimal_params):
         # Variables Initialization for the ODE system
-        alpha, days, r_s, r_dth, p_dth, k1, k2, jump, t_jump, std_normal, t_rh, p_d = optimal_params 
+        alpha, days, r_s, r_dth, p_dth, k1, k2, jump, t_jump, std_normal, t_rh, p_d = optimal_params
         optimal_params = (
         max(alpha, 0),
         days,
@@ -243,8 +310,8 @@ for location in locations:
         max(jump, 0),
         max(t_jump, 0),
         max(std_normal, 1),
-        max(t_rh, 0),
-        max(p_d, 0.01)
+        max(t_rh, 3),
+        min(max(p_d, 0.01),1)
     )
         S_0 = (N
             - (PopulationCI / p_h) * (k1 + k2 + 1 / p_d)
@@ -305,7 +372,7 @@ for location in locations:
             "Incidence Hospitalization Deaths": np.diff(hospitalization_deaths[
                                        n_days_btw_today_since_100-1:
                                        ]),
-                
+
         }
     )
     list_ct_output.append(df_predictions_since_today_area)

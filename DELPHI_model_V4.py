@@ -33,8 +33,8 @@ from DELPHI_params_V4 import (
     percentage_drift_lower_bound_annealing,
     default_upper_bound_annealing,
     default_lower_bound_annealing,
-    default_lower_bound_jump,
-    default_upper_bound_jump,
+    default_lower_bound_t_jump,
+    default_upper_bound_t_jump,
     default_lower_bound_std_normal,
     default_upper_bound_std_normal,
     default_bounds_params,
@@ -138,8 +138,8 @@ def solve_and_predict_area(
                     default_lower_bound_annealing=default_lower_bound_annealing,
                     percentage_drift_upper_bound_annealing=percentage_drift_upper_bound_annealing,
                     default_upper_bound_annealing=default_upper_bound_annealing,
-                    default_lower_bound_jump=default_lower_bound_jump,
-                    default_upper_bound_jump=default_upper_bound_jump,
+                    default_lower_bound_t_jump=default_lower_bound_t_jump,
+                    default_upper_bound_t_jump=default_upper_bound_t_jump,
                     default_lower_bound_std_normal=default_lower_bound_std_normal,
                     default_upper_bound_std_normal=default_upper_bound_std_normal,
                 )
@@ -157,7 +157,14 @@ def solve_and_predict_area(
             start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
         if startT is not None:
-            start_date = max(pd.to_datetime(startT), start_date)
+            input_start_date = pd.to_datetime(startT)
+            if input_start_date > start_date:
+                delta_days = (input_start_date - start_date).days
+                parameter_list[9] = parameter_list[9] - delta_days
+                bounds_params_list = list(bounds_params)
+                bounds_params_list[9] = (bounds_params_list[9][0]-delta_days, bounds_params_list[9][1]-delta_days)
+                bounds_params = tuple(bounds_params_list)
+                start_date = input_start_date
             validcases = totalcases[
                 (totalcases.date >= str(start_date))
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
@@ -453,6 +460,7 @@ if __name__ == "__main__":
             PATH_TO_FOLDER_DANGER_MAP
             + f"predicted/Parameters_Global_V4_{yesterday}.csv"
         )
+        print(PATH_TO_FOLDER_DANGER_MAP+ f"predicted/Parameters_Global_V4_{yesterday}.csv")
     except:
         past_parameters = None
 
@@ -477,6 +485,10 @@ if __name__ == "__main__":
         r.province, 
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
+
+    # list_tuples = [t for t in list_tuples if t[1] in ["Germany"]]
+    # , "Poland", "Belgium", "France", "Greece"]]
+
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
     with mp.Pool(n_cpu) as pool:
         for result_area in tqdm(

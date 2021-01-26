@@ -1,5 +1,5 @@
 arguments:
-  user: michael
+  user: michael2
   optimizer: annealing
   confidence_intervals: 1
   since100case: 1
