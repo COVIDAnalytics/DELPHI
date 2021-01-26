@@ -25,10 +25,15 @@ pop_connecticut_areas = {"Hartford": 396603, "HOCC": 150066, "Midstate":
 pop_connecticut = 3565000
 IncubeD = 5
 DetectD = 2
+parameter_file_name = "HHC_Prediction_Parameters_20201213.csv"
+
+past_parameters = pd.read_csv(parameter_file_name)
 default_bounds_params = (
     (0.1, 2), (-200, 100), (1, 15), (0.02, 0.5), (0.01, 0.25),  (0.0001, 5), (0.0001, 5), (0, 3), (0, 250), (0.1, 100), (3,15), (0.01, 0.5)
 )  
 default_parameter_list = [1, 0, 2, 0.2, 0.05, 3, 3, 0.1, 30, 30, 10, 0.2] # Default parameters for the solver
+
+
 
 start_date = pd.to_datetime("2020-07-01")
 default_maxT = pd.to_datetime("2021-03-01")
@@ -56,10 +61,15 @@ for location in locations:
         location_abbr = "Windham"
     elif "Charlotte" in location:
         location_abbr = "CHH"
-    elif "St.Vincent" in location:
+    elif "St. Vincent's" in location:
         location_abbr = "St.V's"  
     else:
         continue
+    print(f"Current prediction location is {location_abbr}")
+    try:
+        past_parameter_location = past_parameters[past_parameters.Hospital == location_abbr].iloc[0]
+    except:
+        past_parameter_location = None
     N = pop_connecticut_areas[location_abbr]
     starting_state = pd.read_csv(start_state_file)
     PopulationR = starting_state[(starting_state.country == "US") & (starting_state.province == "Connecticut")].R.values.item() * N/ pop_connecticut
@@ -163,8 +173,58 @@ for location in locations:
         else:
             residuals_value = 1e16
         return residuals_value
+    if past_parameter_location is None:
+        bound_params = default_bounds_params
+        parameter_list = default_parameter_list
+    else:
+        parameter_list = list(past_parameter_location[3:].values)
+        param_list_lower = [
+            x - max(0.4 * abs(x), 0.4) for x in
+            parameter_list
+        ]
+        (
+            alpha_lower, days_lower, r_s_lower, r_dth_lower, p_dth_lower, 
+            k1_lower, k2_lower, jump_lower, t_jump_lower, std_normal_lower, t_rh_lower, p_d_lower
+        ) = param_list_lower
+        param_list_lower = [
+            max(alpha_lower, 0),
+            days_lower,
+            max(r_s_lower, 0),
+            max(min(r_dth_lower, 1), 0.02),
+            max(min(p_dth_lower, 1), 0),
+            max(k1_lower, 0),
+            max(k2_lower, 0),
+            max(jump_lower, 0),
+            max(t_jump_lower, 0),
+            max(std_normal_lower, 1),
+            max(t_rh_lower, 1),
+            max(p_d_lower, 0.01),
+        ]
+        param_list_upper = [
+            x + max(0.4 * abs(x), 0.4) for x in
+            parameter_list
+        ]
+        (
+            alpha_upper, days_upper, r_s_upper, r_dth_upper, p_dth_upper,
+            k1_upper, k2_upper, jump_upper, t_jump_upper, std_normal_upper, t_rh_upper, p_d_upper
+        ) = param_list_upper
+        param_list_upper = [
+            max(alpha_upper, 0),
+            days_upper,
+            max(r_s_upper, 0),
+            max(min(r_dth_upper, 1), 0.02),
+            max(min(p_dth_upper, 1), 0),
+            max(k1_upper, 0),
+            max(k2_upper, 0),
+            max(jump_upper, 0),
+            max(t_jump_upper, 0),
+            max(std_normal_upper, 1),
+            max(t_rh_upper, 1),
+            max(p_d_upper, 0.01),
+        ]
+        bounds_params = [(lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)]
     output = dual_annealing(
-        residuals_totalcases, x0=default_parameter_list, bounds=default_bounds_params
+        residuals_totalcases, x0=parameter_list, bounds=bounds_params
     )
     best_params = output.x
     t_predictions = [i for i in range(maxT)]
@@ -233,12 +293,19 @@ for location in locations:
             "Hospital": [location_abbr for _ in range(n_days_since_today)],
             "Day": all_dates_since_today,
             "Active Hospitalized": active_hospitalized[n_days_btw_today_since_100:],
-            "Hospitalization Deaths": hospitalization_deaths[
+            "Cumulative Hospitalization Deaths": hospitalization_deaths[
                                        n_days_btw_today_since_100:
                                        ],
-            "Hospitalization Recoveries": hospitalization_recoveries[
+            "Cumulative Hospitalization Recoveries": hospitalization_recoveries[
                                      n_days_btw_today_since_100:
                                      ],
+            "Incidence Hospitalization Recoveries": np.diff(hospitalization_recoveries[
+                         n_days_btw_today_since_100-1:
+                         ]),
+            "Incidence Hospitalization Deaths": np.diff(hospitalization_deaths[
+                                       n_days_btw_today_since_100-1:
+                                       ]),
+                
         }
     )
     list_ct_output.append(df_predictions_since_today_area)
