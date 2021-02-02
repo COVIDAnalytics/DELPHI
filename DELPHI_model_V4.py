@@ -328,23 +328,25 @@ def solve_and_predict_area(
                     residuals_value = 1e16
                 return residuals_value
 
-            if OPTIMIZER in ["tnc", "trust-constr"]:
-                output = minimize(
-                    residuals_totalcases,
-                    parameter_list,
-                    method=OPTIMIZER,
-                    bounds=bounds_params,
-                    options={"maxiter": max_iter},
-                )
-            elif OPTIMIZER == "annealing":
-                output = dual_annealing(
-                    residuals_totalcases, x0=parameter_list, bounds=bounds_params
-                )
-            else:
-                raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
+            # if OPTIMIZER in ["tnc", "trust-constr"]:
+            #     output = minimize(
+            #         residuals_totalcases,
+            #         parameter_list,
+            #         method=OPTIMIZER,
+            #         bounds=bounds_params,
+            #         options={"maxiter": max_iter},
+            #     )
+            # elif OPTIMIZER == "annealing":
+            #     output = dual_annealing(
+            #         residuals_totalcases, x0=parameter_list, bounds=bounds_params
+            #     )
+            # else:
+            #     raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
 
-            if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success):
-                best_params = output.x
+            # if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success):
+            if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing"):
+                # best_params = output.x
+                best_params = parameter_list
                 t_predictions = [i for i in range(maxT)]
     
                 def solve_best_params_and_predict(optimal_params):
@@ -412,8 +414,8 @@ def solve_and_predict_area(
                 return (
                     df_parameters_area,
                     df_predictions_since_today_area,
-                    df_predictions_since_100_area,
-                    output,
+                    df_predictions_since_100_area
+                    # output,
                 )
             else:
                 return None
@@ -486,7 +488,7 @@ if __name__ == "__main__":
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
 
-#    list_tuples = [t for t in list_tuples if t[2] in ["Connecticut"]]
+    list_tuples = [t for t in list_tuples if t[1] in ["US"]]
     # , "Poland", "Belgium", "France", "Greece"]]
 
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
@@ -499,10 +501,10 @@ if __name__ == "__main__":
                 (
                     df_parameters_area,
                     df_predictions_since_today_area,
-                    df_predictions_since_100_area,
-                    output,
+                    df_predictions_since_100_area
+                    # output,
                 ) = result_area
-                obj_value = obj_value + output.fun
+                # obj_value = obj_value + output.fun
                 # Then we add it to the list of df to be concatenated to update the tracking df
                 list_df_global_parameters.append(df_parameters_area)
                 list_df_global_predictions_since_today.append(df_predictions_since_today_area)

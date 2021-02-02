@@ -22,7 +22,7 @@ percentage_drift_upper_bound = 0.2
 default_lower_bound = 0.2
 percentage_drift_lower_bound = 0.2
 default_bounds_params = (
-    (0.1, 1.5), (-200, 100), (1, 15), (0.02, 0.5), (0.01, 0.25), (-0.2, 5.0), (0.001, 5), (0.001, 5), (0, 5), (0, 300), (0.1, 100), (0.2,2.0)
+    (0.1, 1.5), (-200, 100), (1, 15), (0.02, 0.5), (0.01, 0.25), (-0.2, 5.0), (0.001, 5), (0.001, 5), (0, 5), (0, 150), (0.1, 100), (0.2,2.0)
 )   # Bounds for the solver
 validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
@@ -46,7 +46,7 @@ RecoverID = 10
 RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
-default_maxT = datetime(2021, 3, 15)  # Maximum timespan of prediction
+default_maxT = datetime(2021, 4, 30)  # Maximum timespan of prediction
 n_params_without_policy_params = 7  # alpha, r_dth, p_dth, a, b, k1, k2
 p_v = 0.25  # Percentage of ventilated
 p_d = 0.2  # Percentage of infection cases detected.
