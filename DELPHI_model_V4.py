@@ -486,7 +486,7 @@ if __name__ == "__main__":
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
 
-    # list_tuples = [t for t in list_tuples if t[1] in ["Germany"]]
+#    list_tuples = [t for t in list_tuples if t[2] in ["Connecticut"]]
     # , "Poland", "Belgium", "France", "Greece"]]
 
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")

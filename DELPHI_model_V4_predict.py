@@ -58,6 +58,9 @@ with open(arguments.run_config, "r") as ymlfile:
 
 USER_RUNNING = RUN_CONFIG["arguments"]["user"]
 end_date = RUN_CONFIG["arguments"]["end_date"]
+# full_raw is TRUE if we want all the states up till that date, if False just take the last date
+full_raw = bool(RUN_CONFIG["arguments"]["full_raw"])
+
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
@@ -106,17 +109,17 @@ def predict_area(
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
-                date_day_since100 = pd.to_datetime(parameter_list_line[3])
+                start_date = pd.to_datetime(parameter_list_line[3])
             else:
                 # Otherwise use established lower/upper bounds
                 parameter_list = default_parameter_list
-                date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
+                start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
         else:
             # Otherwise use established lower/upper bounds
             parameter_list = default_parameter_list
-            date_day_since100 = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
+            start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
 
-        if date_day_since100 >= pd.to_datetime(endT):
+        if start_date >= pd.to_datetime(endT):
             logging.warning(
                 f"End date is less than date since 100 cases for, Continent={continent}, Country={country} and Province={province} in "
                 + f"{round(time.time() - time_entering, 2)} seconds"
@@ -271,16 +274,42 @@ def predict_area(
                 return x_sol_best
 
             x_final = solve_best_params_and_predict(parameter_list)
-            [S, E, I, UR, DHR, DQR, UD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT] = x_final[:, -1]
-            final_state_dict = {'S':S, 'E':E, 'I':I, 'UR':UR, 'DHR':DHR, 'DQR':DQR, 'UD':UD, 'DHD':DHD, 
-                'DQD':DQD, 'R':R, 'D':D, 'TH':TH, 'DVR':DVR, 'DVD':DVD, 'DD':DD, 'DT':DT,
-                'continent': continent, 'country':country, 'province':province}
-            logging.info(
-                f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
-                + f"{round(time.time() - time_entering, 2)} seconds"
-            )
-            logging.info("--------------------------------------------------------------------------------------------")
-            return (final_state_dict)
+            if full_raw:
+                data_creator = DELPHIDataCreator(
+                    x_sol_final=x_final,
+                    date_day_since100=start_date,
+                    best_params=parameter_list,
+                    continent=continent,
+                    country=country,
+                    province=province,
+                    testing_data_included=False,
+                )
+                mape_data = get_mape_data_fitting(
+                    cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, x_sol_final=x_final
+                )
+                df_parameters_area = data_creator.create_dataset_parameters(mape_data)   
+                df_raw_since_today_area, df_raw_since_100_area = data_creator.create_datasets_raw()
+                logging.info(
+                    f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
+                    + f"{round(time.time() - time_entering, 2)} seconds"
+                )
+                logging.info("--------------------------------------------------------------------------------------------")
+                return (
+                    df_parameters_area,
+                    df_raw_since_today_area,
+                    df_raw_since_100_area,
+                )
+            else:
+                [S, E, I, UR, DHR, DQR, UD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT] = x_final[:, -1]
+                final_state_dict = {'S':S, 'E':E, 'I':I, 'UR':UR, 'DHR':DHR, 'DQR':DQR, 'UD':UD, 'DHD':DHD, 
+                    'DQD':DQD, 'R':R, 'D':D, 'TH':TH, 'DVR':DVR, 'DVD':DVD, 'DD':DD, 'DT':DT,
+                    'continent': continent, 'country':country, 'province':province}
+                logging.info(
+                    f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
+                    + f"{round(time.time() - time_entering, 2)} seconds"
+                )
+                logging.info("--------------------------------------------------------------------------------------------")
+                return (final_state_dict)
     else:  # file for that tuple (continent, country, province) doesn't exist in processed files
         logging.info(
             f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available"
@@ -328,33 +357,82 @@ if __name__ == "__main__":
 
     ### Fitting the Model ###
     # Initalizing lists of the different dataframes that will be concatenated in the end
-    list_predicted_state_dicts = []
-    predict_area_partial = partial(
-        predict_area,
-        yesterday_=yesterday,
-        past_parameters_=past_parameters,
-        popcountries=popcountries,
-        startT=fitting_start_date,
-        endT=end_date
-    )
-    n_cpu = psutil.cpu_count(logical = False) - 2
-    logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
-    list_tuples = [(r.continent ,r.country, r.province, r.values[:16]) for _, r in df_initial_states.iterrows()]
-    logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
-    with mp.Pool(n_cpu) as pool:
-        for result_area in tqdm(
-            pool.map_async(predict_area_partial, list_tuples).get(),
-            total=len(list_tuples),
-        ):
-            if result_area is not None:
-                (model_state_dict) = result_area
-                # Then we add it to the list of df to be concatenated to update the tracking df
-                list_predicted_state_dicts.append(model_state_dict)
-            else:
-                continue
-        logging.info("Finished the Multiprocessing for all areas")
-        pool.close()
-        pool.join()
+    if full_raw:
+        list_df_global_raw_since_today = []
+        list_df_global_raw_since_100_cases = []
+        list_df_global_parameters = []
+        predict_area_partial = partial(
+            predict_area,
+            yesterday_=yesterday,
+            past_parameters_=past_parameters,
+            popcountries=popcountries,
+            startT=fitting_start_date,
+            endT=end_date
+        )
+        n_cpu = psutil.cpu_count(logical = False) 
+        logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
+        list_tuples = [(
+            r.continent, 
+            r.country, 
+            r.province, 
+            r.values[:16] if not pd.isna(r.S) else None
+            ) for _, r in df_initial_states.iterrows()]
+        logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
+        with mp.Pool(n_cpu) as pool:
+            for result_area in tqdm(
+                pool.map_async(predict_area_partial, list_tuples).get(),
+                total=len(list_tuples),
+            ):
+                if result_area is not None:
+                    (
+                        df_parameters_area,
+                        df_raw_since_today_area,
+                        df_raw_since_100_area,
+                    ) = result_area
+                    list_df_global_parameters.append(df_parameters_area)
+                    list_df_global_raw_since_today.append(df_raw_since_today_area)
+                    list_df_global_raw_since_100_cases.append(df_raw_since_100_area)
+                else:
+                    continue
+            logging.info("Finished the Multiprocessing for all areas")
+            pool.close()
+            pool.join()
+        today_date_str = "".join(str(datetime.now().date()).split("-"))
+        df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
+            ["Country", "Province"]
+        ).reset_index(drop=True)
+        df_global_raw_since_today = pd.concat(list_df_global_raw_since_today)
+        df_global_raw_since_100_cases = pd.concat(list_df_global_raw_since_100_cases)
+        df_global_raw_since_today.to_csv(PATH_TO_DATA_SANDBOX + f'predicted/raw_predictions/Predicted_full_raw_V4_{today_date_str}.csv', index=False)
+        df_global_raw_since_100_cases.to_csv(PATH_TO_DATA_SANDBOX + f'predicted/raw_predictions/Predicted_full_raw_V4_since100_{today_date_str}.csv', index=False)
+    else:
+        list_predicted_state_dicts = []
+        predict_area_partial = partial(
+            predict_area,
+            yesterday_=yesterday,
+            past_parameters_=past_parameters,
+            popcountries=popcountries,
+            startT=fitting_start_date,
+            endT=end_date
+        )
+        n_cpu = psutil.cpu_count(logical = False) - 2
+        logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
+        list_tuples = [(r.continent ,r.country, r.province, r.values[:16]) for _, r in df_initial_states.iterrows()]
+        logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
+        with mp.Pool(n_cpu) as pool:
+            for result_area in tqdm(
+                pool.map_async(predict_area_partial, list_tuples).get(),
+                total=len(list_tuples),
+            ):
+                if result_area is not None:
+                    (model_state_dict) = result_area
+                    # Then we add it to the list of df to be concatenated to update the tracking df
+                    list_predicted_state_dicts.append(model_state_dict)
+                else:
+                    continue
+            logging.info("Finished the Multiprocessing for all areas")
+            pool.close()
+            pool.join()
 
-    df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
-    df_predicted_states.to_csv(f'data_sandbox/predicted/raw_predictions/Predicted_model_state_V4_{fitting_start_date}.csv', index=False)
+        df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
+        df_predicted_states.to_csv(PATH_TO_DATA_SANDBOX + f'predicted/raw_predictions/Predicted_model_state_V4_{fitting_start_date}.csv', index=False)
