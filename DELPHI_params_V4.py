@@ -56,7 +56,7 @@ future_policies = [
     'Restrict_Mass_Gatherings_and_Schools', 'Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others',
     'Restrict_Mass_Gatherings_and_Schools_and_Others', 'Lockdown'
 ]
-default_maxT_policies = datetime(2021, 3, 15) # Maximum timespan of prediction under different policy scenarios
+default_maxT_policies = datetime(2021, 4, 30) # Maximum timespan of prediction under different policy scenarios
 future_times = [0, 7, 14, 28, 42]
 
 # Default normalized gamma shifts from runs in May 2020

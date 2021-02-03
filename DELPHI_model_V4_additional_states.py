@@ -537,7 +537,7 @@ def run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states):
         TYPE_RUNNING = TYPE_RUNNING,
         startT=fitting_start_date
     )
-    n_cpu = psutil.cpu_count(logical = False)
+    n_cpu = 90 # psutil.cpu_count(logical = False)
     print(f"Number of CPUs found and used in this run: {n_cpu}")
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
     list_tuples = [(
