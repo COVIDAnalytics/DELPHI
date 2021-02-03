@@ -630,8 +630,8 @@ if __name__ == "__main__":
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
         )
         prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
-        training_start_date = datetime.now() - timedelta(days=3)
-        training_end_date = datetime.now() - timedelta(days=3)
+        training_start_date = datetime.now()
+        training_end_date = datetime.now()
     else:
         popcountries = pd.read_csv(
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
