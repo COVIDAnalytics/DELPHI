@@ -213,6 +213,7 @@ def solve_and_predict_area(
             """
             maxT = (default_maxT - start_date).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
+            T_vaccine = (pd.to_datetime("2021-02-01") - start_date).days
             balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
 
@@ -240,6 +241,10 @@ def solve_and_predict_area(
                 :return: predictions for all 16 states, which are the following
                 [0 S, 1 E, 2 I, 3 UR, 4 DHR, 5 DQR, 6 UD, 7 DHD, 8 DQD, 9 R, 10 D, 11 TH, 12 DVR,13 DVD, 14 DD, 15 DT]
                 """
+                if t >= T_vaccine:
+                    alpha_c=0
+                else:
+                    alpha_c=alpha 
                 r_i = np.log(2) / IncubeD  # Rate of infection leaving incubation phase
                 r_d = np.log(2) / DetectD  # Rate of detection
                 r_ri = np.log(2) / RecoverID  # Rate of recovery not under infection
@@ -255,8 +260,8 @@ def solve_and_predict_area(
                 ), f"Too many input variables, got {len(x)}, expected 16"
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 # Equations on main variables
-                dSdt = -alpha * gamma_t * S * I / N
-                dEdt = alpha * gamma_t * S * I / N - r_i * E
+                dSdt = -alpha_c * gamma_t * S * I / N
+                dEdt = alpha_c * gamma_t * S * I / N - r_i * E
                 dIdt = r_i * E - r_d * I
                 dARdt = r_d * (1 - p_dth_mod) * (1 - p_d) * I - r_ri * AR
                 dDHRdt = r_d * (1 - p_dth_mod) * p_d * p_h * I - r_rh * DHR
@@ -405,7 +410,7 @@ def solve_and_predict_area(
                            past_prediction_date=str(pd.to_datetime(past_prediction_date).date()))
                    )
                 else:
-                    df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions()
+                    df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_raw()
                 logging.info(
                     f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
                     + f"{round(time.time() - time_entering, 2)} seconds"
