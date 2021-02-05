@@ -51,8 +51,8 @@ n_params_without_policy_params = 7  # alpha, r_dth, p_dth, a, b, k1, k2
 p_v = 0.25  # Percentage of ventilated
 p_d = 0.2  # Percentage of infection cases detected.
 p_h = 0.03  # Percentage of detected cases hospitalized
-beta1 = 0.66 # effectiveness of single vaccine shot
-beta2 = 0.945 # effectiveness of double vaccine shot
+beta1 = 0.6 # effectiveness of single vaccine shot
+beta2 = 0.9 # effectiveness of double vaccine shot
 
 # Policies and future times for counterfactual predictions
 future_policies = [

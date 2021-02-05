@@ -283,7 +283,10 @@ def solve_and_predict_area(
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 ti = min(int(t), V.shape[0]-1)
                 # Equations on main variables
-                dSdt = -alpha * gamma_t * S * I / N - beta1*V[ti] - (beta2-beta1)*V2[ti]
+                # V = V1 + V2
+                # (0.95*V2 + 0.66*(V - V2))
+                dVdt = min(S, beta1*V[ti] + (beta2-beta1)*V2[ti])
+                dSdt = -alpha * gamma_t * S * I / N - dVdt
                 dEdt = alpha * gamma_t * S * I / N - r_i * E
                 dIdt = r_i * E - r_d * I
                 dARdt = r_d * (1 - p_dth_mod) * (1 - p_d) * I - r_ri * AR
@@ -514,7 +517,7 @@ if __name__ == "__main__":
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
 
-    list_tuples = [t for t in list_tuples if t[2] in ["Alabama", "California"]]
+    list_tuples = [t for t in list_tuples if t[2] in ["California", "New York", "Wyoming", "New Mexico"]]
     # , "Poland", "Belgium", "France", "Greece"]]
 
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
