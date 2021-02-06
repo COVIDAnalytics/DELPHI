@@ -2,6 +2,7 @@
 import os
 import pandas as pd
 import numpy as np
+from scipy.stats import linregress
 from datetime import datetime, timedelta
 from typing import Union
 from copy import deepcopy
@@ -820,6 +821,36 @@ def get_testing_data_us() -> pd.DataFrame:
     df_test_final = pd.concat(list_df_concat).reset_index(drop=True)
     df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
     return df_test_final
+
+def linregress_vaccinations(V, ma_window=7):
+    s = 0
+    while V[s] == 0:
+        s+=1
+    s+=1
+    V_ =[np.mean(V[max(i-ma_window, s):i+1]) for i in range(s, V.shape[0])]
+    V_ = np.array(V_)
+    t = np.arange(V_.shape[0]) 
+    slope, intercept, _, _, _ = linregress(t, V_)
+    VT = slope*(t.shape[0]-1) + intercept
+    if slope >= 0:
+        return slope, VT
+    return 0, VT
+
+def create_vaccinations_timeseries(vaccinated, maxT):
+    if np.all(pd.isna(vaccinated)):
+        V = np.zeros(vaccinated.shape[0])
+        V_slope, VT = 0, 0
+    else:
+        V_0 = np.nanmin(vaccinated) # to handle start of data
+        t0 = np.nanargmin(vaccinated)
+        V = total_V.diff()
+        V[t0] = V_0
+        V = V.fillna(0).values # convert to an array
+        V_slope, VT = vaccinations_linregress(V)
+
+    t_future = np.arange(X.shape[0], maxT+1)
+    V_future = t_future*slope + VT
+    return np.append(V, V_future)
 
 class DELPHIModelComparison:
     def __init__(

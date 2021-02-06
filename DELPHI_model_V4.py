@@ -18,7 +18,7 @@ from DELPHI_utils_V4_static import (
     DELPHIAggregations, DELPHIDataSaver, DELPHIDataCreator, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
-from DELPHI_utils_V4_dynamic import get_bounds_params_from_pastparams
+from DELPHI_utils_V4_dynamic import get_bounds_params_from_pastparams, create_vaccinations_timeseries
 from DELPHI_params_V4 import (
     fitting_start_date,
     default_parameter_list,
@@ -222,26 +222,10 @@ def solve_and_predict_area(
 
             ## Process vaccinations data
             # 1. number of people vaccinated irrespective of number of shots
-            total_V = validcases.people_vaccinated
-            if np.all(pd.isna(total_V)):
-                V = np.zeros(total_V.shape[0])
-            else:
-                V_0 = np.nanmin(total_V) # to handle start of data
-                t0 = np.nanargmin(total_V)
-                V = total_V.diff()
-                V[t0] = V_0
-                V = V.fillna(0).values # convert to an array
+            V = create_vaccinations_timeseries(validcases.people_vaccinated, maxT)
 
             # 2. number of people who received both shots
-            total_V2 = validcases.people_fully_vaccinated
-            if np.all(pd.isna(total_V2)):
-                V2 = np.zeros(total_V2.shape[0])
-            else:
-                V2_0 = np.nanmin(total_V2) # to handle start of data
-                t0 = np.nanargmin(total_V2)
-                V2 = total_V2.diff()
-                V2[t0] = V2_0
-                V2 = V2.fillna(0).values  # convert to an array
+            V2 = create_vaccinations_timeseries(validcases.people_fully_vaccinated, maxT)
 
             def model_covid(
                 t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3
