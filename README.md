@@ -5,14 +5,15 @@ The repository contains code for a epidemiological model utilized in the researc
 http://www.covidanalytics.io/
 
 This repository contains multiple models, most of them being archived in the `/archive` folder, but also the main and current DELPHI model (as of November 20th 2020) which we call V4.0. Below are the characteristics of each models:
-8. DELPHI V4.0 - The current version of code on the website. It is a modification of the implementation from V3.0 although the underlying model is the same.
-1. DELPHI V3.0 - This is the previous version of code. It is an improvement upon the  version of the model, as it takes into account interventions being lifted for a little while, causing a resurgence in the number of cases/deaths. This resurgence is modeled using a 3 parameters normal distribution added to our gamma(t) function (cf. `documentation/DELPHI_Explainer_V3.pdf`)
-2. Adaptive Policy Model / Continuous Retraining - This is an experimental model we tried implementing that would continuously retrain the parameters associated to the lifting or implementation of a policy in a given area and was supposed to help model a resurgence in cases. It unfortunately didn't yield good enough results and we decided to discard it.
-3. V1 - No Jump: Initial DELPHI Model used until late May 2020.
-4. V2 - Discrete Jump: This is an attempt at modeling a resurgence in cases using a simple discrete jump (similar to what is done with policy evaluations). This implementation was unsuccessful.
-5. V3 - Normal Jump + Trust Solver: Very similar implementation to the final V3.0 version we are currently using (as of September 5th 2020) where we use a trust region constrained solver instead of a TNC solver. The newer implementation actually allows for either so this can be discarded.
-6. V4 - Arctan Jump: This is an attempt at modeling a resurgence in cases using an arctan jump. This implementation was unsuccessful.
-7. Other analyses: contains a bunch of other analyses and modeling experiments we have conducted, among which other second wave modeling (as opposed to resurgence). They were unsuccessful.
+
+1. DELPHI V4.0 - The current version of code on the website. It is a modification of the implementation from V3.0 although the underlying model is the same.
+2. DELPHI V3.0 - This is the previous version of code. It is an improvement upon the  version of the model, as it takes into account interventions being lifted for a little while, causing a resurgence in the number of cases/deaths. This resurgence is modeled using a 3 parameters normal distribution added to our gamma(t) function (cf. `documentation/DELPHI_Explainer_V3.pdf`)
+3. Adaptive Policy Model / Continuous Retraining - This is an experimental model we tried implementing that would continuously retrain the parameters associated to the lifting or implementation of a policy in a given area and was supposed to help model a resurgence in cases. It unfortunately didn't yield good enough results and we decided to discard it.
+4. V1 - No Jump: Initial DELPHI Model used until late May 2020.
+5. V2 - Discrete Jump: This is an attempt at modeling a resurgence in cases using a simple discrete jump (similar to what is done with policy evaluations). This implementation was unsuccessful.
+6. V3 - Normal Jump + Trust Solver: Very similar implementation to the final V3.0 version we are currently using (as of September 5th 2020) where we use a trust region constrained solver instead of a TNC solver. The newer implementation actually allows for either so this can be discarded.
+7. V4 - Arctan Jump: This is an attempt at modeling a resurgence in cases using an arctan jump. This implementation was unsuccessful.
+8. Other analyses: contains a bunch of other analyses and modeling experiments we have conducted, among which other second wave modeling (as opposed to resurgence). They were unsuccessful.
 
 We provide two implementations for the previous V2.0: The (deprecated) Mathematica version
 `archive/V1 - No Jump/COVID-19_MIT_ORC_training_script_global_V2.nb`,
