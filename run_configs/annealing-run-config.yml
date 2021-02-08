@@ -1,0 +1,6 @@
+arguments:
+  user: michael
+  optimizer: annealing
+  confidence_intervals: 1
+  since100case: 1
+  website: 0

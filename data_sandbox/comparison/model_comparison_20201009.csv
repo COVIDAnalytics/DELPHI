@@ -1,0 +1,231 @@
+region,annealing_selected,annealing_metric,tnc_metric,annealing_max_ape
+"('Asia', 'Afghanistan', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Albania', 'None')",False,508.37417518619003,-1695.31113417239,0.42452830188679247
+"('Africa', 'Algeria', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Andorra', 'None')",True,2061.6275032890826,3072.4649809283364,0.7846153846153846
+"('Africa', 'Angola', 'None')",False,0.0,0.0,0.0
+"('North America', 'Antigua and Barbuda', 'None')",False,0.0,0.0,0.0
+"('South America', 'Argentina', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Armenia', 'None')",False,0.0,0.0,0.0
+"('Oceania', 'Australia', 'Australian Capital Territory')",False,0.0,0.0,0.0
+"('Oceania', 'Australia', 'New South Wales')",False,0.0,0.0,0.0
+"('Oceania', 'Australia', 'Queensland')",False,0.0,0.0,0.0
+"('Oceania', 'Australia', 'South Australia')",False,0.0,0.0,0.0
+"('Oceania', 'Australia', 'Tasmania')",False,0.0,0.0,0.0
+"('Oceania', 'Australia', 'Victoria')",False,0.0,0.0,0.0
+"('Oceania', 'Australia', 'Western Australia')",False,0.0,0.0,0.0
+"('Europe', 'Austria', 'None')",True,62718.95643209398,63677.18397354155,7.016304347826087
+"('Asia', 'Azerbaijan', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Bahrain', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Bangladesh', 'None')",False,0.0,0.0,0.0
+"('North America', 'Barbados', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Belarus', 'None')",True,13966.891641153754,44187.33678091565,1.4180327868852458
+"('Europe', 'Belgium', 'None')",True,14552.220453278154,39732.183358635724,2.484536082474227
+"('North America', 'Belize', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Benin', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Bhutan', 'None')",False,0.0,0.0,0.0
+"('South America', 'Bolivia', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Bosnia and Herzegovina', 'None')",True,5593.2613624560945,29091.725418566402,1.3365384615384615
+"('Africa', 'Botswana', 'None')",False,0.0,0.0,0.0
+"('South America', 'Brazil', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Bulgaria', 'None')",True,5811.987298039416,16499.11418881945,0.8759124087591241
+"('Africa', 'Burkina Faso', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Burundi', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Cabo Verde', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Cambodia', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Cameroon', 'None')",False,0.0,0.0,0.0
+"('North America', 'Canada', 'Alberta')",False,0.0,0.0,0.0
+"('North America', 'Canada', 'British Columbia')",False,0.0,0.0,0.0
+"('North America', 'Canada', 'Manitoba')",False,0.0,0.0,0.0
+"('North America', 'Canada', 'New Brunswick')",False,0.0,0.0,0.0
+"('North America', 'Canada', 'Newfoundland and Labrador')",False,0.0,0.0,0.0
+"('North America', 'Canada', 'Nova Scotia')",False,0.0,0.0,0.0
+"('North America', 'Canada', 'Ontario')",False,0.0,0.0,0.0
+"('North America', 'Canada', 'Quebec')",False,0.0,0.0,0.0
+"('North America', 'Canada', 'Saskatchewan')",False,0.0,0.0,0.0
+"('Africa', 'Central African Republic', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Chad', 'None')",False,0.0,0.0,0.0
+"('South America', 'Chile', 'None')",False,0.0,0.0,0.0
+"('South America', 'Colombia', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Comoros', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Congo (Brazzaville)', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Congo (Kinshasa)', 'None')",False,0.0,0.0,0.0
+"('North America', 'Costa Rica', 'None')",False,0.0,0.0,0.0
+"('Africa', ""Cote d'Ivoire"", 'None')",False,0.0,0.0,0.0
+"('Europe', 'Croatia', 'None')",True,2330.4595784699145,22400.165236186214,0.9914529914529915
+"('North America', 'Cuba', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Cyprus', 'None')",True,751.6204138531834,932.0527104264931,0.0
+"('Europe', 'Czechia', 'None')",True,7977.293526305219,9121.529394294059,1.481203007518797
+"('Europe', 'Denmark', 'None')",True,4317.96600704679,5694.456764287348,1.0288461538461537
+"('Africa', 'Djibouti', 'None')",False,0.0,0.0,0.0
+"('North America', 'Dominican Republic', 'None')",False,0.0,0.0,0.0
+"('South America', 'Ecuador', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Egypt', 'None')",False,0.0,0.0,0.0
+"('North America', 'El Salvador', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Equatorial Guinea', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Estonia', 'None')",True,716.8031860454953,1664.7415162793532,0.6407766990291263
+"('Africa', 'Ethiopia', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Finland', 'None')",True,1142.8534593391712,14665.528666915161,0.546583850931677
+"('Europe', 'France', 'None')",True,323456.49294908857,324628.9283687937,2.389830508474576
+"('Africa', 'Gabon', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Gambia', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Georgia', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Germany', 'None')",True,28132.393189253682,28607.943041681974,5.0
+"('Africa', 'Ghana', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Greece', 'None')",False,2525.4912597702805,2525.4912597702805,1.014388489208633
+"('North America', 'Guatemala', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Guinea', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Guinea-Bissau', 'None')",False,0.0,0.0,0.0
+"('South America', 'Guyana', 'None')",False,0.0,0.0,0.0
+"('North America', 'Haiti', 'None')",False,0.0,0.0,0.0
+"('North America', 'Honduras', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Hungary', 'None')",True,3656.5988237014744,7907.408515995713,0.6949152542372882
+"('Europe', 'Iceland', 'None')",True,1021.7454240427718,3524.673272797927,0.0
+"('Asia', 'India', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Indonesia', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Iran', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Iraq', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Ireland', 'None')",True,3623.6927630849095,71489.19891885675,1.0811594202898551
+"('Asia', 'Israel', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Italy', 'None')",True,11051.471150321579,11093.762464330877,1.3950870010235414
+"('Africa', 'Jamaica', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Japan', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Jordan', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Kazakhstan', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Kenya', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Korea, South', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Kosovo', 'None')",False,5401.83045759954,5274.59073601169,1.1650485436893203
+"('Asia', 'Kuwait', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Latvia', 'None')",True,442.4041524762561,656.4573295284184,0.0
+"('Asia', 'Lebanon', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Lesotho', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Liberia', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Libya', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Liechtenstein', 'None')",False,12.660099320252769,12.660099320252769,0.0
+"('Europe', 'Lithuania', 'None')",True,715.8726793355479,1177.4403457376054,0.391304347826087
+"('Europe', 'Luxembourg', 'None')",True,8776.191758274063,9224.17628645283,0.9907407407407407
+"('Africa', 'Madagascar', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Malawi', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Malaysia', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Maldives', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Mali', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Malta', 'None')",True,901.3410325514722,956.2494534572432,0.6415094339622641
+"('Africa', 'Mauritania', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Mauritius', 'None')",False,0.0,0.0,0.0
+"('North America', 'Mexico', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Moldova', 'None')",True,3783.069961730726,7700.534342653445,1.9333333333333333
+"('Europe', 'Monaco', 'None')",True,83.69220174704843,99.24267282519736,0.0
+"('Asia', 'Mongolia', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Montenegro', 'None')",True,3422.844234875401,37187.78609772668,1.2844827586206897
+"('Africa', 'Morocco', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Mozambique', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Namibia', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Nepal', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Netherlands', 'None')",True,8016.5945886081,39158.977307193236,1.9883040935672514
+"('Oceania', 'New Zealand', 'None')",False,0.0,0.0,0.0
+"('North America', 'Nicaragua', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Niger', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Nigeria', 'None')",False,0.0,0.0,0.0
+"('Europe', 'North Macedonia', 'None')",True,1742.4643078018466,1870.7886472062955,0.7383177570093458
+"('Europe', 'Norway', 'None')",True,1551.7630949661432,25922.782292683143,0.8942307692307693
+"('Asia', 'Oman', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Pakistan', 'None')",False,0.0,0.0,0.0
+"('North America', 'Panama', 'None')",False,0.0,0.0,0.0
+"('Oceania', 'Papua New Guinea', 'None')",False,0.0,0.0,0.0
+"('South America', 'Paraguay', 'None')",False,0.0,0.0,0.0
+"('South America', 'Peru', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Philippines', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Poland', 'None')",True,17245.090495140797,23295.540478179813,1.3708609271523178
+"('Europe', 'Portugal', 'None')",True,7758.853026640709,8557.882850717426,2.735042735042735
+"('Asia', 'Qatar', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Romania', 'None')",True,10527.660147983604,11068.211915013846,1.1764705882352942
+"('Asia', 'Russia', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Rwanda', 'None')",False,0.0,0.0,0.0
+"('Europe', 'San Marino', 'None')",True,464.7185615565761,478.7248370823768,0.0
+"('Africa', 'Sao Tome and Principe', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Saudi Arabia', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Senegal', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Serbia', 'None')",False,7175.67349111569,7129.351787559819,1.0810810810810811
+"('Africa', 'Seychelles', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Sierra Leone', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Singapore', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Slovakia', 'None')",True,3727.545454543015,20119.130878607604,1.251908396946565
+"('Europe', 'Slovenia', 'None')",True,861.2628180534804,21052.58527034456,0.3193717277486911
+"('Africa', 'Somalia', 'None')",False,0.0,0.0,0.0
+"('Africa', 'South Africa', 'None')",False,0.0,0.0,0.0
+"('Africa', 'South Sudan', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Spain', 'None')",False,337422.4665021084,337422.4665021084,3.086705202312139
+"('Asia', 'Sri Lanka', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Sudan', 'None')",False,0.0,0.0,0.0
+"('South America', 'Suriname', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Sweden', 'None')",True,30256.331260161085,45589.81105082593,3.9245283018867925
+"('Europe', 'Switzerland', 'None')",False,11265.283007504435,11265.283007504435,1.3902439024390243
+"('Asia', 'Tajikistan', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Tanzania', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Thailand', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Togo', 'None')",False,0.0,0.0,0.0
+"('South America', 'Trinidad and Tobago', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Tunisia', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Turkey', 'None')",False,0.0,0.0,0.0
+"('North America', 'US', 'Alabama')",False,0.0,0.0,0.0
+"('North America', 'US', 'Alaska')",False,0.0,0.0,0.0
+"('North America', 'US', 'Arizona')",False,0.0,0.0,0.0
+"('North America', 'US', 'Arkansas')",False,0.0,0.0,0.0
+"('North America', 'US', 'California')",False,0.0,0.0,0.0
+"('North America', 'US', 'Colorado')",False,0.0,0.0,0.0
+"('North America', 'US', 'Connecticut')",False,0.0,0.0,0.0
+"('North America', 'US', 'Delaware')",False,0.0,0.0,0.0
+"('North America', 'US', 'District of Columbia')",False,0.0,0.0,0.0
+"('North America', 'US', 'Florida')",False,0.0,0.0,0.0
+"('North America', 'US', 'Georgia')",False,0.0,0.0,0.0
+"('North America', 'US', 'Hawaii')",False,0.0,0.0,0.0
+"('North America', 'US', 'Idaho')",False,0.0,0.0,0.0
+"('North America', 'US', 'Illinois')",False,0.0,0.0,0.0
+"('North America', 'US', 'Indiana')",False,0.0,0.0,0.0
+"('North America', 'US', 'Iowa')",False,0.0,0.0,0.0
+"('North America', 'US', 'Kansas')",False,0.0,0.0,0.0
+"('North America', 'US', 'Kentucky')",False,0.0,0.0,0.0
+"('North America', 'US', 'Louisiana')",False,0.0,0.0,0.0
+"('North America', 'US', 'Maine')",False,0.0,0.0,0.0
+"('North America', 'US', 'Maryland')",False,0.0,0.0,0.0
+"('North America', 'US', 'Massachusetts')",False,0.0,0.0,0.0
+"('North America', 'US', 'Michigan')",False,0.0,0.0,0.0
+"('North America', 'US', 'Minnesota')",False,0.0,0.0,0.0
+"('North America', 'US', 'Mississippi')",False,0.0,0.0,0.0
+"('North America', 'US', 'Missouri')",False,0.0,0.0,0.0
+"('North America', 'US', 'Montana')",False,0.0,0.0,0.0
+"('North America', 'US', 'Nebraska')",False,0.0,0.0,0.0
+"('North America', 'US', 'Nevada')",False,0.0,0.0,0.0
+"('North America', 'US', 'New Hampshire')",False,0.0,0.0,0.0
+"('North America', 'US', 'New Jersey')",False,0.0,0.0,0.0
+"('North America', 'US', 'New Mexico')",False,0.0,0.0,0.0
+"('North America', 'US', 'New York')",False,0.0,0.0,0.0
+"('North America', 'US', 'North Carolina')",False,0.0,0.0,0.0
+"('North America', 'US', 'North Dakota')",False,0.0,0.0,0.0
+"('North America', 'US', 'Ohio')",False,0.0,0.0,0.0
+"('North America', 'US', 'Oklahoma')",False,0.0,0.0,0.0
+"('North America', 'US', 'Oregon')",False,0.0,0.0,0.0
+"('North America', 'US', 'Pennsylvania')",False,0.0,0.0,0.0
+"('North America', 'US', 'Rhode Island')",False,0.0,0.0,0.0
+"('North America', 'US', 'South Carolina')",False,0.0,0.0,0.0
+"('North America', 'US', 'South Dakota')",False,0.0,0.0,0.0
+"('North America', 'US', 'Tennessee')",False,0.0,0.0,0.0
+"('North America', 'US', 'Texas')",False,0.0,0.0,0.0
+"('North America', 'US', 'Utah')",False,0.0,0.0,0.0
+"('North America', 'US', 'Vermont')",False,0.0,0.0,0.0
+"('North America', 'US', 'Virginia')",False,0.0,0.0,0.0
+"('North America', 'US', 'Washington')",False,0.0,0.0,0.0
+"('North America', 'US', 'West Virginia')",False,0.0,0.0,0.0
+"('North America', 'US', 'Wisconsin')",False,0.0,0.0,0.0
+"('North America', 'US', 'Wyoming')",False,0.0,0.0,0.0
+"('Africa', 'Uganda', 'None')",False,0.0,0.0,0.0
+"('Europe', 'Ukraine', 'None')",True,5337.719956779783,10332.82736762792,1.4466019417475728
+"('Asia', 'United Arab Emirates', 'None')",False,0.0,0.0,0.0
+"('Europe', 'United Kingdom', 'None')",True,62784.54424438571,62789.219262039864,0.8405063291139241
+"('South America', 'Uruguay', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Uzbekistan', 'None')",False,0.0,0.0,0.0
+"('South America', 'Venezuela', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Vietnam', 'None')",False,0.0,0.0,0.0
+"('Asia', 'Yemen', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Zambia', 'None')",False,0.0,0.0,0.0
+"('Africa', 'Zimbabwe', 'None')",False,0.0,0.0,0.0

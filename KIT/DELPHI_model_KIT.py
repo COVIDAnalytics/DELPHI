@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 import multiprocessing as mp
 import time
 from functools import partial
+from scipy.optimize import dual_annealing
 from tqdm import tqdm_notebook as tqdm
 from DELPHI_utils_KIT import (
     DELPHIDataCreator, DELPHIAggregations, DELPHIDataSaver, get_initial_conditions, mape
@@ -65,13 +66,13 @@ def solve_and_predict_area(
                     max(alpha, 0), days, max(r_s, 0), max(min(r_dth, 1), 0.02), max(min(p_dth, 1), 0), max(r_dthdecay, 0),
                          max(k1, 0), max(k2, 0), max(jump, 0), max(t_jump, 0),max(std_normal, 1)
                 )                
-                param_list_lower = [x - max(0.2 * abs(x), 0.2) for x in parameter_list]
+                param_list_lower = [x - max(0.5 * abs(x), 0.5) for x in parameter_list]
                 alpha_l, days_l, r_s_l, r_dth_l, p_dth_l, r_dthdecay_l, k1_l, k2_l, jump_l, t_jump_l, std_normal_l = param_list_lower
                 param_list_lower = [
                     max(alpha_l, 0), days_l, max(r_s_l, 0), max(min(r_dth_l, 1), 0.02), max(min(p_dth_l, 1), 0), max(r_dthdecay_l, 0),
                          max(k1_l, 0), max(k2_l, 0), max(jump_l, 0), max(t_jump_l, 0),max(std_normal_l, 1)
                 ]
-                param_list_upper = [x +  max(0.2 * abs(x), 0.2) for x in parameter_list]
+                param_list_upper = [x +  max(0.5 * abs(x), 0.5) for x in parameter_list]
                 alpha_u, days_u, r_s_u, r_dth_u, p_dth_u, r_dthdecay_u, k1_u, k2_u, jump_u, t_jump_u, std_normal_u = param_list_upper
                 param_list_upper = [
                     max(alpha_u, 0), days_u, max(r_s_u, 0), max(min(r_dth_u, 1), 0.02), max(min(p_dth_u, 1), 0), max(r_dthdecay_u, 0),
@@ -222,6 +223,7 @@ def solve_and_predict_area(
                     args=tuple(params)
                 ).y
                 weights = list(range(1, len(fitcasesnd) + 1))
+                weights = [(x/len(fitcasesnd))**2 for x in weights]
                 # weights[-15:] =[x + 50 for x in weights[-15:]]
                 residuals_value = sum(
                     np.multiply((x_sol[15, :] - fitcasesnd) ** 2, weights)
@@ -252,13 +254,16 @@ def solve_and_predict_area(
             # nlcons = NonlinearConstraint(last_point,
             #                              [fitcasesd[-1] * (1 - allowed_deviation_), fitcasesnd[-1] * (1 - allowed_deviation_) ],
             #                              [fitcasesd[-1] * (1 + allowed_deviation_), fitcasesnd[-1] * (1 + allowed_deviation_) ])
-            output = minimize(
-                residuals_totalcases,
-                parameter_list,
-                method="tnc",  # Can't use Nelder-Mead if I want to put bounds on the params
-                bounds=bounds_params,
-                options={'maxiter': max_iter}
+            output = dual_annealing(
+                residuals_totalcases, x0=parameter_list, bounds=bounds_params
             )
+#            output = minimize(
+#                residuals_totalcases,
+#                parameter_list,
+#                method="tnc",  # Can't use Nelder-Mead if I want to put bounds on the params
+#                bounds=bounds_params,
+#                options={'maxiter': max_iter}
+#            )
             best_params = output.x
             t_predictions = [i for i in range(maxT)]
 
