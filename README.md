@@ -19,9 +19,9 @@ We provide two implementations for the previous V2.0: The (deprecated) Mathemati
 and the python3 version `archive/V1 - No Jump/DELPHI_model.py`. The Mathematica notebook was written with Mathematica
 12.1 but should work with any version greater than 10.0. The Python3 version is tested with Python 3.7.
 
-The currently used implementation on the website and all other extra analyses for DELPHI V3.0 is in python3 under file
-`DELPHI_model_V3.py` and is currently the final version. The policy-based predictions utilize the file
-`DELPHI_model_V3_with_policies.py` which uses the outputs from `DELPHI_model_V3.py`.
+The currently used implementation on the website and all other extra analyses for DELPHI V4.0 is in python3 under file
+`DELPHI_model_V4.py` and is currently the final version. The policy-based predictions utilize the file
+`DELPHI_model_V4_with_policies.py` which uses the outputs from `DELPHI_model_V4.py`.
 
 The latest documentation for the model is contained in the pdf document: `documentation/DELPHI_Explainer_V3.pdf`.
 
@@ -34,12 +34,16 @@ ML Li, H Tazi Bouardi, O Skali Lami, N Trichakis, T Trikalinos, D Bertsimas. For
 
 
 ## V4.0 How To Run Instructions
+
+### Packages
+numpy, scipy (>=1.4.1), pandas, us
+
 ### Files Needed
 To run the V4.0 model successfully, you would require the following files for each region:
-1. Historical Case Files - This should be provided in the same format as the examples given in folder `data/processed`.
+1. Historical Case Files - This should be provided in the same format as the examples given in folder `data_sandbox/processed`. The location of the files should be at `danger_map` + "processed/Global/Cases\_\{Country_Name\}\_\{Province_Name\}.csv".
 2. Population File - This file should record the population at each location that needs to be predicted.
-An example of such is in `data/processed/Population_Global.csv`.
-3. Historical Parameter Files (optional) - This file record previously trained parameters and the optimization bounds would be within 10% of the original trained parameters. This should be provided in the format given in the example file `predicted/Parameters_Global_20200621.csv`.
+An example of such is in `data_sandbox/processed/Global/Population_Global.csv`. The location of this file should be at `danger_map` + "processed/Global/Population_Global.csv".
+3. Historical Parameter Files (optional) - This file record previously trained parameters and the optimization bounds would be within 10% of the original trained parameters. This should be provided in the format given in the example file `data_sandbox/predicted/Parameters_Global_20200621.csv`. The location of the files should be at `danger_map` + "predicted/Parameters\_Global\_\{Date\}.csv".
 4. A run config YAML file at `./run_configs`. This file is used to pass the settings for a particular run, some examples are given in the `./run_configs` folder and can be modified according to the need. It is discussed in more detail below.
 
 ### File Paths for Python
