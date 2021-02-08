@@ -9,6 +9,7 @@ from itertools import compress
 from DELPHI_params_V4 import MAPPING_STATE_CODE_TO_STATE_NAME, future_policies
 from matplotlib import pyplot as plt
 from logging import Logger
+from scipy.spatial import distance
 
 def get_bounds_params_from_pastparams(
         optimizer: str, parameter_list: list, dict_default_reinit_parameters: dict, percentage_drift_lower_bound: float,
@@ -846,6 +847,7 @@ class DELPHIModelComparison:
         """
         y_true = np.asarray(y_true, dtype=np.float)
         y_pred = np.asarray(y_pred, dtype=np.float)
+        
         return np.sum(np.where(y_true != 0, y_true * np.log(y_true / y_pred), 0))
 
     @staticmethod
@@ -898,10 +900,10 @@ class DELPHIModelComparison:
     def compare_metric(self,
                     province_tuple,
                     min_case_count=100,
-                    metric="KL",
+                    metric="Canberra",
                     threshold=1.0,
                     plot=False,
-                    eps=0.05):
+                    eps=0.02):
         """
         Computes the given metric for predictions with annealing and tnc and the MAPE for annealing.
         Returns the metrics along with a flag showing whether annealing did better than tnc.
@@ -945,11 +947,13 @@ class DELPHIModelComparison:
         if metric == "KL":
             self.logger.info("Using KL divergence metric")
             metric = DELPHIModelComparison.kl_divergence
+        elif metric == "Canberra":
+            metric = distance.canberra
         else:
             self.logger.error(f"Metric {metric} has not been implemented. Only KL divergence is implemented so far")
             raise NotImplementedError("Only KL divergence is implemented as a comparison metric")
-        metric_annealing = metric(merged['True Value'], merged['Annealing Prediction'])
-        metric_tnc = metric(merged['True Value'], merged['TNC Prediction'])
+        metric_annealing = metric(merged['True Value'], merged['Annealing Prediction'], w = list(range(len(merged["True Value"]))))
+        metric_tnc = metric(merged['True Value'], merged['TNC Prediction'], w = list(range(len(merged["True Value"]))))
         max_ape = DELPHIModelComparison.max_ape_ma(merged['True Value'], merged['Annealing Prediction'])
 
         self.logger.info('Distance for Annealing: ' + str(metric_annealing))
