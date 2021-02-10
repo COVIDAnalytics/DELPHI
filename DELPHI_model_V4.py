@@ -108,11 +108,11 @@ def solve_and_predict_area(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     print(f"starting to predict for {continent}, {country}, {province}")
-    # if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
-    if os.path.exists(f"/Users/saksham/Research/temp_files/Global/Cases_{country_sub}_{province_sub}.csv"):
+    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
+    # if os.path.exists(f"/Users/saksham/Research/temp_files/Global/Cases_{country_sub}_{province_sub}.csv"):
         totalcases = pd.read_csv(
-            # PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
-            f"/Users/saksham/Research/temp_files/Global/Cases_{country_sub}_{province_sub}.csv"
+            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
+            # f"/Users/saksham/Research/temp_files/Global/Cases_{country_sub}_{province_sub}.csv"
         )
         if totalcases.day_since100.max() < 0:
             logging.warning(
@@ -501,7 +501,7 @@ if __name__ == "__main__":
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
 
-    list_tuples = [t for t in list_tuples if t[2] in ["California", "New York", "Wyoming", "New Mexico"]]
+    list_tuples = [t for t in list_tuples if t[1] in ["US"]]
     # , "Poland", "Belgium", "France", "Greece"]]
 
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
