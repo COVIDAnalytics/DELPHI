@@ -2,6 +2,7 @@
 import os
 import pandas as pd
 import numpy as np
+from scipy.stats import linregress
 from datetime import datetime, timedelta
 from typing import Union
 from copy import deepcopy
@@ -16,7 +17,7 @@ def get_bounds_params_from_pastparams(
         default_upper_bound: float, dict_default_reinit_upper_bounds: dict,
         percentage_drift_lower_bound_annealing: float, default_lower_bound_annealing: float,
         percentage_drift_upper_bound_annealing: float, default_upper_bound_annealing: float,
-        default_lower_bound_jump: float, default_upper_bound_jump: float, default_lower_bound_std_normal: float,
+        default_lower_bound_t_jump: float, default_upper_bound_t_jump: float, default_lower_bound_std_normal: float,
         default_upper_bound_std_normal: float,
 ) -> list:
     """
@@ -158,10 +159,10 @@ def get_bounds_params_from_pastparams(
             max(std_normal_upper, dict_default_reinit_upper_bounds["std_normal"]),
             max(k3_upper, dict_default_reinit_upper_bounds["k3"]),
         ]
-#        param_list_lower[8] = default_lower_bound_jump  # jump lower bound
-#        param_list_upper[8] = default_upper_bound_jump  # jump upper bound
-#        param_list_lower[10] = default_lower_bound_std_normal  # std_normal lower bound
-#        param_list_upper[10] = default_upper_bound_std_normal  # std_normal upper bound
+        param_list_lower[9] = default_lower_bound_t_jump  # jump lower bound
+        param_list_upper[9] = default_upper_bound_t_jump  # jump upper bound
+    #        param_list_lower[10] = default_lower_bound_std_normal  # std_normal lower bound
+    #        param_list_upper[10] = default_upper_bound_std_normal  # std_normal upper bound
     else:
         raise ValueError(f"Optimizer {optimizer} not supported in this implementation so can't generate bounds")
 
@@ -192,19 +193,19 @@ def check_us_policy_data_consistency(policies: list, df_policy_raw_us: pd.DataFr
     """
     for policy in policies:
         assert (
-            len(
-                df_policy_raw_us.loc[
+                len(
+                    df_policy_raw_us.loc[
                     (df_policy_raw_us[f"{policy}_start_date"].isnull())
                     & (~df_policy_raw_us[f"{policy}_end_date"].isnull()),
                     :,
-                ]
-            )
-            == 0
+                    ]
+                )
+                == 0
         ), f"Problem in data, policy {policy} has no start date but has an end date"
 
 
 def create_intermediary_policy_features_us(
-    df_policy_raw_us: pd.DataFrame, dict_state_to_policy_dates: dict, policies: list
+        df_policy_raw_us: pd.DataFrame, dict_state_to_policy_dates: dict, policies: list
 ) -> pd.DataFrame:
     """
     Processes the IHME policy data in the US to create the right intermediary features with the right names
@@ -242,8 +243,8 @@ def create_intermediary_policy_features_us(
             df_temp[policy] = 0
             df_temp.loc[
                 (
-                    (df_temp.date >= start_date_policy_location)
-                    & (df_temp.date <= end_date_policy_location)
+                        (df_temp.date >= start_date_policy_location)
+                        & (df_temp.date <= end_date_policy_location)
                 ),
                 policy,
             ] = 1
@@ -268,7 +269,7 @@ def create_intermediary_policy_features_us(
 def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFrame:
     """
     Creates the final MECE policies in the US from the intermediary policies dataframe
-    :param df_policies_US: intermediary dataframe with processed columns containing binary variables as to whether or 
+    :param df_policies_US: intermediary dataframe with processed columns containing binary variables as to whether or
     not a policy is implemented in a given state at a given date
     :return: dataframe with the final MECE policies in the US used for DELPHI policy predictions
     """
@@ -282,7 +283,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
         for a, b in zip(
             df_policies_US.sum(axis=1) == 1,
             df_policies_US["Mass_Gathering_Restrictions"] == 1,
-        )
+            )
     ]
     df_policies_US_final[msr[2]] = [
         int(a and b and c)
@@ -290,7 +291,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
             df_policies_US.sum(axis=1) > 0,
             df_policies_US["Mass_Gathering_Restrictions"] == 0,
             df_policies_US["Stay_at_home_order"] == 0,
-        )
+            )
     ]
     df_policies_US_final[msr[3]] = [
         int(a and b and c)
@@ -298,7 +299,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
             df_policies_US.sum(axis=1) == 2,
             df_policies_US["Educational_Facilities_Closed"] == 1,
             df_policies_US["Mass_Gathering_Restrictions"] == 1,
-        )
+            )
     ]
     df_policies_US_final[msr[4]] = [
         int(a and b and c and d)
@@ -307,7 +308,7 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
             df_policies_US["Educational_Facilities_Closed"] == 0,
             df_policies_US["Mass_Gathering_Restrictions"] == 1,
             df_policies_US["Stay_at_home_order"] == 0,
-        )
+            )
     ]
     df_policies_US_final[msr[5]] = [
         int(a and b and c and d)
@@ -316,15 +317,15 @@ def create_final_policy_features_us(df_policies_US: pd.DataFrame) -> pd.DataFram
             df_policies_US["Educational_Facilities_Closed"] == 1,
             df_policies_US["Mass_Gathering_Restrictions"] == 1,
             df_policies_US["Stay_at_home_order"] == 0,
-        )
+            )
     ]
     df_policies_US_final[msr[6]] = (df_policies_US["Stay_at_home_order"] == 1).apply(
         lambda x: int(x)
     )
     df_policies_US_final["country"] = "US"
     df_policies_US_final = df_policies_US_final.loc[
-        :, ["country", "province", "date"] + msr
-    ]
+                           :, ["country", "province", "date"] + msr
+                           ]
     return df_policies_US_final
 
 
@@ -332,7 +333,7 @@ def read_policy_data_us_only(filepath_data_sandbox: str) -> pd.DataFrame:
     """
     Reads and processes the policy data from IHME to obtain the MECE policies defined for DELPHI Policy Predictions
     :param filepath_data_sandbox: string, path to the data sandbox drawn from the config.yml file in the main script
-    :return: fully processed dataframe containing the MECE policies implemented in each state of the US for the full 
+    :return: fully processed dataframe containing the MECE policies implemented in each state of the US for the full
     time period necessary until the day when this function is called
     """
     policies = [
@@ -383,7 +384,7 @@ def read_oxford_international_policy_data(yesterday: str) -> pd.DataFrame:
     """
     Reads the policy data from the Oxford dataset online and processes it to obtain the MECE policies for all other
     countries than the US
-    :param yesterday: string date used in the main script as the day for which we read past parameters used as warm 
+    :param yesterday: string date used in the main script as the day for which we read past parameters used as warm
     starts for the optimization
     :return: processed dataframe with MECE policies in each country of the world, used for policy predictions
     """
@@ -493,7 +494,7 @@ def read_oxford_international_policy_data(yesterday: str) -> pd.DataFrame:
         for a, b in zip(
             measures["C7_Restrictions on internal movement"] >= 2,
             measures["C7_Flag"] == 1,
-        )
+            )
     ]
 
     measures["C8_International travel controls"] = [
@@ -559,7 +560,7 @@ def read_oxford_international_policy_data(yesterday: str) -> pd.DataFrame:
         for a, b in zip(
             measures.iloc[:, 2:].sum(axis=1) == 1,
             measures["Restrict_Mass_Gatherings"] == 1,
-        )
+            )
     ]
     output[msr[2]] = [
         int(a and b and c)
@@ -567,7 +568,7 @@ def read_oxford_international_policy_data(yesterday: str) -> pd.DataFrame:
             measures.iloc[:, 2:].sum(axis=1) > 0,
             measures["Restrict_Mass_Gatherings"] == 0,
             measures["C6_Stay at home requirements"] == 0,
-        )
+            )
     ]
     output[msr[3]] = [
         int(a and b and c)
@@ -575,7 +576,7 @@ def read_oxford_international_policy_data(yesterday: str) -> pd.DataFrame:
             measures.iloc[:, 2:].sum(axis=1) == 2,
             measures["C1_School closing"] == 1,
             measures["Restrict_Mass_Gatherings"] == 1,
-        )
+            )
     ]
     output[msr[4]] = [
         int(a and b and c and d)
@@ -584,7 +585,7 @@ def read_oxford_international_policy_data(yesterday: str) -> pd.DataFrame:
             measures["C1_School closing"] == 0,
             measures["Restrict_Mass_Gatherings"] == 1,
             measures["C6_Stay at home requirements"] == 0,
-        )
+            )
     ]
     output[msr[5]] = [
         int(a and b and c and d)
@@ -593,7 +594,7 @@ def read_oxford_international_policy_data(yesterday: str) -> pd.DataFrame:
             measures["C1_School closing"] == 1,
             measures["Restrict_Mass_Gatherings"] == 1,
             measures["C6_Stay at home requirements"] == 0,
-        )
+            )
     ]
     output[msr[6]] = (measures["C6_Stay at home requirements"] == 1).apply(
         lambda x: int(x)
@@ -634,7 +635,7 @@ def make_increasing(sequence: list) -> list:
 
 
 def get_normalized_policy_shifts_and_current_policy_us_only(
-    policy_data_us_only: pd.DataFrame, past_parameters: pd.DataFrame
+        policy_data_us_only: pd.DataFrame, past_parameters: pd.DataFrame
 ) -> (dict, dict):
     """
     Computes the normalized policy shifts and the current policy in each state of the US
@@ -654,15 +655,15 @@ def get_normalized_policy_shifts_and_current_policy_us_only(
             compress(
                 policy_list,
                 (
-                    policy_data_us_only.query("province == @state")[
-                        policy_data_us_only.query("province == @state")["date"]
-                        == policy_data_us_only.date.max()
-                    ][policy_list]
-                    == 1
+                        policy_data_us_only.query("province == @state")[
+                            policy_data_us_only.query("province == @state")["date"]
+                            == policy_data_us_only.date.max()
+                            ][policy_list]
+                        == 1
                 )
-                .values.flatten()
-                .tolist(),
-            )
+                    .values.flatten()
+                    .tolist(),
+                    )
         )[0]
     states_set = set(policy_data_us_only["province_cl"])
     past_parameters_copy = deepcopy(past_parameters)
@@ -684,23 +685,23 @@ def get_normalized_policy_shifts_and_current_policy_us_only(
     n_measures = policy_data_us_only.iloc[:, 3:-2].shape[1]
     dict_normalized_policy_gamma = {
         policy_data_us_only.columns[3 + i]: policy_data_us_only[
-            policy_data_us_only.iloc[:, 3 + i] == 1
-        ]
-        .iloc[:, -1]
-        .mean()
+                                                policy_data_us_only.iloc[:, 3 + i] == 1
+                                                ]
+                                                .iloc[:, -1]
+            .mean()
         for i in range(n_measures)
     }
     normalize_val = dict_normalized_policy_gamma[policy_list[0]]
     for policy in dict_normalized_policy_gamma.keys():
         dict_normalized_policy_gamma[policy] = (
-            dict_normalized_policy_gamma[policy] / normalize_val
+                dict_normalized_policy_gamma[policy] / normalize_val
         )
 
     return dict_normalized_policy_gamma, dict_current_policy
 
 
 def get_normalized_policy_shifts_and_current_policy_all_countries(
-    policy_data_countries: pd.DataFrame, past_parameters: pd.DataFrame
+        policy_data_countries: pd.DataFrame, past_parameters: pd.DataFrame
 ) -> (dict, dict):
     """
     Computes the normalized policy shifts and the current policy in each area of the world except the US
@@ -733,21 +734,21 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
             compress(
                 policy_list,
                 (
-                    policy_data_countries.query("country == @country")[
-                        policy_data_countries.query("country == @country")["date"]
-                        == policy_data_countries.query("country == @country").date.max()
-                    ][policy_list]
-                    == 1
+                        policy_data_countries.query("country == @country")[
+                            policy_data_countries.query("country == @country")["date"]
+                            == policy_data_countries.query("country == @country").date.max()
+                            ][policy_list]
+                        == 1
                 )
-                .values.flatten()
-                .tolist(),
-            )
+                    .values.flatten()
+                    .tolist(),
+                    )
         )[0]
     countries_common = sorted([x.lower() for x in countries_upper_set])
     pastparam_tuples_in_oxford = past_parameters_copy[
         (past_parameters_copy.Country.isin(countries_common))
         & (past_parameters_copy.Province != "None")
-    ].reset_index(drop=True)
+        ].reset_index(drop=True)
     pastparam_tuples_in_oxford["tuple_name"] = list(
         zip(pastparam_tuples_in_oxford.Country, pastparam_tuples_in_oxford.Province)
     )
@@ -776,16 +777,16 @@ def get_normalized_policy_shifts_and_current_policy_all_countries(
     n_measures = policy_data_countries_bis.iloc[:, 3:-2].shape[1]
     dict_normalized_policy_gamma = {
         policy_data_countries_bis.columns[3 + i]: policy_data_countries_bis[
-            policy_data_countries_bis.iloc[:, 3 + i] == 1
-        ]
-        .iloc[:, -1]
-        .mean()
+                                                      policy_data_countries_bis.iloc[:, 3 + i] == 1
+                                                      ]
+                                                      .iloc[:, -1]
+            .mean()
         for i in range(n_measures)
     }
     normalize_val = dict_normalized_policy_gamma[policy_list[0]]
     for policy in dict_normalized_policy_gamma.keys():
         dict_normalized_policy_gamma[policy] = (
-            dict_normalized_policy_gamma[policy] / normalize_val
+                dict_normalized_policy_gamma[policy] / normalize_val
         )
 
     return dict_normalized_policy_gamma, dict_current_policy
@@ -821,14 +822,44 @@ def get_testing_data_us() -> pd.DataFrame:
     df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
     return df_test_final
 
+def linregress_vaccinations(V, ma_window=7):
+    s = 0
+    while V[s] == 0:
+        s+=1
+    s+=1
+    V_ =[np.mean(V[max(i-ma_window, s):i+1]) for i in range(s, V.shape[0])]
+    V_ = np.array(V_)
+    t = np.arange(V_.shape[0])
+    slope, intercept, _, _, _ = linregress(t, V_)
+    VT = slope*(t.shape[0]-1) + intercept
+    if slope >= 0:
+        return slope, VT
+    return 0, VT
+
+def create_vaccinations_timeseries(vaccinated, maxT):
+    if np.all(pd.isna(vaccinated)):
+        V = np.zeros(vaccinated.shape[0])
+        V_slope, VT = 0, 0
+    else:
+        V_0 = np.nanmin(vaccinated) # to handle start of data
+        t0 = np.nanargmin(vaccinated)
+        V = total_V.diff()
+        V[t0] = V_0
+        V = V.fillna(0).values # convert to an array
+        V_slope, VT = vaccinations_linregress(V)
+
+    t_future = np.arange(X.shape[0], maxT+1)
+    V_future = t_future*slope + VT
+    return np.append(V, V_future)
+
 class DELPHIModelComparison:
     def __init__(
-        self,
-        path_to_folder_danger_map: str,
-        path_to_folder_data_sandbox: str,
-        global_annealing_since_100days: pd.DataFrame,
-        total_tnc_since_100days: pd.DataFrame,
-        logger: Logger
+            self,
+            path_to_folder_danger_map: str,
+            path_to_folder_data_sandbox: str,
+            global_annealing_since_100days: pd.DataFrame,
+            total_tnc_since_100days: pd.DataFrame,
+            logger: Logger
     ):
         self.DANGER_MAP = path_to_folder_danger_map
         self.DATA_SANDBOX = path_to_folder_data_sandbox
@@ -896,12 +927,12 @@ class DELPHIModelComparison:
         return(true_df)
 
     def compare_metric(self,
-                    province_tuple,
-                    min_case_count=100,
-                    metric="KL",
-                    threshold=1.0,
-                    plot=False,
-                    eps=0.05):
+                       province_tuple,
+                       min_case_count=100,
+                       metric="KL",
+                       threshold=1.0,
+                       plot=False,
+                       eps=0.05):
         """
         Computes the given metric for predictions with annealing and tnc and the MAPE for annealing.
         Returns the metrics along with a flag showing whether annealing did better than tnc.
