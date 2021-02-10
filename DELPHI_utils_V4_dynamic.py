@@ -829,9 +829,9 @@ def linregress_vaccinations(V, ma_window=7):
     s+=1
     V_ =[np.mean(V[max(i-ma_window, s):i+1]) for i in range(s, V.shape[0])]
     V_ = np.array(V_)
-    t = np.arange(V_.shape[0])
+    t = np.arange(s, V.shape[0])
     slope, intercept, _, _, _ = linregress(t, V_)
-    VT = slope*(t.shape[0]-1) + intercept
+    VT = slope*(V.shape[0]-1) + intercept
     if slope >= 0:
         return slope, VT
     return 0, VT
@@ -843,13 +843,13 @@ def create_vaccinations_timeseries(vaccinated, maxT):
     else:
         V_0 = np.nanmin(vaccinated) # to handle start of data
         t0 = np.nanargmin(vaccinated)
-        V = total_V.diff()
+        V = vaccinated.diff()
         V[t0] = V_0
         V = V.fillna(0).values # convert to an array
-        V_slope, VT = vaccinations_linregress(V)
+        V_slope, VT = linregress_vaccinations(V)
 
-    t_future = np.arange(X.shape[0], maxT+1)
-    V_future = t_future*slope + VT
+    t_future = np.arange(V.shape[0], maxT)
+    V_future = t_future*V_slope + VT
     return np.append(V, V_future)
 
 class DELPHIModelComparison:

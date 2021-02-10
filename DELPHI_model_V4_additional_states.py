@@ -35,8 +35,8 @@ from DELPHI_params_V4 import (
     percentage_drift_lower_bound_annealing,
     default_upper_bound_annealing,
     default_lower_bound_annealing,
-    default_lower_bound_jump,
-    default_upper_bound_jump,
+    default_lower_bound_t_jump,
+    default_upper_bound_t_jump,
     default_lower_bound_std_normal,
     default_upper_bound_std_normal,
     default_bounds_params,
@@ -51,6 +51,7 @@ from DELPHI_params_V4 import (
     p_d,
     p_h,
     max_iter,
+    VACCINE_MODEL
 )
 from DELPHI_model_V4_with_policies_additional_states import run_model_V4_with_policies
 
@@ -222,8 +223,8 @@ def solve_and_predict_area(
                     default_lower_bound_annealing=default_lower_bound_annealing,
                     percentage_drift_upper_bound_annealing=percentage_drift_upper_bound_annealing,
                     default_upper_bound_annealing=default_upper_bound_annealing,
-                    default_lower_bound_jump=default_lower_bound_jump,
-                    default_upper_bound_jump=default_upper_bound_jump,
+                    default_lower_bound_t_jump=default_lower_bound_t_jump,
+                    default_upper_bound_t_jump=default_upper_bound_t_jump,
                     default_lower_bound_std_normal=default_lower_bound_std_normal,
                     default_upper_bound_std_normal=default_upper_bound_std_normal,
                 )
@@ -513,7 +514,7 @@ def run_model_eachday(current_time,OPTIMIZER, popcountries, df_initial_states):
     yesterday_date = current_time - timedelta(days=1)
     yesterday = "".join(str(current_time.date() - timedelta(days=1)).split("-"))
     OPTIMIZER_tnc = "tnc"
-    if TYPE_RUNNING == "global" or OPTIMIZER == "tnc":
+    if "global" in TYPE_RUNNING or OPTIMIZER == "tnc":
         past_parameters = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,yesterday_date,OPTIMIZER_tnc, False,TYPE_RUNNING)
     else:
         past_parameters_annealing = get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,yesterday_date,OPTIMIZER, False,TYPE_RUNNING)
@@ -625,7 +626,7 @@ if __name__ == "__main__":
           f"generation of Confidence Intervals' flag is {GET_CONFIDENCE_INTERVALS}"
     print(inf)
     logging.info(inf)
-    if TYPE_RUNNING == "global":
+    if "global" in TYPE_RUNNING:
         popcountries = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
         )
@@ -657,6 +658,8 @@ if __name__ == "__main__":
             df_initial_states = df_initial_states[df_initial_states.country != 'US']
     elif TYPE_RUNNING == "US":
         df_initial_states = df_initial_states[df_initial_states.country == 'US']
+    elif TYPE_RUNNING == VACCINE_MODEL:
+        df_initial_states = df_initial_states[df_initial_states['country'].isin(["US"])]
     n_days_to_train = (training_end_date - training_start_date).days
     for n_days_after in range(min(1,n_days_to_train), max(n_days_to_train + 1,1)):
         if n_days_after == n_days_to_train:

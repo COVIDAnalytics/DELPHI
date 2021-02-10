@@ -2035,9 +2035,9 @@ def upload_s3_file(file_name, object_name):
         return False
     return True
 def get_subname(OPTIMIZER,TYPE_RUNNING):
-    global_str = "Global_" if TYPE_RUNNING == "global" else ""
+    global_str = "Global_" if "global" in TYPE_RUNNING else ""
     subname_parameters_file = None
-    if OPTIMIZER == "tnc" or TYPE_RUNNING != "global":
+    if OPTIMIZER == "tnc" or "global" not in TYPE_RUNNING:
         subname_parameters_file = global_str + "V4"
     elif OPTIMIZER == "annealing":
         subname_parameters_file = global_str + "V4_annealing"
@@ -2049,7 +2049,7 @@ def get_subname(OPTIMIZER,TYPE_RUNNING):
 
 def get_param_file_name(OPTIMIZER,TYPE_RUNNING,today,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX):
     subname_parameters_file = get_subname(OPTIMIZER,TYPE_RUNNING)
-    if TYPE_RUNNING == "global":
+    if "global" in TYPE_RUNNING:
         file_name = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_{subname_parameters_file}_{today}.csv"
     else:
         file_name = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_{TYPE_RUNNING}_{subname_parameters_file}_{today}.csv"
@@ -2071,7 +2071,7 @@ def get_past_parameters(PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,current_t
         return fileDF
 
 def get_single_case(TYPE_RUNNING,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,country_sub,province_sub):
-    if TYPE_RUNNING == "global":
+    if "global" in TYPE_RUNNING:
         file_name = PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
     else:
         file_name = PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"

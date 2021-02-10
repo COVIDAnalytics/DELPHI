@@ -14,7 +14,7 @@ from DELPHI_params_V4 import (
     fitting_start_date,
     date_MATHEMATICA, validcases_threshold_policy, default_dict_normalized_policy_gamma,
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
-    default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
+    default_maxT_policies, p_v, p_d, p_h, future_policies, future_times, VACCINE_MODEL
 )
 from DELPHI_utils_additional_states import (
     read_measures_oxford_data_jj_version, get_normalized_policy_shifts_and_current_policy_all_countries_jj_version,
@@ -38,7 +38,7 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
     # GET_CONFIDENCE_INTERVALS = bool(int(RUN_CONFIG["arguments"]["confidence_intervals"]))
     # SAVE_SINCE100_CASES = bool(int(RUN_CONFIG["arguments"]["since100case"]))
     # PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
-    if TYPE_RUNNING == "global":
+    if "global" in TYPE_RUNNING:
         policy_data_countries = read_oxford_international_policy_data(yesterday=yesterday)
     else:
         policy_data_countries = read_measures_oxford_data_jj_version()
@@ -58,7 +58,7 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
     startT = fitting_start_date
     # Get the policies shifts from the CART tree to compute different values of gamma(t)
     # Depending on the policy in place in the future to affect predictions
-    if TYPE_RUNNING == "global":
+    if "global" in TYPE_RUNNING:
         dict_normalized_policy_gamma_countries, dict_current_policy_countries = (
             get_normalized_policy_shifts_and_current_policy_all_countries(
                 policy_data_countries=policy_data_countries,
@@ -88,7 +88,7 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
     dict_current_policy_international = dict_current_policy_countries.copy()
     dict_current_policy_international.update(dict_current_policy_us_only)
     if 'ExUS' != TYPE_RUNNING or GLOBAL_JJ == 'true':
-        dic_file_name = f'policy_{current_time_str}_global.csv' if TYPE_RUNNING == "global" else f'policy_{current_time_str}_provinces.csv'
+        dic_file_name = f'policy_{current_time_str}_global.csv' if "global" in TYPE_RUNNING else f'policy_{current_time_str}_provinces.csv'
         dic_file_name = dic_file_name if GLOBAL_JJ != 'true' else f'policy_{current_time_str}_global_JNJ.csv'
         logging.info(f"this file saved {dic_file_name}")
         with open(path_to_output_file + dic_file_name, 'w') as f:
@@ -367,6 +367,8 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
     ).reset_index(drop=True)
     if TYPE_RUNNING == "global":
         file_name = f'df_global_predictions_since_100_cases_scenarios_world_V4_{current_time_str}.csv'
+    elif TYPE_RUNNING == VACCINE_MODEL:
+        file_name = f'df_US_predictions_since_100_cases_scenarios_Vaccines_V4_{current_time_str}.csv'
     else:
         if TYPE_RUNNING == 'US':
             file_name =  f'df_scenarios_provinces_j&j_V4_{current_time_str}'+'_US.csv'
