@@ -1,0 +1,231 @@
+('Hungary', 'None'),Lockdown
+('Moldova', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Malawi', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Netherlands', 'None'),Lockdown
+('Senegal', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Madagascar', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Bosnia and Herzegovina', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Niger', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Thailand', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('New Zealand', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Greenland', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Uganda', 'None'),Lockdown
+('Palestine', 'None'),Lockdown
+('Cameroon', 'None'),Restrict_Mass_Gatherings
+('Guyana', 'None'),Lockdown
+('Kenya', 'None'),Lockdown
+('Myanmar', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Liberia', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Trinidad and Tobago', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Faeroe Islands', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Venezuela', 'None'),Lockdown
+('Tunisia', 'None'),Lockdown
+('Libya', 'None'),Lockdown
+('Yemen', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Cuba', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Greece', 'None'),Lockdown
+('Bulgaria', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Guatemala', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Zambia', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('China', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Dominican Republic', 'None'),Lockdown
+('Kazakhstan', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Congo (Kinshasa)', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Albania', 'None'),Lockdown
+('Timor-Leste', 'None'),Lockdown
+('Saudi Arabia', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Mongolia', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Chad', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Serbia', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Seychelles', 'None'),Lockdown
+('Haiti', 'None'),Lockdown
+('Czechia', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Slovenia', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Paraguay', 'None'),Lockdown
+('Burkina Faso', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Germany', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Algeria', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Sri Lanka', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Romania', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Spain', 'None'),Lockdown
+('Japan', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Monaco', 'None'),Lockdown
+('Mali', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Tanzania', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Canada', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Switzerland', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Belgium', 'None'),Lockdown
+('Denmark', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Mauritius', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Panama', 'None'),Lockdown
+('Cambodia', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Kosovo', 'None'),Lockdown
+('Uruguay', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Argentina', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('South Sudan', 'None'),Lockdown
+('Bahamas', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Pakistan', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Ecuador', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Croatia', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Angola', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Nigeria', 'None'),Lockdown
+('Singapore', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Syria', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Andorra', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Belize', 'None'),Lockdown
+('Puerto Rico', 'None'),Lockdown
+('Australia', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Aruba', 'None'),Lockdown
+('Burundi', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Cape Verde', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Malta', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Benin', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Sudan', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Qatar', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+("Cote d'Ivoire", 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Vietnam', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Guinea', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Lebanon', 'None'),Lockdown
+('United States Virgin Islands', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Mauritania', 'None'),Lockdown
+('Hong Kong', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Latvia', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Papua New Guinea', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Dominica', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Botswana', 'None'),Lockdown
+('Austria', 'None'),Lockdown
+('Brazil', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Mozambique', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Vanuatu', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Tajikistan', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Israel', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Nepal', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Uzbekistan', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Afghanistan', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Azerbaijan', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Indonesia', 'None'),Lockdown
+('Honduras', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Solomon Islands', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Finland', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Iceland', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Morocco', 'None'),Lockdown
+('Central African Republic', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Lesotho', 'None'),Lockdown
+('Kuwait', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Barbados', 'None'),Lockdown
+('Fiji', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Bahrain', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Laos', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Djibouti', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Georgia', 'None'),Lockdown
+('Ireland', 'None'),Lockdown
+('South Africa', 'None'),Lockdown
+('Philippines', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Iraq', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Rwanda', 'None'),Lockdown
+('Costa Rica', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Namibia', 'None'),Lockdown
+('Oman', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Peru', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Mexico', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Turkey', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Taiwan', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Kyrgyz Republic', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Nicaragua', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Russia', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Cyprus', 'None'),Lockdown
+('Luxembourg', 'None'),Lockdown
+('France', 'None'),Lockdown
+('Jamaica', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('San Marino', 'None'),Lockdown
+('Macao', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Somalia', 'None'),Lockdown
+('Korea  South', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Eswatini', 'None'),Lockdown
+('Portugal', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Gambia', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Bangladesh', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('United Arab Emirates', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('United Kingdom', 'None'),Lockdown
+('Italy', 'None'),Lockdown
+('Gabon', 'None'),Lockdown
+('Lithuania', 'None'),Lockdown
+('Iran', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Bhutan', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Chile', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Brunei', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Ukraine', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Sierra Leone', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Colombia', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Togo', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Jordan', 'None'),Lockdown
+('Suriname', 'None'),Lockdown
+('Malaysia', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Estonia', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Norway', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Ethiopia', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Sweden', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Egypt', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Eritrea', 'None'),Lockdown
+('Slovakia', 'None'),Lockdown
+('Poland', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('Zimbabwe', 'None'),Lockdown
+('Bermuda', 'None'),Lockdown
+('Bolivia', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Ghana', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('Guam', 'None'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('El Salvador', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Belarus', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('India', 'None'),Mass_Gatherings_Authorized_But_Others_Restricted
+('Congo', 'None'),Authorize_Schools_but_Restrict_Mass_Gatherings_and_Others
+('US', 'West Virginia'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Alabama'),Restrict_Mass_Gatherings_and_Schools
+('US', 'Kentucky'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Virginia'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Idaho'),Mass_Gatherings_Authorized_But_Others_Restricted
+('US', 'California'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Nevada'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Maine'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Oregon'),Lockdown
+('US', 'Indiana'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Wyoming'),Restrict_Mass_Gatherings_and_Schools
+('US', 'Michigan'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Missouri'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Oklahoma'),Mass_Gatherings_Authorized_But_Others_Restricted
+('US', 'Texas'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Vermont'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Rhode Island'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Washington'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'New Hampshire'),Lockdown
+('US', 'North Carolina'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'South Dakota'),Mass_Gatherings_Authorized_But_Others_Restricted
+('US', 'Delaware'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'North Dakota'),Mass_Gatherings_Authorized_But_Others_Restricted
+('US', 'Wisconsin'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Minnesota'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Pennsylvania'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Hawaii'),Lockdown
+('US', 'Arizona'),Mass_Gatherings_Authorized_But_Others_Restricted
+('US', 'Louisiana'),Mass_Gatherings_Authorized_But_Others_Restricted
+('US', 'Ohio'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Iowa'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Mississippi'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Florida'),Mass_Gatherings_Authorized_But_Others_Restricted
+('US', 'Massachusetts'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Montana'),Mass_Gatherings_Authorized_But_Others_Restricted
+('US', 'Georgia'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'New Jersey'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'District of Columbia'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Colorado'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Arkansas'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Nebraska'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'South Carolina'),Restrict_Mass_Gatherings_and_Schools
+('US', 'New Mexico'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'New York'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Maryland'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Connecticut'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Illinois'),Lockdown
+('US', 'Kansas'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Utah'),Restrict_Mass_Gatherings_and_Schools_and_Others
+('US', 'Alaska'),Mass_Gatherings_Authorized_But_Others_Restricted
+('US', 'Tennessee'),Restrict_Mass_Gatherings_and_Schools_and_Others
