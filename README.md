@@ -5,23 +5,24 @@ The repository contains code for a epidemiological model utilized in the researc
 http://www.covidanalytics.io/
 
 This repository contains multiple models, most of them being archived in the `/archive` folder, but also the main and current DELPHI model (as of November 20th 2020) which we call V4.0. Below are the characteristics of each models:
-8. DELPHI V4.0 - The current version of code on the website. It is a modification of the implementation from V3.0 although the underlying model is the same.
-1. DELPHI V3.0 - This is the previous version of code. It is an improvement upon the  version of the model, as it takes into account interventions being lifted for a little while, causing a resurgence in the number of cases/deaths. This resurgence is modeled using a 3 parameters normal distribution added to our gamma(t) function (cf. `documentation/DELPHI_Explainer_V3.pdf`)
-2. Adaptive Policy Model / Continuous Retraining - This is an experimental model we tried implementing that would continuously retrain the parameters associated to the lifting or implementation of a policy in a given area and was supposed to help model a resurgence in cases. It unfortunately didn't yield good enough results and we decided to discard it.
-3. V1 - No Jump: Initial DELPHI Model used until late May 2020.
-4. V2 - Discrete Jump: This is an attempt at modeling a resurgence in cases using a simple discrete jump (similar to what is done with policy evaluations). This implementation was unsuccessful.
-5. V3 - Normal Jump + Trust Solver: Very similar implementation to the final V3.0 version we are currently using (as of September 5th 2020) where we use a trust region constrained solver instead of a TNC solver. The newer implementation actually allows for either so this can be discarded.
-6. V4 - Arctan Jump: This is an attempt at modeling a resurgence in cases using an arctan jump. This implementation was unsuccessful.
-7. Other analyses: contains a bunch of other analyses and modeling experiments we have conducted, among which other second wave modeling (as opposed to resurgence). They were unsuccessful.
+
+1. DELPHI V4.0 - The current version of code on the website. It is a modification of the implementation from V3.0 although the underlying model is the same.
+2. DELPHI V3.0 - This is the previous version of code. It is an improvement upon the  version of the model, as it takes into account interventions being lifted for a little while, causing a resurgence in the number of cases/deaths. This resurgence is modeled using a 3 parameters normal distribution added to our gamma(t) function (cf. `documentation/DELPHI_Explainer_V3.pdf`)
+3. Adaptive Policy Model / Continuous Retraining - This is an experimental model we tried implementing that would continuously retrain the parameters associated to the lifting or implementation of a policy in a given area and was supposed to help model a resurgence in cases. It unfortunately didn't yield good enough results and we decided to discard it.
+4. V1 - No Jump: Initial DELPHI Model used until late May 2020.
+5. V2 - Discrete Jump: This is an attempt at modeling a resurgence in cases using a simple discrete jump (similar to what is done with policy evaluations). This implementation was unsuccessful.
+6. V3 - Normal Jump + Trust Solver: Very similar implementation to the final V3.0 version we are currently using (as of September 5th 2020) where we use a trust region constrained solver instead of a TNC solver. The newer implementation actually allows for either so this can be discarded.
+7. V4 - Arctan Jump: This is an attempt at modeling a resurgence in cases using an arctan jump. This implementation was unsuccessful.
+8. Other analyses: contains a bunch of other analyses and modeling experiments we have conducted, among which other second wave modeling (as opposed to resurgence). They were unsuccessful.
 
 We provide two implementations for the previous V2.0: The (deprecated) Mathematica version
 `archive/V1 - No Jump/COVID-19_MIT_ORC_training_script_global_V2.nb`,
 and the python3 version `archive/V1 - No Jump/DELPHI_model.py`. The Mathematica notebook was written with Mathematica
 12.1 but should work with any version greater than 10.0. The Python3 version is tested with Python 3.7.
 
-The currently used implementation on the website and all other extra analyses for DELPHI V3.0 is in python3 under file
-`DELPHI_model_V3.py` and is currently the final version. The policy-based predictions utilize the file
-`DELPHI_model_V3_with_policies.py` which uses the outputs from `DELPHI_model_V3.py`.
+The currently used implementation on the website and all other extra analyses for DELPHI V4.0 is in python3 under file
+`DELPHI_model_V4.py` and is currently the final version. The policy-based predictions utilize the file
+`DELPHI_model_V4_with_policies.py` which uses the outputs from `DELPHI_model_V4.py`.
 
 The latest documentation for the model is contained in the pdf document: `documentation/DELPHI_Explainer_V3.pdf`.
 
@@ -34,12 +35,16 @@ ML Li, H Tazi Bouardi, O Skali Lami, N Trichakis, T Trikalinos, D Bertsimas. For
 
 
 ## V4.0 How To Run Instructions
+
+### Packages
+numpy, scipy (>=1.4.1), pandas, us
+
 ### Files Needed
 To run the V4.0 model successfully, you would require the following files for each region:
-1. Historical Case Files - This should be provided in the same format as the examples given in folder `data/processed`.
+1. Historical Case Files - This should be provided in the same format as the examples given in folder `data_sandbox/processed`. The location of the files should be at `danger_map` + "processed/Global/Cases\_\{Country_Name\}\_\{Province_Name\}.csv".
 2. Population File - This file should record the population at each location that needs to be predicted.
-An example of such is in `data/processed/Population_Global.csv`.
-3. Historical Parameter Files (optional) - This file record previously trained parameters and the optimization bounds would be within 10% of the original trained parameters. This should be provided in the format given in the example file `predicted/Parameters_Global_20200621.csv`.
+An example of such is in `data_sandbox/processed/Global/Population_Global.csv`. The location of this file should be at `danger_map` + "processed/Global/Population_Global.csv".
+3. Historical Parameter Files (optional) - This file record previously trained parameters and the optimization bounds would be within 10% of the original trained parameters. This should be provided in the format given in the example file `data_sandbox/predicted/Parameters_Global_20200621.csv`. The location of the files should be at `danger_map` + "predicted/Parameters\_Global\_\{Date\}.csv".
 4. A run config YAML file at `./run_configs`. This file is used to pass the settings for a particular run, some examples are given in the `./run_configs` folder and can be modified according to the need. It is discussed in more detail below.
 
 ### File Paths for Python
