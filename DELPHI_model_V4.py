@@ -395,6 +395,8 @@ def solve_and_predict_area(
                 x_sol_final = solve_best_params_and_predict(best_params)
                 data_creator = DELPHIDataCreator(
                     x_sol_final=x_sol_final,
+                    vaccinated=V,
+                    fully_vaccinated=V2,
                     date_day_since100=start_date,
                     best_params=best_params,
                     continent=continent,
@@ -418,7 +420,7 @@ def solve_and_predict_area(
                            past_prediction_date=str(pd.to_datetime(past_prediction_date).date()))
                    )
                 else:
-                    df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_raw()
+                    df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions()
                 logging.info(
                     f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
                     + f"{round(time.time() - time_entering, 2)} seconds"
