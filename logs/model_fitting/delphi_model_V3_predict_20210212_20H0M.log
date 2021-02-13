@@ -1,0 +1,71 @@
+02-13-2021 08:00:08 PM | INFO | The user is server
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from before-call.apigateway to before-call.api-gateway
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+02-13-2021 08:00:08 PM | DEBUG | Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+02-13-2021 08:00:08 PM | DEBUG | IMDS ENDPOINT: http://169.254.169.254/
+02-13-2021 08:00:08 PM | DEBUG | Looking for credentials via: env
+02-13-2021 08:00:08 PM | INFO | Found credentials in environment variables.
+02-13-2021 08:00:08 PM | DEBUG | Loading JSON file: /opt/conda/lib/python3.7/site-packages/botocore/data/endpoints.json
+02-13-2021 08:00:08 PM | DEBUG | Event choose-service-name: calling handler <function handle_service_name_alias at 0x7fef78448320>
+02-13-2021 08:00:08 PM | DEBUG | Loading JSON file: /opt/conda/lib/python3.7/site-packages/botocore/data/s3/2006-03-01/service-2.json
+02-13-2021 08:00:08 PM | DEBUG | Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x7fef7846ee60>
+02-13-2021 08:00:08 PM | DEBUG | Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x7fef78368f80>
+02-13-2021 08:00:08 PM | DEBUG | Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x7fef7846ec20>
+02-13-2021 08:00:08 PM | DEBUG | Setting s3 timeout as (60, 60)
+02-13-2021 08:00:08 PM | DEBUG | Loading JSON file: /opt/conda/lib/python3.7/site-packages/botocore/data/_retry.json
+02-13-2021 08:00:08 PM | DEBUG | Registering retry handlers for service: s3
+02-13-2021 08:00:08 PM | INFO | getting 021321_ex_us_regions.csv
+02-13-2021 08:00:08 PM | DEBUG | Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7fef783f4560>
+02-13-2021 08:00:08 PM | DEBUG | Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7fef783f44d0>
+02-13-2021 08:00:08 PM | DEBUG | Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7fef77ff4bd0>>
+02-13-2021 08:00:08 PM | DEBUG | Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7fef77fad410>>
+02-13-2021 08:00:08 PM | DEBUG | Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7fef783f4320>
+02-13-2021 08:00:08 PM | DEBUG | Event before-call.s3.GetObject: calling handler <function add_expect_header at 0x7fef783f4830>
+02-13-2021 08:00:08 PM | DEBUG | Event before-call.s3.GetObject: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7fef77ff4bd0>>
+02-13-2021 08:00:08 PM | DEBUG | Event before-call.s3.GetObject: calling handler <function inject_api_version_header_if_needed at 0x7fef783fcb90>
+02-13-2021 08:00:08 PM | DEBUG | Making request for OperationModel(name=GetObject) with params: {'url_path': '/itx-bhq-data-covidcollector/gt_for_mit/021321_ex_us_regions.csv', 'query_string': {}, 'method': 'GET', 'headers': {'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28'}, 'body': b'', 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/gt_for_mit/021321_ex_us_regions.csv', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7fef7832b810>, 'has_streaming_input': False, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+02-13-2021 08:00:08 PM | DEBUG | Event request-created.s3.GetObject: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7fef78091910>>
+02-13-2021 08:00:08 PM | DEBUG | Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7fef78379150>>
+02-13-2021 08:00:08 PM | DEBUG | Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x7fef783f4200>
+02-13-2021 08:00:08 PM | DEBUG | Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7fef77fad8d0>>
+02-13-2021 08:00:08 PM | DEBUG | Defaulting to S3 virtual host style addressing with path style addressing fallback.
+02-13-2021 08:00:08 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/gt_for_mit/021321_ex_us_regions.csv
+02-13-2021 08:00:08 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/gt_for_mit/021321_ex_us_regions.csv
+02-13-2021 08:00:08 PM | DEBUG | Calculating signature using v4 auth.
+02-13-2021 08:00:08 PM | DEBUG | CanonicalRequest:
+GET
+/gt_for_mit/021321_ex_us_regions.csv
+
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20210213T200008Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+02-13-2021 08:00:08 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210213T200008Z
+20210213/us-east-1/s3/aws4_request
+7519fa812f14151f4ce5c439ab73cdfbf396385114717c9d559eb01d77a4921f
+02-13-2021 08:00:08 PM | DEBUG | Signature:
+24dbafa56b9f87e0da721b3779aafbd574248576a777c4eb29d945676300b46b
+02-13-2021 08:00:08 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=True, method=GET, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/gt_for_mit/021321_ex_us_regions.csv, headers={'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'X-Amz-Date': b'20210213T200008Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210213/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=24dbafa56b9f87e0da721b3779aafbd574248576a777c4eb29d945676300b46b'}>
+02-13-2021 08:00:08 PM | DEBUG | Starting new HTTPS connection (1): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+02-13-2021 08:00:08 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "GET /gt_for_mit/021321_ex_us_regions.csv HTTP/1.1" 404 None
+02-13-2021 08:00:08 PM | DEBUG | Response headers: {'x-amz-request-id': '47B840ED05F85566', 'x-amz-id-2': 'NXWtsLj1lVOpGRXqp23IMr7ucgE+PolMj6yDB7p6Oj6aKLwexEq6v9i4omSp2G2alTWtHZ0G64A=', 'Content-Type': 'application/xml', 'Transfer-Encoding': 'chunked', 'Date': 'Sat, 13 Feb 2021 20:00:07 GMT', 'Server': 'AmazonS3'}
+02-13-2021 08:00:08 PM | DEBUG | Response body:
+b'<?xml version="1.0" encoding="UTF-8"?>\n<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>gt_for_mit/021321_ex_us_regions.csv</Key><RequestId>47B840ED05F85566</RequestId><HostId>NXWtsLj1lVOpGRXqp23IMr7ucgE+PolMj6yDB7p6Oj6aKLwexEq6v9i4omSp2G2alTWtHZ0G64A=</HostId></Error>'
+02-13-2021 08:00:08 PM | DEBUG | Response headers: {'x-amz-request-id': '47B840ED05F85566', 'x-amz-id-2': 'NXWtsLj1lVOpGRXqp23IMr7ucgE+PolMj6yDB7p6Oj6aKLwexEq6v9i4omSp2G2alTWtHZ0G64A=', 'Content-Type': 'application/xml', 'Transfer-Encoding': 'chunked', 'Date': 'Sat, 13 Feb 2021 20:00:07 GMT', 'Server': 'AmazonS3'}
+02-13-2021 08:00:08 PM | DEBUG | Response body:
+b'<?xml version="1.0" encoding="UTF-8"?>\n<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>gt_for_mit/021321_ex_us_regions.csv</Key><RequestId>47B840ED05F85566</RequestId><HostId>NXWtsLj1lVOpGRXqp23IMr7ucgE+PolMj6yDB7p6Oj6aKLwexEq6v9i4omSp2G2alTWtHZ0G64A=</HostId></Error>'
+02-13-2021 08:00:08 PM | DEBUG | Event needs-retry.s3.GetObject: calling handler <botocore.retryhandler.RetryHandler object at 0x7fef77ff4d10>
+02-13-2021 08:00:08 PM | DEBUG | No retry needed.
+02-13-2021 08:00:08 PM | DEBUG | Event needs-retry.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7fef77ff4bd0>>
