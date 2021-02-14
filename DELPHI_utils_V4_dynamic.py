@@ -831,7 +831,7 @@ def linregress_vaccinations(V, ma_window=7):
     V_ = np.array(V_)
     t = np.arange(s, V.shape[0]) 
     slope, intercept, _, _, _ = linregress(t, V_)
-    VT = slope*(V.shape[0]-1) + intercept
+    VT = max(max(slope, 0)*(V.shape[0]-1) + intercept, 0)
     if slope >= 0:
         return slope, VT
     return 0, VT
