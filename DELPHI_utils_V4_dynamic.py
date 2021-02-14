@@ -843,7 +843,9 @@ def create_vaccinations_timeseries(vaccinated, maxT):
     else:
         V_0 = np.nanmin(vaccinated) # to handle start of data
         t0 = np.nanargmin(vaccinated)
-        V = vaccinated.diff()
+        tm = np.nanargmax(vaccinated)
+        V = vaccinated[:tm]
+        V = V.diff()
         V[t0] = V_0
         V = V.fillna(0).values # convert to an array
         V_slope, VT = linregress_vaccinations(V)
