@@ -824,8 +824,10 @@ def get_testing_data_us() -> pd.DataFrame:
 
 def linregress_vaccinations(V, ma_window=7):
     s = 0
-    while V[s] == 0:
+    while s<V.shape[0] and V[s] == 0:
         s+=1
+    if s >= V.shape[0]-1:
+        return 0, max(0, V[-1])
     s+=1
     V_ =[np.mean(V[max(i-ma_window, s):i+1]) for i in range(s, V.shape[0])]
     V_ = np.array(V_)
@@ -850,7 +852,7 @@ def create_vaccinations_timeseries(vaccinated, maxT):
         V = V.fillna(0).values # convert to an array
         V_slope, VT = linregress_vaccinations(V)
 
-    t_future = np.arange(V.shape[0], maxT)
+    t_future = np.arange(1, maxT-V.shape[0]+1)
     V_future = t_future*V_slope + VT
     return np.append(V, V_future)
 
