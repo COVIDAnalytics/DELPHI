@@ -2,6 +2,7 @@
 import os
 import pandas as pd
 import numpy as np
+from scipy.stats import linregress
 from datetime import datetime, timedelta
 from typing import Union
 from copy import deepcopy
@@ -160,8 +161,8 @@ def get_bounds_params_from_pastparams(
         ]
         param_list_lower[9] = default_lower_bound_t_jump  # jump lower bound
         param_list_upper[9] = default_upper_bound_t_jump  # jump upper bound
-#        param_list_lower[10] = default_lower_bound_std_normal  # std_normal lower bound
-#        param_list_upper[10] = default_upper_bound_std_normal  # std_normal upper bound
+        # param_list_lower[10] = default_lower_bound_std_normal  # std_normal lower bound
+        # param_list_upper[10] = default_upper_bound_std_normal  # std_normal upper bound
     else:
         raise ValueError(f"Optimizer {optimizer} not supported in this implementation so can't generate bounds")
 
@@ -820,6 +821,42 @@ def get_testing_data_us() -> pd.DataFrame:
     df_test_final = pd.concat(list_df_concat).reset_index(drop=True)
     df_test_final.drop(["testing_cnt", "testing_cnt_shift"], axis=1, inplace=True)
     return df_test_final
+
+def linregress_vaccinations(V, ma_window=7):
+    s = 0
+    while s<V.shape[0] and V[s] == 0:
+        s+=1
+    if s >= V.shape[0]-1:
+        return 0, max(0, V[-1])
+    s+=1
+    V_ =[np.mean(V[max(i-ma_window, s):i+1]) for i in range(s, V.shape[0])]
+    V_ = np.array(V_)
+    t = np.arange(s, V.shape[0]) 
+    slope, intercept, _, _, _ = linregress(t, V_)
+    VT = max(max(slope, 0)*(V.shape[0]-1) + intercept, 0)
+    if slope >= 0:
+        return slope, VT
+    return 0, VT
+
+def create_vaccinations_timeseries(vaccinated, maxT, N):
+    if np.all(pd.isna(vaccinated)):
+        V = np.zeros(vaccinated.shape[0])
+        V_slope, VT = 0, 0
+    else:
+        V_0 = np.nanmin(vaccinated) # to handle start of data
+        t0 = np.nanargmin(vaccinated)
+        tm = np.nanargmax(vaccinated)
+        V = vaccinated[:tm]
+        V = V.diff()
+        V[t0] = V_0
+        V = V.fillna(0).values # convert to an array
+        V_slope, VT = linregress_vaccinations(V)
+
+    t_future = np.arange(1, maxT-V.shape[0]+1)
+    V_future = t_future*V_slope + VT
+    # limit on max daily vaccinations
+    V_future = np.array([min(v, 0.01*N) for v in V_future])
+    return np.append(V, V_future)
 
 class DELPHIModelComparison:
     def __init__(

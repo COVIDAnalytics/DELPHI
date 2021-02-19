@@ -248,6 +248,8 @@ class DELPHIDataCreator:
     def __init__(
             self,
             x_sol_final: np.array,
+            vaccinated: np.array,
+            fully_vaccinated: np.array,
             date_day_since100: datetime,
             best_params: np.array,
             continent: str,
@@ -264,6 +266,8 @@ class DELPHIDataCreator:
                     len(best_params) == 12
             ), f"Expected 7 best parameters, got {len(best_params)}"
         self.x_sol_final = x_sol_final
+        self.vaccinated = vaccinated
+        self.fully_vaccinated = fully_vaccinated
         self.date_day_since100 = date_day_since100
         self.best_params = best_params
         self.continent = continent
@@ -356,6 +360,8 @@ class DELPHIDataCreator:
                                          n_days_btw_today_since_100:
                                          ],
                 "Active Ventilated": active_ventilated[n_days_btw_today_since_100:],
+                "Vaccinated": self.vaccinated[n_days_btw_today_since_100:],
+                "Fully Vaccinated": self.fully_vaccinated[n_days_btw_today_since_100:],
             }
         )
 
@@ -376,6 +382,8 @@ class DELPHIDataCreator:
                 "Cumulative Hospitalized": cumulative_hospitalized,
                 "Total Detected Deaths": total_detected_deaths,
                 "Active Ventilated": active_ventilated,
+                "Vaccinated": self.vaccinated,
+                "Fully Vaccinated": self.fully_vaccinated,
             }
         )
         return (
@@ -407,6 +415,7 @@ class DELPHIDataCreator:
         intr_since_today = pd.DataFrame(
             self.x_sol_final[:, n_days_btw_today_since_100:].transpose()
         )
+
         intr_since_today.columns = [
             "S",
             "E",
@@ -423,8 +432,10 @@ class DELPHIDataCreator:
             "DVR",
             "DVD",
             "DD",
-            "DT",
+            "DT"
         ]
+        intr_since_today["V"] = self.vaccinated[n_days_btw_today_since_100:]
+        intr_since_today["V2"] = self.fully_vaccinated[n_days_btw_today_since_100:]
         df_predictions_since_today_cont_country_prov = pd.concat(
             [df_predictions_since_today_cont_country_prov, intr_since_today], axis=1
         )
@@ -460,8 +471,10 @@ class DELPHIDataCreator:
             "DVR",
             "DVD",
             "DD",
-            "DT",
+            "DT"
         ]
+        intr_since_today["V"] = self.vaccinated
+        intr_since_today["V2"] = self.fully_vaccinated
 
         df_predictions_since_100_cont_country_prov = pd.concat(
             [df_predictions_since_100_cont_country_prov, intr_since_100], axis=1
@@ -595,6 +608,8 @@ class DELPHIDataCreator:
                                              n_days_btw_today_since_100:
                                              ],
                     "Active Ventilated": active_ventilated[n_days_btw_today_since_100:],
+                    "Vaccinated": self.vaccinated[n_days_btw_today_since_100:],
+                    "Fully Vaccinated": self.fully_vaccinated[n_days_btw_today_since_100:],
                     "Total Detected True": [np.nan for _ in range(n_days_since_today)],
                     "Total Detected Deaths True": [
                         np.nan for _ in range(n_days_since_today)
@@ -734,6 +749,8 @@ class DELPHIDataCreator:
                     "Cumulative Hospitalized": cumulative_hospitalized,
                     "Total Detected Deaths": total_detected_deaths,
                     "Active Ventilated": active_ventilated,
+                    "Vaccinated": self.vaccinated,
+                    "Fully Vaccinated": self.fully_vaccinated,
                     "Total Detected True": cases_data_fit
                                            + [
                                                np.nan
@@ -960,6 +977,8 @@ class DELPHIDataCreator:
                                              n_days_btw_today_since_100:
                                              ],
                     "Active Ventilated": active_ventilated[n_days_btw_today_since_100:],
+                    "Vaccinated": self.vaccinated[n_days_btw_today_since_100:],
+                    "Fully Vaccinated": self.fully_vaccinated[n_days_btw_today_since_100:],
                     "Total Detected True": [np.nan for _ in range(n_days_since_today)],
                     "Total Detected Deaths True": [
                         np.nan for _ in range(n_days_since_today)
@@ -1011,6 +1030,8 @@ class DELPHIDataCreator:
                     "Cumulative Hospitalized": cumulative_hospitalized,
                     "Total Detected Deaths": total_detected_deaths,
                     "Active Ventilated": active_ventilated,
+                    "Vaccinated": self.vaccinated,
+                    "Fully Vaccinated": self.fully_vaccinated,
                     "Total Detected True": cases_data_fit
                                            + [
                                                np.nan
@@ -1861,10 +1882,12 @@ def create_fitting_data_from_validcases(validcases: pd.DataFrame) -> (float, lis
     """
     validcases_nondeath = validcases["case_cnt"].tolist()
     validcases_death = validcases["death_cnt"].tolist()
+    # validcases_hosp = validcases["total_hospitalization"].fillna(0).tolist()
     balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
+    # hosp_balance = validcases_nondeath[-1] / max(max(validcases_hosp), 10) / 3
     cases_data_fit = validcases_nondeath
     deaths_data_fit = validcases_death
-    return balance, cases_data_fit, deaths_data_fit
+    return balance, cases_data_fit, deaths_data_fit #, hosp_balance, validcases_hosp
 
 
 def get_residuals_value(

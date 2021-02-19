@@ -18,7 +18,7 @@ from DELPHI_utils_V4_static import (
     DELPHIAggregations, DELPHIDataSaver, DELPHIDataCreator, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
-from DELPHI_utils_V4_dynamic import get_bounds_params_from_pastparams
+from DELPHI_utils_V4_dynamic import get_bounds_params_from_pastparams, create_vaccinations_timeseries
 from DELPHI_params_V4 import (
     fitting_start_date,
     default_parameter_list,
@@ -49,6 +49,8 @@ from DELPHI_params_V4 import (
     p_d,
     p_h,
     max_iter,
+    beta1,
+    beta2
 )
 
 ## Initializing Global Variables ##########################################################################
@@ -107,8 +109,10 @@ def solve_and_predict_area(
     province_sub = province.replace(" ", "_")
     print(f"starting to predict for {continent}, {country}, {province}")
     if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
+    # if os.path.exists(f"/Users/saksham/Research/temp_files/Global/Cases_{country_sub}_{province_sub}.csv"):
         totalcases = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
+            # f"/Users/saksham/Research/temp_files/Global/Cases_{country_sub}_{province_sub}.csv"
         )
         if totalcases.day_since100.max() < 0:
             logging.warning(
@@ -168,12 +172,12 @@ def solve_and_predict_area(
             validcases = totalcases[
                 (totalcases.date >= str(start_date))
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
-            ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+            ][["day_since100", "case_cnt", "death_cnt", "people_vaccinated", "people_fully_vaccinated"]].reset_index(drop=True)
         else:
             validcases = totalcases[
                 (totalcases.day_since100 >= 0)
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
-            ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+            ][["day_since100", "case_cnt", "death_cnt", "people_vaccinated", "people_fully_vaccinated"]].reset_index(drop=True)
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
             logging.warning(
@@ -217,6 +221,13 @@ def solve_and_predict_area(
             balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
 
+            ## Process vaccinations data
+            # 1. number of people vaccinated irrespective of number of shots
+            V = create_vaccinations_timeseries(validcases.people_vaccinated, maxT)
+
+            # 2. number of people who received both shots
+            V2 = create_vaccinations_timeseries(validcases.people_fully_vaccinated, maxT)
+
             def model_covid(
                 t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3
             ) -> list:
@@ -259,9 +270,18 @@ def solve_and_predict_area(
                     len(x) == 16
                 ), f"Too many input variables, got {len(x)}, expected 16"
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
+                ti = min(int(t), V.shape[0]-1)
                 # Equations on main variables
+<<<<<<< HEAD
                 dSdt = -alpha_c * gamma_t * S * I / N
                 dEdt = alpha_c * gamma_t * S * I / N - r_i * E
+=======
+                # V = V1 + V2
+                # (0.95*V2 + 0.66*(V - V2))
+                dVdt = min(S, beta1*V[ti] + (beta2-beta1)*V2[ti])
+                dSdt = -alpha * gamma_t * S * I / N - dVdt
+                dEdt = alpha * gamma_t * S * I / N - r_i * E
+>>>>>>> delphi_with_vaccines
                 dIdt = r_i * E - r_d * I
                 dARdt = r_d * (1 - p_dth_mod) * (1 - p_d) * I - r_ri * AR
                 dDHRdt = r_d * (1 - p_dth_mod) * p_d * p_h * I - r_rh * DHR
@@ -387,6 +407,8 @@ def solve_and_predict_area(
                 x_sol_final = solve_best_params_and_predict(best_params)
                 data_creator = DELPHIDataCreator(
                     x_sol_final=x_sol_final,
+                    vaccinated=V,
+                    fully_vaccinated=V2,
                     date_day_since100=start_date,
                     best_params=best_params,
                     continent=continent,
@@ -493,7 +515,11 @@ if __name__ == "__main__":
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
 
+<<<<<<< HEAD
     list_tuples = [t for t in list_tuples if t[1] in ["US"]]
+=======
+#    list_tuples = [t for t in list_tuples if t[1] in ["US"]]
+>>>>>>> delphi_with_vaccines
     # , "Poland", "Belgium", "France", "Greece"]]
 
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
