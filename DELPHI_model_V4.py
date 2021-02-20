@@ -46,8 +46,8 @@ from DELPHI_params_V4 import (
     VentilatedD,
     default_maxT,
     p_v,
-    p_d,
-    p_h,
+    # p_d,
+    # p_h,
     max_iter,
     beta1,
     beta2
@@ -77,6 +77,7 @@ OPTIMIZER = RUN_CONFIG["arguments"]["optimizer"]
 GET_CONFIDENCE_INTERVALS = bool(int(RUN_CONFIG["arguments"]["confidence_intervals"]))
 SAVE_TO_WEBSITE = bool(int(RUN_CONFIG["arguments"]["website"]))
 SAVE_SINCE100_CASES = bool(int(RUN_CONFIG["arguments"]["since100case"]))
+TRAIN_INITIAL_CONDITION = bool(int(RUN_CONFIG["arguments"]["train_initial_condition"]))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
@@ -128,6 +129,8 @@ def solve_and_predict_area(
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
+                parameter_list.append(0.2)
+                parameter_list.append(0.03)
                 bounds_params = get_bounds_params_from_pastparams(
                     optimizer=OPTIMIZER,
                     parameter_list=parameter_list,
@@ -146,6 +149,7 @@ def solve_and_predict_area(
                     default_upper_bound_t_jump=default_upper_bound_t_jump,
                     default_lower_bound_std_normal=default_lower_bound_std_normal,
                     default_upper_bound_std_normal=default_upper_bound_std_normal,
+                    train_initial_condition=TRAIN_INITIAL_CONDITION
                 )
                 start_date = pd.to_datetime(parameter_list_line[3])
                 bounds_params = tuple(bounds_params)
@@ -172,12 +176,12 @@ def solve_and_predict_area(
             validcases = totalcases[
                 (totalcases.date >= str(start_date))
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
-            ][["day_since100", "case_cnt", "death_cnt", "people_vaccinated", "people_fully_vaccinated"]].reset_index(drop=True)
+            ][["day_since100", "case_cnt", "death_cnt", "total_hospitalization", "people_vaccinated", "people_fully_vaccinated"]].reset_index(drop=True)
         else:
             validcases = totalcases[
                 (totalcases.day_since100 >= 0)
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
-            ][["day_since100", "case_cnt", "death_cnt", "people_vaccinated", "people_fully_vaccinated"]].reset_index(drop=True)
+            ][["day_since100", "case_cnt", "death_cnt", "total_hospitalization", "people_vaccinated", "people_fully_vaccinated"]].reset_index(drop=True)
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
             logging.warning(
@@ -197,13 +201,13 @@ def solve_and_predict_area(
             else:
                 R_0 = validcases.loc[0, "death_cnt"] * 5 if validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]> validcases.loc[0, "death_cnt"] * 5 else 0
                 bounds_params_list = list(bounds_params)
-                bounds_params_list[-1] = (0.999,1)
+                bounds_params_list[-3] = (0.999,1)
                 bounds_params = tuple(bounds_params_list)
             cases_t_14days = totalcases[totalcases.date >= str(start_date- pd.Timedelta(14, 'D'))]['case_cnt'].values[0]
             deaths_t_9days = totalcases[totalcases.date >= str(start_date - pd.Timedelta(9, 'D'))]['death_cnt'].values[0]
             R_upperbound = validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]
             R_heuristic = cases_t_14days - deaths_t_9days
-            if int(R_0*p_d) >= R_upperbound and R_heuristic >= R_upperbound:
+            if int(R_0*parameter_list[-2]) >= R_upperbound and R_heuristic >= R_upperbound:
                 logging.error(f"Initial conditions for PopulationR too high for {country}-{province}, on {startT}")
             """
             Fixed Parameters based on meta-analysis:
@@ -218,18 +222,18 @@ def solve_and_predict_area(
             maxT = (default_maxT - start_date).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             T_vaccine = (pd.to_datetime("2021-02-01") - start_date).days
-            balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
-            GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
+            balance, cases_data_fit, deaths_data_fit, hosp_balance, hosp_data_fit = create_fitting_data_from_validcases(validcases)
+            GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_v)
 
             ## Process vaccinations data
             # 1. number of people vaccinated irrespective of number of shots
-            V = create_vaccinations_timeseries(validcases.people_vaccinated, maxT)
+            V = create_vaccinations_timeseries(validcases.people_vaccinated, maxT, N)
 
             # 2. number of people who received both shots
-            V2 = create_vaccinations_timeseries(validcases.people_fully_vaccinated, maxT)
+            V2 = create_vaccinations_timeseries(validcases.people_fully_vaccinated, maxT, N)
 
             def model_covid(
-                t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3
+                t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3, p_d, p_h
             ) -> list:
                 """
                 SEIR based model with 16 distinct states, taking into account undetected, deaths, hospitalized and
@@ -272,16 +276,11 @@ def solve_and_predict_area(
                 S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
                 ti = min(int(t), V.shape[0]-1)
                 # Equations on main variables
-<<<<<<< HEAD
-                dSdt = -alpha_c * gamma_t * S * I / N
-                dEdt = alpha_c * gamma_t * S * I / N - r_i * E
-=======
                 # V = V1 + V2
                 # (0.95*V2 + 0.66*(V - V2))
                 dVdt = min(S, beta1*V[ti] + (beta2-beta1)*V2[ti])
                 dSdt = -alpha * gamma_t * S * I / N - dVdt
                 dEdt = alpha * gamma_t * S * I / N - r_i * E
->>>>>>> delphi_with_vaccines
                 dIdt = r_i * E - r_d * I
                 dARdt = r_d * (1 - p_dth_mod) * (1 - p_d) * I - r_ri * AR
                 dDHRdt = r_d * (1 - p_dth_mod) * p_d * p_h * I - r_rh * DHR
@@ -310,7 +309,7 @@ def solve_and_predict_area(
                 :return: the value of the loss function as a float that is optimized against (in our case, minimized)
                 """
                 # Variables Initialization for the ODE system
-                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = params
+                alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3, p_d, p_h = params
                 # Force params values to stay in a certain range during the optimization process with re-initializations
                 params = (
                     max(alpha, dict_default_reinit_parameters["alpha"]),
@@ -324,7 +323,9 @@ def solve_and_predict_area(
                     max(jump, dict_default_reinit_parameters["jump"]),
                     max(t_jump, dict_default_reinit_parameters["t_jump"]),
                     max(std_normal, dict_default_reinit_parameters["std_normal"]),
-                    max(k3, dict_default_reinit_lower_bounds["k3"]),
+                    max(k3, dict_default_reinit_parameters["k3"]),
+                    max(p_d, dict_default_reinit_parameters["p_d"]),
+                    max(p_h, dict_default_reinit_parameters["p_h"]),
                 )
 
                 x_0_cases = get_initial_conditions(
@@ -344,39 +345,41 @@ def solve_and_predict_area(
                     residuals_value = get_residuals_value(
                         optimizer=OPTIMIZER,
                         balance=balance,
+                        hosp_balance=hosp_balance,
                         x_sol=x_sol,
                         cases_data_fit=cases_data_fit,
                         deaths_data_fit=deaths_data_fit,
+                        hosp_data_fit=hosp_data_fit,
                         weights=weights
                     )
                 else:
                     residuals_value = 1e16
                 return residuals_value
 
-            # if OPTIMIZER in ["tnc", "trust-constr"]:
-            #     output = minimize(
-            #         residuals_totalcases,
-            #         parameter_list,
-            #         method=OPTIMIZER,
-            #         bounds=bounds_params,
-            #         options={"maxiter": max_iter},
-            #     )
-            # elif OPTIMIZER == "annealing":
-            #     output = dual_annealing(
-            #         residuals_totalcases, x0=parameter_list, bounds=bounds_params
-            #     )
-            # else:
-            #     raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
+            if OPTIMIZER in ["tnc", "trust-constr"]:
+                # print(parameter_list)
+                # print(bounds_params)
+                output = minimize(
+                    residuals_totalcases,
+                    parameter_list,
+                    method=OPTIMIZER,
+                    bounds=bounds_params,
+                    options={"maxiter": max_iter},
+                )
+            elif OPTIMIZER == "annealing":
+                output = dual_annealing(
+                    residuals_totalcases, x0=parameter_list, bounds=bounds_params
+                )
+            else:
+                raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
 
-            # if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success):
-            if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing"):
-                # best_params = output.x
-                best_params = parameter_list
+            if (OPTIMIZER in ["tnc", "trust-constr"]) or (OPTIMIZER == "annealing" and output.success):
+                best_params = output.x
                 t_predictions = [i for i in range(maxT)]
     
                 def solve_best_params_and_predict(optimal_params):
                     # Variables Initialization for the ODE system
-                    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3 = optimal_params
+                    alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3, p_d, p_h = optimal_params
                     optimal_params = [
                         max(alpha, dict_default_reinit_parameters["alpha"]),
                         days,
@@ -389,7 +392,9 @@ def solve_and_predict_area(
                         max(jump, dict_default_reinit_parameters["jump"]),
                         max(t_jump, dict_default_reinit_parameters["t_jump"]),
                         max(std_normal, dict_default_reinit_parameters["std_normal"]),
-                        max(k3, dict_default_reinit_lower_bounds["k3"]),
+                        max(k3, dict_default_reinit_parameters["k3"]),
+                        max(p_d, dict_default_reinit_parameters["p_d"]),
+                        max(p_h, dict_default_reinit_parameters["p_h"]),
                     ]
                     x_0_cases = get_initial_conditions(
                         params_fitted=optimal_params,
@@ -417,7 +422,7 @@ def solve_and_predict_area(
                     testing_data_included=False,
                 )
                 mape_data = get_mape_data_fitting(
-                    cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, x_sol_final=x_sol_final
+                    cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, hosp_data_fit=hosp_data_fit, x_sol_final=x_sol_final
                 )
                 
                 logging.info(f"In-Sample MAPE Last 15 Days {country, province}: {round(mape_data, 3)} %")
@@ -432,7 +437,7 @@ def solve_and_predict_area(
                            past_prediction_date=str(pd.to_datetime(past_prediction_date).date()))
                    )
                 else:
-                    df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_raw()
+                    df_predictions_since_today_area, df_predictions_since_100_area = data_creator.create_datasets_predictions()
                 logging.info(
                     f"Finished predicting for Continent={continent}, Country={country} and Province={province} in "
                     + f"{round(time.time() - time_entering, 2)} seconds"
@@ -441,8 +446,8 @@ def solve_and_predict_area(
                 return (
                     df_parameters_area,
                     df_predictions_since_today_area,
-                    df_predictions_since_100_area
-                    # output,
+                    df_predictions_since_100_area,
+                    output,
                 )
             else:
                 return None
@@ -483,7 +488,6 @@ if __name__ == "__main__":
     df_initial_states = pd.read_csv(
         PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
     )
-
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
@@ -515,11 +519,7 @@ if __name__ == "__main__":
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
 
-<<<<<<< HEAD
-    list_tuples = [t for t in list_tuples if t[1] in ["US"]]
-=======
-#    list_tuples = [t for t in list_tuples if t[1] in ["US"]]
->>>>>>> delphi_with_vaccines
+    list_tuples = [t for t in list_tuples if t[2] in ["Massachusetts"]]
     # , "Poland", "Belgium", "France", "Greece"]]
 
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
@@ -532,10 +532,10 @@ if __name__ == "__main__":
                 (
                     df_parameters_area,
                     df_predictions_since_today_area,
-                    df_predictions_since_100_area
-                    # output,
+                    df_predictions_since_100_area,
+                    output,
                 ) = result_area
-                # obj_value = obj_value + output.fun
+                obj_value = obj_value + output.fun
                 # Then we add it to the list of df to be concatenated to update the tracking df
                 list_df_global_parameters.append(df_parameters_area)
                 list_df_global_predictions_since_today.append(df_predictions_since_today_area)
