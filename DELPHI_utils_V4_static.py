@@ -1886,7 +1886,7 @@ def create_fitting_data_from_validcases(validcases: pd.DataFrame) -> (float, lis
     validcases_death = validcases["death_cnt"].tolist()
     validcases_hosp = validcases["total_hospitalization"].fillna(0).tolist()
     balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
-    hosp_balance = validcases_nondeath[-1] / max(max(validcases_hosp), 10) / 3
+    hosp_balance = validcases_nondeath[-1] / max(max(validcases_hosp), 10) / 10
     cases_data_fit = validcases_nondeath
     deaths_data_fit = validcases_death
     return balance, cases_data_fit, deaths_data_fit, hosp_balance, validcases_hosp
