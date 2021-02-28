@@ -129,9 +129,10 @@ def solve_and_predict_area(
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
-                parameter_list.append(0.2)
-                parameter_list.append(0.03)
-                bounds_params = get_bounds_params_from_pastparams(
+                if len(parameter_list) == 12: ## shifting to new parameters
+                    parameter_list.append(0.2)
+                    parameter_list.append(0.03)
+                bounds_params, parameter_list = get_bounds_params_from_pastparams(
                     optimizer=OPTIMIZER,
                     parameter_list=parameter_list,
                     dict_default_reinit_parameters=dict_default_reinit_parameters,
@@ -357,8 +358,6 @@ def solve_and_predict_area(
                 return residuals_value
 
             if OPTIMIZER in ["tnc", "trust-constr"]:
-                # print(parameter_list)
-                # print(bounds_params)
                 output = minimize(
                     residuals_totalcases,
                     parameter_list,
@@ -519,7 +518,7 @@ if __name__ == "__main__":
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
 
-    list_tuples = [t for t in list_tuples if t[2] in ["Massachusetts"]]
+    # list_tuples = [t for t in list_tuples if t[1] in ["Israel"]]
     # , "Poland", "Belgium", "France", "Greece"]]
 
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")

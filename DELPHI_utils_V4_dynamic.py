@@ -192,7 +192,7 @@ def get_bounds_params_from_pastparams(
         param_list_lower[13] = p_h - 1e-5
 
     bounds_params = [(lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)]
-    return bounds_params
+    return bounds_params, parameter_list
 
 
 def convert_dates_us_policies(raw_date: str) -> Union[float, datetime]:
@@ -864,6 +864,7 @@ def linregress_vaccinations(V, ma_window=7):
     return 0, VT
 
 def create_vaccinations_timeseries(vaccinated, maxT, N):
+    # return np.zeros(maxT)
     if np.all(pd.isna(vaccinated)):
         V = np.zeros(vaccinated.shape[0])
         V_slope, VT = 0, 0
@@ -879,6 +880,7 @@ def create_vaccinations_timeseries(vaccinated, maxT, N):
 
     t_future = np.arange(1, maxT-V.shape[0]+1)
     V_future = t_future*V_slope + VT
+    # V_future = np.zeros(maxT-V.shape[0]) + VT
     # limit on max daily vaccinations
     V_future = np.array([min(v, 0.01*N) for v in V_future])
     return np.append(V, V_future)

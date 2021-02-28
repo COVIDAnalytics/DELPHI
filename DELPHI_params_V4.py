@@ -22,8 +22,8 @@ percentage_drift_upper_bound = 0.2
 default_lower_bound = 0.2
 percentage_drift_lower_bound = 0.2
 default_bounds_params = (
-    (0.1, 1.5), (-200, 100), (1, 15), (0.02, 0.5), (0.01, 0.25), (-0.2, 5.0), (0.001, 5), (0.001, 5), (0, 5), (-100, 150), (0.1, 50), (0.2,2.0), 
-    (0.05, 1.0), (0.001, 0.5)
+    (0.1, 1.5), (-200, 100), (1, 15), (0.02, 0.5), (0.01, 0.25), (-0.2, 5.0), (0.001, 5), (0.001, 5), (0, 5), (0, 150), (0.1, 50), (0.2,2.0), 
+    (0.05, 0.8), (0.001, 0.5)
 )   # Bounds for the solver
 validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
 validcases_threshold_policy = 15  # Minimum number of cases to train the country-level policy predictions
