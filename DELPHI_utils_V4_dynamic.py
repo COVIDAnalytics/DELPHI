@@ -901,7 +901,7 @@ class DELPHIModelComparison:
                     province_tuple,
                     min_case_count=100,
                     metric="Canberra",
-                    threshold=1.0,
+                    threshold=10.0,
                     plot=False,
                     eps=0.02):
         """
