@@ -3,7 +3,7 @@ from datetime import datetime
 
 # Default parameters - TNC & Trust Region
 date_MATHEMATICA = "2020-05-07"  # Transition date from Mathematica to Python
-fitting_start_date = "2020-10-01" # date to start model fitting from. predictions of all model states on this date are needed
+fitting_start_date = "2021-01-01" # date to start model fitting from. predictions of all model states on this date are needed
 default_parameter_list = [1, 0, 2, 0.2, 0.05, 0.2, 3, 3, 0.1, 3, 1, 1, 0.2, 0.03] # Default parameters for the solver
 dict_default_reinit_parameters = {
     "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0.001, "r_dthdecay": -0.2,
@@ -47,7 +47,7 @@ RecoverID = 10
 RecoverHD = 15
 DetectD = 2
 VentilatedD = 10  # Recovery Time when Ventilated
-default_maxT = datetime(2021, 4, 15)  # Maximum timespan of prediction
+default_maxT = datetime(2021, 5, 15)  # Maximum timespan of prediction
 n_params_without_policy_params = 7  # alpha, r_dth, p_dth, a, b, k1, k2
 p_v = 0.25  # Percentage of ventilated
 # p_d = 0.2  # Percentage of infection cases detected.
