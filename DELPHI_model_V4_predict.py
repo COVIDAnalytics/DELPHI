@@ -32,8 +32,8 @@ from DELPHI_params_V4 import (
     VentilatedD,
     default_maxT,
     p_v,
-    p_d,
-    p_h,
+    # p_d,
+    # p_h,
     max_iter,
 )
 
@@ -109,6 +109,9 @@ def predict_area(
             if len(parameter_list_total) > 0:
                 parameter_list_line = parameter_list_total.iloc[-1, :].values.tolist()
                 parameter_list = parameter_list_line[5:]
+                if len(parameter_list) == 12: ## shifting to new parameters
+                    parameter_list.append(0.2)
+                    parameter_list.append(0.03)
                 start_date = pd.to_datetime(parameter_list_line[3])
             else:
                 # Otherwise use established lower/upper bounds
@@ -179,10 +182,10 @@ def predict_area(
             maxT = (endT - start_date).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
-            GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
+            GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_v)
 
             def model_covid(
-                t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3
+                t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3, p_d, p_h
             ) -> list:
                 """
                 SEIR based model with 16 distinct states, taking into account undetected, deaths, hospitalized and
