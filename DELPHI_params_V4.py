@@ -3,26 +3,26 @@ from datetime import datetime
 
 # Default parameters - TNC & Trust Region
 date_MATHEMATICA = "2020-05-07"  # Transition date from Mathematica to Python
-fitting_start_date = "2020-10-01" # date to start model fitting from. predictions of all model states on this date are needed
+fitting_start_date = "2021-01-01" # date to start model fitting from. predictions of all model states on this date are needed
 default_parameter_list = [1, 0, 2, 0.2, 0.05, 0.2, 3, 3, 0.1, 3, 1, 1, 0.2, 0.03] # Default parameters for the solver
 dict_default_reinit_parameters = {
     "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0.001, "r_dthdecay": -0.2,
-    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0, "p_d": 0.05, "p_h": 0,
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": -50, "std_normal": 1, "k3": 0, "p_d": 0.05, "p_h": 0,
 }  # Allows for reinitialization of parameters in case they reach a value that is too low/high
 dict_default_reinit_lower_bounds = {
     "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0.001, "r_dthdecay": -0.2,
-    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0, "p_d": 0.05, "p_h": 0,
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": -50, "std_normal": 1, "k3": 0, "p_d": 0.05, "p_h": 0,
 }  # Allows for reinitialization of lower bounds in case they reach a value that is too low
 dict_default_reinit_upper_bounds = {
     "alpha": 0, "days": None, "r_s": 0, "r_dth": 0.02, "p_dth": 0.001, "r_dthdecay": -0.2,
-    "k1": 0, "k2": 0, "jump": 0, "t_jump": 0, "std_normal": 1, "k3": 0,"p_d": 0.05, "p_h": 0,
+    "k1": 0, "k2": 0, "jump": 0, "t_jump": -50, "std_normal": 1, "k3": 0,"p_d": 0.05, "p_h": 0,
 }  # Allows for reinitialization of upper bounds in case they reach a value that is too high
 default_upper_bound = 0.2
 percentage_drift_upper_bound = 0.2
 default_lower_bound = 0.2
 percentage_drift_lower_bound = 0.2
 default_bounds_params = (
-    (0.1, 1.5), (-200, 100), (1, 15), (0.02, 0.5), (0.01, 0.25), (-0.2, 5.0), (0.001, 5), (0.001, 5), (0, 5), (0, 150), (0.1, 50), (0.2,2.0), 
+    (0.1, 1.5), (-200, 100), (1, 15), (0.02, 0.5), (0.01, 0.25), (-0.2, 5.0), (0.001, 5), (0.001, 5), (0, 5), (-50, 150), (0.1, 50), (0.2,2.0), 
     (0.05, 0.8), (0.001, 0.5)
 )   # Bounds for the solver
 validcases_threshold = 7  # Minimum number of cases to fit the base-DELPHI
@@ -36,7 +36,7 @@ percentage_drift_lower_bound_annealing = 1
 default_lower_bound_annealing = 1
 default_lower_bound_jump = 0
 default_upper_bound_jump = 5
-default_lower_bound_t_jump = -100
+default_lower_bound_t_jump = -50
 default_upper_bound_t_jump = 150
 default_lower_bound_std_normal = 1
 default_upper_bound_std_normal = 200

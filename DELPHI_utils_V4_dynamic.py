@@ -105,6 +105,8 @@ def get_bounds_params_from_pastparams(
             max(p_d_upper, dict_default_reinit_upper_bounds["p_d"]),
             max(p_h_upper, dict_default_reinit_upper_bounds["p_h"]),
         ]
+        # param_list_lower[9] = default_lower_bound_t_jump  # jump lower bound
+        # param_list_upper[9] = default_upper_bound_t_jump  # jump upper bound
     elif optimizer == "annealing":  # Annealing procedure for global optimization
         alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3, p_d, p_h = parameter_list
         parameter_list = [
