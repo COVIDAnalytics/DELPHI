@@ -4,3 +4,4 @@ arguments:
   confidence_intervals: 1
   since100case: 1
   website: 1
+  train_initial_condition: 0
