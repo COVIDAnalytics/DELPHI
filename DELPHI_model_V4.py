@@ -33,6 +33,8 @@ from DELPHI_params_V4 import (
     percentage_drift_lower_bound_annealing,
     default_upper_bound_annealing,
     default_lower_bound_annealing,
+    default_lower_bound_jump,
+    default_upper_bound_jump,
     default_lower_bound_t_jump,
     default_upper_bound_t_jump,
     default_lower_bound_std_normal,
@@ -146,6 +148,8 @@ def solve_and_predict_area(
                     default_lower_bound_annealing=default_lower_bound_annealing,
                     percentage_drift_upper_bound_annealing=percentage_drift_upper_bound_annealing,
                     default_upper_bound_annealing=default_upper_bound_annealing,
+                    default_lower_bound_jump=default_lower_bound_jump,
+                    default_upper_bound_jump=default_upper_bound_jump,
                     default_lower_bound_t_jump=default_lower_bound_t_jump,
                     default_upper_bound_t_jump=default_upper_bound_t_jump,
                     default_lower_bound_std_normal=default_lower_bound_std_normal,
@@ -490,9 +494,9 @@ if __name__ == "__main__":
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
-            + f"predicted/Parameters_Global_V4_{yesterday}.csv"
+            + f"predicted/Parameters_Global_V4_20210301.csv"
         )
-        print(PATH_TO_FOLDER_DANGER_MAP+ f"predicted/Parameters_Global_V4_{yesterday}.csv")
+        print(PATH_TO_FOLDER_DANGER_MAP+ f"predicted/Parameters_Global_V4_20210301.csv")
     except:
         past_parameters = None
 
