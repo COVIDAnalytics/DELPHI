@@ -494,9 +494,9 @@ if __name__ == "__main__":
     try:
         past_parameters = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP
-            + f"predicted/Parameters_Global_V4_20210301.csv"
+            + f"predicted/Parameters_Global_V4_{yesterday}.csv"
         )
-        print(PATH_TO_FOLDER_DANGER_MAP+ f"predicted/Parameters_Global_V4_20210301.csv")
+        print(PATH_TO_FOLDER_DANGER_MAP+ f"predicted/Parameters_Global_V4_{yesterday}.csv")
     except:
         past_parameters = None
 
