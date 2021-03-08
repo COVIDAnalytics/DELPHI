@@ -1,5 +1,6 @@
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 from datetime import datetime
+from datetime import date
 
 # Default parameters - TNC & Trust Region
 date_MATHEMATICA = "2020-05-07"  # Transition date from Mathematica to Python
@@ -36,7 +37,7 @@ default_lower_bound_annealing = 1
 default_lower_bound_jump = 0
 default_upper_bound_jump = 5
 default_lower_bound_t_jump = -100
-default_upper_bound_t_jump = 150
+default_upper_bound_t_jump = (date.today() - datetime.strptime(fitting_start_date,"%Y-%m-%d").date()).days
 default_lower_bound_std_normal = 1
 default_upper_bound_std_normal = 200
 
