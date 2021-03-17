@@ -1,3 +1,5 @@
+#%%
+
 # Authors: Hamza Tazi Bouardi (htazi@mit.edu), Michael L. Li (mlli@mit.edu), Omar Skali Lami (oskali@mit.edu)
 import pandas as pd
 import numpy as np
@@ -12,25 +14,34 @@ from DELPHI_params_V4 import (
     fitting_start_date,
     date_MATHEMATICA, validcases_threshold_policy, default_dict_normalized_policy_gamma,
     IncubeD, RecoverID, RecoverHD, DetectD, VentilatedD,
-    default_maxT_policies, p_v, p_d, p_h, future_policies, future_times
+    default_maxT_policies, p_v, future_policies, future_times
 )
+# p_d=0.2
+# p_h=0.03
 import yaml
 import os
 import argparse
 
+#%%
 
 with open("config.yml", "r") as ymlfile:
     CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 CONFIG_FILEPATHS = CONFIG["filepaths"]
 yesterday = "".join(str(datetime.now().date() - timedelta(days=1)).split("-"))
 parser = argparse.ArgumentParser()
-parser.add_argument(
-    '--run_config', '-rc', type=str, required=True,
-    help="specify relative path for the run config YAML file"
-)
-arguments = parser.parse_args()
-with open(arguments.run_config, "r") as ymlfile:
+# parser.add_argument(
+#     '--run_config', '-rc', type=str, required=True,
+#     help="specify relative path for the run config YAML file"
+# )
+# arguments = parser.parse_args()
+# with open(arguments.run_config, "r") as ymlfile:
+#     RUN_CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+
+#%%
+with open('run_configs/run-config.yml', "r") as ymlfile:
     RUN_CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
+
+#%%
 
 USER_RUNNING = RUN_CONFIG["arguments"]["user"]
 OPTIMIZER = RUN_CONFIG["arguments"]["optimizer"]
@@ -44,7 +55,7 @@ policy_data_countries = read_oxford_international_policy_data(yesterday=yesterda
 policy_data_us_only = read_policy_data_us_only(filepath_data_sandbox=CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING])
 popcountries = pd.read_csv(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv")
 df_initial_states = pd.read_csv(
-    PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
+    PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V4_{fitting_start_date}.csv"
 )
 subname_parameters_file = None
 if OPTIMIZER == "tnc":
@@ -55,6 +66,7 @@ elif OPTIMIZER == "trust-constr":
     subname_parameters_file = "Global_V4_trust"
 else:
     raise ValueError("Optimizer not supported in this implementation")
+yesterday = "20210305"
 past_parameters = pd.read_csv(
     PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_{subname_parameters_file}_{yesterday}.csv"
 )
@@ -65,6 +77,9 @@ else:
 # True if we use the Mathematica run parameters, False if we use those from Python runs
 # This is because the past_parameters dataframe's columns are not in the same order in both cases
 startT = fitting_start_date
+
+#%%
+
 # Get the policies shifts from the CART tree to compute different values of gamma(t)
 # Depending on the policy in place in the future to affect predictions
 dict_normalized_policy_gamma_countries, dict_current_policy_countries = (
@@ -87,6 +102,8 @@ dict_current_policy_international.update(dict_current_policy_us_only)
 
 dict_normalized_policy_gamma_us_only = default_dict_normalized_policy_gamma
 dict_normalized_policy_gamma_countries = default_dict_normalized_policy_gamma
+
+#%%
 
 # Initalizing lists of the different dataframes that will be concatenated in the end
 list_df_global_predictions_since_today_scenarios = []
@@ -129,13 +146,16 @@ for continent, country, province, initial_state in list_tuples:
                     parameter_list[3] = np.log(2) / parameter_list[3]
                 else:
                     parameter_list = parameter_list_line[5:]
+                if len(parameter_list) == 12: ## shifting to new parameters
+                    parameter_list.append(0.2)
+                    parameter_list.append(0.03)
                 date_day_since100 = pd.to_datetime(parameter_list_line[3])
                 # Allowing a 5% drift for states with past predictions, starting in the 5th position are the parameters
                 start_date = max(pd.to_datetime(startT), date_day_since100)
                 validcases = totalcases[
                     (totalcases.date >= str(start_date))
                     & (totalcases.date <= str((pd.to_datetime(yesterday) + timedelta(days=1)).date()))
-                ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
+                ][["day_since100", "case_cnt", "death_cnt", "total_hospitalization", "people_vaccinated", "people_fully_vaccinated"]].reset_index(drop=True)
             else:
                 print(f"Must have past parameters for {country} and {province}")
                 continue
@@ -172,14 +192,14 @@ for continent, country, province, initial_state in list_tuples:
             """
             maxT = (default_maxT_policies - date_day_since100).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
-            balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
-            GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
+            balance, cases_data_fit, deaths_data_fit, hosp_balance, hosp_data_fit = create_fitting_data_from_validcases(validcases)
+            GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_v)
             best_params = parameter_list
             t_predictions = [i for i in range(maxT)]
             for future_policy in future_policies:
                 for future_time in future_times:
                     def model_covid_predictions(
-                            t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3
+                            t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3, p_d, p_h
                     ):
                         """
                         SEIR based model with 16 distinct states, taking into account undetected, deaths, hospitalized
@@ -335,6 +355,8 @@ for continent, country, province, initial_state in list_tuples:
     else:  # file for that tuple (country, province) doesn't exist in processed files
         continue
 
+# %%
+
 # Appending parameters, aggregations per country, per continent, and for the world
 # for predictions today & since 100
 today_date_str = "".join(str(datetime.now().date()).split("-"))
@@ -355,3 +377,5 @@ delphi_data_saver = DELPHIDataSaver(
 delphi_data_saver.save_policy_predictions_to_json(website=SAVE_TO_WEBSITE, local_delphi=False)
 print("Exported all policy-dependent predictions for all countries to website & danger_map repositories")
 
+
+# %%
