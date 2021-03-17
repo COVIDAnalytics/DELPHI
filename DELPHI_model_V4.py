@@ -171,7 +171,7 @@ def solve_and_predict_area(
 
         if startT is not None:
             input_start_date = pd.to_datetime(startT)
-            if input_start_date > start_date:
+            if input_start_date > start_date and past_parameters_ is not None:
                 delta_days = (input_start_date - start_date).days
                 parameter_list[9] = parameter_list[9] - delta_days
                 bounds_params_list = list(bounds_params)
@@ -522,7 +522,7 @@ if __name__ == "__main__":
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
 
-    # list_tuples = [t for t in list_tuples if t[1] in ["Germany", "Poland", "Israel", "South Africa", "India", "Brazil"]]
+    # list_tuples = [t for t in list_tuples if t[1] in ["Sudan"]]
     # , "Poland", "Belgium", "France", "Greece"]]
 
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")

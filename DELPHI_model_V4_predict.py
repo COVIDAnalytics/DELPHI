@@ -18,6 +18,7 @@ from DELPHI_utils_V4_static import (
     DELPHIAggregations, DELPHIDataSaver, DELPHIDataCreator, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
+from DELPHI_utils_V4_dynamic import create_vaccinations_timeseries
 from DELPHI_params_V4 import (
     fitting_start_date,
     default_parameter_list,
@@ -165,8 +166,8 @@ def predict_area(
             deaths_t_9days = totalcases[totalcases.date >= str((pd.to_datetime(startT) - pd.Timedelta(9, 'D')))]['death_cnt'].values[0]
             R_upperbound = validcases.loc[0, "case_cnt"] - validcases.loc[0, "death_cnt"]
             R_heuristic = cases_t_14days - deaths_t_9days
-            if int(R_0*p_d) >= R_upperbound and R_heuristic >= R_upperbound:
-                    logging.error(f"Initial conditions for PopulationR too high for {country}-{province}, on {startT}")
+            if int(R_0*parameter_list[-2]) >= R_upperbound and R_heuristic >= R_upperbound:
+                logging.error(f"Initial conditions for PopulationR too high for {country}-{province}, on {startT}")
 
             """
             Fixed Parameters based on meta-analysis:
@@ -181,8 +182,15 @@ def predict_area(
             endT = default_maxT if endT is None else pd.to_datetime(endT)
             maxT = (endT - start_date).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
-            balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
+            balance, cases_data_fit, deaths_data_fit, hosp_balance, hosp_data_fit  = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_v)
+
+            ## Process vaccinations data
+            # 1. number of people vaccinated irrespective of number of shots
+            V = create_vaccinations_timeseries(validcases.people_vaccinated, maxT, N)
+
+            # 2. number of people who received both shots
+            V2 = create_vaccinations_timeseries(validcases.people_fully_vaccinated, maxT, N)
 
             def model_covid(
                 t, x, alpha, days, r_s, r_dth, p_dth, r_dthdecay, k1, k2, jump, t_jump, std_normal, k3, p_d, p_h
@@ -280,6 +288,8 @@ def predict_area(
             if full_raw:
                 data_creator = DELPHIDataCreator(
                     x_sol_final=x_final,
+                    vaccinated=V,
+                    fully_vaccinated=V2,
                     date_day_since100=start_date,
                     best_params=parameter_list,
                     continent=continent,
@@ -288,7 +298,7 @@ def predict_area(
                     testing_data_included=False,
                 )
                 mape_data = get_mape_data_fitting(
-                    cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, x_sol_final=x_final
+                    cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, hosp_data_fit=hosp_data_fit, x_sol_final=x_final
                 )
                 df_parameters_area = data_creator.create_dataset_parameters(mape_data)   
                 df_raw_since_today_area, df_raw_since_100_area = data_creator.create_datasets_raw()
