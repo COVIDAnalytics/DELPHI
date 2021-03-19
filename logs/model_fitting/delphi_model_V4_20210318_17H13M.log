@@ -1,0 +1,235 @@
+03-19-2021 05:13:42 PM | INFO | The user is server, the chosen optimizer for this run is variable type global and generation of Confidence Intervals' flag is False
+03-19-2021 05:13:42 PM | INFO | Start date: 2021-03-19 17:13:42.985845, End date: 2021-03-19 17:13:42.985849
+03-19-2021 05:13:42 PM | INFO | running for 2021-03-19 17:13:42.985845 optimizer annealing replace_already_existing_par False
+03-19-2021 05:13:42 PM | INFO | Number of CPUs found and used in this run: 90
+03-19-2021 05:13:43 PM | INFO | Number of areas to be fitted in this run: 230
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Afghanistan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Albania, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Algeria, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Andorra, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Angola, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Antigua and Barbuda, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Argentina, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Armenia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Oceania, Australia, Australian Capital Territory
+03-19-2021 05:13:43 PM | INFO | starting to predict for Oceania, Australia, New South Wales
+03-19-2021 05:13:43 PM | INFO | starting to predict for Oceania, Australia, South Australia
+03-19-2021 05:13:43 PM | INFO | starting to predict for Oceania, Australia, Queensland
+03-19-2021 05:13:43 PM | INFO | starting to predict for Oceania, Australia, Tasmania
+03-19-2021 05:13:43 PM | INFO | starting to predict for Oceania, Australia, Victoria
+03-19-2021 05:13:43 PM | INFO | starting to predict for Oceania, Australia, Western Australia
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Austria, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Azerbaijan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Bahrain, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Bangladesh, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Barbados, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Belarus, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Belgium, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Belize, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Benin, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Bhutan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Bolivia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Bosnia and Herzegovina, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Botswana, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Brazil, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Bulgaria, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Burkina Faso, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Cameroon, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Burundi, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Cambodia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Cabo Verde, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Canada, Alberta
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Canada, British Columbia
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Canada, Manitoba
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Canada, Quebec
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Canada, Newfoundland and Labrador
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Canada, Nova Scotia
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Canada, Ontario
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Canada, New Brunswick
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Canada, Saskatchewan
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Chad, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Chile, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Colombia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Central African Republic, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Comoros, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Congo (Brazzaville), None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Congo (Kinshasa), None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Costa Rica, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Cuba, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Croatia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Cote d'Ivoire, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Czechia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Denmark, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Cyprus, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Dominican Republic, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Ecuador, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Djibouti, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Egypt, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, El Salvador, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Equatorial Guinea, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Estonia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Ethiopia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Finland, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, France, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Gabon, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Gambia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Georgia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Germany, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Ghana, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Greece, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Guatemala, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Guinea, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Haiti, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Guinea-Bissau, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Guyana, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Honduras, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Iceland, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Hungary, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, India, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Indonesia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Iran, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Ireland, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Japan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Italy, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Iraq, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Kazakhstan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Israel, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Kenya, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Jordan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Jamaica, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Kuwait, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Korea, South, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Latvia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Kosovo, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Lebanon, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Lesotho, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Liberia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Libya, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Liechtenstein, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Lithuania, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Luxembourg, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Malaysia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Madagascar, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Malawi, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Maldives, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Mali, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Malta, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Mauritius, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Moldova, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Mexico, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Monaco, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Mauritania, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Mongolia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Morocco, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Montenegro, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Mozambique, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Namibia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Nepal, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Netherlands, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Oceania, New Zealand, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Nicaragua, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Niger, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Nigeria, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, North Macedonia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Norway, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Pakistan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Oman, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Oceania, Papua New Guinea, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, Panama, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Paraguay, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Peru, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Philippines, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Poland, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Portugal, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Qatar, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Romania, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Russia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Rwanda, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Sao Tome and Principe, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Saudi Arabia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, San Marino, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Senegal, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Seychelles, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Serbia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Singapore, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Somalia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Slovakia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Sierra Leone, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, South Africa, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Slovenia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Spain, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, South Sudan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Sri Lanka, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Suriname, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Sudan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Sweden, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Switzerland, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Tajikistan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Tanzania, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Thailand, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Togo, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Trinidad and Tobago, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Tunisia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Alabama
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Alaska
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Turkey, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Arizona
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Arkansas
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, California
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Colorado
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Delaware
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Connecticut
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Florida
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Georgia
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, District of Columbia
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Hawaii
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Illinois
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Indiana
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Idaho
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Iowa
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Kentucky
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Louisiana
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Kansas
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Maryland
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Massachusetts
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Maine
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Michigan
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Minnesota
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Missouri
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Montana
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, New Hampshire
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Mississippi
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Nebraska
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Nevada
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, New Jersey
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, New Mexico
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, New York
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, North Carolina
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, North Dakota
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Ohio
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Oregon
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Oklahoma
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Pennsylvania
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Rhode Island
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, South Carolina
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, South Dakota
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Tennessee
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Texas
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Utah
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Vermont
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Virginia
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Washington
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, West Virginia
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Wisconsin
+03-19-2021 05:13:43 PM | INFO | starting to predict for North America, US, Wyoming
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Uganda, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, Ukraine, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, United Arab Emirates, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Europe, United Kingdom, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Uruguay, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Uzbekistan, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for South America, Venezuela, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Yemen, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Zambia, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Asia, Vietnam, None
+03-19-2021 05:13:43 PM | INFO | starting to predict for Africa, Zimbabwe, None
