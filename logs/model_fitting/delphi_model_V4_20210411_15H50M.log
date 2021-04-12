@@ -1,0 +1,819 @@
+04-12-2021 03:50:37 PM | INFO | The user is server, the chosen optimizer for this run is variable type global_vaccine and generation of Confidence Intervals' flag is False
+04-12-2021 03:50:37 PM | INFO | Start date: 2021-04-12 15:50:37.437131, End date: 2021-04-12 15:50:37.437135
+04-12-2021 03:50:37 PM | INFO | running for 2021-04-12 15:50:37.437131 optimizer annealing replace_already_existing_par False
+04-12-2021 03:50:37 PM | INFO | Number of CPUs found and used in this run: 90
+04-12-2021 03:50:37 PM | INFO | Number of areas to be fitted in this run: 51
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Alaska
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Alabama
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Arizona
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Arkansas
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=California
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Colorado
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Connecticut
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Delaware
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=District of Columbia
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Florida
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Georgia
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Hawaii
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Illinois
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Indiana
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Iowa
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Idaho
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Kansas
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Kentucky
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Louisiana
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Maine
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Maryland
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Montana
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Massachusetts
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Michigan
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Minnesota
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Mississippi
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Missouri
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Nebraska
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Nevada
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=New Jersey
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=New Mexico
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=New Hampshire
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=New York
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=North Carolina
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=North Dakota
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Ohio
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Oklahoma
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Oregon
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Pennsylvania
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Rhode Island
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=South Carolina
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Washington
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=South Dakota
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Tennessee
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Texas
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Utah
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Vermont
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Wisconsin
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Wyoming
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=Virginia
+04-12-2021 03:50:37 PM | INFO | Parameters already exist on day after 20210411 Continent=North America, Country=US and Province=West Virginia
+04-12-2021 03:50:37 PM | INFO | Finished the Multiprocessing for all areas
+04-12-2021 03:50:37 PM | INFO | Nothing changed for, total runtime was 0.01 minutes
+04-12-2021 03:50:50 PM | INFO | this file saved policy_20210412_global.csv
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from before-call.apigateway to before-call.api-gateway
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+04-12-2021 03:50:50 PM | DEBUG | Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+04-12-2021 03:50:50 PM | DEBUG | IMDS ENDPOINT: http://169.254.169.254/
+04-12-2021 03:50:50 PM | DEBUG | Looking for credentials via: env
+04-12-2021 03:50:50 PM | INFO | Found credentials in environment variables.
+04-12-2021 03:50:50 PM | DEBUG | Loading JSON file: /opt/conda/lib/python3.7/site-packages/botocore/data/endpoints.json
+04-12-2021 03:50:50 PM | DEBUG | Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f5144438710>
+04-12-2021 03:50:50 PM | DEBUG | Loading JSON file: /opt/conda/lib/python3.7/site-packages/botocore/data/s3/2006-03-01/service-2.json
+04-12-2021 03:50:50 PM | DEBUG | Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x7f514445e290>
+04-12-2021 03:50:50 PM | DEBUG | Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x7f5120f79200>
+04-12-2021 03:50:50 PM | DEBUG | Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x7f514445e050>
+04-12-2021 03:50:50 PM | DEBUG | Setting s3 timeout as (60, 60)
+04-12-2021 03:50:50 PM | DEBUG | Loading JSON file: /opt/conda/lib/python3.7/site-packages/botocore/data/_retry.json
+04-12-2021 03:50:50 PM | DEBUG | Registering retry handlers for service: s3
+04-12-2021 03:50:50 PM | DEBUG | Acquiring 0
+04-12-2021 03:50:50 PM | DEBUG | UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f5133925190>}) about to wait for the following futures []
+04-12-2021 03:50:50 PM | DEBUG | UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f5133925190>}) done waiting for dependent futures
+04-12-2021 03:50:50 PM | DEBUG | Executing task UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f5133925190>}) with kwargs {'client': <botocore.client.S3 object at 0x7f51397f3c50>, 'config': <boto3.s3.transfer.TransferConfig object at 0x7f511e6134d0>, 'osutil': <s3transfer.utils.OSUtils object at 0x7f5120f75950>, 'request_executor': <s3transfer.futures.BoundedExecutor object at 0x7f511e613690>, 'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f5133925190>}
+04-12-2021 03:50:50 PM | DEBUG | Submitting task PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/policy_20210412_global.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f511e613690> for transfer request: 0.
+04-12-2021 03:50:50 PM | DEBUG | Acquiring 0
+04-12-2021 03:50:50 PM | DEBUG | PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/policy_20210412_global.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) about to wait for the following futures []
+04-12-2021 03:50:50 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:50:50 PM | DEBUG | PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/policy_20210412_global.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) done waiting for dependent futures
+04-12-2021 03:50:50 PM | DEBUG | Executing task PutObjectTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/policy_20210412_global.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) with kwargs {'client': <botocore.client.S3 object at 0x7f51397f3c50>, 'fileobj': <s3transfer.utils.ReadFileChunk object at 0x7f511e613d90>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/policy_20210412_global.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}
+04-12-2021 03:50:50 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function validate_ascii_metadata at 0x7f51443ea4d0>
+04-12-2021 03:50:50 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function sse_md5 at 0x7f51443e28c0>
+04-12-2021 03:50:50 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function convert_body_to_file_like_object at 0x7f51443eadd0>
+04-12-2021 03:50:50 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function validate_bucket_name at 0x7f51443e2830>
+04-12-2021 03:50:50 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f511e60cfd0>>
+04-12-2021 03:50:50 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f511e65a310>>
+04-12-2021 03:50:50 PM | DEBUG | Event before-parameter-build.s3.PutObject: calling handler <function generate_idempotent_uuid at 0x7f51443e2680>
+04-12-2021 03:50:50 PM | DEBUG | Event before-call.s3.PutObject: calling handler <function conditionally_calculate_md5 at 0x7f51445b9320>
+04-12-2021 03:50:50 PM | DEBUG | Event before-call.s3.PutObject: calling handler <function add_expect_header at 0x7f51443e2b90>
+04-12-2021 03:50:50 PM | DEBUG | Adding expect 100 continue header to request.
+04-12-2021 03:50:50 PM | DEBUG | Event before-call.s3.PutObject: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f511e60cfd0>>
+04-12-2021 03:50:50 PM | DEBUG | Event before-call.s3.PutObject: calling handler <function inject_api_version_header_if_needed at 0x7f51443eaef0>
+04-12-2021 03:50:50 PM | DEBUG | Making request for OperationModel(name=PutObject) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/policy_20210412_global.csv', 'query_string': {}, 'method': 'PUT', 'headers': {'x-amz-server-side-encryption': 'AES256', 'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': 'nopRgc2oAGw9gW+Tt56/bw==', 'Expect': '100-continue'}, 'body': <s3transfer.utils.ReadFileChunk object at 0x7f511e613d90>, 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/policy_20210412_global.csv', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f511e722290>, 'has_streaming_input': True, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+04-12-2021 03:50:50 PM | DEBUG | Event request-created.s3.PutObject: calling handler <function signal_not_transferring at 0x7f511e685710>
+04-12-2021 03:50:50 PM | DEBUG | Event request-created.s3.PutObject: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f511e722250>>
+04-12-2021 03:50:50 PM | DEBUG | Event choose-signer.s3.PutObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f511eb3cf10>>
+04-12-2021 03:50:50 PM | DEBUG | Event choose-signer.s3.PutObject: calling handler <function set_operation_specific_signer at 0x7f51443e2560>
+04-12-2021 03:50:50 PM | DEBUG | Event before-sign.s3.PutObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f511e613450>>
+04-12-2021 03:50:50 PM | DEBUG | Defaulting to S3 virtual host style addressing with path style addressing fallback.
+04-12-2021 03:50:50 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/policy_20210412_global.csv
+04-12-2021 03:50:50 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/policy_20210412_global.csv
+04-12-2021 03:50:50 PM | DEBUG | Calculating signature using v4 auth.
+04-12-2021 03:50:50 PM | DEBUG | CanonicalRequest:
+PUT
+/mit_pred/policy_20210412_global.csv
+
+content-md5:nopRgc2oAGw9gW+Tt56/bw==
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:UNSIGNED-PAYLOAD
+x-amz-date:20210412T155050Z
+x-amz-server-side-encryption:AES256
+
+content-md5;host;x-amz-content-sha256;x-amz-date;x-amz-server-side-encryption
+UNSIGNED-PAYLOAD
+04-12-2021 03:50:50 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210412T155050Z
+20210412/us-east-1/s3/aws4_request
+2cc84f6fdccb996379cbf0c2d9426b4ca31ee8198bdc1ba1d3371b6b61d18a93
+04-12-2021 03:50:50 PM | DEBUG | Signature:
+4f5954de06bb58d4bc81fd25f518e0088f82f07b1b5fb0f32247cecc5088757a
+04-12-2021 03:50:50 PM | DEBUG | Event request-created.s3.PutObject: calling handler <function signal_transferring at 0x7f511e6919e0>
+04-12-2021 03:50:50 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/policy_20210412_global.csv, headers={'x-amz-server-side-encryption': b'AES256', 'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': b'nopRgc2oAGw9gW+Tt56/bw==', 'Expect': b'100-continue', 'X-Amz-Date': b'20210412T155050Z', 'X-Amz-Content-SHA256': b'UNSIGNED-PAYLOAD', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210412/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date;x-amz-server-side-encryption, Signature=4f5954de06bb58d4bc81fd25f518e0088f82f07b1b5fb0f32247cecc5088757a', 'Content-Length': '13772'}>
+04-12-2021 03:50:50 PM | DEBUG | Starting new HTTPS connection (1): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+04-12-2021 03:50:50 PM | DEBUG | Waiting for 100 Continue response.
+04-12-2021 03:50:51 PM | DEBUG | 100 Continue response seen, now sending request body.
+04-12-2021 03:50:51 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "PUT /mit_pred/policy_20210412_global.csv HTTP/1.1" 200 0
+04-12-2021 03:50:51 PM | DEBUG | Response headers: {'x-amz-id-2': '1Zw3HuEOMpe9CE+ROfLHjApr5L+5psdll+u2fi8QLgbTnTDrq8E0CTaT0Qj8RNeH3RJkqLtWXJ4=', 'x-amz-request-id': 'AT5AWEA7MZ5V4XF0', 'Date': 'Mon, 12 Apr 2021 15:50:51 GMT', 'x-amz-version-id': 'LAOxgjGezBAC5TRbENeqSL7scNRDgZVu', 'x-amz-server-side-encryption': 'AES256', 'ETag': '"9e8a5181cda8006c3d816f93b79ebf6f"', 'Content-Length': '0', 'Server': 'AmazonS3'}
+04-12-2021 03:50:51 PM | DEBUG | Response body:
+b''
+04-12-2021 03:50:51 PM | DEBUG | Event needs-retry.s3.PutObject: calling handler <botocore.retryhandler.RetryHandler object at 0x7f511e65a4d0>
+04-12-2021 03:50:51 PM | DEBUG | No retry needed.
+04-12-2021 03:50:51 PM | DEBUG | Event needs-retry.s3.PutObject: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f511e60cfd0>>
+04-12-2021 03:50:51 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:50:51 PM | INFO | US Alabama
+04-12-2021 03:50:52 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Alabama
+04-12-2021 03:50:52 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:50:52 PM | INFO | US Alaska
+04-12-2021 03:50:53 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Alaska
+04-12-2021 03:50:53 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:50:53 PM | INFO | US Arizona
+04-12-2021 03:50:54 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Arizona
+04-12-2021 03:50:54 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:50:54 PM | INFO | US Arkansas
+04-12-2021 03:50:55 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Arkansas
+04-12-2021 03:50:55 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:50:55 PM | INFO | US California
+04-12-2021 03:50:57 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=California
+04-12-2021 03:50:57 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:50:57 PM | INFO | US Colorado
+04-12-2021 03:50:58 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Colorado
+04-12-2021 03:50:58 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:50:58 PM | INFO | US Connecticut
+04-12-2021 03:51:00 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Connecticut
+04-12-2021 03:51:00 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:00 PM | INFO | US Delaware
+04-12-2021 03:51:03 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Delaware
+04-12-2021 03:51:03 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:03 PM | INFO | US District of Columbia
+04-12-2021 03:51:04 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=District of Columbia
+04-12-2021 03:51:04 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:04 PM | INFO | US Florida
+04-12-2021 03:51:05 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Florida
+04-12-2021 03:51:05 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:05 PM | INFO | US Georgia
+04-12-2021 03:51:11 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Georgia
+04-12-2021 03:51:11 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:11 PM | INFO | US Hawaii
+04-12-2021 03:51:12 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Hawaii
+04-12-2021 03:51:12 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:12 PM | INFO | US Idaho
+04-12-2021 03:51:14 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Idaho
+04-12-2021 03:51:14 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:14 PM | INFO | US Illinois
+04-12-2021 03:51:15 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Illinois
+04-12-2021 03:51:15 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:15 PM | INFO | US Indiana
+04-12-2021 03:51:16 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Indiana
+04-12-2021 03:51:16 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:16 PM | INFO | US Iowa
+04-12-2021 03:51:18 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Iowa
+04-12-2021 03:51:18 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:18 PM | INFO | US Kansas
+04-12-2021 03:51:19 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Kansas
+04-12-2021 03:51:19 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:19 PM | INFO | US Kentucky
+04-12-2021 03:51:20 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Kentucky
+04-12-2021 03:51:20 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:20 PM | INFO | US Louisiana
+04-12-2021 03:51:22 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Louisiana
+04-12-2021 03:51:22 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:22 PM | INFO | US Maine
+04-12-2021 03:51:23 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Maine
+04-12-2021 03:51:23 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:23 PM | INFO | US Maryland
+04-12-2021 03:51:24 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Maryland
+04-12-2021 03:51:24 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:25 PM | INFO | US Massachusetts
+04-12-2021 03:51:26 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Massachusetts
+04-12-2021 03:51:26 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:26 PM | INFO | US Michigan
+04-12-2021 03:51:32 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Michigan
+04-12-2021 03:51:32 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:32 PM | INFO | US Minnesota
+04-12-2021 03:51:33 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Minnesota
+04-12-2021 03:51:33 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:33 PM | INFO | US Mississippi
+04-12-2021 03:51:38 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Mississippi
+04-12-2021 03:51:38 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:38 PM | INFO | US Missouri
+04-12-2021 03:51:40 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Missouri
+04-12-2021 03:51:40 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:40 PM | INFO | US Montana
+04-12-2021 03:51:41 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Montana
+04-12-2021 03:51:41 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:41 PM | INFO | US Nebraska
+04-12-2021 03:51:43 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Nebraska
+04-12-2021 03:51:43 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:43 PM | INFO | US Nevada
+04-12-2021 03:51:44 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Nevada
+04-12-2021 03:51:44 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:44 PM | INFO | US New Hampshire
+04-12-2021 03:51:45 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New Hampshire
+04-12-2021 03:51:45 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:45 PM | INFO | US New Jersey
+04-12-2021 03:51:47 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New Jersey
+04-12-2021 03:51:47 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:47 PM | INFO | US New Mexico
+04-12-2021 03:51:50 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New Mexico
+04-12-2021 03:51:50 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:50 PM | INFO | US New York
+04-12-2021 03:51:55 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New York
+04-12-2021 03:51:55 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:55 PM | INFO | US North Carolina
+04-12-2021 03:51:59 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=North Carolina
+04-12-2021 03:51:59 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:51:59 PM | INFO | US North Dakota
+04-12-2021 03:52:02 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=North Dakota
+04-12-2021 03:52:02 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:02 PM | INFO | US Ohio
+04-12-2021 03:52:03 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Ohio
+04-12-2021 03:52:03 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:03 PM | INFO | US Oklahoma
+04-12-2021 03:52:05 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Oklahoma
+04-12-2021 03:52:05 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:05 PM | INFO | US Oregon
+04-12-2021 03:52:07 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Oregon
+04-12-2021 03:52:07 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:07 PM | INFO | US Pennsylvania
+04-12-2021 03:52:09 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Pennsylvania
+04-12-2021 03:52:09 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:09 PM | INFO | US Rhode Island
+04-12-2021 03:52:10 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Rhode Island
+04-12-2021 03:52:10 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:10 PM | INFO | US South Carolina
+04-12-2021 03:52:11 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=South Carolina
+04-12-2021 03:52:11 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:11 PM | INFO | US South Dakota
+04-12-2021 03:52:13 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=South Dakota
+04-12-2021 03:52:13 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:13 PM | INFO | US Tennessee
+04-12-2021 03:52:14 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Tennessee
+04-12-2021 03:52:14 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:14 PM | INFO | US Texas
+04-12-2021 03:52:16 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Texas
+04-12-2021 03:52:16 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:16 PM | INFO | US Utah
+04-12-2021 03:52:17 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Utah
+04-12-2021 03:52:17 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:17 PM | INFO | US Vermont
+04-12-2021 03:52:18 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Vermont
+04-12-2021 03:52:18 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:18 PM | INFO | US Virginia
+04-12-2021 03:52:25 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Virginia
+04-12-2021 03:52:25 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:25 PM | INFO | US Washington
+04-12-2021 03:52:26 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Washington
+04-12-2021 03:52:26 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:26 PM | INFO | US West Virginia
+04-12-2021 03:52:28 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=West Virginia
+04-12-2021 03:52:28 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:28 PM | INFO | US Wisconsin
+04-12-2021 03:52:29 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Wisconsin
+04-12-2021 03:52:29 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:29 PM | INFO | US Wyoming
+04-12-2021 03:52:30 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Wyoming
+04-12-2021 03:52:30 PM | INFO | --------------------------------------------------------------------------
+04-12-2021 03:52:31 PM | INFO | Exported all policy-dependent predictions for all countries for JJ in df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv
+04-12-2021 03:52:35 PM | DEBUG | Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f5144438710>
+04-12-2021 03:52:35 PM | DEBUG | Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x7f514445e290>
+04-12-2021 03:52:35 PM | DEBUG | Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x7f5120f79200>
+04-12-2021 03:52:35 PM | DEBUG | Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x7f514445e050>
+04-12-2021 03:52:35 PM | DEBUG | Setting s3 timeout as (60, 60)
+04-12-2021 03:52:35 PM | DEBUG | Registering retry handlers for service: s3
+04-12-2021 03:52:35 PM | DEBUG | Acquiring 0
+04-12-2021 03:52:35 PM | DEBUG | UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f50ed3a0890>}) about to wait for the following futures []
+04-12-2021 03:52:35 PM | DEBUG | UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f50ed3a0890>}) done waiting for dependent futures
+04-12-2021 03:52:35 PM | DEBUG | Executing task UploadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f50ed3a0890>}) with kwargs {'client': <botocore.client.S3 object at 0x7f50ed395490>, 'config': <boto3.s3.transfer.TransferConfig object at 0x7f50ed3a0150>, 'osutil': <s3transfer.utils.OSUtils object at 0x7f50ed3a00d0>, 'request_executor': <s3transfer.futures.BoundedExecutor object at 0x7f50ed3a0350>, 'transfer_future': <s3transfer.futures.TransferFuture object at 0x7f50ed3a0890>}
+04-12-2021 03:52:35 PM | DEBUG | Submitting task CreateMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f50ed3a0350> for transfer request: 0.
+04-12-2021 03:52:35 PM | DEBUG | Acquiring 0
+04-12-2021 03:52:35 PM | DEBUG | CreateMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) about to wait for the following futures []
+04-12-2021 03:52:35 PM | DEBUG | Submitting task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 1, 'extra_args': {}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f50ed3a0350> for transfer request: 0.
+04-12-2021 03:52:35 PM | DEBUG | CreateMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) done waiting for dependent futures
+04-12-2021 03:52:35 PM | DEBUG | Acquiring 0
+04-12-2021 03:52:35 PM | DEBUG | Executing task CreateMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}) with kwargs {'client': <botocore.client.S3 object at 0x7f50ed395490>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {'ServerSideEncryption': 'AES256'}}
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 1, 'extra_args': {}}) about to wait for the following futures [<s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>]
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.CreateMultipartUpload: calling handler <function validate_ascii_metadata at 0x7f51443ea4d0>
+04-12-2021 03:52:35 PM | DEBUG | Submitting task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 2, 'extra_args': {}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f50ed3a0350> for transfer request: 0.
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 1, 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.CreateMultipartUpload: calling handler <function sse_md5 at 0x7f51443e28c0>
+04-12-2021 03:52:35 PM | DEBUG | Acquiring 0
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.CreateMultipartUpload: calling handler <function validate_bucket_name at 0x7f51443e2830>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.CreateMultipartUpload: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.CreateMultipartUpload: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f50ed395950>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.CreateMultipartUpload: calling handler <function generate_idempotent_uuid at 0x7f51443e2680>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.CreateMultipartUpload: calling handler <function add_expect_header at 0x7f51443e2b90>
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 2, 'extra_args': {}}) about to wait for the following futures [<s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>]
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.CreateMultipartUpload: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Submitting task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 3, 'extra_args': {}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f50ed3a0350> for transfer request: 0.
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 2, 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.CreateMultipartUpload: calling handler <function inject_api_version_header_if_needed at 0x7f51443eaef0>
+04-12-2021 03:52:35 PM | DEBUG | Acquiring 0
+04-12-2021 03:52:35 PM | DEBUG | Making request for OperationModel(name=CreateMultipartUpload) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploads', 'query_string': {}, 'method': 'POST', 'headers': {'x-amz-server-side-encryption': 'AES256', 'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28'}, 'body': b'', 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploads', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f50ed395650>, 'has_streaming_input': False, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.CreateMultipartUpload: calling handler <function signal_not_transferring at 0x7f511e685710>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.CreateMultipartUpload: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f50ed395610>>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.CreateMultipartUpload: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f50ed822b90>>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.CreateMultipartUpload: calling handler <function set_operation_specific_signer at 0x7f51443e2560>
+04-12-2021 03:52:35 PM | DEBUG | Event before-sign.s3.CreateMultipartUpload: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f50ed395fd0>>
+04-12-2021 03:52:35 PM | DEBUG | Defaulting to S3 virtual host style addressing with path style addressing fallback.
+04-12-2021 03:52:35 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploads
+04-12-2021 03:52:35 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploads
+04-12-2021 03:52:35 PM | DEBUG | Calculating signature using v4 auth.
+04-12-2021 03:52:35 PM | DEBUG | CanonicalRequest:
+POST
+/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv
+uploads=
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20210412T155235Z
+x-amz-server-side-encryption:AES256
+
+host;x-amz-content-sha256;x-amz-date;x-amz-server-side-encryption
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+04-12-2021 03:52:35 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210412T155235Z
+20210412/us-east-1/s3/aws4_request
+ca6a18438bffa787538c17593d003aea8a76ac113d7dd9216fd53d1e5f7e286c
+04-12-2021 03:52:35 PM | DEBUG | Signature:
+58ebeff1b24115166616e5a4ad311df88ded489d9d8bcc7b77a528fd7ffe63f4
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.CreateMultipartUpload: calling handler <function signal_transferring at 0x7f511e6919e0>
+04-12-2021 03:52:35 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploads, headers={'x-amz-server-side-encryption': b'AES256', 'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'X-Amz-Date': b'20210412T155235Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210412/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date;x-amz-server-side-encryption, Signature=58ebeff1b24115166616e5a4ad311df88ded489d9d8bcc7b77a528fd7ffe63f4', 'Content-Length': '0'}>
+04-12-2021 03:52:35 PM | DEBUG | Starting new HTTPS connection (1): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 3, 'extra_args': {}}) about to wait for the following futures [<s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>]
+04-12-2021 03:52:35 PM | DEBUG | Submitting task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 4, 'extra_args': {}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f50ed3a0350> for transfer request: 0.
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 3, 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>
+04-12-2021 03:52:35 PM | DEBUG | Acquiring 0
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 4, 'extra_args': {}}) about to wait for the following futures [<s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>]
+04-12-2021 03:52:35 PM | DEBUG | Submitting task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 5, 'extra_args': {}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f50ed3a0350> for transfer request: 0.
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 4, 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>
+04-12-2021 03:52:35 PM | DEBUG | Acquiring 0
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 5, 'extra_args': {}}) about to wait for the following futures [<s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>]
+04-12-2021 03:52:35 PM | DEBUG | Submitting task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 6, 'extra_args': {}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f50ed3a0350> for transfer request: 0.
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 5, 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>
+04-12-2021 03:52:35 PM | DEBUG | Acquiring 0
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 6, 'extra_args': {}}) about to wait for the following futures [<s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>]
+04-12-2021 03:52:35 PM | DEBUG | Submitting task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 7, 'extra_args': {}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f50ed3a0350> for transfer request: 0.
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 6, 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>
+04-12-2021 03:52:35 PM | DEBUG | Acquiring 0
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 7, 'extra_args': {}}) about to wait for the following futures [<s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>]
+04-12-2021 03:52:35 PM | DEBUG | Submitting task CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) to executor <s3transfer.futures.BoundedExecutor object at 0x7f50ed3a0350> for transfer request: 0.
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 7, 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>
+04-12-2021 03:52:35 PM | DEBUG | Acquiring 0
+04-12-2021 03:52:35 PM | DEBUG | CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) about to wait for the following futures [<s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>, <s3transfer.futures.ExecutorFuture object at 0x7f50ed0dc650>, <s3transfer.futures.ExecutorFuture object at 0x7f50ed0e1910>, <s3transfer.futures.ExecutorFuture object at 0x7f50ed0c2d90>, <s3transfer.futures.ExecutorFuture object at 0x7f50ed0e2390>, <s3transfer.futures.ExecutorFuture object at 0x7f50ed0e2890>, <s3transfer.futures.ExecutorFuture object at 0x7f50ed0e2dd0>, <s3transfer.futures.ExecutorFuture object at 0x7f50ed328310>]
+04-12-2021 03:52:35 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:52:35 PM | DEBUG | CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed3a0e50>
+04-12-2021 03:52:35 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "POST /mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploads HTTP/1.1" 200 None
+04-12-2021 03:52:35 PM | DEBUG | Response headers: {'x-amz-id-2': 'L3HhiAueTRGr8oRbKWiO2jg6k8ACfarC5gwQ+s/DD9OBgoZ90DNBNmkIpQr2NEi3kebUenxyfhE=', 'x-amz-request-id': '1376CWKVSQ7TVRJE', 'Date': 'Mon, 12 Apr 2021 15:52:36 GMT', 'x-amz-server-side-encryption': 'AES256', 'Transfer-Encoding': 'chunked', 'Server': 'AmazonS3'}
+04-12-2021 03:52:35 PM | DEBUG | Response body:
+b'<?xml version="1.0" encoding="UTF-8"?>\n<InitiateMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Bucket>itx-bhq-data-covidcollector</Bucket><Key>mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv</Key><UploadId>k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5</UploadId></InitiateMultipartUploadResult>'
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.CreateMultipartUpload: calling handler <botocore.retryhandler.RetryHandler object at 0x7f50ed395f10>
+04-12-2021 03:52:35 PM | DEBUG | No retry needed.
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.CreateMultipartUpload: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 5, 'extra_args': {}}) done waiting for dependent futures
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 2, 'extra_args': {}}) done waiting for dependent futures
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 7, 'extra_args': {}}) done waiting for dependent futures
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 3, 'extra_args': {}}) done waiting for dependent futures
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 4, 'extra_args': {}}) done waiting for dependent futures
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 6, 'extra_args': {}}) done waiting for dependent futures
+04-12-2021 03:52:35 PM | DEBUG | UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 1, 'extra_args': {}}) done waiting for dependent futures
+04-12-2021 03:52:35 PM | DEBUG | CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed0dc650>
+04-12-2021 03:52:35 PM | DEBUG | Executing task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 5, 'extra_args': {}}) with kwargs {'client': <botocore.client.S3 object at 0x7f50ed395490>, 'fileobj': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0e2550>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 5, 'extra_args': {}, 'upload_id': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5'}
+04-12-2021 03:52:35 PM | DEBUG | Executing task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 2, 'extra_args': {}}) with kwargs {'client': <botocore.client.S3 object at 0x7f50ed395490>, 'fileobj': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0dc7d0>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 2, 'extra_args': {}, 'upload_id': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5'}
+04-12-2021 03:52:35 PM | DEBUG | Executing task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 7, 'extra_args': {}}) with kwargs {'client': <botocore.client.S3 object at 0x7f50ed395490>, 'fileobj': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0e2f90>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 7, 'extra_args': {}, 'upload_id': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5'}
+04-12-2021 03:52:35 PM | DEBUG | Executing task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 3, 'extra_args': {}}) with kwargs {'client': <botocore.client.S3 object at 0x7f50ed395490>, 'fileobj': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0e1ad0>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 3, 'extra_args': {}, 'upload_id': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5'}
+04-12-2021 03:52:35 PM | DEBUG | Executing task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 4, 'extra_args': {}}) with kwargs {'client': <botocore.client.S3 object at 0x7f50ed395490>, 'fileobj': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0e2050>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 4, 'extra_args': {}, 'upload_id': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5'}
+04-12-2021 03:52:35 PM | DEBUG | Executing task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 6, 'extra_args': {}}) with kwargs {'client': <botocore.client.S3 object at 0x7f50ed395490>, 'fileobj': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0e2a90>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 6, 'extra_args': {}, 'upload_id': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5'}
+04-12-2021 03:52:35 PM | DEBUG | Executing task UploadPartTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 1, 'extra_args': {}}) with kwargs {'client': <botocore.client.S3 object at 0x7f50ed395490>, 'fileobj': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0dc0d0>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'part_number': 1, 'extra_args': {}, 'upload_id': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5'}
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function sse_md5 at 0x7f51443e28c0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function sse_md5 at 0x7f51443e28c0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function sse_md5 at 0x7f51443e28c0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function sse_md5 at 0x7f51443e28c0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function sse_md5 at 0x7f51443e28c0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function sse_md5 at 0x7f51443e28c0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function sse_md5 at 0x7f51443e28c0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function convert_body_to_file_like_object at 0x7f51443eadd0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function convert_body_to_file_like_object at 0x7f51443eadd0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function convert_body_to_file_like_object at 0x7f51443eadd0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function convert_body_to_file_like_object at 0x7f51443eadd0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function convert_body_to_file_like_object at 0x7f51443eadd0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function convert_body_to_file_like_object at 0x7f51443eadd0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function convert_body_to_file_like_object at 0x7f51443eadd0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function validate_bucket_name at 0x7f51443e2830>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function validate_bucket_name at 0x7f51443e2830>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function validate_bucket_name at 0x7f51443e2830>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function validate_bucket_name at 0x7f51443e2830>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function validate_bucket_name at 0x7f51443e2830>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function validate_bucket_name at 0x7f51443e2830>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function validate_bucket_name at 0x7f51443e2830>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f50ed395950>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f50ed395950>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f50ed395950>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f50ed395950>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f50ed395950>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f50ed395950>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f50ed395950>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function generate_idempotent_uuid at 0x7f51443e2680>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function generate_idempotent_uuid at 0x7f51443e2680>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function generate_idempotent_uuid at 0x7f51443e2680>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function generate_idempotent_uuid at 0x7f51443e2680>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function generate_idempotent_uuid at 0x7f51443e2680>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function generate_idempotent_uuid at 0x7f51443e2680>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.UploadPart: calling handler <function generate_idempotent_uuid at 0x7f51443e2680>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function conditionally_calculate_md5 at 0x7f51445b9320>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function conditionally_calculate_md5 at 0x7f51445b9320>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function conditionally_calculate_md5 at 0x7f51445b9320>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function conditionally_calculate_md5 at 0x7f51445b9320>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function conditionally_calculate_md5 at 0x7f51445b9320>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function conditionally_calculate_md5 at 0x7f51445b9320>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function conditionally_calculate_md5 at 0x7f51445b9320>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function add_expect_header at 0x7f51443e2b90>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function add_expect_header at 0x7f51443e2b90>
+04-12-2021 03:52:35 PM | DEBUG | Adding expect 100 continue header to request.
+04-12-2021 03:52:35 PM | DEBUG | Adding expect 100 continue header to request.
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function add_expect_header at 0x7f51443e2b90>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function inject_api_version_header_if_needed at 0x7f51443eaef0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function add_expect_header at 0x7f51443e2b90>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function inject_api_version_header_if_needed at 0x7f51443eaef0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function add_expect_header at 0x7f51443e2b90>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function add_expect_header at 0x7f51443e2b90>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function add_expect_header at 0x7f51443e2b90>
+04-12-2021 03:52:35 PM | DEBUG | Adding expect 100 continue header to request.
+04-12-2021 03:52:35 PM | DEBUG | Making request for OperationModel(name=UploadPart) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'query_string': {'uploadId': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5', 'partNumber': 5}, 'method': 'PUT', 'headers': {'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': 'FyXVoqNbwbYTRn9nCKd/MA==', 'Expect': '100-continue'}, 'body': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0e2550>, 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=5', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f50ed395650>, 'has_streaming_input': True, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+04-12-2021 03:52:35 PM | DEBUG | Adding expect 100 continue header to request.
+04-12-2021 03:52:35 PM | DEBUG | Making request for OperationModel(name=UploadPart) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'query_string': {'uploadId': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5', 'partNumber': 7}, 'method': 'PUT', 'headers': {'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': 'PbPEiL3EfctTGyFL7qDo9w==', 'Expect': '100-continue'}, 'body': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0e2f90>, 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=7', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f50ed395650>, 'has_streaming_input': True, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+04-12-2021 03:52:35 PM | DEBUG | Adding expect 100 continue header to request.
+04-12-2021 03:52:35 PM | DEBUG | Adding expect 100 continue header to request.
+04-12-2021 03:52:35 PM | DEBUG | Adding expect 100 continue header to request.
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_not_transferring at 0x7f511e685710>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_not_transferring at 0x7f511e685710>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function inject_api_version_header_if_needed at 0x7f51443eaef0>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f50ed395610>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function inject_api_version_header_if_needed at 0x7f51443eaef0>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f50ed395610>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function inject_api_version_header_if_needed at 0x7f51443eaef0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function inject_api_version_header_if_needed at 0x7f51443eaef0>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.UploadPart: calling handler <function inject_api_version_header_if_needed at 0x7f51443eaef0>
+04-12-2021 03:52:35 PM | DEBUG | Making request for OperationModel(name=UploadPart) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'query_string': {'uploadId': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5', 'partNumber': 2}, 'method': 'PUT', 'headers': {'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': 'eGuHvJ3USgBBXTDtOKUUxA==', 'Expect': '100-continue'}, 'body': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0dc7d0>, 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=2', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f50ed395650>, 'has_streaming_input': True, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f50ed822b90>>
+04-12-2021 03:52:35 PM | DEBUG | Making request for OperationModel(name=UploadPart) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'query_string': {'uploadId': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5', 'partNumber': 4}, 'method': 'PUT', 'headers': {'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': 'WYsv5Icz0HvHy81UB6G0LQ==', 'Expect': '100-continue'}, 'body': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0e2050>, 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=4', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f50ed395650>, 'has_streaming_input': True, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f50ed822b90>>
+04-12-2021 03:52:35 PM | DEBUG | Making request for OperationModel(name=UploadPart) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'query_string': {'uploadId': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5', 'partNumber': 6}, 'method': 'PUT', 'headers': {'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': 'l59ZlTJ4FYtO6pBsTpuGbw==', 'Expect': '100-continue'}, 'body': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0e2a90>, 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=6', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f50ed395650>, 'has_streaming_input': True, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+04-12-2021 03:52:35 PM | DEBUG | Making request for OperationModel(name=UploadPart) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'query_string': {'uploadId': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5', 'partNumber': 1}, 'method': 'PUT', 'headers': {'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': '081+UJtBTADHxId5/Bk40w==', 'Expect': '100-continue'}, 'body': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0dc0d0>, 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=1', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f50ed395650>, 'has_streaming_input': True, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+04-12-2021 03:52:35 PM | DEBUG | Making request for OperationModel(name=UploadPart) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'query_string': {'uploadId': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5', 'partNumber': 3}, 'method': 'PUT', 'headers': {'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': 'A2wgIpP1O+5UYVK1Llc5Cg==', 'Expect': '100-continue'}, 'body': <s3transfer.utils.ReadFileChunk object at 0x7f50ed0e1ad0>, 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=3', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f50ed395650>, 'has_streaming_input': True, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_not_transferring at 0x7f511e685710>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <function set_operation_specific_signer at 0x7f51443e2560>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_not_transferring at 0x7f511e685710>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <function set_operation_specific_signer at 0x7f51443e2560>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_not_transferring at 0x7f511e685710>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_not_transferring at 0x7f511e685710>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_not_transferring at 0x7f511e685710>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f50ed395610>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-sign.s3.UploadPart: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f50ed395fd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f50ed395610>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-sign.s3.UploadPart: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f50ed395fd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f50ed395610>>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f50ed395610>>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f50ed395610>>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f50ed822b90>>
+04-12-2021 03:52:35 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=5
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f50ed822b90>>
+04-12-2021 03:52:35 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=7
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f50ed822b90>>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f50ed822b90>>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f50ed822b90>>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <function set_operation_specific_signer at 0x7f51443e2560>
+04-12-2021 03:52:35 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=5
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <function set_operation_specific_signer at 0x7f51443e2560>
+04-12-2021 03:52:35 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=7
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <function set_operation_specific_signer at 0x7f51443e2560>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <function set_operation_specific_signer at 0x7f51443e2560>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.UploadPart: calling handler <function set_operation_specific_signer at 0x7f51443e2560>
+04-12-2021 03:52:35 PM | DEBUG | Event before-sign.s3.UploadPart: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f50ed395fd0>>
+04-12-2021 03:52:35 PM | DEBUG | Calculating signature using v4 auth.
+04-12-2021 03:52:35 PM | DEBUG | Event before-sign.s3.UploadPart: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f50ed395fd0>>
+04-12-2021 03:52:35 PM | DEBUG | Calculating signature using v4 auth.
+04-12-2021 03:52:35 PM | DEBUG | Event before-sign.s3.UploadPart: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f50ed395fd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-sign.s3.UploadPart: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f50ed395fd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-sign.s3.UploadPart: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f50ed395fd0>>
+04-12-2021 03:52:35 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=2
+04-12-2021 03:52:35 PM | DEBUG | CanonicalRequest:
+PUT
+/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv
+partNumber=5&uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5
+content-md5:FyXVoqNbwbYTRn9nCKd/MA==
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:UNSIGNED-PAYLOAD
+x-amz-date:20210412T155235Z
+
+content-md5;host;x-amz-content-sha256;x-amz-date
+UNSIGNED-PAYLOAD
+04-12-2021 03:52:35 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=4
+04-12-2021 03:52:35 PM | DEBUG | CanonicalRequest:
+PUT
+/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv
+partNumber=7&uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5
+content-md5:PbPEiL3EfctTGyFL7qDo9w==
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:UNSIGNED-PAYLOAD
+x-amz-date:20210412T155235Z
+
+content-md5;host;x-amz-content-sha256;x-amz-date
+UNSIGNED-PAYLOAD
+04-12-2021 03:52:35 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=6
+04-12-2021 03:52:35 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=1
+04-12-2021 03:52:35 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=3
+04-12-2021 03:52:35 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=2
+04-12-2021 03:52:35 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210412T155235Z
+20210412/us-east-1/s3/aws4_request
+7110c31e054aba18732bf58eeb548a7ef7a66e3d3e22794a16a3a21bc7271874
+04-12-2021 03:52:35 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=4
+04-12-2021 03:52:35 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210412T155235Z
+20210412/us-east-1/s3/aws4_request
+a40a18cc8bb2b9154551608cc3cc8d408680b2bd241d41adfb2b2e9bce0d4b47
+04-12-2021 03:52:35 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=6
+04-12-2021 03:52:35 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=1
+04-12-2021 03:52:35 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=3
+04-12-2021 03:52:35 PM | DEBUG | Calculating signature using v4 auth.
+04-12-2021 03:52:35 PM | DEBUG | Signature:
+c2c2d6632ee951bd65d99250ee5f65be811cf3391dc81402806ffc94904c7838
+04-12-2021 03:52:35 PM | DEBUG | Calculating signature using v4 auth.
+04-12-2021 03:52:35 PM | DEBUG | Signature:
+4da953379c0d26e3b03108b0e2eb5c185f95be275a5d123b9b54a9a104e8c1c4
+04-12-2021 03:52:35 PM | DEBUG | Calculating signature using v4 auth.
+04-12-2021 03:52:35 PM | DEBUG | Calculating signature using v4 auth.
+04-12-2021 03:52:35 PM | DEBUG | Calculating signature using v4 auth.
+04-12-2021 03:52:35 PM | DEBUG | CanonicalRequest:
+PUT
+/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv
+partNumber=2&uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5
+content-md5:eGuHvJ3USgBBXTDtOKUUxA==
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:UNSIGNED-PAYLOAD
+x-amz-date:20210412T155235Z
+
+content-md5;host;x-amz-content-sha256;x-amz-date
+UNSIGNED-PAYLOAD
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_transferring at 0x7f511e6919e0>
+04-12-2021 03:52:35 PM | DEBUG | CanonicalRequest:
+PUT
+/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv
+partNumber=4&uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5
+content-md5:WYsv5Icz0HvHy81UB6G0LQ==
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:UNSIGNED-PAYLOAD
+x-amz-date:20210412T155235Z
+
+content-md5;host;x-amz-content-sha256;x-amz-date
+UNSIGNED-PAYLOAD
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_transferring at 0x7f511e6919e0>
+04-12-2021 03:52:35 PM | DEBUG | CanonicalRequest:
+PUT
+/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv
+partNumber=6&uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5
+content-md5:l59ZlTJ4FYtO6pBsTpuGbw==
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:UNSIGNED-PAYLOAD
+x-amz-date:20210412T155235Z
+
+content-md5;host;x-amz-content-sha256;x-amz-date
+UNSIGNED-PAYLOAD
+04-12-2021 03:52:35 PM | DEBUG | CanonicalRequest:
+PUT
+/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv
+partNumber=1&uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5
+content-md5:081+UJtBTADHxId5/Bk40w==
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:UNSIGNED-PAYLOAD
+x-amz-date:20210412T155235Z
+
+content-md5;host;x-amz-content-sha256;x-amz-date
+UNSIGNED-PAYLOAD
+04-12-2021 03:52:35 PM | DEBUG | CanonicalRequest:
+PUT
+/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv
+partNumber=3&uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5
+content-md5:A2wgIpP1O+5UYVK1Llc5Cg==
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:UNSIGNED-PAYLOAD
+x-amz-date:20210412T155235Z
+
+content-md5;host;x-amz-content-sha256;x-amz-date
+UNSIGNED-PAYLOAD
+04-12-2021 03:52:35 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210412T155235Z
+20210412/us-east-1/s3/aws4_request
+3cf96f879b9caea41b912789d1c4e21566372e6258b805f1614e58c499947286
+04-12-2021 03:52:35 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=5, headers={'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': b'FyXVoqNbwbYTRn9nCKd/MA==', 'Expect': b'100-continue', 'X-Amz-Date': b'20210412T155235Z', 'X-Amz-Content-SHA256': b'UNSIGNED-PAYLOAD', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210412/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=c2c2d6632ee951bd65d99250ee5f65be811cf3391dc81402806ffc94904c7838', 'Content-Length': '8388608'}>
+04-12-2021 03:52:35 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210412T155235Z
+20210412/us-east-1/s3/aws4_request
+840efc1873a8fc1ca110e7b943e28909775f016f984c0b65a1956b56b2653dd6
+04-12-2021 03:52:35 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=7, headers={'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': b'PbPEiL3EfctTGyFL7qDo9w==', 'Expect': b'100-continue', 'X-Amz-Date': b'20210412T155235Z', 'X-Amz-Content-SHA256': b'UNSIGNED-PAYLOAD', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210412/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=4da953379c0d26e3b03108b0e2eb5c185f95be275a5d123b9b54a9a104e8c1c4', 'Content-Length': '8285640'}>
+04-12-2021 03:52:35 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210412T155235Z
+20210412/us-east-1/s3/aws4_request
+28142d5d76127e260631e100f472e1ffda2090d2ccf713699ab60a25816659ec
+04-12-2021 03:52:35 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210412T155235Z
+20210412/us-east-1/s3/aws4_request
+772a0a12d6be37c210e5983527f15a6016947d5a093c44da9f7c987976b48bf6
+04-12-2021 03:52:35 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210412T155235Z
+20210412/us-east-1/s3/aws4_request
+fbae9f019f346ab233d551d30c366cdb4c82e176cf19f4eda2472af84ade5a3a
+04-12-2021 03:52:35 PM | DEBUG | Signature:
+794cbc9166b61d0e53accd01d692fe952315d6ddee520ae3bb4ff193c70ea764
+04-12-2021 03:52:35 PM | DEBUG | Signature:
+d82aae8cc045bdccaacb56fa8629dac5af42bb2cb004fbbe6ec765f8c7afc343
+04-12-2021 03:52:35 PM | DEBUG | Starting new HTTPS connection (2): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+04-12-2021 03:52:35 PM | DEBUG | Waiting for 100 Continue response.
+04-12-2021 03:52:35 PM | DEBUG | Signature:
+5bbbdd6711b9c25915f0a3e83c497304616b9748ec69364aae6673819b7933f3
+04-12-2021 03:52:35 PM | DEBUG | Signature:
+5cd9f3a04676a78e6c1e660af9400f9d94987e684beb47f4a664d564abfb3c33
+04-12-2021 03:52:35 PM | DEBUG | Signature:
+9842496ccf99b16fc0b9e1511ddfe1aacd5770694a962de87192dcafc6164a50
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_transferring at 0x7f511e6919e0>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_transferring at 0x7f511e6919e0>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_transferring at 0x7f511e6919e0>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_transferring at 0x7f511e6919e0>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.UploadPart: calling handler <function signal_transferring at 0x7f511e6919e0>
+04-12-2021 03:52:35 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=2, headers={'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': b'eGuHvJ3USgBBXTDtOKUUxA==', 'Expect': b'100-continue', 'X-Amz-Date': b'20210412T155235Z', 'X-Amz-Content-SHA256': b'UNSIGNED-PAYLOAD', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210412/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=794cbc9166b61d0e53accd01d692fe952315d6ddee520ae3bb4ff193c70ea764', 'Content-Length': '8388608'}>
+04-12-2021 03:52:35 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=4, headers={'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': b'WYsv5Icz0HvHy81UB6G0LQ==', 'Expect': b'100-continue', 'X-Amz-Date': b'20210412T155235Z', 'X-Amz-Content-SHA256': b'UNSIGNED-PAYLOAD', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210412/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=d82aae8cc045bdccaacb56fa8629dac5af42bb2cb004fbbe6ec765f8c7afc343', 'Content-Length': '8388608'}>
+04-12-2021 03:52:35 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=6, headers={'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': b'l59ZlTJ4FYtO6pBsTpuGbw==', 'Expect': b'100-continue', 'X-Amz-Date': b'20210412T155235Z', 'X-Amz-Content-SHA256': b'UNSIGNED-PAYLOAD', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210412/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=5bbbdd6711b9c25915f0a3e83c497304616b9748ec69364aae6673819b7933f3', 'Content-Length': '8388608'}>
+04-12-2021 03:52:35 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=1, headers={'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': b'081+UJtBTADHxId5/Bk40w==', 'Expect': b'100-continue', 'X-Amz-Date': b'20210412T155235Z', 'X-Amz-Content-SHA256': b'UNSIGNED-PAYLOAD', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210412/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=5cd9f3a04676a78e6c1e660af9400f9d94987e684beb47f4a664d564abfb3c33', 'Content-Length': '8388608'}>
+04-12-2021 03:52:35 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=3, headers={'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'Content-MD5': b'A2wgIpP1O+5UYVK1Llc5Cg==', 'Expect': b'100-continue', 'X-Amz-Date': b'20210412T155235Z', 'X-Amz-Content-SHA256': b'UNSIGNED-PAYLOAD', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210412/us-east-1/s3/aws4_request, SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=9842496ccf99b16fc0b9e1511ddfe1aacd5770694a962de87192dcafc6164a50', 'Content-Length': '8388608'}>
+04-12-2021 03:52:35 PM | DEBUG | Starting new HTTPS connection (3): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+04-12-2021 03:52:35 PM | DEBUG | Starting new HTTPS connection (4): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+04-12-2021 03:52:35 PM | DEBUG | Starting new HTTPS connection (5): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+04-12-2021 03:52:35 PM | DEBUG | Starting new HTTPS connection (6): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+04-12-2021 03:52:35 PM | DEBUG | Starting new HTTPS connection (7): itx-bhq-data-covidcollector.s3.amazonaws.com:443
+04-12-2021 03:52:35 PM | DEBUG | Waiting for 100 Continue response.
+04-12-2021 03:52:35 PM | DEBUG | Waiting for 100 Continue response.
+04-12-2021 03:52:35 PM | DEBUG | 100 Continue response seen, now sending request body.
+04-12-2021 03:52:35 PM | DEBUG | Waiting for 100 Continue response.
+04-12-2021 03:52:35 PM | DEBUG | Waiting for 100 Continue response.
+04-12-2021 03:52:35 PM | DEBUG | Waiting for 100 Continue response.
+04-12-2021 03:52:35 PM | DEBUG | 100 Continue response seen, now sending request body.
+04-12-2021 03:52:35 PM | DEBUG | 100 Continue response seen, now sending request body.
+04-12-2021 03:52:35 PM | DEBUG | 100 Continue response seen, now sending request body.
+04-12-2021 03:52:35 PM | DEBUG | 100 Continue response seen, now sending request body.
+04-12-2021 03:52:35 PM | DEBUG | Waiting for 100 Continue response.
+04-12-2021 03:52:35 PM | DEBUG | 100 Continue response seen, now sending request body.
+04-12-2021 03:52:35 PM | DEBUG | 100 Continue response seen, now sending request body.
+04-12-2021 03:52:35 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "PUT /mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=5 HTTP/1.1" 200 0
+04-12-2021 03:52:35 PM | DEBUG | Response headers: {'x-amz-id-2': 'ofFnc932tMUArjod1YRfY8LDoLf3faA9Piak6J8BCYxhIBrvFJ9VXDaEi7h6OHq+kniTBvLeu/w=', 'x-amz-request-id': '1373TQZZZYFCGBS0', 'Date': 'Mon, 12 Apr 2021 15:52:36 GMT', 'ETag': '"1725d5a2a35bc1b613467f6708a77f30"', 'x-amz-server-side-encryption': 'AES256', 'Content-Length': '0', 'Server': 'AmazonS3'}
+04-12-2021 03:52:35 PM | DEBUG | Response body:
+b''
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <botocore.retryhandler.RetryHandler object at 0x7f50ed395f10>
+04-12-2021 03:52:35 PM | DEBUG | No retry needed.
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:52:35 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "PUT /mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=6 HTTP/1.1" 200 0
+04-12-2021 03:52:35 PM | DEBUG | Response headers: {'x-amz-id-2': '4MO1xL70+fp18ojIpEaXJNgiUjpuK3IwLgF4pmG0JhgYpuOMOsZCqS7K5Cu8iEbfMMCh2ncCuTA=', 'x-amz-request-id': '1376B4ZMH88FWZXQ', 'Date': 'Mon, 12 Apr 2021 15:52:36 GMT', 'ETag': '"979f59953278158b4eea906c4e9b866f"', 'x-amz-server-side-encryption': 'AES256', 'Content-Length': '0', 'Server': 'AmazonS3'}
+04-12-2021 03:52:35 PM | DEBUG | Response body:
+b''
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <botocore.retryhandler.RetryHandler object at 0x7f50ed395f10>
+04-12-2021 03:52:35 PM | DEBUG | No retry needed.
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:52:35 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "PUT /mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=1 HTTP/1.1" 200 0
+04-12-2021 03:52:35 PM | DEBUG | Response headers: {'x-amz-id-2': '4dq8rMyNAZBCqWfYKF7H35f6ayxHj1tlmAkAtoy9SVpzfsJ/T4MkIqGnV+zZuZDFA6IhQ3+uyVI=', 'x-amz-request-id': '137D8HMA56F3ZBYV', 'Date': 'Mon, 12 Apr 2021 15:52:36 GMT', 'ETag': '"d3cd7e509b414c00c7c48779fc1938d3"', 'x-amz-server-side-encryption': 'AES256', 'Content-Length': '0', 'Server': 'AmazonS3'}
+04-12-2021 03:52:35 PM | DEBUG | Response body:
+b''
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <botocore.retryhandler.RetryHandler object at 0x7f50ed395f10>
+04-12-2021 03:52:35 PM | DEBUG | No retry needed.
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:52:35 PM | DEBUG | CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed0e1910>
+04-12-2021 03:52:35 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "PUT /mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=4 HTTP/1.1" 200 0
+04-12-2021 03:52:35 PM | DEBUG | Response headers: {'x-amz-id-2': '+kL8RUlBtTDf6q99pFq14VlUqcRn7lSBa/zH8WyyVkoc7HTexeIAe/8RH7t9J6z2AoW7mfopUfg=', 'x-amz-request-id': '137CNW23B7GGAM0K', 'Date': 'Mon, 12 Apr 2021 15:52:36 GMT', 'ETag': '"598b2fe48733d07bc7cbcd5407a1b42d"', 'x-amz-server-side-encryption': 'AES256', 'Content-Length': '0', 'Server': 'AmazonS3'}
+04-12-2021 03:52:35 PM | DEBUG | Response body:
+b''
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <botocore.retryhandler.RetryHandler object at 0x7f50ed395f10>
+04-12-2021 03:52:35 PM | DEBUG | No retry needed.
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:52:35 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "PUT /mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=2 HTTP/1.1" 200 0
+04-12-2021 03:52:35 PM | DEBUG | Response headers: {'x-amz-id-2': '9K0kDIiweOK0LSTUU9svpheC4bjIa18oJmHeGXvWREPDa5Q8AUhliTNBIsi0z1NrERK64WvrdY0=', 'x-amz-request-id': '1373YYWXES85R36Y', 'Date': 'Mon, 12 Apr 2021 15:52:36 GMT', 'ETag': '"786b87bc9dd44a00415d30ed38a514c4"', 'x-amz-server-side-encryption': 'AES256', 'Content-Length': '0', 'Server': 'AmazonS3'}
+04-12-2021 03:52:35 PM | DEBUG | Response body:
+b''
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <botocore.retryhandler.RetryHandler object at 0x7f50ed395f10>
+04-12-2021 03:52:35 PM | DEBUG | No retry needed.
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:52:35 PM | DEBUG | CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed0c2d90>
+04-12-2021 03:52:35 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "PUT /mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=3 HTTP/1.1" 200 0
+04-12-2021 03:52:35 PM | DEBUG | Response headers: {'x-amz-id-2': 'R7DbXq/9VkxU2SekOkkejJGNfxCwEp/kezfxURJokqKvWNhAGLSgPvjwFy3QZi1DFa33uglJb88=', 'x-amz-request-id': '1376MCRN2G22V1BT', 'Date': 'Mon, 12 Apr 2021 15:52:36 GMT', 'ETag': '"036c202293f53bee546152b52e57390a"', 'x-amz-server-side-encryption': 'AES256', 'Content-Length': '0', 'Server': 'AmazonS3'}
+04-12-2021 03:52:35 PM | DEBUG | Response body:
+b''
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <botocore.retryhandler.RetryHandler object at 0x7f50ed395f10>
+04-12-2021 03:52:35 PM | DEBUG | No retry needed.
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:52:35 PM | DEBUG | CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed0e2390>
+04-12-2021 03:52:35 PM | DEBUG | CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed0e2890>
+04-12-2021 03:52:35 PM | DEBUG | CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed0e2dd0>
+04-12-2021 03:52:35 PM | DEBUG | CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) about to wait for <s3transfer.futures.ExecutorFuture object at 0x7f50ed328310>
+04-12-2021 03:52:35 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "PUT /mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5&partNumber=7 HTTP/1.1" 200 0
+04-12-2021 03:52:35 PM | DEBUG | Response headers: {'x-amz-id-2': 'BpolywLulW3LAqF1lVuXsWeqVE6oDAK3snJHkFjL12B0ilBajWdeXj/pBtQRmeO96rrtmgUBNm0=', 'x-amz-request-id': '13793AB30MSTWZYG', 'Date': 'Mon, 12 Apr 2021 15:52:36 GMT', 'ETag': '"3db3c488bdc47dcb531b214beea0e8f7"', 'x-amz-server-side-encryption': 'AES256', 'Content-Length': '0', 'Server': 'AmazonS3'}
+04-12-2021 03:52:35 PM | DEBUG | Response body:
+b''
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <botocore.retryhandler.RetryHandler object at 0x7f50ed395f10>
+04-12-2021 03:52:35 PM | DEBUG | No retry needed.
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.UploadPart: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Releasing acquire 0/None
+04-12-2021 03:52:35 PM | DEBUG | CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) done waiting for dependent futures
+04-12-2021 03:52:35 PM | DEBUG | Executing task CompleteMultipartUploadTask(transfer_id=0, {'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}}) with kwargs {'client': <botocore.client.S3 object at 0x7f50ed395490>, 'bucket': 'itx-bhq-data-covidcollector', 'key': 'mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'extra_args': {}, 'upload_id': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5', 'parts': [{'ETag': '"d3cd7e509b414c00c7c48779fc1938d3"', 'PartNumber': 1}, {'ETag': '"786b87bc9dd44a00415d30ed38a514c4"', 'PartNumber': 2}, {'ETag': '"036c202293f53bee546152b52e57390a"', 'PartNumber': 3}, {'ETag': '"598b2fe48733d07bc7cbcd5407a1b42d"', 'PartNumber': 4}, {'ETag': '"1725d5a2a35bc1b613467f6708a77f30"', 'PartNumber': 5}, {'ETag': '"979f59953278158b4eea906c4e9b866f"', 'PartNumber': 6}, {'ETag': '"3db3c488bdc47dcb531b214beea0e8f7"', 'PartNumber': 7}]}
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.CompleteMultipartUpload: calling handler <function validate_bucket_name at 0x7f51443e2830>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.CompleteMultipartUpload: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.CompleteMultipartUpload: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f50ed395950>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-parameter-build.s3.CompleteMultipartUpload: calling handler <function generate_idempotent_uuid at 0x7f51443e2680>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.CompleteMultipartUpload: calling handler <function add_expect_header at 0x7f51443e2b90>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.CompleteMultipartUpload: calling handler <bound method S3RegionRedirector.set_request_url of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Event before-call.s3.CompleteMultipartUpload: calling handler <function inject_api_version_header_if_needed at 0x7f51443eaef0>
+04-12-2021 03:52:35 PM | DEBUG | Making request for OperationModel(name=CompleteMultipartUpload) with params: {'url_path': '/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv', 'query_string': {'uploadId': 'k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5'}, 'method': 'POST', 'headers': {'User-Agent': 'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28'}, 'body': b'<CompleteMultipartUpload xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Part><ETag>"d3cd7e509b414c00c7c48779fc1938d3"</ETag><PartNumber>1</PartNumber></Part><Part><ETag>"786b87bc9dd44a00415d30ed38a514c4"</ETag><PartNumber>2</PartNumber></Part><Part><ETag>"036c202293f53bee546152b52e57390a"</ETag><PartNumber>3</PartNumber></Part><Part><ETag>"598b2fe48733d07bc7cbcd5407a1b42d"</ETag><PartNumber>4</PartNumber></Part><Part><ETag>"1725d5a2a35bc1b613467f6708a77f30"</ETag><PartNumber>5</PartNumber></Part><Part><ETag>"979f59953278158b4eea906c4e9b866f"</ETag><PartNumber>6</PartNumber></Part><Part><ETag>"3db3c488bdc47dcb531b214beea0e8f7"</ETag><PartNumber>7</PartNumber></Part></CompleteMultipartUpload>', 'url': 'https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f50ed395650>, 'has_streaming_input': False, 'auth_type': None, 'signing': {'bucket': 'itx-bhq-data-covidcollector'}}}
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.CompleteMultipartUpload: calling handler <function signal_not_transferring at 0x7f511e685710>
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.CompleteMultipartUpload: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f50ed395610>>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.CompleteMultipartUpload: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f50ed822b90>>
+04-12-2021 03:52:35 PM | DEBUG | Event choose-signer.s3.CompleteMultipartUpload: calling handler <function set_operation_specific_signer at 0x7f51443e2560>
+04-12-2021 03:52:35 PM | DEBUG | Event before-sign.s3.CompleteMultipartUpload: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f50ed395fd0>>
+04-12-2021 03:52:35 PM | DEBUG | Checking for DNS compatible bucket for: https://s3.amazonaws.com/itx-bhq-data-covidcollector/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5
+04-12-2021 03:52:35 PM | DEBUG | URI updated to: https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5
+04-12-2021 03:52:35 PM | DEBUG | Calculating signature using v4 auth.
+04-12-2021 03:52:35 PM | DEBUG | CanonicalRequest:
+POST
+/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv
+uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5
+host:itx-bhq-data-covidcollector.s3.amazonaws.com
+x-amz-content-sha256:f86d9d6daa9a2a2b86e207b78f083f27583e68b5d01f1f564bed2952ca5312f4
+x-amz-date:20210412T155235Z
+
+host;x-amz-content-sha256;x-amz-date
+f86d9d6daa9a2a2b86e207b78f083f27583e68b5d01f1f564bed2952ca5312f4
+04-12-2021 03:52:35 PM | DEBUG | StringToSign:
+AWS4-HMAC-SHA256
+20210412T155235Z
+20210412/us-east-1/s3/aws4_request
+fdfe3350a190f5791d3727184f133943c6c5e53284a7b570274e499490f9229a
+04-12-2021 03:52:35 PM | DEBUG | Signature:
+128c09ff9b308a73d8f1be01a830a3f92b76cc02453b647e37989c82437552fb
+04-12-2021 03:52:35 PM | DEBUG | Event request-created.s3.CompleteMultipartUpload: calling handler <function signal_transferring at 0x7f511e6919e0>
+04-12-2021 03:52:35 PM | DEBUG | Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5, headers={'User-Agent': b'Boto3/1.16.28 Python/3.7.4 Linux/4.14.209-160.339.amzn2.x86_64 Botocore/1.19.28', 'X-Amz-Date': b'20210412T155235Z', 'X-Amz-Content-SHA256': b'f86d9d6daa9a2a2b86e207b78f083f27583e68b5d01f1f564bed2952ca5312f4', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIAU4A3W7LKCSENLU2T/20210412/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=128c09ff9b308a73d8f1be01a830a3f92b76cc02453b647e37989c82437552fb', 'Content-Length': '701'}>
+04-12-2021 03:52:35 PM | DEBUG | https://itx-bhq-data-covidcollector.s3.amazonaws.com:443 "POST /mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv?uploadId=k7WlrIZnoiEVe45yqpJKqAd_pFpehgPXuQuvIA4svwuFjLNxIm0tb2vnM4iuJTOB7XsBNRQ0OzCGf9oogJ4K.6upWclYRM3K3HUnVn5yLW.tvPt5bPR4rJlOr._ARAk5 HTTP/1.1" 200 None
+04-12-2021 03:52:35 PM | DEBUG | Response headers: {'x-amz-id-2': 'PVd1Swh72evHre0Py/NX51uYnzlZPeNvV3NF59dnlGmF7afALCYnewQDRD3N6baq+lZaWEoUR7Q=', 'x-amz-request-id': '13707QYD6DR9T7AS', 'Date': 'Mon, 12 Apr 2021 15:52:36 GMT', 'x-amz-version-id': 'WDtW6MLmAoCEk8JXEuUFJ9JqnedkXUWD', 'x-amz-server-side-encryption': 'AES256', 'Content-Type': 'application/xml', 'Transfer-Encoding': 'chunked', 'Server': 'AmazonS3'}
+04-12-2021 03:52:35 PM | DEBUG | Response body:
+b'<?xml version="1.0" encoding="UTF-8"?>\n\n<CompleteMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Location>https://itx-bhq-data-covidcollector.s3.amazonaws.com/mit_pred%2Fdf_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv</Location><Bucket>itx-bhq-data-covidcollector</Bucket><Key>mit_pred/df_US_predictions_since_100_cases_scenarios_Vaccines_V4_20210412.csv</Key><ETag>&quot;ca0c694f58e4a2f42ea56996f97ca565-7&quot;</ETag></CompleteMultipartUploadResult>'
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.CompleteMultipartUpload: calling handler <function check_for_200_error at 0x7f51443df5f0>
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.CompleteMultipartUpload: calling handler <botocore.retryhandler.RetryHandler object at 0x7f50ed395f10>
+04-12-2021 03:52:35 PM | DEBUG | No retry needed.
+04-12-2021 03:52:35 PM | DEBUG | Event needs-retry.s3.CompleteMultipartUpload: calling handler <bound method S3RegionRedirector.redirect_from_error of <botocore.utils.S3RegionRedirector object at 0x7f50ed395bd0>>
+04-12-2021 03:52:35 PM | DEBUG | Releasing acquire 0/None

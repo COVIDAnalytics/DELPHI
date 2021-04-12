@@ -1,0 +1,311 @@
+04-12-2021 03:14:55 PM | INFO | The user is server, the chosen optimizer for this run was annealing and generation of Confidence Intervals' flag is False
+04-12-2021 03:14:55 PM | INFO | Number of CPUs found and used in this run: 90
+04-12-2021 03:14:55 PM | INFO | Number of areas to be fitted in this run: 51
+04-12-2021 03:22:46 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'California'): 0.173 %
+04-12-2021 03:22:46 PM | DEBUG | Best fitted parameters for ('US', 'California'): [ 2.53729326e-01 -9.96664832e+01  1.51146759e-02  2.20518259e-02
+  3.04308576e-02  8.96529849e-01  9.14885385e-01  4.73469978e-02
+  1.56735162e+00  8.63605105e+01  2.03978511e+01  2.37930506e-01]
+04-12-2021 03:22:46 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=California in 470.02 seconds
+04-12-2021 03:22:46 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:23:43 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'New York'): 0.651 %
+04-12-2021 03:23:43 PM | DEBUG | Best fitted parameters for ('US', 'New York'): [9.50436678e-02 1.94063710e+02 4.64368593e+00 4.42673009e-02
+ 5.30335236e-02 2.17407763e+00 9.86765845e+00 1.18720991e-01
+ 2.93609063e+00 7.10316705e+01 4.76534332e+01 1.79338701e-02]
+04-12-2021 03:23:43 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New York in 527.54 seconds
+04-12-2021 03:23:43 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:23:46 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'District of Columbia'): 0.285 %
+04-12-2021 03:23:46 PM | DEBUG | Best fitted parameters for ('US', 'District of Columbia'): [ 3.76131284e-01 -2.29918130e+01  6.47868553e-01  4.15300318e-02
+  3.03922309e-02  7.69342279e-01  1.90213401e+00  1.61047717e-01
+  1.17437155e+00  5.68355291e+01  2.04988657e+01  9.67210638e-02]
+04-12-2021 03:23:46 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=District of Columbia in 530.9 seconds
+04-12-2021 03:23:46 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:24:06 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Tennessee'): 0.128 %
+04-12-2021 03:24:06 PM | DEBUG | Best fitted parameters for ('US', 'Tennessee'): [3.01288003e-01 8.21978725e-01 8.58395034e-01 6.64349114e-02
+ 4.65277443e-02 1.17824534e+00 3.57400401e+00 7.98869270e-01
+ 1.44431413e+00 7.87307790e+01 3.43891732e+01 2.23060641e-02]
+04-12-2021 03:24:06 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Tennessee in 550.78 seconds
+04-12-2021 03:24:06 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:24:10 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Mississippi'): 0.189 %
+04-12-2021 03:24:10 PM | DEBUG | Best fitted parameters for ('US', 'Mississippi'): [3.84745539e-01 1.11484231e+00 2.42475966e-01 6.55091657e-02
+ 2.79390910e-02 3.28867627e-01 5.64726138e-01 6.06700427e-01
+ 2.74176116e+00 1.07941690e+02 2.04156931e+01 7.80786853e-02]
+04-12-2021 03:24:10 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Mississippi in 554.35 seconds
+04-12-2021 03:24:10 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:24:20 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Arkansas'): 0.367 %
+04-12-2021 03:24:20 PM | DEBUG | Best fitted parameters for ('US', 'Arkansas'): [ 8.48961522e-01 -6.54171645e+02  3.52653151e-01  4.63821451e-02
+  2.47013848e-02  1.54160062e+00  7.67600375e-01  2.16833747e-01
+  3.48628579e-01  8.57289170e+01  1.24641323e+02  1.51151084e-01]
+04-12-2021 03:24:20 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Arkansas in 564.55 seconds
+04-12-2021 03:24:20 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:25:07 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'New Mexico'): 0.125 %
+04-12-2021 03:25:07 PM | DEBUG | Best fitted parameters for ('US', 'New Mexico'): [1.46474689e-01 1.25911309e+02 7.44360059e+00 2.85356230e-02
+ 5.70795291e-02 3.33930108e+00 7.70691672e-01 1.45291000e-01
+ 1.78775086e+00 8.51542611e+01 2.02977087e+01 1.12870846e-01]
+04-12-2021 03:25:07 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New Mexico in 611.42 seconds
+04-12-2021 03:25:07 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:25:09 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Alabama'): 0.279 %
+04-12-2021 03:25:09 PM | DEBUG | Best fitted parameters for ('US', 'Alabama'): [ 1.26508184e+00 -6.35132495e+00  2.52643791e+00  7.17926335e-02
+  6.21006517e-02  5.58247461e-01  4.55219204e+00  7.23260864e+00
+  3.01830508e-01  6.16077717e+01  1.63609876e+01  5.35523483e-03]
+04-12-2021 03:25:09 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Alabama in 613.28 seconds
+04-12-2021 03:25:09 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:25:32 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Montana'): 1.387 %
+04-12-2021 03:25:32 PM | DEBUG | Best fitted parameters for ('US', 'Montana'): [ 1.86127296e+00 -4.11142102e+01  9.43193257e-01  1.00997452e-01
+  4.83594446e-02  1.06894478e+00  3.95859502e+00  4.91323475e+00
+  0.00000000e+00  1.50000000e+02  1.00000000e+00  3.61804699e-03]
+04-12-2021 03:25:32 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Montana in 636.02 seconds
+04-12-2021 03:25:32 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:25:35 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Illinois'): 0.375 %
+04-12-2021 03:25:35 PM | DEBUG | Best fitted parameters for ('US', 'Illinois'): [8.01212846e-01 7.30897973e-01 1.52931166e+00 5.73996791e-02
+ 3.01646395e-02 1.06468166e+00 4.69822070e-01 1.63471904e-02
+ 5.43109466e-01 6.57326444e+01 1.42580327e+01 7.24313436e-02]
+04-12-2021 03:25:35 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Illinois in 639.41 seconds
+04-12-2021 03:25:35 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:25:36 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Colorado'): 0.573 %
+04-12-2021 03:25:36 PM | DEBUG | Best fitted parameters for ('US', 'Colorado'): [3.90298457e-01 0.00000000e+00 0.00000000e+00 2.78332239e-01
+ 2.38471422e-02 1.65871875e+00 6.53946511e-01 1.02145323e+00
+ 0.00000000e+00 1.50000000e+02 1.00000000e+00 2.69913950e-02]
+04-12-2021 03:25:36 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Colorado in 640.38 seconds
+04-12-2021 03:25:36 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:26:19 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Idaho'): 0.129 %
+04-12-2021 03:26:19 PM | DEBUG | Best fitted parameters for ('US', 'Idaho'): [ 3.79055456e-01 -7.94567290e-01  1.51557167e+01  4.36649893e-02
+  1.37291043e-02  4.13770574e-01  1.07731056e+00  0.00000000e+00
+  1.53164356e+00  6.72103590e+01  3.19923106e+01  1.08252627e-01]
+04-12-2021 03:26:19 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Idaho in 683.74 seconds
+04-12-2021 03:26:19 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:26:28 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Utah'): 0.205 %
+04-12-2021 03:26:28 PM | DEBUG | Best fitted parameters for ('US', 'Utah'): [ 3.63352432e-01 -2.29555176e-01  6.23802300e-01  2.00000000e-02
+  6.03180106e-03  6.09634703e-01  2.24580520e-01  1.01378160e-01
+  1.38120708e+00  6.51104699e+01  2.08691254e+01  3.74388606e-01]
+04-12-2021 03:26:28 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Utah in 692.47 seconds
+04-12-2021 03:26:28 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:26:43 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Nebraska'): 0.988 %
+04-12-2021 03:26:43 PM | DEBUG | Best fitted parameters for ('US', 'Nebraska'): [ 6.46959950e-01 -2.13929624e+00  4.08137934e-01  2.59890742e-02
+  5.03006201e-03  3.41018066e-01  8.13912198e-02  0.00000000e+00
+  0.00000000e+00  1.50000000e+02  1.00000000e+00  5.36855746e-01]
+04-12-2021 03:26:43 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Nebraska in 707.27 seconds
+04-12-2021 03:26:43 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:26:57 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Arizona'): 0.187 %
+04-12-2021 03:26:57 PM | DEBUG | Best fitted parameters for ('US', 'Arizona'): [5.40479902e-01 6.67859098e-01 1.13578535e+00 6.32768718e-02
+ 2.89334435e-02 2.82282327e-01 1.87363150e+00 5.10467173e-01
+ 1.70884303e+00 9.24094705e+01 2.10651159e+01 6.32295342e-02]
+04-12-2021 03:26:57 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Arizona in 721.77 seconds
+04-12-2021 03:26:57 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:27:09 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Iowa'): 1.493 %
+04-12-2021 03:27:09 PM | DEBUG | Best fitted parameters for ('US', 'Iowa'): [ 1.89149228e+00 -6.92408156e+00  2.70524383e+00  2.00449414e-02
+  9.98055717e-03  1.35447180e+00  9.61322461e-02  0.00000000e+00
+  0.00000000e+00  1.50000000e+02  1.00000000e+00  7.08817158e-01]
+04-12-2021 03:27:09 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Iowa in 733.83 seconds
+04-12-2021 03:27:09 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:27:10 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Indiana'): 0.238 %
+04-12-2021 03:27:10 PM | DEBUG | Best fitted parameters for ('US', 'Indiana'): [ 3.87414675e-01 -9.74846831e-01  3.86594095e-01  4.19305015e-02
+  2.06556138e-02  5.90499962e-01  1.78226924e-01  3.06374864e-01
+  6.33698641e-01  6.85417394e+01  2.07901075e+01  1.48791772e-01]
+04-12-2021 03:27:10 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Indiana in 734.17 seconds
+04-12-2021 03:27:10 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:27:19 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Kentucky'): 3.05 %
+04-12-2021 03:27:19 PM | DEBUG | Best fitted parameters for ('US', 'Kentucky'): [ 1.52386189e+00 -3.05957116e+01  1.00836424e+00  2.01271935e-02
+  2.23745905e-02  1.96993595e-01  4.92249340e-01  3.68971364e-08
+  0.00000000e+00  1.50000000e+02  1.00000000e+00  2.33080723e-01]
+04-12-2021 03:27:19 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Kentucky in 743.13 seconds
+04-12-2021 03:27:19 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:27:21 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Missouri'): 0.606 %
+04-12-2021 03:27:21 PM | DEBUG | Best fitted parameters for ('US', 'Missouri'): [4.99659491e-01 2.47111129e+02 0.00000000e+00 2.00048015e-02
+ 6.92608193e-03 1.00155024e+00 7.92200047e-02 8.94521338e-04
+ 0.00000000e+00 1.50000000e+02 1.00000000e+00 1.09945107e+00]
+04-12-2021 03:27:21 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Missouri in 745.62 seconds
+04-12-2021 03:27:21 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:27:47 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'South Carolina'): 0.072 %
+04-12-2021 03:27:47 PM | DEBUG | Best fitted parameters for ('US', 'South Carolina'): [2.67628627e-01 8.44840889e+01 1.98723876e-01 4.86357173e-02
+ 3.59558904e-02 1.28422068e+00 3.47596788e+00 1.20297387e+00
+ 1.42890735e+00 8.43039847e+01 1.31888331e+01 3.42770189e-02]
+04-12-2021 03:27:47 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=South Carolina in 771.01 seconds
+04-12-2021 03:27:47 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:28:02 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'New Hampshire'): 0.421 %
+04-12-2021 03:28:02 PM | DEBUG | Best fitted parameters for ('US', 'New Hampshire'): [ 2.84546480e-01 -4.37550325e+00  3.26925990e+00  4.75827300e-02
+  1.82458701e-02  1.40991942e+00  9.84978959e-01  4.98177670e-07
+  1.98736985e+00  7.92867331e+01  4.22931367e+01  2.98604150e-01]
+04-12-2021 03:28:02 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New Hampshire in 786.89 seconds
+04-12-2021 03:28:02 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:28:16 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Georgia'): 0.225 %
+04-12-2021 03:28:16 PM | DEBUG | Best fitted parameters for ('US', 'Georgia'): [2.68270454e-02 8.34845639e-01 3.92185927e-01 4.22505610e-02
+ 2.85947556e-02 3.91264328e-01 9.33026258e-01 1.12826626e+00
+ 1.26367881e+01 7.77731422e+01 1.46776634e+02 6.24947732e-02]
+04-12-2021 03:28:16 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Georgia in 800.87 seconds
+04-12-2021 03:28:16 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:29:13 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'South Dakota'): 1.029 %
+04-12-2021 03:29:13 PM | DEBUG | Best fitted parameters for ('US', 'South Dakota'): [  0.33918937   1.01797796   0.89509807   0.05743524   0.06537973
+   2.83047906   0.10850794   0.03558415   2.24788946 -17.10756839
+  32.60416208   0.0413306 ]
+04-12-2021 03:29:13 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=South Dakota in 857.58 seconds
+04-12-2021 03:29:13 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:29:19 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Hawaii'): 0.285 %
+04-12-2021 03:29:19 PM | DEBUG | Best fitted parameters for ('US', 'Hawaii'): [1.08723673e+00 7.73882159e-01 1.09625963e+01 8.03380050e-02
+ 4.63198413e-02 1.11683184e+00 8.82109785e-01 3.30402540e+00
+ 4.81252580e-01 6.59471157e+01 2.74559444e+01 1.57142667e-02]
+04-12-2021 03:29:19 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Hawaii in 863.05 seconds
+04-12-2021 03:29:19 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:29:24 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Connecticut'): 0.276 %
+04-12-2021 03:29:24 PM | DEBUG | Best fitted parameters for ('US', 'Connecticut'): [ 4.73651325e-01 -1.51005192e+01  2.62235562e-01  7.49741814e-02
+  3.01499263e-02  1.07449239e+00  1.81864540e+00  6.19469926e-01
+  1.31577737e+00  6.86146480e+01  8.93002821e+00  5.06816832e-02]
+04-12-2021 03:29:24 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Connecticut in 868.65 seconds
+04-12-2021 03:29:24 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:29:25 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Virginia'): 1.014 %
+04-12-2021 03:29:25 PM | DEBUG | Best fitted parameters for ('US', 'Virginia'): [ 1.54749163e-01  1.66993778e+02  4.13279814e+00  3.52786089e-02
+  2.28128551e-02 -9.97135851e-02  1.22124640e+01  3.77162516e-01
+  3.67869343e+00  1.18568683e+02  3.01388447e+01  1.50953978e-02]
+04-12-2021 03:29:25 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Virginia in 869.25 seconds
+04-12-2021 03:29:25 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:29:26 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Maine'): 0.613 %
+04-12-2021 03:29:26 PM | DEBUG | Best fitted parameters for ('US', 'Maine'): [ 8.30196393e-01 -6.87202389e+00  1.45595404e+00  4.47953595e-02
+  1.73754022e-02  1.53525422e+00  3.24561703e-01  6.01791880e-02
+  6.71960233e-01  6.44065729e+01  1.35390241e+01  7.55888704e-01]
+04-12-2021 03:29:26 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Maine in 870.8 seconds
+04-12-2021 03:29:26 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:30:49 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Alaska'): 1.325 %
+04-12-2021 03:30:49 PM | DEBUG | Best fitted parameters for ('US', 'Alaska'): [ 4.48311582e-01 -5.13882833e+00  7.04460918e-02  2.74072091e-02
+  4.52260996e-03  2.12212725e+00  1.37402310e-01  1.63971669e-05
+  0.00000000e+00  1.50000000e+02  1.00000000e+00  4.64934162e-01]
+04-12-2021 03:30:49 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Alaska in 953.41 seconds
+04-12-2021 03:30:49 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:30:55 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Minnesota'): 0.308 %
+04-12-2021 03:30:55 PM | DEBUG | Best fitted parameters for ('US', 'Minnesota'): [ 3.54463239e-01 -2.89826866e+02  5.64003279e-01  1.72835110e-01
+  2.05285164e-02  3.37388844e-01  2.43092002e+00  2.74103415e+00
+  1.59911094e+00  6.73227055e+01  3.55775142e+01  1.40998565e-02]
+04-12-2021 03:30:55 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Minnesota in 959.79 seconds
+04-12-2021 03:30:55 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:31:05 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Florida'): 0.528 %
+04-12-2021 03:31:05 PM | DEBUG | Best fitted parameters for ('US', 'Florida'): [4.01840883e-01 1.52305993e+00 1.66115528e-01 6.69345585e-02
+ 2.28499614e-02 4.57053577e-01 1.54382150e+00 9.76586941e-03
+ 8.95152304e-01 6.97759504e+01 7.60637583e+00 6.06858703e-02]
+04-12-2021 03:31:05 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Florida in 969.32 seconds
+04-12-2021 03:31:05 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:31:24 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Louisiana'): 0.222 %
+04-12-2021 03:31:24 PM | DEBUG | Best fitted parameters for ('US', 'Louisiana'): [ 3.89500990e-01 -1.73758667e+01  2.73135516e-01  8.05057955e-02
+  1.62637475e-02 -1.55900298e-01  6.22089322e-01  8.24934980e-01
+  4.67335268e-01  6.71159385e+01  2.19483639e+01  8.09230807e-02]
+04-12-2021 03:31:24 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Louisiana in 988.43 seconds
+04-12-2021 03:31:24 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:31:32 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Washington'): 0.336 %
+04-12-2021 03:31:32 PM | DEBUG | Best fitted parameters for ('US', 'Washington'): [ 3.40358552e-01 -1.16009751e+00  2.72305177e-01  3.96878913e-02
+  3.27565476e-02  1.42086260e+00  2.87867569e-01  1.86179298e+00
+  7.62010093e-01  7.86451275e+01  2.76646107e+01  4.13488770e-02]
+04-12-2021 03:31:32 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Washington in 996.89 seconds
+04-12-2021 03:31:32 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:31:34 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Wyoming'): 0.767 %
+04-12-2021 03:31:34 PM | DEBUG | Best fitted parameters for ('US', 'Wyoming'): [5.23490121e-01 1.18347838e+02 3.86368959e-05 3.31846735e-02
+ 6.96330111e-03 2.27901973e+00 5.61220345e-02 2.13534327e-02
+ 0.00000000e+00 1.50000000e+02 1.00000000e+00 9.79576929e-01]
+04-12-2021 03:31:34 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Wyoming in 998.29 seconds
+04-12-2021 03:31:34 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:33:00 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'New Jersey'): 0.305 %
+04-12-2021 03:33:00 PM | DEBUG | Best fitted parameters for ('US', 'New Jersey'): [2.69330786e-01 6.90095732e-01 9.15971501e-04 1.18210363e-01
+ 2.60145562e-02 5.88085492e-01 5.40982506e+00 2.76556553e-01
+ 1.31528627e+00 8.28422721e+01 3.11428680e+01 2.49124561e-02]
+04-12-2021 03:33:00 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New Jersey in 1084.34 seconds
+04-12-2021 03:33:00 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:33:16 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Delaware'): 0.468 %
+04-12-2021 03:33:16 PM | DEBUG | Best fitted parameters for ('US', 'Delaware'): [ 1.83085649e-01  1.46204276e+02  1.48969920e+00  5.24620740e-02
+  7.15477704e-03 -1.97787296e-01  2.74120953e-01  2.36724424e-03
+  1.82407999e+00  7.81149780e+01  2.65857363e+01  6.14735910e-01]
+04-12-2021 03:33:16 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Delaware in 1100.5 seconds
+04-12-2021 03:33:16 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:33:29 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Massachusetts'): 0.461 %
+04-12-2021 03:33:29 PM | DEBUG | Best fitted parameters for ('US', 'Massachusetts'): [3.88704382e-01 1.20443465e+01 8.02306700e-02 2.18065288e-02
+ 1.37985679e-02 9.75019504e-01 2.09770202e-01 2.85197983e-03
+ 9.69806193e-01 6.89859011e+01 1.69090290e+01 7.93996794e-01]
+04-12-2021 03:33:29 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Massachusetts in 1113.55 seconds
+04-12-2021 03:33:29 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:33:30 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Rhode Island'): 1.252 %
+04-12-2021 03:33:30 PM | DEBUG | Best fitted parameters for ('US', 'Rhode Island'): [ 1.11669070e-01 -7.73896837e+00  8.23680405e-01  1.69330089e-01
+  2.78587367e-02  1.14230014e+00  3.63074632e+00  1.70615537e+00
+  3.28046071e+00  3.99205471e+01  4.28273766e+01  2.30449338e-02]
+04-12-2021 03:33:30 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Rhode Island in 1114.75 seconds
+04-12-2021 03:33:30 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:33:36 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Wisconsin'): 0.281 %
+04-12-2021 03:33:36 PM | DEBUG | Best fitted parameters for ('US', 'Wisconsin'): [ 6.44361718e-01 -7.18453972e-01  3.36319849e+00  4.34593897e-02
+  1.69144058e-02  6.23181052e-01  5.98286827e-01  1.94805214e-06
+  6.79784359e-01  5.37417097e+01  1.75316170e+01  1.14558798e-01]
+04-12-2021 03:33:36 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Wisconsin in 1120.19 seconds
+04-12-2021 03:33:36 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:33:45 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Maryland'): 1.168 %
+04-12-2021 03:33:45 PM | DEBUG | Best fitted parameters for ('US', 'Maryland'): [1.15646865e-01 1.33786254e+00 6.40727690e-04 2.86759311e-01
+ 1.68431316e-02 1.24244288e-02 5.49952505e-01 9.94300795e-01
+ 2.20404586e+00 2.58167238e+01 3.86176367e+01 5.22092312e-02]
+04-12-2021 03:33:45 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Maryland in 1129.69 seconds
+04-12-2021 03:33:45 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:33:51 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Ohio'): 0.462 %
+04-12-2021 03:33:51 PM | DEBUG | Best fitted parameters for ('US', 'Ohio'): [ 2.25385020e-01 -1.97225126e+00  0.00000000e+00  3.23270478e-01
+  2.19974210e-02  4.41484651e-01  2.29721503e+00  1.42411132e+00
+  4.20256846e-01  5.31936467e+01  6.91172617e+01  2.88510899e-02]
+04-12-2021 03:33:51 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Ohio in 1135.16 seconds
+04-12-2021 03:33:51 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:34:00 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Vermont'): 0.409 %
+04-12-2021 03:34:00 PM | DEBUG | Best fitted parameters for ('US', 'Vermont'): [3.63529659e-01 8.76143543e-01 4.50889949e-02 2.36729110e-01
+ 8.67600697e-03 2.06336626e-01 8.61719205e-01 3.15753788e-01
+ 6.79028462e-01 7.82384478e+01 1.82340332e+01 6.16910457e-01]
+04-12-2021 03:34:00 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Vermont in 1144.5 seconds
+04-12-2021 03:34:00 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:34:10 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Oklahoma'): 5.269 %
+04-12-2021 03:34:10 PM | DEBUG | Best fitted parameters for ('US', 'Oklahoma'): [ 4.69520956e-01 -1.89549163e+01  8.28907565e-01  2.00000000e-02
+  1.19554484e-02 -1.99925110e-01  4.24039102e-01  4.93922218e-03
+  1.03395542e+00  3.70152633e+01  9.70864809e+00  4.82135634e-01]
+04-12-2021 03:34:10 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Oklahoma in 1154.21 seconds
+04-12-2021 03:34:10 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:34:55 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Michigan'): 1.255 %
+04-12-2021 03:34:55 PM | DEBUG | Best fitted parameters for ('US', 'Michigan'): [ 7.92062510e-01 -1.48851947e-01  5.93212465e-01  6.60092616e-01
+  6.98668923e-02  1.18618620e+00  1.26690984e+00  1.07194411e+00
+  2.80330360e+00  1.08892972e+02  1.90809924e+01  4.18353607e-03]
+04-12-2021 03:34:55 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Michigan in 1199.47 seconds
+04-12-2021 03:34:55 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:38:18 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Pennsylvania'): 0.211 %
+04-12-2021 03:38:18 PM | DEBUG | Best fitted parameters for ('US', 'Pennsylvania'): [ 7.50452288e-01 -2.49838071e+02  2.79705339e-01  3.66561513e-02
+  2.19132858e-02  1.35618139e+00  4.12557710e-01  1.51096048e-01
+  9.84598419e-01  6.79479475e+01  2.28973680e+01  4.17972905e-01]
+04-12-2021 03:38:18 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Pennsylvania in 1402.43 seconds
+04-12-2021 03:38:18 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:38:32 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Texas'): 0.214 %
+04-12-2021 03:38:32 PM | DEBUG | Best fitted parameters for ('US', 'Texas'): [ 6.44159491e-01 -4.24565466e+01  3.32632174e-01  2.19685231e-02
+  2.00835365e-02  7.56205504e-01  4.25617853e-01  1.46481104e-04
+  1.07805891e+00  5.93576884e+01  4.62063372e+00  3.72758592e-01]
+04-12-2021 03:38:32 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Texas in 1416.97 seconds
+04-12-2021 03:38:32 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:38:34 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Oregon'): 0.3 %
+04-12-2021 03:38:34 PM | DEBUG | Best fitted parameters for ('US', 'Oregon'): [1.53060116e-01 3.89918054e+02 3.40610882e+01 1.51757119e-01
+ 2.27394995e-02 2.65763286e-01 9.36749320e-01 3.48579433e+00
+ 1.55583575e+00 8.25931831e+01 1.42300192e+01 2.08677842e-02]
+04-12-2021 03:38:34 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Oregon in 1418.88 seconds
+04-12-2021 03:38:34 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:38:47 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Kansas'): 0.299 %
+04-12-2021 03:38:47 PM | DEBUG | Best fitted parameters for ('US', 'Kansas'): [3.01362205e-01 2.08105835e+01 1.80112855e-01 4.42468465e-02
+ 4.01079207e-02 1.01356706e+00 7.28495850e-01 7.25659013e-01
+ 1.40344346e+00 8.41908901e+01 1.20751188e+01 6.08045864e-02]
+04-12-2021 03:38:47 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Kansas in 1431.76 seconds
+04-12-2021 03:38:47 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:40:42 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'West Virginia'): 1.038 %
+04-12-2021 03:40:42 PM | DEBUG | Best fitted parameters for ('US', 'West Virginia'): [ 5.90837916e-01 -6.79514687e-01  1.19549343e+00  3.52491607e-01
+  2.07763833e-02 -1.99850051e-01  1.00036352e+01  1.29008257e-02
+  1.66660918e+00  9.38419135e+01  2.44624981e+01  1.45376303e-02]
+04-12-2021 03:40:42 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=West Virginia in 1546.61 seconds
+04-12-2021 03:40:42 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:43:38 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Nevada'): 0.169 %
+04-12-2021 03:43:38 PM | DEBUG | Best fitted parameters for ('US', 'Nevada'): [3.27659980e-01 3.75790308e+00 4.20044117e-01 4.02276974e-02
+ 4.42483007e-02 1.31392967e+00 8.93795377e-01 5.96750074e-01
+ 1.11864120e+00 6.59361142e+01 1.37778597e+01 6.71939562e-02]
+04-12-2021 03:43:38 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Nevada in 1722.51 seconds
+04-12-2021 03:43:38 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:48:26 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'North Dakota'): 0.164 %
+04-12-2021 03:48:26 PM | DEBUG | Best fitted parameters for ('US', 'North Dakota'): [1.44032794e-01 1.47036824e+02 5.45547902e+00 2.89741180e-01
+ 4.91071186e-02 2.00705440e+00 2.19531833e+00 1.53508159e+00
+ 2.10219103e+00 7.08507841e+01 2.19221895e+01 6.36444023e-03]
+04-12-2021 03:48:26 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=North Dakota in 2010.89 seconds
+04-12-2021 03:48:26 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:50:36 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'North Carolina'): 0.33 %
+04-12-2021 03:50:36 PM | DEBUG | Best fitted parameters for ('US', 'North Carolina'): [1.09686514e-01 3.90671333e-01 0.00000000e+00 4.71338393e-02
+ 2.59470575e-02 9.55943532e-01 1.94677402e+00 5.18204699e-01
+ 2.07601613e+00 6.20858345e+01 1.32348026e+02 6.35275104e-02]
+04-12-2021 03:50:36 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=North Carolina in 2140.13 seconds
+04-12-2021 03:50:36 PM | INFO | --------------------------------------------------------------------------------------------
+04-12-2021 03:50:36 PM | INFO | Finished the Multiprocessing for all areas
+04-12-2021 03:50:36 PM | INFO | Exported all 3 datasets to website & danger_map repositories, total runtime was 35.68 minutes
