@@ -337,9 +337,12 @@ def solve_and_predict_area(
                     options={"maxiter": max_iter},
                 )
             elif OPTIMIZER == "annealing":
+                parameter_list[10] = 20
                 output = dual_annealing(
                     residuals_totalcases, x0=parameter_list, bounds=bounds_params
                 )
+                print(f"Parameter bounds are {bounds_params}")
+                print(f"Parameter list is {parameter_list}")
             else:
                 raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
 

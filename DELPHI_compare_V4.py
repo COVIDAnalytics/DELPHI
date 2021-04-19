@@ -123,7 +123,7 @@ if __name__ == "__main__":
             comparison_results['annealing_metric'].append(annnealing_metric)
             comparison_results['tnc_metric'].append(tnc_metric)
             comparison_results['annealing_max_ape'].append(annealing_max_ape)
-            if (not annealing_select) or annealing_params["Jump Time"].item()>70:
+            if (not annealing_select):
                 logger.warning(f'Annealing performs worse in {country} - {province}')
                 global_parameters_best = global_parameters_best.append(tnc_params, ignore_index=True)
             else:
