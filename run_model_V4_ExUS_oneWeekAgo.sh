@@ -6,7 +6,7 @@ python DELPHI_model_V4_additional_states.py -rc run_configs/annealing-run-config
 
 git stash
 git pull
-git add data_sandbox/predicted/policy_scenario_predictions/*
+#git add data_sandbox/predicted/policy_scenario_predictions/*
 git -c user.name='Server' -c user.email=ali@dynideas.com commit -m "Ex US a week ago results"
 git push https://"$GIT_USER":"$GIT_PASS"@github.com/COVIDAnalytics/DELPHI.git --all
 
