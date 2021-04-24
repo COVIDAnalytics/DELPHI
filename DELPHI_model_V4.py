@@ -480,7 +480,7 @@ if __name__ == "__main__":
         popcountries=popcountries,
         startT=fitting_start_date
     )
-    n_cpu = psutil.cpu_count(logical = False) 
+    n_cpu = psutil.cpu_count(logical = False) - 2
     logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
     list_tuples = [(
         r.continent, 
