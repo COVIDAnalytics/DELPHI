@@ -1643,6 +1643,7 @@ def runProcessData(date_files, logger, type_run,GLOBAL_JJ):
     inputFile_us_ex_US = "data_sandbox/raw_data_additional_states/" + date_files + ex_us_file_name
     if type_run == "US" and os.path.exists(inputFile_us_county):
         rawDF_us_county = pd.read_csv(inputFile_us_county)
+        rawDF_us_county = rawDF_us_county[~rawDF_us_county['county'].str.contains("NA_")]
         rawDF_us_county = rawDF_us_county.sort_values(['date']).reset_index(drop=True)
         last_date = process_data(rawDF_us_county,'county',True,None,logger)
     elif type_run == "ExUS" and os.path.exists(inputFile_us_ex_US):
