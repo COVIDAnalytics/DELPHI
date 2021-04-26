@@ -166,7 +166,7 @@ def solve_and_predict_area(
                 bounds_params = tuple(bounds_params_list)
                 start_date = input_start_date
             validcases = totalcases[
-                (totalcases.date >= str(start_date))
+                (totalcases.date >= str(start_date.date()))
                 & (totalcases.date <= str((pd.to_datetime(yesterday_) + timedelta(days=1)).date()))
             ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         else:
@@ -489,7 +489,7 @@ if __name__ == "__main__":
         r.values[:16] if not pd.isna(r.S) else None
         ) for _, r in df_initial_states.iterrows()]
 
-#    list_tuples = [t for t in list_tuples if t[1] in ["Germany", "Poland"]]
+    # list_tuples = [t for t in list_tuples if t[1] in ["Germany", "Poland"]]
     # , "Poland", "Belgium", "France", "Greece"]]
 
     logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
