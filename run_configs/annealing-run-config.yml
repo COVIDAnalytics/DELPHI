@@ -1,7 +1,7 @@
 arguments:
-  user: michael
+  user: michael2
   optimizer: annealing
-  confidence_intervals: 0
+  confidence_intervals: 1
   since100case: 1
   website: 0
-  train_initial_condition: 0
+  train_initial_condition: 1

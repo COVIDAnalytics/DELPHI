@@ -191,10 +191,10 @@ def get_bounds_params_from_pastparams(
         param_list_upper[11] = k3
         param_list_lower[11] = k3 - 1e-5
     else:
-        param_list_upper[12] = p_d
-        param_list_lower[12] = p_d - 1e-5
-        param_list_upper[13] = p_h
-        param_list_lower[13] = p_h - 1e-5
+        param_list_upper[12] = 0.9
+        param_list_lower[12] = 0.1
+        param_list_upper[13] = 0.25
+        param_list_lower[13] = 0.05
 
     bounds_params = [(lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)]
     return bounds_params, parameter_list

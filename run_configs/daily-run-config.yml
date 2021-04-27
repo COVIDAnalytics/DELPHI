@@ -1,5 +1,5 @@
 arguments:
-  user: michael
+  user: michael2
   optimizer: tnc
   confidence_intervals: 1
   since100case: 1
