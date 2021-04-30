@@ -1,0 +1,2 @@
+Continent,Country,Province,Data Start Date,MAPE,Infection Rate,Median Day of Action,Rate of Action,Rate of Death,Mortality Rate,Rate of Mortality Rate Decay,Internal Parameter 1,Internal Parameter 2,Jump Magnitude,Jump Time,Jump Decay,Internal Parameter 3,Rate of Detection,Rate of Hospitalization
+Africa,Sudan,None,2020-04-21,10.79636121498586,0.5102164756495139,5.670998872223374,15.0,0.02,0.08427572233621716,0.034705717547369196,5.0,5.0,1.2922271680762858,150.0,50.0,2.0,0.8,0.0279435015970522
