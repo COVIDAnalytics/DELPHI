@@ -19,7 +19,7 @@ def get_bounds_params_from_pastparams(
         percentage_drift_upper_bound_annealing: float, default_upper_bound_annealing: float,
         default_lower_bound_jump: float, default_upper_bound_jump: float,
         default_lower_bound_t_jump: float, default_upper_bound_t_jump: float, default_lower_bound_std_normal: float,
-        default_upper_bound_std_normal: float, train_initial_condition: bool
+        default_upper_bound_std_normal: float, train_initial_condition: bool, train_hospitalization: bool
 ) -> list:
     """
     Generates the lower and upper bounds of the past parameters used as warm starts for the optimization process
@@ -194,7 +194,12 @@ def get_bounds_params_from_pastparams(
         param_list_upper[12] = 0.9
         param_list_lower[12] = 0.1
         param_list_upper[13] = 0.25
-        param_list_lower[13] = 0.05
+        param_list_lower[13] = 0.01
+    
+    if not train_hospitalization:
+        param_list_upper[13] = parameter_list[13]
+        param_list_lower[13] = parameter_list[13] - 1e-5
+        
 
     bounds_params = [(lower, upper) for lower, upper in zip(param_list_lower, param_list_upper)]
     return bounds_params, parameter_list

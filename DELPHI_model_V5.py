@@ -16,7 +16,8 @@ from tqdm import tqdm
 from scipy.optimize import dual_annealing
 from DELPHI_utils_V5_static import (
     DELPHIAggregations, DELPHIDataSaver, DELPHIDataCreator, get_initial_conditions,
-    get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
+    get_mape_data_fitting, get_mape_data_fitting_with_hosp, create_fitting_data_from_validcases, create_fitting_data_from_validcases_with_hosp, 
+    get_residuals_value, get_residuals_value_with_hosp
 )
 from DELPHI_utils_V5_dynamic import get_bounds_params_from_pastparams, create_vaccinations_timeseries
 from DELPHI_params_V5 import (
@@ -80,6 +81,7 @@ GET_CONFIDENCE_INTERVALS = bool(int(RUN_CONFIG["arguments"]["confidence_interval
 SAVE_TO_WEBSITE = bool(int(RUN_CONFIG["arguments"]["website"]))
 SAVE_SINCE100_CASES = bool(int(RUN_CONFIG["arguments"]["since100case"]))
 TRAIN_INITIAL_CONDITION = bool(int(RUN_CONFIG["arguments"]["train_initial_condition"]))
+TRAIN_HOSPITALIZATION = bool(int(RUN_CONFIG["arguments"]["train_hospitalization"]))
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
 PATH_TO_WEBSITE_PREDICTED = CONFIG_FILEPATHS["website"][USER_RUNNING]
@@ -154,7 +156,8 @@ def solve_and_predict_area(
                     default_upper_bound_t_jump=default_upper_bound_t_jump,
                     default_lower_bound_std_normal=default_lower_bound_std_normal,
                     default_upper_bound_std_normal=default_upper_bound_std_normal,
-                    train_initial_condition=TRAIN_INITIAL_CONDITION
+                    train_initial_condition=TRAIN_INITIAL_CONDITION,
+                    train_hospitalization=TRAIN_HOSPITALIZATION
                 )
                 start_date = pd.to_datetime(parameter_list_line[3])
                 bounds_params = tuple(bounds_params)
@@ -227,7 +230,10 @@ def solve_and_predict_area(
             maxT = (default_maxT - start_date).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             T_vaccine = (pd.to_datetime("2021-02-01") - start_date).days
-            balance, cases_data_fit, deaths_data_fit, hosp_balance, hosp_data_fit = create_fitting_data_from_validcases(validcases)
+            if TRAIN_HOSPITALIZATION:
+                balance, cases_data_fit, deaths_data_fit, hosp_balance, hosp_data_fit = create_fitting_data_from_validcases_with_hosp(validcases)
+            else:
+                balance, cases_data_fit, deaths_data_fit = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_v)
 
             ## Process vaccinations data
@@ -347,16 +353,26 @@ def solve_and_predict_area(
                 weights = list(range(1, len(cases_data_fit) + 1))
                 # weights = [(x/len(cases_data_fit))**2 for x in weights]
                 if x_sol_total.status == 0:
-                    residuals_value = get_residuals_value(
-                        optimizer=OPTIMIZER,
-                        balance=balance,
-                        hosp_balance=hosp_balance,
-                        x_sol=x_sol,
-                        cases_data_fit=cases_data_fit,
-                        deaths_data_fit=deaths_data_fit,
-                        hosp_data_fit=hosp_data_fit,
-                        weights=weights
-                    )
+                    if TRAIN_HOSPITALIZATION:
+                        residuals_value = get_residuals_value_with_hosp(
+                            optimizer=OPTIMIZER,
+                            balance=balance,
+                            hosp_balance=hosp_balance,
+                            x_sol=x_sol,
+                            cases_data_fit=cases_data_fit,
+                            deaths_data_fit=deaths_data_fit,
+                            hosp_data_fit=hosp_data_fit,
+                            weights=weights
+                        )
+                    else:
+                        residuals_value = get_residuals_value(
+                            optimizer=OPTIMIZER,
+                            balance=balance,
+                            x_sol=x_sol,
+                            cases_data_fit=cases_data_fit,
+                            deaths_data_fit=deaths_data_fit,
+                            weights=weights
+                        )                        
                 else:
                     residuals_value = 1e16
                 return residuals_value
@@ -424,9 +440,14 @@ def solve_and_predict_area(
                     province=province,
                     testing_data_included=False,
                 )
-                mape_data = get_mape_data_fitting(
-                    cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, hosp_data_fit=hosp_data_fit, x_sol_final=x_sol_final
-                )
+                if TRAIN_HOSPITALIZATION:
+                    mape_data = get_mape_data_fitting_with_hosp(
+                        cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, hosp_data_fit=hosp_data_fit, x_sol_final=x_sol_final
+                    )
+                else:
+                    mape_data = get_mape_data_fitting(
+                        cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, x_sol_final=x_sol_final
+                    )                    
                 
                 logging.info(f"In-Sample MAPE Last 15 Days {country, province}: {round(mape_data, 3)} %")
                 logging.debug(f"Best fitted parameters for {country, province}: {best_params}")

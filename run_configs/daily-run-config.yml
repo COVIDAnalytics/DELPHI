@@ -5,3 +5,4 @@ arguments:
   since100case: 1
   website: 1
   train_initial_condition: 0
+  train_hospitalization: 0

@@ -1884,6 +1884,21 @@ def create_fitting_data_from_validcases(validcases: pd.DataFrame) -> (float, lis
     """
     validcases_nondeath = validcases["case_cnt"].tolist()
     validcases_death = validcases["death_cnt"].tolist()
+    balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
+    cases_data_fit = validcases_nondeath
+    deaths_data_fit = validcases_death
+    return balance, cases_data_fit, deaths_data_fit
+
+
+def create_fitting_data_from_validcases_with_hosp(validcases: pd.DataFrame) -> (float, list, list, float, list):
+    """
+    Creates the balancing coefficient (regularization coefficient between cases & deaths in cost function) as well as
+    the cases and deaths data on which to be fitted
+    :param validcases: Dataframe containing cases and deaths data on the relevant time period for our optimization
+    :return: the balancing coefficient and two lists containing cases and deaths over the right time span for fitting
+    """
+    validcases_nondeath = validcases["case_cnt"].tolist()
+    validcases_death = validcases["death_cnt"].tolist()
     validcases_hosp = validcases["total_hospitalization"].fillna(0).tolist()
     balance = validcases_nondeath[-1] / max(validcases_death[-1], 10) / 3
     hosp_balance = (validcases_nondeath[-1] / max(max(validcases_hosp), 10) / 10) * int(max(validcases_hosp)>0)
@@ -1891,8 +1906,55 @@ def create_fitting_data_from_validcases(validcases: pd.DataFrame) -> (float, lis
     deaths_data_fit = validcases_death
     return balance, cases_data_fit, deaths_data_fit, hosp_balance, validcases_hosp
 
-
 def get_residuals_value(
+        optimizer: str, balance: float, x_sol: list, cases_data_fit: list, deaths_data_fit: list, weights: list
+) -> float:
+    """
+    Obtain the value of the loss function depending on the optimizer (as it is different for global optimization using
+    simulated annealing)
+    :param optimizer: String, for now either tnc, trust-constr or annealing
+    :param balance: Regularization coefficient between cases and deaths
+    :param x_sol: Solution previously fitted by the optimizer containing fitted values for all 16 states
+    :param fitcasend: cases data to be fitted on
+    :param deaths_data_fit: deaths data to be fitted on
+    :param weights: time-related weights to give more importance to recent data points in the fit (in the loss function)
+    :return: float, corresponding to the value of the loss function
+    """
+    active_hospitalized = x_sol[4, :] + x_sol[7, :]
+    if optimizer in ["tnc", "trust-constr"]:
+        residuals_value = sum(
+            np.multiply((x_sol[15, :] - cases_data_fit) ** 2, weights)
+            + balance
+            * balance
+            * np.multiply((x_sol[14, :] - deaths_data_fit) ** 2, weights)
+        )
+    elif optimizer == "annealing":
+        residuals_value = sum(
+            np.multiply((x_sol[15, :] - cases_data_fit) ** 2, weights)
+            + balance
+            * balance
+            * np.multiply((x_sol[14, :] - deaths_data_fit) ** 2, weights)
+        ) + sum(
+            np.multiply(
+                (x_sol[15, 7:] - x_sol[15, :-7] - cases_data_fit[7:] + cases_data_fit[:-7]) ** 2,
+                weights[7:],
+            )
+            + balance * balance * np.multiply(
+                (x_sol[14, 7:] - x_sol[14, :-7] - deaths_data_fit[7:] + deaths_data_fit[:-7]) ** 2,
+                weights[7:],
+            )
+            # + hosp_balance * hosp_balance * np.multiply(
+            #     (active_hospitalized[7:] - active_hospitalized[:-7] - hosp_data_fit[7:] + hosp_data_fit[:-7]) ** 2,
+            #     weights[7:],
+            # )
+        )
+    else:
+        raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
+
+    return residuals_value
+
+
+def get_residuals_value_with_hosp(
         optimizer: str, balance: float, hosp_balance: float, x_sol: list, cases_data_fit: list, deaths_data_fit: list, hosp_data_fit: list, weights: list
 ) -> float:
     """
@@ -1946,7 +2008,37 @@ def get_residuals_value(
     return residuals_value
 
 
-def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, hosp_data_fit: list, x_sol_final: np.array) -> float:
+
+def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, x_sol_final: np.array) -> float:
+    """
+    Computes MAPE on cases & deaths (averaged) either on last 15 days of historical data (if there are more than 15)
+    or exactly the number of days in the historical data (if less than 15)
+    :param cases_data_fit: list, contains data used to fit on number of cases
+    :param deaths_data_fit: list, contains data used to fit on number of deaths
+    :param x_sol_final: numpy array, contains the predicted solution by the DELPHI model for all 16 states
+    :return: a float corresponding to the average MAPE on cases and deaths on a given period of time (15 days is default
+    but otherwise the number of days available in the historical data)
+    """
+    if len(cases_data_fit) > 15:  # In which case we can compute MAPE on last 15 days
+        mape_data = (
+                compute_mape(
+                    cases_data_fit[-15:],
+                    x_sol_final[15, len(cases_data_fit) - 15: len(cases_data_fit)],
+                ) + compute_mape(
+                    deaths_data_fit[-15:],
+                    x_sol_final[14, len(deaths_data_fit) - 15: len(deaths_data_fit)],
+                )
+        ) / 2
+    else:  # We take MAPE on all available previous days (less than 15)
+        mape_data = (
+                compute_mape(cases_data_fit, x_sol_final[15, : len(cases_data_fit)])
+                + compute_mape(deaths_data_fit, x_sol_final[14, : len(deaths_data_fit)])
+        ) / 2
+
+    return mape_data
+
+
+def get_mape_data_fitting_with_hosp(cases_data_fit: list, deaths_data_fit: list, hosp_data_fit: list, x_sol_final: np.array) -> float:
     """
     Computes MAPE on cases & deaths (averaged) either on last 15 days of historical data (if there are more than 15)
     or exactly the number of days in the historical data (if less than 15)
