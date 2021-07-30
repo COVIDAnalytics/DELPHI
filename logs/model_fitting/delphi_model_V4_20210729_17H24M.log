@@ -1,0 +1,3 @@
+07-30-2021 05:24:24 PM | INFO | The user is server, the chosen optimizer for this run is variable type global and generation of Confidence Intervals' flag is False
+07-30-2021 05:24:24 PM | INFO | Start date: 2021-07-30 17:24:24.310662, End date: 2021-07-30 17:24:24.310666
+07-30-2021 05:24:24 PM | ERROR | Initial model state /repos/DELPHI/data_sandbox/predicted/raw_predictions/Predicted_model_state_V3_2021-05-01.csv file not found, can not train from 2021-05-01. Use model_V3 to train on entire data.
