@@ -156,6 +156,7 @@ def predict_area(
             # Otherwise use established lower/upper bounds
             parameter_list = default_parameter_list
             start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
+            print(parameter_list)
 
         if start_date >= pd.to_datetime(endT):
             logging.warning(
@@ -413,7 +414,7 @@ if __name__ == "__main__":
     the_last_V2_global = datetime.now().date() - timedelta(days=1) if TYPE_RUNNING == "global" else datetime(2020,11,27).date()
     yesterday = "".join(str(the_last_V2_global).split("-"))
     if TYPE_RUNNING == "global":
-        file_path = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V4_{yesterday}.csv"
+        file_path = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V4_annealing_{yesterday}.csv"
     else:
         file_path = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_Global_{yesterday}.csv"
 
@@ -422,43 +423,43 @@ if __name__ == "__main__":
     except:
         past_parameters = None
 
-    predict_area(tuple_area_state_=list_tuples[1],
-                 yesterday_=yesterday,
-        past_parameters_=past_parameters,
-        popcountries=popcountries,
-        startT=fitting_start_date,
-        endT=end_date)
-
-    # predict_area_partial = partial(
-    #     predict_area,
-    #     yesterday_=yesterday,
+    # predict_area(tuple_area_state_=list_tuples[1],
+    #              yesterday_=yesterday,
     #     past_parameters_=past_parameters,
     #     popcountries=popcountries,
     #     startT=fitting_start_date,
-    #     endT=end_date
-    # )
-    # n_cpu = 1 # psutil.cpu_count(logical = False) - 2
-    # print(f"Number of CPUs found and used in this run: {n_cpu}")
-    # logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
-    # logging.info(f"Number of areas to be predicted in this run: {len(list_tuples)}")
-    # list_predicted_state_dicts = []
-    # with mp.Pool(n_cpu) as pool:
-    #     for result_area in tqdm(
-    #             pool.map_async(predict_area_partial, list_tuples).get(),
-    #             total=len(list_tuples),
-    #     ):
-    #         if result_area is not None:
-    #             (model_state_dict) = result_area
-    #             # Then we add it to the list of df to be concatenated to update the tracking df
-    #             list_predicted_state_dicts.append(model_state_dict)
-    #         else:
-    #             continue
-    #     logging.info("Finished the Multiprocessing for all areas")
-    #     print("Finished the Multiprocessing for all areas")
-    #     pool.close()
-    #     pool.join()
-    # df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
-    # file_name_state = f'Predicted_model_state_V4_{end_date}.csv' if TYPE_RUNNING == "global" else  f'Predicted_model_provinces_V4_{end_date}.csv'
-    # df_predicted_states.to_csv( f'data_sandbox/predicted/raw_predictions/' + file_name_state, index=False)
-    # print(f"data_sandbox/predicted/raw_predictions/{file_name_state} is saved")
-    # logging.info(f"data_sandbox/predicted/raw_predictions/{file_name_state} is saved")
+    #     endT=end_date)
+
+    predict_area_partial = partial(
+        predict_area,
+        yesterday_=yesterday,
+        past_parameters_=past_parameters,
+        popcountries=popcountries,
+        startT=fitting_start_date,
+        endT=end_date
+    )
+    n_cpu = 1 # psutil.cpu_count(logical = False) - 2
+    print(f"Number of CPUs found and used in this run: {n_cpu}")
+    logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
+    logging.info(f"Number of areas to be predicted in this run: {len(list_tuples)}")
+    list_predicted_state_dicts = []
+    with mp.Pool(n_cpu) as pool:
+        for result_area in tqdm(
+                pool.map_async(predict_area_partial, list_tuples).get(),
+                total=len(list_tuples),
+        ):
+            if result_area is not None:
+                (model_state_dict) = result_area
+                # Then we add it to the list of df to be concatenated to update the tracking df
+                list_predicted_state_dicts.append(model_state_dict)
+            else:
+                continue
+        logging.info("Finished the Multiprocessing for all areas")
+        print("Finished the Multiprocessing for all areas")
+        pool.close()
+        pool.join()
+    df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
+    file_name_state = f'Predicted_model_state_V4_{end_date}.csv' if TYPE_RUNNING == "global" else  f'Predicted_model_provinces_V4_{end_date}.csv'
+    df_predicted_states.to_csv( f'data_sandbox/predicted/raw_predictions/' + file_name_state, index=False)
+    print(f"data_sandbox/predicted/raw_predictions/{file_name_state} is saved")
+    logging.info(f"data_sandbox/predicted/raw_predictions/{file_name_state} is saved")
