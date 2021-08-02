@@ -18,6 +18,7 @@ from DELPHI_utils_V4_static import (
     DELPHIAggregations, DELPHIDataSaver, DELPHIDataCreator, get_initial_conditions,
     get_mape_data_fitting, create_fitting_data_from_validcases, get_residuals_value
 )
+from utils.DELPHI_utils_V3 import runProcessData
 from DELPHI_params_V4 import (
     fitting_start_date,
     default_parameter_list,
@@ -49,17 +50,50 @@ yesterday_logs_filename = "".join(
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    '--run_config', '-rc', type=str, required=True,
-    help="specify relative path for the run config YAML file"
+    '--user', '-u', type=str, required=False,
+    choices=["omar", "hamza", "michael", "michael2", "ali", "mohammad", "server", "saksham", "saksham2"],
+    help="Who is the user running? User needs to be referenced in config.yml for the filepaths (e.g. hamza, michael): "
+)
+parser.add_argument(
+    '--end_date', '-d', type=str, required=True,
+    help="The date for which model states should be predicted, in yyyy-mm-dd format"
+)
+
+parser.add_argument(
+    '--type', '-t', type=str, required=False,
+    help="running for GLOBAL: global, or skip this, US counties and regions ex US regions: USExUS "
+)
+parser.add_argument(
+    '--input_date', '-dt', type=str, required=False,
+    help="only when you want to run the US and ExUS you should have this as input for example: 112920"
+)
+parser.add_argument(
+    '--global_JNJ', '-g', type=str, required=False,
+    help="send true if you want to run 'Australia', 'China', 'Canada', 'Taiwan', 'USA' for JNJ"
 )
 arguments = parser.parse_args()
-with open(arguments.run_config, "r") as ymlfile:
-    RUN_CONFIG = yaml.load(ymlfile, Loader=yaml.BaseLoader)
 
-USER_RUNNING = RUN_CONFIG["arguments"]["user"]
-end_date = RUN_CONFIG["arguments"]["end_date"]
+end_date = arguments.end_date
+USER = os.getenv('USER')
+if arguments.user is not None:
+    USER_RUNNING = arguments.user
+else:
+    USER_RUNNING = "ali" if USER == 'ali' else 'server'
+if arguments.type is not None:
+    TYPE_RUNNING = arguments.type
+else:
+    TYPE_RUNNING = "global"
+if arguments.input_date is not None:
+    INPUT_DATE = arguments.input_date
+else:
+    INPUT_DATE = str(datetime.now().strftime("%m%d%y"))
+if arguments.global_JNJ is not None:
+    GLOBAL_JJ = arguments.global_JNJ
+else:
+    GLOBAL_JJ = 'false'
+
 # full_raw is TRUE if we want all the states up till that date, if False just take the last date
-full_raw = bool(int(RUN_CONFIG["arguments"]["full_raw"]))
+full_raw = False
 
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
@@ -91,12 +125,16 @@ def predict_area(
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
     print(f"starting to predict for {continent}, {country}, {province}")
-    if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
-        totalcases = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
-        )
+    logging.info(f"starting to predict for {continent}, {country}, {province}")
+    if TYPE_RUNNING == "global":
+        file_name = PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"
+    else:
+        file_name = PATH_TO_DATA_SANDBOX + f"processed/{country_sub}_J&J/Cases_{country_sub}_{province_sub}.csv"
+
+    if os.path.exists(file_name):
+        totalcases = pd.read_csv(file_name)
         if totalcases.day_since100.max() < 0:
-            logging.warning(
+            logging.info(
                 f"Not enough cases (less than 100) for Continent={continent}, Country={country} and Province={province}"
             )
             return None
@@ -178,7 +216,7 @@ def predict_area(
             endT = default_maxT if endT is None else pd.to_datetime(endT)
             maxT = (endT - start_date).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
-            balance, balance_total_difference, cases_data_fit, deaths_data_fit, weights = create_fitting_data_from_validcases(validcases)
+            # balance, balance_total_difference, cases_data_fit, deaths_data_fit, weights = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
 
             def model_covid(
@@ -260,6 +298,7 @@ def predict_area(
                     max(std_normal, dict_default_reinit_parameters["std_normal"]),
                     max(k3, dict_default_reinit_parameters["k3"]),
                 ]
+                print(optimal_params)
                 x_0_cases = get_initial_conditions(
                     params_fitted=optimal_params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED,
@@ -335,104 +374,91 @@ if __name__ == "__main__":
     logging.info(
         f"The user is {USER_RUNNING}"
     )
-    popcountries = pd.read_csv(
-        PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
-    )
-    popcountries["tuple_area"] = list(zip(popcountries.Continent, popcountries.Country, popcountries.Province))
+    if TYPE_RUNNING == "global":
+        popcountries = pd.read_csv(
+            PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
+        )
+        popcountries["tuple_area"] =[(r.Continent ,r.Country, r.Province, None) for _, r in popcountries.iterrows()]
+        list_tuples = popcountries.tuple_area.tolist()
+        list_tuples = [x for x in list_tuples if x[2] == 'None' or x[1] in ['US', 'Canada','Australia']]
+        # list_tuples = [x for x in list_tuples if x[1] in ['US']]
+        # list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany'] ]
+        # list_tuples = [('Oceania' , 'Papua New Guinea' , 'None'),
+        #             ('Africa' , 'Lesotho' , 'None')]
+    else:
+        last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING,GLOBAL_JJ)
+        popcountries = pd.read_csv(
+            PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
+        )
+        # if TYPE_RUNNING == "US":
+        #     us_county_names = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv")
+        #     us_county_names["tuple_area"] = list(zip(us_county_names.Continent, us_county_names.Country, us_county_names.Province))
+        #     list_tuples = us_county_names.tuple_area.tolist()
+        # else:
+        #     ex_us_regions = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv")
+        #     ex_us_names_unique =  ex_us_regions.Country.unique()
+        #     ex_us_names = [x.replace(" ", "_") for x in ex_us_names_unique]
+        #     ex_us_regions["tuple_area"] = list(zip(ex_us_regions.Continent, ex_us_regions.Country, ex_us_regions.Province))
+        #     list_tuples = ex_us_regions.tuple_area.tolist()
+        #     # list_tuples = [x for x in list_tuples if x[2] in ["Andaman and Nicobar Islands"] ]
+        us_county_names = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/US_counties.csv")
+        ex_us_regions = pd.read_csv(PATH_TO_DATA_SANDBOX + f"processed/Ex_US_regions.csv")
+        all_countries = pd.concat([
+            us_county_names, ex_us_regions
+        ]).reset_index(drop=True)
+        all_countries["tuple_area"] = list(zip(all_countries.Continent, all_countries.Country, all_countries.Province))
+        list_tuples = all_countries.tuple_area.tolist()
 
-    if not os.path.exists(PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V4_{fitting_start_date}.csv"):
-        logging.error(f"Initial model state file not found, can not train from {fitting_start_date}. Use model_V4 to train on entire data.")
-        raise FileNotFoundError
-    df_initial_states = pd.read_csv(
-        PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V4_{fitting_start_date}.csv"
-    )
+    ### Compute the state of model till a given date ###
+    the_last_V2_global = datetime.now().date() - timedelta(days=1) if TYPE_RUNNING == "global" else datetime(2020,11,27).date()
+    yesterday = "".join(str(the_last_V2_global).split("-"))
+    if TYPE_RUNNING == "global":
+        file_path = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V4_{yesterday}.csv"
+    else:
+        file_path = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_Global_{yesterday}.csv"
 
     try:
-        past_parameters = pd.read_csv(
-            PATH_TO_FOLDER_DANGER_MAP
-            + f"predicted/Parameters_Global_V4_{yesterday}.csv"
-        )
+        past_parameters = pd.read_csv(file_path)
     except:
         past_parameters = None
 
-    ### Fitting the Model ###
-    # Initalizing lists of the different dataframes that will be concatenated in the end
-    if full_raw:
-        list_df_global_raw_since_today = []
-        list_df_global_raw_since_100_cases = []
-        list_df_global_parameters = []
-        predict_area_partial = partial(
-            predict_area,
-            yesterday_=yesterday,
-            past_parameters_=past_parameters,
-            popcountries=popcountries,
-            startT=fitting_start_date,
-            endT=end_date
-        )
-        n_cpu = psutil.cpu_count(logical = False)
-        logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
-        list_tuples = [(
-            r.continent,
-            r.country,
-            r.province,
-            r.values[:16] if not pd.isna(r.S) else None
-        ) for _, r in df_initial_states.iterrows()]
-        logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
-        with mp.Pool(n_cpu) as pool:
-            for result_area in tqdm(
-                    pool.map_async(predict_area_partial, list_tuples).get(),
-                    total=len(list_tuples),
-            ):
-                if result_area is not None:
-                    (
-                        df_parameters_area,
-                        df_raw_since_today_area,
-                        df_raw_since_100_area,
-                    ) = result_area
-                    list_df_global_parameters.append(df_parameters_area)
-                    list_df_global_raw_since_today.append(df_raw_since_today_area)
-                    list_df_global_raw_since_100_cases.append(df_raw_since_100_area)
-                else:
-                    continue
-            logging.info("Finished the Multiprocessing for all areas")
-            pool.close()
-            pool.join()
-        today_date_str = "".join(str(datetime.now().date()).split("-"))
-        df_global_parameters = pd.concat(list_df_global_parameters).sort_values(
-            ["Country", "Province"]
-        ).reset_index(drop=True)
-        df_global_raw_since_today = pd.concat(list_df_global_raw_since_today)
-        df_global_raw_since_100_cases = pd.concat(list_df_global_raw_since_100_cases)
-        df_global_raw_since_today.to_csv(PATH_TO_DATA_SANDBOX + f'predicted/raw_predictions/Predicted_full_raw_V4_{end_date}.csv', index=False)
-        df_global_raw_since_100_cases.to_csv(PATH_TO_DATA_SANDBOX + f'predicted/raw_predictions/Predicted_full_raw_V4_since100_{end_date}.csv', index=False)
-    else:
-        list_predicted_state_dicts = []
-        predict_area_partial = partial(
-            predict_area,
-            yesterday_=yesterday,
-            past_parameters_=past_parameters,
-            popcountries=popcountries,
-            startT=fitting_start_date,
-            endT=end_date
-        )
-        n_cpu = psutil.cpu_count(logical = False) - 2
-        logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
-        list_tuples = [(r.continent ,r.country, r.province, r.values[:16]) for _, r in df_initial_states.iterrows()]
-        logging.info(f"Number of areas to be fitted in this run: {len(list_tuples)}")
-        with mp.Pool(n_cpu) as pool:
-            for result_area in tqdm(
-                    pool.map_async(predict_area_partial, list_tuples).get(),
-                    total=len(list_tuples),
-            ):
-                if result_area is not None:
-                    (model_state_dict) = result_area
-                    # Then we add it to the list of df to be concatenated to update the tracking df
-                    list_predicted_state_dicts.append(model_state_dict)
-                else:
-                    continue
-            logging.info("Finished the Multiprocessing for all areas")
-            pool.close()
-            pool.join()
+    predict_area(tuple_area_state_=list_tuples[1],
+                 yesterday_=yesterday,
+        past_parameters_=past_parameters,
+        popcountries=popcountries,
+        startT=fitting_start_date,
+        endT=end_date)
 
-        df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
-        df_predicted_states.to_csv(PATH_TO_DATA_SANDBOX + f'predicted/raw_predictions/Predicted_model_state_V4_{end_date}.csv', index=False)
+    # predict_area_partial = partial(
+    #     predict_area,
+    #     yesterday_=yesterday,
+    #     past_parameters_=past_parameters,
+    #     popcountries=popcountries,
+    #     startT=fitting_start_date,
+    #     endT=end_date
+    # )
+    # n_cpu = 1 # psutil.cpu_count(logical = False) - 2
+    # print(f"Number of CPUs found and used in this run: {n_cpu}")
+    # logging.info(f"Number of CPUs found and used in this run: {n_cpu}")
+    # logging.info(f"Number of areas to be predicted in this run: {len(list_tuples)}")
+    # list_predicted_state_dicts = []
+    # with mp.Pool(n_cpu) as pool:
+    #     for result_area in tqdm(
+    #             pool.map_async(predict_area_partial, list_tuples).get(),
+    #             total=len(list_tuples),
+    #     ):
+    #         if result_area is not None:
+    #             (model_state_dict) = result_area
+    #             # Then we add it to the list of df to be concatenated to update the tracking df
+    #             list_predicted_state_dicts.append(model_state_dict)
+    #         else:
+    #             continue
+    #     logging.info("Finished the Multiprocessing for all areas")
+    #     print("Finished the Multiprocessing for all areas")
+    #     pool.close()
+    #     pool.join()
+    # df_predicted_states = pd.DataFrame(list_predicted_state_dicts)
+    # file_name_state = f'Predicted_model_state_V4_{end_date}.csv' if TYPE_RUNNING == "global" else  f'Predicted_model_provinces_V4_{end_date}.csv'
+    # df_predicted_states.to_csv( f'data_sandbox/predicted/raw_predictions/' + file_name_state, index=False)
+    # print(f"data_sandbox/predicted/raw_predictions/{file_name_state} is saved")
+    # logging.info(f"data_sandbox/predicted/raw_predictions/{file_name_state} is saved")
