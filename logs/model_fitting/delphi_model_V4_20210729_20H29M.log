@@ -1,0 +1,96 @@
+07-30-2021 08:29:17 PM | INFO | The user is server, the chosen optimizer for this run is variable type global and generation of Confidence Intervals' flag is False
+07-30-2021 08:29:17 PM | INFO | Start date: 2021-07-30 20:29:17.668963, End date: 2021-07-30 20:29:17.668966
+07-30-2021 08:29:17 PM | INFO | running for 2021-07-30 20:29:17.668963 optimizer annealing replace_already_existing_par False
+07-30-2021 08:29:17 PM | INFO | Number of CPUs found and used in this run: 90
+07-30-2021 08:29:17 PM | INFO | Number of areas to be fitted in this run: 238
+07-30-2021 08:29:17 PM | INFO | starting to predict for Asia, Afghanistan, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Albania, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Algeria, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Andorra, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Angola, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Antigua and Barbuda, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for South America, Argentina, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Asia, Armenia, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Oceania, Australia, Australian Capital Territory
+07-30-2021 08:29:17 PM | INFO | starting to predict for Oceania, Australia, New South Wales
+07-30-2021 08:29:17 PM | INFO | starting to predict for Oceania, Australia, Queensland
+07-30-2021 08:29:17 PM | INFO | starting to predict for Oceania, Australia, South Australia
+07-30-2021 08:29:17 PM | INFO | starting to predict for Oceania, Australia, Northern Territory
+07-30-2021 08:29:17 PM | INFO | starting to predict for Oceania, Australia, Victoria
+07-30-2021 08:29:17 PM | INFO | starting to predict for Oceania, Australia, Western Australia
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Austria, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Oceania, Australia, Tasmania
+07-30-2021 08:29:17 PM | INFO | starting to predict for Asia, Azerbaijan, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Asia, Bahrain, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Asia, Bangladesh, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Belarus, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Barbados, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Belgium, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Belize, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Asia, Bhutan, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Benin, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for South America, Bolivia, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Bosnia and Herzegovina, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Botswana, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for South America, Brazil, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Burkina Faso, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Bulgaria, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Burundi, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Cabo Verde, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Asia, Cambodia, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Cameroon, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, Alberta
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, British Columbia
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, Manitoba
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, New Brunswick
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, Newfoundland and Labrador
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, Northwest Territories
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, Nova Scotia
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, Ontario
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, Prince Edward Island
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, Quebec
+07-30-2021 08:29:17 PM | ERROR | Initial conditions for PopulationR too high for Australia-Tasmania, on 2021-05-01
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, Yukon
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Canada, Saskatchewan
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Central African Republic, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Chad, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for South America, Chile, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for South America, Colombia, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Comoros, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Czechia, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Congo (Brazzaville), None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Denmark, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Congo (Kinshasa), None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Djibouti, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Dominica, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Costa Rica, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Cote d'Ivoire, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Dominican Republic, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for South America, Ecuador, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Croatia, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Equatorial Guinea, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Cuba, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Egypt, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Cyprus, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, El Salvador, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Estonia, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Ethiopia, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Oceania, Fiji, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Finland, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, France, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Gabon, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Gambia, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Asia, Georgia, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Germany, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Ghana, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Greece, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Grenada, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Guatemala, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Guinea, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Africa, Guinea-Bissau, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for South America, Guyana, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Haiti, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for North America, Honduras, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Hungary, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Europe, Iceland, None
+07-30-2021 08:29:17 PM | INFO | starting to predict for Asia, India, None
