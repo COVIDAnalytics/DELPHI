@@ -156,7 +156,6 @@ def predict_area(
             # Otherwise use established lower/upper bounds
             parameter_list = default_parameter_list
             start_date = pd.to_datetime(totalcases.loc[totalcases.day_since100 == 0, "date"].iloc[-1])
-            print(parameter_list)
 
         if start_date >= pd.to_datetime(endT):
             logging.warning(
@@ -215,7 +214,7 @@ def predict_area(
             balance: Regularization coefficient between cases and deaths
             """
             endT = default_maxT if endT is None else pd.to_datetime(endT)
-            maxT = (endT - start_date).days + 1
+            maxT = (default_maxT - start_date).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
             # balance, balance_total_difference, cases_data_fit, deaths_data_fit, weights = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
@@ -299,7 +298,6 @@ def predict_area(
                     max(std_normal, dict_default_reinit_parameters["std_normal"]),
                     max(k3, dict_default_reinit_parameters["k3"]),
                 ]
-                print(optimal_params)
                 x_0_cases = get_initial_conditions(
                     params_fitted=optimal_params,
                     global_params_fixed=GLOBAL_PARAMS_FIXED,
@@ -388,6 +386,7 @@ if __name__ == "__main__":
         # list_tuples = [x for x in list_tuples if x[1] in ['France', 'Germany'] ]
         # list_tuples = [('Oceania' , 'Papua New Guinea' , 'None'),
         #             ('Africa' , 'Lesotho' , 'None')]
+        last_date_c = datetime.now()
     else:
         last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING,GLOBAL_JJ)
         popcountries = pd.read_csv(
@@ -409,19 +408,22 @@ if __name__ == "__main__":
         all_countries = pd.concat([
             us_county_names, ex_us_regions
         ]).reset_index(drop=True)
-        all_countries["tuple_area"] = list(zip(all_countries.Continent, all_countries.Country, all_countries.Province))
+        all_countries["tuple_area"] =[(r.Continent ,r.Country, r.Province, None) for _, r in all_countries.iterrows()]
         list_tuples = all_countries.tuple_area.tolist()
 
     ### Compute the state of model till a given date ###
-    the_last_V2_global = datetime.now().date() - timedelta(days=1) if TYPE_RUNNING == "global" else datetime(2020,11,27).date()
+    the_last_V2_global = datetime.now().date() - timedelta(days=1) if TYPE_RUNNING == "global" else last_date_c.date() - timedelta(days=1)
     yesterday = "".join(str(the_last_V2_global).split("-"))
     if TYPE_RUNNING == "global":
         file_path = PATH_TO_FOLDER_DANGER_MAP + f"predicted/Parameters_Global_V4_annealing_{yesterday}.csv"
+    elif TYPE_RUNNING == "US":
+        file_path = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_US_V4_{yesterday}.csv"
     else:
-        file_path = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_Global_{yesterday}.csv"
+        file_path = PATH_TO_DATA_SANDBOX + f"predicted/parameters/Parameters_J&J_ExUS_V4_{yesterday}.csv"
 
     try:
         past_parameters = pd.read_csv(file_path)
+        print(f'past parameters loaded {file_path}')
     except:
         past_parameters = None
 

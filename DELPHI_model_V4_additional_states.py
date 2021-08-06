@@ -630,7 +630,7 @@ if __name__ == "__main__":
         popcountries = pd.read_csv(
             PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Population_Global.csv"
         )
-        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V3_{fitting_start_date}.csv"
+        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_state_V4_{fitting_start_date}.csv"
         training_start_date = datetime.now()
         training_end_date = datetime.now()
     else:
@@ -638,9 +638,9 @@ if __name__ == "__main__":
             PATH_TO_DATA_SANDBOX + f"processed/Population_Global.csv"
         )
         last_date_c = runProcessData(INPUT_DATE,logging, TYPE_RUNNING,GLOBAL_JJ)
-        training_start_date = last_date_c - timedelta(days=5) # get_start_date(last_date_c,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,OPTIMIZER,TYPE_RUNNING)
+        training_start_date = last_date_c - timedelta(days=8) # get_start_date(last_date_c,PATH_TO_FOLDER_DANGER_MAP,PATH_TO_DATA_SANDBOX,OPTIMIZER,TYPE_RUNNING)
         training_end_date = datetime.now() - timedelta(days=8) if run7days_before == 'true' else last_date_c
-        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V3_{fitting_start_date}.csv"
+        prev_param_file = PATH_TO_DATA_SANDBOX + f"predicted/raw_predictions/Predicted_model_provinces_V4_{fitting_start_date}.csv"
 
     print(f"Start date: {training_start_date}, End date: {training_end_date}")
     logging.info(f"Start date: {training_start_date}, End date: {training_end_date}")
