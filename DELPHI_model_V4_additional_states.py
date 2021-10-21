@@ -101,7 +101,7 @@ if arguments.type is not None:
     if arguments.input_date is not None:
         INPUT_DATE = arguments.input_date
     else:
-        INPUT_DATE = str(datetime.now().strftime("%m%d%y"))
+        INPUT_DATE = None
 else:
     TYPE_RUNNING = "global"
 if arguments.global_JNJ is not None:
