@@ -1653,8 +1653,9 @@ def runProcessData(date_files, logger, type_run,GLOBAL_JJ):
     county_file_name = "_county_data.csv"
     bucketName = 'itx-bhq-data-covidcollector'
     ex_us_file_name = "_global.csv" if GLOBAL_JJ == 'true' else "_ex_us_regions.csv"
-    inputFile_us_county = "data_sandbox/raw_data_additional_states/" + date_files + county_file_name
-    inputFile_us_ex_US = "data_sandbox/raw_data_additional_states/" + date_files + ex_us_file_name
+    str_date_files = "" if date_files is None else date_files
+    inputFile_us_county = "data_sandbox/raw_data_additional_states/" + str_date_files + county_file_name
+    inputFile_us_ex_US = "data_sandbox/raw_data_additional_states/" + str_date_files + ex_us_file_name
     if type_run == "US" and os.path.exists(inputFile_us_county):
         rawDF_us_county = pd.read_csv(inputFile_us_county)
         rawDF_us_county = rawDF_us_county[~rawDF_us_county['county'].str.contains("NA_")]
