@@ -293,22 +293,21 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
                             continent=continent, country=country, province=province,
                         )
                         # Creating the parameters dataset for this (Continent, Country, Province)
-                        mape_data = (
-                                            compute_mape(cases_data_fit, x_sol_final[15, :len(cases_data_fit)]) +
-                                            compute_mape(deaths_data_fit, x_sol_final[14, :len(deaths_data_fit)])
-                                    ) / 2
-                        try:
-                            mape_data_2 = (
-                                                  compute_mape(cases_data_fit[-15:],
-                                                       x_sol_final[15, len(cases_data_fit) - 15:len(cases_data_fit)]) +
-                                                  compute_mape(deaths_data_fit[-15:],
-                                                       x_sol_final[14, len(deaths_data_fit) - 15:len(deaths_data_fit)])
-                                          ) / 2
-                        except IndexError:
-                            mape_data_2 = mape_data
+                        # mape_data = (
+                        #                     compute_mape(cases_data_fit, x_sol_final[15, :len(cases_data_fit)]) +
+                        #                     compute_mape(deaths_data_fit, x_sol_final[14, :len(deaths_data_fit)])
+                        #             ) / 2
+                        # try:
+                        #     mape_data_2 = (
+                        #                           compute_mape(cases_data_fit[-15:],
+                        #                                x_sol_final[15, len(cases_data_fit) - 15:len(cases_data_fit)]) +
+                        #                           compute_mape(deaths_data_fit[-15:],
+                        #                                x_sol_final[14, len(deaths_data_fit) - 15:len(deaths_data_fit)])
+                        #                   ) / 2
+                        # except IndexError:
+                        #     mape_data_2 = mape_data
                         # print(
-                        #     "Policy: ", future_policy, "\t Enacting Time: ", future_time, "\t Total MAPE=", mape_data,
-                        #     "\t MAPE on last 15 days=", mape_data_2
+                        #     "Policy: ", future_policy, "\t Enacting Time: ", future_time, "\t Total MAPE=", mape_data
                         # )
                         # print(best_params)
                         # print(country + ", " + province)
