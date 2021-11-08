@@ -660,6 +660,7 @@ if __name__ == "__main__":
     elif TYPE_RUNNING == "US":
         df_initial_states = df_initial_states[df_initial_states.country == 'US']
         # df_initial_states =  df_initial_states[~df_initial_states['province'].str.contains("NE")]
+        df_initial_states = df_initial_states[~df_initial_states["province"].str.contains('NA_')]
     elif TYPE_RUNNING == VACCINE_MODEL:
         df_initial_states = df_initial_states[df_initial_states['country'].isin(["US"])]
     n_days_to_train = (training_end_date - training_start_date).days
