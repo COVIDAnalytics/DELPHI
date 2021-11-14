@@ -2009,8 +2009,13 @@ def compute_mape(y_true: list, y_pred: list) -> float:
     :return: a float corresponding to the MAPE
     """
     y_true, y_pred = np.array(y_true), np.array(y_pred)
+    len_y_pred = len(y_pred); len_y_true = len(y_true)
+    min_y_len = min(len_y_pred,len_y_true)
+    y_true = y_true[:min_y_len]
+    y_pred = y_pred[:min_y_len]
     mape = np.mean(np.abs((y_true - y_pred)[y_true > 0] / y_true[y_true > 0])) * 100
-    return mape
+    mape_val = 0 if np.isnan(mape) else mape
+    return mape_val
 
 
 def upload_s3_file(file_name, object_name):
