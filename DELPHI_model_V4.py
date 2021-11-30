@@ -397,7 +397,6 @@ def solve_and_predict_area(
                 mape_data = get_mape_data_fitting(
                     cases_data_fit=cases_data_fit, deaths_data_fit=deaths_data_fit, x_sol_final=x_sol_final
                 )
-                
                 logging.info(f"In-Sample MAPE Last 15 Days {country, province}: {round(mape_data, 3)} %")
                 logging.debug(f"Best fitted parameters for {country, province}: {best_params}")
                 df_parameters_area = data_creator.create_dataset_parameters(mape_data)
