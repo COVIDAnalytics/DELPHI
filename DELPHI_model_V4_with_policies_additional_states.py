@@ -247,6 +247,9 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
 
                             assert len(x) == 16, f"Too many input variables, got {len(x)}, expected 16"
                             S, E, I, AR, DHR, DQR, AD, DHD, DQD, R, D, TH, DVR, DVD, DD, DT = x
+                            S = max(0,S)
+                            I = max(0,I)
+                            E = max(0,E)
                             # Equations on main variables
                             dSdt = -alpha * gamma_t * S * I / N
                             dEdt = alpha * gamma_t * S * I / N - r_i * E
