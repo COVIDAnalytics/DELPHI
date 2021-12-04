@@ -60,6 +60,8 @@ USER_RUNNING = RUN_CONFIG["arguments"]["user"]
 end_date = RUN_CONFIG["arguments"]["end_date"]
 # full_raw is TRUE if we want all the states up till that date, if False just take the last date
 full_raw = bool(int(RUN_CONFIG["arguments"]["full_raw"]))
+if full_raw:
+    print("Producing full raw output")
 
 PATH_TO_FOLDER_DANGER_MAP = CONFIG_FILEPATHS["danger_map"][USER_RUNNING]
 PATH_TO_DATA_SANDBOX = CONFIG_FILEPATHS["data_sandbox"][USER_RUNNING]
