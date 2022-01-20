@@ -335,7 +335,7 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
                             df_predictions_since_today_cont_country_prov)
                         list_df_global_predictions_since_100_cases_scenarios.append(
                             df_predictions_since_100_cont_country_prov)
-                print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
+                # print(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
                 logging.info(f"Finished predicting for Continent={continent}, Country={country} and Province={province}")
                 # plt.plot(fitcasesnd, label="Historical Data")
                 # dates_values = [
@@ -347,11 +347,11 @@ def run_model_V4_with_policies(current_time_str,PATH_TO_FOLDER_DANGER_MAP, PATH_
                 # plt.legend(fontsize=18)
                 # plt.title(f"{country}, {province} Predictions & Historical for # Cases")
                 # plt.savefig(country + "_" + province + "_prediction_cases.png", bpi=300)
-                print("--------------------------------------------------------------------------")
+                # print("--------------------------------------------------------------------------")
                 logging.info("--------------------------------------------------------------------------")
             else:  # len(validcases) <= 7
-                print(f"Not enough historical data (less than a week)" +
-                      f"for Continent={continent}, Country={country} and Province={province}")
+                # print(f"Not enough historical data (less than a week)" +
+                #       f"for Continent={continent}, Country={country} and Province={province}")
                 logging.info(f"Not enough historical data (less than a week)" +
                              f"for Continent={continent}, Country={country} and Province={province}")
                 continue

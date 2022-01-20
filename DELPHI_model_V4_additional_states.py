@@ -182,22 +182,22 @@ def solve_and_predict_area(
                 (current_parameters_.Province == province)
                 ].reset_index(drop=True)
             if len(current_parameter) > 0 and replace_already_existing_par == False:
-                print(
-                    f"Parameters already exist on day after {yesterday_} " +
-                    f"Continent={continent}, Country={country} and Province={province}"
-                )
+                # print(
+                #     f"Parameters already exist on day after {yesterday_} " +
+                #     f"Continent={continent}, Country={country} and Province={province}"
+                # )
                 logging.info(
                     f"Parameters already exist on day after {yesterday_} " +
                     f"Continent={continent}, Country={country} and Province={province}"
                 )
                 return None
-        print(f"starting to predict for {continent}, {country}, {province}")
+        # print(f"starting to predict for {continent}, {country}, {province}")
         logging.info(f"starting to predict for {continent}, {country}, {province}")
         totalcases = pd.read_csv(file_name)
         if totalcases.day_since100.max() < 0:
-            print(
-                f"Not enough cases (less than 100) for Continent={continent}, Country={country} and Province={province}"
-            )
+            # print(
+            #     f"Not enough cases (less than 100) for Continent={continent}, Country={country} and Province={province}"
+            # )
             logging.info(f"Not enough cases (less than 100) for Continent={continent}, Country={country} and Province={province}")
             return None
 
@@ -254,10 +254,10 @@ def solve_and_predict_area(
             ][["day_since100", "case_cnt", "death_cnt"]].reset_index(drop=True)
         # Now we start the modeling part:
         if len(validcases) <= validcases_threshold:
-            print(
-                f"Not enough historical data (less than a week)"
-                + f"for Continent={continent}, Country={country} and Province={province}"
-            )
+            # print(
+            #     f"Not enough historical data (less than a week)"
+            #     + f"for Continent={continent}, Country={country} and Province={province}"
+            # )
             logging.info(f"Not enough historical data (less than a week)"
                          + f"for Continent={continent}, Country={country} and Province={province}"
                          )
@@ -489,7 +489,7 @@ def solve_and_predict_area(
                 inf = f"Finished predicting for Continent={continent}, Country={country} and Province={province} in " +\
                       f"{round(time.time() - time_entering, 2)} seconds\n" + \
                       "--------------------------------------------------------------------------------------------"
-                print(inf)
+                # print(inf)
                 logging.info(inf)
                 return (
                     df_parameters_area,
@@ -500,9 +500,9 @@ def solve_and_predict_area(
             else:
                 return None
     else:  # file for that tuple (continent, country, province) doesn't exist in processed files
-        print(
-            f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available"
-        )
+        # print(
+        #     f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available"
+        # )
         logging.info(f"Skipping Continent={continent}, Country={country} and Province={province} as no processed file available")
         return None
 
