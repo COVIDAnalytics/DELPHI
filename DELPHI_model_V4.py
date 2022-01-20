@@ -110,7 +110,7 @@ def solve_and_predict_area(
     continent, country, province, initial_state = tuple_area_state_
     country_sub = country.replace(" ", "_")
     province_sub = province.replace(" ", "_")
-    print(f"starting to predict for {continent}, {country}, {province}")
+    # print(f"starting to predict for {continent}, {country}, {province}")
     if os.path.exists(PATH_TO_FOLDER_DANGER_MAP + f"processed/Global/Cases_{country_sub}_{province_sub}.csv"):
         # if os.path.exists(f"/Users/saksham/Research/temp_files/Global/Cases_{country_sub}_{province_sub}.csv"):
         totalcases = pd.read_csv(
