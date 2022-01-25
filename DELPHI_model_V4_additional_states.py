@@ -659,7 +659,7 @@ if __name__ == "__main__":
             df_initial_states =  df_initial_states[~df_initial_states['country'].str.contains("Poland")]
     elif TYPE_RUNNING == "US":
         df_initial_states = df_initial_states[df_initial_states.country == 'US']
-        # df_initial_states =  df_initial_states[~df_initial_states['province'].str.contains("NE")]
+        df_initial_states =  df_initial_states[~df_initial_states['province'].str.contains("NE")]
         df_initial_states = df_initial_states[~df_initial_states["province"].str.contains('NA_')]
     elif TYPE_RUNNING == VACCINE_MODEL:
         df_initial_states = df_initial_states[df_initial_states['country'].isin(["US"])]
