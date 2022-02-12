@@ -1866,7 +1866,7 @@ def create_fitting_data_from_validcases(validcases: pd.DataFrame) -> (float, flo
     deaths_data_fit = validcases_death
     weights = list(range(1, len(cases_data_fit) + 1))
     # weights = [(x/len(cases_data_fit))**2 for x in weights]
-    balance = np.average(cases_data_fit, weights = weights) / max(np.average(deaths_data_fit, weights = weights), 10)
+    balance = np.average(cases_data_fit, weights = weights) / max(np.average(deaths_data_fit, weights = weights), 10) * 3
     balance_total_difference = np.average(np.abs(np.array(cases_data_fit[7:])-np.array(cases_data_fit[:-7])), weights = weights[7:]) / np.average(np.abs(cases_data_fit), weights = weights)
     return balance, balance_total_difference, cases_data_fit, deaths_data_fit, weights
 
