@@ -5,8 +5,8 @@ git clone https://"$GIT_USER":"$GIT_PASS"@github.com/COVIDAnalytics/covid19orc.g
 cd covid19orc/
 git checkout danger_map
 cd ..
-'mv' -rf covid19orc/danger_map/processed/* /repos/DELPHI/danger_map/processed/
-'mv' -rf covid19orc/danger_map/predicted/* /repos/DELPHI/danger_map/predicted/
+'mv' covid19orc/danger_map/processed/* /repos/DELPHI/danger_map/processed/
+'mv' covid19orc/danger_map/predicted/* /repos/DELPHI/danger_map/predicted/
 rm -rf covid19orc;cd ..;cd /repos/DELPHI
 #python DELPHI_model_V4_predict_additional_state.py -d "2021-05-01" -t 'global'
 
