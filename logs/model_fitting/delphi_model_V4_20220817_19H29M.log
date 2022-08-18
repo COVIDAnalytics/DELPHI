@@ -1,0 +1,245 @@
+08-18-2022 07:29:57 PM | INFO | The user is server, the chosen optimizer for this run is variable type global and generation of Confidence Intervals' flag is False
+08-18-2022 07:29:57 PM | INFO | Start date: 2022-08-18 19:29:57.277389, End date: 2022-08-18 19:29:57.277393
+08-18-2022 07:29:57 PM | INFO | running for 2022-08-18 19:29:57.277389 optimizer annealing replace_already_existing_par False
+08-18-2022 07:29:57 PM | INFO | Number of CPUs found and used in this run: 90
+08-18-2022 07:29:57 PM | INFO | Number of areas to be fitted in this run: 238
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Afghanistan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Albania and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Algeria and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Andorra and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Angola and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Antigua and Barbuda and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Argentina and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Armenia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=Australia and Province=Australian Capital Territory
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=Australia and Province=New South Wales
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=Australia and Province=Northern Territory
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=Australia and Province=Queensland
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Azerbaijan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=Australia and Province=South Australia
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=Australia and Province=Tasmania
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=Australia and Province=Victoria
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=Australia and Province=Western Australia
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Austria and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Bahrain and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Bangladesh and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Barbados and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Belarus and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Belgium and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Belize and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Benin and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Bhutan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Bolivia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Bosnia and Herzegovina and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Botswana and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Brazil and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Bulgaria and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Burkina Faso and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Burundi and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Cabo Verde and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Cambodia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Cameroon and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=Alberta
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=British Columbia
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=Manitoba
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=New Brunswick
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=Newfoundland and Labrador
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=Northwest Territories
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=Nova Scotia
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=Ontario
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=Prince Edward Island
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=Quebec
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=Saskatchewan
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Canada and Province=Yukon
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Central African Republic and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Chad and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Chile and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Colombia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Comoros and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Congo (Brazzaville) and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Congo (Kinshasa) and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Costa Rica and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Cote d'Ivoire and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Croatia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Cuba and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Cyprus and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Czechia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Denmark and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Djibouti and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Dominica and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Dominican Republic and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Ecuador and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Egypt and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=El Salvador and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Equatorial Guinea and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Estonia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Ethiopia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Finland and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=France and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=Fiji and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Gabon and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Gambia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Georgia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Germany and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Ghana and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Greece and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Guatemala and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Grenada and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Guinea and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Guinea-Bissau and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Guyana and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Haiti and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Indonesia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Honduras and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Iraq and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Iran and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Ireland and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Iceland and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Hungary and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=India and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Japan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Italy and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Israel and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Kenya and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Kazakhstan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Jordan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Jamaica and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Kosovo and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Korea, South and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Kuwait and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Latvia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Lebanon and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Lesotho and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Liberia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Libya and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Liechtenstein and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Lithuania and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Luxembourg and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Madagascar and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Malawi and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Malaysia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Maldives and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Mali and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Malta and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Mauritania and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Mauritius and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Mexico and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Moldova and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Monaco and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Mongolia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Montenegro and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Morocco and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Mozambique and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Namibia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Nepal and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Netherlands and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=New Zealand and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Nicaragua and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Niger and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Nigeria and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=North Macedonia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Norway and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Oman and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Pakistan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=Panama and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Oceania, Country=Papua New Guinea and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Paraguay and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Peru and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Philippines and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Poland and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Portugal and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Qatar and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Romania and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Russia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Rwanda and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=San Marino and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Sao Tome and Principe and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Saudi Arabia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Senegal and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Serbia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Seychelles and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Sierra Leone and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Singapore and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Slovakia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Slovenia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Somalia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=South Africa and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=South Sudan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Spain and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Sudan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Suriname and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Sri Lanka and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Sweden and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Switzerland and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Tajikistan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Tanzania and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Thailand and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Timor-Leste and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Togo and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Trinidad and Tobago and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Tunisia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Turkey and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Alabama
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Alaska
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Arizona
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Arkansas
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=California
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Colorado
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Connecticut
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Delaware
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=District of Columbia
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Hawaii
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Florida
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Idaho
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Georgia
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Indiana
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Illinois
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Iowa
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Kentucky
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Louisiana
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Kansas
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Maine
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Maryland
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Massachusetts
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Michigan
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Minnesota
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Mississippi
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Missouri
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Montana
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Nebraska
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Nevada
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=New Hampshire
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=New Jersey
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=New Mexico
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=New York
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=North Carolina
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=North Dakota
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Ohio
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Oklahoma
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Oregon
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Pennsylvania
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Rhode Island
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=South Carolina
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=South Dakota
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Tennessee
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Texas
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Utah
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Vermont
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Virginia
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Washington
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=West Virginia
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Wisconsin
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=North America, Country=US and Province=Wyoming
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Uganda and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=Ukraine and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=United Arab Emirates and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Europe, Country=United Kingdom and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Uruguay and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Uzbekistan and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=South America, Country=Venezuela and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Vietnam and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Asia, Country=Yemen and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Zambia and Province=None
+08-18-2022 07:29:57 PM | INFO | Parameters already exist on day after 20220817 Continent=Africa, Country=Zimbabwe and Province=None
+08-18-2022 07:29:57 PM | INFO | Finished the Multiprocessing for all areas
+08-18-2022 07:29:57 PM | INFO | Nothing changed for, total runtime was 0.01 minutes

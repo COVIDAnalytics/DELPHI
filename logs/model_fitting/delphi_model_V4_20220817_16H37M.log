@@ -1,0 +1,1677 @@
+08-18-2022 04:37:56 PM | INFO | The user is server, the chosen optimizer for this run is variable type global and generation of Confidence Intervals' flag is False
+08-18-2022 04:37:56 PM | INFO | Start date: 2022-08-18 16:37:56.222099, End date: 2022-08-18 16:37:56.222103
+08-18-2022 04:37:56 PM | INFO | running for 2022-08-18 16:37:56.222099 optimizer annealing replace_already_existing_par False
+08-18-2022 04:37:56 PM | INFO | Number of CPUs found and used in this run: 90
+08-18-2022 04:37:56 PM | INFO | Number of areas to be fitted in this run: 238
+08-18-2022 04:37:56 PM | INFO | starting to predict for Asia, Afghanistan, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Albania, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Algeria, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Andorra, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Angola, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Antigua and Barbuda, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Asia, Armenia, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Oceania, Australia, Australian Capital Territory
+08-18-2022 04:37:56 PM | INFO | starting to predict for Oceania, Australia, New South Wales
+08-18-2022 04:37:56 PM | INFO | starting to predict for South America, Argentina, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Oceania, Australia, Northern Territory
+08-18-2022 04:37:56 PM | INFO | starting to predict for Oceania, Australia, South Australia
+08-18-2022 04:37:56 PM | INFO | starting to predict for Oceania, Australia, Queensland
+08-18-2022 04:37:56 PM | INFO | starting to predict for Oceania, Australia, Tasmania
+08-18-2022 04:37:56 PM | INFO | starting to predict for Oceania, Australia, Victoria
+08-18-2022 04:37:56 PM | INFO | starting to predict for Oceania, Australia, Western Australia
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Austria, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Asia, Azerbaijan, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Asia, Bahrain, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Asia, Bangladesh, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Belarus, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Belgium, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Barbados, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Belize, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Benin, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Asia, Bhutan, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for South America, Bolivia, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Bosnia and Herzegovina, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Botswana, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for South America, Brazil, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Bulgaria, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Burkina Faso, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Burundi, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Cabo Verde, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Asia, Cambodia, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Cameroon, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, Alberta
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, British Columbia
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, Manitoba
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, New Brunswick
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, Newfoundland and Labrador
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, Northwest Territories
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, Nova Scotia
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, Ontario
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, Prince Edward Island
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, Quebec
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, Saskatchewan
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Canada, Yukon
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Central African Republic, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Chad, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for South America, Chile, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for South America, Colombia, None
+08-18-2022 04:37:56 PM | ERROR | Initial conditions for PopulationR too high for Botswana-None, on 2021-05-01
+08-18-2022 04:37:56 PM | ERROR | Initial conditions for PopulationR too high for Burkina Faso-None, on 2021-05-01
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Congo (Kinshasa), None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Cote d'Ivoire, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Comoros, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Croatia, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Congo (Brazzaville), None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Costa Rica, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Cuba, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Denmark, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Czechia, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Cyprus, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Dominican Republic, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Djibouti, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Dominica, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for South America, Ecuador, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Equatorial Guinea, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Egypt, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, El Salvador, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Ethiopia, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Estonia, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Finland, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Oceania, Fiji, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Gabon, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, France, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Asia, Georgia, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Gambia, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Germany, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Ghana, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Greece, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Grenada, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Guatemala, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Guinea, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Africa, Guinea-Bissau, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for South America, Guyana, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Haiti, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for North America, Honduras, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Hungary, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Europe, Iceland, None
+08-18-2022 04:37:56 PM | INFO | starting to predict for Asia, India, None
+08-18-2022 04:37:56 PM | ERROR | Initial conditions for PopulationR too high for El Salvador-None, on 2021-05-01
+08-18-2022 04:45:07 PM | INFO | In-Sample MAPE Last 15 Days ('Equatorial Guinea', 'None'): 0.237 %
+08-18-2022 04:45:07 PM | DEBUG | Best fitted parameters for ('Equatorial Guinea', 'None'): [1.99562469e+00 1.93415822e+00 5.15976528e-01 2.00000000e-02
+ 1.15648424e-03 3.20947077e+00 1.99777685e+00 1.99581530e+00
+ 1.31451077e+00 4.27365929e+02 2.62927403e+00 6.41619265e-06]
+08-18-2022 04:45:07 PM | INFO | Finished predicting for Continent=Africa, Country=Equatorial Guinea and Province=None in 430.82 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:45:07 PM | INFO | starting to predict for Asia, Indonesia, None
+08-18-2022 04:45:34 PM | INFO | In-Sample MAPE Last 15 Days ('Iceland', 'None'): 3.039 %
+08-18-2022 04:45:34 PM | DEBUG | Best fitted parameters for ('Iceland', 'None'): [ 0.00000000e+00  1.57027905e+00  4.61025754e+00  2.00000000e-02
+  2.82515364e-03 -1.00000000e+00  2.76181550e+01  0.00000000e+00
+  5.15912918e+00  3.47151824e+02  2.91785799e+01  9.26212934e-03]
+08-18-2022 04:45:34 PM | INFO | Finished predicting for Continent=Europe, Country=Iceland and Province=None in 457.82 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:45:34 PM | INFO | starting to predict for Asia, Iran, None
+08-18-2022 04:45:57 PM | INFO | In-Sample MAPE Last 15 Days ('Djibouti', 'None'): 0.029 %
+08-18-2022 04:45:57 PM | DEBUG | Best fitted parameters for ('Djibouti', 'None'): [ 3.52314618e-01 -7.36980351e-01  3.57146125e+00  2.00000000e-02
+  1.00000000e-03  5.09367133e+00  2.94677715e+00  2.99286929e+00
+  1.55770785e+00  3.28783757e+00  5.00283518e+01  1.44837630e-02]
+08-18-2022 04:45:57 PM | INFO | Finished predicting for Continent=Africa, Country=Djibouti and Province=None in 481.18 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:45:57 PM | INFO | starting to predict for Asia, Iraq, None
+08-18-2022 04:46:02 PM | INFO | In-Sample MAPE Last 15 Days ('Czechia', 'None'): 0.908 %
+08-18-2022 04:46:02 PM | DEBUG | Best fitted parameters for ('Czechia', 'None'): [0.00000000e+00 6.49608071e+00 1.05122228e-01 2.53794741e-02
+ 1.13499313e-03 1.87730431e+00 2.74023069e-01 0.00000000e+00
+ 9.81545475e+00 0.00000000e+00 6.30876405e+01 7.66748698e-01]
+08-18-2022 04:46:02 PM | INFO | Finished predicting for Continent=Europe, Country=Czechia and Province=None in 486.07 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:46:02 PM | INFO | starting to predict for Europe, Ireland, None
+08-18-2022 04:46:09 PM | INFO | In-Sample MAPE Last 15 Days ('Argentina', 'None'): 1.261 %
+08-18-2022 04:46:09 PM | DEBUG | Best fitted parameters for ('Argentina', 'None'): [ 0.00000000e+00 -1.25172805e+00  2.07747689e+00  2.00000000e-02
+  9.88976658e-03  1.01404914e+01  3.67890829e+00  9.53740669e-06
+  1.40673411e-01  2.84902340e+02  7.34300925e+00  1.42147527e+00]
+08-18-2022 04:46:09 PM | INFO | Finished predicting for Continent=South America, Country=Argentina and Province=None in 492.78 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:46:09 PM | INFO | starting to predict for Asia, Israel, None
+08-18-2022 04:46:38 PM | INFO | In-Sample MAPE Last 15 Days ('Antigua and Barbuda', 'None'): 0.217 %
+08-18-2022 04:46:38 PM | DEBUG | Best fitted parameters for ('Antigua and Barbuda', 'None'): [2.42368038e+00 2.95131008e+00 7.95419538e-01 2.95557444e-02
+ 2.31830746e-01 6.56542746e+00 3.57294121e+00 1.55284081e+00
+ 0.00000000e+00 4.14338933e-08 1.20177634e+02 3.28249087e-03]
+08-18-2022 04:46:38 PM | INFO | Finished predicting for Continent=North America, Country=Antigua and Barbuda and Province=None in 521.97 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:46:38 PM | INFO | starting to predict for Europe, Italy, None
+08-18-2022 04:47:15 PM | INFO | In-Sample MAPE Last 15 Days ('Botswana', 'None'): 1.31 %
+08-18-2022 04:47:15 PM | DEBUG | Best fitted parameters for ('Botswana', 'None'): [ 1.90268828e+00 -6.24089245e+00  1.97124667e+00  2.00000000e-02
+  1.62635530e-02  7.00769447e+00  8.48597908e+00  5.49597483e-01
+  3.30676511e+01  2.61741367e+00  1.75067516e+00  1.32671662e+00]
+08-18-2022 04:47:15 PM | INFO | Finished predicting for Continent=Africa, Country=Botswana and Province=None in 559.15 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:15 PM | INFO | starting to predict for Africa, Jamaica, None
+08-18-2022 04:47:15 PM | INFO | In-Sample MAPE Last 15 Days ('Barbados', 'None'): 7.416 %
+08-18-2022 04:47:15 PM | DEBUG | Best fitted parameters for ('Barbados', 'None'): [ 0.00000000e+00 -2.56256870e+00  3.57028388e+01  2.00000000e-02
+  5.60307013e-03  0.00000000e+00  6.07323328e+00  0.00000000e+00
+  1.23171689e+01  1.81659084e+02  1.05769197e+01  4.36998362e-01]
+08-18-2022 04:47:15 PM | INFO | Finished predicting for Continent=North America, Country=Barbados and Province=None in 559.42 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:15 PM | INFO | starting to predict for Asia, Japan, None
+08-18-2022 04:47:20 PM | INFO | In-Sample MAPE Last 15 Days ('Brazil', 'None'): 0.026 %
+08-18-2022 04:47:20 PM | DEBUG | Best fitted parameters for ('Brazil', 'None'): [ 1.24300592e+00 -8.61362468e-01  1.48093285e+01  3.64061211e-02
+  3.32588828e-03 -8.84240353e-01  1.74421691e-01  3.15539291e-02
+  1.79040242e+00  8.50640735e+01  4.99080473e+01  3.11980346e+00]
+08-18-2022 04:47:20 PM | INFO | Finished predicting for Continent=South America, Country=Brazil and Province=None in 563.9 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:20 PM | INFO | starting to predict for Asia, Jordan, None
+08-18-2022 04:47:21 PM | INFO | In-Sample MAPE Last 15 Days ('Bulgaria', 'None'): 0.131 %
+08-18-2022 04:47:21 PM | DEBUG | Best fitted parameters for ('Bulgaria', 'None'): [2.31733622e+00 8.24117753e-01 3.30763557e+00 2.00000000e-02
+ 4.40627639e-02 1.56923632e+01 4.61277986e-01 1.35217562e-01
+ 1.25317590e+00 1.10100898e+02 4.64855319e+01 9.78801974e-01]
+08-18-2022 04:47:22 PM | INFO | Finished predicting for Continent=Europe, Country=Bulgaria and Province=None in 565.61 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:22 PM | INFO | starting to predict for Asia, Kazakhstan, None
+08-18-2022 04:47:23 PM | INFO | In-Sample MAPE Last 15 Days ('Georgia', 'None'): 1.035 %
+08-18-2022 04:47:23 PM | DEBUG | Best fitted parameters for ('Georgia', 'None'): [ 0.00000000e+00 -1.09631641e-01  9.12344809e-01  3.94870259e-02
+  1.23993564e-02  2.90702635e+01  1.99986819e+00  0.00000000e+00
+  5.74398796e-02  4.32611391e+02  1.53559144e+02  1.98778737e-02]
+08-18-2022 04:47:23 PM | INFO | Finished predicting for Continent=Asia, Country=Georgia and Province=None in 567.12 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:23 PM | INFO | starting to predict for Africa, Kenya, None
+08-18-2022 04:47:31 PM | INFO | In-Sample MAPE Last 15 Days ('Cuba', 'None'): 0.029 %
+08-18-2022 04:47:31 PM | DEBUG | Best fitted parameters for ('Cuba', 'None'): [ 8.75335467e-01  2.86023587e+00  1.56915835e+00  8.02949796e-02
+  1.00000000e-03 -8.45919741e-01  4.66593322e+00  2.45987912e+00
+  9.62691744e-01  1.19360339e+02  3.80814020e+01  1.18856852e-01]
+08-18-2022 04:47:31 PM | INFO | Finished predicting for Continent=North America, Country=Cuba and Province=None in 575.51 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:31 PM | INFO | starting to predict for Asia, Korea, South, None
+08-18-2022 04:47:35 PM | INFO | In-Sample MAPE Last 15 Days ('Ethiopia', 'None'): 0.115 %
+08-18-2022 04:47:35 PM | DEBUG | Best fitted parameters for ('Ethiopia', 'None'): [2.35142997e+00 1.98459814e+00 9.80209495e-01 8.05138049e-02
+ 7.41474862e-02 4.33080308e+00 2.13229230e+00 1.81361499e+00
+ 1.29782121e+00 2.68701042e+02 4.44684106e+00 8.06616316e-05]
+08-18-2022 04:47:35 PM | INFO | Finished predicting for Continent=Africa, Country=Ethiopia and Province=None in 578.68 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:35 PM | INFO | starting to predict for Europe, Kosovo, None
+08-18-2022 04:47:42 PM | INFO | In-Sample MAPE Last 15 Days ('Denmark', 'None'): 1.861 %
+08-18-2022 04:47:42 PM | DEBUG | Best fitted parameters for ('Denmark', 'None'): [ 0.00000000e+00 -2.79543068e+00  0.00000000e+00  2.00000000e-02
+  1.20287449e-02  1.15596205e+02  2.00000004e+00  0.00000000e+00
+  0.00000000e+00  4.84000000e+02  2.45967883e+01  5.59212655e-02]
+08-18-2022 04:47:42 PM | INFO | Finished predicting for Continent=Europe, Country=Denmark and Province=None in 585.9 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:42 PM | INFO | starting to predict for Asia, Kuwait, None
+08-18-2022 04:47:50 PM | INFO | In-Sample MAPE Last 15 Days ('Cabo Verde', 'None'): 0.04 %
+08-18-2022 04:47:50 PM | DEBUG | Best fitted parameters for ('Cabo Verde', 'None'): [ 9.09430852e-01  1.52603720e+00  2.41255896e+00  9.77504717e-02
+  1.43671062e-03 -3.97256356e-02  2.71847508e+00  4.39397754e-01
+  2.75310080e+00  7.28299279e+01  1.53749275e+01  1.18192889e+00]
+08-18-2022 04:47:50 PM | INFO | Finished predicting for Continent=Africa, Country=Cabo Verde and Province=None in 594.08 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:50 PM | INFO | starting to predict for Europe, Latvia, None
+08-18-2022 04:47:50 PM | INFO | In-Sample MAPE Last 15 Days ('Hungary', 'None'): 0.786 %
+08-18-2022 04:47:50 PM | DEBUG | Best fitted parameters for ('Hungary', 'None'): [2.62022562e+00 1.70227974e+00 0.00000000e+00 2.62985839e-02
+ 8.21565653e-02 1.39893079e+01 2.00000000e+00 1.25433683e+01
+ 7.58143815e+00 1.32110066e+02 4.60952904e+01 1.14091815e-01]
+08-18-2022 04:47:50 PM | INFO | Finished predicting for Continent=Europe, Country=Hungary and Province=None in 594.55 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:50 PM | INFO | starting to predict for Asia, Lebanon, None
+08-18-2022 04:47:52 PM | INFO | In-Sample MAPE Last 15 Days ('Burkina Faso', 'None'): 0.115 %
+08-18-2022 04:47:52 PM | DEBUG | Best fitted parameters for ('Burkina Faso', 'None'): [4.43148717e-01 1.97685054e+00 8.96813559e-02 1.00000000e+00
+ 2.22587573e-01 1.81162498e+00 3.98215922e+00 2.00005667e+00
+ 1.61472293e+00 2.00472425e+02 6.28961307e+00 2.01454942e+00]
+08-18-2022 04:47:52 PM | INFO | Finished predicting for Continent=Africa, Country=Burkina Faso and Province=None in 596.1 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:47:52 PM | INFO | starting to predict for Africa, Lesotho, None
+08-18-2022 04:48:00 PM | INFO | In-Sample MAPE Last 15 Days ('France', 'None'): 4.403 %
+08-18-2022 04:48:00 PM | DEBUG | Best fitted parameters for ('France', 'None'): [0.00000000e+00 3.54618591e-01 1.94734462e+00 2.00000000e-02
+ 1.11941467e-03 4.84766828e+00 2.51829223e+00 0.00000000e+00
+ 0.00000000e+00 3.88387862e+02 1.52425686e+02 3.62138935e-01]
+08-18-2022 04:48:00 PM | INFO | Finished predicting for Continent=Europe, Country=France and Province=None in 603.93 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:48:00 PM | INFO | starting to predict for Africa, Liberia, None
+08-18-2022 04:48:13 PM | INFO | In-Sample MAPE Last 15 Days ('Belgium', 'None'): 2.283 %
+08-18-2022 04:48:13 PM | DEBUG | Best fitted parameters for ('Belgium', 'None'): [ 0.00000000e+00 -6.41173950e+01  7.52311786e-01  2.00000000e-02
+  2.05128112e-03 -7.39739115e-01  2.50114242e+00  0.00000000e+00
+  5.18603720e+00  2.99300615e+00  5.00316787e+01  2.03234929e-01]
+08-18-2022 04:48:13 PM | INFO | Finished predicting for Continent=Europe, Country=Belgium and Province=None in 616.88 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:48:13 PM | INFO | starting to predict for Africa, Libya, None
+08-18-2022 04:48:24 PM | INFO | In-Sample MAPE Last 15 Days ('El Salvador', 'None'): 0.434 %
+08-18-2022 04:48:24 PM | DEBUG | Best fitted parameters for ('El Salvador', 'None'): [8.42885816e-01 1.21683673e+00 1.80729674e-01 4.00396268e-02
+ 2.93778142e-02 1.20729700e+00 2.03209964e+00 7.44705077e+00
+ 0.00000000e+00 1.48452244e+02 1.79414711e+02 2.00003188e+00]
+08-18-2022 04:48:24 PM | INFO | Finished predicting for Continent=North America, Country=El Salvador and Province=None in 627.79 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:48:24 PM | INFO | starting to predict for Europe, Liechtenstein, None
+08-18-2022 04:48:24 PM | INFO | In-Sample MAPE Last 15 Days ('Chile', 'None'): 5.068 %
+08-18-2022 04:48:24 PM | DEBUG | Best fitted parameters for ('Chile', 'None'): [ 0.00000000e+00 -8.35552619e-01  8.49453028e-02  5.45894137e-01
+  1.29866670e-02  2.31273326e-02  1.31355635e+00  1.26483077e-06
+  0.00000000e+00  1.50926916e+02  1.00000000e+00  2.05895726e+00]
+08-18-2022 04:48:24 PM | INFO | Finished predicting for Continent=South America, Country=Chile and Province=None in 628.31 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:48:24 PM | INFO | starting to predict for Europe, Lithuania, None
+08-18-2022 04:48:25 PM | INFO | In-Sample MAPE Last 15 Days ('Finland', 'None'): 2.269 %
+08-18-2022 04:48:25 PM | DEBUG | Best fitted parameters for ('Finland', 'None'): [ 9.20101798e+00 -6.61628892e-02  7.55570264e+00  2.87252709e-02
+  2.71665758e-02  2.38814043e+00  2.00000000e+00  2.00001006e+00
+  5.28408630e+00  2.65614042e+02  8.07981583e+01  1.39005533e-02]
+08-18-2022 04:48:25 PM | INFO | Finished predicting for Continent=Europe, Country=Finland and Province=None in 629.07 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:48:25 PM | INFO | starting to predict for Europe, Luxembourg, None
+08-18-2022 04:48:36 PM | INFO | In-Sample MAPE Last 15 Days ('Bhutan', 'None'): 43.023 %
+08-18-2022 04:48:36 PM | DEBUG | Best fitted parameters for ('Bhutan', 'None'): [2.31858343e+00 1.88011743e+00 8.13747104e+00 2.00000000e-02
+ 1.00000000e-03 2.01205085e+00 9.47155687e-01 2.89122137e+00
+ 1.77620089e+00 8.71643145e+00 5.34775533e+00 1.02773114e-04]
+08-18-2022 04:48:36 PM | INFO | Finished predicting for Continent=Asia, Country=Bhutan and Province=None in 640.35 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:48:36 PM | INFO | starting to predict for Africa, Madagascar, None
+08-18-2022 04:48:50 PM | INFO | In-Sample MAPE Last 15 Days ('Germany', 'None'): 5.447 %
+08-18-2022 04:48:50 PM | DEBUG | Best fitted parameters for ('Germany', 'None'): [ 0.00000000e+00 -4.18987093e+01  2.32466202e+00  2.00000000e-02
+  1.00274660e-02  7.35440979e+01  2.38590831e+01  1.15513828e-06
+  1.25949679e+01  3.97728685e+02  1.39444639e+00  1.69636312e-01]
+08-18-2022 04:48:50 PM | INFO | Finished predicting for Continent=Europe, Country=Germany and Province=None in 654.53 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:48:50 PM | INFO | starting to predict for Africa, Malawi, None
+08-18-2022 04:48:52 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'New Brunswick'): 1.608 %
+08-18-2022 04:48:52 PM | DEBUG | Best fitted parameters for ('Canada', 'New Brunswick'): [ 4.78836701e-01  4.93484736e-01  0.00000000e+00  3.06074083e-01
+  3.39512234e-03 -2.36561638e-01  3.65723534e-07  2.07892317e+00
+  0.00000000e+00  2.94294787e-02  3.54878524e+00  4.63375019e-01]
+08-18-2022 04:48:52 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=New Brunswick in 655.83 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:48:52 PM | INFO | starting to predict for Asia, Malaysia, None
+08-18-2022 04:49:21 PM | INFO | In-Sample MAPE Last 15 Days ('Burundi', 'None'): 6.02 %
+08-18-2022 04:49:21 PM | DEBUG | Best fitted parameters for ('Burundi', 'None'): [1.99917568e+00 0.00000000e+00 1.43895648e+00 2.00000000e-02
+ 1.00000000e-03 6.19756228e+01 1.99995333e+00 1.99995433e+00
+ 4.25558950e-01 1.19374272e+02 9.75404793e+00 6.45588195e-03]
+08-18-2022 04:49:21 PM | INFO | Finished predicting for Continent=Africa, Country=Burundi and Province=None in 685.1 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:49:21 PM | INFO | starting to predict for Asia, Maldives, None
+08-18-2022 04:49:26 PM | INFO | In-Sample MAPE Last 15 Days ('Bangladesh', 'None'): 0.085 %
+08-18-2022 04:49:26 PM | DEBUG | Best fitted parameters for ('Bangladesh', 'None'): [ 4.17882295e+00 -1.18208767e+00  1.22708248e+00  2.46377774e-02
+  2.40295656e-02  5.75073542e-01  8.15292357e-02  2.07479790e-03
+  1.34401669e+00  2.98377163e+02  7.74085567e+00  1.79419595e-05]
+08-18-2022 04:49:26 PM | INFO | Finished predicting for Continent=Asia, Country=Bangladesh and Province=None in 690.17 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:49:26 PM | INFO | starting to predict for Africa, Mali, None
+08-18-2022 04:49:33 PM | INFO | In-Sample MAPE Last 15 Days ('Dominican Republic', 'None'): 0.273 %
+08-18-2022 04:49:33 PM | DEBUG | Best fitted parameters for ('Dominican Republic', 'None'): [3.40747032e-01 6.57145016e+01 1.82211076e+00 2.00000000e-02
+ 1.93480702e-03 4.59135246e+02 3.19964935e+00 2.35533303e+00
+ 1.74076568e+00 2.83058429e+01 8.80716261e+01 1.56813373e-04]
+08-18-2022 04:49:33 PM | INFO | Finished predicting for Continent=North America, Country=Dominican Republic and Province=None in 696.96 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:49:33 PM | INFO | starting to predict for Europe, Malta, None
+08-18-2022 04:49:50 PM | INFO | In-Sample MAPE Last 15 Days ('Cyprus', 'None'): 4.996 %
+08-18-2022 04:49:50 PM | DEBUG | Best fitted parameters for ('Cyprus', 'None'): [0.00000000e+00 2.58879475e-11 6.06439617e+01 2.00000000e-02
+ 1.00000000e-03 0.00000000e+00 2.03278205e+00 5.05846836e-06
+ 0.00000000e+00 4.84000000e+02 1.00000000e+00 6.62101802e-01]
+08-18-2022 04:49:50 PM | INFO | Finished predicting for Continent=Europe, Country=Cyprus and Province=None in 714.4 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:49:50 PM | INFO | starting to predict for Africa, Mauritania, None
+08-18-2022 04:49:54 PM | INFO | In-Sample MAPE Last 15 Days ('Ecuador', 'None'): 0.336 %
+08-18-2022 04:49:54 PM | DEBUG | Best fitted parameters for ('Ecuador', 'None'): [6.13943749e-01 5.24596574e-01 3.67299694e-02 1.14023578e-01
+ 6.93168160e-02 4.66415355e+00 9.12251382e-01 3.19257587e-01
+ 7.46941141e-01 4.40096318e+02 6.46601411e+00 6.78529564e-02]
+08-18-2022 04:49:54 PM | INFO | Finished predicting for Continent=South America, Country=Ecuador and Province=None in 718.29 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:49:54 PM | INFO | starting to predict for Africa, Mauritius, None
+08-18-2022 04:50:13 PM | INFO | In-Sample MAPE Last 15 Days ('Andorra', 'None'): 3.519 %
+08-18-2022 04:50:13 PM | DEBUG | Best fitted parameters for ('Andorra', 'None'): [0.00000000e+00 2.04235711e-01 1.14119085e+00 2.00000000e-02
+ 1.00000000e-03 9.99114677e+00 2.00000000e+00 1.04911022e+00
+ 1.50048223e-01 9.84505987e+01 8.01214522e+01 8.48592698e-02]
+08-18-2022 04:50:13 PM | INFO | Finished predicting for Continent=Europe, Country=Andorra and Province=None in 736.64 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:50:13 PM | INFO | starting to predict for North America, Mexico, None
+08-18-2022 04:50:13 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'Newfoundland and Labrador'): 0.401 %
+08-18-2022 04:50:13 PM | DEBUG | Best fitted parameters for ('Canada', 'Newfoundland and Labrador'): [ 1.82132362e-01  2.00567956e+01  1.84121651e+00  2.29161505e-01
+  4.92623415e-03 -1.00000000e+00  2.55574786e+00  1.96628735e+00
+  3.43456000e+00  1.26861704e+02  7.00004168e+01  1.34518110e-01]
+08-18-2022 04:50:13 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=Newfoundland and Labrador in 737.04 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:50:13 PM | INFO | starting to predict for Europe, Moldova, None
+08-18-2022 04:51:05 PM | INFO | In-Sample MAPE Last 15 Days ('Gabon', 'None'): 0.055 %
+08-18-2022 04:51:05 PM | DEBUG | Best fitted parameters for ('Gabon', 'None'): [4.31007095e-01 2.40821362e+00 8.07018800e+00 1.00000000e+00
+ 1.44341821e-02 1.00206582e+00 7.43925502e-01 6.78126144e-05
+ 1.83546757e+00 7.85471797e+01 3.07562730e+01 1.08054603e+00]
+08-18-2022 04:51:05 PM | INFO | Finished predicting for Continent=Africa, Country=Gabon and Province=None in 789.05 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:51:05 PM | INFO | starting to predict for Europe, Monaco, None
+08-18-2022 04:51:11 PM | INFO | In-Sample MAPE Last 15 Days ('Bosnia and Herzegovina', 'None'): 0.048 %
+08-18-2022 04:51:11 PM | DEBUG | Best fitted parameters for ('Bosnia and Herzegovina', 'None'): [2.97340148e-01 1.84361943e+00 2.00956739e+00 8.38324922e-02
+ 3.22436416e-02 1.49772648e-01 2.00521953e+00 1.46545654e+00
+ 4.23155516e+00 1.03113791e+02 4.33305969e+01 2.90802638e-01]
+08-18-2022 04:51:11 PM | INFO | Finished predicting for Continent=Europe, Country=Bosnia and Herzegovina and Province=None in 795.56 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:51:11 PM | INFO | starting to predict for Asia, Mongolia, None
+08-18-2022 04:51:13 PM | INFO | In-Sample MAPE Last 15 Days ('Guinea-Bissau', 'None'): 0.328 %
+08-18-2022 04:51:13 PM | DEBUG | Best fitted parameters for ('Guinea-Bissau', 'None'): [3.04171381e-01 2.68356551e+00 0.00000000e+00 2.00000000e-02
+ 1.46713248e-02 0.00000000e+00 3.35465549e-02 5.84265418e+00
+ 3.97005296e-01 6.91688910e+01 1.66019413e+01 1.43823722e-01]
+08-18-2022 04:51:13 PM | INFO | Finished predicting for Continent=Africa, Country=Guinea-Bissau and Province=None in 796.7 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:51:13 PM | INFO | starting to predict for Europe, Montenegro, None
+08-18-2022 04:51:15 PM | INFO | In-Sample MAPE Last 15 Days ('Chad', 'None'): 0.031 %
+08-18-2022 04:51:15 PM | DEBUG | Best fitted parameters for ('Chad', 'None'): [9.66495337e-01 8.04085630e+00 5.44343636e+00 2.50659725e-01
+ 7.79476616e-02 3.00388296e+00 3.33228392e+00 6.73173697e-01
+ 6.10639015e-01 1.37115738e+02 4.29978250e+01 1.62181461e-01]
+08-18-2022 04:51:15 PM | INFO | Finished predicting for Continent=Africa, Country=Chad and Province=None in 799.45 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:51:15 PM | INFO | starting to predict for Africa, Morocco, None
+08-18-2022 04:51:49 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'Manitoba'): 0.213 %
+08-18-2022 04:51:49 PM | DEBUG | Best fitted parameters for ('Canada', 'Manitoba'): [ 8.32263886e+00  1.46854955e+00  5.61533956e+00  3.57911360e-02
+  1.68098967e-02 -9.76631624e-01  2.82176585e-02  3.86525189e-05
+  3.77860259e-01  2.60660277e+02  7.93402272e+01  7.44340917e-01]
+08-18-2022 04:51:49 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=Manitoba in 832.84 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:51:49 PM | INFO | starting to predict for Africa, Mozambique, None
+08-18-2022 04:52:36 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'Australian Capital Territory'): 16.377 %
+08-18-2022 04:52:36 PM | DEBUG | Best fitted parameters for ('Australia', 'Australian Capital Territory'): [4.10428450e+00 1.99225182e+00 3.87180343e+00 2.00000000e-02
+ 1.00000000e-03 3.95102236e+02 4.49525310e+00 4.72011231e+00
+ 8.45362471e+00 1.13719627e+02 2.30710975e+01 1.82589264e-04]
+08-18-2022 04:52:36 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=Australian Capital Territory in 879.68 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:52:36 PM | INFO | starting to predict for Africa, Namibia, None
+08-18-2022 04:52:41 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'Tasmania'): 26.564 %
+08-18-2022 04:52:41 PM | DEBUG | Best fitted parameters for ('Australia', 'Tasmania'): [ 6.91644954e+00  2.33957636e+00  7.23252302e+00  2.00000000e-02
+  1.16755505e-03 -4.91713591e-01  9.44701697e+00  4.40390991e+00
+  2.60818950e+00  6.20048053e+01  8.96318832e+00  2.10232784e-04]
+08-18-2022 04:52:41 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=Tasmania in 885.19 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:52:41 PM | INFO | starting to predict for Asia, Nepal, None
+08-18-2022 04:52:42 PM | INFO | In-Sample MAPE Last 15 Days ('Guyana', 'None'): 0.107 %
+08-18-2022 04:52:42 PM | DEBUG | Best fitted parameters for ('Guyana', 'None'): [3.50460292e+00 2.73259896e+00 7.78398762e-01 1.54863811e-01
+ 1.04120395e-02 1.31570470e-01 2.04739478e+00 5.11350144e-01
+ 2.20634571e+00 1.82963498e+00 8.53954375e+00 1.62229687e-07]
+08-18-2022 04:52:42 PM | INFO | Finished predicting for Continent=South America, Country=Guyana and Province=None in 886.22 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:52:42 PM | INFO | starting to predict for Europe, Netherlands, None
+08-18-2022 04:53:28 PM | INFO | In-Sample MAPE Last 15 Days ('Comoros', 'None'): 0.168 %
+08-18-2022 04:53:28 PM | DEBUG | Best fitted parameters for ('Comoros', 'None'): [ 1.52106515e+00 -6.34377585e+00  9.82874337e-01  2.00663673e-02
+  2.15419678e-03 -1.94527062e-01  9.87846644e-01  2.77380876e-01
+  7.38216989e-01  1.06246412e+02  8.00733157e+00  1.04219602e-02]
+08-18-2022 04:53:28 PM | INFO | Finished predicting for Continent=Africa, Country=Comoros and Province=None in 932.41 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:53:28 PM | INFO | starting to predict for Oceania, New Zealand, None
+08-18-2022 04:53:47 PM | INFO | In-Sample MAPE Last 15 Days ('Belarus', 'None'): 0.172 %
+08-18-2022 04:53:47 PM | DEBUG | Best fitted parameters for ('Belarus', 'None'): [1.48714050e+00 1.54961100e+00 2.33918423e+00 2.00000000e-02
+ 5.66212667e-02 1.56807082e+01 0.00000000e+00 1.46971429e+00
+ 3.65873432e+00 9.54970551e+01 5.49783328e+00 1.46098122e-01]
+08-18-2022 04:53:47 PM | INFO | Finished predicting for Continent=Europe, Country=Belarus and Province=None in 950.66 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:53:47 PM | INFO | starting to predict for North America, Nicaragua, None
+08-18-2022 04:53:50 PM | INFO | In-Sample MAPE Last 15 Days ('Dominica', 'None'): 6.917 %
+08-18-2022 04:53:50 PM | DEBUG | Best fitted parameters for ('Dominica', 'None'): [1.50000000e+00 2.59705897e+01 1.00000000e+00 2.00000000e-02
+ 4.25932500e-02 7.79290702e-01 1.00000000e-03 1.00000000e-03
+ 7.57286292e-01 3.00000000e+02 8.54035100e+01 2.00000000e-01]
+08-18-2022 04:53:50 PM | INFO | Finished predicting for Continent=North America, Country=Dominica and Province=None in 953.81 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:53:50 PM | INFO | starting to predict for Africa, Niger, None
+08-18-2022 04:54:03 PM | INFO | In-Sample MAPE Last 15 Days ('Austria', 'None'): 3.898 %
+08-18-2022 04:54:03 PM | DEBUG | Best fitted parameters for ('Austria', 'None'): [0.00000000e+00 0.00000000e+00 2.46517943e+01 2.51976224e-02
+ 1.95269252e-03 2.74149076e+00 1.87658568e+01 1.11301599e-05
+ 0.00000000e+00 4.84000000e+02 1.00000000e+00 4.96943943e-02]
+08-18-2022 04:54:03 PM | INFO | Finished predicting for Continent=Europe, Country=Austria and Province=None in 966.74 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:54:03 PM | INFO | starting to predict for Africa, Nigeria, None
+08-18-2022 04:54:14 PM | INFO | In-Sample MAPE Last 15 Days ('Bahrain', 'None'): 4.209 %
+08-18-2022 04:54:14 PM | DEBUG | Best fitted parameters for ('Bahrain', 'None'): [0.00000000e+00 5.18301591e+00 3.58192543e-04 2.00000000e-02
+ 1.00000000e-03 5.78643241e+00 2.49090367e+01 0.00000000e+00
+ 0.00000000e+00 4.84000000e+02 2.18559311e+02 1.57692545e-02]
+08-18-2022 04:54:14 PM | INFO | Finished predicting for Continent=Asia, Country=Bahrain and Province=None in 978.6 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:54:14 PM | INFO | starting to predict for Europe, North Macedonia, None
+08-18-2022 04:54:22 PM | INFO | In-Sample MAPE Last 15 Days ('Estonia', 'None'): 1.186 %
+08-18-2022 04:54:22 PM | DEBUG | Best fitted parameters for ('Estonia', 'None'): [0.00000000e+00 0.00000000e+00 0.00000000e+00 2.09127608e-02
+ 8.41584929e-03 2.69669878e+01 2.00345895e+00 1.82932369e-05
+ 0.00000000e+00 4.84000000e+02 1.00000000e+00 9.34248613e-02]
+08-18-2022 04:54:22 PM | INFO | Finished predicting for Continent=Europe, Country=Estonia and Province=None in 986.0 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:54:22 PM | INFO | starting to predict for Europe, Norway, None
+08-18-2022 04:54:29 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'Queensland'): 4.478 %
+08-18-2022 04:54:29 PM | DEBUG | Best fitted parameters for ('Australia', 'Queensland'): [ 1.60186604e+00 -1.35792616e+00  1.10489208e+00  2.00000000e-02
+  2.36561774e-02  2.18552371e+01  3.37250061e+00  2.89896316e+00
+  3.13384412e+00  1.55280380e+02  3.92832958e+01  2.22117534e-03]
+08-18-2022 04:54:29 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=Queensland in 993.38 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:54:29 PM | INFO | starting to predict for Asia, Oman, None
+08-18-2022 04:54:43 PM | INFO | In-Sample MAPE Last 15 Days ('Cambodia', 'None'): 0.02 %
+08-18-2022 04:54:43 PM | DEBUG | Best fitted parameters for ('Cambodia', 'None'): [2.07682585e-01 2.94660585e+01 0.00000000e+00 2.30383979e-01
+ 5.78544184e-03 2.88771085e+00 6.43415193e-03 5.87605906e+00
+ 1.44713429e+01 1.19013327e+02 4.18311315e+00 3.83607609e-02]
+08-18-2022 04:54:43 PM | INFO | Finished predicting for Continent=Asia, Country=Cambodia and Province=None in 1007.26 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:54:43 PM | INFO | starting to predict for Asia, Pakistan, None
+08-18-2022 04:54:44 PM | INFO | In-Sample MAPE Last 15 Days ('Iraq', 'None'): 0.034 %
+08-18-2022 04:54:44 PM | DEBUG | Best fitted parameters for ('Iraq', 'None'): [ 1.39609011e+00 -2.27136474e-02  9.45246992e+00  4.01128030e-02
+  3.43675055e-02  1.35689129e+01  2.64112083e+00  1.48158733e+00
+  1.01793662e+00  8.51919275e+01  2.09523876e+01  1.21465239e-01]
+08-18-2022 04:54:44 PM | INFO | Finished predicting for Continent=Asia, Country=Iraq and Province=None in 527.0 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:54:44 PM | INFO | starting to predict for North America, Panama, None
+08-18-2022 04:55:27 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'British Columbia'): 0.184 %
+08-18-2022 04:55:27 PM | DEBUG | Best fitted parameters for ('Canada', 'British Columbia'): [ 1.98498648e+00 -5.50913532e+00  1.02797284e+00  4.54084711e-02
+  4.19109133e-02 -1.02515409e-02  1.34285512e+00  5.78841121e-01
+  2.33819394e-01  1.29841282e+02  3.13903685e+01  4.45653902e-02]
+08-18-2022 04:55:27 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=British Columbia in 1051.46 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:55:27 PM | INFO | starting to predict for Oceania, Papua New Guinea, None
+08-18-2022 04:55:30 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'Ontario'): 0.405 %
+08-18-2022 04:55:30 PM | DEBUG | Best fitted parameters for ('Canada', 'Ontario'): [2.41619817e+00 7.09714352e-01 1.87929408e+00 2.00000000e-02
+ 9.60740588e-02 7.37088070e+00 6.79962713e-01 1.33369337e+00
+ 2.98409205e-01 1.12664747e+02 2.61372469e+01 4.54768446e-02]
+08-18-2022 04:55:30 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=Ontario in 1054.29 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:55:30 PM | INFO | starting to predict for South America, Paraguay, None
+08-18-2022 04:56:21 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'Saskatchewan'): 0.155 %
+08-18-2022 04:56:21 PM | DEBUG | Best fitted parameters for ('Canada', 'Saskatchewan'): [ 6.67266962e-01 -5.42031317e+00  7.66595705e-05  4.80936917e-01
+  1.90575729e-02 -2.35575567e-01  4.81973558e-01  6.62826055e-01
+  8.11532686e-01  9.60898508e+00  3.60474844e+00  5.32028386e-01]
+08-18-2022 04:56:21 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=Saskatchewan in 1104.84 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:56:21 PM | INFO | starting to predict for South America, Peru, None
+08-18-2022 04:56:29 PM | INFO | In-Sample MAPE Last 15 Days ('Guatemala', 'None'): 0.656 %
+08-18-2022 04:56:29 PM | DEBUG | Best fitted parameters for ('Guatemala', 'None'): [ 2.00041729e-01 -9.27341677e-01  1.08921861e+00  1.00000000e+00
+  4.70008141e-03 -1.00000000e+00  3.63622079e-01  0.00000000e+00
+  3.86422259e+00  8.56513146e+01  3.51936129e+01  2.28620247e+00]
+08-18-2022 04:56:29 PM | INFO | Finished predicting for Continent=North America, Country=Guatemala and Province=None in 1112.9 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:56:29 PM | INFO | starting to predict for Asia, Philippines, None
+08-18-2022 04:56:36 PM | INFO | In-Sample MAPE Last 15 Days ('Cameroon', 'None'): 0.076 %
+08-18-2022 04:56:36 PM | DEBUG | Best fitted parameters for ('Cameroon', 'None'): [ 8.65711808e-01  3.15222987e+00  7.59105940e-01  2.08904429e-02
+  5.10668599e-03 -5.22690140e-01  5.15072124e-02  1.12152578e-06
+  1.82104630e+00  1.36008425e+02  1.07225073e+01  1.81312845e+00]
+08-18-2022 04:56:36 PM | INFO | Finished predicting for Continent=Africa, Country=Cameroon and Province=None in 1120.08 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:56:36 PM | INFO | starting to predict for Europe, Poland, None
+08-18-2022 04:56:43 PM | INFO | In-Sample MAPE Last 15 Days ('Croatia', 'None'): 2.268 %
+08-18-2022 04:56:43 PM | DEBUG | Best fitted parameters for ('Croatia', 'None'): [0.00000000e+00 2.11806366e+00 0.00000000e+00 2.00000000e-02
+ 1.84655867e-02 3.68249866e+01 2.04045216e+00 0.00000000e+00
+ 3.91076045e+01 0.00000000e+00 2.37732196e+02 2.63171107e-01]
+08-18-2022 04:56:43 PM | INFO | Finished predicting for Continent=Europe, Country=Croatia and Province=None in 1126.75 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:56:43 PM | INFO | starting to predict for Europe, Portugal, None
+08-18-2022 04:56:50 PM | INFO | In-Sample MAPE Last 15 Days ('Indonesia', 'None'): 0.085 %
+08-18-2022 04:56:50 PM | DEBUG | Best fitted parameters for ('Indonesia', 'None'): [ 1.20598916e+00 -5.83771921e+00  3.22780513e+00  4.34295653e-02
+  5.10202861e-03  1.93394393e+00  9.14958087e-05  4.62620468e-02
+  5.90103273e-01  1.00329290e+02  2.74181792e+01  2.32204566e+00]
+08-18-2022 04:56:50 PM | INFO | Finished predicting for Continent=Asia, Country=Indonesia and Province=None in 702.99 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:56:50 PM | INFO | starting to predict for Asia, Qatar, None
+08-18-2022 04:57:27 PM | INFO | In-Sample MAPE Last 15 Days ('Egypt', 'None'): 0.05 %
+08-18-2022 04:57:27 PM | DEBUG | Best fitted parameters for ('Egypt', 'None'): [ 2.08353790e+00 -3.51137980e+01  3.36321830e+00  3.02962963e-02
+  2.51529818e-02  2.63984639e+00  9.48097868e-01  3.22673478e-04
+  9.86279673e-02  2.40339442e+01  1.15926689e+00  1.26509869e+00]
+08-18-2022 04:57:27 PM | INFO | Finished predicting for Continent=Africa, Country=Egypt and Province=None in 1171.08 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:57:27 PM | INFO | starting to predict for Europe, Romania, None
+08-18-2022 04:57:58 PM | INFO | In-Sample MAPE Last 15 Days ('Italy', 'None'): 6.415 %
+08-18-2022 04:57:58 PM | DEBUG | Best fitted parameters for ('Italy', 'None'): [0.00000000e+00 6.36884402e-01 2.24649255e+00 2.00000000e-02
+ 7.70715149e-03 2.49230459e+01 7.75258146e+00 0.00000000e+00
+ 2.35473346e+01 1.82021309e+02 1.63769848e+01 1.00668078e+00]
+08-18-2022 04:57:58 PM | INFO | Finished predicting for Continent=Europe, Country=Italy and Province=None in 680.01 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:57:58 PM | INFO | starting to predict for Asia, Russia, None
+08-18-2022 04:57:59 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'Alberta'): 0.113 %
+08-18-2022 04:57:59 PM | DEBUG | Best fitted parameters for ('Canada', 'Alberta'): [3.81551017e+00 4.13187625e+00 2.79574067e+00 6.05528326e-02
+ 1.51903460e-02 2.19973896e-01 1.76052146e+00 8.13515400e-01
+ 6.20452916e-01 2.58981957e+02 1.05746066e+02 3.04317520e-02]
+08-18-2022 04:57:59 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=Alberta in 1203.02 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:57:59 PM | INFO | starting to predict for Africa, Rwanda, None
+08-18-2022 04:58:07 PM | INFO | In-Sample MAPE Last 15 Days ('Malta', 'None'): 5.916 %
+08-18-2022 04:58:07 PM | DEBUG | Best fitted parameters for ('Malta', 'None'): [0.00000000e+00 0.00000000e+00 0.00000000e+00 2.00000000e-02
+ 4.85176588e-03 0.00000000e+00 2.83835849e+00 4.79035221e+00
+ 4.13843750e-01 2.78073812e+02 5.05224435e+00 2.00048138e+00]
+08-18-2022 04:58:07 PM | INFO | Finished predicting for Continent=Europe, Country=Malta and Province=None in 514.19 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:58:07 PM | INFO | starting to predict for Europe, San Marino, None
+08-18-2022 04:58:18 PM | INFO | In-Sample MAPE Last 15 Days ('Japan', 'None'): 0.725 %
+08-18-2022 04:58:18 PM | DEBUG | Best fitted parameters for ('Japan', 'None'): [8.65715897e-01 8.04479145e-01 4.68431727e+00 5.31851643e-02
+ 1.00000000e-03 2.67369837e+00 4.20810101e-01 0.00000000e+00
+ 1.32373961e+00 1.52067163e+02 6.94049995e+01 2.16247678e+00]
+08-18-2022 04:58:18 PM | INFO | Finished predicting for Continent=Asia, Country=Japan and Province=None in 662.87 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:58:18 PM | INFO | starting to predict for Africa, Sao Tome and Principe, None
+08-18-2022 04:58:53 PM | INFO | In-Sample MAPE Last 15 Days ('Azerbaijan', 'None'): 0.055 %
+08-18-2022 04:58:53 PM | DEBUG | Best fitted parameters for ('Azerbaijan', 'None'): [ 5.59658647e-01 -2.62783932e+00  4.20608474e+01  2.82137598e-01
+  2.97706290e-01  6.20301218e+00  0.00000000e+00  1.87197314e+00
+  2.47751831e+00  3.41388824e+02  2.38622344e+02  2.25765498e-02]
+08-18-2022 04:58:53 PM | INFO | Finished predicting for Continent=Asia, Country=Azerbaijan and Province=None in 1256.91 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:58:53 PM | INFO | starting to predict for Asia, Saudi Arabia, None
+08-18-2022 04:59:06 PM | INFO | In-Sample MAPE Last 15 Days ('Lithuania', 'None'): 1.32 %
+08-18-2022 04:59:06 PM | DEBUG | Best fitted parameters for ('Lithuania', 'None'): [ 0.00000000e+00 -1.46514635e+00  6.12737288e-01  3.49394919e-02
+  1.25605367e-02  2.47755958e+01  5.29237698e+00  1.59354144e-06
+  1.85845660e+00  1.75927288e-07  1.44233907e+02  5.38762096e-02]
+08-18-2022 04:59:06 PM | INFO | Finished predicting for Continent=Europe, Country=Lithuania and Province=None in 642.25 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:59:06 PM | INFO | starting to predict for Africa, Senegal, None
+08-18-2022 04:59:11 PM | INFO | In-Sample MAPE Last 15 Days ('Lebanon', 'None'): 0.056 %
+08-18-2022 04:59:11 PM | DEBUG | Best fitted parameters for ('Lebanon', 'None'): [ 1.95583009e+00 -9.62416802e-01  0.00000000e+00  3.23479082e-02
+  3.64344106e-02  2.87611510e+00  3.25827955e-01  2.00000000e+00
+  6.16891103e+00  1.77221598e+02  6.35941972e+01  1.19662711e-01]
+08-18-2022 04:59:11 PM | INFO | Finished predicting for Continent=Asia, Country=Lebanon and Province=None in 680.37 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:59:11 PM | INFO | starting to predict for Europe, Serbia, None
+08-18-2022 04:59:17 PM | INFO | In-Sample MAPE Last 15 Days ('Ireland', 'None'): 2.238 %
+08-18-2022 04:59:17 PM | DEBUG | Best fitted parameters for ('Ireland', 'None'): [ 0.00000000e+00  0.00000000e+00  7.41577192e+01  2.00000000e-02
+  3.76886535e-03 -9.99999212e-01  6.69873553e+01  9.30932195e-07
+  2.80542317e+00  2.79226302e+02  2.41267999e+01  9.29269957e-03]
+08-18-2022 04:59:17 PM | INFO | Finished predicting for Continent=Europe, Country=Ireland and Province=None in 794.81 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:59:17 PM | INFO | starting to predict for Africa, Seychelles, None
+08-18-2022 04:59:32 PM | INFO | In-Sample MAPE Last 15 Days ('Libya', 'None'): 0.017 %
+08-18-2022 04:59:32 PM | DEBUG | Best fitted parameters for ('Libya', 'None'): [9.21876714e-01 2.23778958e-01 5.80750926e+00 1.10431845e-01
+ 1.55559707e-02 2.53854475e+00 1.09695449e-01 7.66514372e-02
+ 3.63862362e+00 1.09355153e+02 1.34188940e+01 8.02677331e-01]
+08-18-2022 04:59:32 PM | INFO | Finished predicting for Continent=Africa, Country=Libya and Province=None in 679.28 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:59:32 PM | INFO | starting to predict for Africa, Sierra Leone, None
+08-18-2022 04:59:57 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'South Australia'): 22.405 %
+08-18-2022 04:59:57 PM | DEBUG | Best fitted parameters for ('Australia', 'South Australia'): [ 2.98664807e+00 -4.82839824e-05  2.04681079e+00  2.00000000e-02
+  3.74080923e-02  3.86847264e+01  1.54361533e+01  1.26166596e+01
+  1.85078794e+01  6.70818473e+01  8.55183780e+00  5.92212479e-04]
+08-18-2022 04:59:57 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=South Australia in 1320.67 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 04:59:57 PM | INFO | starting to predict for Asia, Singapore, None
+08-18-2022 05:00:15 PM | INFO | In-Sample MAPE Last 15 Days ('Albania', 'None'): 0.047 %
+08-18-2022 05:00:15 PM | DEBUG | Best fitted parameters for ('Albania', 'None'): [6.78481826e-01 1.02838598e+01 9.01578802e-02 7.41536841e-02
+ 3.69659324e-03 2.26318779e-01 2.07212377e+00 6.28148379e-01
+ 1.76852673e+00 9.92039420e+01 1.31383273e+01 1.83191411e-01]
+08-18-2022 05:00:15 PM | INFO | Finished predicting for Continent=Europe, Country=Albania and Province=None in 1339.5 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:00:15 PM | INFO | starting to predict for Europe, Slovakia, None
+08-18-2022 05:00:31 PM | INFO | In-Sample MAPE Last 15 Days ('Madagascar', 'None'): 0.034 %
+08-18-2022 05:00:31 PM | DEBUG | Best fitted parameters for ('Madagascar', 'None'): [1.82487650e-01 3.63470320e+00 1.77695487e+00 7.90736520e-02
+ 1.37266017e-01 2.96492155e+00 1.88570528e+01 1.04172279e+00
+ 3.53841234e+00 7.32877632e+01 2.67911908e+01 3.94453120e-02]
+08-18-2022 05:00:31 PM | INFO | Finished predicting for Continent=Africa, Country=Madagascar and Province=None in 715.19 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:00:31 PM | INFO | starting to predict for Europe, Slovenia, None
+08-18-2022 05:00:41 PM | INFO | In-Sample MAPE Last 15 Days ('Liberia', 'None'): 0.124 %
+08-18-2022 05:00:41 PM | DEBUG | Best fitted parameters for ('Liberia', 'None'): [ 1.89373274e+00 -1.56931562e+00  8.76602347e-01  2.00000000e-02
+  1.00000000e-03  4.56387501e+00  1.60815111e-01  1.96082685e-02
+  2.00000000e+00  1.44548799e+02  3.00000000e+00  9.53220245e-03]
+08-18-2022 05:00:41 PM | INFO | Finished predicting for Continent=Africa, Country=Liberia and Province=None in 761.43 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:00:41 PM | INFO | starting to predict for Africa, Somalia, None
+08-18-2022 05:00:44 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'Quebec'): 0.332 %
+08-18-2022 05:00:44 PM | DEBUG | Best fitted parameters for ('Canada', 'Quebec'): [ 2.72201727e+00 -7.53306955e-01  2.31458248e+00  1.02280264e-01
+  5.82314590e-03 -1.00000000e+00  8.91826276e-01  2.31687010e-04
+  4.43830805e-01  1.01964196e+02  3.12649121e+01  1.03334599e+00]
+08-18-2022 05:00:44 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=Quebec in 1368.27 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:00:44 PM | INFO | starting to predict for Africa, South Africa, None
+08-18-2022 05:01:04 PM | INFO | In-Sample MAPE Last 15 Days ('Luxembourg', 'None'): 4.122 %
+08-18-2022 05:01:04 PM | DEBUG | Best fitted parameters for ('Luxembourg', 'None'): [ 0.00000000e+00 -2.80238240e+00  2.70268796e+00  2.00000000e-02
+  2.82717729e-03  8.60332606e+01  5.63969606e+00  0.00000000e+00
+  1.21596295e+01  1.08869785e+02  1.30004780e+01  1.96911470e-01]
+08-18-2022 05:01:04 PM | INFO | Finished predicting for Continent=Europe, Country=Luxembourg and Province=None in 758.73 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:01:04 PM | INFO | starting to predict for Africa, South Sudan, None
+08-18-2022 05:01:06 PM | INFO | In-Sample MAPE Last 15 Days ('Jordan', 'None'): 0.052 %
+08-18-2022 05:01:06 PM | DEBUG | Best fitted parameters for ('Jordan', 'None'): [ 3.39304542e+00 -2.52154706e+00  8.16938115e+02  1.50841152e-01
+  9.63024682e-03  4.18485783e+00  1.10584615e-03  1.81237935e+00
+  2.16492624e+00  2.72940428e+02  1.50868525e+02  8.62857279e-02]
+08-18-2022 05:01:06 PM | INFO | Finished predicting for Continent=Asia, Country=Jordan and Province=None in 826.66 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:01:06 PM | INFO | starting to predict for Europe, Spain, None
+08-18-2022 05:01:24 PM | INFO | In-Sample MAPE Last 15 Days ('Ghana', 'None'): 0.066 %
+08-18-2022 05:01:24 PM | DEBUG | Best fitted parameters for ('Ghana', 'None'): [ 1.95163211e+00  1.99867392e+00  1.20191475e+00  7.01512203e-02
+  1.64121264e-03 -1.94738266e-01  1.78217985e-02  1.35288172e+00
+  1.38175156e+00  8.30397593e+01  2.54648401e+00  1.90878160e-04]
+08-18-2022 05:01:24 PM | INFO | Finished predicting for Continent=Africa, Country=Ghana and Province=None in 1408.05 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:01:24 PM | INFO | starting to predict for Asia, Sri Lanka, None
+08-18-2022 05:01:37 PM | INFO | In-Sample MAPE Last 15 Days ('Guinea', 'None'): 0.136 %
+08-18-2022 05:01:37 PM | DEBUG | Best fitted parameters for ('Guinea', 'None'): [ 8.67454989e-01  1.03429081e+00  5.45052223e+00  1.57349042e-01
+  5.27057886e-03 -3.54016774e-02  2.46488151e+00  1.84088059e+00
+  1.39411403e+01  8.24032983e+01  6.71874786e+00  4.59271708e-07]
+08-18-2022 05:01:37 PM | INFO | Finished predicting for Continent=Africa, Country=Guinea and Province=None in 1420.93 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:01:37 PM | INFO | starting to predict for Africa, Sudan, None
+08-18-2022 05:01:40 PM | INFO | In-Sample MAPE Last 15 Days ('Panama', 'None'): 3.397 %
+08-18-2022 05:01:40 PM | DEBUG | Best fitted parameters for ('Panama', 'None'): [0.00000000e+00 0.00000000e+00 6.00638473e-01 2.00000000e-02
+ 1.78534918e-03 0.00000000e+00 5.70562817e+02 1.47137132e-04
+ 7.93991587e-02 3.39892271e+01 6.55416118e+00 5.70162465e-02]
+08-18-2022 05:01:40 PM | INFO | Finished predicting for Continent=North America, Country=Panama and Province=None in 415.77 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:01:40 PM | INFO | starting to predict for South America, Suriname, None
+08-18-2022 05:01:40 PM | INFO | In-Sample MAPE Last 15 Days ('Mali', 'None'): 0.059 %
+08-18-2022 05:01:40 PM | DEBUG | Best fitted parameters for ('Mali', 'None'): [ 1.47994746e+00  7.49193499e+00  2.58080631e+00  1.30999890e-01
+  1.11943839e-02 -2.01974187e-01  1.94430650e+00  3.05974615e+00
+  2.53216709e+00  4.45769825e+02  1.42175030e+02  8.91586765e-03]
+08-18-2022 05:01:40 PM | INFO | Finished predicting for Continent=Africa, Country=Mali and Province=None in 733.88 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:01:40 PM | INFO | starting to predict for Europe, Sweden, None
+08-18-2022 05:02:03 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'New South Wales'): 9.072 %
+08-18-2022 05:02:03 PM | DEBUG | Best fitted parameters for ('Australia', 'New South Wales'): [ 4.64045053e+00  6.94424542e+00  1.82508094e+01  2.00000000e-02
+  1.83436581e-03 -2.46728415e-01  7.15375452e+00  6.11482660e+00
+  2.54564935e+00  1.21820882e+02  3.30409734e+01  6.28211174e-05]
+08-18-2022 05:02:03 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=New South Wales in 1447.58 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:02:03 PM | INFO | starting to predict for Europe, Switzerland, None
+08-18-2022 05:02:38 PM | INFO | In-Sample MAPE Last 15 Days ('Latvia', 'None'): 2.032 %
+08-18-2022 05:02:38 PM | DEBUG | Best fitted parameters for ('Latvia', 'None'): [ 0.00000000e+00 -3.37669038e+00  8.79453227e+00  2.51451533e-02
+  9.52713572e-03  1.75435621e+02  2.51721582e+00  0.00000000e+00
+  4.88084113e+00  4.34546189e-05  1.62903938e+02  1.03992783e-01]
+08-18-2022 05:02:38 PM | INFO | Finished predicting for Continent=Europe, Country=Latvia and Province=None in 887.68 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:02:38 PM | INFO | starting to predict for Asia, Tajikistan, None
+08-18-2022 05:02:38 PM | ERROR | Initial conditions for PopulationR too high for Tajikistan-None, on 2021-05-01
+08-18-2022 05:03:55 PM | INFO | In-Sample MAPE Last 15 Days ('Netherlands', 'None'): 0.986 %
+08-18-2022 05:03:55 PM | DEBUG | Best fitted parameters for ('Netherlands', 'None'): [ 0.00000000e+00 -2.96998637e+00  2.66509370e+00  2.00000000e-02
+  1.00000000e-03  6.67733039e-01  1.46444104e+02  0.00000000e+00
+  0.00000000e+00  7.46261680e-04  1.00106230e+00  1.70195501e-03]
+08-18-2022 05:03:55 PM | INFO | Finished predicting for Continent=Europe, Country=Netherlands and Province=None in 673.01 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:03:55 PM | INFO | starting to predict for Africa, Tanzania, None
+08-18-2022 05:04:24 PM | INFO | In-Sample MAPE Last 15 Days ('Maldives', 'None'): 1.096 %
+08-18-2022 05:04:24 PM | DEBUG | Best fitted parameters for ('Maldives', 'None'): [ 0.00000000e+00  1.45592964e+02  7.49133479e-01  2.00000000e-02
+  1.09912242e-03 -7.03381628e-01  1.02630899e+02  1.76363881e-04
+  3.84288045e+00  3.89081841e+02  7.15457497e+01  8.49370589e-04]
+08-18-2022 05:04:24 PM | INFO | Finished predicting for Continent=Asia, Country=Maldives and Province=None in 902.85 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:04:24 PM | INFO | starting to predict for Asia, Thailand, None
+08-18-2022 05:04:40 PM | INFO | In-Sample MAPE Last 15 Days ('Angola', 'None'): 0.121 %
+08-18-2022 05:04:40 PM | DEBUG | Best fitted parameters for ('Angola', 'None'): [3.16983834e+00 3.47692743e+00 1.09993129e+00 2.01172572e-02
+ 9.88519259e-02 2.16381068e+00 2.61129600e-01 2.06092873e-01
+ 2.55113054e+00 4.55227250e+02 6.59701791e+00 3.28291015e-06]
+08-18-2022 05:04:40 PM | INFO | Finished predicting for Continent=Africa, Country=Angola and Province=None in 1603.97 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:04:40 PM | INFO | starting to predict for Asia, Timor-Leste, None
+08-18-2022 05:04:47 PM | INFO | In-Sample MAPE Last 15 Days ('New Zealand', 'None'): 19.737 %
+08-18-2022 05:04:47 PM | DEBUG | Best fitted parameters for ('New Zealand', 'None'): [3.66504602e+00 9.52672785e-01 3.98091300e+00 2.00000000e-02
+ 1.61014539e-02 9.57448473e+00 2.06461011e+00 5.45210355e+00
+ 2.52494003e+00 7.14546998e+01 1.24395918e+01 2.72784276e-03]
+08-18-2022 05:04:47 PM | INFO | Finished predicting for Continent=Oceania, Country=New Zealand and Province=None in 678.24 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:04:47 PM | INFO | starting to predict for Africa, Togo, None
+08-18-2022 05:04:56 PM | INFO | In-Sample MAPE Last 15 Days ('Morocco', 'None'): 0.238 %
+08-18-2022 05:04:56 PM | DEBUG | Best fitted parameters for ('Morocco', 'None'): [ 3.25855116e+00  2.64957009e+00  9.44789389e-01  6.04944627e-02
+  2.24270793e-03 -5.25697454e-02  6.34707215e-01  4.68171143e-04
+  0.00000000e+00  1.76882524e+02  1.22106030e+02  1.05566336e-04]
+08-18-2022 05:04:56 PM | INFO | Finished predicting for Continent=Africa, Country=Morocco and Province=None in 820.6 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:04:56 PM | INFO | starting to predict for South America, Trinidad and Tobago, None
+08-18-2022 05:04:57 PM | INFO | In-Sample MAPE Last 15 Days ('Liechtenstein', 'None'): 2.438 %
+08-18-2022 05:04:57 PM | DEBUG | Best fitted parameters for ('Liechtenstein', 'None'): [ 0.00000000e+00 -5.10979430e+00  4.10163891e+00  2.00000000e-02
+  4.98676716e-03  2.24803336e+02  1.22927731e+01  8.16032238e-05
+  3.06008817e+01  4.50970114e+02  2.41139738e+01  4.34441974e-02]
+08-18-2022 05:04:57 PM | INFO | Finished predicting for Continent=Europe, Country=Liechtenstein and Province=None in 993.27 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:04:57 PM | INFO | starting to predict for Africa, Tunisia, None
+08-18-2022 05:05:25 PM | INFO | In-Sample MAPE Last 15 Days ('Mauritius', 'None'): 1.911 %
+08-18-2022 05:05:25 PM | DEBUG | Best fitted parameters for ('Mauritius', 'None'): [5.06151662e-01 0.00000000e+00 0.00000000e+00 1.00000000e+00
+ 2.47441489e-03 5.26622572e+00 0.00000000e+00 3.55408930e+00
+ 0.00000000e+00 4.84000000e+02 1.00000000e+00 1.70466630e-02]
+08-18-2022 05:05:25 PM | INFO | Finished predicting for Continent=Africa, Country=Mauritius and Province=None in 930.8 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:05:25 PM | INFO | starting to predict for Asia, Turkey, None
+08-18-2022 05:05:28 PM | INFO | In-Sample MAPE Last 15 Days ('Monaco', 'None'): 5.008 %
+08-18-2022 05:05:28 PM | DEBUG | Best fitted parameters for ('Monaco', 'None'): [0.00000000e+00 2.06059967e+00 0.00000000e+00 2.00000000e-02
+ 4.08434118e-03 2.45182198e+01 4.18291601e+00 1.32153851e-06
+ 2.85590087e+00 4.35758695e+01 1.62866080e+00 4.40127763e-01]
+08-18-2022 05:05:28 PM | INFO | Finished predicting for Continent=Europe, Country=Monaco and Province=None in 862.54 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:05:28 PM | INFO | starting to predict for North America, US, Alabama
+08-18-2022 05:05:28 PM | INFO | In-Sample MAPE Last 15 Days ('Namibia', 'None'): 0.144 %
+08-18-2022 05:05:28 PM | DEBUG | Best fitted parameters for ('Namibia', 'None'): [5.17423637e+00 1.55603691e+00 2.18139660e+00 4.02550513e-02
+ 1.31245852e-02 5.40887987e-01 2.58314611e+00 1.82370170e+00
+ 5.74123697e-01 4.60004623e+02 3.99518477e+01 5.13970643e-04]
+08-18-2022 05:05:28 PM | INFO | Finished predicting for Continent=Africa, Country=Namibia and Province=None in 772.57 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:05:28 PM | INFO | starting to predict for North America, US, Alaska
+08-18-2022 05:06:09 PM | INFO | In-Sample MAPE Last 15 Days ('Serbia', 'None'): 3.165 %
+08-18-2022 05:06:09 PM | DEBUG | Best fitted parameters for ('Serbia', 'None'): [0.00000000e+00 0.00000000e+00 3.01863485e+00 2.00000000e-02
+ 1.69804655e-02 6.11337446e+01 4.38516247e+00 9.69460989e-05
+ 3.85243243e+01 1.82003895e+02 1.57918228e+01 7.97151701e-02]
+08-18-2022 05:06:09 PM | INFO | Finished predicting for Continent=Europe, Country=Serbia and Province=None in 417.74 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:06:09 PM | INFO | starting to predict for North America, US, Arizona
+08-18-2022 05:07:35 PM | INFO | In-Sample MAPE Last 15 Days ('Costa Rica', 'None'): 3.502 %
+08-18-2022 05:07:35 PM | DEBUG | Best fitted parameters for ('Costa Rica', 'None'): [ 8.56641093e+00 -4.65328877e-05  7.31135181e-01  3.05353814e-01
+  3.94893750e-02  2.93092142e+00  1.99985812e+00  1.99967880e+00
+  3.73188587e+00  1.21731836e+02  9.67560144e+00  1.99569783e-03]
+08-18-2022 05:07:35 PM | INFO | Finished predicting for Continent=North America, Country=Costa Rica and Province=None in 1778.72 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:07:35 PM | INFO | starting to predict for North America, US, Arkansas
+08-18-2022 05:07:43 PM | INFO | In-Sample MAPE Last 15 Days ('Kosovo', 'None'): 0.119 %
+08-18-2022 05:07:43 PM | DEBUG | Best fitted parameters for ('Kosovo', 'None'): [ 8.85118696e-01 -1.17734932e+00  2.95807502e-02  9.75805638e-01
+  3.34416926e-02  7.13933779e+00  6.58394525e+00  2.16746979e+00
+  3.08966127e+00  1.08357450e+02  1.00247768e+01  5.08078899e-02]
+08-18-2022 05:07:43 PM | INFO | Finished predicting for Continent=Europe, Country=Kosovo and Province=None in 1208.66 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:07:43 PM | INFO | starting to predict for North America, US, California
+08-18-2022 05:08:05 PM | INFO | In-Sample MAPE Last 15 Days ('Mauritania', 'None'): 0.198 %
+08-18-2022 05:08:05 PM | DEBUG | Best fitted parameters for ('Mauritania', 'None'): [2.32399919e+00 2.88824293e+00 6.82595643e-01 4.73504364e-02
+ 2.43958712e-02 1.14819973e+00 1.86053450e+00 9.83731422e-01
+ 2.18078387e+00 3.43228930e+02 7.09137978e+00 2.93631414e-05]
+08-18-2022 05:08:05 PM | INFO | Finished predicting for Continent=Africa, Country=Mauritania and Province=None in 1094.61 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:08:05 PM | INFO | starting to predict for North America, US, Colorado
+08-18-2022 05:08:07 PM | INFO | In-Sample MAPE Last 15 Days ('Tajikistan', 'None'): 0.0 %
+08-18-2022 05:08:07 PM | DEBUG | Best fitted parameters for ('Tajikistan', 'None'): [ 0.00000000e+00 -7.20325164e+00  9.29460514e+01  1.00000000e+00
+  1.00000000e-03  4.21711552e+02  0.00000000e+00  0.00000000e+00
+  2.55320646e+00 -6.98756191e+01  3.76919608e+00  0.00000000e+00]
+08-18-2022 05:08:07 PM | INFO | Finished predicting for Continent=Asia, Country=Tajikistan and Province=None in 329.72 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:08:07 PM | INFO | starting to predict for North America, US, Connecticut
+08-18-2022 05:08:15 PM | INFO | In-Sample MAPE Last 15 Days ('Qatar', 'None'): 1.742 %
+08-18-2022 05:08:15 PM | DEBUG | Best fitted parameters for ('Qatar', 'None'): [1.29972242e+00 1.77775886e+00 2.46601413e+01 2.00000000e-02
+ 1.00000000e-03 2.88557297e+00 6.28647708e+01 7.50752228e-01
+ 1.41096661e+00 9.51052179e+01 6.29216659e+01 1.26894434e-02]
+08-18-2022 05:08:15 PM | INFO | Finished predicting for Continent=Asia, Country=Qatar and Province=None in 685.1 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:08:15 PM | INFO | starting to predict for North America, US, Delaware
+08-18-2022 05:08:15 PM | INFO | In-Sample MAPE Last 15 Days ('Mexico', 'None'): 0.13 %
+08-18-2022 05:08:15 PM | DEBUG | Best fitted parameters for ('Mexico', 'None'): [1.91509101e+00 1.15790565e+01 6.68465238e+00 8.92711042e-02
+ 9.56867474e-02 3.93011215e+00 6.63168471e-07 1.36904057e-02
+ 4.53681435e-01 8.99721392e+01 2.36768392e+01 1.72586242e-01]
+08-18-2022 05:08:15 PM | INFO | Finished predicting for Continent=North America, Country=Mexico and Province=None in 1082.35 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:08:15 PM | INFO | starting to predict for North America, US, District of Columbia
+08-18-2022 05:08:32 PM | INFO | In-Sample MAPE Last 15 Days ('Malaysia', 'None'): 0.022 %
+08-18-2022 05:08:32 PM | DEBUG | Best fitted parameters for ('Malaysia', 'None'): [ 3.27616667e-01  4.59870648e+01  8.11451168e-01  2.10946544e-01
+  1.47052590e-03 -9.97188005e-01  6.33633735e-01  9.23232426e-02
+  4.96163928e+00  1.07090670e+02  3.70971988e+01  9.70870236e-01]
+08-18-2022 05:08:32 PM | INFO | Finished predicting for Continent=Asia, Country=Malaysia and Province=None in 1180.4 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:08:32 PM | INFO | starting to predict for North America, US, Florida
+08-18-2022 05:09:41 PM | INFO | In-Sample MAPE Last 15 Days ('Norway', 'None'): 1.665 %
+08-18-2022 05:09:41 PM | DEBUG | Best fitted parameters for ('Norway', 'None'): [3.84199559e+00 3.96119700e+01 0.00000000e+00 2.00000000e-02
+ 4.28334565e-02 1.54202283e+00 7.91672719e-01 2.06759390e+00
+ 6.89135419e+00 9.50825103e+01 2.54703727e+01 2.18670485e-02]
+08-18-2022 05:09:41 PM | INFO | Finished predicting for Continent=Europe, Country=Norway and Province=None in 918.85 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:09:41 PM | INFO | starting to predict for North America, US, Georgia
+08-18-2022 05:10:00 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'Yukon'): 7.659 %
+08-18-2022 05:10:00 PM | DEBUG | Best fitted parameters for ('Canada', 'Yukon'): [1.50000000e+00 4.03047450e+00 1.00000000e+00 2.19490419e-02
+ 2.43279429e-02 4.43806507e-01 1.00000000e-03 1.00000000e-03
+ 3.28820766e-01 2.42935866e+02 1.00000000e+02 9.99000000e-01]
+08-18-2022 05:10:00 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=Yukon in 1924.49 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:10:00 PM | INFO | starting to predict for North America, US, Hawaii
+08-18-2022 05:10:02 PM | INFO | In-Sample MAPE Last 15 Days ('San Marino', 'None'): 4.954 %
+08-18-2022 05:10:02 PM | DEBUG | Best fitted parameters for ('San Marino', 'None'): [ 0.00000000e+00  0.00000000e+00  3.42581325e+00  2.00000000e-02
+  1.40487356e-03 -7.00479205e-02  2.67508298e+01  3.62967416e-05
+  0.00000000e+00  4.83647375e+02  1.18054154e+00  1.90770095e-02]
+08-18-2022 05:10:02 PM | INFO | Finished predicting for Continent=Europe, Country=San Marino and Province=None in 715.06 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:10:02 PM | INFO | starting to predict for North America, US, Idaho
+08-18-2022 05:10:07 PM | INFO | In-Sample MAPE Last 15 Days ('Gambia', 'None'): 0.125 %
+08-18-2022 05:10:07 PM | DEBUG | Best fitted parameters for ('Gambia', 'None'): [ 1.20782227e+00 -1.85410917e+00  3.54756620e+02  1.00000000e+00
+  7.98985398e-03 -1.00000000e+00  3.56724318e+00  6.92202913e+00
+  1.53489390e+00  1.05768267e+02  1.80833578e+01  7.49189075e-02]
+08-18-2022 05:10:07 PM | INFO | Finished predicting for Continent=Africa, Country=Gambia and Province=None in 1931.39 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:10:07 PM | INFO | starting to predict for North America, US, Illinois
+08-18-2022 05:10:13 PM | INFO | In-Sample MAPE Last 15 Days ('Russia', 'None'): 0.052 %
+08-18-2022 05:10:13 PM | DEBUG | Best fitted parameters for ('Russia', 'None'): [ 7.25564381e-01 -4.75397201e-01  2.08497318e-02  2.29315866e-02
+  1.13510159e-02  1.49827075e+01  3.89966568e-02  1.16950017e-01
+  1.80187073e+00  1.56943478e+02  3.89879519e+01  1.89764026e+00]
+08-18-2022 05:10:13 PM | INFO | Finished predicting for Continent=Asia, Country=Russia and Province=None in 735.5 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:10:13 PM | INFO | starting to predict for North America, US, Indiana
+08-18-2022 05:10:15 PM | INFO | In-Sample MAPE Last 15 Days ('Slovakia', 'None'): 0.587 %
+08-18-2022 05:10:15 PM | DEBUG | Best fitted parameters for ('Slovakia', 'None'): [ 0.00000000e+00 -4.53206213e-01  3.21979025e+00  3.79096416e-02
+  3.19989020e-03 -9.77327069e-01  2.97320007e+00  0.00000000e+00
+  1.68785976e+00  0.00000000e+00  7.82639070e+01  7.35784654e-02]
+08-18-2022 05:10:15 PM | INFO | Finished predicting for Continent=Europe, Country=Slovakia and Province=None in 599.61 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:10:15 PM | INFO | starting to predict for North America, US, Iowa
+08-18-2022 05:10:26 PM | INFO | In-Sample MAPE Last 15 Days ('Korea, South', 'None'): 305.982 %
+08-18-2022 05:10:26 PM | DEBUG | Best fitted parameters for ('Korea, South', 'None'): [ 3.78560264e+00 -2.36632049e+00  4.86982844e-10  5.85301731e-02
+  9.94059914e-02  1.47165801e+02  1.51341574e+01  2.00000024e+00
+  2.95054013e+01  4.14948369e-01  3.04398762e+01  1.92703735e+00]
+08-18-2022 05:10:26 PM | INFO | Finished predicting for Continent=Asia, Country=Korea, South and Province=None in 1374.28 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:10:26 PM | INFO | starting to predict for North America, US, Kansas
+08-18-2022 05:10:43 PM | INFO | In-Sample MAPE Last 15 Days ('Romania', 'None'): 0.074 %
+08-18-2022 05:10:43 PM | DEBUG | Best fitted parameters for ('Romania', 'None'): [ 2.19887804e+00  2.38485876e+00  7.02199006e+00  4.79607035e-02
+  3.11280225e-03 -3.31117530e-01  1.79971236e-01  0.00000000e+00
+  1.52819067e+00  1.05614204e+02  3.56212216e+01  5.08491306e+00]
+08-18-2022 05:10:43 PM | INFO | Finished predicting for Continent=Europe, Country=Romania and Province=None in 795.57 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:10:43 PM | INFO | starting to predict for North America, US, Kentucky
+08-18-2022 05:11:19 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'Prince Edward Island'): 27.009 %
+08-18-2022 05:11:19 PM | DEBUG | Best fitted parameters for ('Canada', 'Prince Edward Island'): [4.95504905e-01 9.99998579e+01 1.00039942e+00 2.00000000e-02
+ 1.96952783e-02 2.44291432e+00 3.56276336e-03 1.00111874e-03
+ 4.76044368e+00 3.00000000e+02 3.40759033e+01 2.00320852e-01]
+08-18-2022 05:11:19 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=Prince Edward Island in 2003.6 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:11:20 PM | INFO | starting to predict for North America, US, Louisiana
+08-18-2022 05:11:29 PM | INFO | In-Sample MAPE Last 15 Days ('Switzerland', 'None'): 2.895 %
+08-18-2022 05:11:29 PM | DEBUG | Best fitted parameters for ('Switzerland', 'None'): [ 0.00000000e+00 -5.77268786e+00  1.01252330e-01  2.00000000e-02
+  1.00000000e-03  1.98848709e+01  2.69924771e+00  0.00000000e+00
+  2.49048981e+00  3.63228439e+02  6.73530520e+00  1.60678293e-01]
+08-18-2022 05:11:29 PM | INFO | Finished predicting for Continent=Europe, Country=Switzerland and Province=None in 565.31 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:11:29 PM | INFO | starting to predict for North America, US, Maine
+08-18-2022 05:11:31 PM | INFO | In-Sample MAPE Last 15 Days ('Rwanda', 'None'): 0.014 %
+08-18-2022 05:11:31 PM | DEBUG | Best fitted parameters for ('Rwanda', 'None'): [ 1.14855705e-01  2.90195805e-01  2.59070052e+01  4.43365128e-02
+  2.39868200e-03 -3.51657454e-01  2.15950570e+00  7.10640802e+00
+  5.49036419e+00  6.82299782e+01  3.61478913e+01  1.40728248e-01]
+08-18-2022 05:11:31 PM | INFO | Finished predicting for Continent=Africa, Country=Rwanda and Province=None in 812.45 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:11:31 PM | INFO | starting to predict for North America, US, Maryland
+08-18-2022 05:11:37 PM | INFO | In-Sample MAPE Last 15 Days ('Bolivia', 'None'): 0.265 %
+08-18-2022 05:11:37 PM | DEBUG | Best fitted parameters for ('Bolivia', 'None'): [7.11075038e-01 3.79627406e+00 1.89611731e+02 6.59338187e-02
+ 4.17360353e-02 4.84642729e+00 1.28716028e-02 1.94307590e-02
+ 1.50243652e+00 8.38150095e+01 5.18645273e+01 2.14894374e+00]
+08-18-2022 05:11:37 PM | INFO | Finished predicting for Continent=South America, Country=Bolivia and Province=None in 2021.18 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:11:37 PM | INFO | starting to predict for North America, US, Massachusetts
+08-18-2022 05:11:59 PM | INFO | In-Sample MAPE Last 15 Days ('Philippines', 'None'): 0.129 %
+08-18-2022 05:11:59 PM | DEBUG | Best fitted parameters for ('Philippines', 'None'): [1.06114432e+00 5.69620448e+00 4.16127111e+00 7.12484329e-02
+ 1.32312470e-01 2.60734325e+00 3.79056884e-05 9.79292152e-02
+ 1.23063776e+00 1.02451424e+02 1.86430523e+01 1.80733370e+00]
+08-18-2022 05:11:59 PM | INFO | Finished predicting for Continent=Asia, Country=Philippines and Province=None in 930.65 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:11:59 PM | INFO | starting to predict for North America, US, Michigan
+08-18-2022 05:12:05 PM | INFO | In-Sample MAPE Last 15 Days ('Spain', 'None'): 2.893 %
+08-18-2022 05:12:05 PM | DEBUG | Best fitted parameters for ('Spain', 'None'): [ 0.00000000e+00 -2.97373472e+01  6.35530020e+00  2.00000000e-02
+  5.25178343e-03  2.53582245e+00  1.99855456e+00  5.95433374e-06
+  0.00000000e+00  4.84000000e+02  1.00000000e+00  6.92866211e-01]
+08-18-2022 05:12:05 PM | INFO | Finished predicting for Continent=Europe, Country=Spain and Province=None in 658.07 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:12:05 PM | INFO | starting to predict for North America, US, Minnesota
+08-18-2022 05:12:42 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'Northern Territory'): 26.728 %
+08-18-2022 05:12:42 PM | DEBUG | Best fitted parameters for ('Australia', 'Northern Territory'): [ 7.59378232e-01 -4.24442864e+01  7.18033132e+00  2.00000000e-02
+  1.06119743e-02  3.58305356e+00  4.99970699e+00  4.99981087e+00
+  3.22319902e+00  2.91027767e+02  6.95326376e+01  2.00000000e-01]
+08-18-2022 05:12:42 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=Northern Territory in 2086.59 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:12:42 PM | INFO | starting to predict for North America, US, Mississippi
+08-18-2022 05:12:48 PM | INFO | In-Sample MAPE Last 15 Days ('Jamaica', 'None'): 0.392 %
+08-18-2022 05:12:48 PM | DEBUG | Best fitted parameters for ('Jamaica', 'None'): [2.31895955e+00 5.18728460e+00 9.93812319e+00 2.14846353e-01
+ 1.28339779e-01 1.38413772e+00 2.90153824e+01 2.02479596e+01
+ 2.35953709e-01 4.67388138e+00 1.02321606e+02 4.40529651e-04]
+08-18-2022 05:12:48 PM | INFO | Finished predicting for Continent=Africa, Country=Jamaica and Province=None in 1533.21 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:12:48 PM | INFO | starting to predict for North America, US, Missouri
+08-18-2022 05:12:53 PM | INFO | In-Sample MAPE Last 15 Days ('South Sudan', 'None'): 0.246 %
+08-18-2022 05:12:53 PM | DEBUG | Best fitted parameters for ('South Sudan', 'None'): [1.77893752e-01 3.47474949e+00 9.81125122e+00 2.00000000e-02
+ 1.00000000e-03 2.59193266e+01 1.04483655e+01 2.02932528e+00
+ 2.23305130e+00 3.03100666e+02 3.08518687e+02 1.03703227e-01]
+08-18-2022 05:12:53 PM | INFO | Finished predicting for Continent=Africa, Country=South Sudan and Province=None in 709.13 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:12:53 PM | INFO | starting to predict for North America, US, Montana
+08-18-2022 05:13:08 PM | INFO | In-Sample MAPE Last 15 Days ('Niger', 'None'): 0.044 %
+08-18-2022 05:13:08 PM | DEBUG | Best fitted parameters for ('Niger', 'None'): [1.71022791e+00 1.02952388e+01 3.13386929e+00 2.70428721e-02
+ 3.09381564e-02 8.80496058e-01 2.19950712e+00 1.49333290e+00
+ 2.85969952e-01 1.05163617e+02 1.79368589e+01 2.61892604e-03]
+08-18-2022 05:13:08 PM | INFO | Finished predicting for Continent=Africa, Country=Niger and Province=None in 1158.14 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:13:08 PM | INFO | starting to predict for North America, US, Nebraska
+08-18-2022 05:13:25 PM | INFO | In-Sample MAPE Last 15 Days ('Singapore', 'None'): 12.574 %
+08-18-2022 05:13:25 PM | DEBUG | Best fitted parameters for ('Singapore', 'None'): [0.00000000e+00 1.66473045e+00 1.61009686e+00 2.00000000e-02
+ 1.00000000e-03 1.53257730e+01 1.03648322e+01 1.38836221e+00
+ 1.92308985e+00 3.02418103e+01 1.55362528e+01 2.00574769e-01]
+08-18-2022 05:13:25 PM | INFO | Finished predicting for Continent=Asia, Country=Singapore and Province=None in 808.91 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:13:25 PM | INFO | starting to predict for North America, US, Nevada
+08-18-2022 05:13:40 PM | INFO | In-Sample MAPE Last 15 Days ('Sudan', 'None'): 0.015 %
+08-18-2022 05:13:40 PM | DEBUG | Best fitted parameters for ('Sudan', 'None'): [ 1.26177566e-01 -1.96228242e+00  1.29381741e+01  5.75129445e-02
+  1.02242916e-01  6.36340821e-01  0.00000000e+00  3.69675450e-01
+  3.25846325e+00  7.70673861e+01  6.57638260e+01  1.87557226e+00]
+08-18-2022 05:13:40 PM | INFO | Finished predicting for Continent=Africa, Country=Sudan and Province=None in 723.27 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:13:40 PM | INFO | starting to predict for North America, US, New Hampshire
+08-18-2022 05:13:43 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Arizona'): 2.348 %
+08-18-2022 05:13:43 PM | DEBUG | Best fitted parameters for ('US', 'Arizona'): [ 0.00000000e+00  1.14686418e+00  0.00000000e+00  2.57193386e-02
+  1.19757315e-02 -3.91822317e-01  3.94663823e+00  1.23547181e-05
+  0.00000000e+00  6.26642800e+01  1.00000000e+00  1.25696600e-01]
+08-18-2022 05:13:43 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Arizona in 454.79 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:13:43 PM | INFO | starting to predict for North America, US, New Jersey
+08-18-2022 05:13:59 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'Victoria'): 14.289 %
+08-18-2022 05:13:59 PM | DEBUG | Best fitted parameters for ('Australia', 'Victoria'): [1.33606014e+01 1.92458257e+01 6.49002545e+02 2.00000000e-02
+ 1.56577656e-03 3.13338363e+01 3.06768251e+01 6.51047612e+00
+ 7.72448412e-01 4.59628480e+02 1.40172730e+01 5.54938720e-01]
+08-18-2022 05:13:59 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=Victoria in 2163.12 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:13:59 PM | INFO | starting to predict for North America, US, New Mexico
+08-18-2022 05:15:31 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Alabama'): 2.827 %
+08-18-2022 05:15:31 PM | DEBUG | Best fitted parameters for ('US', 'Alabama'): [ 0.00000000e+00 -3.69187467e+00  9.41279640e-01  2.00000000e-02
+  3.01827552e-03  7.72413685e-01  2.93471312e-01  0.00000000e+00
+  2.00021838e+00  1.29881237e+02  1.99495105e+01  1.72407533e+00]
+08-18-2022 05:15:31 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Alabama in 603.2 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:15:31 PM | INFO | starting to predict for North America, US, New York
+08-18-2022 05:15:54 PM | INFO | In-Sample MAPE Last 15 Days ('Suriname', 'None'): 0.071 %
+08-18-2022 05:15:54 PM | DEBUG | Best fitted parameters for ('Suriname', 'None'): [ 7.15580914e-01  5.62034414e+01  1.10345473e+01  3.01262310e-02
+  2.23211348e-02 -3.07026805e-01  4.25065039e-01  5.52092669e+00
+  1.07947205e+00  1.07729195e+02  5.76822376e+01  1.55101426e-02]
+08-18-2022 05:15:54 PM | INFO | Finished predicting for Continent=South America, Country=Suriname and Province=None in 853.75 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:15:54 PM | INFO | starting to predict for North America, US, North Carolina
+08-18-2022 05:15:54 PM | INFO | In-Sample MAPE Last 15 Days ('Oman', 'None'): 0.602 %
+08-18-2022 05:15:54 PM | DEBUG | Best fitted parameters for ('Oman', 'None'): [ 1.15462808e+00 -3.10676530e+00  1.45293190e+00  1.00000000e+00
+  2.68193357e-01  6.44690080e-01  5.16510129e+00  3.97737651e+00
+  1.56416729e+01  7.84521639e+01  3.10835136e+00  7.27535701e-04]
+08-18-2022 05:15:54 PM | INFO | Finished predicting for Continent=Asia, Country=Oman and Province=None in 1284.52 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:15:54 PM | INFO | starting to predict for North America, US, North Dakota
+08-18-2022 05:15:56 PM | INFO | In-Sample MAPE Last 15 Days ('Trinidad and Tobago', 'None'): 0.443 %
+08-18-2022 05:15:56 PM | DEBUG | Best fitted parameters for ('Trinidad and Tobago', 'None'): [ 7.07492732e-01 -1.72806418e+00  0.00000000e+00  2.29446663e-01
+  7.75119436e-03 -1.15127612e-01  4.96100162e-01  6.00665269e-01
+  1.08704793e+00  3.06983462e+01  2.79545163e+00  4.42074984e-01]
+08-18-2022 05:15:56 PM | INFO | Finished predicting for Continent=South America, Country=Trinidad and Tobago and Province=None in 660.31 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:15:56 PM | INFO | starting to predict for North America, US, Ohio
+08-18-2022 05:16:06 PM | INFO | In-Sample MAPE Last 15 Days ('Kuwait', 'None'): 0.289 %
+08-18-2022 05:16:06 PM | DEBUG | Best fitted parameters for ('Kuwait', 'None'): [4.38687216e+00 1.86534780e+00 8.12549619e-01 2.00000000e-02
+ 1.00000000e-03 4.01996017e+00 2.75744242e-01 5.78899110e-02
+ 1.50934376e+00 2.91154200e+01 3.15873332e+01 1.38025747e-08]
+08-18-2022 05:16:06 PM | INFO | Finished predicting for Continent=Asia, Country=Kuwait and Province=None in 1703.92 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:16:06 PM | INFO | starting to predict for North America, US, Oklahoma
+08-18-2022 05:16:07 PM | INFO | In-Sample MAPE Last 15 Days ('Nicaragua', 'None'): 0.19 %
+08-18-2022 05:16:07 PM | DEBUG | Best fitted parameters for ('Nicaragua', 'None'): [6.69531222e-02 1.01110998e+00 2.96437200e+01 3.01388309e-02
+ 8.25774286e-02 8.20641969e-01 1.99474870e+00 2.38083942e+00
+ 5.24660191e+00 7.21153861e+01 2.55042876e+02 7.93567151e-02]
+08-18-2022 05:16:07 PM | INFO | Finished predicting for Continent=North America, Country=Nicaragua and Province=None in 1340.23 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:16:07 PM | INFO | starting to predict for North America, US, Oregon
+08-18-2022 05:16:08 PM | INFO | In-Sample MAPE Last 15 Days ('Central African Republic', 'None'): 0.04 %
+08-18-2022 05:16:08 PM | DEBUG | Best fitted parameters for ('Central African Republic', 'None'): [ 1.99976566e+00 -1.96054479e-01  5.03402178e-01  2.00000000e-02
+  1.00000000e-03  1.97089880e+00  8.90769244e+00  2.15276533e+00
+  6.35429549e-01  1.04709483e+02  2.01611389e+00  2.53061123e-09]
+08-18-2022 05:16:08 PM | INFO | Finished predicting for Continent=Africa, Country=Central African Republic and Province=None in 2292.51 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:16:08 PM | INFO | starting to predict for North America, US, Pennsylvania
+08-18-2022 05:16:13 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Connecticut'): 2.423 %
+08-18-2022 05:16:13 PM | DEBUG | Best fitted parameters for ('US', 'Connecticut'): [ 0.00000000e+00  0.00000000e+00  3.13191537e+00  2.00000000e-02
+  3.56852920e-03 -1.00000000e+00  6.15959161e+00  3.57030477e-01
+  0.00000000e+00  4.84000000e+02  1.00000000e+00  2.00104340e+00]
+08-18-2022 05:16:13 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Connecticut in 485.98 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:16:13 PM | INFO | starting to predict for North America, US, Rhode Island
+08-18-2022 05:16:17 PM | INFO | In-Sample MAPE Last 15 Days ('Montenegro', 'None'): 4.115 %
+08-18-2022 05:16:17 PM | DEBUG | Best fitted parameters for ('Montenegro', 'None'): [ 0.00000000e+00  2.00085604e+00  2.95656532e+00  2.00000000e-02
+  2.56557961e-03 -1.00000000e+00  1.57871468e+01  0.00000000e+00
+  6.06469092e+01  0.00000000e+00  2.00000000e+02  1.18751912e-02]
+08-18-2022 05:16:17 PM | INFO | Finished predicting for Continent=Europe, Country=Montenegro and Province=None in 1504.68 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:16:17 PM | INFO | starting to predict for North America, US, South Carolina
+08-18-2022 05:16:30 PM | INFO | In-Sample MAPE Last 15 Days ('Tanzania', 'None'): 0.603 %
+08-18-2022 05:16:30 PM | DEBUG | Best fitted parameters for ('Tanzania', 'None'): [5.07840665e+00 1.61458267e-02 2.31138485e+01 3.06308449e-02
+ 5.70502161e-02 1.00079681e+00 1.21753722e+00 8.04957318e-01
+ 1.08044599e-01 8.76348345e+01 2.98824004e+01 2.68963617e-01]
+08-18-2022 05:16:30 PM | INFO | Finished predicting for Continent=Africa, Country=Tanzania and Province=None in 754.85 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:16:30 PM | INFO | starting to predict for North America, US, South Dakota
+08-18-2022 05:16:35 PM | INFO | In-Sample MAPE Last 15 Days ('Senegal', 'None'): 0.074 %
+08-18-2022 05:16:35 PM | DEBUG | Best fitted parameters for ('Senegal', 'None'): [ 5.46063474e-01  1.80790041e+00  5.66144996e-02  1.00000000e+00
+  2.03353413e-03 -1.00000000e+00  1.56200024e+00  8.87431451e-01
+  0.00000000e+00  1.96931847e+02  2.53535854e+01  1.71927961e-02]
+08-18-2022 05:16:35 PM | INFO | Finished predicting for Continent=Africa, Country=Senegal and Province=None in 1048.81 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:16:35 PM | INFO | starting to predict for North America, US, Tennessee
+08-18-2022 05:16:36 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'District of Columbia'): 6.797 %
+08-18-2022 05:16:36 PM | DEBUG | Best fitted parameters for ('US', 'District of Columbia'): [ 0.00000000e+00  1.27944634e+00  7.37840686e+00  2.00000000e-02
+  3.25734175e-03 -1.00000000e+00  2.15439713e+00  2.00000012e+00
+  7.20518886e+00  4.84000000e+02  1.00000000e+00  2.03800925e+00]
+08-18-2022 05:16:36 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=District of Columbia in 501.23 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:16:36 PM | INFO | starting to predict for North America, US, Texas
+08-18-2022 05:17:21 PM | INFO | In-Sample MAPE Last 15 Days ('Saudi Arabia', 'None'): 0.053 %
+08-18-2022 05:17:21 PM | DEBUG | Best fitted parameters for ('Saudi Arabia', 'None'): [2.86301288e-01 6.99562981e+00 3.60265373e+00 1.00000000e+00
+ 1.59556260e-02 1.08468164e+00 1.47515437e-01 1.04277808e-06
+ 1.90432581e+00 4.02857122e+01 6.14133379e+01 6.09403520e-01]
+08-18-2022 05:17:21 PM | INFO | Finished predicting for Continent=Asia, Country=Saudi Arabia and Province=None in 1108.65 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:17:21 PM | INFO | starting to predict for North America, US, Utah
+08-18-2022 05:17:42 PM | INFO | In-Sample MAPE Last 15 Days ('Sierra Leone', 'None'): 0.181 %
+08-18-2022 05:17:42 PM | DEBUG | Best fitted parameters for ('Sierra Leone', 'None'): [ 4.66469890e+00 -1.87336871e-02  1.53705265e+00  2.00508759e-02
+  9.03312233e-01  1.92167969e+01  4.88246353e+00  5.15671585e+00
+  5.80279775e+00  4.40788229e+02  6.05567284e+00  4.06094295e-08]
+08-18-2022 05:17:42 PM | INFO | Finished predicting for Continent=Africa, Country=Sierra Leone and Province=None in 1090.41 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:17:42 PM | INFO | starting to predict for North America, US, Vermont
+08-18-2022 05:17:51 PM | INFO | In-Sample MAPE Last 15 Days ('Malawi', 'None'): 0.095 %
+08-18-2022 05:17:51 PM | DEBUG | Best fitted parameters for ('Malawi', 'None'): [2.22894957e+00 8.64565133e+00 7.93419521e-01 9.99855025e-01
+ 8.23188486e-01 5.22190342e+00 2.33618920e-02 5.23469047e-01
+ 1.20743360e+00 3.38055809e+00 4.35931918e+00 2.61244024e-07]
+08-18-2022 05:17:51 PM | INFO | Finished predicting for Continent=Africa, Country=Malawi and Province=None in 1740.31 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:17:51 PM | INFO | starting to predict for North America, US, Virginia
+08-18-2022 05:17:59 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'New Hampshire'): 2.167 %
+08-18-2022 05:17:59 PM | DEBUG | Best fitted parameters for ('US', 'New Hampshire'): [ 0.00000000e+00 -5.70505540e+00  2.00000000e+00  2.00000000e-02
+  4.85916775e-03  1.56767949e-04  2.34136327e+00  6.38522291e-01
+  2.71343972e+00  3.85102755e+02  2.21476809e+01  2.01398159e+00]
+08-18-2022 05:17:59 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New Hampshire in 258.83 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:17:59 PM | INFO | starting to predict for North America, US, Washington
+08-18-2022 05:18:00 PM | INFO | In-Sample MAPE Last 15 Days ('Turkey', 'None'): 0.707 %
+08-18-2022 05:18:00 PM | DEBUG | Best fitted parameters for ('Turkey', 'None'): [4.52558307e+00 1.63398699e+01 5.63941226e-01 8.35235335e-02
+ 1.91214023e-02 4.45943782e+00 2.00005460e+00 2.00000001e+00
+ 5.05326662e+00 1.30240373e+02 2.06604001e+01 2.76498595e-02]
+08-18-2022 05:18:00 PM | INFO | Finished predicting for Continent=Asia, Country=Turkey and Province=None in 754.92 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:18:00 PM | INFO | starting to predict for North America, US, West Virginia
+08-18-2022 05:18:11 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'California'): 4.892 %
+08-18-2022 05:18:11 PM | DEBUG | Best fitted parameters for ('US', 'California'): [ 0.00000000e+00 -2.54385728e+00  0.00000000e+00  2.00000000e-02
+  5.52840145e-03  0.00000000e+00  2.00000067e+00  2.53508146e+00
+  8.12955356e+00  0.00000000e+00  3.33512838e+01  2.00326339e+00]
+08-18-2022 05:18:11 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=California in 627.54 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:18:11 PM | INFO | starting to predict for North America, US, Wisconsin
+08-18-2022 05:18:11 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Georgia'): 2.875 %
+08-18-2022 05:18:11 PM | DEBUG | Best fitted parameters for ('US', 'Georgia'): [ 0.00000000e+00  2.78502281e+00  7.32586642e-01  2.00000000e-02
+  9.67472660e-03 -1.00000000e+00  2.49544626e+00  1.38283399e-06
+  8.99101444e-01  8.45011384e+01  1.46893879e+02  2.06886816e+00]
+08-18-2022 05:18:11 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Georgia in 510.26 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:18:11 PM | INFO | starting to predict for North America, US, Wyoming
+08-18-2022 05:18:37 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Nebraska'): 2.072 %
+08-18-2022 05:18:37 PM | DEBUG | Best fitted parameters for ('US', 'Nebraska'): [ 0.00000000e+00  2.99894723e-02  4.81108434e-03  2.00000000e-02
+  8.34126508e-03 -9.84005670e-01  1.99993477e+00  5.16095049e-06
+  1.98496747e-02  4.79510259e+02  1.78015135e+00  4.40935628e-01]
+08-18-2022 05:18:37 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Nebraska in 329.06 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:18:37 PM | INFO | starting to predict for Africa, Uganda, None
+08-18-2022 05:18:40 PM | INFO | In-Sample MAPE Last 15 Days ('Papua New Guinea', 'None'): 0.089 %
+08-18-2022 05:18:40 PM | DEBUG | Best fitted parameters for ('Papua New Guinea', 'None'): [ 4.12580478e-01  3.45325479e+00  2.63197943e+01  2.45780039e-02
+  5.84611885e-03 -5.03784409e-01  3.40863377e+00  1.47244873e-04
+  1.57959396e+00  5.01858383e+01  1.21028629e+01  2.08383886e+00]
+08-18-2022 05:18:40 PM | INFO | Finished predicting for Continent=Oceania, Country=Papua New Guinea and Province=None in 1392.66 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:18:40 PM | INFO | starting to predict for Europe, Ukraine, None
+08-18-2022 05:18:49 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'Nova Scotia'): 5.181 %
+08-18-2022 05:18:49 PM | DEBUG | Best fitted parameters for ('Canada', 'Nova Scotia'): [6.21267170e+00 2.77439992e-01 1.70383641e+01 2.00905315e-02
+ 1.33515951e-02 2.07730063e+00 1.29888041e-08 0.00000000e+00
+ 3.14553342e+00 8.37012964e+00 6.72898012e+00 2.43836957e+00]
+08-18-2022 05:18:49 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=Nova Scotia in 2453.37 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:18:49 PM | INFO | starting to predict for Asia, United Arab Emirates, None
+08-18-2022 05:19:21 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Kansas'): 2.247 %
+08-18-2022 05:19:21 PM | DEBUG | Best fitted parameters for ('US', 'Kansas'): [ 0.00000000e+00 -3.97641479e+00  5.05041770e+01  2.62069515e-02
+  2.20835855e-02  2.40560808e+00  2.12426980e+00  0.00000000e+00
+  0.00000000e+00  4.84000000e+02  1.00000000e+00  1.97872732e-01]
+08-18-2022 05:19:21 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Kansas in 535.06 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:19:21 PM | INFO | starting to predict for Europe, United Kingdom, None
+08-18-2022 05:19:25 PM | INFO | In-Sample MAPE Last 15 Days ('Congo (Kinshasa)', 'None'): 0.097 %
+08-18-2022 05:19:25 PM | DEBUG | Best fitted parameters for ('Congo (Kinshasa)', 'None'): [ 2.88134412e+00 -4.89493892e+00  1.23905474e+00  2.00000000e-02
+  1.68726781e-01  2.24807800e+00  2.25517600e+00  1.59693777e+00
+  2.09701502e+00  1.92429756e+02  1.63460151e+01  1.55582491e-04]
+08-18-2022 05:19:25 PM | INFO | Finished predicting for Continent=Africa, Country=Congo (Kinshasa) and Province=None in 2489.39 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:19:25 PM | INFO | starting to predict for South America, Uruguay, None
+08-18-2022 05:19:47 PM | INFO | In-Sample MAPE Last 15 Days ('Colombia', 'None'): 0.039 %
+08-18-2022 05:19:47 PM | DEBUG | Best fitted parameters for ('Colombia', 'None'): [ 3.59959292e-01 -2.43823974e+00  4.41440554e+00  4.39994235e-02
+  1.05561337e-02  2.62819679e-03  1.44558496e-06  2.59967742e-01
+  4.22020922e+00  7.37028125e+01  4.25533373e+01  1.81373791e+00]
+08-18-2022 05:19:47 PM | INFO | Finished predicting for Continent=South America, Country=Colombia and Province=None in 2511.28 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:19:47 PM | INFO | starting to predict for Asia, Uzbekistan, None
+08-18-2022 05:20:11 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Indiana'): 2.361 %
+08-18-2022 05:20:11 PM | DEBUG | Best fitted parameters for ('US', 'Indiana'): [ 0.00000000e+00 -8.81418928e+01  3.80628921e+00  2.00000000e-02
+  6.94337157e-03 -9.99985376e-01  7.40072066e+00  3.17806121e-05
+  1.69788110e+00  5.70575548e+01  2.32558872e+01  9.45342861e-02]
+08-18-2022 05:20:11 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Indiana in 597.9 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:20:11 PM | INFO | starting to predict for South America, Venezuela, None
+08-18-2022 05:20:23 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Kentucky'): 3.092 %
+08-18-2022 05:20:23 PM | DEBUG | Best fitted parameters for ('US', 'Kentucky'): [ 0.00000000e+00 -5.61767170e-01  2.71833196e+01  2.00000000e-02
+  3.06601983e-03  3.54559700e+00  1.67979199e-01  0.00000000e+00
+  2.00008519e+00  2.10608784e+02  1.21768613e+01  2.72364705e+00]
+08-18-2022 05:20:23 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Kentucky in 580.04 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:20:23 PM | INFO | starting to predict for Asia, Vietnam, None
+08-18-2022 05:20:42 PM | INFO | In-Sample MAPE Last 15 Days ('Moldova', 'None'): 0.278 %
+08-18-2022 05:20:42 PM | DEBUG | Best fitted parameters for ('Moldova', 'None'): [ 9.40366002e-01 -6.12180049e+00  2.47799943e+00  1.40430797e-01
+  1.35564284e-02  2.82905972e-01  1.68263169e-04  4.81141079e-01
+  5.16377303e+00  2.89110959e+02  1.35891310e+02  9.13806581e-01]
+08-18-2022 05:20:42 PM | INFO | Finished predicting for Continent=Europe, Country=Moldova and Province=None in 1828.95 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:20:42 PM | INFO | starting to predict for Asia, Yemen, None
+08-18-2022 05:20:43 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Maine'): 1.253 %
+08-18-2022 05:20:43 PM | DEBUG | Best fitted parameters for ('US', 'Maine'): [ 6.68489829e+00 -1.71363646e+01  2.04021226e-01  4.72221277e-02
+  9.64669394e-02  3.95068053e+00  2.98547071e+00  2.22044379e+00
+  4.09804571e+00  1.03365602e+02  1.65897996e+01  1.01359648e-02]
+08-18-2022 05:20:43 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Maine in 554.22 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:20:43 PM | INFO | starting to predict for Africa, Zambia, None
+08-18-2022 05:20:51 PM | INFO | In-Sample MAPE Last 15 Days ('North Macedonia', 'None'): 0.072 %
+08-18-2022 05:20:51 PM | DEBUG | Best fitted parameters for ('North Macedonia', 'None'): [1.09092261e+00 2.05168188e+00 2.60736399e+00 7.40254511e-02
+ 1.47156243e-02 2.47494331e-01 1.34013777e+00 3.05282797e-08
+ 2.05894497e+00 1.05882567e+02 4.34446546e+01 6.96247120e-01]
+08-18-2022 05:20:51 PM | INFO | Finished predicting for Continent=Europe, Country=North Macedonia and Province=None in 1597.0 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:20:51 PM | INFO | starting to predict for Africa, Zimbabwe, None
+08-18-2022 05:20:54 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'New Jersey'): 3.093 %
+08-18-2022 05:20:54 PM | DEBUG | Best fitted parameters for ('US', 'New Jersey'): [ 0.00000000e+00  0.00000000e+00  1.15480165e-02  2.00000000e-02
+  3.18571854e-03 -7.63392550e-01  4.99959619e+01  1.06580474e-05
+  5.45625960e-02  4.50857893e+02  6.27619210e+01  4.96919377e-02]
+08-18-2022 05:20:55 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New Jersey in 431.12 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:21:04 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Louisiana'): 3.236 %
+08-18-2022 05:21:04 PM | DEBUG | Best fitted parameters for ('US', 'Louisiana'): [ 0.00000000e+00 -2.47808938e-01  0.00000000e+00  2.00000000e-02
+  5.44585766e-03  1.04113321e+00  1.99998805e+00  0.00000000e+00
+  2.62449318e+00  2.90342839e+02  2.43245768e+01  2.59391894e-01]
+08-18-2022 05:21:04 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Louisiana in 584.93 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:21:30 PM | INFO | In-Sample MAPE Last 15 Days ('Benin', 'None'): 0.086 %
+08-18-2022 05:21:30 PM | DEBUG | Best fitted parameters for ('Benin', 'None'): [3.95250756e+00 2.63658284e+00 1.60083228e+00 2.00000000e-02
+ 1.00000000e-03 3.29831433e+01 6.02345431e+00 6.83703048e+00
+ 2.62435945e+00 3.76042923e+02 7.85113758e+01 1.34710364e-08]
+08-18-2022 05:21:30 PM | INFO | Finished predicting for Continent=Africa, Country=Benin and Province=None in 2614.61 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:21:36 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Idaho'): 2.343 %
+08-18-2022 05:21:36 PM | DEBUG | Best fitted parameters for ('US', 'Idaho'): [ 0.00000000e+00 -1.56232354e+00  2.02402971e+00  2.00000000e-02
+  8.26942777e-03  3.92696429e+00  2.05309252e+00  4.80077194e-06
+  8.69081110e-01  3.42343750e+02  3.64539815e+01  4.12538782e-01]
+08-18-2022 05:21:36 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Idaho in 693.86 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:21:43 PM | INFO | In-Sample MAPE Last 15 Days ('Belize', 'None'): 0.903 %
+08-18-2022 05:21:43 PM | DEBUG | Best fitted parameters for ('Belize', 'None'): [7.02928046e+00 3.80317069e+00 1.77332540e+00 4.77543185e-02
+ 5.27250606e-03 1.44220034e+01 2.68749462e-10 0.00000000e+00
+ 1.53126399e+00 2.51568003e+01 4.53373727e+01 1.44665547e+01]
+08-18-2022 05:21:43 PM | INFO | Finished predicting for Continent=North America, Country=Belize and Province=None in 2627.0 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:21:44 PM | INFO | In-Sample MAPE Last 15 Days ("Cote d'Ivoire", 'None'): 0.32 %
+08-18-2022 05:21:44 PM | DEBUG | Best fitted parameters for ("Cote d'Ivoire", 'None'): [3.51102398e+00 2.35153172e+01 2.91008208e+00 5.80392481e-02
+ 1.52458346e-01 4.17954497e+00 3.88912051e+00 2.92934907e+00
+ 4.43982780e-01 8.95058230e+01 5.24033665e+00 6.96000063e-11]
+08-18-2022 05:21:44 PM | INFO | Finished predicting for Continent=Africa, Country=Cote d'Ivoire and Province=None in 2628.05 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:21:49 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Colorado'): 3.425 %
+08-18-2022 05:21:49 PM | DEBUG | Best fitted parameters for ('US', 'Colorado'): [ 0.00000000e+00 -1.14983355e+00  6.03996415e-03  2.00000000e-02
+  5.93913928e-03  1.41700568e+00  3.89156563e+00  1.14162670e-05
+  2.42743854e-02  3.04558406e+02  1.92136459e+02  1.44229925e+00]
+08-18-2022 05:21:49 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Colorado in 823.9 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:21:50 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Arkansas'): 2.709 %
+08-18-2022 05:21:50 PM | DEBUG | Best fitted parameters for ('US', 'Arkansas'): [ 0.00000000e+00 -1.03783408e+01  2.51756801e+00  2.00000000e-02
+  1.88741787e-02  5.59323364e+00  2.00996626e+00  0.00000000e+00
+  3.65189947e-01  2.53866463e+02  1.36063634e+01  1.78750108e-01]
+08-18-2022 05:21:50 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Arkansas in 855.43 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:22:02 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Maryland'): 0.747 %
+08-18-2022 05:22:02 PM | DEBUG | Best fitted parameters for ('US', 'Maryland'): [3.56989387e+00 1.91943154e+00 0.00000000e+00 4.53547937e-02
+ 4.99590508e-02 2.68398629e+00 1.26243329e+00 2.06530615e+00
+ 3.87051662e+00 1.08505717e+02 3.22792127e+00 5.43793303e-02]
+08-18-2022 05:22:02 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Maryland in 631.01 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:22:04 PM | INFO | In-Sample MAPE Last 15 Days ('Haiti', 'None'): 0.373 %
+08-18-2022 05:22:04 PM | DEBUG | Best fitted parameters for ('Haiti', 'None'): [4.04698690e+00 6.81698780e+00 3.86289391e+00 9.98272938e-01
+ 1.42796746e-01 3.59227265e+00 2.08895418e+01 6.06843348e-01
+ 1.57626177e-01 9.12267163e+01 1.09384047e+01 6.31725213e-06]
+08-18-2022 05:22:04 PM | INFO | Finished predicting for Continent=North America, Country=Haiti and Province=None in 2648.57 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:22:17 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Vermont'): 2.195 %
+08-18-2022 05:22:17 PM | DEBUG | Best fitted parameters for ('US', 'Vermont'): [ 0.00000000e+00  8.18776328e-02  5.96254956e-01  2.00000000e-02
+  3.17434363e-03 -1.00000000e+00  3.98808092e+00  4.35141649e-01
+  0.00000000e+00  4.84000000e+02  1.00000000e+00  2.01246021e+00]
+08-18-2022 05:22:17 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Vermont in 274.47 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:22:17 PM | INFO | In-Sample MAPE Last 15 Days ('Nigeria', 'None'): 0.035 %
+08-18-2022 05:22:17 PM | DEBUG | Best fitted parameters for ('Nigeria', 'None'): [3.61278657e+00 5.56880470e+00 6.74335962e+00 2.02011668e-02
+ 9.99847317e-03 2.71206856e+00 1.98205020e+01 1.49612995e+00
+ 1.42019649e-01 9.56997972e+01 2.73395066e+01 1.10974443e-04]
+08-18-2022 05:22:17 PM | INFO | Finished predicting for Continent=Africa, Country=Nigeria and Province=None in 1694.46 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:22:23 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Michigan'): 2.617 %
+08-18-2022 05:22:23 PM | DEBUG | Best fitted parameters for ('US', 'Michigan'): [ 0.00000000e+00 -3.66246451e+00  6.28650083e-01  2.00000000e-02
+  6.30416492e-03 -1.00000000e+00  5.24218975e+00  1.94848049e-05
+  4.81266364e+00  4.72916118e+02  1.62490882e+02  4.00602925e-01]
+08-18-2022 05:22:23 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Michigan in 623.84 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:22:24 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Washington'): 5.52 %
+08-18-2022 05:22:24 PM | DEBUG | Best fitted parameters for ('US', 'Washington'): [ 0.00000000e+00 -5.42032714e+00  3.77357729e+00  2.00000000e-02
+  5.83714149e-03 -1.00000000e+00  2.00213605e+00  2.00000040e+00
+  1.44599100e-01  4.80573550e+02  5.12453235e+00  2.98731575e+00]
+08-18-2022 05:22:24 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Washington in 264.58 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:22:32 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Massachusetts'): 2.381 %
+08-18-2022 05:22:32 PM | DEBUG | Best fitted parameters for ('US', 'Massachusetts'): [0.00000000e+00 9.93362204e-01 7.67310834e+00 2.00000000e-02
+ 3.86190435e-03 0.00000000e+00 3.43661453e+00 1.31355698e-06
+ 2.79031657e+00 4.84000000e+02 5.41316424e+01 5.80469804e-01]
+08-18-2022 05:22:32 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Massachusetts in 655.05 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:22:33 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Illinois'): 3.058 %
+08-18-2022 05:22:33 PM | DEBUG | Best fitted parameters for ('US', 'Illinois'): [ 0.00000000e+00 -6.20122180e+00  2.85242272e-09  2.00000000e-02
+  3.56677901e-03  3.91298320e+00  1.99940902e+00  4.73522502e-06
+  2.56047638e+00  1.05118035e+02  1.20172270e+01  1.41706714e+00]
+08-18-2022 05:22:33 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Illinois in 746.14 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:22:35 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Missouri'): 3.819 %
+08-18-2022 05:22:35 PM | DEBUG | Best fitted parameters for ('US', 'Missouri'): [0.00000000e+00 0.00000000e+00 0.00000000e+00 2.00000000e-02
+ 1.51901749e-02 0.00000000e+00 2.00000000e+00 2.00002299e+00
+ 0.00000000e+00 4.84000000e+02 1.00000000e+00 2.01945427e+00]
+08-18-2022 05:22:35 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Missouri in 586.38 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:22:55 PM | INFO | In-Sample MAPE Last 15 Days ('Somalia', 'None'): 0.033 %
+08-18-2022 05:22:55 PM | DEBUG | Best fitted parameters for ('Somalia', 'None'): [1.52778424e-01 1.23422503e+01 3.42733833e+00 2.00000000e-02
+ 1.00000000e-03 3.35457535e-01 1.93888823e+00 1.78965402e+00
+ 3.05071882e+00 4.22607911e+01 7.63669704e+01 1.10736381e-02]
+08-18-2022 05:22:55 PM | INFO | Finished predicting for Continent=Africa, Country=Somalia and Province=None in 1334.11 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:23:15 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Florida'): 4.065 %
+08-18-2022 05:23:15 PM | DEBUG | Best fitted parameters for ('US', 'Florida'): [ 0.00000000e+00  2.35261969e+00  2.63439530e-09  2.00000000e-02
+  4.89458541e-03 -4.74753426e-01  2.00000007e+00  0.00000000e+00
+  0.00000000e+00  4.84000000e+02  1.00000000e+00  3.35655316e-01]
+08-18-2022 05:23:15 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Florida in 883.05 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:23:20 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Minnesota'): 2.312 %
+08-18-2022 05:23:20 PM | DEBUG | Best fitted parameters for ('US', 'Minnesota'): [ 0.00000000e+00 -1.09588075e+01  2.00000000e+00  2.00000000e-02
+  5.02266939e-03 -1.00000000e+00  3.44898426e+01  0.00000000e+00
+  6.69203972e+00  7.04155443e+01  3.77220514e+00  2.70229626e-02]
+08-18-2022 05:23:20 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Minnesota in 675.55 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:23:35 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Virginia'): 5.893 %
+08-18-2022 05:23:35 PM | DEBUG | Best fitted parameters for ('US', 'Virginia'): [0.00000000e+00 1.23476613e+01 0.00000000e+00 2.00000000e-02
+ 1.05182621e-02 0.00000000e+00 2.11363953e+00 2.00000006e+00
+ 9.20883810e+00 4.44489052e+02 2.35158644e+01 2.05707058e+00]
+08-18-2022 05:23:35 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Virginia in 344.53 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:23:36 PM | INFO | In-Sample MAPE Last 15 Days ('Nepal', 'None'): 0.041 %
+08-18-2022 05:23:36 PM | DEBUG | Best fitted parameters for ('Nepal', 'None'): [ 8.66029732e-01 -1.67218314e+00  1.81109856e+00  4.67201385e-02
+  4.74656262e-03  3.12484921e-02  3.60229647e-01  6.33766036e-01
+  7.99088709e-01  1.51775279e+01  1.69101734e+02  1.19295304e-04]
+08-18-2022 05:23:36 PM | INFO | Finished predicting for Continent=Asia, Country=Nepal and Province=None in 1854.85 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:23:45 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Alaska'): 3.302 %
+08-18-2022 05:23:45 PM | DEBUG | Best fitted parameters for ('US', 'Alaska'): [ 0.00000000e+00  0.00000000e+00  3.16050064e-05  2.00000000e-02
+  2.53999501e-03 -1.00000000e+00  2.27430581e+00  0.00000000e+00
+  0.00000000e+00  4.84000000e+02  1.00000000e+00  1.54099865e-01]
+08-18-2022 05:23:45 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Alaska in 1096.66 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:23:49 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Oklahoma'): 2.855 %
+08-18-2022 05:23:49 PM | DEBUG | Best fitted parameters for ('US', 'Oklahoma'): [ 0.00000000e+00 -5.01427811e+00  2.09989250e+02  3.04120335e-02
+  1.01206872e-02 -7.93361358e-01  1.31947981e+00  1.35633642e-06
+  1.29397500e-01  3.48079270e+02  4.59277281e+00  4.35651558e-01]
+08-18-2022 05:23:49 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Oklahoma in 463.58 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:24:01 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Delaware'): 2.583 %
+08-18-2022 05:24:01 PM | DEBUG | Best fitted parameters for ('US', 'Delaware'): [ 0.00000000e+00  1.45810880e+02  1.28317164e+04  2.00000000e-02
+  5.00980856e-03 -7.86606660e-01  1.99608029e+00  2.40521510e-05
+  3.45308336e-01  4.27806740e+02  5.13417075e+01  3.84152867e-01]
+08-18-2022 05:24:01 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Delaware in 945.68 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:24:07 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Pennsylvania'): 4.39 %
+08-18-2022 05:24:07 PM | DEBUG | Best fitted parameters for ('US', 'Pennsylvania'): [ 0.00000000e+00 -3.99260616e+00  5.22806767e+00  2.00000000e-02
+  1.72451935e-02  0.00000000e+00  2.00087989e+00  2.00040499e+00
+  1.08848088e+00  4.32157352e+02  4.53910577e+01  2.02256325e+00]
+08-18-2022 05:24:07 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Pennsylvania in 478.51 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:24:45 PM | INFO | In-Sample MAPE Last 15 Days ('Sao Tome and Principe', 'None'): 0.402 %
+08-18-2022 05:24:45 PM | DEBUG | Best fitted parameters for ('Sao Tome and Principe', 'None'): [ 7.19118703e-02 -2.87585436e+00  6.92648469e+01  2.00000000e-02
+  2.96516236e-02  0.00000000e+00  2.00000000e+00  1.06724296e+01
+  4.48719742e+01  8.13229173e+01  1.01575419e+01  8.20910911e-01]
+08-18-2022 05:24:45 PM | INFO | Finished predicting for Continent=Africa, Country=Sao Tome and Principe and Province=None in 1586.7 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:24:59 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'New York'): 2.888 %
+08-18-2022 05:24:59 PM | DEBUG | Best fitted parameters for ('US', 'New York'): [0.00000000e+00 0.00000000e+00 0.00000000e+00 2.00000000e-02
+ 2.77378958e-03 0.00000000e+00 2.99486948e+00 0.00000000e+00
+ 3.89208530e+00 1.38984488e+02 1.80289683e+01 4.53124203e-01]
+08-18-2022 05:24:59 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New York in 568.14 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:01 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'New Mexico'): 4.078 %
+08-18-2022 05:25:01 PM | DEBUG | Best fitted parameters for ('US', 'New Mexico'): [ 0.00000000e+00 -2.00026008e+00  2.00171863e+00  2.00000000e-02
+  1.51882034e-02 -1.00000000e+00  4.37531715e+00  0.00000000e+00
+  1.07596056e+00  4.78770489e+02  7.46533778e+00  2.77245583e-01]
+08-18-2022 05:25:01 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=New Mexico in 661.98 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:09 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Wyoming'): 2.582 %
+08-18-2022 05:25:09 PM | DEBUG | Best fitted parameters for ('US', 'Wyoming'): [ 0.00000000e+00  1.21744179e+01  1.49506791e+00  2.00000000e-02
+  5.60672065e-03 -1.00000000e+00  2.00383780e+00  8.42108133e-09
+  2.00395199e+00  0.00000000e+00  9.34950405e+01  1.90616990e-01]
+08-18-2022 05:25:09 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Wyoming in 418.24 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:13 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Montana'): 2.247 %
+08-18-2022 05:25:13 PM | DEBUG | Best fitted parameters for ('US', 'Montana'): [ 0.00000000e+00  2.72694069e+00  1.24320142e-04  2.00000000e-02
+  1.27298485e-02 -1.00000000e+00  9.17568436e+00  0.00000000e+00
+  6.62019399e-02  4.84000000e+02  1.00000000e+00  6.16017433e-02]
+08-18-2022 05:25:13 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Montana in 739.95 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:20 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'West Virginia'): 3.199 %
+08-18-2022 05:25:20 PM | DEBUG | Best fitted parameters for ('US', 'West Virginia'): [ 0.00000000e+00 -1.88072376e+00  4.92470701e+00  2.00000000e-02
+  7.98539664e-03 -1.00000000e+00  2.00000004e+00  0.00000000e+00
+  3.00067359e+00  1.27538506e+02  2.09752704e+00  2.07554834e-01]
+08-18-2022 05:25:20 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=West Virginia in 439.82 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:26 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Oregon'): 1.665 %
+08-18-2022 05:25:26 PM | DEBUG | Best fitted parameters for ('US', 'Oregon'): [2.97197068e+00 2.26798985e+02 1.83873148e-02 1.17834570e-01
+ 9.11947887e-02 2.70861516e+00 3.84366992e+00 2.00000000e+00
+ 6.31986249e+00 1.20447547e+02 1.65201852e+01 4.50813787e-02]
+08-18-2022 05:25:26 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Oregon in 559.1 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:30 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Utah'): 2.364 %
+08-18-2022 05:25:30 PM | DEBUG | Best fitted parameters for ('US', 'Utah'): [ 0.00000000e+00 -2.09107592e+00  7.68417096e-01  2.00000000e-02
+  4.95987331e-03  7.84867025e-01  2.00052214e+00  0.00000000e+00
+  2.10028801e+00  4.09499474e+02  5.85550296e+01  1.54151207e-01]
+08-18-2022 05:25:30 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Utah in 488.86 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:32 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Mississippi'): 3.105 %
+08-18-2022 05:25:32 PM | DEBUG | Best fitted parameters for ('US', 'Mississippi'): [0.00000000e+00 8.84210599e+00 0.00000000e+00 2.00000000e-02
+ 6.87357498e-03 5.57221274e+00 1.99993474e+00 0.00000000e+00
+ 8.08794835e-01 4.69370696e+02 2.51363388e+00 2.28301793e-01]
+08-18-2022 05:25:32 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Mississippi in 769.32 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:33 PM | INFO | In-Sample MAPE Last 15 Days ('Seychelles', 'None'): 1.305 %
+08-18-2022 05:25:33 PM | DEBUG | Best fitted parameters for ('Seychelles', 'None'): [ 0.00000000e+00 -1.28241843e+00  2.00000000e+00  2.00000000e-02
+  1.00000000e-03  2.30318301e+00  5.64114381e+00  1.42782896e-05
+  1.10619012e+01  3.51921625e+02  2.04122857e+01  4.36483247e-02]
+08-18-2022 05:25:33 PM | INFO | Finished predicting for Continent=Africa, Country=Seychelles and Province=None in 1575.71 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:35 PM | INFO | In-Sample MAPE Last 15 Days ('Mozambique', 'None'): 0.033 %
+08-18-2022 05:25:35 PM | DEBUG | Best fitted parameters for ('Mozambique', 'None'): [9.76027006e-01 3.42625535e+00 6.59530345e-01 1.00000000e+00
+ 5.18007497e-02 2.09990013e+00 2.63348081e+00 3.47468822e+00
+ 4.79164811e-01 4.44460526e+00 6.63332529e+01 7.10954173e-05]
+08-18-2022 05:25:35 PM | INFO | Finished predicting for Continent=Africa, Country=Mozambique and Province=None in 2026.03 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:49 PM | INFO | In-Sample MAPE Last 15 Days ('Mongolia', 'None'): 0.258 %
+08-18-2022 05:25:49 PM | DEBUG | Best fitted parameters for ('Mongolia', 'None'): [2.14789399e+00 1.88140602e+00 0.00000000e+00 2.00000000e-02
+ 1.22331418e-02 1.48901659e+01 6.45678969e+00 7.06977019e-02
+ 2.38043116e+01 2.49601828e+02 4.72070875e+01 1.98009042e-04]
+08-18-2022 05:25:49 PM | INFO | Finished predicting for Continent=Asia, Country=Mongolia and Province=None in 2077.44 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:25:58 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Wisconsin'): 2.38 %
+08-18-2022 05:25:58 PM | DEBUG | Best fitted parameters for ('US', 'Wisconsin'): [ 0.00000000e+00 -6.78197393e+01  1.47537848e+01  2.00000000e-02
+  6.78087619e-03  2.03067819e+00  1.98871129e+00  0.00000000e+00
+  2.97048090e-01  1.91306005e+02  1.74252262e+00  3.18303166e-01]
+08-18-2022 05:25:58 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Wisconsin in 466.98 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:26:04 PM | INFO | In-Sample MAPE Last 15 Days ('Peru', 'None'): 0.065 %
+08-18-2022 05:26:04 PM | DEBUG | Best fitted parameters for ('Peru', 'None'): [9.22979215e-01 9.18397702e+00 7.28371591e-02 3.61574738e-02
+ 2.13919256e-01 3.99257550e+00 1.40846212e-03 2.15297593e+00
+ 1.30471066e+00 1.04556675e+02 1.05081321e+01 8.72566128e-02]
+08-18-2022 05:26:04 PM | INFO | Finished predicting for Continent=South America, Country=Peru and Province=None in 1783.08 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:26:20 PM | INFO | In-Sample MAPE Last 15 Days ('Poland', 'None'): 0.105 %
+08-18-2022 05:26:20 PM | DEBUG | Best fitted parameters for ('Poland', 'None'): [ 3.99540941e+00 -8.30450380e-01  3.49532419e+02  3.89967170e-02
+  3.88657305e-03  6.00230485e+00  8.97148691e-06  2.54502992e-01
+  3.25300764e+00  1.01515451e+02  1.61723256e+01  3.85134005e+00]
+08-18-2022 05:26:20 PM | INFO | Finished predicting for Continent=Europe, Country=Poland and Province=None in 1784.11 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:26:30 PM | INFO | In-Sample MAPE Last 15 Days ('Togo', 'None'): 0.209 %
+08-18-2022 05:26:30 PM | DEBUG | Best fitted parameters for ('Togo', 'None'): [4.65266783e-01 4.50373510e+01 8.76245107e+00 2.00000000e-02
+ 1.51913362e-01 2.20347800e+00 5.30382794e+00 6.80963602e+00
+ 1.15240375e+00 9.41961025e+01 2.74617506e+01 2.97170085e-04]
+08-18-2022 05:26:30 PM | INFO | Finished predicting for Continent=Africa, Country=Togo and Province=None in 1302.95 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:26:30 PM | INFO | In-Sample MAPE Last 15 Days ('South Africa', 'None'): 0.014 %
+08-18-2022 05:26:30 PM | DEBUG | Best fitted parameters for ('South Africa', 'None'): [ 5.89882285e+00 -4.30595094e+00  2.79928684e+00  4.36966960e-02
+  1.20896593e-01  5.30437660e+00  2.47537598e+01  5.55002783e+00
+  4.17252921e-01  1.61961405e+02  1.36276815e+01  7.78701732e-04]
+08-18-2022 05:26:30 PM | INFO | Finished predicting for Continent=Africa, Country=South Africa and Province=None in 1546.04 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:26:33 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Rhode Island'): 1.673 %
+08-18-2022 05:26:33 PM | DEBUG | Best fitted parameters for ('US', 'Rhode Island'): [ 0.00000000e+00 -4.58503129e+00  5.82785769e+00  2.00000000e-02
+  4.40241296e-03 -8.08091859e-01  2.96333792e+01  2.29969118e-06
+  6.46729929e+00  1.11103403e+02  1.90435097e+00  1.30387157e-02]
+08-18-2022 05:26:33 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Rhode Island in 619.52 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:26:33 PM | INFO | In-Sample MAPE Last 15 Days ('Iran', 'None'): 0.168 %
+08-18-2022 05:26:33 PM | DEBUG | Best fitted parameters for ('Iran', 'None'): [ 1.69913572e+01 -5.42633889e+00  2.64180278e+00  9.99953656e-01
+  4.02918474e-01  4.37682925e+00  1.33891195e-01  9.94609199e-03
+  7.59066999e-01  1.56690357e+02  3.76839532e+00  5.14701208e-07]
+08-18-2022 05:26:33 PM | INFO | Finished predicting for Continent=Asia, Country=Iran and Province=None in 2459.3 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:26:46 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'South Carolina'): 2.635 %
+08-18-2022 05:26:46 PM | DEBUG | Best fitted parameters for ('US', 'South Carolina'): [ 0.00000000e+00 -2.79446063e+00  5.85428347e-05  2.00000000e-02
+  1.18965166e-02  2.06006533e+00  5.60002202e+00  2.99036837e-06
+  6.34785033e-01  4.16463228e+02  3.38597875e+00  5.83022062e-02]
+08-18-2022 05:26:47 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=South Carolina in 629.2 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:27:00 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'South Dakota'): 1.797 %
+08-18-2022 05:27:00 PM | DEBUG | Best fitted parameters for ('US', 'South Dakota'): [ 0.00000000e+00 -1.85927537e+00  4.80786742e-04  2.00000000e-02
+  6.49145899e-03 -9.99111159e-01  2.63122682e+00  8.91947771e-09
+  7.04646075e+00  4.83193279e+02  5.13282448e+01  1.25926225e-01]
+08-18-2022 05:27:00 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=South Dakota in 630.12 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:27:18 PM | INFO | In-Sample MAPE Last 15 Days ('Zambia', 'None'): 0.052 %
+08-18-2022 05:27:18 PM | DEBUG | Best fitted parameters for ('Zambia', 'None'): [3.63742198e-01 1.71247069e+01 0.00000000e+00 2.33313490e-02
+ 1.20715948e-02 6.14725819e-01 4.65031647e+00 2.73079795e+00
+ 2.20907395e-01 8.14373642e+01 2.15178218e+01 5.60328383e-02]
+08-18-2022 05:27:18 PM | INFO | Finished predicting for Continent=Africa, Country=Zambia and Province=None in 394.86 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:27:21 PM | INFO | In-Sample MAPE Last 15 Days ('Grenada', 'None'): 6.931 %
+08-18-2022 05:27:21 PM | DEBUG | Best fitted parameters for ('Grenada', 'None'): [5.32859005e-01 1.00000000e+02 1.00000000e+00 5.00000000e-01
+ 2.50000000e-01 1.24053990e+00 1.00000000e-03 1.00000000e-03
+ 1.63840391e+00 3.00000000e+02 8.97221358e+01 2.00000000e-01]
+08-18-2022 05:27:21 PM | INFO | Finished predicting for Continent=North America, Country=Grenada and Province=None in 2965.44 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:27:22 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Texas'): 3.953 %
+08-18-2022 05:27:22 PM | DEBUG | Best fitted parameters for ('US', 'Texas'): [0.00000000e+00 0.00000000e+00 0.00000000e+00 2.00000000e-02
+ 5.28151008e-03 2.05538318e-04 2.00000000e+00 2.00000000e+00
+ 0.00000000e+00 4.84000000e+02 1.00000000e+00 2.00665452e+00]
+08-18-2022 05:27:22 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Texas in 645.92 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:27:29 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Iowa'): 2.272 %
+08-18-2022 05:27:29 PM | DEBUG | Best fitted parameters for ('US', 'Iowa'): [ 0.00000000e+00  0.00000000e+00  2.28399150e-02  2.00000000e-02
+  5.45805945e-03 -1.00000000e+00  1.38325443e+00  2.00993700e-05
+  8.80020976e+00  4.84000000e+02  2.56949799e+02  1.38112543e+00]
+08-18-2022 05:27:29 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Iowa in 1034.15 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:27:33 PM | INFO | In-Sample MAPE Last 15 Days ('United Kingdom', 'None'): 1.926 %
+08-18-2022 05:27:33 PM | DEBUG | Best fitted parameters for ('United Kingdom', 'None'): [ 0.00000000e+00  6.02406573e+00  1.04160485e+01  2.00000000e-02
+  6.08861529e-03 -9.99783450e-01  3.05820151e+01  0.00000000e+00
+  4.12531513e+00  2.60681398e+02  2.79205919e+01  1.61874691e-02]
+08-18-2022 05:27:33 PM | INFO | Finished predicting for Continent=Europe, Country=United Kingdom and Province=None in 492.43 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:27:39 PM | INFO | In-Sample MAPE Last 15 Days ('Algeria', 'None'): 0.018 %
+08-18-2022 05:27:39 PM | DEBUG | Best fitted parameters for ('Algeria', 'None'): [ 2.22422341e-01 -1.94881946e+00  2.85277987e+00  1.05834955e-01
+  2.79726088e-02  6.92780669e+00  4.56177825e-07  5.99607323e-01
+  2.54829040e+00  1.15696688e+02  6.90327907e+01  3.19797644e-01]
+08-18-2022 05:27:39 PM | INFO | Finished predicting for Continent=Africa, Country=Algeria and Province=None in 2982.64 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:27:48 PM | INFO | In-Sample MAPE Last 15 Days ('Honduras', 'None'): 0.183 %
+08-18-2022 05:27:48 PM | DEBUG | Best fitted parameters for ('Honduras', 'None'): [ 1.86225322e+00 -4.73656976e+00  3.83916008e-01  9.99970875e-01
+  8.00895602e-02  2.97832823e+00  1.79620558e+00  1.46594594e+00
+  3.43836280e+00  3.61003585e+00  1.58537733e+00  1.54811779e-06]
+08-18-2022 05:27:48 PM | INFO | Finished predicting for Continent=North America, Country=Honduras and Province=None in 2991.91 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:27:50 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Ohio'): 2.439 %
+08-18-2022 05:27:50 PM | DEBUG | Best fitted parameters for ('US', 'Ohio'): [0.00000000e+00 0.00000000e+00 0.00000000e+00 2.00000000e-02
+ 7.32634291e-03 4.50919984e+00 6.35746303e+00 2.16525105e-05
+ 9.27474723e+00 4.58683290e+02 3.70732825e+01 1.83953642e+00]
+08-18-2022 05:27:50 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Ohio in 714.05 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:28:00 PM | INFO | In-Sample MAPE Last 15 Days ('Uruguay', 'None'): 1.711 %
+08-18-2022 05:28:00 PM | DEBUG | Best fitted parameters for ('Uruguay', 'None'): [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  2.00000000e-02
+  2.58075779e-03 -7.25015938e-01  5.02359642e+00  1.10705889e-04
+  2.00049490e+00  3.09627679e+02  1.13220679e+01  1.13622569e-01]
+08-18-2022 05:28:00 PM | INFO | Finished predicting for Continent=South America, Country=Uruguay and Province=None in 514.97 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:28:07 PM | INFO | In-Sample MAPE Last 15 Days ('Canada', 'Northwest Territories'): 13.789 %
+08-18-2022 05:28:07 PM | DEBUG | Best fitted parameters for ('Canada', 'Northwest Territories'): [1.50000000e+00 1.10802724e+01 1.00000000e+00 2.29106996e-02
+ 2.28560280e-02 1.30278135e+00 1.00000000e-03 1.00000000e-03
+ 2.08283640e+00 2.79439902e+02 4.32364668e+01 9.99000000e-01]
+08-18-2022 05:28:07 PM | INFO | Finished predicting for Continent=North America, Country=Canada and Province=Northwest Territories in 3010.99 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:28:13 PM | INFO | In-Sample MAPE Last 15 Days ('Fiji', 'None'): 2.096 %
+08-18-2022 05:28:13 PM | DEBUG | Best fitted parameters for ('Fiji', 'None'): [3.45241234e-01 8.18570983e+01 2.28046927e+00 5.42641605e-02
+ 1.36467934e-02 9.31327971e-03 2.62174695e+00 1.67505257e+00
+ 1.72525930e+00 2.23704849e+02 7.09396187e+01 2.00669979e-01]
+08-18-2022 05:28:13 PM | INFO | Finished predicting for Continent=Oceania, Country=Fiji and Province=None in 3017.29 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:28:15 PM | INFO | In-Sample MAPE Last 15 Days ('Sweden', 'None'): 0.969 %
+08-18-2022 05:28:15 PM | DEBUG | Best fitted parameters for ('Sweden', 'None'): [ 2.04797163e+00 -3.30727543e+00  1.65943283e+00  2.00000000e-02
+  8.64764925e-03  1.60518304e+00  1.28942886e-02  1.87917012e+00
+  1.23132957e+02  1.07471009e+01  5.06386053e+00  5.24996021e-01]
+08-18-2022 05:28:15 PM | INFO | Finished predicting for Continent=Europe, Country=Sweden and Province=None in 1595.44 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:28:47 PM | INFO | In-Sample MAPE Last 15 Days ('United Arab Emirates', 'None'): 0.611 %
+08-18-2022 05:28:47 PM | DEBUG | Best fitted parameters for ('United Arab Emirates', 'None'): [ 3.18198111e-01  4.14526913e+00  0.00000000e+00  2.00000000e-02
+  1.00000000e-03 -6.80941516e-01  4.17286173e+00  9.81112382e+00
+  2.14332108e+00  7.18141992e+01  3.82127421e+01  4.63974474e-02]
+08-18-2022 05:28:47 PM | INFO | Finished predicting for Continent=Asia, Country=United Arab Emirates and Province=None in 597.96 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:28:53 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'North Carolina'): 3.284 %
+08-18-2022 05:28:53 PM | DEBUG | Best fitted parameters for ('US', 'North Carolina'): [ 0.00000000e+00  7.19662095e-02  0.00000000e+00  2.00000000e-02
+  7.88559024e-03 -1.00000000e+00  8.75692046e+00  4.72131241e-05
+  1.24736101e+00  4.20042836e+02  2.83306474e+01  1.19365837e-01]
+08-18-2022 05:28:53 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=North Carolina in 779.67 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:28:59 PM | INFO | In-Sample MAPE Last 15 Days ('Zimbabwe', 'None'): 0.069 %
+08-18-2022 05:28:59 PM | DEBUG | Best fitted parameters for ('Zimbabwe', 'None'): [4.08046632e-01 1.13820899e+00 7.92966206e+00 2.84715221e-02
+ 2.27781337e-02 3.03891054e-01 1.18673214e+00 4.46912090e+00
+ 1.26622454e+00 5.23686943e+01 2.60494562e+01 3.61387134e-02]
+08-18-2022 05:28:59 PM | INFO | Finished predicting for Continent=Africa, Country=Zimbabwe and Province=None in 487.73 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:29:27 PM | INFO | In-Sample MAPE Last 15 Days ('Kenya', 'None'): 0.061 %
+08-18-2022 05:29:27 PM | DEBUG | Best fitted parameters for ('Kenya', 'None'): [6.63720676e-01 6.91952847e+00 1.21176406e+00 4.84286701e-02
+ 5.60987139e-02 7.29223738e+00 4.13316893e+01 1.82470111e-01
+ 1.49915626e+00 1.37854857e+00 5.94753419e+01 3.99666603e-06]
+08-18-2022 05:29:27 PM | INFO | Finished predicting for Continent=Africa, Country=Kenya and Province=None in 2524.19 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:30:05 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Tennessee'): 2.625 %
+08-18-2022 05:30:05 PM | DEBUG | Best fitted parameters for ('US', 'Tennessee'): [ 0.00000000e+00 -1.43592701e+00  2.12652011e+00  2.00000000e-02
+  1.10642822e-02 -9.99894407e-01  2.43293945e+01  3.91288358e-05
+  2.84660796e+00  4.68964873e+02  4.84213935e+01  1.21828611e-02]
+08-18-2022 05:30:05 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Tennessee in 809.93 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:31:10 PM | INFO | In-Sample MAPE Last 15 Days ('Israel', 'None'): 3.547 %
+08-18-2022 05:31:10 PM | DEBUG | Best fitted parameters for ('Israel', 'None'): [0.00000000e+00 0.00000000e+00 0.00000000e+00 2.00000000e-02
+ 1.00000000e-03 4.86331703e+01 2.00000000e+00 0.00000000e+00
+ 0.00000000e+00 4.84000000e+02 1.00000000e+00 1.72761303e-01]
+08-18-2022 05:31:10 PM | INFO | Finished predicting for Continent=Asia, Country=Israel and Province=None in 2701.37 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:31:55 PM | INFO | In-Sample MAPE Last 15 Days ('Greece', 'None'): 8.856 %
+08-18-2022 05:31:55 PM | DEBUG | Best fitted parameters for ('Greece', 'None'): [ 7.61849812e+00 -1.24040495e+01  2.10792220e+01  2.00000226e-02
+  1.99318611e-03  1.37184387e+00  6.46843737e+00  2.23619911e+00
+  1.65905567e+01  8.97350495e-01  4.24475228e+00  1.88429026e+00]
+08-18-2022 05:31:55 PM | INFO | Finished predicting for Continent=Europe, Country=Greece and Province=None in 3238.98 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:31:59 PM | INFO | In-Sample MAPE Last 15 Days ('Uzbekistan', 'None'): 0.113 %
+08-18-2022 05:31:59 PM | DEBUG | Best fitted parameters for ('Uzbekistan', 'None'): [3.37598833e-01 1.68347379e+01 6.70844429e-02 2.00000000e-02
+ 1.00000000e-03 7.69018292e+00 3.05506644e+00 1.98648201e+01
+ 2.41964013e+00 8.78416912e+01 5.79852590e+00 1.60643613e-02]
+08-18-2022 05:31:59 PM | INFO | Finished predicting for Continent=Asia, Country=Uzbekistan and Province=None in 731.76 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:32:07 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Nevada'): 3.761 %
+08-18-2022 05:32:07 PM | DEBUG | Best fitted parameters for ('US', 'Nevada'): [ 0.00000000e+00  3.83633462e+00  2.72956788e-03  2.00000000e-02
+  1.32047268e-02 -6.30100254e-01  2.53926247e+00  0.00000000e+00
+  0.00000000e+00  4.84000000e+02  1.00000000e+00  1.28301705e+00]
+08-18-2022 05:32:07 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Nevada in 1121.15 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:32:38 PM | INFO | In-Sample MAPE Last 15 Days ('Sri Lanka', 'None'): 0.033 %
+08-18-2022 05:32:38 PM | DEBUG | Best fitted parameters for ('Sri Lanka', 'None'): [ 1.59918825e-01 -1.63088937e+00  1.98919222e-01  1.00000000e+00
+  1.27400988e-02 -4.31119330e-01  6.61915750e+00  3.73477371e+00
+  4.18103438e+00  1.17284287e+02  3.46656801e+01  4.21492569e-02]
+08-18-2022 05:32:38 PM | INFO | Finished predicting for Continent=Asia, Country=Sri Lanka and Province=None in 1874.3 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:33:14 PM | INFO | In-Sample MAPE Last 15 Days ('Lesotho', 'None'): 0.194 %
+08-18-2022 05:33:14 PM | DEBUG | Best fitted parameters for ('Lesotho', 'None'): [ 5.23618129e-01 -1.26676821e+02  8.79861970e-02  2.00000000e-02
+  1.43764758e-02  7.96320373e-01  5.87619292e+00  1.25096007e-05
+  9.76587699e-01  5.77489804e+01  6.94954826e+00  8.55605432e-02]
+08-18-2022 05:33:14 PM | INFO | Finished predicting for Continent=Africa, Country=Lesotho and Province=None in 2721.64 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:34:39 PM | INFO | In-Sample MAPE Last 15 Days ('Vietnam', 'None'): 3.063 %
+08-18-2022 05:34:39 PM | DEBUG | Best fitted parameters for ('Vietnam', 'None'): [ 1.04671447e+00 -2.23989094e+00  5.62684915e+00  2.00000000e-02
+  1.00000000e-03  4.85606349e+00  1.46782741e+01  1.79736038e+01
+  3.36148216e+00  1.20588162e+02  9.38112042e+00  7.46418535e-03]
+08-18-2022 05:34:39 PM | INFO | Finished predicting for Continent=Asia, Country=Vietnam and Province=None in 856.14 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:34:59 PM | INFO | In-Sample MAPE Last 15 Days ('Afghanistan', 'None'): 0.341 %
+08-18-2022 05:34:59 PM | DEBUG | Best fitted parameters for ('Afghanistan', 'None'): [ 9.20924884e-01  5.74909830e+01  7.11070081e-01  9.99715521e-01
+  6.50083223e-03 -4.95191716e-01  6.63816703e-01  2.21539159e+00
+  1.54083127e+00  3.32304429e+01  3.58249795e+00  4.12419459e-08]
+08-18-2022 05:34:59 PM | INFO | Finished predicting for Continent=Asia, Country=Afghanistan and Province=None in 3423.37 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:35:27 PM | INFO | In-Sample MAPE Last 15 Days ('Thailand', 'None'): 0.448 %
+08-18-2022 05:35:27 PM | DEBUG | Best fitted parameters for ('Thailand', 'None'): [ 8.71559720e-01 -1.68887901e+00  9.47375339e-01  8.49143224e-02
+  3.91804724e-03 -5.85764305e-01  9.26272778e-07  7.28326960e-01
+  5.13494483e-01  1.05670314e+02  2.66897534e+01  5.24485051e-01]
+08-18-2022 05:35:27 PM | INFO | Finished predicting for Continent=Asia, Country=Thailand and Province=None in 1862.97 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:35:55 PM | INFO | In-Sample MAPE Last 15 Days ('Ukraine', 'None'): 0.058 %
+08-18-2022 05:35:55 PM | DEBUG | Best fitted parameters for ('Ukraine', 'None'): [ 1.99936640e+00 -8.25360979e+00  8.96046792e-01  2.00000000e-02
+  1.10174910e-01  5.14837148e+00  1.60029519e+00  4.09450035e-05
+  1.99986691e+00  7.83276292e+01  2.99988402e+00  1.04989537e-01]
+08-18-2022 05:35:55 PM | INFO | Finished predicting for Continent=Europe, Country=Ukraine and Province=None in 1035.31 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:36:09 PM | INFO | In-Sample MAPE Last 15 Days ('Venezuela', 'None'): 0.04 %
+08-18-2022 05:36:09 PM | DEBUG | Best fitted parameters for ('Venezuela', 'None'): [7.06201733e-01 4.03327850e+00 1.78956784e+00 1.00000000e+00
+ 2.32001411e-02 8.87313856e-01 2.00190606e+00 2.17474703e+00
+ 7.93408784e-01 9.89496325e+01 3.30000782e+01 2.92427372e-02]
+08-18-2022 05:36:09 PM | INFO | Finished predicting for Continent=South America, Country=Venezuela and Province=None in 958.11 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:36:20 PM | INFO | In-Sample MAPE Last 15 Days ('Slovenia', 'None'): 2.471 %
+08-18-2022 05:36:20 PM | DEBUG | Best fitted parameters for ('Slovenia', 'None'): [0.00000000e+00 1.45125367e+00 1.24914984e-06 2.00000000e-02
+ 2.62635255e-03 1.65128609e+02 2.00280167e+00 0.00000000e+00
+ 0.00000000e+00 4.84000000e+02 1.00000000e+00 1.39353538e-01]
+08-18-2022 05:36:20 PM | INFO | Finished predicting for Continent=Europe, Country=Slovenia and Province=None in 2148.39 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:36:29 PM | INFO | In-Sample MAPE Last 15 Days ('Armenia', 'None'): 0.057 %
+08-18-2022 05:36:29 PM | DEBUG | Best fitted parameters for ('Armenia', 'None'): [6.12495083e-01 5.73635966e+00 1.54664677e+00 8.35987709e-02
+ 2.74240444e-02 1.29140095e+00 5.19429979e-06 4.57742271e-02
+ 4.45985365e+00 2.51745979e+02 1.60795212e+02 7.56497540e-01]
+08-18-2022 05:36:29 PM | INFO | Finished predicting for Continent=Asia, Country=Armenia and Province=None in 3513.21 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:36:56 PM | INFO | In-Sample MAPE Last 15 Days ('Congo (Brazzaville)', 'None'): 0.083 %
+08-18-2022 05:36:56 PM | DEBUG | Best fitted parameters for ('Congo (Brazzaville)', 'None'): [ 4.53305815e-01 -1.26712405e+01  1.03570559e+01  5.16746723e-01
+  2.02750016e-01  2.25186137e+01  4.00975139e-06  0.00000000e+00
+  2.57385160e+00  4.51269616e+01  4.76774037e+01  1.16583684e+00]
+08-18-2022 05:36:56 PM | INFO | Finished predicting for Continent=Africa, Country=Congo (Brazzaville) and Province=None in 3539.72 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:37:14 PM | INFO | In-Sample MAPE Last 15 Days ('Yemen', 'None'): 0.028 %
+08-18-2022 05:37:14 PM | DEBUG | Best fitted parameters for ('Yemen', 'None'): [ 4.96367395e-01 -6.18974154e+00  4.16843175e+01  6.83824709e-02
+  1.28146702e-01  1.45071243e-01  5.82748525e-01  7.79166054e-05
+  4.44381561e+00  1.06288216e+02  1.33959173e+01  1.86887315e+00]
+08-18-2022 05:37:14 PM | INFO | Finished predicting for Continent=Asia, Country=Yemen and Province=None in 992.37 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:43:06 PM | INFO | In-Sample MAPE Last 15 Days ('Paraguay', 'None'): 0.209 %
+08-18-2022 05:43:06 PM | DEBUG | Best fitted parameters for ('Paraguay', 'None'): [1.26128878e+00 6.50367065e+01 7.97164957e+00 9.99522941e-01
+ 4.29143664e-01 4.33498754e+00 3.10696363e+00 1.46163020e+00
+ 2.59322915e+00 1.05467513e+02 6.95746138e+00 1.00822408e-06]
+08-18-2022 05:43:06 PM | INFO | Finished predicting for Continent=South America, Country=Paraguay and Province=None in 2855.57 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:44:43 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'Hawaii'): 7.558 %
+08-18-2022 05:44:43 PM | DEBUG | Best fitted parameters for ('US', 'Hawaii'): [ 3.26127745e+00 -4.41956818e-03  2.14947346e+00  2.05641473e-02
+  6.48979177e-03  8.50396642e-02  5.25213986e+00  2.21198732e+00
+  4.78507545e+00  1.20997462e+02  1.60965154e+02  2.84315993e-08]
+08-18-2022 05:44:43 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=Hawaii in 2082.6 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:45:21 PM | INFO | In-Sample MAPE Last 15 Days ('India', 'None'): 0.221 %
+08-18-2022 05:45:21 PM | DEBUG | Best fitted parameters for ('India', 'None'): [1.74080598e+00 2.40498193e+00 4.50644835e-01 9.99702334e-01
+ 3.44527175e-01 4.29792877e+00 3.94872835e+00 5.70254858e+00
+ 3.95979838e+00 2.54816707e+01 2.88317337e+00 9.48124646e-08]
+08-18-2022 05:45:21 PM | INFO | Finished predicting for Continent=Asia, Country=India and Province=None in 4045.49 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:47:11 PM | INFO | In-Sample MAPE Last 15 Days ('Timor-Leste', 'None'): 0.633 %
+08-18-2022 05:47:11 PM | DEBUG | Best fitted parameters for ('Timor-Leste', 'None'): [1.50000000e+00 1.52164738e+01 1.00000000e+00 2.15286573e-02
+ 1.78355586e-02 4.64943040e-01 1.00000000e-03 1.00000000e-03
+ 7.23747678e-01 2.39953078e+02 2.05131857e+01 2.00000000e-01]
+08-18-2022 05:47:11 PM | INFO | Finished predicting for Continent=Asia, Country=Timor-Leste and Province=None in 2550.72 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:50:27 PM | INFO | In-Sample MAPE Last 15 Days ('Kazakhstan', 'None'): 0.102 %
+08-18-2022 05:50:27 PM | DEBUG | Best fitted parameters for ('Kazakhstan', 'None'): [ 4.86710484e-01 -3.51956647e+00  8.43305961e-01  4.62420421e-02
+  1.54424522e-03  1.73352362e+00  1.02270521e+00  3.62699691e-01
+  3.91816503e+00  5.27196811e+01  5.46662796e+01  6.55266615e-08]
+08-18-2022 05:50:27 PM | INFO | Finished predicting for Continent=Asia, Country=Kazakhstan and Province=None in 3785.71 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:52:53 PM | INFO | In-Sample MAPE Last 15 Days ('Pakistan', 'None'): 0.072 %
+08-18-2022 05:52:53 PM | DEBUG | Best fitted parameters for ('Pakistan', 'None'): [7.31553682e+00 7.39731937e+00 8.06717338e+00 9.99886012e-01
+ 4.66939519e-01 1.26915537e+01 1.24086066e+02 1.41668833e+01
+ 8.64732554e-02 2.01710863e-01 1.00651749e+02 7.73659250e-12]
+08-18-2022 05:52:53 PM | INFO | Finished predicting for Continent=Asia, Country=Pakistan and Province=None in 3490.33 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:56:43 PM | INFO | In-Sample MAPE Last 15 Days ('Uganda', 'None'): 0.062 %
+08-18-2022 05:56:43 PM | DEBUG | Best fitted parameters for ('Uganda', 'None'): [ 1.86364032e+00  3.26184539e+00  9.38054470e-01  9.99904256e-01
+  5.45026836e-03 -6.03819630e-02  4.05425419e+00  2.23685522e+00
+  9.33796057e-02  4.24197411e+00  6.28984326e+01  2.63188237e-05]
+08-18-2022 05:56:43 PM | INFO | Finished predicting for Continent=Africa, Country=Uganda and Province=None in 2286.34 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:57:24 PM | INFO | In-Sample MAPE Last 15 Days ('Tunisia', 'None'): 0.387 %
+08-18-2022 05:57:24 PM | DEBUG | Best fitted parameters for ('Tunisia', 'None'): [ 1.36355533e-01 -1.45399456e-01  8.55327111e+00  9.99927090e-01
+  1.65057630e-01  1.89567065e+00  1.95143634e+01  1.78741254e+00
+  1.03652599e+01  1.62301470e-02  1.01295007e+02  6.85844124e-06]
+08-18-2022 05:57:24 PM | INFO | Finished predicting for Continent=Africa, Country=Tunisia and Province=None in 3146.94 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 05:58:34 PM | INFO | In-Sample MAPE Last 15 Days ('US', 'North Dakota'): 2.185 %
+08-18-2022 05:58:34 PM | DEBUG | Best fitted parameters for ('US', 'North Dakota'): [ 1.98931027e+00  0.00000000e+00  7.94369382e+00  2.00000000e-02
+  1.00000000e-03 -1.00000000e+00  6.05730340e-01  4.38879799e-01
+  2.42388206e+01  5.42261698e+00  2.72234580e+00  1.22744510e+00]
+08-18-2022 05:58:34 PM | INFO | Finished predicting for Continent=North America, Country=US and Province=North Dakota in 2560.39 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 06:08:20 PM | INFO | In-Sample MAPE Last 15 Days ('Australia', 'Western Australia'): 27.109 %
+08-18-2022 06:08:20 PM | DEBUG | Best fitted parameters for ('Australia', 'Western Australia'): [3.74320820e+01 2.03530718e+01 7.39950066e+01 2.00155384e-02
+ 4.89520649e-03 1.38792614e+01 7.68445695e+02 1.64442549e+02
+ 2.01873552e+00 1.02753731e+02 2.06388355e+01 3.32492766e-23]
+08-18-2022 06:08:20 PM | INFO | Finished predicting for Continent=Oceania, Country=Australia and Province=Western Australia in 5423.93 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 07:06:05 PM | INFO | In-Sample MAPE Last 15 Days ('Portugal', 'None'): 4.717 %
+08-18-2022 07:06:05 PM | DEBUG | Best fitted parameters for ('Portugal', 'None'): [1.81403251e+01 1.14296955e+00 8.96957278e-02 2.00000000e-02
+ 1.99402925e-03 4.11393656e+00 3.44207633e+00 1.51722449e+01
+ 3.02202071e+01 3.86521530e+01 1.69066155e+01 1.61655514e-01]
+08-18-2022 07:06:05 PM | INFO | Finished predicting for Continent=Europe, Country=Portugal and Province=None in 7762.31 seconds
+--------------------------------------------------------------------------------------------
+08-18-2022 07:06:05 PM | INFO | Finished the Multiprocessing for all areas
+08-18-2022 07:06:05 PM | INFO | Exported all 3 datasets to website & danger_map repositories, total runtime was 148.16 minutes
