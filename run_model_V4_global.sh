@@ -1,12 +1,22 @@
 git config --global user.email "ali@dynideas.com"
 git config --global user.name "Server"
 cd ..;cd ..;cd mnt
+rm -rf covid19orc
 git clone https://"$GIT_USER":"$GIT_PASS"@github.com/COVIDAnalytics/covid19orc.git
 cd covid19orc/
 git checkout danger_map
 cd ..
-'mv' covid19orc/danger_map/processed/* /repos/DELPHI/danger_map/processed/
-'mv' covid19orc/danger_map/predicted/* /repos/DELPHI/danger_map/predicted/
+rm -rf covid19orc/bibliography
+rm -rf covid19orc/code
+rm -rf covid19orc/data
+rm -rf covid19orc/danger_map/models
+rm -rf covid19orc/danger_map/src
+rm -rf covid19orc/danger_map/raw_data
+rm covid19orc/danger_map/predicted/*.json
+
+cp -r  covid19orc/danger_map/processed/* /repos/DELPHI/danger_map/processed/
+rm -rf covid19orc/danger_map/processed
+cp -r covid19orc/danger_map/predicted/* /repos/DELPHI/danger_map/predicted/
 rm -rf covid19orc;cd ..;cd /repos/DELPHI
 #python DELPHI_model_V4_predict_additional_state.py -d "2021-05-01" -t 'global'
 
