@@ -172,7 +172,7 @@ for continent, country, province, initial_state in list_tuples:
             """
             maxT = (default_maxT_policies - date_day_since100).days + 1
             t_cases = validcases["day_since100"].tolist() - validcases.loc[0, "day_since100"]
-            balance, cases_data_fit, deaths_data_fit, deaths_data_fit, weights = create_fitting_data_from_validcases(validcases)
+            balance, balance_total_difference, cases_data_fit, deaths_data_fit, weights  = create_fitting_data_from_validcases(validcases)
             GLOBAL_PARAMS_FIXED = (N, R_upperbound, R_heuristic, R_0, PopulationD, PopulationI, p_d, p_h, p_v)
             best_params = parameter_list
             t_predictions = [i for i in range(maxT)]
