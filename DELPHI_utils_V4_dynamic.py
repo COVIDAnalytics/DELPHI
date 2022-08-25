@@ -516,30 +516,7 @@ def read_oxford_international_policy_data(yesterday: str) -> pd.DataFrame:
     output.rename(columns={'CountryName': 'country', 'Date': 'date'}, inplace=True)
     output['province'] = "None"
     output = output.loc[:, ['country', 'province', 'date'] + msr]
-
-    # counties:
-    ex_us_county_names = pd.read_csv(
-         "data_sandbox/Ex_US_counties.csv"
-    )
-
-    ex_us_regions_names = pd.read_csv(
-        "data_sandbox/processed/Ex_US_regions.csv"
-    )
-
-    countries = ex_us_regions_names.Country.unique()
-    for country in countries:
-        provinces = ex_us_regions_names[ex_us_regions_names.Country == country].Province.values
-        provinces_keyNames = ex_us_county_names[ex_us_county_names.Country == country].Province.values
-        outputs_provinces = []
-        for province in np.concatenate((provinces_keyNames,provinces)):
-            temp = output[output.country == country]
-            temp.loc[:, "province"] = province
-            outputs_provinces.append(temp)
-        outputs_provinces = pd.concat(outputs_provinces).reset_index(drop=True)
-        output = pd.concat([
-            output, outputs_provinces]
-        )
-    output = output.sort_values(["country", "province", "date"]).reset_index(drop=True)
+    output = output[output.date <= yesterday].reset_index(drop=True)
     return output
 
 
