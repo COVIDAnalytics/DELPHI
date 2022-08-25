@@ -390,125 +390,48 @@ def read_oxford_international_policy_data(yesterday: str) -> pd.DataFrame:
     starts for the optimization
     :return: processed dataframe with MECE policies in each country of the world, used for policy predictions
     """
-    measures = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/raw/master/data/OxCGRT_latest.csv")
-    filtr = ["CountryName", "CountryCode", "Date"]
-    target = ["ConfirmedCases", "ConfirmedDeaths"]
+    measures = pd.read_csv('https://raw.githubusercontent.com/OxCGRT/covid-policy-tracker/master/data/OxCGRT_nat_latest.csv')
+    filtr = ['CountryName', 'CountryCode', 'Date']
+    target = ['ConfirmedCases', 'ConfirmedDeaths']
     msr = [
-        "C1_School closing",
-        "C2_Workplace closing",
-        "C3_Cancel public events",
-        "C4_Restrictions on gatherings",
-        "C5_Close public transport",
-        "C6_Stay at home requirements",
-        "C7_Restrictions on internal movement",
-        "C8_International travel controls",
-        "H1_Public information campaigns",
+        'C1M_School closing', 'C2M_Workplace closing', 'C3M_Cancel public events', 'C4M_Restrictions on gatherings',
+        'C5M_Close public transport', 'C6M_Stay at home requirements', 'C7M_Restrictions on internal movement',
+        'C8EV_International travel controls', 'H1_Public information campaigns'
     ]
 
-    flags = ["C" + str(i) + "_Flag" for i in range(1, 8)] + ["H1_Flag"]
+    flags = ['C' + str(i) + 'M_Flag' for i in range(1, 8)] + ["H1_Flag"]
     measures = measures.loc[:, filtr + msr + flags + target]
-    measures["Date"] = measures["Date"].apply(
-        lambda x: datetime.strptime(str(x), "%Y%m%d")
-    )
+    measures['Date'] = measures['Date'].apply(lambda x: datetime.strptime(str(x), '%Y%m%d'))
     for col in target:
-        # measures[col] = measures[col].fillna(0)
-        measures[col] = measures.groupby("CountryName")[col].ffill()
+        #measures[col] = measures[col].fillna(0)
+        measures[col] = measures.groupby('CountryName')[col].ffill()
 
-    measures["C1_Flag"] = [
-        0 if x <= 0 else y
-        for (x, y) in zip(measures["C1_School closing"], measures["C1_Flag"])
-    ]
-    measures["C2_Flag"] = [
-        0 if x <= 0 else y
-        for (x, y) in zip(measures["C2_Workplace closing"], measures["C2_Flag"])
-    ]
-    measures["C3_Flag"] = [
-        0 if x <= 0 else y
-        for (x, y) in zip(measures["C3_Cancel public events"], measures["C3_Flag"])
-    ]
-    measures["C4_Flag"] = [
-        0 if x <= 0 else y
-        for (x, y) in zip(
-            measures["C4_Restrictions on gatherings"], measures["C4_Flag"]
-        )
-    ]
-    measures["C5_Flag"] = [
-        0 if x <= 0 else y
-        for (x, y) in zip(measures["C5_Close public transport"], measures["C5_Flag"])
-    ]
-    measures["C6_Flag"] = [
-        0 if x <= 0 else y
-        for (x, y) in zip(measures["C6_Stay at home requirements"], measures["C6_Flag"])
-    ]
-    measures["C7_Flag"] = [
-        0 if x <= 0 else y
-        for (x, y) in zip(
-            measures["C7_Restrictions on internal movement"], measures["C7_Flag"]
-        )
-    ]
-    measures["H1_Flag"] = [
-        0 if x <= 0 else y
-        for (x, y) in zip(
-            measures["H1_Public information campaigns"], measures["H1_Flag"]
-        )
-    ]
+    measures['C1M_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C1M_School closing'],measures['C1M_Flag'])]
+    measures['C2M_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C2M_Workplace closing'],measures['C2M_Flag'])]
+    measures['C3M_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C3M_Cancel public events'],measures['C3M_Flag'])]
+    measures['C4M_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C4M_Restrictions on gatherings'],measures['C4M_Flag'])]
+    measures['C5M_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C5M_Close public transport'],measures['C5M_Flag'])]
+    measures['C6M_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C6M_Stay at home requirements'],measures['C6M_Flag'])]
+    measures['C7M_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['C7M_Restrictions on internal movement'],measures['C7M_Flag'])]
+    measures['H1_Flag'] = [0 if x <= 0  else y for (x,y) in zip(measures['H1_Public information campaigns'],measures['H1_Flag'])]
 
-    measures["C1_School closing"] = [
-        int(a and b)
-        for a, b in zip(measures["C1_School closing"] >= 2, measures["C1_Flag"] == 1)
-    ]
+    measures['C1M_School closing'] = [int(a and b) for a, b in zip(measures['C1M_School closing'] >= 2, measures['C1M_Flag'] == 1)]
 
-    measures["C2_Workplace closing"] = [
-        int(a and b)
-        for a, b in zip(measures["C2_Workplace closing"] >= 2, measures["C2_Flag"] == 1)
-    ]
+    measures['C2M_Workplace closing'] = [int(a and b) for a, b in zip(measures['C2M_Workplace closing'] >= 2, measures['C2M_Flag'] == 1)]
 
-    measures["C3_Cancel public events"] = [
-        int(a and b)
-        for a, b in zip(
-            measures["C3_Cancel public events"] >= 2, measures["C3_Flag"] == 1
-        )
-    ]
+    measures['C3M_Cancel public events'] = [int(a and b) for a, b in zip(measures['C3M_Cancel public events'] >= 2, measures['C3M_Flag'] == 1)]
 
-    measures["C4_Restrictions on gatherings"] = [
-        int(a and b)
-        for a, b in zip(
-            measures["C4_Restrictions on gatherings"] >= 1, measures["C4_Flag"] == 1
-        )
-    ]
+    measures['C4M_Restrictions on gatherings'] = [int(a and b) for a, b in zip(measures['C4M_Restrictions on gatherings'] >= 1, measures['C4M_Flag'] == 1)]
 
-    measures["C5_Close public transport"] = [
-        int(a and b)
-        for a, b in zip(
-            measures["C5_Close public transport"] >= 2, measures["C5_Flag"] == 1
-        )
-    ]
+    measures['C5M_Close public transport'] = [int(a and b) for a, b in zip(measures['C5M_Close public transport'] >= 2, measures['C5M_Flag'] == 1)]
 
-    measures["C6_Stay at home requirements"] = [
-        int(a and b)
-        for a, b in zip(
-            measures["C6_Stay at home requirements"] >= 2, measures["C6_Flag"] == 1
-        )
-    ]
+    measures['C6M_Stay at home requirements'] = [int(a and b) for a, b in zip(measures['C6M_Stay at home requirements'] >= 2, measures['C6M_Flag'] == 1)]
 
-    measures["C7_Restrictions on internal movement"] = [
-        int(a and b)
-        for a, b in zip(
-            measures["C7_Restrictions on internal movement"] >= 2,
-            measures["C7_Flag"] == 1,
-        )
-    ]
+    measures['C7M_Restrictions on internal movement'] = [int(a and b) for a, b in zip(measures['C7M_Restrictions on internal movement'] >= 2, measures['C7M_Flag'] == 1)]
 
-    measures["C8_International travel controls"] = [
-        int(a) for a in (measures["C8_International travel controls"] >= 3)
-    ]
+    measures['C8EV_International travel controls'] = [int(a) for a in (measures['C8EV_International travel controls'] >= 3)]
 
-    measures["H1_Public information campaigns"] = [
-        int(a and b)
-        for a, b in zip(
-            measures["H1_Public information campaigns"] >= 1, measures["H1_Flag"] == 1
-        )
-    ]
+    measures['H1_Public information campaigns'] = [int(a and b) for a, b in zip(measures['H1_Public information campaigns'] >= 1, measures['H1_Flag'] == 1)]
 
     # measures = measures.loc[:, measures.isnull().mean() < 0.1]
     msr = set(measures.columns).intersection(set(msr))
@@ -517,94 +440,106 @@ def read_oxford_international_policy_data(yesterday: str) -> pd.DataFrame:
     measures = measures.dropna()
     for col in msr:
         measures[col] = measures[col].apply(lambda x: int(x > 0))
-    measures = measures[["CountryName", "Date"] + list(sorted(msr))]
-    measures["CountryName"] = measures.CountryName.replace(
-        {
-            "United States": "US",
-            "South Korea": "Korea, South",
-            "Democratic Republic of Congo": "Congo (Kinshasa)",
-            "Czech Republic": "Czechia",
-            "Slovak Republic": "Slovakia",
-        }
-    )
+    measures = measures[
+        ['CountryName', 'Date'] + list(sorted(msr))
+        ]
+    measures["CountryName"] = measures.CountryName.replace({
+        "United States": "US", "South Korea": "Korea, South", "Democratic Republic of Congo": "Congo (Kinshasa)",
+        "Czech Republic": "Czechia", "Slovak Republic": "Slovakia",
+    })
 
     measures = measures.fillna(0)
     msr = future_policies
 
-    measures["Restrict_Mass_Gatherings"] = [
-        int(a or b or c)
-        for a, b, c in zip(
-            measures["C3_Cancel public events"],
-            measures["C4_Restrictions on gatherings"],
-            measures["C5_Close public transport"],
+    measures['Restrict_Mass_Gatherings'] = [
+        int(a or b or c) for a, b, c in zip(
+            measures['C3M_Cancel public events'],
+            measures['C4M_Restrictions on gatherings'],
+            measures['C5M_Close public transport']
         )
     ]
-    measures["Others"] = [
-        int(a or b or c)
-        for a, b, c in zip(
-            measures["C2_Workplace closing"],
-            measures["C7_Restrictions on internal movement"],
-            measures["C8_International travel controls"],
+    measures['Others'] = [
+        int(a or b or c) for a, b, c in zip(
+            measures['C2M_Workplace closing'],
+            measures['C7M_Restrictions on internal movement'],
+            measures['C8EV_International travel controls']
         )
     ]
 
-    del measures["C2_Workplace closing"]
-    del measures["C3_Cancel public events"]
-    del measures["C4_Restrictions on gatherings"]
-    del measures["C5_Close public transport"]
-    del measures["C7_Restrictions on internal movement"]
-    del measures["C8_International travel controls"]
+    del measures['C2M_Workplace closing']
+    del measures['C3M_Cancel public events']
+    del measures['C4M_Restrictions on gatherings']
+    del measures['C5M_Close public transport']
+    del measures['C7M_Restrictions on internal movement']
+    del measures['C8EV_International travel controls']
 
     output = deepcopy(measures)
     output[msr[0]] = (measures.iloc[:, 2:].sum(axis=1) == 0).apply(lambda x: int(x))
     output[msr[1]] = [
-        int(a and b)
-        for a, b in zip(
+        int(a and b) for a, b in zip(
             measures.iloc[:, 2:].sum(axis=1) == 1,
-            measures["Restrict_Mass_Gatherings"] == 1,
+            measures['Restrict_Mass_Gatherings'] == 1
         )
     ]
     output[msr[2]] = [
-        int(a and b and c)
-        for a, b, c in zip(
+        int(a and b and c) for a, b, c in zip(
             measures.iloc[:, 2:].sum(axis=1) > 0,
-            measures["Restrict_Mass_Gatherings"] == 0,
-            measures["C6_Stay at home requirements"] == 0,
+            measures['Restrict_Mass_Gatherings'] == 0,
+            measures['C6M_Stay at home requirements'] == 0,
         )
     ]
     output[msr[3]] = [
         int(a and b and c)
         for a, b, c in zip(
             measures.iloc[:, 2:].sum(axis=1) == 2,
-            measures["C1_School closing"] == 1,
-            measures["Restrict_Mass_Gatherings"] == 1,
+            measures['C1M_School closing'] == 1,
+            measures['Restrict_Mass_Gatherings'] == 1,
         )
     ]
     output[msr[4]] = [
-        int(a and b and c and d)
-        for a, b, c, d in zip(
+        int(a and b and c and d) for a, b, c, d in zip(
             measures.iloc[:, 2:].sum(axis=1) > 1,
-            measures["C1_School closing"] == 0,
-            measures["Restrict_Mass_Gatherings"] == 1,
-            measures["C6_Stay at home requirements"] == 0,
+            measures['C1M_School closing'] == 0,
+            measures['Restrict_Mass_Gatherings'] == 1,
+            measures['C6M_Stay at home requirements'] == 0,
         )
     ]
     output[msr[5]] = [
-        int(a and b and c and d)
-        for a, b, c, d in zip(
+        int(a and b and c and d) for a, b, c, d in zip(
             measures.iloc[:, 2:].sum(axis=1) > 2,
-            measures["C1_School closing"] == 1,
-            measures["Restrict_Mass_Gatherings"] == 1,
-            measures["C6_Stay at home requirements"] == 0,
+            measures['C1M_School closing'] == 1,
+            measures['Restrict_Mass_Gatherings'] == 1,
+            measures['C6M_Stay at home requirements'] == 0,
         )
     ]
-    output[msr[6]] = (measures["C6_Stay at home requirements"] == 1).apply(
-        lambda x: int(x)
+    output[msr[6]] = (measures['C6M_Stay at home requirements'] == 1).apply(lambda x: int(x))
+    output.rename(columns={'CountryName': 'country', 'Date': 'date'}, inplace=True)
+    output['province'] = "None"
+    output = output.loc[:, ['country', 'province', 'date'] + msr]
+
+    # counties:
+    ex_us_county_names = pd.read_csv(
+         "data_sandbox/Ex_US_counties.csv"
     )
-    output.rename(columns={"CountryName": "country", "Date": "date"}, inplace=True)
-    output["province"] = "None"
-    output = output.loc[:, ["country", "province", "date"] + msr]
-    output = output[output.date <= yesterday].reset_index(drop=True)
+
+    ex_us_regions_names = pd.read_csv(
+        "data_sandbox/processed/Ex_US_regions.csv"
+    )
+
+    countries = ex_us_regions_names.Country.unique()
+    for country in countries:
+        provinces = ex_us_regions_names[ex_us_regions_names.Country == country].Province.values
+        provinces_keyNames = ex_us_county_names[ex_us_county_names.Country == country].Province.values
+        outputs_provinces = []
+        for province in np.concatenate((provinces_keyNames,provinces)):
+            temp = output[output.country == country]
+            temp.loc[:, "province"] = province
+            outputs_provinces.append(temp)
+        outputs_provinces = pd.concat(outputs_provinces).reset_index(drop=True)
+        output = pd.concat([
+            output, outputs_provinces]
+        )
+    output = output.sort_values(["country", "province", "date"]).reset_index(drop=True)
     return output
 
 
