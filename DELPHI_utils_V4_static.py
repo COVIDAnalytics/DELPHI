@@ -1911,7 +1911,7 @@ def get_residuals_value(
     else:
         raise ValueError("Optimizer not in 'tnc', 'trust-constr' or 'annealing' so not supported")
 
-    return residuals_value
+    return max(residuals_value, 0.0)
 
 
 def get_mape_data_fitting(cases_data_fit: list, deaths_data_fit: list, x_sol_final: np.array) -> float:
