@@ -464,8 +464,9 @@ if __name__ == "__main__":
             PATH_TO_FOLDER_DANGER_MAP
             + f"predicted/Parameters_Global_V4_{yesterday}.csv"
         )
-        print(PATH_TO_FOLDER_DANGER_MAP+ f"predicted/Parameters_Global_V4_{yesterday}.csv")
+        print("Reading initial parameters from " + PATH_TO_FOLDER_DANGER_MAP+ f"predicted/Parameters_Global_V4_{yesterday}.csv")
     except:
+        print("Using default initial paramters")
         past_parameters = None
 
     ### Fitting the Model ###
