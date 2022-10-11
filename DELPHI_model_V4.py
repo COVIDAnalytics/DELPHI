@@ -399,7 +399,7 @@ def solve_and_predict_area(
                 logging.debug(f"Best fitted parameters for {country, province}: {best_params}")
                 df_parameters_area = data_creator.create_dataset_parameters(mape_data)
                 # Creating the datasets for predictions of this area
-                if GET_CONFIDENCE_INTERVALS:
+                if GET_CONFIDENCE_INTERVALS and os.path.isfile(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V4_{past_prediction_date}.csv"):
                    df_predictions_since_today_area, df_predictions_since_100_area = (
                        data_creator.create_datasets_with_confidence_intervals(
                            cases_data_fit, deaths_data_fit,
@@ -529,7 +529,7 @@ if __name__ == "__main__":
         df_global_predictions_since_today
     )
     df_global_predictions_since_100_cases = pd.concat(list_df_global_predictions_since_100_cases)
-    if GET_CONFIDENCE_INTERVALS:
+    if GET_CONFIDENCE_INTERVALS and os.path.isfile(PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V4_{past_prediction_date}.csv"):
         df_global_predictions_since_today, df_global_predictions_since_100_cases = DELPHIAggregations.append_all_aggregations_cf(
             df_global_predictions_since_100_cases,
             past_prediction_file=PATH_TO_FOLDER_DANGER_MAP + f"predicted/Global_V4_{past_prediction_date}.csv",
